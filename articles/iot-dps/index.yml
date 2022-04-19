@@ -37,12 +37,6 @@ landingContent:
             url: quick-setup-auto-provision.md
           - text: Provision a simulated symmetric key device
             url: quick-create-simulated-device-symm-key.md
-      - linkListType: how-to-guide
-        links:
-          - text: How to provision for multitenancy
-            url: how-to-provision-multitenant.md
-          - text: How to use custom allocation policies
-            url: how-to-use-custom-allocation-policies.md
 
   - title: Manage devices for multiple IoT hubs
     linkLists:
