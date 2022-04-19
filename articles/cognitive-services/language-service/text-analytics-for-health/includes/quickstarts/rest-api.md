@@ -223,9 +223,9 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
 # [Language](#tab/Language)
 
 ```bash
-curl -i -X POST https://your-text-analytics-endpoint-here/language/:analyze-text/v3.1/entities/health/jobs \
+curl -i -X POST https://your-Language-endpoint-here/language/:analyze-text/v3.1/entities/health/jobs \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-text-analytics-key-here" \
+-H "Ocp-Apim-Subscription-Key: your-Language-key-here" \
 -d '{ documents: [{ id: "1", language:"en", text: "The doctor prescried 200mg Ibuprofen."}]}'
 ```
 
@@ -238,9 +238,9 @@ https://your-resource.cognitiveservices.azure.com/language/analytics/v3.1/entiti
 To get the results of the request, use the following cURL command. Be sure to replace `{JOB-ID}` with the numerical ID value {JOB-ID} you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entities/health/jobs/{JOB-ID} \
+curl -X GET  https://your-Language-endpoint-here/text/analytics/v3.1/entities/health/jobs/{JOB-ID} \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-text-analytics-key-here"
+-H "Ocp-Apim-Subscription-Key: your-Language-key-here"
 ```
 
 ### JSON response
