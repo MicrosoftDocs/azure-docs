@@ -23,8 +23,11 @@ Create the Email Communications Service Resource using Portal
 
 1. Navigate to the [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_EmailCommunicationServicesHidden&Microsoft_Azure_EmailCommunicationServices_assettypeoptions=%7B%22EmailCommunicationService%22%3A%7B%22options%22%3A%22%22%7D%7D#create/hub) to create a new resource.
 2. Search for Email Communication Services and hit enter. Select **Email Communication Services** and press **Create**.
+
 :::image type="content" source="./media/email-comm-search.png" alt-text="Search Email Communication Service":::
+
 :::image type="content" source="./media/email-comm-create.png" alt-text="Create Email Communication Service":::
+
 3. Complete the required information on the basics tab:
     - Select an existing Azure subscription.
     - Select an existing resource group, or create a new one by clicking the **Create new** link.
@@ -33,16 +36,16 @@ Create the Email Communications Service Resource using Portal
     - If you would like to add tags, click  **Next: Tags**. 
     - Click **Review + create**. 
     - Add any name/value pairs. Click **Next: Review + create**.
+    
       :::image type="content" source="./media/email-comm-create-review.png" alt-text="Review and Create Email Communication Service":::
 
 4. Wait for the validation to pass. Click **Create**. 
 5. Wait for the Deployment to complete. Click **Go to Resource** will land on Email Communication Service Overview Page.
+
  :::image type="content" source="./media/email-comm-create-overview.png" alt-text="Overview of Email Communication Service":::
 
 
 ## Next steps
-
-> [Configure Email Authentication for your domain in Azure Communication Services Email](../../quickstarts/Email/setup-email-authentication.md)
 
 > [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
 
