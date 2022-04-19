@@ -271,7 +271,7 @@ Copy any disk images to be used into page blobs in the local storage account tha
 
 8. The storage account appears in the left-pane. Select and expand the storage account. Select **Blob containers**, right-click, and select **Create Blob Container**. Provide a name for your blob container.
 
-9. Select the container you just created and in the right-pane, select **Upload > Upload files**. 
+9. Select the container you just created, and then in the right-pane, select **Upload > Upload files**. 
 
     ![Upload VHD file 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-1.png)
 
@@ -377,7 +377,9 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
         -Name "<Name for your deployment>"
     ```
 
-    This command deploys an image resource. To query the resource, run the following command:
+    This command deploys an image resource. 
+
+1. To query the resource, run the following command:
 
     ```powershell
     Get-AzImage -ResourceGroupName <Resource Group Name> -name <Image Name>
@@ -474,7 +476,9 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
         -TemplateParameterFile $templateParameterFile `
         -Name "<Name for your deployment>"
     ```
-    This command deploys an image resource. To query the resource, run the following command:
+    This command deploys an image resource. 
+
+1. To query the resource, run the following command:
 
     ```powershell
     Get-AzureRmImage -ResourceGroupName <Resource Group Name> -name <Image Name>
@@ -520,13 +524,7 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
 ### [Az](#tab/az)
  
 To create a VM, use the `CreateVM.parameters.json` parameter file. It takes the following parameters.
-
-New > 
-
-Notepad line 78 has CreateImage.parameters.json that does not match .json filename here
-
-End new > 
-    
+   
 ```json
 "vmName": {
             "value": "<Name for your VM>"
