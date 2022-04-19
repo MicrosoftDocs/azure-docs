@@ -560,7 +560,7 @@ This error message can occur when the serverless SQL pool is experiencing resour
 
 - High concurrency or query complexity:
   - Serverless SQL doesn't impose a maximum limit in query concurrency, it depends on the query complexity and the amount of data scanned.
-  - One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. [Concurrency limits for Serverless SQL Pool](https://docs.microsoft.com/azure/synapse-analytics/sql/resources-self-help-sql-on-demand#constraints)  
+  - One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. For more information, see [Concurrency limits for Serverless SQL Pool](resources-self-help-sql-on-demand.md#constraints).  
   - Try reducing the number of queries executing simultaneously or the query complexity. 
 
 If the issue is non-transient or you confirmed the problem is not related to high concurrency or query complexity, create a support ticket.
