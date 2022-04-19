@@ -7,13 +7,13 @@ ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
-[!INCLUDE [Header](../common/csharp.md)]
+[!INCLUDE [Header](../../common/csharp.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
@@ -408,7 +408,7 @@ public static async Task MultiLingualTranslation()
                 {
                     Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                     Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                    Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                 }
 
                 stopTranslation.TrySetResult(0);

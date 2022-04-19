@@ -6,6 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
+ms.custom: cliv2
 
 author: ynpandey
 ms.author: yogipandey

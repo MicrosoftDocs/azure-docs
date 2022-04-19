@@ -1,12 +1,12 @@
 ---
 title: Overview - On-premises AD DS authentication to Azure file shares
 description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares. This article goes over support scenarios, availability, and explains how the permissions work between your AD DS and Azure active directory. 
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.author: rogarana
+ms.author: kendownie
 ---
 
 # Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares
@@ -39,7 +39,7 @@ When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines
 
 To help you setup Azure Files AD authentication for some common use cases, we published two videos with step by step guidance for the following scenarios:
 
-| Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)  |
+| Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Azure Virtual Desktop (including setup on AD authentication and FSLogix configuration)  |
 |-|-|
 | [![Screencast of the replacing on-premises file servers video - click to play.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - click to play.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
 

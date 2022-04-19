@@ -2,12 +2,9 @@
 title: Incoming Request Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor request calls for your Python apps via OpenCensus Python.
 ms.topic: conceptual
-author: lzchen
-ms.author: lechen
 ms.date: 10/15/2019
 ms.devlang: python
 ms.custom: devx-track-python
-
 ---
 
 # Track incoming requests with OpenCensus Python

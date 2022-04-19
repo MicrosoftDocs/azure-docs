@@ -3,8 +3,8 @@ title: Publish and subscribe with Azure IoT Edge | Microsoft Docs
 description: Use IoT Edge MQTT broker to publish and subscribe messages
 services: iot-edge
 keywords: 
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.reviewer: ebertra
 ms.date: 11/30/2021
 ms.topic: conceptual

@@ -6,14 +6,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
-author: mattmccleary
-ms.author: mmcc
 ms.devlang: javascript
 ---
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
 
 This plugin automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Getting started
 

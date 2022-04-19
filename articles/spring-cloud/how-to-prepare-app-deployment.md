@@ -136,7 +136,7 @@ This article explains the required dependencies and how to add them to the POM f
 
 ## Java Runtime version
 
-Azure Spring Cloud supports both Java 8 and Java 11. In general, Azure PaaS only supports Java LTS versions and Azure Spring Cloud will support Java 17 LTS. The hosting environment contains the latest version of the Microsoft Build of OpenJDK and Eclipse Temurin. For more information about the Microsoft Build of OpenJDK, see [About the Microsoft Build of OpenJDK](/java/openjdk/overview). For more information about Eclipse Temurin, see [Prebuilt OpenJDK Binaries for Free](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot).
+For details, see the [Java runtime and OS versions](./faq.md?pivots=programming-language-java#java-runtime-and-os-versions) section of the [Azure Spring Cloud FAQ](./faq.md).
 
 ## Spring Boot and Spring Cloud versions
 

@@ -6,8 +6,8 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/10/2021
-ms.custom: ignite-fall-2021
+ms.date: 02/16/2022
+ms.custom: ignite-fall-2021, fasttrack-edit
 ---
 
 # Credentials for source authentication in Azure Purview
@@ -31,33 +31,62 @@ In Azure Purview, there are few options to use as authentication method to scan 
 - Service Principal (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
 - Consumer Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-azure-purview-account))
 
-Before creating any credentials, consider your data source types and networking requirements to decide which authentication method is needed for your scenario. Review the following decision tree to find which credential is most suitable:
+Before creating any credentials, consider your data source types and networking requirements to decide which authentication method you need for your scenario. Review the following decision tree to find which credential is most suitable:
 
    :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Manage credentials decision tree" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
 
 ## Use Azure Purview system-assigned managed identity to set up scans
 
-If you are using the Azure Purview system-assigned managed identity (SAMI) to set up scans, you will not have to explicitly create a credential and link your key vault to Azure Purview to store them. For detailed instructions on adding the Azure Purview SAMI to have access to scan your data sources, refer to the data source-specific authentication sections below:
+If you're using the Azure Purview system-assigned managed identity (SAMI) to set up scans, you won't need to create a credential and link your key vault to Azure Purview to store them. For detailed instructions on adding the Azure Purview SAMI to have access to scan your data sources, refer to the data source-specific authentication sections below:
 
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
+- [Azure Synapse Workspace](register-scan-synapse-workspace.md#authentication-for-registration)
+- [Azure Synapse dedicated SQL pools (formerly SQL DW)](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
 ## Grant Azure Purview access to your Azure Key Vault
 
+To give Azure Purview access to your Azure Key Vault, there are two things you'll need to confirm:
+
+- [Firewall access to the Azure Key Vault](#firewall-access-to-azure-key-vault)
+- [Azure Purview permissions on the Azure Key Vault](#azure-purview-permissions-on-the-azure-key-vault)
+
+### Firewall access to Azure Key Vault
+
+If your Azure Key Vault has disabled public network access, you have two options to allow access for Azure Purview.
+
+- [Trusted Microsoft services](#trusted-microsoft-services)
+- [Private endpoint connections](#private-endpoint-connections)
+
+#### Trusted Microsoft services
+
+Azure Purview is listed as one of [Azure Key Vault's trusted services](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), so if public network access is disabled on your Azure Key Vault you can enable access only to trusted Microsoft services, and Azure Purview will be included.
+
+You can enable this setting in your Azure Key Vault under the **Networking** tab.
+
+At the bottom of the page, under Exception, enable the **Allow trusted Microsoft services to bypass this firewall** feature.
+
+:::image type="content" source="media/manage-credentials/trusted-keyvault-services.png" alt-text="Azure Key Vault networking page with the Allow trusted Microsoft services to bypass this firewall feature enabled.":::
+
+#### Private endpoint connections
+
+To connect to Azure Key Vault with private endpoints, follow [Azure Key Vault's private endpoint documentation](../key-vault/general/private-link-service.md).
+
+### Azure Purview permissions on the Azure Key Vault
+
 Currently Azure Key Vault supports two permission models:
 
-- Option 1 - Access Policies 
-- Option 2 - Role-based Access Control 
+- [Option 1 - Access Policies](#option-1---assign-access-using-key-vault-access-policy)
+- [Option 2 - Role-based Access Control](#option-2---assign-access-using-key-vault-azure-role-based-access-control)
 
 Before assigning access to the Azure Purview system-assigned managed identity (SAMI), first identify your Azure Key Vault permission model from Key Vault resource **Access Policies** in the menu. Follow steps below based on relevant the permission model.  
 
-:::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Azure Key Vault Permission Model"::: 
+:::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Azure Key Vault Permission Model":::
 
-### Option 1 - Assign access using Key Vault Access Policy  
+#### Option 1 - Assign access using Key Vault Access Policy  
 
 Follow these steps only if permission model in your Azure Key Vault resource is set to **Vault Access Policy**:
 
@@ -71,7 +100,7 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 4. In the **Secrets permissions** dropdown, select **Get** and **List** permissions.
 
-5. For **Select principal**, choose the Azure Purview system managed identity. You can search for the Azure Purview SAMI using either the Azure Purview instance name **or** the managed identity application ID. We do not currently support compound identities (managed identity name + application ID).
+5. For **Select principal**, choose the Azure Purview system managed identity. You can search for the Azure Purview SAMI using either the Azure Purview instance name **or** the managed identity application ID. We don't currently support compound identities (managed identity name + application ID).
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Add access policy":::
 
@@ -81,7 +110,7 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
    :::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Save access policy":::
 
-### Option 2 - Assign access using Key Vault Azure role-based access control 
+#### Option 2 - Assign access using Key Vault Azure role-based access control 
 
 Follow these steps only if permission model in your Azure Key Vault resource is set to **Azure role-based access control**:
 
@@ -120,6 +149,7 @@ These credential types are supported in Azure Purview:
 - Basic authentication: You add the **password** as a secret in key vault.
 - Service Principal: You add the **service principal key** as a secret in key vault.
 - SQL authentication: You add the **password** as a secret in key vault.
+- Windows authentication: You add the **password** as a secret in key vault.
 - Account Key: You add the **account key** as a secret in key vault.
 - Role ARN: For an Amazon S3 data source, add your **role ARN** in AWS.
 - Consumer Key: For Salesforce data sources, you can add the **password** and the **consumer secret** in key vault.
@@ -178,15 +208,15 @@ The following steps will show you how to create a UAMI for Azure Purview to use.
 
 ### Create a user-assigned managed identity
 
-1. In the [Azure Portal](https://portal.azure.com/) navigate to your Azure Purview account.
+1. In the [Azure portal](https://portal.azure.com/) navigate to your Azure Purview account.
 
 1. In the **Managed identities** section on the left menu, select the **+ Add** button to add user assigned managed identities.  
     
     :::image type="content" source="media/manage-credentials/create-new-managed-identity.png" alt-text="Screenshot showing managed identity screen in the Azure portal with user-assigned and add highlighted.":::
    
-1. After finishing the setup, go back to your Azure Purview account in the Azure Portal. If the managed identity is successfully deployed, you'll see the Azure Purview account's status as **Succeeded**.
+1. After finishing the setup, go back to your Azure Purview account in the Azure portal. If the managed identity is successfully deployed, you'll see the Azure Purview account's status as **Succeeded**.
 
-   :::image type="content" source="media/manage-credentials/status-successful.png" alt-text="Screenshot the Azure Purview account in the Azure Portal with Status highlighted under the overview tab and essentials menu.":::
+   :::image type="content" source="media/manage-credentials/status-successful.png" alt-text="Screenshot the Azure Purview account in the Azure portal with Status highlighted under the overview tab and essentials menu.":::
 
 
 1. Once the managed identity is successfully deployed, navigate to the [Azure Purview Studio](https://web.purview.azure.com/), by selecting the **Open Azure Purview Studio** button.
@@ -194,7 +224,7 @@ The following steps will show you how to create a UAMI for Azure Purview to use.
 1. In the [Azure Purview Studio](https://web.purview.azure.com/), navigate to the Management Center in the studio and then navigate to the Credentials section.
 
 1. Create a user-assigned managed identity by selecting **+New**. 
-1. Select the Managed identity authentication method, and select your user assigned managed identity from the drop down menu.
+1. Select the Managed identity authentication method, and select your user assigned managed identity from the drop-down menu.
 
    :::image type="content" source="media/manage-credentials/new-user-assigned-managed-identity-credential.png" alt-text="Screenshot showing the new managed identity creation tile, with the Learn More link highlighted.":::  
 

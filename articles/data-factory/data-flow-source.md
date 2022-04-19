@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/10/2022
+ms.date: 04/13/2022
 ---
 
 # Source transformation in mapping data flow
@@ -58,13 +58,20 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/✓ |
+| [data.world (Preview)](connector-dataworld.md#mapping-data-flow-properties) | | -/✓ |
 | [Dataverse](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics 365](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics CRM](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ |
+| [Quickbase (Preview)](connector-quickbase.md#mapping-data-flow-properties) | | -/✓ |
+| [SFTP](connector-sftp.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties) <br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/✓<br>✓/✓<br>✓/✓<br>✓/✓<br/>✓/✓<br>✓/✓<br/>✓/✓ |
+| [Smartsheet (Preview)](connector-smartsheet.md#mapping-data-flow-properties) | | -/✓ |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
 | [REST](connector-rest.md#mapping-data-flow-properties) | | ✓/✓ |
+| [TeamDesk (Preview)](connector-teamdesk.md#mapping-data-flow-properties) | | -/✓ |
+| [Twilio (Preview)](connector-twilio.md#mapping-data-flow-properties) | | -/✓ |
+| [Zendesk (Preview)](connector-zendesk.md#mapping-data-flow-properties) | | -/✓ |
 
 Settings specific to these connectors are located on the **Source options** tab. Information and data flow script examples on these settings are located in the connector documentation.
 

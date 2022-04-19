@@ -1,18 +1,17 @@
 ---
-title: Azure Virtual Desktop authentication - Azure
-description: Authentication methods for Azure Virtual Desktop.
+title: Azure Virtual Desktop identities and authentication - Azure
+description: Identities and authentication methods for Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
-
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: helohr
 manager: femila
 ---
-# Supported authentication methods
+# Supported identities and authentication methods
 
-In this article, we'll give you a brief overview of what kinds of authentication you can use in Azure Virtual Desktop.
+In this article, we'll give you a brief overview of what kinds of identities and authentication methods you can use in Azure Virtual Desktop.
 
 ## Identities
 

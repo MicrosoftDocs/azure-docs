@@ -5,7 +5,6 @@ description: Learn how to migrate from an existing Bing Speech subscription to t
 services: cognitive-services
 author: wsturman
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -18,6 +17,9 @@ ms.author: eur
 # Migrate from Bing Speech to the Speech service
 
 Use this article to migrate your applications from the Bing Speech API to the Speech service.
+
+> [!IMPORTANT]
+> The Speech service has replaced Bing Speech API. Please migrate your applications to the Speech service.
 
 This article outlines the differences between the Bing Speech APIs and the Speech service, and suggests strategies for migrating your applications. Your Bing Speech API subscription key won't work with the Speech service; you'll need a new Speech service subscription.
 
@@ -84,9 +86,3 @@ For Speech service, SDK, and API support, visit the Speech service [support page
 * [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
 * [Get started with speech-to-text](get-started-speech-to-text.md)
 * [Get started with text-to-speech](get-started-text-to-speech.md)
-
-## See also
-
-* [Speech service release notes](releasenotes.md)
-* [What is the Speech service](overview.md)
-* [Speech service and Speech SDK documentation](speech-sdk.md#get-the-speech-sdk)

@@ -110,3 +110,5 @@ There are several mechanisms available for creating and managing the lifecycle o
 [Multi-tenant common considerations](multi-tenant-common-considerations.md)
 
 [Multi-tenant common solutions](multi-tenant-common-solutions.md)
+  
+[Multi-tenant synchronization from Active Directory](../hybrid/plan-connect-topologies.md#multiple-azure-ad-tenants)

@@ -42,3 +42,4 @@ You may also want to:
 
  - [Learn about authentication](../../concepts/authentication.md)
  - [Learn about client and server architecture](../../concepts/client-and-server-architecture.md)
+ - [Deploy trusted authentication service hero sample](../../samples/trusted-auth-sample.md)

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/08/2020
+ms.date: 02/12/2022
 ms.author: eur
 ---
 
@@ -10,36 +10,60 @@ ms.author: eur
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
+## Set up the environment
 
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
-## Speech-to-text from a microphone
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
-Plug in and turn on your PC microphone. Turn off any apps that might also use the microphone. Some computers have a built-in microphone, whereas others require configuration of a Bluetooth device.
+## Recognize speech from a microphone
 
-Now you're ready to run the Speech CLI to recognize speech from your microphone. From the command line, change to the directory that contains the Speech CLI binary file. Then run the following command:
+Run the following command to start speech recognition from a microphone:
 
-```bash
-spx recognize --microphone
+```console
+spx recognize --microphone --source en-US
 ```
 
-> [!NOTE]
-> The Speech CLI defaults to English. You can choose a different language [from the speech-to-text table](../../../../language-support.md). For example, add `--source de-DE` to recognize German speech.
+Speak into the microphone, and you see transcription of your words into text in real time. The Speech CLI stops after a period of silence, or when you press Ctrl+C.
 
-Speak into the microphone, and you see transcription of your words into text in real time. The Speech CLI stops after a period of silence, or when you select Ctrl+C.
-
-## Speech-to-text from an audio file
-
-The Speech CLI can recognize speech in many file formats and natural languages. In this example, you can use any WAV file (16 KHz or 8 KHz, 16-bit, and mono PCM) that contains English speech. Or if you want a quick sample, download the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span></a> file and copy it to the same directory as the Speech CLI binary file.
-
-Use the following command to run the Speech CLI to recognize speech found in the audio file:
-
-```bash
-spx recognize --file whatstheweatherlike.wav
+```console
+Connection CONNECTED...
+RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
-> [!NOTE]
-> The Speech CLI defaults to English. You can choose a different language [from the speech-to-text table](../../../../language-support.md). For example, add `--source de-DE` to recognize German speech.
+This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
-The Speech CLI shows a text transcription of the speech on the screen.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
+
+Now that you've transcribed speech to text, here are some suggested modifications to try out:
+- To recognize speech from an audio file, use `--file` instead of `--microphone`:
+    ```console
+    spx recognize --file YourAudioFile.wav
+    ```
+- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You include a phrase list in-line or with a text file along with the recognize command:
+    # [Terminal](#tab/terminal)
+    ```console
+    spx recognize --microphone --phrases "Contoso;Jessie;Rehaan;"
+    spx recognize --microphone --phrases @phrases.txt
+    ```
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    spx --% recognize --microphone --phrases "Contoso;Jessie;Rehaan;"
+    spx --% recognize --microphone --phrases @phrases.txt
+    ```
+    ***
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
+    ```csharp
+    spx recognize --microphone --source es-ES
+    ```
+
+## Clean up resources
+
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]

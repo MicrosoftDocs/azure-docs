@@ -7,7 +7,7 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
@@ -16,7 +16,7 @@ ms.custom: devx-track-js, ignite-fall-2021
 
 # Select an audio input device with the Speech SDK
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input. This article describes how to obtain the IDs of the audio devices connected to a system. These IDs can then be used in the Speech SDK. You configure the audio device through the `AudioConfig` object:
+This article describes how to obtain the IDs of the audio devices connected to a system. These IDs can then be used in the Speech SDK to select the audio input. You configure the audio device through the `AudioConfig` object:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");

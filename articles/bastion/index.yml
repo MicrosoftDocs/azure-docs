@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 02/01/2022
+  ms.date: 03/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -42,11 +42,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Configure Bastion and connect to a VM
+          - text: Deploy Bastion with default settings
             url: quickstart-host-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Create a Bastion host
+          - text: Deploy Bastion using manual settings
             url: ./tutorial-create-host-portal.md
           - text: Connect to a virtual machine (Linux)
             url: bastion-connect-vm-ssh-linux.md
@@ -63,11 +63,17 @@ landingContent:
   # Card
   - title: Working with virtual machine sessions
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Connecting to VMs
+            url: vm-about.md#connect
+          - text: VM supported features
+            url: vm-about.md
       - linkListType: how-to-guide
         links:
           - text: Copy and paste
             url: bastion-vm-copy-paste.md
           - text: Full screen view
             url: bastion-vm-full-screen.md
-          - text: Upload and download files (Preview)
+          - text: Upload or download files
             url: vm-upload-download-native.md

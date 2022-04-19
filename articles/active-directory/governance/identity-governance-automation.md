@@ -208,4 +208,3 @@ There are two places where you can see the expiration date in the Azure portal.
 ## Next steps
 
 - [Create an Automation account using the Azure portal](../../automation/quickstarts/create-account-portal.md)
-- [Manage access to resources in Active Directory entitlement management using Microsoft Graph PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta)

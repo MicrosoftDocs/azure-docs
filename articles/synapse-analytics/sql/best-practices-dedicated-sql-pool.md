@@ -1,7 +1,6 @@
 ---
 title: Best practices for dedicated SQL pools
 description: Recommendations and best practices you should know as you work with dedicated SQL pools. 
-services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics

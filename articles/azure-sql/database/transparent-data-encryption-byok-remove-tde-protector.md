@@ -6,7 +6,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
-ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
@@ -130,7 +129,7 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
 
 For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
-1. Create a [new key in Key Vault](/cli/azure/keyvault/key#az_keyvault_key_create). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
+1. Create a [new key in Key Vault](/cli/azure/keyvault/key#az-keyvault-key-create). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 
 2. Add the new key to the server and update it as the new TDE protector of the server.
 

@@ -104,7 +104,7 @@ There are several common patterns in distributed systems that support core servi
 
 ## Database configuration
 
-In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySql if a persistent database configuration is needed. A dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
+In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySQL if a persistent database configuration is needed. A dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
 
 ## Sample usage of PetClinic
 
@@ -117,11 +117,11 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 ### [Basic/Standard tier](#tab/basic-standard-tier)
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md)
+> [Quickstart: Provision an Azure Spring Cloud service instance](./quickstart-provision-service-instance.md)
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
+> [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
 
 ---

@@ -3,7 +3,7 @@ title: 'Tutorial: Linux Java app with MongoDB'
 description: Learn how to get a data-driven Linux Java app working in Azure App Service, with connection to a MongoDB running in Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
-ms.devlang: java, azurecli
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli
@@ -12,7 +12,7 @@ ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-septe
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
-When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](../cosmos-db/index.yml) running on [Azure App Service on Linux](overview.md).
+When you are finished, you will have a [Spring Boot](https://spring.io/projects/spring-boot) application storing data in [Azure Cosmos DB](../cosmos-db/index.yml) running on [Azure App Service on Linux](overview.md).
 
 ![Spring Boot application storing data in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -183,7 +183,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>2.2.3</version>
+        <version>2.5.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -248,7 +248,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:2.2.3:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:2.5.0:deploy (default-cli) @ spring-todo-app ---
 Auth Type: AZURE_CLI
 Default subscription: xxxxxxxxx
 Username: xxxxxxxxx

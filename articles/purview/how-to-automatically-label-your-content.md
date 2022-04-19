@@ -1,8 +1,8 @@
 ---
 title: How to automatically apply sensitivity labels to your data in Azure Purview
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
-author: ajaykar
-ms.author: ajaykar
+author: jasonwhowell
+ms.author: jasonh
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -39,7 +39,7 @@ For example:
 :::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation-small.png" alt-text="Confirm the choice to extend sensitivity labels to Azure Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation.png":::
 
 > [!TIP]
->If you don't see the button, and you're not sure if consent has been granted to extend labeling to assets in Azure Purview, see [this FAQ](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-azure-purview) item on how to determine the status.
+>If you don't see the button, and you're not sure if consent has been granted to extend labeling to assets in Azure Purview, see [this FAQ](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-microsoft-purview) item on how to determine the status.
 >
 
 After you've extended labeling to assets in Azure Purview, all published sensitivity labels are available for use in Azure Purview.

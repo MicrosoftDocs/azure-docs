@@ -2,11 +2,12 @@
 metadata:
   title: 'Azure DevTest Labs FAQ'
   description: 'This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.'
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.service: azure
+  ms.author: rosemalcolm
+  author: RoseHJM
   ms.date: 07/17/2020 
   ms.custom: devx-track-azurepowershell, references_regions
-    
 title: Azure DevTest Labs FAQ
 summary: |
 

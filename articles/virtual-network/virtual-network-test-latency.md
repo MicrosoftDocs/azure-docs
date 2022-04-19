@@ -148,6 +148,7 @@ Run the following commands:
     sudo apt-get install -y autotools-dev
     sudo apt-get install -y automake
     sudo apt-get install -y autoconf
+    sudo apt-get install -y libtool
 ```
 
 #### For all distros

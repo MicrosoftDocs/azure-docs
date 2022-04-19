@@ -77,7 +77,7 @@ If you haven't already done so, prepare your environment for the Azure CLI and s
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_update) command:
+To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-update) command:
 
 ```azurecli
 az desktopvirtualization hostpool update --name "MyHostPool" \

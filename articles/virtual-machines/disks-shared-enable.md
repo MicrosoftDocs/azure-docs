@@ -52,7 +52,7 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 
 1. Sign in to the Azure portal. 
 1. Search for and Select **Disks**.
-1. Select **+ Create** to create a new disk.
+1. Select **+ Create** to create a new managed disk.
 1. Fill in the details and select an appropriate region, then select **Change size**.
 
     :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Screenshot of the create a managed disk pane, change size highlighted.." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
@@ -102,7 +102,7 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 
 1. Sign in to the Azure portal. 
 1. Search for and Select **Disks**.
-1. Select **+ Create** to create a new disk.
+1. Select **+ Create** to create a new managed disk.
 1. Fill in the details and select an appropriate region, then select **Change size**.
 
     :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Screenshot of the create a managed disk pane, change size highlighted.." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
@@ -188,7 +188,7 @@ To deploy a managed disk with the shared disk feature enabled, change the `maxSh
 
 1. Sign in to the Azure portal. 
 1. Search for and Select **Disks**.
-1. Select **+ Create** to create a new disk.
+1. Select **+ Create** to create a new managed disk.
 1. Fill in the details, then select **Change size**.
 1. Select ultra disk for the **Disk SKU**.
 

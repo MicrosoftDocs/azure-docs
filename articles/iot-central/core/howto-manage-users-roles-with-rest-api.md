@@ -229,4 +229,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-v
 
 ## Next steps
 
-Now that you've learned how to manage users and roles with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage data exports.](howto-manage-data-export-with-rest-api.md)
+Now that you've learned how to manage users and roles with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage organizations.](howto-manage-organizations-with-rest-api.md)

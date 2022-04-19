@@ -12,11 +12,10 @@ metadata:
   ms.service: api-management
   ms.workload: mobile
   ms.tgt_pltfrm: na
-  ms.topic: article
+  ms.topic: faq
   ms.date: 11/19/2017
   ms.author: danlep 
   ms.custom: devx-track-azurepowershell, fasttrack-edit
-    
 title: Azure API Management FAQs
 summary: |
   Get the answers to common questions, patterns, and best practices for Azure API Management.

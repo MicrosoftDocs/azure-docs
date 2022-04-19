@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ms.topic: how-to
 author: LitKnd
 ms.author: kendralittle
@@ -73,7 +72,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-The database copy is an asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az_sql_db_delete) command.
+The database copy is an asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) command.
 
 * * *
 

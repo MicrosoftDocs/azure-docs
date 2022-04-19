@@ -1,7 +1,7 @@
 ---
 title: What is Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Overview of you can run Linux IoT Edge modules on Windows 10 devices
-author: kgremban
+author: PatAltimore
 
 # this is the PM responsible
 ms.reviewer: fcabrera
@@ -9,14 +9,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 02/09/2022
-ms.author: kgremban
+ms.author: patricka
 ---
 
 # What is Azure IoT Edge for Linux on Windows
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows IoT deployments. Businesses that rely on Windows IoT to power their edge devices can now take advantage of the cloud-native analytics solutions being built in Linux.
+Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows deployments. Businesses that rely on Windows to power their edge devices and solutions can now take advantage of the cloud-native analytics solutions being built in Linux.
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
@@ -73,11 +73,6 @@ A Windows device with the following minimum requirements:
 * Hardware requirements
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
-
-## Supported versions
-Azure IoT Edge for Linux on Windows supports the following versions:
-- 1.1 LTS using [Azure IoT Edge 1.1 LTS](./version-history.md)
-- Continuous Release (CR) using [Azure IoT Edge 1.2](./version-history.md) currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Platform support
 Azure IoT Edge for Linux on Windows supports the following architectures:

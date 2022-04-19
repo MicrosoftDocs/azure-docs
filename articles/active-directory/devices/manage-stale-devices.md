@@ -75,7 +75,7 @@ In your cleanup policy, select accounts that have the required roles assigned.
 
 ### Timeframe
 
-Define a timeframe that is your indicator for a stale device. When defining your timeframe, factor the window noted for updating the activity timestamp into your value. For example, you shouldn't consider a timestamp that is younger than 21 days (includes variance) as an indicator for a stale device. There are scenarios that can make a device look like stale while it isn't. For example, the owner of the affected device can be on vacation or on a sick leave.  that exceeds your timeframe for stale devices.
+Define a timeframe that is your indicator for a stale device. When defining your timeframe, factor the window noted for updating the activity timestamp into your value. For example, you shouldn't consider a timestamp that is younger than 21 days (includes variance) as an indicator for a stale device. There are scenarios that can make a device look like stale while it isn't. For example, the owner of the affected device can be on vacation or on a sick leave that exceeds your timeframe for stale devices.
 
 ### Disable devices
 
@@ -153,7 +153,10 @@ Using the same commands we can pipe the output to the set command to disable the
 
 ```powershell
 $dt = (Get-Date).AddDays(-90)
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice -AccountEnabled $false
+$Devices = Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt}
+foreach ($Device in $Devices) {
+Set-AzureADDevice -ObjectId $Device.ObjectId -AccountEnabled $false
+}
 ```
 
 ### Delete devices
@@ -167,8 +170,10 @@ Building on the [disable devices example](#disable-devices) we look for disabled
 
 ```powershell
 $dt = (Get-Date).AddDays(-120)
-$state = $false
-Get-AzureADDevice -All:$true | Where {($_.ApproximateLastLogonTimeStamp -le $dt) -and ($_.AccountEnabled -le $state)} | Remove-AzureADDevice
+$Devices = Get-AzureADDevice -All:$true | Where {($_.ApproximateLastLogonTimeStamp -le $dt) -and ($_.AccountEnabled -eq $false)}
+foreach ($Device in $Devices) {
+Remove-AzureADDevice -ObjectId $Device.ObjectId
+}
 ```
 
 ## What you should know

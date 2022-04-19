@@ -3,7 +3,7 @@ title: High availability setup with STONITH for SAP HANA on Azure (Large Instanc
 description: Learn to establish high availability for SAP HANA on Azure (Large Instances) in SUSE by using the STONITH device.
 services: virtual-machines-linux
 documentationcenter:
-author: Ajayan1008
+author: mamccrea
 manager: juergent
 editor:
 ms.service: virtual-machines-sap
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 9/01/2021
-ms.author: madhukan
+ms.author: mamccrea
 ms.custom: H1Hack27Feb2017
 
 ---

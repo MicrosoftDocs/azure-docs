@@ -7,7 +7,7 @@ author: chschrae
 manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: chschrae
 ms.devlang: cpp, csharp
@@ -38,6 +38,8 @@ Use this sample code if:
 - You cannot or do not want to create a LUIS app but you still want some voice-commanding capability.
 
 If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents, this can be helpful since it is embedded within the SDK.
+
+For supported locales see [here](./language-support.md?tabs=IntentRecognitionPatternMatcher).
 
 ## Prerequisites
 

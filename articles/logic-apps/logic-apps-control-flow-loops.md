@@ -1,10 +1,10 @@
 ---
 title: Add loops to repeat actions
-description: Create loops that repeat workflow actions or process arrays in Azure Logic Apps
+description: Create loops that repeat workflow actions or process arrays in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 01/05/2019
 ---
 
@@ -394,7 +394,7 @@ The default is one hour.
 
 ## Next steps
 
-* [Run steps based on a condition (conditional statements)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Run steps based on different values (switch statements)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Run steps based on different values (switch action)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Run or merge parallel steps (branches)](../logic-apps/logic-apps-control-flow-branches.md)
 * [Run steps based on grouped action status (scopes)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

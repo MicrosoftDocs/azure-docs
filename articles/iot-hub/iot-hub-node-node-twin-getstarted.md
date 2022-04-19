@@ -4,7 +4,7 @@ description: How to use Azure IoT Hub device twins to add tags and then use an I
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: javascript, azurecli
+ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: kgremban
