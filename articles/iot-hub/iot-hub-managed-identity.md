@@ -237,7 +237,7 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Roles** tab, select **Azure Event Hubs Data Sender**.
 
@@ -294,12 +294,25 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 
 ## Configure bulk device import/export with managed identities
 
-IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-identity-mgmt.md)' information in bulk from/to a customer-provided storage blob. This functionality requires connectivity from IoT Hub to the storage account. 
+IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-identity-mgmt.md)' information in bulk from/to a customer-provided storage blob. This functionality requires connectivity from IoT Hub to the storage account.
 
-1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
-2. Select **Storage Blob Data Contributor** (not Contributor or Storage Account Contributor) as role.
-3. For user-assigned, choose **User-assigned managed identity** under Assign access to. Select your subscription and your user-assigned managed identity in the drop-down list. Click the **Save** button.
-4. For system-assigned, under **Assign access to** choose **User, group, or service principal** and select your IoT hub's resource name in the drop-down list. Click **Save**.
+1. From your storage account, select **Access Control (IAM)**.
+
+1. Select **Add > Add role assignment**.
+
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Roles** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. For user-assigned managed identities, select **User-assigned managed identity**, select your subscription, and then select your user-assigned managed identity.
+
+1. For system-assigned managed identities, select **System-assigned managed identity**, select your subscription, and then select your IoT Hub's resource name.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 ### Using REST API or SDK for import and export jobs
 
