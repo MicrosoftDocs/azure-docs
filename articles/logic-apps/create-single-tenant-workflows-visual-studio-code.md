@@ -588,7 +588,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | Run status | Description |
    |------------|-------------|
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The run was triggered and started but received a cancellation request. |
+   | **Canceled** | The run was triggered and started but received a cancellation request. |
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
    | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
@@ -614,7 +614,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | Action status | Description |
    |---------------|-------------|
    | **Aborted** | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The action was running but received a request to cancel. |
+   | **Canceled** | The action was running but received a request to cancel. |
    | **Failed** | The action failed. |
    | **Running** | The action is currently running. |
    | **Skipped** | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
