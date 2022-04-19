@@ -76,7 +76,7 @@ This tutorial teaches the development steps for Visual Studio Code. If you would
 
 ## Install container engine
 
-IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them. We recommend Docker Desktop for development because of its feature support and popularity. Docker Desktop on Windows lets you switch between Linux containers and Windows containers so that you can easily develop modules for different types of IoT Edge devices.
+IoT Edge modules are packaged as containers, so you need a container engine on your development machine to build and manage them. We recommend Docker Desktop for development because of its feature support and popularity. Docker Desktop on Windows lets you switch between Linux containers and Windows containers so that you can easily develop modules for different types of IoT Edge devices. 
 
 Use the Docker documentation to install on your development machine:
 
@@ -162,7 +162,7 @@ After selecting a new runtime version, your deployment manifest is dynamically u
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your container images onto the IoT Edge device.
 
 >[!NOTE]
->If you didn't replace the **localhost:5000** value with the login server value from your Azure container registry, in the [**Create a project template**](#create-a-project-template) step, the **.env** file and the registryCredentials section of the deployment manifest will be missing.
+>If you didn't replace the **localhost:5000** value with the login server value from your Azure container registry, in the [**Create a project template**](#create-a-project-template) step, the **.env** file and the `registryCredentials` section of the deployment manifest will be missing. If that section is missing, return to the **Provide Docker image repository for the module** prompt to see how to replace the **localhost:5000** value.
 
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
@@ -235,11 +235,13 @@ Provide your container registry credentials to Docker so that it can push your c
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-3. Log in to Azure Container Registry. [Install Azure CLI](/cli/azure/install-azure-cli)to use the `az` command.
+3. Log in to Azure Container Registry. [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command.
 
    ```azurecli
    az acr login -n <ACR registry name>
    ```
+>[!TIP]
+>If you get logged out at any point in this tutorial, repeat the Docker and Azure Container Registry sign in steps above to continue.
 
 ### Build and push
 
