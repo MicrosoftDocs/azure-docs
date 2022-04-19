@@ -8,6 +8,7 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/02/2021
 ms.author: cherylmc
+ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
 ---
 # About NVAs in a Virtual WAN hub
