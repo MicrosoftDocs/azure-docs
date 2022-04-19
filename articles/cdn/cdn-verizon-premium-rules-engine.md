@@ -128,7 +128,7 @@ To access the rules engine, you must first select **Manage** from the top of the
 * Changes made to the staging environment will not affect your live site environment.
 * Testing HTTPS traffic using the staging environment will result in a TLS certificate mismatch.
 * Testing mechanism:
-    * After locking a draft into a policy, select **Deploy Resquest**. Select the environment as **Staging** and then select **Create Deploy Request**.
+    * After locking a draft into a policy, select **Deploy Request**. Select the environment as **Staging** and then select **Create Deploy Request**.
 
         :::image type="content" source="./media/cdn-rules-engine/policy-staging.png" alt-text="Screenshot of a staging policy." lightbox="./media/cdn-rules-engine/policy-staging-expanded.png":::    
  
