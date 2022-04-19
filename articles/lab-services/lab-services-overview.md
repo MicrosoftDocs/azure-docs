@@ -9,11 +9,11 @@ ms.date: 01/04/2022
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
-**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab plan in Azure Lab Services, an educator can quickly set up a lab for the class.  Educators specify the number and type of VMs needed, configures the template VM, and adds users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.
+**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up VMs to handling errors and scaling the infrastructure.  Azure Lab Services was designed with three major personas in mind: [administrators, educators, and students](classroom-labs-concepts.md#user-profiles). After an IT administrator creates a lab plan, an educator can quickly set up a lab for the class.  Educators specify the number and type of VMs needed, configures the template VM, and adds users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class. 
 
 To [create a lab](tutorial-setup-lab.md), you need to [create a lab plan](tutorial-setup-lab-plan.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
 
-The service creates and manages resources in a subscriptions managed by Microsoft. Resources aren't created in your own Azure subscription.  The [advanced networking](how-to-connect-vnet-injection.md) option is an exception as there are a few resources saved in your subscription.  Virtual machines are always hosted in the Microsoft managed subscription.  The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
+The service creates and manages resources in a subscription managed by Microsoft. Resources aren't created in your own Azure subscription.  The [advanced networking](how-to-connect-vnet-injection.md) option is an exception as there are a few resources saved in your subscription.  Virtual machines are always hosted in the Microsoft managed subscription.  The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
 
 ## Key capabilities
 
@@ -50,5 +50,6 @@ There are no guarantees customer data will stay in the region it’s deployed to
 
 See the following tutorials for step-by-step instructions to create a lab plan, and create a lab.
 
+- [Azure Lab Service concepts](classroom-labs-concepts.md)
 - [Tutorial: setup a lab plan](tutorial-setup-lab-plan.md)
 - [Tutorial: create a lab](tutorial-setup-lab.md)
