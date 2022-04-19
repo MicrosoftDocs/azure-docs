@@ -6,7 +6,7 @@ ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/08/2022
+ms.date: 04/18/2022
 ms.author: cynthn
 
 ---
@@ -24,13 +24,11 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
     1.	On the page for the VM, select **Networking** from the left menu.
     1.	On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
-
     :::image type="content" source="media/linux-vm-connect/check-rule.png" alt-text="Screenshot showing how to check to see if there is already a rule allowing SSH connections.":::
 
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
     1. From the **Service** dropdown select **SSH**.
-    
-    :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose SSH.":::
+        :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose SSH.":::
     1. Edit **Priority** and **Source** if necessary
     1. For **Name**, type *SSH*.
     1. When you are done, select **Add**.
@@ -46,21 +44,20 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
     To learn more about adding a public IP address to an existing VM, see  [Associate a public IP address to a virtual machine](../virtual-network/ip-services/associate-public-ip-address-vm.md)
 
 - Verify your VM is running. On the Overview tab, in the essentials section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
-
-     :::image type="content" source="media/linux-vm-connect/running.png" alt-text="":::
+   :::image type="content" source="media/linux-vm-connect/running.png" alt-text="Screenshot showing how to check to make sure your virtual machine is in the running state.":::
  
 
 ## Connect to the VM
 
 Once the above prerequisites are met, you are ready to connect to your VM
 Open your SSH client of choice.
-- If you are using Linux or MacOS this is most commonly terminal or shell.
+- If you are using Linux or macOS this is most commonly terminal or shell.
 - For a Windows machine this might be [WSL](/windows/wsl/about), or any local terminal like [PowerShell](/powershell/scripting/overview). If you do not have an SSH client learn more about installing WSL here, or consider using [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
 > The following examples assume the SSH key is in the key.pem format. If you used CLI or Azure PowerShell to download your keys, they may be in the id_rsa format.
 
-## [WSL, MacOS, or native Linux client](#tab/Linux)
+## [WSL, macOS, or native Linux client](#tab/Linux)
 
 ### SSH with a new key pair
 1. Ensure your public and private keys are in the correct directory. This is usually the ~/.ssh directory.
@@ -174,5 +171,5 @@ Open your SSH client of choice.
 
 ## Next steps
 
-Learn how to transfer files to an existing Linux VM, see [Use SCP to move files to and from a Linux VM](./linux/copy-files-to-linux-vm-using-scp).
+Learn how to transfer files to an existing Linux VM, see [Use SCP to move files to and from a Linux VM](./linux/copy-files-to-linux-vm-using-scp.md).
 
