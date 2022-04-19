@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 04/15/2022
 ms.custom: ignite-fall-2021
 
 #Customer intent: As a developer, I want to create an automated integration workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -288,13 +288,13 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
 1. After the details pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 
-   `http://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+   `http://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01w&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
    ![Screenshot that shows the designer with the Request trigger and endpoint URL in the "HTTP POST URL" property.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-url.png)
 
    For this example, the URL looks like this:
 
-   `https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`
+   `https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`
 
    > [!TIP]
    > You can also find the endpoint URL on your logic app's **Overview** pane in the **Workflow URL** property.
@@ -351,7 +351,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | Run status | Description |
    |------------|-------------|
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The run was triggered and started but received a cancel request. |
+   | **Canceled** | The run was triggered and started but received a cancel request. |
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
    | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
@@ -370,7 +370,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | Action status | Description |
    |---------------|-------------|
    | **Aborted** | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The action was running but received a cancel request. |
+   | **Canceled** | The action was running but received a cancel request. |
    | **Failed** | The action failed. |
    | **Running** | The action is currently running. |
    | **Skipped** | The action was skipped because its `runAfter` conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
@@ -381,7 +381,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    |||
 
    [aborted-icon]: ./media/create-single-tenant-workflows-azure-portal/aborted.png
-   [cancelled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
+   [canceled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
    [failed-icon]: ./media/create-single-tenant-workflows-azure-portal/failed.png
    [running-icon]: ./media/create-single-tenant-workflows-azure-portal/running.png
    [skipped-icon]: ./media/create-single-tenant-workflows-azure-portal/skipped.png
