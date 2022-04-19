@@ -24,7 +24,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 **Breaking change warning**
 
-In AzureML SDK June release, **azureml-defaults** will not support installation on python 3.6 any more. This coming breaking change comes from azureml-inference-server-http package release in June will drop python 3.6 support. If you are not using azureml-defaults for inference, feel free to use azureml-core or any other AzureML SDK package directly instead of install azureml-defaults.
+In AzureML SDK June release, `azureml-defaults` will not support installation on python 3.6 any more. This coming breaking change comes from `azureml-inference-server-http` package release in June will drop python 3.6 support. If you are not using azureml-defaults for inference, feel free to use azureml-core or any other AzureML SDK package directly instead of install `azureml-defaults`.
 
   + **azureml-automl-dnn-nlp**
     + Turning on long range text feature by default using hyper-parameter adjustments of reducing train batch size while increasing gradient accumulation steps in a way that effective train batch size remains consistent with the default configuration, while also not increasing the GPU memory requirements as a result of possibly using a larger model (due to increased max sequence length)
