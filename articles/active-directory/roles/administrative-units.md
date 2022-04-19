@@ -36,14 +36,15 @@ A central administrator could:
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and an Azure AD Free license for each administrative unit member. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 
-You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph. For more information, see:
+You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph API. For more information, see:
 
 - [Create or delete administrative units](admin-units-manage.md)
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
+- [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](admin-units-members-dynamic.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
 - [Administrative unit Graph support](/graph/api/resources/administrativeunit): Provides detailed documentation on Microsoft Graph for administrative units.
@@ -66,6 +67,7 @@ As a Global Administrator or a Privileged Role Administrator, you can use the Az
 
 - Create administrative units
 - Add users, groups, or devices as members of administrative units
+- Manage users or devices for an administrative unit with dynamic membership rules (Preview)
 - Assign IT staff to administrative unit-scoped administrator roles.
 
 Administrative unit-scoped admins can use the Microsoft 365 admin center for basic management of users in their administrative units. A group administrator with administrative unit scope can manage groups by using PowerShell, Microsoft Graph, and the Microsoft 365 admin centers.
@@ -82,10 +84,11 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Create or delete administrative units | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Add or remove administrative unit members individually | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Add or remove administrative unit members in bulk by using CSV files | :x: | :heavy_check_mark: | No plan to support |
+| Add or remove members individually | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Add or remove members in bulk by using CSV files | :x: | :heavy_check_mark: | No plan to support |
 | Assign administrative unit-scoped administrators | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Add or remove administrative unit members dynamically based on attributes | :x: | :x: | :x: |
+| Add or remove users or devices dynamically based on rules (Preview) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Add or remove groups dynamically based on rules | :x: | :x: | :x: |
 
 ### User management
 
@@ -94,7 +97,7 @@ The following sections describe current support for administrative unit scenario
 | Administrative unit-scoped management of user properties, passwords | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of user licenses | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Administrative unit-scoped blocking and unblocking of user sign-ins | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Administrative unit-scoped management of user multifactor authentication credentials | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Administrative unit-scoped management of user multi-factor authentication credentials | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ### Group management
 

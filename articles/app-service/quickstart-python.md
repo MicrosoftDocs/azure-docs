@@ -39,7 +39,7 @@ To run the application locally:
 
 ### [Flask](#tab/flask)
 
-1.  Go to the application folder:
+1. Go to the application folder:
 
     ```Console
     cd msdocs-python-flask-webapp-quickstart
@@ -157,6 +157,10 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 | [!INCLUDE [VS Code deploy step 4](<./includes/quickstart-python/deploy-visual-studio-code-4.md>)] | :::image type="content" source="./media/quickstart-python/deploy-visual-studio-code-4-240px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/quickstart-python/deploy-visual-studio-code-4.png"::: |
 | [!INCLUDE [VS Code deploy step 5](<./includes/quickstart-python/deploy-visual-studio-code-5.md>)] | :::image type="content" source="./media/quickstart-python/deploy-visual-studio-code-5-240px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/quickstart-python/deploy-visual-studio-code-5.png"::: |
 
+### [Deploy using Azure CLI](#tab/azure-cli-deploy)
+
+[!INCLUDE [Deploy Azure CLI](<./includes/quickstart-python/deploy-cli.md>)]
+
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
 [!INCLUDE [Deploy Local Git](<./includes/quickstart-python/deploy-local-git.md>)]
@@ -213,11 +217,11 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 ### [Azure CLI](#tab/azure-cli)
 
-First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az-webapp-log-config) command.
 
 [!INCLUDE [CLI stream logs configure](<./includes/quickstart-python/stream-logs-cli-1.md>)]
 
-To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
+To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command.
 
 [!INCLUDE [CLI stream logs tail](<./includes/quickstart-python/stream-logs-cli-2.md>)]
 
@@ -265,7 +269,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 ### [Azure CLI](#tab/azure-cli)
 
-Delete the resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
+Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```azurecli
 az group delete \

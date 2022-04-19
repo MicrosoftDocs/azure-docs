@@ -20,7 +20,7 @@ summary: |
   For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
   
 sections:
-  - name: Ignored
+  - name: General
     questions:
       - question: |
           Why am I unable to create an administrative unit?
@@ -77,6 +77,45 @@ sections:
           Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units).
           
           Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit) in Microsoft Graph.
+
+  - name: Dynamic administrative units (Preview)
+    questions:
+      - question: |
+          I just saved a dynamic membership rule for an administrative unit, but I don't see any users populated yet.
+        answer: |
+          The initial update of an administrative unit can take a few minutes depending on your tenant size and the current Azure AD load.
+
+      - question: |
+          After creating a dynamic membership rule in the Azure portal using the rule builder and attempting to save, I get the error "Failed to update administrative unit properties".
+        answer: |
+          This usually means there is a problem with the supplied property values. Confirm that the property values you have supplied have a proper value type (Boolean, string, or string collection). For more information, see the allowed values for each operator for [users](../enterprise-users/groups-dynamic-membership.md#supported-properties) or [devices](../enterprise-users/groups-dynamic-membership.md#rules-for-devices).
+          
+          This error can also result if a person without an Azure AD Premium P1 license attempts to save an update to the administrative unit.
+
+      - question: |
+          How can I add a single member to an administrative unit in addition to the current dynamic membership rule?
+        answer: |
+          To add a single user, add an appropriate expression with the `OR` query operator to the dynamic membership rule.
+
+      - question: |
+          I am a Global Administrator, but I can't add or remove members for an administrative unit.
+        answer: |
+          When an administrative unit has been configured for dynamic membership, you must edit the dynamic membership rules to change membership.
+
+      - question: |
+          How many administrative units with dynamic membership rules can I create in a tenant?
+        answer: |
+          For the preview, the total number of dynamic groups and dynamic administrative units combined cannot exceed 5,000.
+
+      - question: |
+          Is there a limit to the number of characters in a dynamic membership rule?
+        answer: |
+          Yes. 3,072 characters.
+
+      - question: |
+          Can I create administrative units with dynamic membership rules in the Microsoft 365 admin center?
+        answer: |
+          No.
 
 additionalContent: |
 

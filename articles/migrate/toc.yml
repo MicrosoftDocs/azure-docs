@@ -150,8 +150,13 @@
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
   - name: Use Azure Migrate with private endpoints
-    href: how-to-use-azure-migrate-with-private-endpoints.md
     items:
+      - name: Support requirements and considerations
+        href: how-to-use-azure-migrate-with-private-endpoints.md
+      - name: Discover and assess using Azure Private Link
+        href: discover-and-assess-using-private-endpoints.md
+      - name: Migrate servers to Azure using Private Link
+        href: migrate-servers-to-azure-using-private-link.md
       - name: Troubleshoot network connectivity
         href: troubleshoot-network-connectivity.md
   - name: Prepare to work with ISV tools/Movere
@@ -222,6 +227,8 @@
       items:
       - name: Migrate VMware VMs to encrypted Azure VMs
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
+    - name: Test migration
+      href: how-to-test-replicating-virtual-machines.md
     - name: Scale migration
       items:
       - name: How to migrate VMware VMs at scale using the agentless replication method

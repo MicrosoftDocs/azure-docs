@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/21/2022
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ This article provides steps for creating copies of your MedTech service's Device
 
 ## Copy creation process
 
-1. Select **"MedTech service"** on the left side of the Healthcare APIs workspace.
+1. Select **"MedTech service"** on the left side of the Azure Health Data Services workspace.
 
    :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="Select MedTech service." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
 

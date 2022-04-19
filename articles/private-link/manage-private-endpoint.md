@@ -98,7 +98,7 @@ Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGr
  
 #### Get Private Link connection states 
 
-Use [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_show)  to get the Private Endpoint connections and their states.  
+Use [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show)  to get the Private Endpoint connections and their states.  
 
 ```azurecli
   az network private-endpoint-connection show \
@@ -108,7 +108,7 @@ Use [az network private-endpoint-connection show](/cli/azure/network/private-end
  
 #### Approve a Private Endpoint connection 
  
-Use [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_approve) cmdlet to approve a Private Endpoint connection. 
+Use [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) cmdlet to approve a Private Endpoint connection. 
  
 ```azurecli
   az network private-endpoint-connection approve \
@@ -118,7 +118,7 @@ Use [az network private-endpoint-connection approve](/cli/azure/network/private-
  
 #### Deny Private Endpoint connection 
  
-Use [az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_reject) cmdlet to reject a Private Endpoint connection. 
+Use [az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-reject) cmdlet to reject a Private Endpoint connection. 
 
 ```azurecli
   az network private-endpoint-connection reject \
@@ -128,7 +128,7 @@ Use [az network private-endpoint-connection reject](/cli/azure/network/private-e
 
 #### Remove Private Endpoint connection 
  
-Use [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_delete) cmdlet to remove a Private Endpoint connection. 
+Use [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) cmdlet to remove a Private Endpoint connection. 
 
 ```azurecli
   az network private-endpoint-connection delete \

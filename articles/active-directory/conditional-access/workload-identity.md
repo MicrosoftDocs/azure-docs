@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -51,7 +51,7 @@ Create a location based Conditional Access policy that applies to service princi
 1. Under **Cloud apps or actions**, select **All cloud apps**. The policy will apply only when a service principal requests a token.
 1. Under **Conditions** > **Locations**, include **Any location** and exclude **Selected locations** where you want to allow access.
 1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
-1. Set **Enable policy** to **On**.
+1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
 1. Select **Create** to complete your policy.
 
 ### Create a risk-based Conditional Access policy
@@ -73,12 +73,8 @@ Create a location based Conditional Access policy that applies to service princi
    1. Select the levels of risk where you want this policy to trigger.
    1. Select **Done**.
 1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
-1. Set **Enable policy** to **On**.
+1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
 1. Select **Create** to complete your policy.
-
-#### Report-only mode
-
-Saving your policy in Report-only mode won't allow administrators to estimate the effects because we don't currently log this risk information in sign-in logs.
 
 ## Roll back
 
@@ -92,6 +88,12 @@ The sign-in logs are used to review how policy is enforced for service principal
 1. Select a log entry and choose the **Conditional Access** tab to view evaluation information.
 
 Failure reason when Service Principal is blocked by Conditional Access: “Access has been blocked due to conditional access policies.” 
+
+#### Report-only mode
+
+To view results of a location-based policy, refer to the **Report-only** tab of events in the **Sign-in report**, or use the **Conditional Access Insights and Reporting** workbook. 
+
+To view results of a risk-based policy, refer to the **Report-only** tab of events in the **Sign-in report**.
 
 ## Reference
 
