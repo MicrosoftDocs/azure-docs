@@ -1,6 +1,6 @@
 ---
-title: Use Windows HostProcess Containers
-description: Learn how to use HostProcess & Privilieged Containers for Windows workloads on AKS
+title: Use Windows HostProcess containers
+description: Learn how to use HostProcess & Privileged containers for Windows workloads on AKS
 services: container-service
 ms.topic: article
 ms.date: 4/6/2022
@@ -8,19 +8,19 @@ ms.author: juda
 
 ---
 
-# Use Windows Host Process Containers
+# Use Windows HostProcess containers
 
 HostProcess / Privileged containers extend the Windows container model to enable a wider range of Kubernetes cluster management scenarios. HostProcess containers run directly on the host and maintain behavior and access similar to that of a regular process. HostProcess containers allow users to package and distribute management operations and functionalities that require host access while retaining versioning and deployment methods provided by containers.
 
-A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernetes but not Windows hosts. HostProcess containers are the Windows equivilant of host elavation.
+A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernetes but not Windows hosts. HostProcess containers are the Windows equivalent of host elevation.
 
 
 ## Limitations
 
 * HostProcess containers require Kubernetes 1.23 or greater.
-* HostProcess containers require containerd 1.6 or higher container runtime.
+* HostProcess containers require `containerd` 1.6 or higher container runtime.
 * HostProcess pods can only contain HostProcess containers. This is a current limitation of the Windows operating system. Non-privileged Windows containers can't share a vNIC with the host IP namespace.
-* HostProcess containers run as a process on the host. The only isolation those containers have from the host is the resource constraints imposed on the HostProcess user account. 
+* HostProcess containers run as a process on the host. The only isolation those containers have from the host is the resource constraints imposed on the HostProcess user account.
 * Filesystem isolation and Hyper-V isolation aren't supported for HostProcess containers.
 * Volume mounts are supported and are mounted under the container volume. See Volume Mounts.
 * A limited set of host user accounts are available for Host Process containers by default. See Choosing a User Account.
@@ -32,7 +32,7 @@ A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernet
 
 To use HostProcess features with your deployment, set *privilaged: true*, *hostProcess: true*, and *hostNetwork: true*:  
 
-```yml
+```yaml
     spec:
       ...
       containers:

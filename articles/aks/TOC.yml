@@ -401,8 +401,8 @@
           href: windows-container-powershell.md
         - name: Connect remotely
           href: rdp.md
-        - name: Use HostProcess Containers
-          href: use-win-hpc.md
+        - name: Use HostProcess containers
+          href: use-windows-hpc.md
         - name: Windows Server containers FAQ
           href: windows-faq.md
         - name: Create Dockerfiles for Windows Server containers
