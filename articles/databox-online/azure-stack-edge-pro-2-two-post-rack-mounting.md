@@ -22,7 +22,7 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 * Before you begin, read the safety instructions in your Safety, Environmental, and Regulatory Information booklet. This booklet was shipped with the device.
 * Begin installing the rails in the allotted space that is closest to the bottom of the rack enclosure.
 * For the rack mounting configuration, you need to supply:
-    * Phillips-head screwdriver 
+    * A Phillips-head screwdriver 
 
     
 

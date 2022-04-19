@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 04/05/2022
 ms.author: curtand
 ms.reviewer: sumitp
 
@@ -25,11 +25,9 @@ After a root domain is added to Azure Active Directory (Azure AD), all subsequen
 
 In the Azure AD portal, when the parent domain is federated and the admin tries to verify a managed subdomain on the **Custom domain names** page, you'll get a 'Failed to add domain' error with the reason "One or more properties contains invalid values." If you try to add this subdomain from the Microsoft 365 admin center, you will receive a similar error. For more information about the error, see [A child domain doesn't inherit parent domain changes in Office 365, Azure, or Intune](/office365/troubleshoot/administration/child-domain-fails-inherit-parent-domain-changes).
 
-## How to verify a custom subdomain
-
 Because subdomains inherit the authentication type of the root domain by default, you must promote the subdomain to a root domain in Azure AD using the Microsoft Graph so you can set the authentication type to your desired type.
 
-### Add the subdomain and view its authentication type
+## Add the subdomain
 
 1. Use PowerShell to add the new subdomain, which has its root domain's default authentication type. The Azure AD and Microsoft 365 admin centers don't yet support this operation.
 
@@ -40,7 +38,7 @@ Because subdomains inherit the authentication type of the root domain by default
 1. Use the following example to GET the domain. Because the domain isn't a root domain, it inherits the root domain authentication type. Your command and results might look as follows, using your own tenant ID:
 
    ```http
-   GET https://graph.windows.net/{tenant_id}/domains?api-version=1.6
+   GET https://graph.microsoft.com/v1.0/domains/foo.contoso.com/
    
    Return:
      {
@@ -61,13 +59,21 @@ Because subdomains inherit the authentication type of the root domain by default
      },
    ```
 
-### Use Microsoft Graph API to make this a root domain
+## Change subdomain to a root domain
 
 Use the following command to promote the subdomain:
 
 ```http
-POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?api-version=1.6
+POST https://graph.microsoft.com/v1.0/domains/foo.contoso.com/promote
 ```
+
+### Promote command error conditions
+
+Scenario | Method | Code | Message
+-------- | ------ | ---- | -------
+Invoking API with a subdomain whose parent domain is unverified | POST | 400 | Unverified domains cannot be promoted. Please verify the domain before promotion.
+Invoking API with a federated verified subdomain with user references | POST | 400 | Promoting a subdomain with user references is not allowed. Please migrate the users to the current root domain before promotion of the subdomain.
+
 
 ### Change the subdomain authentication type
 
@@ -80,7 +86,7 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
 1. Verify via GET in Microsoft Graph API that subdomain authentication type is now managed:
 
    ```http
-   GET https://graph.windows.net/{{tenant_id} }/domains?api-version=1.6
+   GET https://graph.microsoft.com/v1.0/domains/foo.contoso.com/
    
    Return:
      {

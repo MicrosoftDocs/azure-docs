@@ -146,7 +146,7 @@ For full control over the IP addresses, both inbound and outbound, we recommend 
 
 To find out if your function app runs in an App Service Environment:
 
-# [Azure Porta](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.

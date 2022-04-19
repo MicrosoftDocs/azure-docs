@@ -1,11 +1,11 @@
 ---
 title: NFS file shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 11/16/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ For encryption in transit, Azure provides a layer of encryption for all data in 
     - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
     - [Site-to-Site](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
-- [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
+- [A restricted public endpoint](storage-files-networking-overview.md#public-endpoint-firewall-settings)
 
 For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
 

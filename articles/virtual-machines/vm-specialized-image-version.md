@@ -1,13 +1,14 @@
 ---
 title: Create a VM from a specialized image version
 description: Create a VM using a specialized image version in an Azure Compute Gallery.
-author: cynthn
+author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/05/2021
-ms.author: cynthn
+ms.author: saraic
+ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -43,7 +44,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 
 ### [CLI](#tab/cli)
 
-List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -55,7 +56,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create the VM using [az vm create](/cli/azure/vm#az_vm_create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
 

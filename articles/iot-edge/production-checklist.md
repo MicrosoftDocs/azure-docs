@@ -1,9 +1,9 @@
 ---
 title: Prepare to deploy your solution in production - Azure IoT Edge
 description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -84,7 +84,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Be consistent with upstream protocol
   * Set up host storage for system modules
   * Reduce memory space used by the IoT Edge hub
-  * Do not use debug versions of module images
+  * Use correct module images in deployment manifests
   * Be mindful of twin size limits when using custom modules
 
 ### Be consistent with upstream protocol
@@ -131,8 +131,10 @@ The IoT Edge hub module stores messages temporarily if they cannot be delivered 
 
 The default value of the timeToLiveSecs parameter is 7200 seconds, which is two hours.
 
-### Do not use debug versions of module images
+### Use correct module images in deployment manifests
+If an empty or wrong module image is used, the Edge agent retries to load the image, which causes extra traffic to be generated. Add the correct images to the deployment manifest to avoid generating unnecessary traffic.
 
+#### Don't use debug versions of module images
 When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well.
 
 ### Be mindful of twin size limits when using custom modules

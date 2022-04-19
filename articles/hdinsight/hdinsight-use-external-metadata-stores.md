@@ -4,7 +4,7 @@ description: Use external metadata stores with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 08/06/2020
+ms.date: 04/01/2022
 ---
 
 # Use external metadata stores in Azure HDInsight

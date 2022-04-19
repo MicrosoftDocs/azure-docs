@@ -19,7 +19,7 @@ ms.date: 03/01/2022
 
 ## Key capabilities and scenarios
 
-As customers modernize their infrastructure, application, and data tiers, they also modernize their identity management capabilities by shifting to Azure AD. Azure SQL offers multiple [Azure AD Authentication](/azure/azure-sql/database/authentication-aad-overview.md) options:
+As customers modernize their infrastructure, application, and data tiers, they also modernize their identity management capabilities by shifting to Azure AD. Azure SQL offers multiple [Azure AD Authentication](/azure/azure-sql/database/authentication-aad-overview) options:
 
 - 'Azure Active Directory - Password' offers authentication with Azure AD credentials
 - 'Azure Active Directory - Universal with MFA' adds multi-factor authentication

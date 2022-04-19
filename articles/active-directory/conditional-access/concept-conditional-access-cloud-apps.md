@@ -34,6 +34,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
+- [Azure Data Explorer](/azure/data-explorer/security-conditional-access)
 - Azure Event Hubs
 - Azure Service Bus
 - [Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
@@ -97,7 +98,6 @@ The following key applications are included in the Office 365 client app:
 - Microsoft Whiteboard Services
 - Office Delve
 - Office Online
-- Office.com
 - OneDrive
 - Power Apps
 - Power Automate

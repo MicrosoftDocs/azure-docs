@@ -20,6 +20,9 @@
         href: powershell-create-service-instance.md
       - name: Create an instance - Visual Studio Code
         href: vscode-create-service-instance.md
+      - name: Create an instance - Bicep
+        displayName: Resource Manager, ARM, Bicep
+        href: quickstart-bicep.md
       - name: Create an instance - ARM template
         displayName: Resource Manager
         href: quickstart-arm-template.md
@@ -212,14 +215,14 @@
                     href: api-management-howto-setup-delegation.md
                   - name: Enable console OAuth support
                     href: api-management-howto-oauth2.md
-                  - name: E-mail notifications and templates
+                  - name: Email notifications and templates
                     href: api-management-howto-configure-notifications.md
                   - name: Integrate Application Insights
                     href: developer-portal-integrate-application-insights.md
                   - name: Integrate Google Tag Manager
                     href: developer-portal-integrate-google-tag-manager.md
-            - name: Self-host developer portal 
-              items:  
+            - name: Self-host developer portal
+              items:
                 - name: Create self-hosted portal
                   href: developer-portal-self-host.md
                 - name: Alternative approaches to self-hosting
@@ -232,8 +235,8 @@
                   href: developer-portal-use-community-widgets.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
-            - name: Monetize APIs 
-              items:  
+            - name: Monetize APIs
+              items:
                 - name: Monetization with Azure API Management
                   href: monetization-overview.md
                 - name: How API Management supports monetization
@@ -388,6 +391,12 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
+      - name: Breaking changes
+        items:
+            - name: Overview
+              href: breaking-changes/overview.md
+            - name: Virtual Network Changes (March 2023)
+              href: breaking-changes/rp-source-ip-address-change-mar2023.md
       - name: Regional availability
         href: https://azure.microsoft.com/global-infrastructure/services/
       - name: Videos

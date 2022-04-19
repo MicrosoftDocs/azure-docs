@@ -2,10 +2,15 @@
 title: Security agent authentication methods
 description: Learn about the different authentication methods available when using the Defender for IoT service.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Security agent authentication methods
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Authenticate the micro agent](tutorial-standalone-agent-binary-installation.md#authenticate-the-micro-agent).
+>
+
 
 This article explains the different authentication methods you can use with the AzureIoTSecurity agent to authenticate with the IoT Hub.
 

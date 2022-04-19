@@ -1,8 +1,8 @@
 ---
 title: Compare Azure Database for PostgreSQL - Single Server and Flexible Server
 description: Detailed comparison of features and capabilities between Azure Database for PostgreSQL Single Server and Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.date: 12/08/2021
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
 
-The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server.
+The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server. For most new deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
 
 | **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
@@ -98,7 +98,7 @@ The following table provides a high-level features and capabilities comparisons 
 | Saturation | Backup storage used, CPU %, IO %, Memory %, Server log storage limit, server log storage %, server log storage used, Storage limit, Storage %, Storage used | Backup storage used, CPU credits consumed, CPU credits remaining, CPU %, Disk queue depth, IOPS, Memory %, Read IOPS, Read throughput bytes/s, storage free, storage %, storage used, Transaction log storage used, Write IOPS, Write throughput bytes/s |
 | Traffic | Active connections, Network In, Network out | Active connections, Max. used transaction ID, Network In, Network Out, succeeded connections |
 | **Extensions** | | (offers latest versions)|
-| TimescaleDB, orafce, plv8 | Yes | No |
+| TimescaleDB, orafce | Yes | Yes |
 | PgCron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
 | **Security** | | |
