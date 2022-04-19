@@ -447,7 +447,7 @@ Next, complete the following steps:
 1. After you configure the trigger or action, you can save the workflow and test the trigger or action.
 
 
-### Troubleshooting
+## Troubleshoot problems with accessing storage accounts
 
 This is a commonlu reported error, when the workflow and the storage account are in the same region. There are options available in the [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls) section to help resolve this limitation.
 
