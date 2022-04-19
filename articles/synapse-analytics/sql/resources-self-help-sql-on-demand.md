@@ -524,7 +524,7 @@ There are reasons why this can happen:
  - This issue can also occur with delta format. The query might succeed on retry because there is a new version of the table and the deleted file is not queried again.
 
 - Invalid execution plan cached
-  - As a temporary mitigation, run the command ```DBCC FREEPROCCACHE```. If the problem persists create a support ticket.
+  - As a temporary mitigation, run the command `DBCC FREEPROCCACHE`. If the problem persists create a support ticket.
 
 
 ### [0x80070005](#tab/x80070005)
