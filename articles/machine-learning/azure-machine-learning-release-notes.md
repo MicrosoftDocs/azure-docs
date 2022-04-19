@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 03/28/2022
+ms.date: 04/25/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
