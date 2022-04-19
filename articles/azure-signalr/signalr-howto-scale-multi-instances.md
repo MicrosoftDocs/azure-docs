@@ -234,7 +234,7 @@ private class CustomRouter : EndpointRouterDecorator
 
 ## Dynamic Scale ServiceEndpoints
 
-From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NET Core version first. So you don't have to restart app server when you need to add/remove a ServiceEndpoint. As ASP.NET Core is supporting default configuration like `appsettings.json` with `reloadOnChange: true`, you don't need to change a code and it's supported by nature. And if you'd like to add some customized configuration and work with hot-reload, please refer to [this](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1).
+From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NET Core version first. So you don't have to restart app server when you need to add/remove a ServiceEndpoint. As ASP.NET Core is supporting default configuration like `appsettings.json` with `reloadOnChange: true`, you don't need to change a code and it's supported by nature. And if you'd like to add some customized configuration and work with hot-reload, please refer to [this](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1).
 
 > [!NOTE] 
 > 
