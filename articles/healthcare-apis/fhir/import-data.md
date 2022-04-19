@@ -9,9 +9,9 @@ ms.date: 04/19/2022
 ms.author: ranku
 ---
 
-# Bulk import FHIR data (Preview)
+# Bulk-import FHIR data (Preview)
 
-The Bulk import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
+The bulk-import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
 
 ## Current limitations
 
@@ -21,7 +21,7 @@ The Bulk import feature enables importing FHIR data to the FHIR server at high t
 
 ## Using $import operation
 
-To use $import, you'll need to configure the FHIR server using the instructions in the [Configure bulk import settings](configure-import-data.md) article and set the **initialImportMode** to *true*. Doing so also suspends write operations (POST and PUT) on the FHIR server. You should set the **initialImportMode** to *false* to reenable write operations after you have finished importing your data.
+To use $import, you'll need to configure the FHIR server using the instructions in the [Configure bulk-import settings](configure-import-data.md) article and set the **initialImportMode** to *true*. Doing so also suspends write operations (POST and PUT) on the FHIR server. You should set the **initialImportMode** to *false* to reenable write operations after you have finished importing your data.
 
 The FHIR data to be imported must be stored in resource specific files in FHIR NDJSON format on the Azure blob store. All the resources in a file must be of the same type. You may have multiple files per resource type.
 
@@ -115,7 +115,7 @@ Below are some of the important fields in the response body:
 
 | Field | Description |
 | ----------- | ----------- |
-|transactionTime|Start time of the bulk import operation.|
+|transactionTime|Start time of the bulk-import operation.|
 |output.count|Count of resources that were successfully imported|
 |error.count|Count of resources that weren't imported due to some error|
 |error.url|URL of the file containing details of the error. Each error.url is unique to an input URL. |

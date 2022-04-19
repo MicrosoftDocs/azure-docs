@@ -93,9 +93,9 @@ items:
   - name: Bulk import data
     expanded: true
     items:
-    - name: Configure bulk import settings 
+    - name: Configure bulk-import settings 
       href: configure-import-data.md
-    - name: Use bulk import
+    - name: Use bulk-import
       href: import-data.md   
   - name: Copy data to Synapse
     href: copy-to-synapse.md
