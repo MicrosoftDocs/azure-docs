@@ -449,7 +449,11 @@ Next, complete the following steps:
 
 ## Troubleshoot problems with accessing storage accounts
 
-This is a commonlu reported error, when the workflow and the storage account are in the same region. There are options available in the [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls) section to help resolve this limitation.
+
+- **"This request is not authorized to perform this operation."**
+
+   The following error is a commonly reported problem that happens when your logic app and storage account exist in the same region. However, options are available to resolve this limitation as described in the section, [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
+
 
 ```
 {
