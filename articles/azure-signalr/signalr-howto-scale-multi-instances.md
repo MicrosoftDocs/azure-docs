@@ -6,11 +6,11 @@ ms.service: signalr
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 03/27/2019
+ms.date: 04/08/2022
 ms.author: lianwei
 ---
 # How to scale SignalR Service with multiple instances?
-The latest SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
+SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
 
 ## For ASP.NET Core
 
@@ -208,6 +208,40 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
                 };
 });
 ```
+
+## Service Endpoint Metrics
+
+To enable advanced router, SignalR server SDK provides multiple metrics to help server do smart decision. The properties are under `ServiceEndpoint.EndpointMetrics`.
+
+| Metric Name | Description |
+| -- | -- |
+| `ClientConnectionCount` | Total concurrent connected client connection count on all hubs for the service endpoint |
+| `ServerConnectionCount` | Total concurrent connected server connection count on all hubs for the service endpoint |
+| `ConnectionCapacity` | Total connection quota for the service endpoint, including client and server connections |
+
+Below is an example to customize router according to `ClientConnectionCount`.
+
+```cs
+private class CustomRouter : EndpointRouterDecorator
+{
+    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
+    {
+        return endpoints.OrderBy(x => x.EndpointMetrics.ClientConnectionCount).FirstOrDefault(x => x.Online) // Get the available endpoint with minimal clients load
+               ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
+    }
+}
+```
+
+## Dynamic Scale ServiceEndpoints
+
+From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NET Core version first. So you don't have to restart app server when you need to add/remove a ServiceEndpoint. As ASP.NET Core is supporting default configuration like `appsettings.json` with `reloadOnChange: true`, you don't need to change a code and it's supported by nature. And if you'd like to add some customized configuration and work with hot-reload, please refer to [this](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1).
+
+> [!NOTE] 
+> 
+> Considering the time of connection set-up between server/service and client/service may be different, to ensure no message loss during the scale process, we have a staging period waiting for server connections be ready before open the new ServiceEndpoint to clients. Usually it takes seconds to complete and you'll be able to see log like `Succeed in adding endpoint: '{endpoint}'` which indicates the process complete. But for some unexpected reasons like cross-region network issue or configuration inconsistent on different app servers, the staging period will not be able to finish correctly. Since limited things can be done in these cases, we choose to promote the scale as it is. It's suggested to restart App Server when you find the scaling process not working correctly.
+> 
+>  The default timeout period for the scale is 5 minutes, and it can be customized by changing the value in `ServiceOptions.ServiceScaleTimeout`. If you have a lot of app servers, it's suggested to extend the value a little bit more.
+
 
 ## Configuration in cross-region scenarios
 

@@ -28,7 +28,7 @@ For detailed information on dynamic management views, see [Dynamic Management Vi
 
 ## Monitor with SQL insights
 
-[Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md) is a tool for monitoring Azure SQL managed instances, Azure SQL databases, and SQL Server instances in Azure SQL VMs. This service uses a remote agent to capture data from dynamic management views (DMVs) and routes the data to Azure Log Analytics, where it can be monitored and analyzed. You can view this data from [Azure Monitor](../../azure-monitor/overview.md) in provided views, or access the Log data directly to run queries and analyze trends. To start using Azure Monitor SQL insights, see [Enable SQL insights](../../azure-monitor/insights/sql-insights-enable.md).
+[Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md) is a tool for monitoring managed instances, databases in Azure SQL Database, and SQL Server instances in Azure SQL VMs. This service uses a remote agent to capture data from dynamic management views (DMVs) and routes the data to Azure Log Analytics, where it can be monitored and analyzed. You can view this data from [Azure Monitor](../../azure-monitor/overview.md) in provided views, or access the Log data directly to run queries and analyze trends. To start using Azure Monitor SQL insights, see [Enable SQL insights](../../azure-monitor/insights/sql-insights-enable.md).
 
 ## Permissions
 
@@ -747,6 +747,14 @@ ORDER BY 2 DESC;
 
 Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). For more information on troubleshooting blocking, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
+### Monitoring deadlocks
+
+In some cases, two or more queries may mutually block one another, resulting in a deadlock. 
+
+You can create an Extended Events trace a database in Azure SQL Database to capture deadlock events, then find related queries and their execution plans in Query Store. Learn more in [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md).
+
+For Azure SQL Managed Instance, refer to the [Deadlocks](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#deadlock_tools) of the [Transaction locking and row versioning guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide).
+
 ### Monitoring query plans
 
 An inefficient query plan also may increase CPU consumption. The following example uses the [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) view to determine which query uses the most cumulative CPU.
@@ -776,3 +784,5 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 - [Introduction to Azure SQL Database and Azure SQL Managed Instance](sql-database-paas-overview.md)
 - [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)
 - [Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance](performance-guidance.md)
+- [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md)
+- [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md)

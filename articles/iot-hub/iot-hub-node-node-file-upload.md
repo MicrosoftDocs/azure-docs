@@ -1,9 +1,9 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Node | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Node.js. Uploaded files are stored in an Azure storage blob container.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: javascript

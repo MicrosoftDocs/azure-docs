@@ -34,7 +34,7 @@ The recommendation is:
     
         A shared cache is faster because it's not serialized. However, the memory will grow as tokens are cached. The number of tokens is equal to the number of tenants times the number of downstream APIs. An app token is about 2 KB in size, whereas tokens for a user are about 7 KB in size. It's great for development, or if you have few users. 
     -	If you  want to use an in-memory token cache and control its size and eviction policies, use the [Microsoft.Identity.Web in-memory cache option](msal-net-token-cache-serialization.md?tabs=aspnet#in-memory-token-cache-1).
--	If you build an SDK and want to write your own token cache serializer for confidential client applications, inherit from [Microsoft.Identity.Web.MsalAsbtractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
+-	If you build an SDK and want to write your own token cache serializer for confidential client applications, inherit from [Microsoft.Identity.Web.MsalAbstractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
 
 
 ## [ASP.NET Core web apps and web APIs](#tab/aspnetcore)
@@ -103,7 +103,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
-    options.sizeLimit = 1024 * 1024 * 1024, // 1 GB
+    options.L1CacheOptions.SizeLimit = 1024 * 1024 * 1024, // 1 GB
 
     // You can choose if you encrypt or not encrypt the cache
     options.Encrypt = false;
@@ -496,7 +496,7 @@ The strategies are different depending on whether you're writing a token cache s
 
 ### Custom token cache for a web app or web API (confidential client application)
 
-If you want to write your own token cache serializer for confidential client applications, we recommend that you inherit from [Microsoft.Identity.Web.MsalAsbtractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
+If you want to write your own token cache serializer for confidential client applications, we recommend that you inherit from [Microsoft.Identity.Web.MsalAbstractTokenCacheProvider](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache/MsalAbstractTokenCacheProvider.cs) and override the `WriteCacheBytesAsync` and `ReadCacheBytesAsync` methods.
 
 Examples of token cache serializers are provided in [Microsoft.Identity.Web/TokenCacheProviders](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.TokenCache).
 

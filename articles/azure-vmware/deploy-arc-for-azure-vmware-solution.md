@@ -347,7 +347,7 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
-1. Delete the appliance ARM resource.
+1. Delete the resource bridge ARM resource.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
 1. Download the latest version of the Azure VMware Solution onboarding script.
@@ -404,9 +404,9 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 ## Preview FAQ
 
-**How do you onboard a customer?**
+**Is Arc supported in all the Azure VMware Solution regions?**
  
-Fill in the [Customer Enrollment form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
+Arc is supported in EastUS and WestEU regions however we are working to extend the regional support.
 
 **How does support work?**
 

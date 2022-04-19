@@ -4,7 +4,7 @@ description: Learn how to configure managed disks for Apache Kafka cluster on Az
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/09/2019
+ms.date: 04/08/2022
 ---
 
 # Configure storage and scalability for Apache Kafka on HDInsight
