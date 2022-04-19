@@ -50,7 +50,7 @@ To download the publishing profile of your function app:
 
 ### Add the GitHub secret
 
-1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **Add a new secret**.
+1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **New Repository Secret**.
 
    :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Add Secret":::
 
