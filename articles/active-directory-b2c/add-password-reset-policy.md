@@ -332,7 +332,7 @@ To test the user flow:
 
 ### Create a password reset policy
 
-Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs that have several pre-built policies, including sign-up and sign-in, password reset, and profile editing policies. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define user journeys. We provide [starter packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) that have several pre-built policies, including sign up and sign in, password reset, and profile editing policies. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 
