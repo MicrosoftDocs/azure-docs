@@ -13,7 +13,7 @@ ms.date: 04/18/2021
 
 # Tutorial: Atlas 2.2 new functionality
 
-In this tutorial, you learn how to programmatically interact with new Atlas 2.2 APIs with Atlas Purview's Data map.
+In this tutorial, you learn how to programmatically interact with new Atlas 2.2 APIs with Microsoft Purview's data map.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
