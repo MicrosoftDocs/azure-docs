@@ -307,7 +307,7 @@ To access storage accounts behind firewalls using the ISE-versioned Azure Blob S
 
 To access storage accounts behind firewalls using the *built-in* Azure Blob Storage connector that's only available in Standard logic apps, review the following documentation:
 
-- [Access storage accounts through VNet integration](#access-storage-accounts-through-VNet-integration)
+- [Access storage accounts through VNet integration](#access-storage-accounts-through-vnet-integration)
 
 
 
