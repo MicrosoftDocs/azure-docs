@@ -1,12 +1,12 @@
 ---
 title: Solutions for common errors and problems in B2B scenarios
-description: Find solutions for common errors and problems when troubleshooting B2B scenarios in Azure Logic Apps
+description: Find solutions for common errors and problems when troubleshooting B2B scenarios in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: conceptual
 ms.date: 06/02/2017
 ---
 
@@ -17,7 +17,7 @@ scenarios and suggests appropriate actions for correcting those errors.
 
 ## Agreement resolution
 
-### No agreement found 
+### No agreement found
 
 **Error description**: No agreement found with Agreement Resolution Parameters.
 

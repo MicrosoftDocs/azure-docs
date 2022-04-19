@@ -32,8 +32,6 @@ Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an Open
     -o table
     ```
 
-ARO pull secret does not change the cost of the RH OpenShift license for ARO.
-
 ### Verify your permissions
 
 During this tutorial, you will create a resource group, which will contain the virtual network for the cluster. You must have either Contributor and User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
@@ -83,9 +81,12 @@ az feature register --namespace Microsoft.RedHatOpenShift --name preview
 
 ### Get a Red Hat pull secret (optional)
 
+   > [!NOTE] 
+   > ARO pull secret does not change the cost of the RH OpenShift license for ARO.
+
 A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
 
-1. [Navigate to your Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and log in.
+1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and log in.
 
    You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 
@@ -126,7 +127,7 @@ Next, you will create a virtual network containing two empty subnets. If you hav
 
 2. **Create a resource group.**
 
-   An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, and it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group#az_group_create) command.
+   An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, and it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group#az-group-create) command.
     
    > [!NOTE] 
    > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift) for information on where Azure Red Hat OpenShift is supported.

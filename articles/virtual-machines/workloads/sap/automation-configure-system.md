@@ -1,6 +1,6 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters JSON file.
+description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Configure SAP system parameters for automation
+# Configure SAP system parameters 
 
 Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment. 
 
-The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
+The configuration of the SAP system is done via a Terraform tfvars variable file.
 
 ## Terraform Parameters
 
@@ -40,6 +40,8 @@ The table below contains the parameters that define the resource group and the r
 > | `location`              | The Azure region in which to deploy.     | Required   | 
 > | `resource_group_name`   | Name of the resource group to be created | Optional   |
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   | 
+> | `custom_prefix`         | Specifies the custom prefix used in the resource naming  | Optional   | 
+> | `use_prefix`            | Controls if the resource naming includes the prefix, DEV-WEEU-SAP01-X00_xxxx | Optional   | 
 
 ## Network Parameters
 
@@ -99,7 +101,7 @@ The database tier defines the infrastructure for the database tier, supported da
 > | Variable                          | Description                                                                              | Type         | Notes              |
 > | --------------------------------  | -----------------------------------------------------------------------------------------| -----------  | ------------------ |
 > | `database_platform`               | Defines the database backend                                                             | Required     |                    |
-> | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     | See [High availability configuration ](automation-configure-system.md#high-availability-configuration) |
+> | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     | See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
 > | `database_server_count`           | Defines the number of database servers                                                   | Optional     | Default value is 1 |
 > | `database_vm_names`               | Defines the database server virtual machine names if the default naming is not acceptable | Optional    |                    |
 > | `database_size`                   | Defines the database sizing information                                                  | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
@@ -115,6 +117,7 @@ The database tier defines the infrastructure for the database tier, supported da
 > | `database_vm_avset_arm_ids`       | Defines the existing availability sets Azure resource IDs                                | Optional	    | Primarily used together with ANF pinning| 
 > | `database_no_avset`               | Controls if the database virtual machines are deployed without availability sets         | Optional	    | default is false   |
 > | `database_no_ppg`                 | Controls if the database servers will not be placed in a proximity placement group       | Optional	    | default is false   |
+> | `hana_dual_nics`                 | Controls if the HANA database servers will have dual network interfaces  | Optional	    | default is true   |
 
 The Virtual Machine and the operating system image is defined using the following structure: 
 
@@ -167,7 +170,7 @@ The application tier defines the infrastructure for the application tier, which 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                               | Description                                                          | Type      | Notes  |
 > | -------------------------------------- | -------------------------------------------------------------------- | ----------| ------ |
-> | `scs_high_availability`	               | Defines if the Central Services is highly available                  | Optional	| See [High availability configuration ](automation-configure-system.md#high-availability-configuration) |
+> | `scs_high_availability`	               | Defines if the Central Services is highly available                  | Optional	| See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
 > | `scs_instance_number`	                 | The instance number of SCS                                           | Optional  |        |
 > | `ers_instance_number`	                 | The instance number of ERS                                           | Optional	|        |
 > | `scs_server_count`	                   | Defines the number of scs servers                                    | Required	|        |
@@ -249,25 +252,32 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `resource_offset`                              | Provides and offset for resource naming. The offset number for resource naming when creating multiple resources. The default value is 0, which creates a naming pattern of disk0, disk1, and so on. An offset of 1 creates a naming pattern of disk1, disk2, and so on. | Optional    |
 > | `disk_encryption_set_id`                       | The disk encryption key to use for encrypting managed disks using customer provided keys | Optional   |
 > | `use_loadbalancers_for_standalone_deployments` | Controls if load balancers are deployed for standalone installations | Optional |
-> | `bom_name`                                     | Name of the SAP BOM to use                                           | Optional |
+> | `license_type`                                 | Specifies the license type for the virtual machines. | Possible values are `RHEL_BYOS` and `SLES_BYOS`. For Windows the possible values are `None`, `Windows_Client` and `Windows_Server`. |
+> | `use_zonal_markers`                            | Specifies if zonal Virtual Machines will include a zonal identifier. 'xooscs_z1_00l###' vs  'xooscs00l###'| Default value is true. |
 
 
-## Azure NetApp Support
-
+## NFS Support
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                             | Type        |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `use_ANF`                          | If specified, deploys the Azure NetApp Files Account and Capacity Pool  | Optional    |
-> | `anf_sapmnt_volume_size`           | Defines the size (in GB) for the 'sapmnt' volume                        | Optional    |
-> | `anf_transport_volume_size`        | Defines the size (in GB) for the 'saptransport' volume                  | Optional    |
+> | `NFS_provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files.  | 
+> | `sapmnt_volume_size`               | Defines the size (in GB) for the 'sapmnt' volume                        | Optional    |
+
+### Azure Files NFS Support
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                           | Description                                                            | Type         |
+> | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
+> | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account for Azure Files | Optional    |  
 
 
 ## High availability configuration
 
 The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags. 
 
-High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device)
+High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device)
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"
@@ -286,13 +296,10 @@ Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-S
 The fencing agent details must be stored in the workload zone key vault using a predefined naming convention. Replace `<prefix>` with the name prefix of your environment, such as `DEV-WEEU-SAP01`, `<workload_kv_name>` with the name of the key vault from the workload zone resource group and for the other values use the values recorded from the previous step and run the script.
 
 
-```azurecli
-
-    ```azurecli-interactive
-    az keyvault secret set --name "<prefix>-fencing-spn-id" --vault-name "<workload_kv_name>" --value "<appId>";
-    az keyvault secret set --name "<prefix>-fencing-spn-pwd" --vault-name "<workload_kv_name>" --value "<password>";
-    az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workload_kv_name>" --value "<tenant>";
-    ```
+```azurecli-interactive
+az keyvault secret set --name "<prefix>-fencing-spn-id" --vault-name "<workload_kv_name>" --value "<appId>";
+az keyvault secret set --name "<prefix>-fencing-spn-pwd" --vault-name "<workload_kv_name>" --value "<password>";
+az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workload_kv_name>" --value "<tenant>";
 ```
 
 ## Next steps

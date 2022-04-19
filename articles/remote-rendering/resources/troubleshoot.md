@@ -55,9 +55,9 @@ The reason for this issue is an incorrect security setting on the DLLs. This pro
 1. Open a **PowerShell with admin rights** and run
 
     ```PowerShell
-    Get-AppxPackage -Name Microsoft.HEVCVideoExtension
+    Get-AppxPackage -Name Microsoft.HEVCVideoExtension*
     ```
-  
+    (Note the '*' is because for some package installation versions the name is `HEVCVideoExtensions` as opposed to `HEVCVideoExtension`).
     That command should output the `InstallLocation` of the codec, something like:
   
     ```cmd

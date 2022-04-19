@@ -3,7 +3,7 @@ title: Use the REST API to manage devices in Azure IoT Central
 description: How to use the IoT Central REST API to control devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/28/2021
+ms.date: 12/28/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -36,7 +36,7 @@ Components let you group and reuse device capabilities. To learn more about comp
 
 Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Root component**:
 
-:::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Screenshot that shows a simple no component thermostat device.":::
+:::image type="content" source="media/howto-control-devices-with-rest-api/thermostat-device.png" alt-text="Screenshot that shows a simple no component thermostat device." lightbox="media/howto-control-devices-with-rest-api/thermostat-device.png":::
 
 The following screenshot shows a [temperature controller](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json) device template that uses components. The temperature controller has two thermostat components and a device information component:
 
@@ -421,7 +421,7 @@ The request body looks like the following example:
 
 ```json
 {
-  "since": "2021-03-24T12:55:20.789Z"
+  "request": "2021-03-24T12:55:20.789Z"
 }
 ```
 

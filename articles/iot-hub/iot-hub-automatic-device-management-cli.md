@@ -1,12 +1,12 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub (CLI) | Microsoft Docs
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices or modules
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/08/2021
-ms.author: lizross
+ms.author: kgremban
 ---
 
 # Automatic IoT device and module management using the Azure CLI
@@ -123,7 +123,7 @@ Use the following command to create a configuration:
      --metrics [metric queries]
 ```
 
-* --**config-id** - The name of the configuration that will be created in the IoT hub. Give your configuration a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+* --**config-id** - The name of the configuration that will be created in the IoT hub. Give your configuration a unique name that is up to 128 characters long. Lowercase letters and the following special characters are allowed: `-+%_*!'`. Spaces are not allowed.
 
 * --**labels** - Add labels to help track your configuration. Labels are Name, Value pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`
 

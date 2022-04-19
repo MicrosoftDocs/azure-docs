@@ -1,14 +1,13 @@
 ---
 title: Query JSON files using serverless SQL pool 
 description: This section explains how to read JSON files using serverless SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Query JSON files using serverless SQL pool in Azure Synapse Analytics
@@ -57,7 +56,7 @@ The JSON document in the preceding sample query includes an array of objects. Th
 
 ### Data source usage
 
-Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in the `OPENROWSET` function:
+The previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in the `OPENROWSET` function:
 
 ```sql
 create external data source covid

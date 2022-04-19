@@ -4,7 +4,8 @@ description: Learn how to configure a host-based encryption in an Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 04/26/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 
 ---

@@ -1,13 +1,13 @@
 ---
-title: View a custom classification model evaluation - Azure Cognitive Services
+title: View a custom text classification model evaluation - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how to view the evaluation scores for a custom classification model
+description: Learn how to view the evaluation scores for a custom text classification model
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
@@ -15,13 +15,13 @@ ms.custom: language-service-custom-classification, ignite-fall-2021
 
 # View the model evaluation
 
-Reviewing model evaluation is an important step in developing a custom classification model. It helps you learn how well your model is performing, and gives you an idea about how it will perform when used in production. 
+Reviewing model evaluation is an important step in developing a custom text classification model. It helps you learn how well your model is performing, and gives you an idea about how it will perform when used in production. 
 
 
 ## Prerequisites
 
 Before you train your model you need:
-* [A custom classification project](create-project.md) with a configured Azure blob storage account, 
+* [A custom text classification project](create-project.md) with a configured Azure blob storage account, 
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md)
 * A successfully [trained model](train-model.md)
@@ -34,37 +34,21 @@ The evaluation process uses the trained model to predict user-defined classes fo
 
 ## View the model details using Language Studio
 
-1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
-    1. Look for the section in Language Studio labeled **Classify text**.
-    2. Select **Custom text classification**. 
+[!INCLUDE [View model details](../includes/model-evaluation-language-studio.md)]
 
-2. Select **View model details** from the left side menu.
-
-3. View your model training status in the **Status** column, and the F1 score for the model in the **F1 score** column.
-
-    :::image type="content" source="../media/model-details-1.png" alt-text="View model details button" lightbox="../media/model-details-1.png":::
-
-1. Click on the model name for more details.
-
-2. You can find the **model-level** evaluation metrics under the **Overview** section and the **class-level** evaluation metrics  under the **Class performance metrics** section. See [Evaluation metrics](../concepts/evaluation.md#model-level-and-class-level-evaluation-metrics) for more information.
-
-    :::image type="content" source="../media/model-details-2.png" alt-text="Model performance metrics" lightbox="../media/model-details-2.png":::
-
-> [!NOTE]
-> If you don't find all the classes displayed here, it is because there were no tagged files of this class in the test set.
 
 Under the **Test set confusion matrix**, you can find the confusion matrix for the model.
 
 > [!NOTE]
-> The confusion matrix is currently not supported for multiple label classification projects.
+> The confusion matrix is currently not supported for multi label classification projects.
 
 **Single label classification**
 
-:::image type="content" source="../media/conf-matrix-single.png" alt-text="Confusion matrix for single class classification" lightbox="../media/conf-matrix-single.png":::
+:::image type="content" source="../media/conf-matrix-single.png" alt-text="Confusion matrix for single label classification" lightbox="../media/conf-matrix-single.png":::
 
-<!-- **Multiple Label Classification**
+<!-- **Multi label classification**
 
-:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png"::: -->
+:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multi label classification" lightbox="../media/conf-matrix-multi.png"::: -->
 
 ## Next steps
 

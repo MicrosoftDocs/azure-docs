@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Use Java to create a document database using Azure Cosmos DB
 description: This quickstart presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.author: anfeldma
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.author: jroth
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data
@@ -22,6 +22,8 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ot
 > * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
+> * [Go](create-sql-api-go.md)
+
 
 In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Java app cloned from GitHub. First, you create an Azure Cosmos DB SQL API account using the Azure portal, then create a Java app using the SQL Java SDK, and then add resources to your Cosmos DB account by using the Java application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 

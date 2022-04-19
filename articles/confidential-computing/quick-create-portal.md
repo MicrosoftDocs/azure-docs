@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
 ms.author: stempesta
-ms.custom: mode-portal, ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 
@@ -58,7 +58,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
         ![image](https://user-images.githubusercontent.com/63871188/137009767-421ee49a-ded8-4cfd-ac53-a3d6750880b9.png)
 
 
-1. Choose a virtual machine with Intel SGX capabilities in the size selector by choosing **change size**. In the virtual machine size selector, click **Clear all filters**. Choose **Add filter**, select **Family** for the filter type, and then select only **Confidential compute**.
+1. Choose a virtual machine with Intel SGX capabilities by clicking on **+ Add filter** to create a filter, select **Type** for Filter type, and check only **Confidential compute** from the list in the next dropdown.
 
     ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtual-machines.png)
 

@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/19/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Troubleshoot application volume group errors
 

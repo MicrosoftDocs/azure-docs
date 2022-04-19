@@ -56,7 +56,7 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure portal
 
-    **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
+    **Download the file**: In the [Azure portal](https://portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 
     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
@@ -118,9 +118,7 @@ When running a local Jupyter Notebook server, it's recommended that you create a
 1. Launch the Jupyter Notebook server
 
 See the [Azure Machine Learning notebooks repository](https://github.com/Azure/MachineLearningNotebooks) to get started with Azure Machine Learning and Jupyter Notebooks.
-
-> [!NOTE]
-> A community-driven repository of examples can be found at https://github.com/Azure/azureml-examples.
+Also see the community-driven repository, [AzureML-Examples](https://github.com/Azure/azureml-examples).
 
 ### <a id="vscode"></a>Visual Studio Code
 
@@ -216,5 +214,5 @@ For more information, see [Data Science Virtual Machines](https://azure.microsof
 
 ## Next steps
 
-- [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset.
+- [Train and deploy a model](tutorial-train-deploy-notebook.md) on Azure Machine Learning with the MNIST dataset.
 - See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro). 

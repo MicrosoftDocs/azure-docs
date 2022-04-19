@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Manage the twin graph and relationships
 titleSuffix: Azure Digital Twins
-description: See how to manage a graph of digital twins by connecting them with relationships.
+description: Learn how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/13/2021
+ms.date: 02/23/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -17,11 +17,9 @@ ms.service: digital-twins
 
 # Manage a graph of digital twins using relationships
 
-The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made  of individual digital twins connected via **relationships**. 
+The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made of individual digital twins connected via **relationships**. This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [Manage digital twins](how-to-manage-twin.md).
 
 Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
-
-This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [Manage digital twins](how-to-manage-twin.md).
 
 ## Prerequisites
 
@@ -38,7 +36,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-The types of relationships that can be created from one (source) twin to another (target) twin are defined as part of the source twin's [DTDL model](concepts-models.md#relationships). You can create an instance of a relationship by using the `CreateOrReplaceRelationshipAsync()` SDK call with twins and relationship details that comply with the DTDL definition. 
+The types of relationships that can be created from one (source) twin to another (target) twin are defined as part of the source twin's [DTDL model](concepts-models.md#relationships). You can create an instance of a relationship by using the `CreateOrReplaceRelationshipAsync()` SDK call with twins and relationship details that follow the DTDL definition. 
 
 To create a relationship, you need to specify:
 * The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
@@ -70,7 +68,7 @@ Relationships can be classified as either:
 
 There's no restriction on the number of relationships that you can have between two twins—you can have as many relationships between twins as you like. 
 
-This means that you can express several different types of relationships between two twins at once. For example, Twin A can have both a *stored* relationship and *manufactured* relationship with Twin B.
+This fact means that you can express several different types of relationships between two twins at once. For example, Twin A can have both a *stored* relationship and *manufactured* relationship with Twin B.
 
 You can even create multiple instances of the same type of relationship between the same two twins, if you want. In this example, Twin A could have two different *stored* relationships with Twin B, as long as the relationships have different relationship IDs.
 
@@ -160,18 +158,18 @@ You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-## Create graph from a CSV file
+## Create graph from a CSV file
 
 In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
 
-Consider the following data table, describing a set of digital twins and relationships.
+Consider the following data table, describing a set of digital twins and relationships.
 
-|  Model ID    | Twin ID (must be unique) | Relationship name  | Target twin ID  | Twin init data |
+|  Model ID    | Twin ID (must be unique) | Relationship name  | Target twin ID  | Twin init data |
 | --- | --- | --- | --- | --- |
 | dtmi:example:Floor;1    | Floor1 | contains | Room1 | |
 | dtmi:example:Floor;1    | Floor0 | contains | Room0 | |
-| dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
-| dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
+| dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
+| dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
 One way to get this data into Azure Digital Twins is to convert the table to a CSV file. Once the table is converted, code can be written to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
 
@@ -192,6 +190,8 @@ Next, create a **new console app project** in Visual Studio or your editor of ch
 Then, **copy the following code** of the runnable sample into your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
+
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
 
 ### Configure project
 

@@ -11,13 +11,11 @@ metadata:
   ms.service: notification-hubs
   ms.workload: mobile
   ms.tgt_pltfrm: mobile-multiple
-  ms.devlang: multiple
-  ms.topic: article
+  ms.topic: faq
   ms.date: 02/12/2021
   ms.author: sethm
   ms.reviewer: thsomasu
   ms.lastreviewed: 11/13/2019
-    
 title: "Push notifications with Azure Notification Hubs: Frequently asked questions"
 summary: |
 

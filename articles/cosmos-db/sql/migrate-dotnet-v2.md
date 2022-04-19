@@ -6,6 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/26/2021
+ms.devlang: csharp
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v2

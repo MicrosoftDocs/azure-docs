@@ -18,12 +18,20 @@ The linter is integrated into the Bicep CLI and the Bicep extension for Visual S
 The default set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md). The extension and Bicep CLI check the following rules, which are set to the warning level.
 
 - [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
+- [max-outputs](./linter-rule-max-outputs.md)
+- [max-params](./linter-rule-max-parameters.md)
+- [max-resources](./linter-rule-max-resources.md)
+- [max-variables](./linter-rule-max-variables.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+- [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
 - [no-unused-params](./linter-rule-no-unused-parameters.md)
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
+- [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+- [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
+- [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 
 You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
@@ -55,5 +63,5 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Next steps
 
-* For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
-* For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+- For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
+- For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

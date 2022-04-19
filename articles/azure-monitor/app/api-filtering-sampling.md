@@ -3,6 +3,7 @@ title: Filtering and preprocessing in the Application Insights SDK | Microsoft D
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
 ms.date: 11/23/2016
+ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -34,7 +35,9 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 >
 >
 
-### Create a telemetry processor (C#)
+### Create a telemetry processor 
+
+### C#
 
 1. To create a filter, implement `ITelemetryProcessor`.
 
@@ -43,6 +46,7 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.DataContracts;
 
     public class SuccessfulDependencyFilter : ITelemetryProcessor
     {
@@ -127,6 +131,8 @@ For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetry-proces
     }
 ```
 
+To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
+
 ### Example filters
 
 #### Synthetic requests
@@ -191,6 +197,10 @@ public void Process(ITelemetry item)
 [This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
 
 <a name="add-properties"></a>
+
+### Java
+
+To learn more about telemetry processors and their implementation in Java, please reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
 
 ### JavaScript web applications
 

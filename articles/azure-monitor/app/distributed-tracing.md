@@ -3,10 +3,7 @@ title: Distributed Tracing in Azure Application Insights | Microsoft Docs
 description: Provides information about Microsoft's support for distributed tracing through our partnership in the OpenCensus project
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-author: nikmd23
-ms.author: nimolnar
 ms.date: 09/17/2018
-
 ms.reviewer: mbullwin
 ---
 
@@ -33,7 +30,7 @@ The Application Insights agents and/or SDKs for .NET, .NET Core, Java, Node.js, 
 * [.NET](asp-net.md)
 * [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
-* [Node.js](../app/nodejs-quick-start.md)
+* [Node.js](../app/nodejs.md)
 * [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 

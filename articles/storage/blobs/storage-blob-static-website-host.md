@@ -8,9 +8,8 @@ ms.topic: tutorial
 ms.date: 11/04/2021
 ms.author: normesta
 ms.reviewer: dineshm
+#Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
 ---
-
-<!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # Tutorial: Host a static website on Blob Storage
 

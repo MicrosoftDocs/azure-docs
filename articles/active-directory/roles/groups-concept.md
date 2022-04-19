@@ -3,12 +3,12 @@ title: Use Azure AD groups to manage role assignments - Azure Active Directory
 description: Use Azure AD groups to simplify role assignment management in Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 09/28/2021
+ms.date: 03/01/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -37,7 +37,7 @@ Role-assignable groups have the following restrictions:
 - You can only set the `isAssignableToRole` property or the **Azure AD roles can be assigned to the group** option for new groups.
 - The `isAssignableToRole` property is **immutable**. Once a group is created with this property set, it can't be changed.
 - You can't make an existing group a role-assignable group.
-- A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
+- A maximum of 500 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 ## How are role-assignable groups protected?
 
@@ -50,7 +50,7 @@ Role-assignable groups are designed to help prevent potential breaches by having
 - Only Global Administrators and Privileged Role Administrators can create a role-assignable group.
 - The membership type for role-assignable groups must be Assigned and can't be an Azure AD dynamic group. Automated population of dynamic groups could lead to an unwanted account being added to the group and thus assigned to the role.
 - By default, only Global Administrators and Privileged Role Administrators can manage the membership of a role-assignable group, but you can delegate the management of role-assignable groups by adding group owners.
-- RoleManagement.ReadWrite.All Microsoft Graph permission is required to be able to manage the membership of such groups; Group.ReadWrite.All won't work.
+- RoleManagement.ReadWrite.Directory Microsoft Graph permission is required to be able to manage the membership of such groups; Group.ReadWrite.All won't work.
 - To prevent elevation of privilege, only a Privileged Authentication Administrator or a Global Administrator can change the credentials or reset MFA for members and owners of a role-assignable group.
 - Group nesting is not supported. A group can't be added as a member of a role-assignable group.
 
@@ -72,9 +72,10 @@ The following scenarios are not supported:
 The following are known issues with role-assignable groups:
 
 - *Azure AD P2 licensed customers only*: Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.  
-- Use the new [Exchange admin center](https://admin.exchange.microsoft.com/) for role assignments via group membership. The old Exchange admin center doesn't support this feature yet. Exchange PowerShell cmdlets will work as expected.
+- Use the new [Exchange admin center](/exchange/exchange-admin-center) for role assignments via group membership. The old Exchange admin center doesn't support this feature. If accessing the old Exchange admin center is required, assign the eligible role directly to the user (not via role-assignable groups). Exchange PowerShell cmdlets will work as expected.
+- If an administrator role is assigned to a role-assignable group instead of individual users, members of the group will not be able to access Rules, Organization, or Public Folders in the new [Exchange admin center](/exchange/exchange-admin-center). The workaround is to assign the role directly to users instead of the group.
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
-- [Apps admin center](https://config.office.com/) doesn't support this feature yet. Assign users directly to Office Apps Administrator role.
+- [Apps admin center](https://config.office.com/) doesn't support this feature yet. Assign the Office Apps Administrator role directly to users.
 
 ## License requirements
 

@@ -23,6 +23,20 @@ The HDInsight Hive activity in an Azure Data Factory or Synapse Analytics [pipel
 
 If you are new to Azure Data Factory and Synapse Analytics, read through the introduction articles for [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md), and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 
+## Add an HDInsight Hive activity to a pipeline with UI
+
+To use an HDInsight Hive activity for Azure Data Lake Analytics in a pipeline, complete the following steps:
+
+1. Search for _Hive_ in the pipeline Activities pane, and drag a Hive activity to the pipeline canvas.
+1. Select the new Hive activity on the canvas if it is not already selected.
+1. Select the  **HDI Cluster** tab to select or create a new linked service to an HDInsight cluster that will be used to execute the Hive activity.
+
+   :::image type="content" source="media/transform-data-using-hadoop-hive/hive-activity.png" alt-text="Shows the UI for a Hive activity.":::
+
+1. Select the **Script** tab to select or create a new storage linked service, and a path within the storage location, which will host the script.
+
+   :::image type="content" source="media/transform-data-using-hadoop-hive/hive-script-configuration.png" alt-text="Shows the UI for the Script tab for a Hive activity.":::
+
 ## Syntax
 
 ```json

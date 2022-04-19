@@ -1,13 +1,14 @@
 ---
 title: Deploy Azure File Sync | Microsoft Docs
 description: Learn how to deploy Azure File Sync, from start to finish, using the Azure portal, PowerShell, or the Azure CLI.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/15/2021
-ms.author: rogarana
+ms.date: 04/12/2022
+ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Deploy Azure File Sync
@@ -77,7 +78,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
 1. Sign in.
 
-   Sign in using the [az login](/cli/azure/reference-index#az_login) command if you're using a local install of the CLI.
+   Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
 
    ```azurecli
    az login
@@ -397,7 +398,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az storagesync sync-group](/cli/azure/storagesync/sync-group#az_storagesync_sync_group_create) command to create a new sync group.  To default a resource group for all CLI commands, use [az configure](/cli/azure/reference-index#az_configure).
+Use the [az storagesync sync-group](/cli/azure/storagesync/sync-group#az-storagesync-sync-group-create) command to create a new sync group.  To default a resource group for all CLI commands, use [az configure](/cli/azure/reference-index#az-configure).
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \
@@ -405,7 +406,7 @@ az storagesync sync-group create --resource-group myResourceGroupName \
                                  --storage-sync-service myStorageSyncServiceName \
 ```
 
-Use the [az storagesync sync-group cloud-endpoint](/cli/azure/storagesync/sync-group/cloud-endpoint#az_storagesync_sync_group_cloud_endpoint_create) command to create a new cloud endpoint.
+Use the [az storagesync sync-group cloud-endpoint](/cli/azure/storagesync/sync-group/cloud-endpoint#az-storagesync-sync-group-cloud-endpoint-create) command to create a new cloud endpoint.
 
 ```azurecli
 az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
@@ -443,6 +444,13 @@ If you'd like to configure your Azure File sync to work with firewall and virtua
 1. Select **Save** to save your settings.
 
     ![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+
+## SMB over QUIC on a server endpoint
+Although the Azure file share (cloud endpoint) is a full SMB endpoint capable of direct access from the cloud or on-premises, customers that desire accessing the file share data cloud-side often deploy an Azure File Sync server endpoint on a Windows Server instance hosted on an Azure VM. The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share may take up to 24 hours or longer to be discovered by Azure File Sync, while changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud-endpoints.
+
+This configuration is extremely common in environments where a substantial portion of users are not on-premises, such as when users are working from home or from the road. Traditionally, accessing any file share with SMB over the public internet, including both file shares hosted on Windows File Server or on Azure Files directly, is very difficult since most organizations and ISPs block port 445. You can work around this limitation with [private endpoints and VPNs](file-sync-networking-overview.md#private-endpoints), however Windows Server 2022 Azure Edition provides an additional access strategy: SMB over the QUIC transport protocol. 
+
+SMB over QUIC communicates over port 443, which most organizations and ISPs have open to support HTTPS traffic. Using SMB over QUIC greatly simplifies the networking required to access a file share hosted on an Azure File Sync server endpoint for clients using Windows 11 or greater. To learn more about how to setup and configure SMB over QUIC on Windows Server Azure Edition, see [SMB over QUIC for Windows File Server](/windows-server/storage/file-server/smb-over-quic). 
 
 ## Onboarding with Azure File Sync
 

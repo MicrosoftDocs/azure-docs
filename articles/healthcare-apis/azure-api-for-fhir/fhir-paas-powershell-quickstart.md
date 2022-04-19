@@ -2,13 +2,13 @@
 title: 'Quickstart: Deploy Azure API for FHIR using PowerShell'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR using PowerShell.
 services: healthcare-apis
-author: matjazl
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/15/2019
-ms.author: zxue
-ms.custom: devx-track-azurepowershell, mode-api
+ms.date: 02/15/2022
+ms.author: dseven 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Deploy Azure API for FHIR using PowerShell
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Register the Azure API for FHIR resource provider
 
-If the `Microsoft.HealthcareApis` resource provider is not already registered for your subscription, you can register it with:
+If the `Microsoft.HealthcareApis` resource provider isn't already registered for your subscription, you can register it with:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.HealthcareApis
@@ -64,10 +64,28 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide. If you are ready to start using the Azure API for FHIR, read more on how to register applications.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For more information about the settings in Azure API for FHIR and to start using Azure API for FHIR, see
 
 >[!div class="nextstepaction"]
 >[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
 
 >[!div class="nextstepaction"]
 >[Register Applications Overview](fhir-app-registration.md)
+
+>[!div class="nextstepaction"]
+>[Configure Azure RBAC](configure-azure-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure local RBAC](configure-local-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure database settings](configure-database.md)
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](customer-managed-key.md)
+
+>[!div class="nextstepaction"]
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)

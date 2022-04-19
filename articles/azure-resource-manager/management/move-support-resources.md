@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 04/18/2022
 ---
 
 # Move operation support for resources
@@ -53,6 +53,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Confluent](#microsoftconfluent)
 > - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
@@ -623,6 +624,13 @@ Jump to a resource provider namespace:
 > | virtualmachines / extensions | Yes | Yes | No |
 > | virtualmachinescalesets | Yes | Yes | No |
 
+## Microsoft.Confluent
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | organizations | No | No | No |
+
 ## Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
@@ -848,7 +856,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | No | No | No |
+> | flexibleServers | Yes | Yes | No |
 > | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
 
 ## Microsoft.DBforPostgreSQL
@@ -856,11 +864,10 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | No | No | No |
+> | flexibleServers | Yes | Yes | No |
 > | servergroups | No | No | No |
 > | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | Yes | Yes | No |
-> | singleservers | Yes | Yes | No |
 
 ## Microsoft.DeploymentManager
 
@@ -1391,7 +1398,6 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | holographicsbroadcastaccounts | No | No | No |
 > | objectunderstandingaccounts | No | No | No |
 > | remoterenderingaccounts | Yes | Yes | No |
 > | spatialanchorsaccounts | Yes | Yes | No |
@@ -1449,7 +1455,7 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks | Yes | Yes | No |
 > | privatednszonesinternal | No | No | No |
 > | privateendpointredirectmaps | No | No | No |
-> | privateendpoints | No | No | No |
+> | privateendpoints | Yes | Yes | Yes |
 > | privatelinkservices | No | No | No |
 > | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |
@@ -1672,6 +1678,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applications | Yes | No | No |
+> | resources | Yes | Yes | No |
 > | saasresources | No | No | No |
 
 ## Microsoft.Search
@@ -1847,7 +1854,7 @@ Jump to a resource provider namespace:
 > | servers / elasticpools | Yes | Yes | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  |
 > | servers / jobaccounts | Yes | Yes | No |
 > | servers / jobagents | Yes | Yes | No |
-> | virtualclusters | Yes | Yes | Yes |
+> | virtualclusters | No | No | No |
 
 ## Microsoft.SqlVirtualMachine
 

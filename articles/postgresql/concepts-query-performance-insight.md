@@ -1,10 +1,11 @@
 ---
 title: Query Performance Insight - Azure Database for PostgreSQL - Single Server
 description: This article describes the Query Performance Insight feature in Azure Database for PostgreSQL - Single Server.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 08/21/2019
 ---
 
@@ -20,7 +21,7 @@ For Query Performance Insight to function, data must exist in the [Query Store](
 ## Viewing performance insights
 The [Query Performance Insight](concepts-query-performance-insight.md) view in the Azure portal will surface visualizations on key information from Query Store. 
 
-In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Intelligent Performance** section of the menu bar.
+In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Intelligent Performance** section of the menu bar. **Query Text is no longer supported** is shown. However, the query text can still be viewed by connecting to azure_sys and querying 'query_store.query_texts_view'.
 
 :::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight long running queries":::
 

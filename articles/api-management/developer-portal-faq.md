@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: troubleshooting
-ms.date: 07/30/2021
+ms.date: 02/04/2022
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,8 +17,15 @@ ms.custom: devx-track-azurepowershell
 
 ## What if I need functionality that isn't supported in the portal?
 
-You can open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal) or [implement the missing functionality yourself](developer-portal-implement-widgets.md). Learn more about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
+You have the following options:
 
+* For certain situations, you can [add custom HTML](#how-do-i-add-custom-html-to-my-developer-portal) to add functionality to the portal.
+
+* Open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal).
+
+* [Implement the missing functionality yourself](developer-portal-implement-widgets.md). 
+
+Learn more about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 
 ## Can I have multiple developer portals in one API Management service?
 
@@ -68,7 +75,7 @@ You can check the status of the CORS policy in the **Portal overview** section o
 
 ![Screenshot that shows where you can check the status of your CORS policy.](media/developer-portal-faq/cors-azure-portal.png)
 
-Automatically apply the CORS policy by clicking on the **Enable CORS** button.
+Automatically apply the CORS policy by clicking the **Enable CORS** button.
 
 You can also enable CORS manually.
 
@@ -127,7 +134,7 @@ This error is shown when a `GET` call to `https://<management-endpoint-hostname>
 
 If your API Management service is in a VNet, refer to the [VNet connectivity question](#do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies).
 
-The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain API Management will fall back to the default endpoint with a trusted certificate.
+The call failure may also be caused by an TLS/SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain. API Management will fall back to the default endpoint with a trusted certificate.
 
 ## What's the browser support for the portal?
 
@@ -189,10 +196,32 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 > [!NOTE]
 > The token must be URL-encoded.
 
+## How do I add custom HTML to my developer portal?
+
+The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
+  
+1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget. 
+1. Select the grey "plus" (**+**) icon that appears when you hover the pointer over the page.
+1. In the **Add widget** window, select **Custom HTML code**.
+    
+    :::image type="content" source="media/developer-portal-faq/add-custom-html-code-widget.png" alt-text="Add widget for custom HTML code":::
+1. Select the "pencil" icon to customize the widget.
+1. Enter a **Width** and **Height** (in pixels) for the widget.
+1. To inherit styles from the developer portal (recommended), select **Apply developer portal styling**.
+    > [!NOTE]
+    > If this setting isn't selected, the embedded elements will be plain HTML controls, without the styles of the developer portal.
+   
+    :::image type="content" source="media/developer-portal-faq/configure-html-custom-code.png" alt-text="Configure HTML custom code":::
+1. Replace the sample **HTML code** with your custom content.
+1. When configuration is complete, close the window.
+1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+
+> [!NOTE]
+> Microsoft does not support the HTML code you add in the Custom HTML Code widget.
 
 ## Next steps
 
-Learn more about the new developer portal:
+Learn more about the developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
 - [Set up self-hosted version of the portal](developer-portal-self-host.md)

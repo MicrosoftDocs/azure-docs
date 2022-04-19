@@ -3,10 +3,10 @@ title: "How to query for predictions using a browser - LUIS"
 description: In this article, use an available public LUIS app to determine a user's intention from conversational text in a browser.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 03/26/2021
-#Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ms.custom: mode-other
+#Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
 # How to query the prediction runtime with user text
@@ -20,7 +20,7 @@ In order to query a public app, you need:
 * Your Language Understanding (LUIS) resource information:
     * **Prediction key** - which can be obtained from [LUIS Portal](https://www.luis.ai/). If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/cognitive-services).
     * **Prediction endpoint subdomain** - the subdomain is also the **name** of your LUIS resource.
-* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app. This app should work with any prediction resource other than the Europe or Australia regions, since it uses "westus" as the authoring region.
 
 ## Use the browser to see predictions
 
@@ -94,10 +94,10 @@ In order to query a public app, you need:
 
     #### [V3 prediction endpoint](#tab/V3-3-1)
 
-    Add `show-all-intents=true` to the end of the querystring to **show all intents**:
+    Add `show-all-intents=true` to the end of the querystring to **show all intents**, and `verbose=true` to return all detailed information for entities.
 
     `
-    https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true
+    https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true&verbose=true
     `
 
     ```JSON
@@ -168,9 +168,6 @@ In order to query a public app, you need:
 
 ## Next steps
 
-Learn more about:
 * [V3 prediction endpoint](luis-migration-api-v3.md)
 * [Custom subdomains](../cognitive-services-custom-subdomains.md)
-
-> [!div class="nextstepaction"]
-> [Use the client libraries or REST API](client-libraries-rest-api.md)
+* [Use the client libraries or REST API](client-libraries-rest-api.md)

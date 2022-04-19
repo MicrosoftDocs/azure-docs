@@ -51,8 +51,7 @@ New-AzVm `
     -VirtualNetworkName "myImageVnet" `
     -SubnetName "myImageSubnet" `
     -SecurityGroupName "myImageNSG" `
-    -PublicIpAddressName "myImagePIP" `
-    -OpenPorts 3389
+    -PublicIpAddressName "myImagePIP" 
 ```
 
 

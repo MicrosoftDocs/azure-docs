@@ -1,19 +1,51 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 12/02/2021
+ms.date: 04/04/2022
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: karenh444
+manager: 
 ---
 
 # Azure Active Directory application provisioning: What's new
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## March 2022
+
+### Updated articles
+
+- [How Azure Active Directory provisioning integrates with SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [How Azure Active Directory provisioning integrates with Workday](workday-integration-reference.md)
+- [Tutorial: Develop a sample SCIM endpoint in Azure Active Directory](use-scim-to-build-users-and-groups-endpoints.md)
+- [Skip deletion of user accounts that go out of scope in Azure Active Directory](skip-out-of-scope-deletions.md)
+- [Azure Active Directory application provisioning: What's new](whats-new-docs.md)
+
+
+## February 2022
+
+### Updated articles
+
+- [Reference for writing expressions for attribute mappings in Azure Active Directory](functions-for-customizing-application-data.md)
+
+## January 2022
+
+### Updated articles
+
+- [How Azure Active Directory provisioning integrates with SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [Reference for writing expressions for attribute mappings in Azure Active Directory](functions-for-customizing-application-data.md)
+
+
+## December 2021
+
+### Updated articles
+
+- [How Application Provisioning works in Azure Active Directory](how-provisioning-works.md)
+
 
 ## November 2021
 

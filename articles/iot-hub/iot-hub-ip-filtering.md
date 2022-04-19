@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Hub IP filters | Microsoft Docs
 description: How to use IP filtering to allow connections from specific IP addresses for to your Azure IoT hub.
-author: jlian
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.author: jlian 
-ms.custom: devx-track-azurepowershell
+ms.author: kgremban 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use IP filters

@@ -9,12 +9,11 @@ editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2021
+ms.date: 12/17/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -219,6 +218,7 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | Level | - | Provides the type of message. For audit, it's always *Informational*. |
 | Location | - | Provides the location of the sign-in activity. |
 | Properties | - | Lists all the properties that are associated with sign-ins.|
+| ResultType | - | Contains the Azure AD error code for the sign-in event (if an error code was present).|
 
 
 

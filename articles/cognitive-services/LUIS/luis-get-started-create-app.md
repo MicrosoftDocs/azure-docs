@@ -5,8 +5,8 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/20/2021
+ms.custom: ignite-fall-2021, mode-ui
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
-ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Build your app in LUIS portal
@@ -44,7 +44,7 @@ Select **Done**.
 
 ## Add prebuilt domain
 
-LUIS offers a set of prebuilt domains that can help you get started with your application. A prebuilt domain app is already populated with [intents](./luis-concept-intent.md), [entities](./luis-concept-entity-types.md) and [utterances](./luis-concept-utterance.md).
+LUIS offers a set of prebuilt domains that can help you get started with your application. A prebuilt domain app is already populated with [intents](./luis-concept-intent.md), [entities](concepts/entities.md) and [utterances](concepts/utterances.md).
 
 1. In the left navigation, select **Prebuilt domains**.
 2. Search for **HomeAutomation**.
@@ -72,7 +72,7 @@ LUIS offers a set of prebuilt domains that can help you get started with your ap
     :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Image alt text" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## Train the LUIS app
-After your application is populated with intents, entities, and utterances; you need to train the application so that the changes you made can be reflected.
+After your application is populated with intents, entities, and utterances, you need to train the application so that the changes you made can be reflected.
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
@@ -116,7 +116,7 @@ To add more entities to your app
 
 ### Add example utterances
 
-Example utterances are text that a user enters in a chat bot or other client application. They map the intention of the user's text to a LUIS intent.
+Example utterances are text that a user enters in a chat bot or other client applications. They map the intention of the user's text to a LUIS intent.
 
 On the **Intents** page for `HomeAutomation.AddDeviceAlias`, add the following example utterances under **Example Utterance**,
 
@@ -137,7 +137,7 @@ Labeling your utterances is needed because you added an ML entity. Labeling is u
 [!INCLUDE [how-to-label](./includes/how-to-label.md)]
 
 ## Create Prediction resource
-At this point, you have completed authoring your application. You need to create a prediction resource to publish your application in order to receive predictions in a chat bot or other client application through the prediction endpoint
+At this point, you have completed authoring your application. You need to create a prediction resource to publish your application in order to receive predictions in a chat bot or other client applications through the prediction endpoint
 
 To create a Prediction resource from the LUIS portal
 

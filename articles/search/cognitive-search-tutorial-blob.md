@@ -28,9 +28,9 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 This tutorial uses Postman and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/) to create a data source, index, indexer, and skillset. 
 
-The indexer connects to Azure Blob Storage and retrieves the content, which you must load in advance. The indexer then invokes the skillset for specialized processing, and ingests the enriched content into a search index. 
+The indexer connects to Azure Blob Storage and retrieves the content, which you must load in advance. The indexer then invokes a [skillset](cognitive-search-working-with-skillsets.md) for specialized processing, and ingests the enriched content into a [search index](search-what-is-an-index.md). 
 
-The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection, key phrase extraction, and entity recognition (organizations, locations, people). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use those fields in queries, facets, and filters.
+The skillset is attached to an [indexer](search-indexer-overview.md). It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection, key phrase extraction, and entity recognition (organizations, locations, people). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use those fields in queries, facets, and filters.
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ For this exercise, however, you can skip resource provisioning because Azure Cog
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
 
 You can use the Free tier to complete this walkthrough. 
 
@@ -120,7 +120,7 @@ To interact with your Azure Cognitive Search service you will need the service U
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. You can copy either the primary or secondary key.
 
-   ![Get the service name and admin and query keys](media/search-get-started-javascript/service-name-and-keys.png)
+   ![Get the service name and admin key](media/search-get-started-javascript/service-name-and-keys.png)
 
 All HTTP requests to a search service require an API key. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -140,7 +140,7 @@ In Azure Cognitive Search, enrichment occurs during indexing (or data ingestion)
 
 ### Step 1: Create a data source
 
-A [data source object](/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the sample data files.
+Call [Create Data Source](/rest/api/searchservice/create-data-source) to set the connection string to the Blob container containing the sample data files.
 
 1. Select the "Create a data source" request.
 
@@ -165,7 +165,7 @@ If you got a 403 or 404 error, check the search admin API key and the Azure Stor
 
 ### Step 2: Create a skillset
 
-A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichment steps applied to your content. 
+Call [Create Skillset](/rest/api/searchservice/create-skillset) to specify which enrichment steps are applied to your content. 
 
 1. Select the "Create a skillset" request.
 
@@ -174,7 +174,7 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
    | Skill                 | Description    |
    |-----------------------|----------------|
    | [Optical Character Recognition](cognitive-search-skill-ocr.md) | Recognizes text and numbers in image files. |
-   | [Text Merge](cognitive-search-skill-textmerger.md)  | Creates "merged content" that reunites previously separated content, useful for files that include both text and images (PDF, DOCX, and so forth). Images and text are separated during the document cracking phase. The merge skill recombines them by inserting any recognized text, image captions, or tags created by image analysis into the same location where the image was extracted from in the document. Merged content is inclusive of all content in the documents. It will include straight text or image-only information if that's what the source document contains.|
+   | [Text Merge](cognitive-search-skill-textmerger.md)  | Creates "merged content" that recombines previously separated content, useful for documents with embedded images (PDF, DOCX, and so forth). Images and text are separated during the document cracking phase. The merge skill recombines them by inserting any recognized text, image captions, or tags created during enrichment into the same location where the image was extracted from in the document. </p>When working with merged content in a skillset, this node will be inclusive of all text in the document, including text-only documents that never undergo OCR or image analysis. |
    | [Language Detection](cognitive-search-skill-language-detection.md) | Detects the language and outputs either a language name or code. In multilingual data sets, a language field can be useful for filters. |
    | [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) | Extracts the names of people, organizations, and locations from merged content. |
    | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large merged content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
@@ -352,7 +352,7 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
 
 ### Step 3: Create an index
 
-An [index](/rest/api/searchservice/create-index) provides the schema used to create inverted indexes and other constructs in Azure Cognitive Search. The largest component of an index is the fields collection, where data type and attributes determine content and behavior in Azure Cognitive Search.
+Call [Create Index](/rest/api/searchservice/create-index) to provide the schema used to create inverted indexes and other constructs in Azure Cognitive Search. The largest component of an index is the fields collection, where data type and attributes determine content and behavior in Azure Cognitive Search.
 
 1. Select the "Create an index" request.
 
@@ -444,7 +444,7 @@ An [index](/rest/api/searchservice/create-index) provides the schema used to cre
 
 ### Step 4: Create and run an indexer
 
-An [Indexer](/rest/api/searchservice/create-indexer) drives the pipeline. The three components you have created thus far (data source, skillset, index) are inputs to an indexer. Creating the indexer on Azure Cognitive Search is the event that puts the entire pipeline into motion.
+Call [Create Indexer](/rest/api/searchservice/create-indexer) to drive the pipeline. The three components you have created thus far (data source, skillset, index) are inputs to an indexer. Creating the indexer on Azure Cognitive Search is the event that puts the entire pipeline into motion.
 
 1. Select the "Create an indexer" request.
 
@@ -532,7 +532,9 @@ When content is extracted, you can set ```imageAction``` to extract text from im
 
 ## 4 - Monitor indexing
 
-Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on which cognitive skills you defined, indexing can take a while. To find out whether the indexer is still running, send the following request to check the indexer status.
+Indexing and enrichment commence as soon as you submit the Create Indexer request. Depending on which cognitive skills you defined, indexing can take a while. 
+
+To find out whether the indexer is still running, call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) to check the indexer status.
 
 1. Select and then send the "Check indexer status" request.
 
@@ -544,7 +546,7 @@ In this sample, there is a PNG file that contains no text. All five of the text-
 
 ## 5 - Search
 
-Now that you've created an index that contains AI-generated content, run some queries to see the results.
+Now that you've created an index that contains AI-generated content, call [Search Documents](/rest/api/searchservice/search-documents) to run some queries to see the results.
 
 Recall that we started with blob content, where the entire document is packaged into a single `content` field. You can search this field and find matches to your queries.
 

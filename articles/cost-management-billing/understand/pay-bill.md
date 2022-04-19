@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 03/11/2022
 ms.author: banders
 ---
 
@@ -36,13 +36,15 @@ On 1 October 2021, automatic payments in India may block some credit card transa
 
 ## Pay by default payment method
 
-The default payment method of your billing profile can either be a credit or debit card, or a check or wire transfer.
+The default payment method of your billing profile can either be a credit card, debit card, or check wire transfer.
 
 ### Credit or debit card
 
 If the default payment method for your billing profile is a credit or debit card, it's automatically charged each billing period.
 
 If your automatic credit or debit card charge gets declined for any reason, you can make a one-time payment with a credit or debit card in the Azure portal using **Pay now**.
+
+If have an Microsoft Online Services Program (pay-as-you-go) account and you have a bill due, you'll see the **Pay now** banner on your subscription property page. 
 
 If you want to learn how to change your default payment method to check or wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
 
@@ -225,6 +227,10 @@ To pay invoices in the Azure portal, you must have the correct [MCA permissions]
 1. After you select a payment method, select **Pay now**.
 
 The invoice status shows *paid* within 24 hours.
+
+## Pay now might be unavailable
+
+If you have an Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

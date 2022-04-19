@@ -46,7 +46,7 @@ A foreign key is a column or a combination of columns whose values match a prima
 
 ## Composite key
 
-A composite key is one that is composed of two or more columns that are together required to uniquely identify a table. For example, in an Order table, both OrderNumber and ProductId may be required to uniquely identify a record.
+A composite key is one that is composed of two or more columns that are together required to uniquely identify a record in a table. For example, in an Order table, both OrderNumber and ProductId may be required to uniquely identify a record.
 
 ## Relationships
 

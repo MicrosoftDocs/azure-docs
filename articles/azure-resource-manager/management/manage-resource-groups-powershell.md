@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom: devx-track-azurepowershell
 
 ---
-# Manage Azure Resource Manager resource groups by using Azure PowerShell
+# Manage Azure Resource Groups by using Azure PowerShell
 
 Learn how to use Azure PowerShell with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md).
 

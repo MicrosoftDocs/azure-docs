@@ -1,6 +1,6 @@
 ---
-title: Flowlets in mapping data flows  | Microsoft Docs
-itleSuffix: Azure Data Factory & Azure Synapse
+title: Flowlets in mapping data flows
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the concepts of Flowlets in mapping data flow
 author: joshuha-msft
 ms.author: joowen
@@ -19,8 +19,7 @@ ms.date: 11/11/2021
  
  With flowlets you can create logic to do things such as address cleaning or string trimming. You can then map the input and outputs to columns in the calling data flow for a dynamic code reuse experience.
 
-> [!NOTE] 
-> The Flowlet feature in mapping data flow is currently in public preview
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWQK3m]
 
 ## Getting started
 To create a flowlet, click the new flowlet action from the mapping data flow menu options.

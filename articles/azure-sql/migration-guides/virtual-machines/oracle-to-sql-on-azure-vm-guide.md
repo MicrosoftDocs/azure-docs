@@ -1,5 +1,6 @@
 ---
 title: "Oracle to SQL Server on Azure Virtual Machines: Migration guide"
+titleSuffix: SQL Server on Azure VMs
 description: This guide teaches you to migrate your Oracle schemas to SQL Server on Azure Virtual Machines by using SQL Server Migration Assistant for Oracle.
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide

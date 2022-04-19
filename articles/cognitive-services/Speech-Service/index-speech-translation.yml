@@ -37,7 +37,7 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: Translate and synthesize text with REST APIs
-          url: ../translator/tutorial-build-flask-app-translation-synthesis.md
+          url: /learn/modules/python-flask-build-ai-web-app/
 - title: Reference
   linkLists:
     - linkListType: reference

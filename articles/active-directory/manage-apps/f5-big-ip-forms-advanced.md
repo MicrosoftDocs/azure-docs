@@ -15,42 +15,43 @@ ms.collection: M365-identity-device-management
 
 In this article, you'll learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to form-based applications.
 
-Configuring BIG-IP published applications with Azure AD provides many benefits, including:
+Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-- Improved Zero Trust governance through Azure AD pre-authentication and authorization
+- Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 - Full single sign-on (SSO) between Azure AD and BIG-IP published services
-- Identities and access are managed from a single control plane, the Azure portal
+- Identities and access are managed from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
 To learn about all the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md) and [What is application access and single sign-on with Azure AD?](../active-directory-appssoaccess-whatis.md).
 
 ## Scenario description
 
-For this scenario, we have an internal legacy application that's configured for form-based authentication (FBA).
+For this scenario, we have an internal legacy application that's configured for basic form-based authentication (FBA).
 
-The ideal scenario is to have the application managed and governed directly through Azure AD. But, because the app lacks modern protocol interoperability, it would take considerable effort and time to modernize, which introduces the inevitable costs and risks of potential downtime.
+Ideally, application access should be managed directly by Azure AD but being legacy it lacks any form of modern authentication protocol. Modernization would take considerable effort and time, introducing inevitable costs and risk of potential downtime. Instead, a BIG-IP deployed between the public internet and the internal application will be used to gate inbound access to the application.
 
-Instead, a BIG-IP Virtual Edition (VE), deployed between the internet and the internal Azure virtual network that the app is connected to, is used to gate inbound access to Azure AD because of its extensive authentication and authorization capabilities.
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
-Having BIG-IP in front of the application lets you overlay the service with Azure AD pre-authentication and form-based SSO. This approach significantly improves the overall security posture of the application, allowing the business to continue operating at pace, without interruption.
 
 ## Scenario Architecture
 
-The secure hybrid access solution for this scenario is made up of the following elements:
+The secure hybrid access solution for this scenario is made up of:
 
-**Application**: A back-end service to be protected by Azure AD and BIG-IP secure hybrid access. This particular application validates user credentials against Active Directory, but it could be any directory, including Active Directory Lightweight Directory Services, open source, and so on.
+**Application**: BIG-IP published service to be protected by and Azure AD SHA. This particular application validates user credentials against Active Directory, but it could be any directory, including Active Directory Lightweight Directory Services, open source, and so on.
 
-**Azure AD**: The Security Assertion Markup Language (SAML) Identity Provider (IdP), which is responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
+**Azure AD**: Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required attributes including a user identifier.
 
-**BIG-IP**: A reverse proxy and SAML service provider to the application, which delegates authentication to the SAML IdP before it performs form-based SSO to the back-end application. The cached user credentials are then available for SSO against other forms-based authentication applications.
+**BIG-IP**: Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application. The cached user credentials are then available for SSO against other forms-based authentication applications.
+
+SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
 ![Screenshot of the flow diagram, from user to application.](./media/f5-big-ip-forms-advanced/flow-diagram.png)
 
 | Step | Description|
 |-------: |:----------|
-| 1 | A user connects to the application's SAML service provider endpoint (BIG-IP APM).|
-| 2 | The APM access policy redirects the user to the SAML IdP (Azure AD) for pre-authentication.|
-| 3 | Azure AD authenticates the user and applies any enforced Conditional Access policies.|
-| 4 | User is redirected back to the SAML service provider with the issued token and claims. |
+| 1 | User connects to application endpoint (BIG-IP).|
+| 2 | BIG-IP APM  access policy redirects user to Azure AD (SAML IdP).|
+| 3 | Azure AD pre-authenticates user and applies any enforced CA policies.|
+| 4 | User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token. |
 | 5 | BIG-IP prompts the user for an application password and stores it in the cache. |
 | 6 | BIG-IP sends a request to the application and receives a logon form.|
 | 7 | The APM scripting auto responds, filling in the username and password before it submits the form.|
@@ -61,7 +62,7 @@ The secure hybrid access solution for this scenario is made up of the following 
 
 Prior BIG-IP experience is not necessary, but you'll need:
 
-- An Azure AD subscription. If you don't already have one, you can sign up for a free subscription.
+- An Azure AD free subscription or above
 
 - An existing BIG-IP, or [deploy BIG-IP Virtual Edition (VE) in Azure](f5-bigip-deployment-guide.md).
 
@@ -74,82 +75,89 @@ Prior BIG-IP experience is not necessary, but you'll need:
 
 - User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD.
 
-- An account with Azure AD Application Administrator [permissions](../roles/permissions-reference.md#application-administrator).
+- An account with Azure AD Application Admin [permissions](../roles/permissions-reference.md#application-administrator).
 
 - [An SSL certificate](f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default certificates during testing.
 
 - An existing form-based authentication application, or [set up an IIS FBA app](/troubleshoot/aspnet/forms-based-authentication) for testing.
 
-## Deployment modes
+## BIG-IP configuration methods
 
-Several methods exist for configuring a BIG-IP for this scenario. This article covers the advanced approach, a more flexible way to implement secure hybrid access in which you manually create all BIG-IP configuration objects. You can use this approach for scenarios that aren't covered by the template-based guided configuration.
+There are many methods to configure BIG-IP for this scenario, including a template-driven guided configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for more complex scenarios that the guided configuration templates don't cover.
 
 > [!NOTE]
 > You should replace all example strings or values in this article with those for your actual environment.
 
-## Add F5 BIG-IP from the Azure AD gallery
+## Register F5 BIG-IP in Azure AD
 
-Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first steps in implementing secure hybrid access. It establishes the integration that's required for BIG-IP to hand off pre-authentication and [CA](../conditional-access/overview.md) to Azure AD, before it grants access to the published service.
+Before BIG-IP can hand off pre-authentication to Azure AD, it must be registered in your tenant. This is the first step in establishing SSO between both entities. It's no different from making any IdP aware of a SAML relying party. In this case, the app that you create from the F5 BIG-IP gallery template is the relying party that represents the SAML SP for the BIG-IP published application.
 
-1. Sign in to the Azure portal by using an account with Application Administrator permissions.
+1. Sign in to the [Azure AD portal](https://portal.azure.com) by using an account with Application Administrator permissions.
 
-1. On the left pane, select the **Azure Active Directory** service.
+2. From the left pane, select the **Azure Active Directory** service.
 
-1. Go to **Enterprise Applications** and then, in the ribbon, select **New application**.
+3. On the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant.
 
-1. Search for **F5** in the gallery, and then select **F5 BIG-IP APM Azure AD integration**.
+4. On the **Enterprise applications** pane, select **New application**.
 
-1. Provide a name for the application, and then select **Add/Create** to add it to your tenant. The name should reflect that specific service.
+5. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons that indicate whether they support federated SSO and provisioning. 
 
-## Configure Azure AD SSO
+   Search for **F5** in the Azure gallery, and select **F5 BIG-IP APM Azure AD integration**.
 
-1. With the new **F5** application properties in view, select **Manage** > **Single sign-on**.
+6. Provide a name for the new application to recognize the instance of the application. Select **Add/Create** to add it to your tenant.
 
-1. On the **Select a single sign-on method** page, select **SAML**. Skip the prompt to save the single sign-on settings by selecting **No, I'll save later**.
+### Enable SSO to F5 BIG-IP
 
-1. On the **Set up single sign-on with SAML** pane, select the **Edit** button (pen icon) for **Basic SAML Configuration**, and then do the following:
+Next, configure the BIG-IP registration to fulfill SAML tokens that the BIG-IP APM requests:
 
-   a. Replace the pre-defined **Identifier** URL with the URL for your BIG-IP published service (for example, `https://myvacation.contoso.com`).
+1. In the **Manage** section of the left menu, select **Single sign-on** to open the **Single sign-on** pane for editing.
 
-   b. Replace the pre-defined **Reply URL** with the URL for your BIG-IP published service, but include the path for the APM SAML endpoint (for example, `https://myvacation.contoso.com/saml/sp/profile/post/acs`).
+2. On the **Select a single sign-on method** page, select **SAML** followed by **No, I'll save later** to skip the prompt.
 
-      >[!NOTE]
-      >In this configuration, the SAML flow would operate in IdP-initiated mode, where Azure AD issues users a SAML assertion before they're redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports both IdP-initiated and service provider-initiated modes.
+3. On the **Set up single sign-on with SAML** pane, select the pen icon to edit **Basic SAML Configuration**. Make these edits:
 
-   c. For the `Logout URI`, enter the BIG-IP APM single logout (SLO) endpoint, prepended by the host header of the service that's being published. Providing an SLO URI ensures that users' BIG-IP APM session is also terminated after they're signed out of Azure AD. An example URI might be *https://myvacation.contoso.com/saml/sp/profile/redirect/slr*.
+   1. Replace the predefined **Identifier** value with the full URL for the BIG-IP published application.
+
+   2. Replace the **Reply URL** value but retain the path for the application's SAML SP endpoint. 
+   
+      In this configuration, the SAML flow would operate in IdP-initiated mode. In that mode, Azure AD issues a SAML assertion before the user is redirected to the BIG-IP endpoint for the application. 
+
+   3. To use SP-initiated mode, populate **Sign on URL** with the application URL.
+
+   4. For **Logout Url**, enter the BIG-IP APM single logout (SLO) endpoint prepended by the host header of the service that's being published. This step ensures that the user's BIG-IP APM session ends after the user is signed out of Azure AD. 
 
      ![Screenshot showing a basic SAML configuration.](./media/f5-big-ip-forms-advanced/basic-saml-configuration.png)
 
-     >[!Note]
-     > As of F5 Traffic Management Operating System (TMOS) v16, the SAML SLO endpoint is /saml/sp/profile/redirect/slo.
+    > [!NOTE]
+    > From TMOS v16, the SAML SLO endpoint has changed to **/saml/sp/profile/redirect/slo**.
 
-1. Select **Save** before you close the SAML configuration pane, and skip the SSO test prompt.
+4. Select **Save** before closing the SAML configuration pane and skip the SSO test prompt.
 
-   Observe the properties of the **User Attributes & Claims** section. Azure AD will issue them to users for BIG-IP APM authentication and SSO to the back-end application.
+5. Note the properties of the **User Attributes & Claims** section. Azure AD will issue these properties to users for BIG-IP APM authentication and for SSO to the back-end application.
 
-1. In the **SAML Signing Certificate** section, select the **Download** link to save the *Federation Metadata XML* file to your computer.
+6. On the **SAML Signing Certificate** pane, select **Download** to save the **Federation Metadata XML** file to your computer.
 
    ![Screenshot of the 'Federation Metadata XML' download link.](./media/f5-big-ip-forms-advanced/saml-certificate.png)
 
-   SAML signing certificates that are created by Azure AD have a lifespan of three years. To manage them, use the published guidance in [Manage certificates for federated single sign-on](manage-certificates-for-federated-single-sign-on.md).
+SAML signing certificates created by Azure AD have a lifespan of three years. For more information, see [Managed certificates for federated single sign-on](./manage-certificates-for-federated-single-sign-on.md).
 
-### Azure AD authorization
+### Assign users and groups
 
-By default, Azure AD issues tokens only to users that have been granted access to an application.
+By default, Azure AD will issue tokens only for users who have been granted access to an application. To grant specific users and groups access to the application:
 
-1. In the application's configuration view, select **Users and groups**.
+1. On the **F5 BIG-IP application's overview** pane, select **Assign Users and groups**.
 
-1. Select **Add user** and then, on the **Add Assignment** pane, select **Users and groups**.
+2. Select **+ Add user/group**.
 
-1. On the **Users and groups** pane, add the groups of users that are authorized to access the internal application, and then select **Select** > **Assign**.
+3. Select users and groups, and then select **Assign** to assign them to your application.   
 
-This completes the Azure AD part of the SAML federation trust. You can now set up the BIG-IP APM to publish the internal web application and then configure it with a corresponding set of properties that complete the trust for SAML pre-authentication and SSO.
+## BIG-IP Advanced configuration
 
-## Advanced configuration
+Now you can proceed with setting up the BIG-IP configurations.
 
-### The SAML service provider
+### Configure SAML service provider settings
 
-These settings define the SAML service provider properties that the APM will use for overlaying the legacy application with SAML pre-authentication.
+SAML service provider settings define the SAML SP properties that the APM will use for overlaying the legacy application with SAML pre-authentication. To configure them:
 
 1. Select **Access** > **Federation** > **SAML Service Provider** > **Local SP Services**, and then select **Create**.
 
@@ -161,9 +169,9 @@ These settings define the SAML service provider properties that the APM will use
 
     The values in the **SP Name Settings** section are required only if the entity ID isn't an exact match of the hostname portion of the published URL or, equally, if the entity ID isn't in regular hostname-based URL format. Provide the external scheme and hostname of the application that's being published if the entity ID is *urn:myvacation:contosoonline*.
 
-### The external IdP connector
+### Configure an external IdP connector
 
-A SAML IdP connector defines the settings that are required for the BIG-IP APM to trust Azure AD as its SAML IdP. These settings map the SAML service provider to a SAML IdP, which establishes the federation trust between the APM and Azure AD.
+A SAML IdP connector defines the settings that are required for the BIG-IP APM to trust Azure AD as its SAML IdP. These settings map the SAML service provider to a SAML IdP, which establishes the federation trust between the APM and Azure AD. To configure the connector:
 
 1. Select the new SAML service provider object, and then select **Bind/UnbBind IdP Connectors**.
 
@@ -185,7 +193,9 @@ A SAML IdP connector defines the settings that are required for the BIG-IP APM t
 
    ![Screenshot of the 'Edit SAML IdPs that use this SP' pane.](./media/f5-big-ip-forms-advanced/edit-saml-idp-using-sp.png)
 
-### Form-based SSO
+### Configure Forms-based SSO
+
+In this section, you create an APM SSO object for performing FBA SSO to back-end applications. 
 
 You can perform FBA SSO in either client-initiated mode or by the BIG-IP itself. Both methods emulate a user logon by injecting credentials into the username and password tags before auto submitting the form. The flow is almost transparent, except that users have to provide their password once when they access an FBA application. The password is then cached for reuse across other FBA applications.
 
@@ -217,7 +227,7 @@ Select **Access** > **Single Sign-on** > **Forms Based**, select **Create**, and
 
 For more information about configuring an APM for FBA SSO, go to the F5 [Single Sign-On Methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449) site.
 
-### Access profile configuration
+### Configure an Access profile
 
 An access profile binds many APM elements managing access to BIG-IP virtual servers, including access policies, SSO configuration, and UI settings.
 
@@ -272,13 +282,13 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 
 1. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**, and then select **Save**.
 
-**Attribute mapping**
+      **(Optional) Configure attribute mappings**
 
-(Optional) By adding a LogonID_Mapping configuration, you can enable the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This action is useful when you're analyzing logs or troubleshooting.
+      Although it's optional, adding a LogonID_Mapping configuration enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This information is useful when you're analyzing logs or troubleshooting.
 
-1. Select the plus sign (**+**) next to the SAML Auth **Successful** branch.
+1. Select the plus (**+**) symbol for the **SAML Auth Successful** branch.
 
-1. In the pop-up window, select the **Assignment** tab, select **Variable Assign**, and then select **Add Item**.
+1. In the pop-up dialog, select **Assignment** > **Variable Assign** > **Add Item**.
 
    ![Screenshot showing the 'Variable Assign' option and its description.](./media/f5-big-ip-forms-advanced/variable-assign.png)
 
@@ -287,7 +297,7 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 
    ![Screenshot showing the 'Add new entry' field.](./media/f5-big-ip-forms-advanced/add-new-entry.png)
 
-1. Set both variables to use the following properties:
+1. Set both variables:
 
    | Property | Description |
    |:-----|:-------|
@@ -295,48 +305,49 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
    | Session Variable | `session.saml.last.identity`|
    | | |
 
-1. Select **Finished**, and then select **Save**.
+1. Select **Finished** > **Save**.
 
-1. Commit those settings by selecting **Apply Access Policy** at the upper left, and then close the Visual Policy Editor.
+1. Commit those settings by selecting **Apply Access Policy** and then close the Visual Policy Editor.
 
    ![Screenshot showing the 'Apply Access Policy' pane.](./media/f5-big-ip-forms-advanced/apply-access-policy.png)
 
-### Back-end pool configuration
+### Configure a back-end pool
 
 For the BIG-IP to know where to forward client traffic, you need to create a BIG-IP node object that represents the back-end server that hosts your application. Then, place that node in a BIG-IP server pool.
 
-1. Select **Local Traffic** > **Pools** > **Pool List**, select **Create**, and then provide a name for a server pool object (for example, *MyApps_VMs*).
+1. Select **Local Traffic** > **Pools** > **Pool List** > **Create** and provide a name for a server pool object. For example, enter **MyApps_VMs**.
 
    ![Screenshot shows pool list](./media/f5-big-ip-forms-advanced/pool-list.png)
 
-1. Add a pool member object with the following properties:
+1. Add a pool member object with the following resource details:
 
    | Property | Description |
    |:-----|:-------|
-   | Node Name | (Optional) The display name for the server that hosts the back-end web application |
-   | Address | The IP address of the server that hosts the application |
-   | Service Port | The HTTP or HTTPS port that the application is listening on |
+   | Node Name: | Optional display name for the server that hosts the back-end web application |
+   | Address: | IP address of the server that hosts the application |
+   | Service Port: | HTTP/S port that the application is listening on |
    | | |
 
    ![Screenshot showing the pool member properties.](./media/f5-big-ip-forms-advanced/pool-member.png)
 
 >[!NOTE]
->Health monitors require additional configuration that's not covered in this article. For more information, see the F5 article [K13397: Overview of HTTP health monitor request formatting for the BIG-IP DNS system](https://support.f5.com/csp/article/K13397).
+>Health monitors require [additional configuration](https://support.f5.com/csp/article/K13397) that this article doesn't cover.  
 
-## Virtual server configuration
+### Configure a virtual server
 
-A virtual server is a BIG-IP data-plane object that's represented by a virtual IP address that listens for client requests to the application. Any received traffic is processed and evaluated against the APM access profile that's associated with the virtual server. The traffic is then directed according to the policy results and settings.
+A *virtual server* is a BIG-IP data-plane object that's represented by a virtual IP address that listens for client requests to the application. Any received traffic is processed and evaluated against the APM access profile that's associated with the virtual server. The traffic is then directed according to the policy results and settings.
 
-1. Select **Local Traffic** > **Virtual Servers** > **Virtual Server List**, select **Create**, and then do the following:
+To configure a virtual server:
 
-   a. For **Name**, enter the virtual server name (for example, *MyVacation*).
+1. Select **Local Traffic** > **Virtual Servers** > **Virtual Server List** > **Create**.
+
+3. Provide the virtual server with a Name value and an IPv4/IPv6 address that isn't already allocated to an existing BIG-IP object or device on the connected network. The IP address will be dedicated to receiving client traffic for the published back-end application. Then set Service Port to 443.
 
    ![Screenshot showing the virtual server properties.](./media/f5-big-ip-forms-advanced/virtual-server.png)  
+ 
+3. Set **HTTP Profile (Client)** to **http**.
 
-   b. For **Destination Address/Mask**, enter an unused IP IPv4/IPv6 that can be assigned to the BIG-IP to receive client traffic.  
-   c. For **Service Port**, enter **443** and **HTTPS**.  
-   
-1. **SSL Profile (Client)**: Enables Transport Layer Security (TLS), enabling services to be published over HTTPS. Select the client SSL profile that you created as part of the prerequisites, or keep the default settings if you're testing.
+1. Enable a virtual server for Transport Layer Security to allow services to be published over HTTPS. For **SSL Profile (Client)**, select the profile that you created as part of the prerequisites. (Or leave the default if you're testing.)
 
    ![Screenshot showing an SSL profile.](./media/f5-big-ip-forms-advanced/ssl-profile.png)
 
@@ -348,27 +359,46 @@ A virtual server is a BIG-IP data-plane object that's represented by a virtual I
 
    ![Screenshot showing the 'Access Policy' pane.](./media/f5-big-ip-forms-advanced/access-policy.png)
 
-1. Finally, for **Default Pool**, select the back-end pool object that you created earlier.
+1. Set **Default Pool** to use the back-end pool objects that you created in the previous section. Then select **Finished**.
 
    ![Screenshot showing the 'Default Pool' setting on the 'Resources' pane.](./media/f5-big-ip-forms-advanced/default-pool.png)
 
-## Session management
+### Configure Session management settings
 
-You use BIG-IP session management settings to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. You can create your own policy by selecting **Access Policy** > **Access Profiles** and then selecting your application from the list.
+BIG-IP's session management settings define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. You can create your own policy here. Go to Access Policy > Access Profiles > Access Profile and select your application from the list.
 
-As for SLO functionality, when you define a single logout URI in Azure AD, you help ensure that an IdP-initiated sign-out from the MyApps portal also terminates the session between the client and the BIG-IP APM.
+If you've defined a Single Logout URI value in Azure AD, it will ensure that an IdP-initiated sign-out from the MyApps portal also ends the session between the client and the BIG-IP APM. The imported application's federation metadata XML file provides the APM with the Azure AD SAML logout endpoint for SP-initiated sign-outs. But for this to be truly effective, the APM needs to know exactly when a user signs out.
 
-When you've imported the application's federation metadata.xml, you give the APM the Azure AD SAML SLO endpoint for service provider-initiated sign-outs. But for this to be truly effective, the APM needs to know exactly when users sign out.
+Consider a scenario where a BIG-IP web portal is not used. The user has no way of instructing the APM to sign out. Even if the user signs out of the application itself, BIG-IP is technically oblivious to this, so the application session could easily be reinstated through SSO. For this reason, SP-initiated sign-out needs careful consideration to ensure that sessions are securely terminated when they're no longer required.
 
-In scenarios where a BIG-IP web portal isn't used, users have no way to instruct the APM to sign out. Even if users sign out of the application itself, the BIG-IP is technically unaware of this action, so the application session could easily be reinstated through SSO. For this reason, the service provider-initiated sign-out needs careful consideration to ensure that sessions are securely terminated when they're no longer required.
+One way to achieve this is by adding an SLO function to your application's sign-out button. This function can redirect your client to the Azure AD SAML sign-out endpoint. You can find this SAML sign-out endpoint at App Registrations > Endpoints.
 
-One way to achieve this would be to add an SLO function to your app's sign-out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. You can find the SAML sign-out endpoint for your tenant by selecting **App Registrations** > **Endpoints**.
+If you can't change the app, consider having BIG-IP listen for the app's sign-out call. When it detects the request, it should trigger SLO.
 
-If making a change to the app is a no-go, consider having the BIG-IP listen for the app's sign-out call. When it detects the request, have it trigger SLO. For more information about using BIG-IP iRules to achieve this, see the following F5 articles: 
+For more information about using BIG-IP iRules to achieve this, see the following F5 articles: 
 * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
 * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
 
-## Troubleshoot access to the application
+
+## Summary
+
+Your application should now be published and accessible via secure hybrid access, either directly via the app's URL or through the Microsoft application portals.
+
+The application should also be visible as a target resource in Azure AD CA. For more information, see [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md).
+
+For increased security, organizations that use this pattern could also consider blocking all direct access to the application, which then forces a strict path through the BIG-IP.
+
+## Next steps
+
+From a browser, connect to the application's external URL or select the application's icon in the MyApps portal. After you authenticate to Azure AD, you’re redirected to the BIG-IP endpoint for the application and prompted for a password. Notice that the APM pre-fills the username with the UPN from Azure AD. The username that's pre-populated by the APM is read only to ensure session consistency between Azure AD and the back-end application. You can hide this field from view with an additional configuration, if necessary.
+
+![Screenshot showing secured SSO.](./media/f5-big-ip-forms-advanced/secured-sso.png)
+
+After the information is submitted, users should be automatically signed in to the application.
+
+![Screenshot showing a welcome message.](./media/f5-big-ip-forms-advanced/welcome-message.png)
+
+## Troubleshoot
 
 Failure to access the secure hybrid access-protected application can result from any of several factors, including a misconfiguration. When you troubleshoot this issue, be aware of the following:
 
@@ -401,20 +431,12 @@ The **View Variables** link in this location might also help determine the root 
 
 For more information, see the F5 BIG-IP [Session Variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html).
 
-## Summary
+## Additional resources
 
-Your application should now be published and accessible via secure hybrid access, either directly via the app's URL or through the Microsoft application portals.
+* [Active Directory Authentication](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html) (F5 article about BIG-IP advanced configuration)
 
-The application should also be visible as a target resource in Azure AD CA. For more information, see [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md).
+* [Forget passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-For increased security, organizations that use this pattern could also consider blocking all direct access to the application, which then forces a strict path through the BIG-IP.
+* [What is Conditional Access?](../conditional-access/overview.md)
 
-## Next steps
-
-From a browser, connect to the application's external URL or select the application's icon in the MyApps portal. After you authenticate to Azure AD, you’re redirected to the BIG-IP endpoint for the application and prompted for a password. Notice that the APM pre-fills the username with the UPN from Azure AD. The username that's pre-populated by the APM is read only to ensure session consistency between Azure AD and the back-end application. You can hide this field from view with an additional configuration, if necessary.
-
-![Screenshot showing secured SSO.](./media/f5-big-ip-forms-advanced/secured-sso.png)
-
-After the information is submitted, users should be automatically signed in to the application.
-
-![Screenshot showing a welcome message.](./media/f5-big-ip-forms-advanced/welcome-message.png)
+* [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

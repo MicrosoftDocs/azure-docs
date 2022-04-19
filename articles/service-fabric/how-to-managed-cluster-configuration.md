@@ -4,6 +4,7 @@ description: Learn how to configure your Service Fabric managed cluster for auto
 ms.topic: how-to
 ms.date: 10/25/2021
 ---
+
 # Service Fabric managed cluster configuration options
 
 In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it, including:
@@ -15,13 +16,12 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Configuring [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on cluster node types
 * Enabling [OS and data disk encryption](how-to-managed-cluster-enable-disk-encryption.md) on cluster nodes
 * Configure [autoscaling](how-to-managed-cluster-autoscale.md) on a secondary node type
-* [Manually scale a node type](how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-portal)
+* [Scale a node type](how-to-managed-cluster-modify-node-type.md#scale-a-node-type)
 * Enable [automatic OS image upgrades](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) on cluster node types
-* Modify the [OS image](how-to-managed-cluster-modify-node-type.md#modify-the-os-image-for-a-node-type-with-portal) used for a node type
-* Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type-with-portal) for a node type
+* Modify the [OS image](how-to-managed-cluster-modify-node-type.md#modify-the-os-sku-for-a-node-type) used for a node type
+* Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type) for a node type
 * Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
 * Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
-
 
 ## Next steps
 

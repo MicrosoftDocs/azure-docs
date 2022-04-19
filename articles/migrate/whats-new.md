@@ -13,11 +13,29 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (March 2022)
+- Perform agentless VMware VM discovery, assessments, and migrations over a private network using Azure Private Link. [Learn more.](how-to-use-azure-migrate-with-private-endpoints.md)
+- General Availability: Support to select subnets for each Network Interface Card of a replicating virtual machine in VMware agentless migration scenario.
+
+## Update (February 2022)
+- General Availability: Migrate Windows and Linux Hyper-V virtual machines with large data disks (up to 32 TB in size).
+- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
+- Public preview of at-scale, software inventory, and agentless dependency analysis for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
+
+
+## Update (December 2021)
+- Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
+- Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
+    - Support for two new target assessment regions: Central US and Canada East
+    - Support for Reserved Instances in assessment properties for more accurate cost estimates
+    - New readiness condition to highlight Operating Systems deprecated by VMware
+    - Support for storage utilization parameter in storage sizing logic (only for discovery via a .csv file) 
+
 ## Update (October 2021)
-- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#supported-geographies-public-cloud)
+- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#public-cloud).
 
 ## Update (September 2021)
-- Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md)  is now in preview in supported [government cloud geographies.](migrate-support-matrix.md#supported-geographies-azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md)
+- Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md)  is now in preview in supported [government cloud geographies.](migrate-support-matrix.md#azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md)
 - Support to tag and add custom names to resources for agentless VMware VM migrations using PowerShell.
 - Azure Migrate appliance: Option to remove servers from the physical servers discovery list.
 
@@ -38,7 +56,7 @@ ms.custom: mvc
 
 ## Update (June 2021)
 
-- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#supported-geographies-public-cloud)
+- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#public-cloud)
 - Azure Migrate allows you to register servers running SQL server with SQL VM RP during replication to automatically install SQL IaaS Agent Extension. This feature is available for agentless VMware, agentless Hyper-V, and agent-based migrations.
 - Import CSV file for assessment now supports up to 20 disks. Earlier it was limited to eight disks per server.
 
@@ -86,7 +104,7 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 
 ## Update (June 2020)
 
-- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
+- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) are now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
 - Support for multiple credentials on appliance for physical server discovery.
 - Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
 
@@ -97,7 +115,7 @@ Azure Migrate supports deployments in Azure Government.
 - You can discover and assess VMware VMs, Hyper-V VMs, and physical servers.
 - You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
 - For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
-- [Review](migrate-support-matrix.md#supported-geographies-azure-government) supported geographies and regions for Azure Government.
+- [Review](migrate-support-matrix.md#azure-government) supported geographies and regions for Azure Government.
 - [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
 - Features in preview are supported in Azure Government, [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 

@@ -6,12 +6,11 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# Create an Event Hub data connection for Azure Synapse Data Explorer by using C\# (Preview)
+# Create an Event Hub data connection for Azure Synapse Data Explorer by using C# (Preview)
 
 > [!div class="op_single_selector"]
 > * [Portal](data-explorer-ingest-event-hub-portal.md)

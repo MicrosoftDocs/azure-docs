@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Tutorial: Route network traffic with a route table using the Azure portal

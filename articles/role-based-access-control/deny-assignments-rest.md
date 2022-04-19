@@ -4,16 +4,15 @@ description: Learn how to list Azure deny assignments for users, groups, and app
 services: active-directory
 documentationcenter: na
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
-ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 01/24/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -23,7 +22,7 @@ ms.reviewer: bagovind
 [Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the REST API.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Azure deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For more information, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 

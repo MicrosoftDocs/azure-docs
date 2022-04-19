@@ -2,13 +2,13 @@
 title: 'Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal'
 description: In this quickstart, you'll learn how to deploy, configure, and use the Azure IoT Connector for FHIR feature of Azure API for FHIR using the Azure portal.
 services: healthcare-apis
-author: ms-puneet-nagpal
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 04/11/2022
 ms.author: rabhaiya
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal
@@ -29,17 +29,17 @@ Open the [Azure portal](https://portal.azure.com) and go to the **Azure API for 
 
 [![Azure API for FHIR resource](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg)](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg#lightbox)
 
-On the left-hand navigation menu, click on **IoT Connector (preview)** under the **Add-ins** section to open the **IoT Connectors** page.
+On the left-hand navigation menu, select **IoT Connector (preview)** under the **Add-ins** section to open the **IoT Connectors** page.
 
 [![IoT Connector feature](media/quickstart-iot-fhir-portal/portal-iot-connectors.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connectors.jpg#lightbox)
 
 ## Create new Azure IoT Connector for FHIR (preview)
 
-Click on the **Add** button to open the **Create IoT Connector** page.
+Select the **Add** button to open the **Create IoT Connector** page.
 
 [![Add IoT Connector](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg#lightbox)
 
-Enter settings for the new Azure IoT Connector for FHIR. Click on **Create** button and await Azure IoT Connector for FHIR deployment.
+Enter settings for the new Azure IoT Connector for FHIR. Select the **Create** button and await Azure IoT Connector for FHIR deployment.
 
 > [!NOTE]
 > Must select **Create** as the value for the **Resolution type** drop down for this installation. 
@@ -49,7 +49,7 @@ Enter settings for the new Azure IoT Connector for FHIR. Click on **Create** but
 |Setting|Value|Description |
 |---|---|---|
 |Connector name|A unique name|Enter a name to identify your Azure IoT Connector for FHIR This name should be unique within an Azure API for FHIR resource. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must start and end with a letter or a number, and must be between 3-24 characters in length.|
-|Resolution type|Lookup or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html) and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your Azure API for FHIR. Azure IoT Connector for FHIR will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want Azure IoT Connector for FHIR to create bare-bones Device and Patient resources in your Azure API for FHIR using respective identifier values present in the device data.|
+|Resolution type|Look up or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html) and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your Azure API for FHIR. Azure IoT Connector for FHIR will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want Azure IoT Connector for FHIR to create bare-bones Device and Patient resources in your Azure API for FHIR using respective identifier values present in the device data.|
 
 Once installation is complete, the newly created Azure IoT Connector for FHIR will show up on the **IoT Connectors** page.
 
@@ -61,7 +61,7 @@ Azure IoT Connector for FHIR needs two mapping templates to transform device mes
 
 [![IoT Connector missing mappings](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg#lightbox)
 
-To upload mapping templates, click on the newly deployed Azure IoT Connector for FHIR to go to the **IoT Connector** page.
+To upload mapping templates, select the newly deployed Azure IoT Connector for FHIR to go to the **IoT Connector** page.
 
 [![IoT Connector click](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg#lightbox)
 
@@ -71,28 +71,28 @@ Device mapping template transforms device data into a normalized schema. On the 
 
 [![IoT Connector click configure device mapping](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-device-mapping.jpg#lightbox)
 
-On the **Device mapping** page, add the following script to the JSON editor and click **Save**.
+On the **Device mapping** page, add the following script to the JSON editor and select **Save**.
 
 ```json
-{
-  "templateType": "CollectionContent",
-  "template": [
-    {
-      "templateType": "IotJsonPathContent",
-      "template": {
-        "typeName": "heartrate",
-        "typeMatchExpression": "$..[?(@Body.telemetry.HeartRate)]",
-        "patientIdExpression": "$.Properties.iotcentral-device-id",
-        "values": [
-          {
+{ 
+  "templateType": "CollectionContent", 
+  "template": [ 
+    { 
+      "templateType": "IotCentralJsonPathContent", 
+      "template": { 
+        "typeName": "heartrate", 
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "patientIdExpression": "$.deviceId", 
+        "values": [ 
+          {  
             "required": "true",
-            "valueExpression": "$.Body.telemetry.HeartRate",
+            "valueExpression": "$.telemetry.HeartRate",
             "valueName": "hr"
-          }
+          } 
         ]
       }
     }
-  ]
+  ] 
 }
 ```
 
@@ -100,11 +100,11 @@ On the **Device mapping** page, add the following script to the JSON editor and 
 
 #### FHIR mapping
 
-FHIR mapping template transforms a normalized message to a FHIR-based Observation resource. On the **IoT Connector** page, click on **Configure FHIR mapping** button to go to the **FHIR mapping** page.  
+FHIR mapping template transforms a normalized message to a FHIR-based Observation resource. On the **IoT Connector** page, select the **Configure FHIR mapping** button to browse to the **FHIR mapping** page.  
 
-[![IoT Connector click configure FHIR mapping](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg#lightbox)
+[![IoT Connector select configure FHIR mapping](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-fhir-mapping.jpg#lightbox)
 
-On the **FHIR mapping** page, add the following script to the JSON editor and click **Save**.
+On the **FHIR mapping** page, add the following script to the JSON editor and select **Save**.
 
 ```json
 {
@@ -141,7 +141,7 @@ IoMT device needs a connection string to connect and send messages to Azure IoT 
 
 [![IoT Connector click manage client connections](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg#lightbox)
 
-Once on **Connections** page, click on **Add** button to create a new connection. 
+On the **Connections** page, select the **Add** button to create a new connection. 
 
 [![IoT Connector connections](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connections.jpg#lightbox)
 
@@ -159,7 +159,7 @@ Preserve this connection string to be used at a later step.
 
 Azure offers an extensive suite of IoT products to connect and manage your IoT devices. You can build your own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. For this tutorial, we'll leverage Azure IoT Central, which has industry-focused solution templates to help you get started.
 
-Deploy the [Continuous patient monitoring application template](../../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-continuous-patient-monitoring-application). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
+Deploy the [Continuous patient monitoring application template](../../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-application). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
 
 > [!NOTE]
 > Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](../../iot-central/core/howto-set-up-template.md) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
@@ -187,7 +187,7 @@ Create a new data export:
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. For information, see [Access the FHIR service using Postman](./../use-postman.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
+You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. For information, see [Access the FHIR service using Postman](./../fhir/use-postman.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
 
 > [!TIP]
 > Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.
@@ -196,7 +196,7 @@ You can view the FHIR-based Observation resource(s) created by Azure IoT Connect
 
 When no longer needed, you can delete an instance of Azure IoT Connector for FHIR by removing the associated resource group, or the associated Azure API for FHIR service, or the Azure IoT Connector for FHIR instance itself. 
 
-To directly remove an Azure IoT Connector for FHIR instance, select the instance from **IoT Connectors** page to go to **IoT Connector** page and click on **Delete** button. Select **Yes** when asked for confirmation. 
+To directly remove an Azure IoT Connector for FHIR instance, select the instance from **IoT Connectors** page to browse to the **IoT Connector** page and select the **Delete** button. Select **Yes** when asked for confirmation. 
 
 [![Delete IoT Connector instance](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg#lightbox)
 

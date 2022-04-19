@@ -51,7 +51,7 @@ Virtual machine scale sets in Flexible Orchestration mode manages standard Azure
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
 
 ```azurecli-interactive
-az vm create –vmss "myVMSS"  –-platform_fault_domain 1
+az vm create –vmss "myVMSS"  –-platform-fault-domain 1
 ```
 
 ### Instance naming
@@ -102,7 +102,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network | Compute VMSS Write  | N/A |
 | Accelerated networking  | Yes  | Yes  | Yes |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only |
-| Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same Flexible scale set |
+| Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same availability set |
 | Disk Types  | Managed disks only, all storage types  | Managed and unmanaged disks, all storage types  | Managed and unmanaged disks, Ultradisk not supported |
 | Write Accelerator   | No  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |

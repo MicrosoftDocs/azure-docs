@@ -6,13 +6,19 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 04/08/2022
 ms.author: banders
 ---
 
 # Get billing ownership of Azure subscriptions to your MPA account
 
-To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA).
+An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions and reservations to the Microsoft Partner Agreement (MPA) that they manage. Supported billing ownership transfer options for subscriptions and reservations include:
+
+- A direct Enterprise Agreement transfer to MPA
+- An enterprise Microsoft Customer Agreement transfer to MPA
+
+> [!NOTE]
+> Indirect Enterprise Agreement transfer to a Microsoft Customer Agreement isn't supported.
 
 This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
@@ -94,12 +100,13 @@ When you send or accept transfer request, you agree to terms and conditions. For
 
 ## Supported subscription types
 
-You can request billing ownership of the subscription types listed below.
+You can request billing ownership of the following subscription types.
 
-* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
+* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)<sup>1</sup>
 * [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
+* Azure Plan<sup>1</sup> [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
 
-\* You must convert a Dev/Test subscription to an EA Enterprise offer via a support ticket. An Enterprise Dev/Test subscription will be billed at a pay-as-you-go rate after it's transferred. Any discount offered via the Enterprise Dev/Test offer through the customer's EA won't be available to the CSP partner.
+<sup>1</sup> You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There is no discount currently available through the Dev/Test offer to CSP partners.
 
 ## Additional information
 
@@ -129,7 +136,13 @@ Azure Reservations don't automatically move with subscriptions. Either you can k
 
 Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC access to the subscriptions.
 
-The partners should work with the customer to get access to subscriptions. The partners need to get either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
+The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
+
+### Power BI connectivity
+
+The Cost Management connector for Power BI doesn't currently support Microsoft Partner Agreements.  The connector only supports Enterprise Agreements and direct Microsoft Customer Agreements. For more information about Cost Management connector support, see [Create visuals and reports with the Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). After you transfer a subscription from one of the agreements to a Microsoft Partner Agreement, your Power BI reports stop working.
+
+As an alternative, you can always use Exports in Cost Management to save the consumption and usage information and then use it in Power BI. For more information, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
 
 ### Azure support plan
 
@@ -159,9 +172,9 @@ If these two directories don’t match, the subscriptions couldn't be transferre
 
 ### EA subscription in the non-organization directory
 
-The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name "[domain name]. onmicrosoft.com" or a verified, non-federated custom domain name such as "contoso.com."  
+The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name *[domain name].onmicrosoft.com* or a verified, non-federated custom domain name such as *contoso.com*.  
 
-To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+To add a new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## Check access to a Microsoft Partner Agreement
 

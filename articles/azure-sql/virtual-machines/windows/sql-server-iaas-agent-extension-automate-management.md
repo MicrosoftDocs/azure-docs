@@ -9,7 +9,6 @@ tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -33,6 +32,10 @@ This article provides an overview of the extension. To install the SQL Server Ia
 
 > [!NOTE]
 > Starting in September 2021, registering with the SQL IaaS extension in full mode no longer requires restarting the SQL Server service. 
+
+To learn more about the Azure VM deployment and management experience, including recent improvements, see:
+- [Azure SQL VM: Automate Management with the SQL Server IaaS Agent extension (Ep. 2)](/shows/data-exposed/azure-sql-vm-automate-management-with-the-sql-server-iaas-agent-extension-ep-2?WT.mc_id=dataexposed-c9-niner-mighub)
+- [Azure SQL VM: New and Improved SQL on Azure VM deployment and management experience (Ep.8) | Data Exposed](/shows/data-exposed/new-and-improved-sql-on-azure-vm-deployment-and-management-experience?WT.mc_id=dataexposed-c9-niner-mighub).
 
 ## Overview
 
@@ -63,22 +66,12 @@ The SQL Server IaaS Agent extension allows for integration with the Azure portal
 
 ## Feature benefits 
 
-The SQL Server IaaS Agent extension unlocks a number of feature benefits for managing your SQL Server VM. 
+The SQL Server IaaS Agent extension unlocks a number of feature benefits for managing your SQL Server VM. You can register your SQL Server VM in lightweight management mode, which unlocks a few of the benefits, or in full management mode, which unlocks all available benefits.
 
 The following table details these benefits: 
 
+[!INCLUDE [SQL VM feature benefits](../../includes/sql-vm-feature-benefits.md)]
 
-| Feature | Description |
-| --- | --- |
-| **Portal management** | Unlocks [management in the portal](manage-sql-vm-portal.md), so that you can view all of your SQL Server VMs in one place, and so that you can enable and disable SQL specific features directly from the portal. <br/> Management mode: Lightweight & full|  
-| **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](./frequently-asked-questions-faq.yml) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Management mode: Full|
-| **Automated patching** |Configures a maintenance window during which important Windows and SQL Server security updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](automated-patching.md). <br/> Management mode: Full|
-| **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Management mode: Full|
-| **View disk utilization in portal** | Allows you to view a graphical representation of the disk utilization of your SQL data files in the Azure portal.  <br/> Management mode: Full | 
-| **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. <br/> Management mode: Lightweight & full| 
-| **Flexible version / edition** | If you decide to change the [version](change-sql-server-version.md) or [edition](change-sql-server-edition.md) of SQL Server, you can update the metadata within the Azure portal without having to redeploy the entire SQL Server VM.  <br/> Management mode: Lightweight & full| 
-| **Defender for Cloud portal integration** | If you've enabled [Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md), then you can view Defender for Cloud recommendations directly in the [SQL virtual machines](manage-sql-vm-portal.md) resource of the Azure portal. See [Security best practices](security-considerations-best-practices.md) to learn more.  <br/> Management mode: Lightweight & full|
-| **SQL Assessment (Preview)** | Enables you to assess the health of your SQL Server VMs using configuration best practices. For more information, see [SQL Assessment](sql-assessment-for-sql-vm.md).  <br/> Management mode: Full| 
 
 
 ## Management modes

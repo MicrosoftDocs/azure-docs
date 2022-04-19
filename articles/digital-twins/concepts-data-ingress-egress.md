@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Data ingress and egress
 titleSuffix: Azure Digital Twins
-description: Understand the ingress and egress requirements for integrating Azure Digital Twins with other services.
+description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 6/1/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Data ingress and egress for Azure Digital Twins
 
-Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in different kinds of ways.
+Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in different kinds of ways. This article covers data ingress and egress for Azure Digital Twins and Azure services that can be used to take advantage of it.
 
 Using [event routes](concepts-route-events.md), Azure Digital Twins can receive data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
 
@@ -35,23 +35,27 @@ You can also learn how to connect Azure Digital Twins to a Logic Apps trigger in
 
 ## Data egress services
 
-Azure Digital Twins can send data to connected **endpoints**. Supported endpoints can be:
-* [Event Hub](../event-hubs/event-hubs-about.md)
+You may want to send Azure Digital Twins data to other downstream services for storage or additional processing.
+
+To send twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), set up a [data history (preview) connection](concepts-data-history.md) that automatically historizes digital twin property updates from your Azure Digital Twins instance to an Azure Data Explorer cluster. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
+
+To send data to other services, such as [Azure Maps](../azure-maps/about-azure-maps.md), [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), or [Azure Storage](../storage/common/storage-introduction.md), start by attaching the destination service to an *endpoint*. 
+
+Endpoints can be instances of any of these Azure services:
+* [Event Hubs](../event-hubs/event-hubs-about.md)
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [Manage endpoints and routes](how-to-manage-routes.md).
+The endpoint is attached to an Azure Digital Twins instance using management APIs or the Azure portal, and can carry data along from the instance to other listening services. For more information about Azure Digital Twins endpoints, see [Endpoints and event routes](concepts-route-events.md).
 
-There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md), [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), or [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). To send your data to services like these, attach the destination service to an endpoint.
+For detailed instructions on how to send Azure Digital Twins data to Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For detailed instructions on how to send Azure Digital Twins data to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 
-For example, if you're also using Azure Maps and want to correlate location with your Azure Digital Twins [twin graph](concepts-twins-graph.md), you can use Azure Functions with Event Grid to establish communication between all the services in your deployment. For more information on integrating Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md)
-
-You can also learn how to route data in a similar way to Time Series Insights, in [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
+Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
 ## Next steps
 
 Learn more about endpoints and routing events to external services:
-* [Routing Azure Digital Twins events](concepts-route-events.md)
+* [Endpoints and event routes](concepts-route-events.md)
 
 See how to set up Azure Digital Twins to ingest data from IoT Hub:
 * [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

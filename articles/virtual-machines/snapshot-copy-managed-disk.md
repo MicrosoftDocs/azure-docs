@@ -93,7 +93,7 @@ This example requires that you use [Cloud Shell](https://shell.azure.com/bash) o
 
 Follow these steps to take a snapshot with the `az snapshot create` command and the `--source-disk` parameter. This example assumes that you have a VM called *myVM* in the *myResourceGroup* resource group. The code sample provided creates a snapshot in the same resource group and within the same region as your source VM.
 
-1. Get the disk ID with [az vm show](/cli/azure/vm#az_vm_show).
+1. Get the disk ID with [az vm show](/cli/azure/vm#az-vm-show).
 
     ```azurecli-interactive
     osDiskId=$(az vm show \
@@ -103,7 +103,7 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
        -o tsv)
     ```
 
-1. Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az_snapshot_create). In the example, the snapshot is of the OS disk. By default, the snapshot uses locally redundant standard storage. We recommend that you store your snapshots in standard storage instead of premium storage whatever the storage type of the parent disk or target disk. Premium snapshots incur additional cost.
+1. Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az-snapshot-create). In the example, the snapshot is of the OS disk. By default, the snapshot uses locally redundant standard storage. We recommend that you store your snapshots in standard storage instead of premium storage whatever the storage type of the parent disk or target disk. Premium snapshots incur additional cost.
 
     ```azurecli-interactive
     az snapshot create \
@@ -114,7 +114,7 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
 
     If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the optional `--sku Standard_ZRS` parameter. A list of [availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones) can be found here.
     
-1. Use [az snapshot list](/cli/azure/snapshot#az_snapshot_list) to verify that your snapshot exists.
+1. Use [az snapshot list](/cli/azure/snapshot#az-snapshot-list) to verify that your snapshot exists.
     
     ```azurecli-interactive
     az snapshot list \

@@ -3,9 +3,8 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
+ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Troubleshooting and Q and A for Application Insights for Java SDK
@@ -20,7 +19,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 ## Build errors
 **In Eclipse or Intellij Idea, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.**
 
-* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.+'`), try specifying a specific version instead like `2.6.2`.
+* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.+'`), try specifying a specific version instead like `2.6.4`.
 
 ## No data
 **I added Application Insights successfully and ran my app, but I've never seen data in the portal.**
@@ -36,6 +35,8 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Please also look at [GitHub issues page](https://github.com/microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 #### I used to see data, but it has stopped
 * Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 * Have you recently upgraded your SDK? Please ensure that only Unique SDK jars are present inside the project directory. There should not be two different versions of SDK present.
@@ -49,7 +50,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 
 ### Java Agent cannot capture dependency data
 * Have you configured Java agent by following [Configure Java Agent](java-2x-agent.md) ?
-* Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
+* Make sure both the Java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
 
 ## No usage data

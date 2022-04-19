@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure File Sync | Microsoft Docs
 description: Review how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.author: rogarana
+ms.date: 01/3/2022
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -39,17 +39,17 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 | Metric name | Description |
 |-|-|
-| Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Cloud tiering cache hit rate | Percentage of bytes, not whole files, that have been served from the cache vs. recalled from the cloud.<br><br>Unit: Percentage<br>Aggregation Type: Average<br>Applicable dimensions: Server Endpoint Name, Server Name, Sync Group Name |
-| Cloud tiering recall size | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Name, Sync Group Name |
-| Cloud tiering recall size by application | Size of data recalled by application.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Application Name, Server Name, Sync Group Name |
+| Cloud tiering recall size | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Server Name, Sync Group Name |
+| Cloud tiering recall size by application | Size of data recalled by application.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Application Name, Server Name, Sync Group Name |
 | Cloud tiering recall success rate | Percentage of recall requests that were successful.<br><br>Unit: Percentage<br>Aggregation Type: Average<br>Applicable dimensions: Server Endpoint Name, Server Name, Sync Group Name |
-| Cloud tiering recall throughput | Size of data recall throughput.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Name, Sync Group Name |
-| Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Types: Average, Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Server cache size | Size of data cached on the server.<br><br>Unit: Bytes<br>Aggregation Type: Average<br>Applicable dimension: Server Endpoint Name, Server Name, Sync Group Name |
-| Server online status | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
-| Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Cloud tiering recall throughput | Size of data recall throughput.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum, Maximum, Minimum<br>Applicable dimensions: Server Name, Sync Group Name |
+| Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Types: Average<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Server cache size | Size of data cached on the server.<br><br>Unit: Bytes<br>Aggregation Type: Average, Maximum, Minimum<br>Applicable dimension: Server Endpoint Name, Server Name, Sync Group Name |
+| Server online status | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Average, Count, Sum, Maximum, Minimum<br>Applicable dimension: Server Name |
+| Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Average, Count, Sum, Maximum, Minimum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 
 ### Alerts
 

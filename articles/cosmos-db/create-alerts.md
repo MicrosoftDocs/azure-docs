@@ -1,12 +1,11 @@
 ---
 title: Create alerts for Azure Cosmos DB using Azure Monitor
 description: Learn how to set up alerts for Azure Cosmos DB using Azure Monitor.
-author: SnehaGunda
-ms.author: sngun
+author: StefArroyo
+ms.author: esarroyo 
 ms.service: cosmos-db
-ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/08/2022
 ---
 
 # Create alerts for Azure Cosmos DB using Azure Monitor
@@ -14,17 +13,22 @@ ms.date: 07/16/2020
 
 Alerts are used to set up recurring tests to monitor the availability and responsiveness of your Azure Cosmos DB resources. Alerts can send you a notification in the form of an  email, or execute an Azure Function when one of your metrics reaches the threshold or if a specific event is logged in the activity log.
 
-You can receive an alert based on the metrics, or the activity log events on your Azure Cosmos account:
+You can receive an alert based on the metrics, activity log events, or Log Analytics logs on your Azure Cosmos account:
 
 * **Metrics** - The alert triggers when the value of a specified metric crosses a threshold you assign. For example, when the total request units consumed exceed 1000 RU/s. This alert is triggered both when the condition is first met and then afterwards when that condition is no longer being met. See the [monitoring data reference](monitor-cosmos-db-reference.md#metrics) article for different metrics available in Azure Cosmos DB.
 
 * **Activity log events** – This alert triggers when a certain event occurs. For example, when the keys of your Azure Cosmos account are accessed or refreshed.
+
+* **Log Analytics** – This alert triggers when the value of a specified property in the results of a Log Analytics query crosses a threshold you assign. For example, you can write a Log Analytics query to [monitor if the storage for a logical partition key is reaching the 20 GB logical partition key storage limit](how-to-alert-on-logical-partition-key-storage-size.md) in Azure Cosmos DB. 
 
 You can set up alerts from the Azure Cosmos DB pane or the Azure Monitor service in the Azure portal. Both the interfaces offer the same options. This article shows you how to set up alerts for Azure Cosmos DB using Azure Monitor.
 
 ## Create an alert rule
 
 This section shows how to create an alert when you receive an HTTP status code 429, which is received when the requests are rate limited. For examples, you may want to receive an alert when there are 100 or more rate limited requests. This article shows you how to configure an alert for such scenario by using the HTTP status code. You can use the similar steps to configure other types of alerts as well, you just need to choose a different condition based on your requirement.
+
+> [!TIP]
+> The scenario of alerting based on number of 429s exceeding a threshold is used here for illustration purposes. It does not mean that there is anything inherently wrong with seeing 429s on your database or container. In general, if you see 1-5% of requests with 429s in a production workload and your overall application latency is within your requirements, this is a normal and healthy sign that you are fully using the throughput (RU/s) you've provisioned. [Learn more about how to interpret and debug 429 exceptions](sql/troubleshoot-request-rate-too-large.md).
 
 1. Sign into the [Azure portal.](https://portal.azure.com/)
 
@@ -44,17 +48,17 @@ This section shows how to create an alert when you receive an HTTP status code 4
 
    * After filling in the details, a list of Azure Cosmos accounts in the selected scope is displayed. Choose the one for which you want to configure alerts and select **Done**.
 
-1. Fill out the **Condition** section:
+1. Fill out the **Condition** section: 
 
-   * Open the **Select condition** pane to open the **Configure signal logic** page and configure the following:
+   * Open the **Select condition** pane to open the **Select a signal** page and configure the following:
 
-   * Select a signal. The **signal type** can be a **Metric** or an **Activity Log**. Choose **Metrics** for this scenario. Because you want to get an alert when there are rate limiting issues on the total request units metric.
+   * Select a signal. The **signal type** can be a **Metric**, an **Activity Log** or a **Log** (Log Analytics). Choose **Metrics** for this scenario, as you want to get an alert when rate limiting occurs on the total request units metric.
 
    * Select **All** for the **Monitor service**
 
    * Choose a **Signal name**. To get an alert for HTTP status codes, choose the **Total Request Units** signal.
 
-   * In the next tab, you can define the logic for triggering an alert and use the chart to view trends of your Azure Cosmos account. The **Total Request Units** metric supports dimensions. These dimensions allow you to filter on the metric. If you don’t select any dimension, this value is ignored.
+   * Now, you can define the logic for triggering an alert and use the chart to view trends of your Azure Cosmos account. The **Total Request Units** metric supports dimensions. These dimensions allow you to filter on the metric. For example, you can use dimensions to filter to a specific database or container you want to monitor. If you don't select any dimension, this value is ignored.
 
    * Choose **StatusCode** as the **Dimension name**. Select **Add custom value** and set the status code to 429.
 
@@ -92,6 +96,7 @@ The following are some scenarios where you can use alerts:
 
 * When the keys of an Azure Cosmos account are updated.
 * When the data or index usage of a container, database, or a region exceeds a certain number of bytes.
+* [When the storage for a logical partition key is reaching the Azure Cosmos DB 20 GB logical partition storage limit.](how-to-alert-on-logical-partition-key-storage-size.md)
 * When the normalized RU/s consumption is greater than certain percentage. The normalized RU consumption metric gives the maximum throughput utilization within a replica set. To learn, see the [How to monitor normalized RU/s](monitor-normalized-request-units.md) article.  
 * When a region is added, removed, or if it goes offline.
 * When a database or a container is created, deleted, or updated.

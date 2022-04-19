@@ -1,41 +1,37 @@
 ---
 title: How to bulk edit assets to tag classifications, glossary terms and modify contacts
-description: Learn bulk edit assets in Azure Purview.
+description: Learn bulk edit assets in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 01/25/2022
 ---
 
 # How to bulk edit assets to annotate classifications, glossary terms and modify contacts
 
-This article describes how to tag multiple glossary terms, classifications, owners and experts to a list of selected assets in a single action.
+This article describes how to tag glossary terms, classifications, owners and experts to multiple assets in bulk. 
 
-## Add Assets to View selected list using search
+## Select assets to bulk edit
 
-1. Search on the data asset you want to add to the list for bulk editing.
+1. Use Microsoft Purview search or browse to discover assets you wish to edit.
 
-1. In the search result page, hover on the asset you want to add to the bulk edit **View selected** list to see a checkbox.
+1. In the search results, if you focus on an asset a checkbox appears.
 
-   :::image type="content" source="media/how-to-bulk-edit-assets/asset-checkbox.png" alt-text="Screenshot of the checkbox.":::
+   :::image type="content" source="media/how-to-bulk-edit-assets/asset-checkbox.png" alt-text="Screenshot of the bulk edit checkbox.":::
 
-1. Select the checkbox to add it to the bulk edit **View selected** list. Once added, you will see the selected items icon at the bottom of the page.
-
-   :::image type="content" source="media/how-to-bulk-edit-assets/selected-list.png" alt-text="Screenshot of the list.":::
-
-1. Repeat the above steps to add all the data assets to the list.
-
-## Add Assets to View selected list from asset detail page
-
-You can also add an asset to the bulk edit list in the asset detail page. Select the checkbox at the top right corner to add the asset to the bulk edit list.
+1. You can add an asset to the bulk edit list from the asset detail page. Select **Select for bulk edit** to add the asset to the bulk edit list.
 
    :::image type="content" source="media/how-to-bulk-edit-assets/asset-list.png" alt-text="Screenshot of the asset.":::
 
-## Bulk edit assets in the View selected list to add, replace, or remove glossary terms.
+1. Select the checkbox to add it to the bulk edit list. You can see the selected assets by clicking **View selected**.
 
-1. When you're done with the identification of all the data assets which needs to be bulk-edited, Select **View selected** list from search results page or asset details page.
+   :::image type="content" source="media/how-to-bulk-edit-assets/selected-list.png" alt-text="Screenshot of the list.":::\
+
+## How to bulk edit assets
+
+1. When all assets have been chosen, select **View selected** to pull up the selected assets.
 
     :::image type="content" source="media/how-to-bulk-edit-assets/view-list.png" alt-text="Screenshot of the view.":::
 
@@ -43,33 +39,23 @@ You can also add an asset to the bulk edit list in the asset detail page. Select
 
     :::image type="content" source="media/how-to-bulk-edit-assets/remove-list.png" alt-text="Screenshot with the Deselect button highlighted.":::
 
-1. Select **Bulk edit** to add, remove or replace glossary terms for all the selected assets.
+1. Select **Bulk edit** to add, remove or replace an annotation for all the selected assets. You can edit the glossary terms, classifications, owners or experts of an asset.
 
     :::image type="content" source="media/how-to-bulk-edit-assets/bulk-edit.png" alt-text="Screenshot with the bulk edit button highlighted.":::
 
-1. To add glossary terms, select Operation as **Add**. Select all the glossary terms you want to add in the New value. Select Apply when complete.
-    - Add operation will append New value to the list of glossary terms already tagged to data assets.  
+1. For each attribute selected, you can choose which edit operation to apply
+    1. **Add** will append a new annotation to the selected data assets.
+    1. **Replace with** will replace all of the annotations for the selected data assets with the annotation selected.
+    1. **Remove** will remove all annotations for selected data assets.
    
     :::image type="content" source="media/how-to-bulk-edit-assets/add-list.png" alt-text="Screenshot of the add.":::
 
-1. To replace glossary terms select Operation as **Replace with**. Select all the glossary terms you want to replace in the New value. Select Apply when complete.
-    - Replace operation will replace all the glossary terms for selected data assets with the terms selected in New value.
-   
-1. To remove glossary terms select Operation as **Remove**. Select Apply when complete.
-    - Remove operation will remove all the glossary terms for selected data assets.
-   
-    :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="Screenshot of the remove terms.":::
-
-1. Repeat the above for classifications, owners and experts.
-
-    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot of the classifications and contacts.":::
-
-1. Once complete close the bulk edit blade by selecting **Close** or **Remove all and close**. Close will not remove the selected assets whereas remove all and close will remove all the selected assets.
+1. Once complete, close the bulk edit blade by selecting **Close** or **Remove all and close**. Close won't remove the selected assets whereas remove all and close will remove all the selected assets.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot of the close.":::
 
-   > [!Important]
-   > The recommended number of assets for bulk edit are 25. Selecting more than 25 might cause performance issues.
-   > The **View Selected** box will be visible only if there is at least one asset selected.
+> [!Important]
+> The recommended number of assets for bulk edit are 25. Selecting more than 25 might cause performance issues.
+> The **View Selected** box will be visible only if there is at least one asset selected.
 
 ## Next steps
 

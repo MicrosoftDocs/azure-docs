@@ -1,11 +1,11 @@
 ---
-author: nitinme
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
-ms.author: nitinme
+ms.author: rwaller
 ---
 
 ## Prerequisites
@@ -43,7 +43,7 @@ You need some values from the Azure AD auth configuration prerequisite step abov
 TenantId     => Azure subscription TenantId
 ClientId     => Azure AD ApplicationId
 ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
 Once you have these values, create a new file called _.env_, and paste the following code into it, supplying your custom property values from above. Do not include quotation marks or the "{" and "}" characters.
@@ -113,7 +113,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
 1. Open _views\layout.pug_, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and jQuery.
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
+    script(src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 

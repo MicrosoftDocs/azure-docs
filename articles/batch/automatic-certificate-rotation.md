@@ -84,8 +84,11 @@ Request Body
                             "authenticationSettings": {
                                 "msiEndpoint": "http://169.254.169.254/metadata/identity",
                                 "msiClientId": "b9f6dd56-d2d6-4967-99d7-8062d56fd84c"
-                            }  }, "protectedSettings":{}
-                    }                ]            }
+                            }  
+                        },
+                    }                
+               ]            
+            }
         },
         "scaleSettings": {
             "fixedScale": {

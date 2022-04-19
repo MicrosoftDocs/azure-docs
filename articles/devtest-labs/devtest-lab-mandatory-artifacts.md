@@ -1,74 +1,76 @@
 ---
-title: Specify mandatory artifacts in Azure DevTest Labs
-description: Learn how to specify mandatory artifacts that need to be installed before installing any user-selected artifacts on virtual machines (VMs) in the lab. 
+title: Specify mandatory artifacts for lab virtual machines
+description: Learn how to specify mandatory artifacts to install at creation of every lab virtual machine (VM) in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 01/12/2022
 ---
 
-# Specify mandatory artifacts for your lab in Azure DevTest Labs
+# Specify mandatory artifacts for DevTest Labs VMs
 
-As an owner of a lab, you can specify mandatory artifacts that are applied to every machine created in the lab. Imagine a scenario where you want each machine in your lab to have Visual Studio Code installed. In this case, each lab user would have to add a Visual Studio Code artifact during virtual machine creation to make sure their machine received Visual Studio Code. In other words, lab users would essentially have to re-create a machine in case they forget to apply mandatory artifacts on their machine. As a lab owner, you make the Visual Studio Code artifact as a mandatory artifact in your lab. This step makes sure that each machine has Visual Studio Code and saves the time and effort for your lab users.
+This article describes how to specify mandatory *artifacts* in Azure DevTest Labs to install on every lab virtual machine (VM). Artifacts are tools and applications to add to VMs. Installing mandatory artifacts ensures all lab VMs have standardized, up-to-date artifacts. Lab users don't have to spend time and effort to add needed artifacts individually.
+
+Mandatory artifacts can include any software that every VM in your lab must have. If you create a custom image from a VM that has mandatory artifacts applied to it, and create new VMs from that image, those VMs also have the mandatory artifacts. Even if the custom image is old, VM creation applies the most updated versions of the mandatory artifacts.
  
-Other mandatory artifacts could include a common tool that your team uses, or a platform-related security pack that each machine needs to have by default, and so on. In short, any common software that every machine in your lab must have becomes a mandatory artifact. If you create a custom image from a machine that has mandatory artifacts applied to it and then create a fresh machine from that image, the mandatory artifacts are reapplied on the machine during creation. This behavior also means that even though the custom image is old, every time you create a machine from it the most updated version of mandatory artifacts are applied to it during the creation flow. 
- 
-Only artifacts that have no parameters are supported as mandatory ones. Your lab user doesn't need to enter other parameters during lab creation making the process of VM creation simple. 
+Only artifacts that have no parameters can be mandatory artifacts. Lab users don't have to enter extra parameter values, making the VM creation process simple.
+
+During VM creation, mandatory artifacts install before any artifacts the user chooses to install on the machine.
 
 ## Specify mandatory artifacts
-You can select mandatory artifacts for Windows and Linux machines separately. You can also reorder these artifacts depending on the order in which you would like them to applied. 
 
-1. On the home page of your lab, select **Configuration and policies** under **SETTINGS**. 
-3. Select **Mandatory artifacts** under **EXTERNAL RESOURCES**. 
-4. Select **Edit** in the **Windows** section or the **Linux** section. This example uses the **Windows** option. 
+You can select mandatory artifacts for Windows and Linux lab machines separately.
 
-    ![Mandatory artifacts page - Edit button](media/devtest-lab-mandatory-artifacts/mandatory-artifacts-edit-button.png)
-4. Select an artifact. This example uses **7-Zip** option. 
-5. On the **Add artifact** page, select **Add**. 
+1. On your lab's home page, under **Settings** in the left navigation, select **Configuration and policies**.
+1. On the **Configuration and policies** screen, under **External resources** in the left navigation, select **Mandatory artifacts**.
+1. For Windows VMs, select **Windows**, and then select **Edit Windows artifacts**. For Linux VMs, select **Linux**, and then select **Edit Linux artifacts**.
 
-    ![Mandatory artifacts page - Add 7-zip](media/devtest-lab-mandatory-artifacts/add-seven-zip.png)
-6. To add another artifact, select the article, and select **Add**. This example adds **Chrome** as the second mandatory artifact.
+   ![Screenshot that shows the Edit Windows artifacts button.](media/devtest-lab-mandatory-artifacts/mandatory-artifacts-edit-button.png)
 
-    ![Mandatory artifacts page - Add Chrome](media/devtest-lab-mandatory-artifacts/add-chrome.png)
-7. On the **Mandatory artifacts** page, you see a message that specifies the number of artifacts selected. If you select the message, you see the artifacts that you selected. Select **Save** to save. 
+1. On the **Mandatory artifacts** page, select the arrow next to each artifact you want to add to the VM.
+1. On each **Add artifact** pane, select **OK**. The artifact appears under **Selected artifacts**, and the number of configured artifacts updates.
 
-    ![Mandatory artifacts page - Save artifacts](media/devtest-lab-mandatory-artifacts/save-artifacts.png)
-8. Repeat the steps to specify mandatory artifacts for Linux VMs. 
-    
-    ![Mandatory artifacts page - Windows and Linux artifacts](media/devtest-lab-mandatory-artifacts/windows-linux-artifacts.png)
-9. To **delete** an artifact from the list, select **...(ellipsis)** at the end of the row, and select **Delete**. 
-10. To **reorder** artifacts in the list, hover mouse over the artifact, select **...(ellipsis)** that shows up at the beginning of the row, and drag the item to the new position. 
-11. To save mandatory artifacts in the lab, select **Save**. 
+   ![Screenshot that shows adding mandatory artifacts on the Mandatory artifacts screen.](media/devtest-lab-mandatory-artifacts/save-artifacts.png)
 
-    ![Mandatory artifacts page - Save artifacts in lab](media/devtest-lab-mandatory-artifacts/save-to-lab.png)
-12. Close the **Configuration and policies** page (select **X** in the upper-right corner) to get back to the home page for your lab.  
+1. By default, artifacts install in the order you add them. To rearrange the order, select the ellipsis **...** next to the artifact in the **Selected artifacts** list, and select **Move up**, **Move down**, **Move to top**, or **Move to bottom**. To delete the artifact from the list, select **Delete**.
 
-## Delete a mandatory artifact
-To delete a mandatory artifact from a lab, do the following actions: 
+1. When you're done adding and arranging artifacts, select **Save**.
 
-1. Select **Configuration and policies** under **SETTINGS**. 
-2. Select **Mandatory artifacts** under **EXTERNAL RESOURCES**. 
-3. Select **Edit** in the **Windows** section or the **Linux** section. This example uses the **Windows** option. 
-4. Select the message with the number of mandatory artifacts at the top. 
+## Delete or rearrange mandatory artifacts
 
-    ![Mandatory artifacts page - Select the message](media/devtest-lab-mandatory-artifacts/select-message-artifacts.png)
-5. On the **Selected artifacts** page, select **...(ellipsis)** for the artifact to be deleted, and select **Remove**. 
-    
-    ![Mandatory artifacts page - Remove artifact](media/devtest-lab-mandatory-artifacts/remove-artifact.png)
-6. Select **OK** to close the **Selected artifacts** page. 
-7. Select **Save** on the **Mandatory artifacts** page.
-8. Repeat steps for **Linux** images if needed. 
-9. Select **Save** to save all the changes to the lab. 
+After you add mandatory artifacts, the lists of selected artifacts appear on the **Configuration and policies | Mandatory artifacts** screen under **Windows** and **Linux**. You can rearrange or delete the specified mandatory artifacts.
 
-## View mandatory artifacts when creating a VM
-Now, as a lab user you can view the list of mandatory artifacts while creating a VM in the lab. You can't edit or delete mandatory artifacts set in the lab by your lab owner.
+To delete a mandatory artifact from the list, select the checkbox next to the artifact, and then select **Delete**.
 
-1. On the home page for your lab, select **Overview** from the menu.
-2. To add a VM to the lab, select **+ Add**. 
-3. Select a **base image**. This example uses **Windows Server, version 1709**.
-4. Notice that you see a message for **Artifacts** with the number of mandatory artifacts selected. 
-5. Select **Artifacts**. 
-6. Confirm that you see the **mandatory artifacts** you specified in the lab's configuration and policies. 
+![Screenshot that shows the Delete button to remove a mandatory artifact.](media/devtest-lab-mandatory-artifacts/remove-artifact.png)
 
-    ![Create a VM - mandatory artifacts](media/devtest-lab-mandatory-artifacts/create-vm-artifacts.png)
+To rearrange the order of the mandatory artifacts:
+
+1. Select **Edit Windows artifacts** or **Edit Linux artifacts**.
+1. On the **Mandatory artifacts** page, select the ellipsis **...** next to the artifact in the **Selected artifacts** list.
+1. Select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
+1. Select **Save**.
+
+## See mandatory artifacts for a VM
+
+Once you specify mandatory artifacts for a lab, all lab VMs for that operating system (Windows or Linux) have those artifacts installed at creation. Lab users can see the mandatory artifacts to be installed on their VMs.
+
+For example, to see the mandatory artifacts specified for lab Windows VMs in the earlier procedure:
+
+1. On your lab's home page, select **Add**.
+1. On the **Choose a base** page, select a Windows image, such as **Windows 11 Pro**.
+1. On the **Create lab resource** page, under **Artifacts**, note the number of mandatory artifacts. To see what the mandatory artifacts are, select **Add or Remove Artifacts**.
+
+   ![Screenshot that shows the Create lab resource screen with number of mandatory artifacts and Add or Remove Artifacts link.](media/devtest-lab-mandatory-artifacts/select-message-artifacts.png)
+
+1. On the **Add artifacts** screen, an informational message lists the mandatory artifacts to be installed, in order.
+
+   ![Screenshot that shows the Add artifacts screen with the list of mandatory artifacts to install.](media/devtest-lab-mandatory-artifacts/save-to-lab.png)
+
+You can't remove, rearrange, or change mandatory artifacts when you create an individual VM. However, you can add other available artifacts to the VM. For more information and instructions, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
+
+You can also create your own artifacts for VMs. For more information, see [Create custom artifacts for DevTest Labs VMs](devtest-lab-artifact-author.md).
 
 ## Next steps
-* Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+
+- Learn how to [add a Git artifact repository to a lab](add-artifact-repository.md).

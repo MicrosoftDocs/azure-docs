@@ -386,4 +386,4 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
 
-[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
+[Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) with Azure Machine Learning.

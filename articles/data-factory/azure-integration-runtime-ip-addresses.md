@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/06/2020
+ms.date: 01/21/2022
 ---
 
 # Azure Integration Runtime IP addresses

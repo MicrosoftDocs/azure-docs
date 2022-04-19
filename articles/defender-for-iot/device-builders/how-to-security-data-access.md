@@ -2,10 +2,14 @@
 title: Access security & recommendation data
 description: Learn about how to access your security alert and recommendation data when using Defender for IoT.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Access your security data
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
+>
 
 Defender for IoT stores security alerts, recommendations, and raw security data (if you choose to save it) in your Log Analytics workspace.
 

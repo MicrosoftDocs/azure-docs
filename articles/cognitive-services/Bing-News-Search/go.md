@@ -10,20 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: mode-other
+ms.devlang: golang
+ms.custom: mode-api
 ---
 
 # Quickstart: Get news results using the Bing News Search REST API and Go
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 
 ## Prerequisites
-* Install the [Go binaries](https://golang.org/dl/).
+* Install the [Go binaries](https://go.dev/dl/).
 * Install the go-spew library to use a deep pretty printer to display the results. Use this command to install the library: `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]

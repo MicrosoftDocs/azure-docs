@@ -5,7 +5,6 @@ services: peering-service
 documentationcenter: na
 author: derekolo
 ms.service: peering-service
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 12/02/2021
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,7 +20,7 @@ ms.custom: has-adal-ref
 ---
 # Troubleshoot hybrid Azure AD-joined devices
 
-This article provides troubleshooting guidance to help you resolve potential issues with devices that are running Windows 10 or Windows Server 2016.
+This article provides troubleshooting guidance to help you resolve potential issues with devices that are running Windows 10 or newer and Windows Server 2016 or newer.
 
 Hybrid Azure Active Directory (Azure AD) join supports the Windows 10 November 2015 update and later.
 
@@ -236,7 +236,7 @@ This content applies only to federated domain accounts.
 Reasons for failure:
 
 - Unable to get an access token silently for the DRS resource.
-   - Windows 10 devices acquire the authentication token from the Federation Service by using integrated Windows authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
+   - Windows 10 and Windows 11 devices acquire the authentication token from the Federation Service by using integrated Windows authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
 
 **Common error codes**:
 

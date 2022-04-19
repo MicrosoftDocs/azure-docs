@@ -21,6 +21,7 @@ A monitored application upgrade can be performed using the managed or native API
 
 With Service Fabric monitored rolling upgrades, the application administrator can configure the health evaluation policy that Service Fabric uses to determine if the application is healthy. In addition, the administrator can configure the action to be taken when the health evaluation fails (for example, doing an automatic rollback.) This section walks through a monitored upgrade for one of the SDK samples that uses PowerShell. 
 
+[Check this page for a training video that also walks you through an application upgrade:](/shows/building-microservices-applications-on-azure-service-fabric/upgrading-an-application)
 > [!NOTE]
 > [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
 ```powershell

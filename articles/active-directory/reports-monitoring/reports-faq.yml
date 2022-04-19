@@ -11,14 +11,12 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: conceptual
+  ms.topic: faq
   ms.subservice: report-monitor
   ms.date: 11/23/2021
   ms.author: markvi
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions around Azure Active Directory reports
 summary: |
   This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](overview-reports.md). 
@@ -141,4 +139,3 @@ sections:
           My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?
         answer: |
           Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy.
-

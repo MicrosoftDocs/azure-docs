@@ -3,14 +3,15 @@ title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 06/24/2021
+ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. After you finish the instructions in this article, you'll be able to use Azure Monitor Application Insights to monitor your application.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Get started
 
@@ -28,7 +29,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.2.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.3/applicationinsights-agent-3.2.3.jar) file.
+Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.11/applicationinsights-agent-3.2.11.jar) file.
 
 > [!WARNING]
 > 
@@ -43,14 +44,14 @@ Download the [applicationinsights-agent-3.2.3.jar](https://github.com/microsoft/
 >    For details, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
 >
 > If you're upgrading from 3.1.x:
-> 
+>    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
 >    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.3.jar` to your application's JVM args.
+Add `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -62,20 +63,20 @@ Add `-javaagent:path/to/applicationinsights-agent-3.2.3.jar` to your application
    - You can set an environment variable:
     
         ```console
-        APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
+        APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.3.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.11.jar` with the following content:
 
         ```json
         {
-          "connectionString": "InstrumentationKey=..."
+          "connectionString": "Copy connection string from Application Insights Resource Overview"
         }
         ```
 
 1. Find the connection string on your Application Insights resource.
 
-    :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Screenshot that shows the Application Insights connection string.":::
+    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
     
 #### Confirm data is flowing
 
@@ -89,7 +90,7 @@ Run your application and open your **Application Insights Resource** tab in the 
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set cloud role names](java-standalone-config.md#cloud-role-name) to represent them properly on the application map.
 
-As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
+As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You can disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
 ## Configuration options
 
@@ -159,7 +160,7 @@ Autocollected dependencies without downstream distributed trace propagation:
 
 ### Azure SDKs
 
-Telemetry emitted by these Azure SDKs is autocollected by default:
+Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 * [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
@@ -189,7 +190,7 @@ Telemetry emitted by these Azure SDKs is autocollected by default:
 * [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
 [//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
-[//]: # "and version sync'd manually against the oldest version in maven central built on azure-core 1.14.0"
+[//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
 [//]: # ""
 [//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
 [//]: # "var str = ''"
@@ -334,17 +335,26 @@ Application Insights Java 3.x is already listening for telemetry that's sent to 
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+2. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
 
     ```java
-    static final Counter counter = Metrics.counter("test_counter");
+    static final Counter counter = Metrics.counter("test.counter");
     ```
 
-1. Use the counter to record metrics:
+3. Use the counter to record metrics:
 
     ```java
     counter.increment();
     ```
+
+4. The metrics will be ingested into the
+   [customMetrics](/azure/azure-monitor/reference/tables/custommetrics) table, with tags captured in the
+   `customDimensions` column. You can also view the metrics in the
+   [Metrics explorer](../essentials/metrics-getting-started.md) under the "Log-based metrics" metric namespace.
+
+    > [!NOTE]
+    > Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name
+    > with underscores, so the `test.counter` metric above will show up as `test_counter`.
 
 ### Send custom traces and exceptions by using your favorite logging framework
 
@@ -357,19 +367,19 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ### Send custom telemetry by using the 2.x SDK
 
-1. Add `applicationinsights-core-2.6.3.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice. it's worth using the latest version:
+1. Add `applicationinsights-core-2.6.4.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice, it's worth using the latest version:
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>2.6.3</version>
+      <version>2.6.4</version>
     </dependency>
     ```
 
 1. Create a TelemetryClient:
     
-      ```java
+    ```java
     static final TelemetryClient telemetryClient = new TelemetryClient();
     ```
 
@@ -423,6 +433,10 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 ## Troubleshooting
 
 For help with troubleshooting, see [Troubleshooting](java-standalone-troubleshoot.md).
+
+## Release notes
+
+See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
 ## Support
 

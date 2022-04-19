@@ -10,16 +10,15 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/30/2021
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.devlang: csharp, golang, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
 ---
 
 # Quickstart: Use the Image Analysis client library or REST API
 
-Get started with the Image Analysis REST API or client libraries. The Analyze Image service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for basic tasks.
-
-
+Get started with the Image Analysis REST API or client libraries. The Analyze Image service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for a basic task.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -42,12 +41,6 @@ Get started with the Image Analysis REST API or client libraries. The Analyze Im
 ::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [NodeJS SDK quickstart](../includes/quickstarts-sdk/image-analysis-node-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/image-analysis-go-sdk.md)]
 
 ::: zone-end
 

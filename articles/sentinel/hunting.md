@@ -73,7 +73,7 @@ The following table describes detailed actions available from the hunting dashbo
 | **Save a query to your favorites**                 |   Queries saved to your favorites automatically run each time the **Hunting** page is accessed. You can create your own hunting query or clone and customize an existing hunting query template.      |
 | **Run queries**                                    |   Select **Run Query** in the hunting query details page to run the query directly from the hunting page. The number of matches is displayed within the table, in the **Results** column. Review the list of hunting queries and their matches.     |
 | **Review an underlying query**                     | Perform a quick review of the underlying query in the query details pane. You can see the results by clicking the **View query results** link (below the query window) or the **View Results** button (at the bottom of the pane). The query will open in the **Logs** (Log Analytics) blade, and below the query, you can review the matches for the query.         |
-|     |         |
+
 
 ## Create a custom hunting query
 
@@ -107,7 +107,7 @@ Create or modify a query and save it as your own query or share it with users wh
 
 ## Sample query
 
-A typical query starts with a table name followed by a series of operators separated by a pipe character ("\|").
+A typical query starts with a table or parser name followed by a series of operators separated by a pipe character ("\|").
 
 In the example above, start with the table name SecurityEvent and add piped elements as needed.
 
@@ -120,6 +120,11 @@ In the example above, start with the table name SecurityEvent and add piped elem
 1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
 
 1. Select the green triangle and run the query. You can test the query and run it to look for anomalous behavior.
+
+> [!IMPORTANT]
+>
+> We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
+>
 
 ## Create bookmarks
 
@@ -146,7 +151,7 @@ For more information, see [Use bookmarks in hunting](bookmarks.md).
 
 When your hunting and investigations become more complex, use Microsoft Sentinel notebooks to enhance your activity with machine learning, visualizations, and data analysis.
 
-Notebooks provide a kind of virtual sandbox, complete with it own kernel, where you can carry out a complete investigation. Your notebook can include the raw data, the code you run on that data, the results, and their visualizations. Save your notebooks so that you can share it with others to reuse in your organization.
+Notebooks provide a kind of virtual sandbox, complete with its own kernel, where you can carry out a complete investigation. Your notebook can include the raw data, the code you run on that data, the results, and their visualizations. Save your notebooks so that you can share it with others to reuse in your organization.
 
 Notebooks may be helpful when your hunting or investigation becomes too large to remember easily, view details, or when you need to save queries and results. To help you create and share notebooks, Microsoft Sentinel provides [Jupyter Notebooks](https://jupyter.org), an open-source, interactive development and data manipulation environment, integrated directly in the Microsoft Sentinel **Notebooks** page.
 
@@ -166,7 +171,7 @@ The following table describes some methods of using Juypter notebooks to help yo
 |**Scripting and programming**     |    Use Jupyter Notebooks to add programming to your queries, including: <br><br>- *Declarative* languages like [Kusto Query Language (KQL)](/azure/kusto/query/) or SQL, to encode your logic in a single, possibly complex, statement.<br>- *Procedural* programming languages, to run logic in a series of steps. <br><br>Splitting your logic into steps can help you see and debug intermediate results, add functionality that might not be available in the query language, and reuse partial results in later processing steps.     |
 |**Links to external data**     | While Microsoft Sentinel tables have most telemetry and event data, Jupyter Notebooks can link to any data that's accessible over your network or from a file. Using Jupyter Notebooks allows you to include data such as: <br><br>- Data in external services that you don't own, such as geolocation data or threat intelligence sources<br>- Sensitive data that's stored only within your organization, such as human resource databases or lists of high-value assets<br>- Data that you haven't yet migrated to the cloud.        |
 |**Specialized data processing, machine learning, and visualization tools**     | Jupyter Notebooks provides additional visualizations, machine learning libraries, and data processing and transformation features. <br><br>For example, use Jupyter Notebooks with the following [Python](https://python.org) capabilities:<br>- [pandas](https://pandas.pydata.org/) for data processing, cleanup, and engineering<br>- [Matplotlib](https://matplotlib.org), [HoloViews](https://holoviews.org), and [Plotly](https://plot.ly) for visualization<br>- [NumPy](https://www.numpy.org) and [SciPy](https://www.scipy.org) for advanced numerical and scientific processing<br>- [scikit-learn](https://scikit-learn.org/stable/index.html) for machine learning<br>- [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org), and [Keras](https://keras.io/) for deep learning<br><br>**Tip**: Jupyter Notebooks supports multiple language kernels. Use *magics* to mix languages within the same notebook, by allowing the execution of individual cells using another language. For example, you can retrieve data using a PowerShell script cell, process the data in Python, and use JavaScript to render a visualization.        |
-|     |         |
+
 
 ### MSTIC, Jupyter, and Python security tools
 

@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 06/14/2021
+ms.date: 02/15/2022
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -33,7 +33,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. ||
 | `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [TimeZone](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). If the specified value isn't recognized, UTC is used. | `Atlantic Standard Time` |
 | `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | In the case of a storage volume failover or reconfiguration, your app is switched over to a standby storage volume. The default setting of `1` prevents your worker process from recycling when the storage infrastructure changes. If you are running a Windows Communication Foundation (WCF) app, disable it by setting it to `0`. The setting is slot-specific, so you should set it in all slots. ||
-| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VN instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
+| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
 | `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service’s logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the SAS URI.  ||
 | `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`. This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. ||
@@ -261,6 +261,26 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 -----
 
+## WordPress
+
+> [!div class="mx-tdCol5BreakAll"]
+> |Application Setting | Scope | Value | Max | Description
+> |-------------|-------------|-------------|---------------|--------------------|
+> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
+> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
+> |POST_MAX_SIZE|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+> |MAX_INPUT_VARS|PHP|10000|10000|-|
+> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
+> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
+> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
+> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
+
 ## Domain and DNS
 
 | Setting name| Description | Example |
@@ -291,7 +311,7 @@ For more information on deployment slots, see [Set up staging environments in Az
 | Setting name| Description | Example |
 |-|-|-|
 |`WEBSITE_SLOT_NAME`| Read-only. Name of the current deployment slot. The name of the production slot is `Production`. ||
-|`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| By default, the versions for site extensions are specific to each slot. This prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to swap as well, set to `1` on *all slots*. ||
+|`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`| By default, the versions for site extensions are specific to each slot. This prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to swap as well, set to `0` on *all slots*. ||
 |`WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS`| Designates certain settings as [sticky or not swappable by default](deploy-staging-slots.md#which-settings-are-swapped). Default is `true`. Set this setting to `false` or `0` for *all deployment slots* to make them swappable instead. There's no fine-grain control for specific setting types. ||
 |`WEBSITE_SWAP_WARMUP_PING_PATH`| Path to ping to warm up the target slot in a swap, beginning with a slash. The default is `/`, which pings the root path over HTTP. | `/statuscheck` |
 |`WEBSITE_SWAP_WARMUP_PING_STATUSES`| Valid HTTP response codes for the warm-up operation during a swap. If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid. | `200,202` |
@@ -314,6 +334,8 @@ For more information on custom containers, see [Run a custom container in Azure]
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable is not passed on to the container. | `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
 | `DOCKER_REGISTRY_SERVER_PASSWORD` | Password to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||
+| `DOCKER_ENABLE_CI` | Set to `true` to enable the continuous deployment for custom containers. The default is `false` for custom containers. ||
+| `WEBSITE_PULL_IMAGE_OVER_VNET` | Connect and pull from a registry inside a Virtual Network or on-premise. Your app will need to be connected to a Virtual Network using VNet integration feature. This setting is also needed for Azure Container Registry with Private Endpoint. ||
 | `WEBSITES_WEB_CONTAINER_NAME` | In a Docker Compose app, only one of the containers can be internet accessible. Set to the name of the container defined in the configuration file to override the default container selection. By default, the internet accessible container is the first container to define port 80 or 8080, or, when no such container is found, the first container defined in the configuration file. |  |
 | `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting is *not* injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
@@ -391,7 +413,7 @@ The following are 'fake' environment variables that don't exist if you enumerate
 | Setting name| Description |
 |-|-|
 | `WEBSITE_LOCAL_CACHE_OPTION` | Whether local cache is enabled. Available options are: <br/>- `Default`: Inherit the stamp-level global setting.<br/>- `Always`: Enable for the app.<br/>- OnStorageUnavailability<br/>- `Disabled`: Disabled for the app. |
-| `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteWithCopyBack`: Allow writes to local cache and copy periodically to shared storage. Applicable only for single instance apps as the SCM site points to local cache.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
+| `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
 | `WEBSITE_LOCAL_CACHE_SIZEINMB` | Size of the local cache in MB. Default is `1000` (1 GB). |
 | `WEBSITE_LOCALCACHE_READY` | Read-only flag indicating if the app using local cache. |
 | `WEBSITE_DYNAMIC_CACHE` | Due to network file shared nature to allow access for multiple instances, the dynamic cache improves performance by caching the recently accessed files locally on an instance. Cache is invalidated when file is modified. The cache location is `%SYSTEMDRIVE%\local\DynamicCache` (same `%SYSTEMDRIVE%\local` quota is applied). By default, full content caching is enabled (set to `1`), which includes both file content and directory/file metadata (timestamps, size, directory content). To conserve local disk use, set to `2` to cache only directory/file metadata (timestamps, size, directory content). To turn off caching, set to `0`. |

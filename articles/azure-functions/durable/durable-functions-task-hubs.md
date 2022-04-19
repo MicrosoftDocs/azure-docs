@@ -21,6 +21,9 @@ A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical 
 
 If multiple function apps share a storage account, each function app *must* be configured with a separate task hub name. A storage account can contain multiple task hubs. This restriction generally applies to other storage providers as well.
 
+> [!NOTE]
+> The exception to the task hub sharing rule is if you are configuring your app for regional disaster recovery. See the [disaster recovery and geo-distribution](durable-functions-disaster-recovery-geo-distribution.md) article for more information.
+
 The following diagram illustrates one task hub per function app in shared and dedicated Azure Storage accounts.
 
 ![Diagram showing shared and dedicated storage accounts.](./media/durable-functions-task-hubs/task-hubs-storage.png)

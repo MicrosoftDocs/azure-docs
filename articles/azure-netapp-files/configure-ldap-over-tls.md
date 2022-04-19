@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 12/09/2021
-ms.author: b-hchen
+ms.date: 03/15/2022
+ms.author: anfdocs
 ---
 # Configure ADDS LDAP over TLS for Azure NetApp Files
 
@@ -62,9 +61,19 @@ If you uploaded an invalid certificate, and you have existing AD configurations,
 
 To resolve the error condition, upload a valid root CA certificate to your NetApp account as required by the Windows Active Directory LDAP server for LDAP authentication.
 
+## Disable LDAP over TLS
+
+Disabling LDAP over TLS stops encrypting LDAP queries to Active Directory (LDAP server). There are no other precautions or impact on existing ANF volumes. 
+
+1. Go to the NetApp account that is used for the volume and click **Active Directory connections**. Then click **Edit** to edit the existing AD connection.
+
+2. In the **Edit Active Directory** window that appears, deselect the **LDAP over TLS** checkbox and click **Save** to disable LDAP over TLS for the volume.
+
+
 ## Next steps  
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
+* [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
 

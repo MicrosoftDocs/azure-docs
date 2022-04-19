@@ -1,16 +1,21 @@
 ---
 title: Versioning policy - Azure Database for PostgreSQL - Single Server and Flexible Server (Preview)
 description: Describes the policy around Postgres major and minor versions in Azure Database for PostgreSQL - Single Server.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.author: srranga
+author: sr-msft
+ms.date: 12/14/2021
 ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL versioning policy
 
-This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server deployment modes.
+This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to these deployment modes:
+
+* Single Server
+* Flexible Server
+* Hyperscale (Citus)
 
 ## Supported  PostgreSQL versions
 
@@ -18,10 +23,11 @@ Azure Database for PostgreSQL supports the following database versions.
 
 | Version | Single Server | Flexible Server | Hyperscale (Citus) |
 | ----- | :------: | :----: | :----: |
-| PostgreSQL 13 |  | X  | X |
-| PostgreSQL 12 |  | X  | X |
+| PostgreSQL 14 |   |   | X |
+| PostgreSQL 13 |   | X | X |
+| PostgreSQL 12 |   | X | X |
 | PostgreSQL 11 | X | X | X |
-| PostgreSQL 10 | X |  |  |
+| PostgreSQL 10 | X |   |   |
 | *PostgreSQL 9.6 (retired)* | See [policy](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) |  |  |
 | *PostgreSQL 9.5 (retired)* | See [policy](#retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql) |  |  |
 
@@ -42,6 +48,7 @@ The table below provides the retirement details for PostgreSQL major versions. T
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | July 24, 2019	| November 9, 2023
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024
 | [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | May 25, 2021 	| November 13, 2025
+| [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | October 1, 2021 | November 12, 2026
 
 ## Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL
 
@@ -59,5 +66,4 @@ Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.pos
 ## Next steps
 - See Azure Database for PostgreSQL - Single Server [supported versions](./concepts-supported-versions.md)
 - See Azure Database for PostgreSQL - Flexible Server [supported versions](flexible-server/concepts-supported-versions.md)
-- For information on how to perform major version upgrades, see [Major version upgrades](how-to-upgrade-using-dump-and-restore.md) documentation.
-- For information on supported PostgreSQL extensions, see [the extensions document](concepts-extensions.md).
+- See Azure Database for PostgreSQL - Hyperscale (Citus) [supported versions](hyperscale/reference-versions.md)

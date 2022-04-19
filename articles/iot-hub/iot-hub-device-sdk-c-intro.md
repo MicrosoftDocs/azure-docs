@@ -1,13 +1,13 @@
 ---
 title: The Azure IoT device SDK for C | Microsoft Docs
 description: Get started with the Azure IoT device SDK for C and learn how to create device apps that communicate with an IoT hub.
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.author: lizross
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -26,7 +26,7 @@ There are a broad range of platforms on which the SDK has been tested (see the [
 
 The following video presents an overview of the Azure IoT SDK for C:
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
+>[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 This article introduces you to the architecture of the Azure IoT device SDK for C. It demonstrates how to initialize the device library, send data to IoT Hub, and receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
 

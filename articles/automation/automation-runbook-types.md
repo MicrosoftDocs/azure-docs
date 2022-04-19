@@ -118,6 +118,7 @@ The following are current known issues with PowerShell runbooks:
 - Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation. 
 - You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
 - When you import a PowerShell 7.1 module that’s dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts was < 2.6.0.
+- When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
 
 ## PowerShell Workflow runbooks
 
@@ -165,6 +166,7 @@ Python 3 runbooks are supported in the following Azure global infrastructures:
 * To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
 * Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3 runbook (preview) doesn't work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation.  
 * Azure Automation doesn't support **sys.stderr**.
+* The Python **automationassets** package is not available on pypi.org, so it's not available for import onto a Windows machine.
 
 ### Multiple Python versions
 

@@ -20,8 +20,6 @@
     href: tutorial-track-usage.md            
 - name: Concepts
   items:
-  - name: Labs overview
-    href: classroom-labs-overview.md 
   - name: Labs concepts
     href: classroom-labs-concepts.md    
   - name: Labs architecture fundamentals
@@ -54,8 +52,6 @@
         href: class-type-deep-learning-natural-language-processing.md
       - name: Ethical hacking with Hyper-V
         href: class-type-ethical-hacking.md
-      - name: Ethical hacking with VirtualBox
-        href: class-type-ethical-hacking-virtualbox.md
       - name: MATLAB
         href: class-type-matlab.md
       - name: Networking with GNS3

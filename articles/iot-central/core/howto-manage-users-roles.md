@@ -3,7 +3,7 @@ title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/20/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -15,7 +15,7 @@ services: iot-central
 
 This article describes how you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your application.
 
-To access and use the **Administration** section, you must be in the **App Administrator** role for an Azure IoT Central application or in a custom role that includes administration permissions. If you create an Azure IoT Central application, you're automatically added to the **App Administrator** role for that application.
+To access and use the **Permissions** section, you must be in the **App Administrator** role for an Azure IoT Central application or in a custom role that includes administration permissions. If you create an Azure IoT Central application, you're automatically added to the **App Administrator** role for that application.
 
 ## Add users
 
@@ -23,7 +23,7 @@ Every user must have a user account before they can sign in and access an applic
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
+1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section.
 
     :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of Manage users.":::
 
@@ -70,7 +70,7 @@ The user who creates an application is automatically assigned to the **App Admin
 
 ### App Builder
 
-Users in the **App Builder** role can manage every part of the app, but can't make changes on the Administration or Continuous Data Export tabs.
+Users in the **App Builder** role can manage every part of the app, but can't make changes on the **Application** or **Data Export** tabs.
 
 ### App Operator
 
@@ -96,7 +96,7 @@ Users in the **Org Viewer** role can view items such as devices and their data, 
 
 ## Create a custom role
 
-If your solution requires finer-grained access controls, you can create roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Administration** section of your application, and choose one of these options:
+If your solution requires finer-grained access controls, you can create roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Permissions** section of your application, and choose one of these options:
 
 - Select **+ New**, add a name and description for your role, and select **Application** or **Organization** as the role type. This option lets you create a role definition from scratch.
 - Navigate to an existing role and select **Copy**. This option lets you start with an existing role definition that you can customize.
@@ -310,4 +310,4 @@ When you define a custom role, you choose the set of permissions that a user is 
 
 ## Next steps
 
-Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Customize application UI](howto-customize-ui.md).
+Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Manage IoT Central organizations](howto-create-organizations.md).

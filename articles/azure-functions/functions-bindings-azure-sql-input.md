@@ -3,9 +3,10 @@ title: Azure SQL input binding for Functions
 description: Learn to use the Azure SQL input binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/12/2021
+ms.date: 4/1/2022
 ms.author: drskwier
 ms.reviewer: cachai
+ms.devlang: csharp
 ---
 
 # Azure SQL input binding for Azure Functions (preview)
@@ -23,27 +24,12 @@ This section contains the following examples:
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-c)
 * [HTTP trigger, get multiple docs from route data](#http-trigger-get-multiple-items-from-route-data-c)
 
-The examples refer to a `ToDoItem` type and a corresponding database table:
+The examples refer to a `ToDoItem` class and a corresponding database table:
 
-```cs
-namespace AzureSQLSamples
-{
-    public class ToDoItem
-    {
-        public string Id { get; set; }
-        public int Priority { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-14":::
 
-```sql
-CREATE TABLE dbo.ToDo (
-    [Id] int primary key,
-    [Priority] int null,
-    [Description] nvarchar(200) not null
-)
-```
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
 
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
 
@@ -71,7 +57,7 @@ namespace AzureSQLSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitem")]
             HttpRequest req,
-            [Sql("select * from dbo.ToDo where Id = @Id",
+            [Sql("select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
                 CommandType = System.Data.CommandType.Text,
                 Parameters = "@Id={Query.id}",
                 ConnectionStringSetting = "SqlConnectionString")]
@@ -104,7 +90,7 @@ namespace AzureSQLSamples
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitems/{priority}")]
             HttpRequest req,
-            [Sql("select * from dbo.ToDo where [Priority] > @Priority",
+            [Sql("select [Id], [order], [title], [url], [completed] from dbo.ToDo where [Priority] > @Priority",
                 CommandType = System.Data.CommandType.Text,
                 Parameters = "@Priority={priority}",
                 ConnectionStringSetting = "SqlConnectionString")]
@@ -115,6 +101,18 @@ namespace AzureSQLSamples
     }
 }
 ```
+
+<a id="http-trigger-delete-one-or-multiple-rows-c"></a>
+### HTTP trigger, delete one or multiple rows
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
+
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
+
+
+:::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30":::
+
 
 # [JavaScript](#tab/javascript)
 
@@ -170,3 +168,4 @@ The Azure SQL binding for Azure Functions does not currently support Python.
 ## Next steps
 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
+- [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)

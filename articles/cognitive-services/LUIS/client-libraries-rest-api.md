@@ -2,14 +2,15 @@
 title: "Quickstart: Language Understanding (LUIS) SDK client libraries and REST API"
 description: Create and query a LUIS app with the LUIS SDK client libraries and REST API.
 ms.topic: quickstart
-ms.date: 10/20/2021
+ms.date: 03/07/2022
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
 ms.subservice: language-understanding
 author: aahill
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-other
+ms.devlang: csharp, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-api
 zone_pivot_groups: programming-languages-set-luis
 ---
 # Quickstart: Language Understanding (LUIS) client libraries and REST API
@@ -58,5 +59,5 @@ Other errors - if you get an error not covered in the preceding list, let us kno
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Iterative app development for LUIS](./luis-concept-app-iteration.md)
+
+* [Iterative app development for LUIS](./luis-concept-app-iteration.md)

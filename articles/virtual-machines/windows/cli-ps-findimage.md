@@ -1,13 +1,13 @@
 ---
 title: Find and use marketplace purchase plan information using PowerShell 
 description: Use Azure PowerShell to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
-author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
-ms.author: cynthn
+author: ebolton-cyber
+ms.author: edewebolton
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
 # Find and use Azure Marketplace VM images with Azure PowerShell
@@ -216,7 +216,7 @@ $vm = Get-azvm `
 $vm.Plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
 
 To create a VM using a VHD, refer to this article [Create a VM from a specialized VHD](create-vm-specialized.md) and add in a line to add the plan information to the VM configuration using [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) similar to the following:
 

@@ -1,11 +1,11 @@
 ---
 title: NFS file shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 11/16/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
 ---
@@ -42,7 +42,7 @@ For encryption in transit, Azure provides a layer of encryption for all data in 
     - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
     - [Site-to-Site](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
-- [A restricted public endpoint](storage-files-networking-overview.md#storage-account-firewall-settings)
+- [A restricted public endpoint](storage-files-networking-overview.md#public-endpoint-firewall-settings)
 
 For more details on the available networking options, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
@@ -59,6 +59,7 @@ The status of items that appear in this tables may change over time as support c
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
+| [LRS to ZRS conversion](../common/redundancy-migration.md?tabs=portal#switch-between-types-of-replication)|	⛔ |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
@@ -75,7 +76,6 @@ The status of items that appear in this tables may change over time as support c
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
-| Create NFS shares on existing storage accounts*| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
 ## Regional availability

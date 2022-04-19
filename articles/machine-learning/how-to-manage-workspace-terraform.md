@@ -7,10 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
-ms.date: 10/21/2021
+ms.date: 01/05/2022
 ms.topic: how-to
-ms.custom: 
-
 ---
 
 # Manage Azure Machine Learning workspaces using Terraform
@@ -24,6 +22,12 @@ A Terraform configuration is a document that defines the resources that are need
 * An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * An installed version of the [Azure CLI](/cli/azure/).
 * Configure Terraform: follow the directions in this article and the [Terraform and configure access to Azure](/azure/developer/terraform/get-started-cloud-shell) article.
+
+## Limitations
+
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Declare the Azure provider
 
@@ -117,10 +121,6 @@ There are several options to connect to your private link endpoint workspace. To
 ### Resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
-
-### Current limitations
-
-* It is currently not possible to use Terraform for the deployment of workspaces using customer-managed encryption keys, while using a user-assigned managed identity. You can create a CMK workspace using a system-assigned managed identity.
 
 ## Next steps
 

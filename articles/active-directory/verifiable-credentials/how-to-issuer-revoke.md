@@ -3,7 +3,7 @@ title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directo
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials

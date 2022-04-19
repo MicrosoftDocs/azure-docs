@@ -4,6 +4,7 @@ description: Learn how to configure a pre-built Ruby container for your app. Thi
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
+ms.devlang: ruby
 ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
 ---
 
@@ -24,7 +25,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported Ruby versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --linux | grep RUBY
+az webapp list-runtimes --os linux | grep RUBY
 ```
 
 You can run an unsupported version of Ruby by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
@@ -39,13 +40,17 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 > [!NOTE]
 > If you see errors similar to the following during deployment time:
+>
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
+>
 > or
+>
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
+>
 > It means that the Ruby version configured in your project is different than the version that's installed in the container you're running (`2.3.3` in the example above). In the example above, check both *Gemfile* and *.ruby-version* and verify that the Ruby version is not set, or is set to the version that's installed in the container you're running (`2.3.3` in the example above).
 
 ## Access environment variables
@@ -61,7 +66,7 @@ ENV['WEBSITE_SITE_NAME']
 When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
 
 1. Check if a *Gemfile* exists.
-1. Run `bundle clean`. 
+1. Run `bundle clean`.
 1. Run `bundle install --path "vendor/bundle"`.
 1. Run `bundle package` to package gems into vendor/cache folder.
 

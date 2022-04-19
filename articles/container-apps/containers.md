@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 02/18/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -18,7 +18,7 @@ Azure Container Apps manages the details of Kubernetes and container orchestrati
 
 Azure Container Apps supports:
 
-- Any Linux-based container image
+- Any Linux-based x86-64 (`linux/amd64`) container image
 - Containers from any public or private container registry
 
 Additional features include:
@@ -51,8 +51,8 @@ The following example configuration shows the options available when setting up 
           }
         ],
         "resources": {
-            "cpu": 1,
-            "memory": "250Mb"
+            "cpu": 0.75,
+            "memory": "1.5Gi"
         }
     }]
   }
@@ -66,17 +66,21 @@ The following example configuration shows the options available when setting up 
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
-| `resources.cpu` | The number of CPUs allocated to the container. | Values must adhere to the following rules: the value must be greater than zero and less than 2, and can be any decimal number, with a maximum of one decimal place. For example, `1.1` is valid, but `1.55` is invalid. The default is 0.5 CPU per container. |
-| `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed united are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
+| `resources.cpu` | The number of CPUs allocated to the container. | Values must adhere to the following rules: the value must be greater than zero and less than or equal to 2, and can be any decimal number, with a maximum of two decimal places. For example, `1.25` is valid, but `1.555` is invalid. The default is 0.5 CPU per container. |
+| `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed units are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than or equal to `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
 
 The total amount of CPUs and memory requested for all the containers in a container app must add up to one of the following combinations.
 
-| vCPUs | Memory in Gi |
+| vCPUs (cores) | Memory |
 |---|---|
-| 0.5 | 1.0 |
-| 1.0 | 2.0 |
-| 1.5 | 3.0 |
-| 2.0 | 4.0 |
+| `0.25` | `0.5Gi` |
+| `0.5` | `1.0Gi` |
+| `0.75` | `1.5Gi` |
+| `1.0` | `2.0Gi` |
+| `1.25` | `2.5Gi` |
+| `1.5` | `3.0Gi` |
+| `1.75` | `3.5Gi` |
+| `2.0` | `4.0Gi` |
 
 - All of the CPU requests in all of your containers must match one of the values in the vCPUs column.
 - All of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
@@ -104,11 +108,11 @@ To use a container registry, you first define the required fields to the [config
 ```json
 {
   ...
-  "registries": {
+  "registries": [{
     "server": "docker.io",
     "username": "my-registry-user-name",
     "passwordSecretRef": "my-password-secretref-name"
-  }
+  }]
 }
 ```
 
@@ -143,9 +147,9 @@ Azure Container Apps has the following limitations:
 
 - **Privileged containers**: Azure Container Apps can't run privileged containers. If your program attempts to run a process that requires root access, the application inside the container experiences a runtime error.
 
-- **Operating system**: Linux-based container images are required.
+- **Operating system**: Linux-based (`linux/amd64`) container images are required.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environment](environment.md)
+> [Revisions](revisions.md)

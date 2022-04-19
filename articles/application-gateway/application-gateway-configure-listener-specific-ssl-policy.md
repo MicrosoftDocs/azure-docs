@@ -5,11 +5,11 @@ services: application-gateway
 author: mscatyao
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 02/18/2022
 ms.author: caya
 ---
 
-# Configure listener-specific SSL policies on Application Gateway through portal (Preview)
+# Configure listener-specific SSL policies on Application Gateway through portal
 
 This article describes how to use the Azure portal to configure listener-specific SSL policies on your Application Gateway. Listener-specific SSL policies allow you to configure specific listeners to use different SSL policies from each other. You'll still be able to set a default SSL policy that all listeners will use unless overwritten by the listener-specific SSL policy. 
 
@@ -26,14 +26,14 @@ First create a new Application Gateway as you would usually through the portal -
 
 ## Set up a listener-specific SSL policy
 
-To set up a listener-specific SSL policy, you'll need to first go to the **SSL settings (Preview)** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is to configure a listener-specific SSL policy. The **Client Authentication** tab is where to upload a client certificate(s) for mutual authentication - for more information, check out [Configuring a mutual authentication](./mutual-authentication-portal.md).
+To set up a listener-specific SSL policy, you'll need to first go to the **SSL settings** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is to configure a listener-specific SSL policy. The **Client Authentication** tab is where to upload a client certificate(s) for mutual authentication - for more information, check out [Configuring a mutual authentication](./mutual-authentication-portal.md).
 
 > [!NOTE]
 > We recommend using TLS 1.2 as TLS 1.2 will be mandated in the future. 
 
 1. Search for **Application Gateway** in portal, select **Application gateways**, and click on your existing Application Gateway.
 
-2. Select **SSL settings (Preview)** from the left-side menu.
+2. Select **SSL settings** from the left-side menu.
 
 3. Click on the plus sign next to **SSL Profiles** at the top to create a new SSL profile.
 
@@ -71,6 +71,9 @@ Now that we've created an SSL profile with a listener-specific SSL policy, we ne
 8. Click **Add** to save your new listener with the SSL profile associated to it. 
 
     ![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)        
+
+### Limitations
+There is a limitation right now on Application Gateway where different listeners using the same port cannot have SSL policies (predefined or custom) with different TLS protocol versions. Choosing the same TLS version for different listeners will work for configuring cipher suite preference for each listener. However, to use different TLS protocol versions for separate listeners, you will need to use distinct ports for each.
 
 ## Next steps
 

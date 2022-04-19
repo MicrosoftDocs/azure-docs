@@ -3,12 +3,12 @@ title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/13/2021
+ms.date: 04/04/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -152,7 +152,7 @@ The actual steps required to enable and configure automatic provisioning vary de
 
 If not, follow the steps below:
 
-1. [Create a request](../develop/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
+1. [Create a request](../manage-apps/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
 
 1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
 

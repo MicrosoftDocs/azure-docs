@@ -3,7 +3,7 @@ title: Connect a Node.js Mongoose application to Azure Cosmos DB
 description: Learn how to use the Mongoose Framework to store and manage data in Azure Cosmos DB. 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy

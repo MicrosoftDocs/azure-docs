@@ -40,7 +40,8 @@ Follow the steps below to upload a new CA certificate. If you have not created a
 1. Select **Save**. This operation may take a few minutes.
 
 > [!NOTE]
-> You can also upload a CA certificate using the `New-AzApiManagementSystemCertificate` PowerShell command.
+> - The process of assigning the certificate might take 15 minutes or more depending on the size of the deployment. The Developer SKU has downtime during the process. The Basic and higher SKUs don't have downtime during the process.
+> - You can also upload a CA certificate using the `New-AzApiManagementSystemCertificate` PowerShell command.
 
 ## <a name="step1a"> </a>Delete a CA certificate
 

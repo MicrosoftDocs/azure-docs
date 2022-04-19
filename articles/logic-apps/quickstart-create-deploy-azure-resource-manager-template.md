@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create and deploy logic app workflow by using Azure Resource Manager templates
-description: How to create and deploy a logic app using Azure Resource Manager templates
+description: How to create and deploy a logic app using Azure Resource Manager templates.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-other
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/01/2021
-# Customer intent: As a developer, I want to automate creating and deploying a logic app workflow to whichever environment that I want by using Azure Resource Manager templates.
+#Customer intent: As a developer, I want to automate creating and deploying a logic app workflow to whichever environment that I want by using Azure Resource Manager templates.
 ---
 
 # Quickstart: Create and deploy a logic app workflow by using an ARM template
@@ -241,7 +241,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [Azure CLI: az logic workflow show](/cli/azure/logic/workflow#az_logic_workflow_show).
+For more information, see [Azure CLI: az logic workflow show](/cli/azure/logic/workflow#az-logic-workflow-show).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -299,7 +299,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [Azure CLI: az group delete](/cli/azure/group#az_group_delete).
+For more information, see [Azure CLI: az group delete](/cli/azure/group#az-group-delete).
 
 ### [PowerShell](#tab/azure-powershell)
 

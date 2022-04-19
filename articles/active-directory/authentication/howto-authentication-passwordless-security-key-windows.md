@@ -10,7 +10,7 @@ ms.date: 02/22/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
@@ -72,9 +72,9 @@ Organizations may choose to use one or more of the following methods to enable t
 
 To enable the use of security keys using Intune, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
-1. Under **Settings**, set **Use security keys for sign-in** to **Enabled**.
+1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
+1. Browse to **Devices** > **Enroll Devices** > **Windows enrollment** > **Windows Hello for Business**.
+1. Set **Use security keys for sign-in** to **Enabled**.
 
 Configuration of security keys for sign-in isn't dependent on configuring Windows Hello for Business.
 
@@ -82,19 +82,20 @@ Configuration of security keys for sign-in isn't dependent on configuring Window
 
 To target specific device groups to enable the credential provider, use the following custom settings via Intune:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Microsoft Intune** > **Device configuration** > **Profiles** > **Create profile**.
+1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
+1. Browse to **Devices** > **Windows** > **Configuration Profiles** > **Create profile**.
 1. Configure the new profile with the following settings:
+   - Platform: Windows 10 and later
+   - Profile type: Template > Custom
    - Name: Security Keys for Windows Sign-In
    - Description: Enables FIDO Security Keys to be used during Windows Sign In
-   - Platform: Windows 10 and later
-   - Profile type: Custom
-   - Custom OMA-URI Settings:
+1. Click **Add* and in **Add Row**, add the following Custom OMA-URI Settings:
       - Name: Turn on FIDO Security Keys for Windows Sign-In
+      - Description: (Optional)
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Data Type: Integer
       - Value: 1
-1. This policy can be assigned to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](/intune/device-profile-assign).
+1. The remainder of the policy settings include assigning to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](/intune/device-profile-assign).
 
 ![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 

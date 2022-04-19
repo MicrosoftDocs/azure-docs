@@ -9,9 +9,9 @@ ms.topic: how-to
 
 # Configure authentication
 
-Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Clients need to set *one* of the following to call the REST APIs successfully:
+Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial Anchors (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). To access a given Azure Remote Rendering account, clients need to obtain an access token from Azure Mixed Reality Security Token Service (STS). Tokens obtained from STS have a lifetime of 24 hours. Clients need to set *one* of the following to call the REST APIs successfully:
 
-* **AccountKey**: can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. Account Keys are only recommend for development/prototyping.
+* **AccountKey**: can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. Account Keys are only recommended for development/prototyping.
     ![Account ID](./media/azure-account-primary-key.png)
 
 * **AccountDomain**: can be obtained in the "Overview" tab for the Remote Rendering account on the Azure portal.

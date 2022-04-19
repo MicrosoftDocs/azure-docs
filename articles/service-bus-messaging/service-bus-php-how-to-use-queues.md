@@ -2,7 +2,7 @@
 title: How to use Azure Service Bus queues with PHP
 description: In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
 services: service-bus-messaging
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: how-to
 ms.date: 07/23/2021
 ---

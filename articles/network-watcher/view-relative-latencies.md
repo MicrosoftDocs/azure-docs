@@ -6,7 +6,6 @@ documentationcenter: ''
 author: damendo
 
 ms.service: virtual-network
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -18,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 # View relative latency to Azure regions from specific locations
 
 > [!WARNING]
-> This feature is currently in preview and still being tested for stability.
+> This feature is currently under deprecation.
 
 In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers' connections to Azure.  
         

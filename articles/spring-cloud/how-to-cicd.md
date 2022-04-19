@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Automate application deployments to Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to use the [Azure Spring Cloud task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
 
 Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 

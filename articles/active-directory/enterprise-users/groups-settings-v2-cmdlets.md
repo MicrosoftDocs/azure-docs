@@ -4,7 +4,7 @@ description: This page provides PowerShell examples to help you manage your grou
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
 services: active-directory
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
@@ -47,7 +47,7 @@ To verify that the module is ready to use, use the following command:
 Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the online reference documentation for [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2).
 
 > [!NOTE]
-> The Azure AD PowerShell cmdlets does not work with the new Powershell 7 as it is based on .net Core. We are aware and this is in the process of getting updated. As of now we suggest to use the Windows PowerShell 5.x Module to be used for Azure AD powershell operations. 
+> The Azure AD PowerShell cmdlets does not work with the new PowerShell 7 as it is based on .net Core. We are aware and this is in the process of getting updated. As of now we suggest to use the Windows PowerShell 5.x Module to be used for Azure AD powershell operations. 
 
 
 ## Connect to the directory

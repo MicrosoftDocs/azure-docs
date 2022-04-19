@@ -1,11 +1,11 @@
 ---
 title: How to use DFS-N with Azure Files
 description: Common DFS-N use cases with Azure Files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 3/02/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -192,7 +192,7 @@ In the DFS Management console, select the namespace you just created and select 
 
 ![A screenshot of the **New Folder** dialog.](./media/files-manage-namespaces/dfs-folder-targets.png)
 
-In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you may receive a message reporting that the server `storageaccount.file.core.windows.net` cannot be contacts. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
+In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you may receive a message reporting that the server `storageaccount.file.core.windows.net` cannot be contacted. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
 
 # [PowerShell](#tab/azure-powershell)
 ```PowerShell

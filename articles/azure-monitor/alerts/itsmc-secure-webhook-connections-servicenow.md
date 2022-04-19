@@ -1,17 +1,15 @@
 ---
-title: IT Service Management Connector - Secure Export in Azure Monitor - Configuration with ServiceNow
-description: This article shows you how to connect your ITSM products/services with ServiceNow on Secure Export in Azure Monitor.
+title: IT Service Management Connector - Secure Webhook in Azure Monitor - Configuration with ServiceNow
+description: This article shows you how to connect your ITSM products/services with ServiceNow on Secure Webhook in Azure Monitor.
 ms.topic: conceptual
-author: nolavime
-ms.author: v-jysur
-ms.date: 12/31/2020
+ms.date: 03/30/2022
 
 ---
 
 
 # Connect ServiceNow to Azure Monitor
 
-The following sections provide details about how to connect your ServiceNow product and Secure Export in Azure.
+The following sections provide details about how to connect your ServiceNow product and Secure Webhook in Azure.
 
 ## Prerequisites
 
@@ -23,7 +21,7 @@ Ensure that you've met the following prerequisites:
 
 ## Configure the ServiceNow connection
 
-1. Use the link https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI for the secure export definition.
+1. Use the link https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI for the secure Webhook definition.
 
 2. Follow the instructions according to the version:
    * [Rome](https://docs.servicenow.com/bundle/rome-it-operations-management/page/product/event-management/concept/azure-integration.html)

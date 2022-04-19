@@ -3,11 +3,11 @@ title: What is Azure role-based access control (Azure RBAC)?
 description: Get an overview of Azure role-based access control (Azure RBAC). Use role assignments to control access to Azure resources.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/17/2021
+ms.date: 01/12/2022
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 
@@ -130,6 +130,20 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 The following diagram is a summary of the evaluation logic.
 
 ![Evaluation logic flowchart for determining access to a resource.](./media/overview/evaluation-logic.png)
+
+## Where is Azure RBAC data stored?
+
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource.
+
+When a role assignment or any other Azure RBAC data is deleted, the data is globally deleted. Principals that had access to a resource via Azure RBAC data will lose their access. 
+
+## Why is Azure RBAC data global?
+
+Azure RBAC data is global to ensure that customers can timely access resources regardless from where they are accessing. Azure RBAC is enforced by Azure Resource Manager, which has a global endpoint and requests are routed to the nearest region for speed and resilience. Therefore, Azure RBAC must be enforced in all regions and the data is replicated to all regions. For more information, see [Resiliency of Azure Resource Manager](../azure-resource-manager/management/overview.md#resiliency-of-azure-resource-manager).
+
+Consider the following example. Arina creates a virtual machine in East Asia. Bob, who is a member of Arina's team, works in the United States. Bob needs to access the virtual machine that was created in East Asia. To grant Bob timely access to the virtual machine, Azure needs to globally replicate the role assignment that grants Bob access to the virtual machine from anywhere Bob is.
+
+![Diagram showing Azure RBAC data in multiple regions.](./media/overview/rbac-data-stored.png)
 
 ## License requirements
 

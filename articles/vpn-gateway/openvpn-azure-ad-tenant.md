@@ -11,7 +11,7 @@ ms.date: 05/27/2021
 ms.author: cherylmc
 
 ---
-# Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
+# Create an Azure AD tenant for P2S OpenVPN protocol connections
 
 When you connect to your VNet using Point-to-Site, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you want to use Azure Active Directory authentication, you can do so when using the OpenVPN protocol. This article helps you set up an Azure AD tenant. For more information about Point-to-Site protocols and authentication, see [About Point-to-Site VPN](point-to-site-about.md).
 
@@ -91,8 +91,12 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
 1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type**, then fill in the information under the **Azure Active Directory** section.
 
-   * **Tenant:** TenantID for the Azure AD tenant ```https://login.microsoftonline.com/{AzureAD TenantID}/```
-
+   * **Tenant:** TenantID for the Azure AD tenant
+   	   * Enter `https://login.microsoftonline.com/{AzureAD TenantID}/` for Azure Public AD 
+   	   * Enter `https://login.microsoftonline.us/{AzureAD TenantID/` for Azure Government AD 
+   	   * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID/` for Azure Germany AD 
+   	   * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID/` for China 21Vianet AD 
+	
    * **Audience:** Application ID of the "Azure VPN" Azure AD Enterprise App
 
 	   * Enter 41b23e61-6c1e-4545-b367-cd054e0ed4b4 for Azure Public
@@ -101,7 +105,7 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 	   * Enter 49f817b6-84ae-4cc0-928c-73f27289b3aa for Azure China 21Vianet
 
 
-   * **Issuer**: URL of the Secure Token Service ```https://sts.windows.net/{AzureAD TenantID}/```
+   * **Issuer**: URL of the Secure Token Service `https://sts.windows.net/{AzureAD TenantID}/`
 
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Azure Active Directory settings." border="false":::

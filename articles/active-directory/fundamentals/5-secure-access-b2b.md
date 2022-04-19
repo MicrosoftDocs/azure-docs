@@ -3,7 +3,7 @@ title: Transition to governed collaboration with Azure Active Directory B2B Coll
 description: Move to governed collaboration with Azure Ad B2B collaboration.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -27,7 +27,7 @@ Getting your collaboration under control is key to securing external access to y
 
 * [Understood how groups and security work together](4-secure-access-groups.md)
 
-Once you’ve done those things, you're ready to move into controlled collaboration. This article will guide you to move all your external collaboration into [Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B). Azure AD B2B is a feature of [Azure AD External Identities](../external-identities/compare-with-b2c.md).
+Once you’ve done those things, you're ready to move into controlled collaboration. This article will guide you to move all your external collaboration into [Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B). Azure AD B2B is a feature of [Azure AD External Identities](../external-identities/external-identities-overview.md).
 
 ## Control who your organization collaborates with
 
@@ -81,7 +81,7 @@ When you enable Azure AD B2B, you enable the ability to invite guest users via d
 
 Determine who can invite guest users to access resources.
 
-* The most restrictive setting is to allow only administrators and those users granted the [guest inviter role](../external-identities/delegate-invitations.md) to invite guests.
+* The most restrictive setting is to allow only administrators and those users granted the [guest inviter role](../external-identities/external-collaboration-settings-configure.md) to invite guests.
 
 * If your security requirements allow it, we recommend allowing all users with a userType of Member to invite guests.
 
@@ -127,7 +127,7 @@ We recommend the following restrictions for guest users.
 
 * **Block access to the Azure portal. You can make rare necessary exceptions**. 
 
-   * Create a Conditional Access policy that includes either All guest and external users and then [implement a policy to block access](../../role-based-access-control/conditional-access-azure-management.md).
+   * Create a Conditional Access policy that includes either All guest and external users and then [implement a policy to block access](../conditional-access/concept-conditional-access-cloud-apps.md).
 
  
 

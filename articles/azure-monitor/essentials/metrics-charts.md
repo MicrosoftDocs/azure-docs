@@ -5,7 +5,7 @@ author: vgorbenko
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 02/21/2022
 ms.author: vitalyg
 ---
 
@@ -226,13 +226,14 @@ To change the color of a chart line, select the colored bar in the legend that c
 
 Your customized colors are preserved when you pin the chart to a dashboard. The following section shows how to pin a chart.
 
-## Pinning to dashboards 
+## Saving to dashboards or workbooks
 
-After you configure a chart, you might want to add it to a dashboard. By pinning a chart to a dashboard, you can make it accessible to your team. You can also gain insights by viewing it in the context of other monitoring telemetry.
+After you configure a chart, you might want to add it to a dashboard or workbook. By adding a chart to a dashboard or workbook, you can make it accessible to your team.  You can also gain insights by viewing it in the context of other monitoring telemetry.
 
-To pin a configured chart to a dashboard, in the upper-right corner of the chart, select **Pin to dashboard**.
+- To pin a configured chart to a dashboard, in the upper-right corner of the chart, select **Save to dashboard** and then **Pin to dashboard**.
+- To save a configured chart to a workbook, in the upper-right corner of the chart, select **Save to dashboard** and then **Save to workbook**.
 
-![Screenshot showing how to pin a chart to a dashboard.](./media/metrics-charts/036.png)
+:::image type="content" source="media/metrics-charts/save-to-dashboard.png" alt-text="Screenshot showing how to pin a chart to a dashboard.":::
 
 ## Alert rules
 

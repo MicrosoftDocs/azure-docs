@@ -3,8 +3,8 @@ title: Publish and subscribe with Azure IoT Edge | Microsoft Docs
 description: Use IoT Edge MQTT broker to publish and subscribe messages
 services: iot-edge
 keywords: 
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.reviewer: ebertra
 ms.date: 11/30/2021
 ms.topic: conceptual
@@ -398,7 +398,7 @@ Getting the device or module twin isn't a typical MQTT pattern. The client needs
 
 To receive twins, the client needs to subscribe to the following topic specific to IoT Hub: `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all clients need to subscribe to the same topic. It doesn't mean that devices or modules receive the twin of each other. IoT Hub and IoT Edge hub know which twin should be delivered where, even if all devices listen to the same topic name.
 
-Once the subscription is made, the client needs to ask for the twin by publishing a message to the following topic specific to IoT Hub: `$iothub/twin/GET/?rid=<request_id>/#`. The `<request_id>` in this code snippet is an arbitrary identifier. IoT Hub will then send its response with the requested data on the `$iothub/twin/res/200/?rid=<request_id>` topic, which the client subscribes to. This process is how a client can pair its requests with the responses.
+Once the subscription is made, the client needs to ask for the twin by publishing a message to the following topic specific to IoT Hub: `$iothub/twin/GET/?$rid=<request_id>/#`. The `<request_id>` in this code snippet is an arbitrary identifier. IoT Hub will then send its response with the requested data on the `$iothub/twin/res/200/?$rid=<request_id>` topic, which the client subscribes to. This process is how a client can pair its requests with the responses.
 
 ### Receive twin patches
 
@@ -406,7 +406,7 @@ To receive twin patches, a client needs to subscribe to the following special Io
 
 ### Receive direct methods
 
-Receiving a direct method is similar to receiving full twins with the addition that the client needs to confirm back that it has received the call. First the client subscribes to the following special IoT Hub topic: `$iothub/methods/POST/#`. Once a direct method is received on this topic, the client needs to extract the request identifier `rid` from the subtopic on which the direct method is received, and finally publish a confirmation message on the following special IoT Hub topic: `$iothub/methods/res/200/<request_id>`.
+Receiving a direct method is similar to receiving full twins with the addition that the client needs to confirm back that it has received the call. First the client subscribes to the following special IoT Hub topic: `$iothub/methods/POST/#`. Once a direct method is received on this topic, the client needs to extract the request identifier `$rid` from the subtopic on which the direct method is received, and finally publish a confirmation message on the following special IoT Hub topic: `$iothub/methods/res/200/<request_id>`.
 
 ### Send direct methods
 

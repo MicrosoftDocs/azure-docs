@@ -6,7 +6,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: connect
 ms.custom: sqldbrb=2, devx-track-csharp, mode-other
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier

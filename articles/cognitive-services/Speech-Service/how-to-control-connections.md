@@ -7,10 +7,11 @@ author: trrwilson
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: travisw
 zone_pivot_groups: programming-languages-set-thirteen
+ms.devlang: cpp, csharp, java
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 

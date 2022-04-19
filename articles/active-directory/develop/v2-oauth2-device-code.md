@@ -3,7 +3,7 @@ title: OAuth 2.0 device code flow | Azure
 titleSuffix: Microsoft identity platform
 description: Sign in users without a browser. Build embedded and browser-less authentication flows using the device authorization grant.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/25/2021
-ms.author: hirsin
+ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev
 ---
@@ -119,7 +119,7 @@ A successful token response will look like:
 
 | Parameter | Format | Description |
 | --------- | ------ | ----------- |
-| `token_type` | String| Always "Bearer. |
+| `token_type` | String| Always `Bearer`. |
 | `scope` | Space separated strings | If an access token was returned, this lists the scopes the access token is valid for. |
 | `expires_in`| int | Number of seconds before the included access token is valid for. |
 | `access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested.  |

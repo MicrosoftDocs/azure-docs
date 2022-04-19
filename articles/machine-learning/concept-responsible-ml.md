@@ -1,25 +1,25 @@
 ---
-title: What is responsible machine learning (preview)
+title: What is responsible AI (preview)
 titleSuffix: Azure Machine Learning
-description: Learn what responsible machine learning is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
+description: Learn what responsible AI is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: luquinta
-author: luisquintanilla
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 10/21/2021
 ms.custom: responsible-ml
-#Customer intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning.
+#Customer intent: As a data scientist, I want to know learn what responsible AI is and how I can use it in Azure Machine Learning.
 ---
 
-# What is responsible machine learning? (preview)
+# What is responsible AI? (preview)
 
-In this article, you'll learn what responsible machine learning (ML) is and ways you can put it into practice with Azure Machine Learning.
+In this article, you'll learn what responsible AI is and ways you can put it into practice with Azure Machine Learning.
 
-## Responsible machine learning principles
+## Responsible AI principles
 
-Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, responsible machine learning encompasses the following values and principles:
+Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, responsible AI with regard to machine learning encompasses the following values and principles:
 
 - Understand machine learning models
   - Interpret and explain model behavior
@@ -30,7 +30,7 @@ Throughout the development and use of AI systems, trust must be at the core. Tru
 - Control the end-to-end machine learning process
   - Document the machine learning lifecycle with datasheets
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible ML pillars - interpretability, differential privacy, homomorphic encryption, audit trail - Azure Machine Learning":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible AI pillars - interpretability, differential privacy, homomorphic encryption, audit trail - Azure Machine Learning":::
 
 As artificial intelligence and autonomous systems integrate more into the fabric of society, it's important to proactively make an effort to anticipate and mitigate the unintended consequences of these technologies.
 
@@ -49,7 +49,7 @@ Unfairness in AI systems can result in the following unintended consequences:
 - Withholding opportunities, resources or information from individuals.
 - Reinforcing biases and stereotypes.
 
-Many aspects of fairness cannot be captured or represented by metrics. There are tools and practices that can improve fairness in the design and development of AI systems.
+Many aspects of fairness can’t be captured or represented by metrics. There are tools and practices that can improve fairness in the design and development of AI systems.
 
 Two key steps in reducing unfairness in AI systems are assessment and mitigation. We recommend [FairLearn](https://github.com/fairlearn/fairlearn), an open-source package that can assess and mitigate the potential unfairness of AI systems. To learn more about fairness and the FairLearn package, see the [Fairness in ML article](./concept-fairness-ml.md).
 
@@ -75,7 +75,7 @@ See the following sample to learn [how to deploy an encrypted inferencing web se
 
 Documenting the right information in the machine learning process is key to making responsible decisions at each stage. Datasheets are a way to document machine learning assets that are used and created as part of the machine learning lifecycle.
 
-Models tend to be thought of as "opaque boxes" and often there is little information about them. Because machine learning systems are becoming more pervasive and are used for decision making, using datasheets is a step towards developing more responsible machine learning systems.
+Models tend to be thought of as "opaque boxes" and often there’s little information about them. Because machine learning systems are becoming more pervasive and are used for decision making, using datasheets is a step towards developing more responsible machine learning systems.
 
 Some model information you might want to document as part of a datasheet:
 
@@ -84,7 +84,7 @@ Some model information you might want to document as part of a datasheet:
 - Training data used
 - Evaluation data used
 - Training model performance metrics
-- Fairness information.
+- Fairness information
 
 See the following sample to learn how to use the Azure Machine Learning SDK to implement [datasheets for models](https://github.com/microsoft/MLOps/blob/master/pytorch_with_datasheet/model_with_datasheet.ipynb).
 

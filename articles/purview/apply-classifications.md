@@ -8,13 +8,13 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
 ---
-# Apply classifications on assets in Azure Purview
+# Apply classifications on assets in Microsoft Purview
 
 This article discusses how to apply classifications on assets.
 
 ## Introduction
 
-Classifications can be system or custom types. System classifications are present in Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
+Classifications can be system or custom types. System classifications are present in Microsoft Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
 
 This document explains how to apply classifications to your data.
 
@@ -24,10 +24,10 @@ This document explains how to apply classifications to your data.
 - Set up scan on your data sources.
 
 ## Apply classifications
-In Azure Purview, you can apply system or custom classifications on a file, table, or column asset. This article describes the steps to manually apply classifications on your assets.
+In Microsoft Purview, you can apply system or custom classifications on a file, table, or column asset. This article describes the steps to manually apply classifications on your assets.
 
 ### Apply classification to a file asset
-Azure Purview can scan and automatically classify documentation files. For example, if you have a file named *multiple.docx* and it has a National ID number in its content, Azure Purview adds the classification **EU National Identification Number** to the file asset's detail page.
+Microsoft Purview can scan and automatically classify documentation files. For example, if you have a file named *multiple.docx* and it has a National ID number in its content, Microsoft Purview adds the classification **EU National Identification Number** to the file asset's detail page.
 
 In some scenarios, you might want to manually add classifications to your file asset. If you have multiple files that are grouped into a resource set, add classifications at the resource set level.
 
@@ -51,7 +51,7 @@ Follow these steps to add a custom or system classification to a partition resou
 
 ### Apply classification to a table asset
 
-When Azure Purview scans your data sources, it doesn't automatically assign classifications to table assets. If you want your table asset to have a classification, you must add it manually.
+When Microsoft Purview scans your data sources, it doesn't automatically assign classifications to table assets. If you want your table asset to have a classification, you must add it manually.
 
 To add a classification to a table asset:
 
@@ -67,13 +67,13 @@ To add a classification to a table asset:
 
 1. Select **Save** to save the classifications.
 
-1. On the **Overview** page, verify that Azure Purview added your new classifications.
+1. On the **Overview** page, verify that Microsoft Purview added your new classifications.
 
     :::image type="content" source="./media/apply-classifications/verify-classifications-added-to-table.png" alt-text="Screenshot showing how to verify that classifications were added to a table asset.":::
 
 ### Add classification to a column asset
 
-Azure Purview automatically scans and adds classifications to all column assets. However, if you want to change the classification, you can do so at the column level.
+Microsoft Purview automatically scans and adds classifications to all column assets. However, if you want to change the classification, you can do so at the column level.
 
 To add a classification to a column:
 

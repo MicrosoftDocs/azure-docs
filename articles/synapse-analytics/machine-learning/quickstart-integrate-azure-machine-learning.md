@@ -1,17 +1,19 @@
 ---
 title: 'Quickstart: Link an Azure Machine Learning workspace'
 description: Link your Synapse workspace to an Azure Machine Learning workspace
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.reviewer: jrasnick, garye
-ms.date: 10/01/2021
+ms.reviewer: sngun, garye
+ms.date: 12/16/2021
 author: nelgson
 ms.author: negust
 ms.custom: mode-other
 ---
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse
+
+**[!IMPORTANT] The Azure ML integration is not currently supported in Synapse Workspaces with Data Exfiltration Protection.** If you are **not** using data exfiltration protection and want to connect to Azure ML using private endpoints, you can set up a managed AzureML private endpoint in your Synapse workspace. [Read more about managed private endpoints](../security/how-to-create-managed-private-endpoints.md)
+
 
 In this quickstart, you'll link an Azure Synapse Analytics workspace to an Azure Machine Learning workspace. Linking these workspaces allows you to leverage Azure Machine Learning from various experiences in Synapse.
 

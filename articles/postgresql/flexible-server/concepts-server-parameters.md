@@ -1,9 +1,10 @@
 ---
 title: Server parameters - Azure Database for PostgreSQL - Flexible Server
 description: Describes the server parameters in Azure Database for PostgreSQL - Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
@@ -39,6 +40,7 @@ Here is the list of some of the parameters:
 | **maintenance_work_mem** | The maintenance_work_mem parameter basically provides the maximum amount of memory to be used by maintenance operations like vacuum, create index, and alter table add foreign key operations.  Default value for that parameter is 64 KB. It’s recommended to set this value higher than work_mem; this can improve performance for vacuuming. |
 | **effective_io_concurrency** | Sets the number of concurrent disk I/O operations that PostgreSQL expects can be executed simultaneously. Raising this value will increase the number of I/O operations that any individual PostgreSQL session attempts to initiate in parallel. The allowed range is 1 to 1000, or zero to disable issuance of asynchronous I/O requests. Currently, this setting only affects bitmap heap scans.. |
  |**require_secure_transport** | If your application does not support SSL connectivity to the server, you can optionally disable secured transport from your client by turning `OFF` this parameter value. |
+ |**log_connections** | This parameter may be read-only, as on Azure Database for PostgreSQL - Flexible Server all connections are logged and intercepted to make sure connections are coming in from right sources for security reasons. |
 
 >[!NOTE]
 > As you scale Azure Database for PostgreSQL - Flexible Server SKUs up or down, affecting available memory to the server, you may wish to tune your memory global parameters, such as work_mem or effective_cache_size accordingly based on information above. 

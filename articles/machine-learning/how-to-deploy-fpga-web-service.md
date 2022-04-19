@@ -361,9 +361,7 @@ converted_model.delete()
 
 + Learn about FPGA and [Azure Machine Learning pricing and costs](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-+ [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
-
-+ [Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
++ [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](/events/Build/2018/BRK3202)
 
 + [Project Brainwave for real-time AI](https://www.microsoft.com/research/project/project-brainwave/)
 

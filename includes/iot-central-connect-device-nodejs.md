@@ -20,13 +20,13 @@ To complete the steps in this article, you need the following resources:
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/javascript/pnp/pnpTemperatureController.js* file in a text editor.
+In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/javascript/pnp_temperature_controller.js* file in a text editor.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
 The `main` method:
 
-* Creates a `client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Creates a `client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Creates command handlers for three commands.
 * Starts a loop for each thermostat component to send temperature telemetry every 5 seconds.
 * Starts a loop for the default component to send working set size telemetry every 6 seconds.
@@ -116,7 +116,7 @@ async function main() {
 }
 ```
 
-The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [associate the device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
+The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template):
 
 ```javascript
 async function provisionDevice(payload) {
@@ -260,7 +260,7 @@ const sendCommandResponse = async (request, response, status, payload) => {
 
 ## Run the code
 
-To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-node/device/samples/pnp* folder that contains the *pnpTemperatureController.js* sample file.
+To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-node/device/samples/javascript* folder that contains the *pnp_temperature_controller.js* sample file.
 
 [!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 
@@ -273,7 +273,7 @@ npm install
 Run the sample:
 
 ```cmd/sh
-node pnpTemperatureController.js
+node pnp_temperature_controller.js
 ```
 
 The following output shows the device registering and connecting to IoT Central. The sample then sends the `maxTempSinceLastReboot` property from the two thermostat components before it starts sending telemetry:

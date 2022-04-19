@@ -1,13 +1,14 @@
 ---
 title: Configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/09/2021
-ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
+ms.author: jroth
+ms.devlang: csharp
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ---
 
 # Configure time to live in Azure Cosmos DB
@@ -198,7 +199,7 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 In addition to setting a default time to live on a container, you can set a time to live for an item. Setting time to live at the item level will override the default TTL of the item in that container.
 
-* To set the TTL on an item, you need to provide a non-zero positive number, which indicates the period, in seconds, to expire the item after the last modified timestamp of the item `_ts`.
+* To set the TTL on an item, you need to provide a non-zero positive number, which indicates the period, in seconds, to expire the item after the last modified timestamp of the item `_ts`. You can provide a `-1` as well when the item should not expire.
 
 * If the item doesn't have a TTL field, then by default, the TTL set to the container will apply to the item.
 

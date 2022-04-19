@@ -18,7 +18,7 @@ Start by creating a new Azure subscription. Use a separate subscription for each
 
 To create a new Azure subscription in the Azure portal:
 
-1. Navigate to the [Subscriptions blade](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+1. Navigate to the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 1. Click the **+ Add** button at the top
 1. Sign in if prompted
 1. Select an offer and walk through the steps to create a new subscription

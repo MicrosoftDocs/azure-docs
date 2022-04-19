@@ -11,7 +11,8 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.devlang: csharp, java, python
+ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 keywords: content moderator, azure content moderator, online moderator, content filtering software
 ---
 
