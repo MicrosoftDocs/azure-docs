@@ -13,6 +13,9 @@ ms.author: ranku
 
 The bulk-import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
 
+> [!NOTE]
+> You must have the **FHIR Data Contributor** role on the FHIR server to use $import.
+
 ## Current limitations
 
 * Conditional references in resources aren't supported.
