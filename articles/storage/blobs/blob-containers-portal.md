@@ -80,9 +80,19 @@ Properly managing access to containers and their blobs is key to ensuring that y
 
 ### Manage Azure RBAC role assignments for the container
 
-Azure role-based access control (Azure RBAC) is the authorization system you use to manage access to Azure resources. To grant access, you'll assign a role to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
+Azure Active Directory (Azure AD) offers optimum security for Blob Storage resources. Azure role-based access control (Azure RBAC) determines what permissions a security principal has to a given resource. To grant access to a container, you'll assign an RBAC role at the container scope or above to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
 
 You can read about the assignment of roles at [Assign Azure roles using the Azure portal](assign-azure-role-data-access.md?tabs=portal).
+
+### Use Shared Key authorization for data access
+
+A request to Azure Storage can be authorized using either your Azure AD account or the storage account access key. You can use portal to determine which method you are using, and switch between the two if you have the appropriate permissions. Follow the steps within the [Determine the current authentication method](authorize-data-operations-portal.md#determine-the-current-authentication-method) section.
+
+You may choose to use Azure AD authorization by default for data access when you create a storage account. You can accomplish this by following the steps within [Default to Azure AD authorization in the Azure portal](authorize-data-operations-portal.md#default-to-azure-ad-authorization-in-the-azure-portal).
+
+Shared Key authentication does not associate an identity with the caller, therefore permission-based authorization cannot be performed. The caller can receive full access to all operations on all resources including data, setting owner, and access control lists (ACLs).
+
+To minimize potential security vulnerabilities inherent in Shared Key, Azure AD authorization is recommended for use with your blobs when possible. For more information, read [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md). To disable Shared Key access, follow the steps within the [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?tabs=portal) article.
 
 ### Enable anonymous public read access
 
@@ -110,8 +120,8 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
     :::image type="content" source="media/blob-containers-portal/select-container-sas-sml.png" alt-text="Screenshot showing how to access container shared access signature settings within the Azure portal" lightbox="media/blob-containers-portal/select-container-sas-lrg.png":::
 
 1. Within the **Generate SAS** pane, select the **Account key** value for the **Signing method** field.
-1. In the **Signing method** field, select **Account key**.
-1. In the **Signing key** field, select the desired key to be used to sign the SAS. 
+1. In the **Signing method** field, select **Account key**. Choosing the account key will result in the creation of a service SAS.
+1. In the **Signing key** field, select the desired key to be used to sign the SAS.
 1. In the **Stored access policy** field, select **None**.
 1. Select the **Permissions** field, then select the check boxes corresponding to the desired permissions.
 1. In the **Start and expiry date/time** section, specify the desired **Start** and **Expiry** date, time, and time zone values.
@@ -127,7 +137,7 @@ To generate an SAS token using the [Azure portal](https://portal.azure.com), fol
 
 A **stored access policy** gives you additional server-side control over one or more shared access signatures. When you associate an SAS with a stored access policy, the SAS inherits the restrictions defined in the policy. These extra restrictions allow you to change the start time, expiry time, or permissions for a signature. You can also revoke it after it has been issued.
 
-**Immutability policies** can be used to protect your data from overwrites and deletes. Immutability policies allow objects to be created and read, but prevents their modification or deletion for a specific duration. A **time-based retention policy** prohibits write and delete operations for a defined period of time. A **legal hold** also prohibits write and delete operations, but must be explicitly cleared before those operations can resume.
+**Immutability policies** can be used to protect your data from overwrites and deletes. Immutability policies allow objects to be created and read, but prevents their modification or deletion for a specific duration. Blob Storage supports two types of immutability policies. A **time-based retention policy** prohibits write and delete operations for a defined period of time. A **legal hold** also prohibits write and delete operations, but must be explicitly cleared before those operations can resume.
 
 #### Create a stored access policy
 
