@@ -36,7 +36,7 @@ To work with Audio Content Creation, you need a [Microsoft account](https://acco
 
 ### Step 2: Create a Speech resource
 
-After you sign up for the Azure account, you need to create a Speech resource in your Azure account to access Speech services. For instructions, see [how to create a Speech resource](./overview.md#create-the-azure-resource).
+After you sign up for the Azure account, you need to create a Speech resource in your Azure account to access Speech services. Create a Speech resource on the [Azure portal](https://portal.azure.com)keys. For more information about keys and other Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
 
 It takes a few moments to deploy your new Speech resource. After the deployment is complete, you can start using the Audio Content Creation tool.
 

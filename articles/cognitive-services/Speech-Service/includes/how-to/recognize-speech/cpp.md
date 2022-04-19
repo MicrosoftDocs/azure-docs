@@ -26,7 +26,7 @@ Before you can do anything, you need to install the Speech SDK. Depending on you
 
 To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
-Create a `SpeechConfig` instance by using your key and region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
+Create a `SpeechConfig` instance by using your key and region. Create a Speech resource on the [Azure portal](https://portal.azure.com)keys. For more information about keys and other Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
 
 ```cpp
 using namespace std;

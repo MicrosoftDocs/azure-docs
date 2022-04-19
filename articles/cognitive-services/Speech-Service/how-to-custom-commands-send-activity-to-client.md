@@ -25,7 +25,7 @@ You complete the following tasks:
 ## Prerequisites
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide uses Visual Studio 2019
-> * An Azure Cognitive Services Speech resource key and region: Create one on the [Azure portal](https://portal.azure.com)keys. For more information about keys and other Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
+> * An Azure Cognitive Services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com)keys. For more information about keys and other Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)

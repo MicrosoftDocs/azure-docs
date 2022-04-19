@@ -20,7 +20,7 @@ Before you can do anything, you need to install the [Speech SDK for Go](../../..
 
 ## Recognize speech-to-text from a microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Running the script will start a recognition session on your default microphone and output text.
+Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com)keys. For more information about keys and other Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). Running the script will start a recognition session on your default microphone and output text.
 
 ```go
 package main
@@ -111,7 +111,7 @@ For detailed information, see the [reference content for the `SpeechConfig` clas
 
 ## Recognize speech-to-text from an audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
+Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com)keys. For more information about keys and other Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
 
 ```go
 package main
