@@ -19,6 +19,13 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## January 2022
+
+Azure Key Vault service throughput limits have been increased to serve double its previous quota for each vault to help ensure high performance for applications. That is, for secret GET and RSA 2,048-bit software keys, you'll receive 4,000 GET transactions per 10 seconds vs 2,000 per 10 seconds previously. The service quotas are specific to operation type and the entire list can be accessed in [Azure Key Vault Service Limits](./service-limits.md). 
+
+For Azure update announcement, see [General availability: Azure Key Vault increased service limits for all its customers] (https://azure.microsoft.com/updates/azurekeyvaultincreasedservicelimits/)
+
+
 ## December 2021
 
 Automated encryption key rotation in Key Vault is now in preview. You can set a rotation policy on a key to schedule automated rotation and configure expiry notifications through Event Grid integration. 

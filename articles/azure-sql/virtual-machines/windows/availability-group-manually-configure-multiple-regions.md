@@ -45,14 +45,8 @@ The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a di
 
 In this architecture, the replica in the remote region is normally configured with asynchronous commit availability mode and manual failover mode.
 
-When availability group replicas are on Azure virtual machines in different Azure regions, each region requires:
+When availability group replicas are on Azure virtual machines in different Azure regions, then you can connect the Virtual Networks using the recommended [Virtual Network Peering](../../../virtual-network/virtual-network-peering-overview.md) or [Site to Site VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-* A virtual network gateway
-* A virtual network gateway connection
-
-The following diagram shows how the networks communicate between data centers.
-
-   :::image type="content" source="./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png" alt-text="Diagram that shows the two Virtual Networks in different Azure Regions communicating using V P N Gateways.":::
 
 >[!IMPORTANT]
 >This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -63,7 +57,13 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a virtual network in the new region](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
-1. [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. Connect the Virtual Networks in the two Azure regions using one of the following methods:
+   
+   [Virtual Network Peering - Connect virtual networks with virtual network peering using the Azure portal](../../../virtual-network/tutorial-connect-virtual-networks-portal.md) (Recommended)
+   
+   or
+   
+   [Site to Site VPN Gateway - Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
    >[!NOTE]
    >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

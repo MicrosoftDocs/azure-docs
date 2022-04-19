@@ -16,10 +16,12 @@ You may want to create a copy of your knowledge base for several reasons:
 * Integrate with your CI/CD pipeline 
 * When you wish to move your data to different regions
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 > * Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
 
 ## Export a knowledge base

@@ -7,13 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/11/2021
+ms.date: 03/02/2022
 ms.author: banders
 ---
 
 # Track your Microsoft Azure Consumption Commitment (MACC)
 
 The Microsoft Azure Consumption Commitment (MACC) is a contractual commitment that your organization may have made to Microsoft Azure spend over time. If your organization has a MACC for a Microsoft Customer Agreement (MCA) billing account or an Enterprise Agreement (EA) billing account you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal or through REST APIs.
+
+In the scenario that a MACC commitment has been transacted prior to the expiration or completion of a prior MACC (on the same enrollment/billing account), actual decrement of a commitment will begin upon completion or expiration of the prior commitment. In other words, if you have a new MACC following the expiration or completion of an older MACC on the same enrollment or billing account, use of the new commitment starts when the old commitment expires or is completed.
 
 ## Track your MACC Commitment
 

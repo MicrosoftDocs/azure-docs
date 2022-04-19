@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/08/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
@@ -70,7 +70,7 @@ As with all of the Cognitive Services resources, developers who use the speaker 
 | What Azure regions are supported? | See [Speaker recognition region support](regions.md#speaker-recognition).|
 | What audio formats are supported? | Mono 16 bit, 16 kHz PCM-encoded WAV. |
 | Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |
-| What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). Recognition audio samples aren't retained or stored. |
+| What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#delete-voice-profile-enrollments). Recognition audio samples aren't retained or stored. |
 
 ## Next steps
 

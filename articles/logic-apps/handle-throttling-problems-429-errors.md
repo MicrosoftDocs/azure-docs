@@ -1,10 +1,10 @@
 ---
 title: Handle throttling problems, or '429 - Too many requests' errors
-description: How to work around throttling problems, or 'HTTP 429 Too many requests' errors, in Azure Logic Apps
+description: How to work around throttling problems or 'HTTP 429 Too many requests' errors in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, logicappspm
-ms.topic: conceptual
+ms.reviewer: deli, azla
+ms.topic: how-to
 ms.date: 04/13/2020
 ---
 
@@ -90,15 +90,15 @@ To handle throttling at this level, you have these options:
 
   For this option, consider whether you can distribute the workload by dividing an action's requests across multiple connections to the same destination using the same credentials.
 
-  For example, suppose that your logic app gets tables from a SQL Server database and then gets the rows from each table. Based on the number of rows that you have to process, you can use multiple connections and multiple **For each** loops to divide the total number of rows into smaller sets for processing. This scenario uses two **For each** loops to split the total number of rows in half. The first **For each** loop uses an expression that gets the first half. The other **For each** loop uses a different expression that gets the second half, for example:<p>
+  For example, suppose that your logic app gets tables from a SQL Server database and then gets the rows from each table. Based on the number of rows that you have to process, you can use multiple connections and multiple **For each** loops to divide the total number of rows into smaller sets for processing. This scenario uses two **For each** loops to split the total number of rows in half. The first **For each** loop uses an expression that gets the first half. The other **For each** loop uses a different expression that gets the second half, for example:<br><br>
 
-    * Expression 1: The `take()` function gets the front of a collection. For more information, see the [**`take()`** function](workflow-definition-language-functions-reference.md#take).
+  * Expression 1: The `take()` function gets the front of a collection. For more information, see the [**`take()`** function](workflow-definition-language-functions-reference.md#take).
 
-      `@take(collection-or-array-name, div(length(collection-or-array-name), 2))`
+    `@take(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
-    * Expression 2: The `skip()` function removes the front of a collection and returns all the other items. For more information, see the [**`skip()`** function](workflow-definition-language-functions-reference.md#skip).
+  * Expression 2: The `skip()` function removes the front of a collection and returns all the other items. For more information, see the [**`skip()`** function](workflow-definition-language-functions-reference.md#skip).
 
-      `@skip(collection-or-array-name, div(length(collection-or-array-name), 2))`
+    `@skip(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
     Here's a visual example that shows how you can use these expressions:
 

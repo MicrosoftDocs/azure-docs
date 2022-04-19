@@ -6,7 +6,8 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra
 
@@ -191,6 +192,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > [!NOTE]
    > If you want to add more datacenters, you can repeat the above steps, but you only need the seed nodes. 
 
+   > [!IMPORTANT]
+   > If your existing Apache Cassandra cluster only has a single data center, and this is the first time a data center is being added, ensure that the `endpoint_snitch` parameter in `cassandra.yaml` is set to `GossipingPropertyFileSnitch`.
+
 1. Finally, use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
    ```bash
@@ -202,6 +206,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```bash
    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
+   
+   > [!IMPORTANT]
+   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required). 
 
 ## Troubleshooting
 

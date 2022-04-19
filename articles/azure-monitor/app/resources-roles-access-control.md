@@ -3,8 +3,7 @@ title: Resources, roles and access control in Azure Application Insights | Micro
 description: Owners, contributors and readers of your organization's insights.
 ms.topic: conceptual
 ms.date: 02/14/2019 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell   
 ---
 
 # Resources, roles, and access control in Application Insights
@@ -31,7 +30,7 @@ First, some definitions:
 
 * [**Resource group**][group] - Every resource belongs to one group. A group is a convenient way to manage related resources, particularly for access control. For example, into one resource group you could put a Web App, an Application Insights resource to monitor the app, and a Storage resource to keep exported data.
 
-* [**Subscription**](https://portal.azure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
+* [**Subscription**](https://portal.azure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package.  If it's an organization subscription, the owner may choose the members and their access permissions.
 * [**Microsoft account**][account] - The username and password that you use to sign in to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
 
 ## <a name="access"></a> Control access in the resource group
@@ -46,19 +45,9 @@ The user must have a [Microsoft Account][account], or access to their [organizat
 
 #### Navigate to resource group or directly to the resource itself
 
-Choose **Access control (IAM)** from the left-hand menu.
+1. Assign the Contributor role to the Role Based Access Control. 
 
-![Screenshot of Access control button in Azure portal](./media/resources-roles-access-control/0001-access-control.png)
-
-Select **Add role assignment**
-
-![Screenshot of Access control menu with add button highlighted in red](./media/resources-roles-access-control/0002-add.png)
-
-The **Add permissions** view below is primarily specific to Application Insights resources, if you were viewing the access control permissions from a higher level like resource groups, you would see additional non-Application Insights-centric roles.
-
-To view information on all Azure role-based access control built-in roles use the [official reference content](../../role-based-access-control/built-in-roles.md).
-
-![Screenshot of Access control user role list](./media/resources-roles-access-control/0003-user-roles.png)
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).    
 
 #### Select a role
 
@@ -70,7 +59,7 @@ Where applicable we link to the associated official reference documentation.
 | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) |Can edit anything, including all resources. |
 | [Application Insights Component contributor](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor) |Can edit Application Insights resources. |
 | [Reader](../../role-based-access-control/built-in-roles.md#reader) |Can view but not change anything. |
-| [Application Insights Snapshot Debugger](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Gives the user permission to use Application Insights Snapshot Debugger features. Note that this role is included in neither the Owner nor Contributor roles. |
+| [Application Insights Snapshot Debugger](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Gives the user permission to use Application Insights Snapshot Debugger features. This role is included in neither the Owner nor Contributor roles. |
 | Azure Service Deploy Release Management Contributor | Contributor role for services deploying through Azure Service Deploy. |
 | [Data Purger](../../role-based-access-control/built-in-roles.md#data-purger) | Special role for purging personal data. See our [guidance for personal data](../logs/personal-data-mgmt.md) for more information.   |
 | ExpressRoute Administrator | Can create delete and manage express routes.|

@@ -40,7 +40,7 @@ The Defender for IoT security alert list displays all of the aggregated security
 
 **To investigate security alerts**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
 
@@ -52,7 +52,7 @@ Opening each aggregated alert displays the detailed alert description, remediati
 
 **To investigate security alert details**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
 
@@ -72,7 +72,7 @@ You can access your alerts and investigate them with the Log Analytics workspace
 
 **To access your alerts in your Log Analytics workspace after configuration**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Security Alerts**.
 
@@ -89,4 +89,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [Connect your data from Defender for IoT for device builders to Microsoft Sentinel (Public preview)](how-to-configure-with-sentinel.md)
+> Learn how to [integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json)

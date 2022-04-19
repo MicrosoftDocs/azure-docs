@@ -29,6 +29,8 @@ To complete the examples in this article, the following are required:
 You create a simple [DSC configuration](/powershell/dsc/configurations/configurations) that ensures either the
 presence or absence of the **Web-Server** Windows Feature (IIS), depending on how you assign nodes.
 
+Configuration names in Azure Automation must be limited to no more than 100 characters.
+
 1. Start [VSCode](https://code.visualstudio.com/docs) (or any text editor).
 1. Type the following text:
 

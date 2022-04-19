@@ -44,7 +44,7 @@ In this tutorial, you migrate a dataset in MongoDB that is hosted in an Azure vi
 To complete this tutorial, you need to:
 
 * [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps, such as estimating throughput and choosing a partition key.
-* [Create an account for the Azure Cosmos DB API for MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+* [Create an account for the Azure Cosmos DB API for MongoDB](https://portal.azure.com/#create/Microsoft.DocumentDB).
 
   > [!NOTE]
   > DMS is currently not supported if you are migrating to API for MongoDB account that is provisioned with serverless mode.

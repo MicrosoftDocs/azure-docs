@@ -59,6 +59,7 @@ In addition to the system-assigned managed identity that is already supported fo
 - If the key vault is behind a VNet, a user-assigned managed identity cannot be used with customer-managed TDE. A system-assigned managed identity must be used in this case. A user-assigned managed identity can only be used when the key vault is not behind a VNet. 
 - When multiple user-assigned managed identities are assigned to the server or managed instance, if a single identity is removed from the server using the *Identity* blade of the Azure Portal, the operation succeeds but the identity does not get removed from the server. Removing all user-assigned managed identities together from the Azure portal works successfully.
 - When the server or managed instance is configured with customer-managed TDE and both system-assigned and user-assigned managed identities are enabled on the server, removing the user-assigned managed identities from the server without first giving the system-assigned managed identity access to the key vault results in an *Unexpected error occurred* message. Ensure the system-assigned managed identity has been provided key vault access prior to removing the primary user-assigned managed identity (and any other user-assigned managed identities) from the server.
+- User Assigned Managed Identity for SQL Managed Instance is currently not supported when AKV firewall is enabled.
 
 
 ## Next steps

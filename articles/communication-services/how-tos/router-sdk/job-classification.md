@@ -80,8 +80,8 @@ var job = await client.CreateJobAsync(
     {
         ["Region"] = "NA",
         ["Caller_Id"] = "tel:7805551212",
-        ["Caller_NPA_NXX" = "780555",
-        ["XBOX_Hardware" = 7
+        ["Caller_NPA_NXX"] = "780555",
+        ["XBOX_Hardware"] = 7
     }
 );
 
@@ -113,7 +113,7 @@ You can use the classification policy to attach additional worker selectors to a
 
 ### Static Attachments
 
-In this example, we are using a static attachment, which will always attach the specified label selector to a job.
+In this example, the Classification Policy is configured with a static attachment, which will always attach the specified label selector to a job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -149,7 +149,7 @@ await client.upsertClassificationPolicy(
 
 ### Conditional Attachments
 
-In this example, we are using a conditional attachment, which will evaluate a condition against the job labels to determine if the said label selectors should be attached to the job.
+In this example, the Classification Policy is configured with a conditional attachment. So it will evaluate a condition against the job labels to determine if the said label selectors should be attached to the job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -192,9 +192,44 @@ await client.upsertClassificationPolicy(
 
 ::: zone-end
 
+### Passthrough Attachments
+
+In this example, the Classification Policy is configured to attach a worker selector (`"Foo" = "<value comes from "Foo" label of the job>"`) to the job.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+await client.SetClassificationPolicyAsync(
+    id: "policy-1",
+    workerSelectors: new List<LabelSelectorAttachment>
+    {
+        new PassThroughLabelSelector(key: "Foo", @operator: LabelOperator.Equal)
+    }
+);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```typescript
+await client.upsertClassificationPolicy(
+    id: "policy-1",
+    workerSelectors: [
+        {
+            kind: "pass-through",
+            key: "Foo",
+            operator: "equal"
+        }
+    ]
+);
+```
+
+::: zone-end
+
 ### Weighted Allocation Attachments
 
-In this example, we are using a weighted allocation attachment, which will divide up jobs according to the weightings specified and attach different selectors accordingly.  Here, we are saying that 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
+In this example, the Classification Policy is configured with a weighted allocation attachment. This will divide up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
 
 ::: zone pivot="programming-language-csharp"
 

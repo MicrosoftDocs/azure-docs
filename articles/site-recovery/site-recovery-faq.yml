@@ -2,7 +2,7 @@
 metadata:
   title: General questions about the Azure Site Recovery service
   description: This article discusses popular general questions about Azure Site Recovery.
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure
   ms.date: 05/27/2021
 
@@ -27,7 +27,7 @@ sections:
       - question: |
          Can I protect a virtual machine that has a Docker disk?
         answer: |
-             No, this is an unsupported scenario.
+             No, Azure Site Recovery does not support Docker workloads running on virtual machines. To protect these virtual machines with Site Recovery, exclude the disks that have Docker installed on them.
 
       - question: |
          What does Site Recovery do to ensure data integrity?
@@ -176,7 +176,7 @@ sections:
       - question: |
          What workloads can I protect with Site Recovery?
         answer: |
-              You can use Site Recovery to protect most workloads running on a supported VM or physical server. Site Recovery provides support for application-aware replication, so that apps can be recovered to an intelligent state. It integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM and Red Hat. [Learn more](site-recovery-workload.md) about workload protection.
+              You can use Site Recovery to protect most workloads running on a supported VM or physical server. Site Recovery provides support for application-aware replication, so that apps can be recovered to an intelligent state. It integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM, and Red Hat. [Learn more](site-recovery-workload.md) about workload protection.
 
       - question: |
          Can I manage disaster recovery for my branch offices with Site Recovery?
@@ -247,7 +247,7 @@ sections:
       - question: |
          How often can I replicate data?
         answer: |
-              * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.
+              * **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage) or five minutes.
               * **Azure VMs, VMware VMs, physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
       - question: |
@@ -323,8 +323,8 @@ sections:
         answer: |
               A replication policy defines the settings for the retention history of recovery points. The policy also defines the frequency of app-consistent snapshots. By default, Azure Site Recovery creates a new replication policy with default settings of:
 
-              - 24 hours for the retention history of recovery points.
-              - 4 hours for the frequency of app-consistent snapshots.
+              - One day for the retention history of recovery points.
+              - No app-consistent snapshots.
 
       - question: |
          What is a crash-consistent recovery point?
@@ -361,24 +361,24 @@ sections:
       - question: |
          How are recovery points generated and saved?
         answer: |
-              To understand how Site Recovery generates recovery points, let's see an example of a replication policy. This replication policy has a recovery point with a 24-hour retention window and an app-consistent frequency snapshot of 1 hour.
+              To understand how Site Recovery generates recovery points, let's see an example of a replication policy. This replication policy has a recovery point with a 1-day retention window and an app-consistent frequency snapshot of 1 hour.
 
-              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the most recent hour, you can choose from 12 crash-consistent points and 1 app-consistent point. As time progresses, Site Recovery prunes all the recovery points beyond the last hour and saves only 1 recovery point per hour for up to 24 hours, and only 1 recovery point every 2 hours for up to 72 hours.
+              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the most recent 2 hours, you can choose from 24 crash-consistent points and 2 app-consistent points. As time progresses, Site Recovery prunes all the recovery points beyond the last 2 hours and saves only 1 recovery point per hour for up to 24 hours of the day.
 
               The following screenshot illustrates the example. In the screenshot:
 
-              - Within the past hour, there are recovery points with a frequency of 5 minutes.
-              - Beyond the past hour, Site Recovery keeps only 1 recovery point.
+              - Within the past 2 hours, there are recovery points with a frequency of 5 minutes.
+              - Beyond the past 2 hours, Site Recovery keeps only 1 recovery point per hour.
 
                 ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
       - question: |
          How far back can I recover?
         answer: |
-             The oldest recovery point that you can use is 72 hours.
+             The oldest recovery point that you can use is 15 days with Managed disk and 3 days with Unmanaged disk.
 
       - question: |
-         I have a replication policy of 24 hours. What will happen if a problem prevents Site Recovery from generating recovery points for more than 24 hours? Will my previous recovery points be lost?
+         I have a replication policy of 1 day. What will happen if a problem prevents Site Recovery from generating recovery points for more than 1 day? Will my previous recovery points be lost?
         answer: |
              No, Site Recovery will keep all your previous recovery points. Depending on the recovery points' retention window, Site Recovery replaces the oldest point only if it generates new points. Because of the problem, Site Recovery can't generate any new recovery points. Until there are new recovery points, all the old points will remain after you reach the window of retention.
 
@@ -395,7 +395,7 @@ sections:
       - question: |
          Does increasing the retention period of recovery points increase the storage cost?
         answer: |
-             Yes, if you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 48 per month.
+             Yes, if you increase the retention period from 1 day to 3 days, Site Recovery will save the recovery points for an additional 2 days. The added time will incur storage charges since there will be 12 additional recovery points that need to be saved with increase in retention period from 1 day to 3 days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
 
   - name: Failover
     questions:
@@ -426,7 +426,7 @@ sections:
               * [Read more](./vmware-azure-failback.md) about failing back VMware VMs and physical servers
 
       - question: |
-         If my on-premises host is not responding or crashed, can I fail back to a different host?
+         If my on-premises host isn't responding or crashed, can I fail back to a different host?
         answer: |
               Yes, you can use the alternate location recovery to failback to a different host from Azure.
 
@@ -439,7 +439,7 @@ sections:
               Once a machine from source location has been failed over to the target location then there are three options available for you to choose from. All three serve different purposes -
 
               1.	**Complete Migration** means that you will not go back to the source location anymore. You migrated over to the target region and now you're done. Clicking on Complete Migration triggers Commit and then Disable Replication, internally.
-              2.	**Commit** means that this is not the end of your replication process. The replication item along with all the configuration will remain, and you can hit **Re-protect** at a later point in time to enable the replication of your machines back to the source region.
+              2.	**Commit** means that this isn't the end of your replication process. The replication item along with all the configuration will remain, and you can hit **Re-protect** at a later point in time to enable the replication of your machines back to the source region.
               3.	**Disable Replication** will disable the replication and remove all the related configuration. It won’t affect the already existing machine in the target region.
 
   - name: Automation
@@ -447,7 +447,7 @@ sections:
       - question: |
          Can I automate Site Recovery scenarios with an SDK?
         answer: |
-              Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for deploying Site Recovery using PowerShell:
+              Yes. You can automate Site Recovery workflows using the REST API, PowerShell, or the Azure SDK. Currently supported scenarios for deploying Site Recovery using PowerShell:
 
               * [Replicate Hyper-V VMs in VMMs clouds to Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
               * [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)

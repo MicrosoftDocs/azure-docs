@@ -1,11 +1,11 @@
 ---
 title: How to use DFS-N with Azure Files
 description: Common DFS-N use cases with Azure Files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 3/02/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

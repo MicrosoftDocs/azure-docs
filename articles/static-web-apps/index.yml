@@ -31,6 +31,8 @@ landingContent:
             url: ./getting-started.md?tabs=react
           - text: Deploy a Vue app
             url: ./getting-started.md?tabs=vue
+          - text: Deploy a Blazor app
+            url: ./getting-started.md?tabs=blazor
       - linkListType: learn
         links:
           - text: Publish an Angular, React, Svelte, or Vue JavaScript app

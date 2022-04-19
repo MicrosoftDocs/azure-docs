@@ -95,7 +95,7 @@ Next, you need to grant your Azure AD application access to your search service.
 
 In general, it's best to give your application only the access required. For example, if your application only needs to be able to query the search index, you could grant it the [Search Index Data Reader (preview)](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs to be able to read and write to a search index, you could use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
 
-1. Open the [Azure portal](https://ms.portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 

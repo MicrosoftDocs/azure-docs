@@ -13,6 +13,9 @@ items:
     href: tutorial-create-nat-gateway-powershell.md
   - name: Create and validate NAT gateway - Azure CLI
     href: tutorial-create-nat-gateway-cli.md
+  - name: Create NAT gateway - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-nat-gateway-bicep.md
   - name: Create NAT gateway - ARM template
     displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md
@@ -22,6 +25,8 @@ items:
     href: tutorial-nat-gateway-load-balancer-internal-portal.md
   - name: Migrate outbound access
     href: tutorial-migrate-outbound-nat.md
+  - name: Migrate a virtual machine public IP address
+    href: tutorial-migrate-ilip-nat.md
   expanded: true
 - name: Concepts
   items:

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/20/2021
+ms.date: 02/23/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
@@ -62,6 +62,8 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 Before you deploy a physical device, make sure that:
 
+- You've [run the Azure Stack Network Readiness Checker tool](azure-stack-edge-deploy-check-network-readiness.md) to check network readiness for your Azure Stack Edge device. You can use the tool to check whether your firewall rules are blocking access to any essential URLs for the service and verify custom URLs, among other tests. For more information, see [Check network readiness for your Azure Stack Edge device](azure-stack-edge-deploy-check-network-readiness.md).
+
 - You've reviewed the safety information for this device at [Safety guidelines for your Azure Stack Edge device](azure-stack-edge-mini-r-safety.md).
 [!INCLUDE [Azure Stack Edge device prerequisites](../../includes/azure-stack-edge-gateway-device-prerequisites.md)] 
 
@@ -106,13 +108,13 @@ If necessary, prepare your environment for Azure CLI.
 
 To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 
-1. Create a resource group by using the [az group create](/cli/azure/group#az_group_create) command, or use an existing resource group:
+1. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command, or use an existing resource group:
 
    ```azurecli
    az group create --name myasepgpu1 --location eastus
    ```
 
-1. To create a device, use the [az databoxedge device create](/cli/azure/databoxedge/device#az_databoxedge_device_create) command:
+1. To create a device, use the [az databoxedge device create](/cli/azure/databoxedge/device#az-databoxedge-device-create) command:
 
    ```azurecli
    az databoxedge device create --resource-group myasepgpu1 \
@@ -123,7 +125,7 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 
    For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
-1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) command:
+1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az-databoxedge-order-create) command:
 
    ```azurecli
    az databoxedge order create --resource-group myasepgpu1 \
@@ -133,7 +135,7 @@ To create an Azure Stack Edge resource, run the following commands in Azure CLI.
       --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
    ```
 
-The resource creation takes a few minutes. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
+The resource creation takes a few minutes. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az-databoxedge-order-show) command to see the order:
 
 ```azurecli
 az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 

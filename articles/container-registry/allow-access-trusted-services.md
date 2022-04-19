@@ -37,7 +37,7 @@ Where indicated, access by the trusted service requires additional configuration
 
 |Trusted service  |Supported usage scenarios  | Configure managed identity with RBAC role
 |---------|---------|------|
-| Azure Container Instances | [Authenticate with Azure Container Registry from Azure Container Instances](container-registry-auth-aci.md) | Yes, either system-assigned or user-assigned identity |
+| Azure Container Instances | [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md) | Yes, either system-assigned or user-assigned identity |
 | Microsoft Defender for Cloud | Vulnerability scanning by [Microsoft Defender for container registries](scan-images-defender.md) | No |
 |ACR Tasks     | [Access the parent registry or a different registry from an ACR Task](container-registry-tasks-cross-registry-authentication.md)       | Yes |
 |Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-container.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image | Yes |
@@ -48,7 +48,7 @@ Where indicated, access by the trusted service requires additional configuration
 
 ## Allow trusted services - CLI
 
-By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az_acr_update) command.
+By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az-acr-update) command.
 
 To disable:
 

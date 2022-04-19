@@ -5,11 +5,9 @@ metadata:
   author: Rodrigossz
   ms.author: rosouz
   ms.service: cosmos-db
-  ms.topic: conceptual
-  ms.date: 11/02/2021
+  ms.topic: faq
+  ms.date: 04/06/2022
   ms.custom: synapse-cosmos-db
-  
-    
 title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -45,7 +43,7 @@ sections:
       - question: |
           Can I disable the Azure Synapse Link feature for my Azure Cosmos DB account?
         answer: |
-          Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it. Understand that you will not have any billing implications if the Synapse Link capability is enabled at the account level and there is no analytical store enabled containers.
+          Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it. Please note that you will not have any billing implications if the Synapse Link capability is enabled at the account level and there is no analytical store enabled containers.
           
           If you need to turn off the capability, you have 2 options. The first one is to delete and re-create a new Azure Cosmos DB account, migrating the data if necessary. The second option is to open a support ticket, to get help on a data migration to another account.
           
@@ -67,9 +65,10 @@ sections:
           Currently you can only enable analytical store for existing SQL API containers.
 
       - question: |
-          Can I disable analytical store on my Azure Cosmos DB containers after enabling it during container creation?
+          Can I disable analytical store on my Azure Cosmos DB containers?
         answer: |
-          Currently, the analytical store cannot be disabled on an Azure Cosmos DB container.
+          Analytical store can be disabled in SQL API containers using PowerShell, by updating `-AnalyticalStorageTtl` (analytical Time-To-Live) to `0`. Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
+          Currently you can't be disabled in MongoDB API collections.
 
       - question: |
           Is analytical store supported for Azure Cosmos DB containers with autoscale provisioned throughput?
@@ -136,6 +135,16 @@ sections:
           Can I customize or override the way transactional data is transformed into columnar format in the analytical store?
         answer: |
           Currently you can’t transform the data items when they are automatically propagated from the transactional store to analytical store. If you have scenarios blocked by this limitation, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+      
+      - question: |
+          Can I access analytical store with Azure Cosmos DB SDKs?
+        answer: |
+          No, you can't access analytical store with the Azure Cosmos DB SDKs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.
+      
+      - question: |
+          Can I access analytical store with Azure Cosmos DB REAS APIs?
+        answer: |
+          No, you can't access analytical store with the Azure Cosmos DB REST APIs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.       
           
       - question: |
           Is analytical store supported by Terraform?

@@ -14,11 +14,11 @@ ms.custom: ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 * The current version of [cURL](https://curl.haxx.se/).
-* A Language resource. If you don't have one, you can create one using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics). If you create a new resource, click the link, follow the steps, and wait for it to deploy. Then click **Go to resource**.
+* A Language resource. If you don't have one, you can create one using the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics). If you create a new resource, click the link, follow the steps, and wait for it to deploy. Then click **Go to resource**.
 
 ## Get your resource keys and endpoint
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home).
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home).
 2. From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
     :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../../media/azure-portal-resource-credentials.png":::
@@ -249,9 +249,24 @@ Use the following object in your request. The model will be named `MyModel` once
 ```json
 {
   "modelLabel":"MyModel",
-  "RunVerification":false
+  "RunVerification":True,
+  "evaluationOptions":
+    {
+        "type":"percentage",
+        "testingSplitPercentage":"30",
+        "trainingSplitPercentage":"70"
+    }
+  
 }
 ```
+|Key  |Value  | Example |
+|---------|---------|---------|
+|`modelLabel  `    | Your Model name.   | `MyModel` |
+|`RunVerification`     | Boolean value to run validation on the test set.   | `True` |
+|`evaluationOptions`     | Specifies evaluation options.   |  |
+|`type`     | Specifies datasplit type.   | set or percentage |
+|`testingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies testing split.   | `30` |
+|`trainingSplitPercentage`     | Required integer field if `type`  is *percentage*. Specifies training split.   | `70` |
 
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 

@@ -1,10 +1,10 @@
 ---
 title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
-author: roygara
+author: khdownie
 ms.service: storage
-ms.date: 12/13/2021
-ms.author: rogarana
+ms.date: 02/09/2022
+ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
 ---
@@ -81,7 +81,7 @@ ms.topic: conceptual
 **How can I audit file access and changes in Azure Files?**
 
   There are two options that provide auditing functionality for Azure Files:
-  - If users are accessing the Azure file share directly, [Azure Storage logs (preview)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) can be used to track file changes and user access. These logs can be used for troubleshooting purposes and the requests are logged on a best-effort basis.
+  - If users are accessing the Azure file share directly, [Azure Storage logs](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) can be used to track file changes and user access. These logs can be used for troubleshooting purposes and the requests are logged on a best-effort basis.
   - If users are accessing the Azure file share via a Windows Server that has the Azure File Sync agent installed, use an [audit policy](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) or 3rd party product to track file changes and user access on the Windows Server. 
    
 ### AD DS & Azure AD DS Authentication

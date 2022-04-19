@@ -1,11 +1,11 @@
 ---
 title: Coarse relocalization
 description: Learn how and when to use coarse relocalization. Coarse relocalization helps you find anchors that are near you. 
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors

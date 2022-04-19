@@ -11,12 +11,14 @@ ms.custom: devx-track-java
 
 # How to monitor Spring Boot apps with Elastic APM Java Agent
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Cloud.
 
 With the Elastic Observability Solution, you can achieve unified observability to:
 
 * Monitor apps using the Elastic APM Java Agent and using persistent storage with Azure Spring Cloud.
-* Use diagnostic settings to ship Azure Spring Cloud logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](https://github.com/hemantmalik/azure-docs/blob/master/articles/spring-cloud/how-to-elastic-diagnostic-settings.md).
+* Use diagnostic settings to ship Azure Spring Cloud logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](how-to-elastic-diagnostic-settings.md).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 

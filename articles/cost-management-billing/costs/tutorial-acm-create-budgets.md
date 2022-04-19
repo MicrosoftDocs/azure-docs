@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/17/2021
+ms.date: 03/22/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -174,7 +174,7 @@ install-module -name Az
 The following example commands create a budget.
 
 ```azurepowershell-interactive
-#Sign into Azure Powershell with your account
+#Sign into Azure PowerShell with your account
 
 Connect-AzAccount
 

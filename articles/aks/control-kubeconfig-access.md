@@ -39,7 +39,7 @@ These Azure roles can be applied to an Azure Active Directory (AD) user or group
 > [!NOTE]
 > On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
 >
-> Clusters that do not use Azure AD only use the *clusterAdmin* role.
+> On clusters that do not use Azure AD, the *clusterUser* role has same effect of *clusterAdmin* role.
 
 ## Assign role permissions to a user or group
 

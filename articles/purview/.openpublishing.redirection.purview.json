@@ -17,7 +17,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/tutorial-asset-search.md",
-        "redirect_url": "/azure/purview/concept-search",
+        "redirect_url": "/azure/purview/how-to-search-catalog",
         "redirect_document_id": true
       },
       {
@@ -98,6 +98,56 @@
       {
         "source_path_from_root": "/articles/purview/how-to-lineage-teradata.md",
         "redirect_url": "/azure/purview/register-scan-teradata-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/sources-and-scans.md",
+        "redirect_url": "/azure/purview/purview-connector-overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-purview-dotnet.md",
+        "redirect_url": "/azure/purview/create-azure-purview-dotnet",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-purview-portal-faq.md",
+        "redirect_url": "/azure/purview/create-azure-purview-portal-faq",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-purview-python.md",
+        "redirect_url": "/azure/purview/create-azure-purview-python",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/purview-connector-overview.md",
+        "redirect_url": "/azure/purview/azure-purview-connector-overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/reference-purview-glossary.md",
+        "redirect_url": "/azure/purview/reference-azure-purview-glossary",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-purview-tools.md",
+        "redirect_url": "/azure/purview/tutorial-azure-purview-tools",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/use-purview-studio.md",
+        "redirect_url": "/azure/purview/use-azure-purview-studio",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/scan-insights.md",
+        "redirect_url": "/azure/purview/how-to-monitor-scan-runs",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-data-owner-policies-resource-group.md",
+        "redirect_url": "/azure/purview/how-to-data-owner-policies-resource-group",
         "redirect_document_id": true
       }
 ]

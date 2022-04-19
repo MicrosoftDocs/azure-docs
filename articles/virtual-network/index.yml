@@ -10,8 +10,8 @@ metadata:
   ms.service: virtual-network
   ms.topic: landing-page
   ms.collection: collection
-  author: KumudD
-  ms.author: kumud
+  author: mbender-ms
+  ms.author: mbender
   ms.date: 01/28/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: Virtual network FAQ
             url: virtual-networks-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Networks
+            url: /learn/modules/introduction-to-azure-virtual-networks
  
   # Card (optional)
   - title: Get started
@@ -147,8 +151,6 @@ landingContent:
         links:
           - text: Deploy an IPV6 dual stack application - Standard Load Balancer
             url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-          - text: Deploy an IPV6 dual stack application - Basic Load Balancer
-            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-powershell.md
 
   # Card
   - title: Monitor virtual networks

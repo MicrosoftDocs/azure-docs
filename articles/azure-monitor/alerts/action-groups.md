@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 01/15/2022
+ms.date: 2/23/2022
 ms.author: dukek
 ms.custom: references_regions
 ---
@@ -182,10 +182,7 @@ While setting up *Email ARM Role*, you need to make sure below three conditions 
 > [!NOTE]
 > It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
 
-### Event hub (preview)
-> [!NOTE]
-> The event hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
-
+### Event Hub
 An event hub action publishes notifications to [Azure Event Hubs](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
 
 ### Function
@@ -207,7 +204,8 @@ You may have a limited number of Logic App actions in an Action Group.
 The Action Groups Secure Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 > [!NOTE]
-> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+> Using the webhook action requires that the target webhook endpoint be capable of processing the various JSON payloads emitted by different alert sources.
+> If the webhook endpoint is expecting a specific schema (for example Microsoft Teams) you should use the Logic App action to transform the alert schema to meet the target webhook's expectations.
 
 1. Create an Azure AD Application for your protected web API. See [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
     - Configure your protected API to be [called by a daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
@@ -368,8 +366,8 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
 ### Webhook
 
 > [!NOTE]
-> Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. 
-> If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
+> Using the webhook action requires that the target webhook endpoint be capable of processing the various JSON payloads emitted by different alert sources.
+> If the webhook endpoint is expecting a specific schema (for example Microsoft Teams) you should use the Logic App action to transform the alert schema to meet the target webhook's expectations.
 
 Webhooks are processed using the following rules
 - A webhook call is attempted a maximum of three times.

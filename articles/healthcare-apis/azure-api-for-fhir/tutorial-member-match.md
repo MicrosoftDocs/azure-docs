@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 06/01/2021
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 02/15/2022
 ---
 
 # $member-match operation for Azure API for FHIR

@@ -49,7 +49,7 @@ If you reach or surpass these limits, or send too large of a portion of the quot
 
 Limits for [multi-service subscriptions](./reference/v3-0-reference.md#authentication) are the same as the S1 tier.
 
-These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 characters per second, per model.
+These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 3,600 characters per second, per model.
 
 ## Latency
 

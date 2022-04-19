@@ -3,7 +3,7 @@ title: Tutorial - Onboard external users to Azure AD through an approval process
 description: Step-by-step tutorial for how to create an access package for external users requiring approvals in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: sama
+author: Sammak
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -62,7 +62,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. In the **Users who can request access** section, click **For users not in your directory** and then click **All users (All connected organizations + any new external users)**.
 
-3. Ensure that **Require approval** is set to **Yes**.
+3. Because any user who is not yet in your directory can view and submit a request for this access package, **Yes** is mandatory for the **Require approval** setting.
 
 4. The following settings allow you to configure how your approvals work for your external users:
 

@@ -5,13 +5,13 @@ services: active-directory
 author: markwahl-msft
 manager: karenhoran
 ms.author: rolyon
-ms.date: 11/05/2020
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: markwahl-msft
+ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
@@ -35,6 +35,36 @@ An organization might need to use an emergency access account in the following s
 ## Create emergency access accounts
 
 Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
+
+### How to create an emergency access account
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as an existing Global Administrator.
+
+1. Select **Azure Active Directory** > **Users**.
+
+1. Select **New user**.
+
+1. Select **Create user**.
+
+1. Give the account a **User name**.
+
+1. Give the account a **Name**.
+
+1. Create a long and complex password for the account.
+
+1. Under **Roles**, assign the **Global Administrator** role.
+
+1. Under **Usage location**, select the appropriate location.
+
+    :::image type="content" source="./media/security-emergency-access/create-emergency-access-account-azure-ad.png" alt-text="Creating an emergency access account in Azure AD." lightbox="./media/security-emergency-access/create-emergency-access-account-azure-ad.png":::
+
+1. Select **Create**.
+
+1. [Store account credentials safely](#store-account-credentials-safely).
+
+1. [Monitor sign-in and audit logs](#monitor-sign-in-and-audit-logs).
+
+1. [Validate accounts regularly](#validate-accounts-regularly).
 
 When configuring these accounts, the following requirements must be met:
 

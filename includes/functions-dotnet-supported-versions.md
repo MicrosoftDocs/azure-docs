@@ -10,6 +10,9 @@ ms.author: glenga
 
 Versions of the Functions runtime work with specific versions of .NET. To learn more about Functions versions, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md). Version support depends on whether your functions run in-process or out-of-process (isolated). 
 
+>[!NOTE]
+>To learn how to change the Functions runtime version used by your function app, see [view and update the current runtime version](../articles/azure-functions/set-runtime-version.md#view-and-update-the-current-runtime-version).
+
 The following table shows the highest level of .NET Core or .NET Framework that can be used with a specific version of Functions. 
 
 | Functions runtime version | In-process<br/>([.NET class library](../articles/azure-functions/functions-dotnet-class-library.md)) | Out-of-process<br/>([.NET Isolated](../articles/azure-functions/dotnet-isolated-process-guide.md)) |

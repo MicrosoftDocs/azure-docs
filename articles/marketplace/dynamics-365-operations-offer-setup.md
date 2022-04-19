@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/03/2021
+ms.date: 04/18/2022
 ---
 
 # Create a Dynamics 365 Operations Apps offer
@@ -36,18 +36,23 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
+    - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 40 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+    - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
-- This name can't be changed after you select **Create**.
+    - This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
+    - This name can't be changed after you select **Create**.
 
-Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
 
 ## Alias
 

@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 11/29/2021
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 02/15/2022
 ---
 
 # CARIN Implementation Guide for Blue Button&#174; for Azure API for FHIR

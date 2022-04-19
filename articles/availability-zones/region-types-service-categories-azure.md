@@ -71,9 +71,7 @@ Azure services are presented in the following tables by category. Note that some
 > |                                        | Azure Monitor: Log Analytics                      | 
 > |                                        | Azure Network Watcher                             | 
 > |                                        | Azure Private Link                                |  
-> |                                        | Azure Site Recovery                               |
-> |                                        | Azure Storage: Files Storage                               |
-> |                                        | Azure Synapse Analytics                           | 
+> |                                        | Azure Storage: Files Storage                      |
 > |                                        | Azure Virtual WAN                                 | 
 > |                                        | Premium Blob Storage                              |  
 > |                                        | Virtual Machines: Ddsv4-series                    | 
@@ -109,7 +107,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Machine Learning                               |
 > | Azure Managed Instance for Apache Cassandra          |
 > | Azure NetApp Files                                   |
-> | Azure Purview                                        |
+> | Microsoft Purview                                        |
 > | Azure Red Hat OpenShift                              |
 > | Azure Remote Rendering                               |
 > | Azure SignalR Service                                |

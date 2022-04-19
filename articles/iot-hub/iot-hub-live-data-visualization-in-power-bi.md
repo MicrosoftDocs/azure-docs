@@ -1,14 +1,14 @@
 ---
 title: Real-time data visualization of data from Azure IoT Hub – Power BI
 description: Use Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
-author: eross-msft
+author: kgremban
 keywords: real time data visualization, live data visualization, sensor data visualization
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 7/23/2021
-ms.author: lizross
+ms.author: kgremban
 ---
 
 # Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
@@ -201,7 +201,7 @@ If you don't need the IoT hub or the other resources you created any longer, you
 
 ### Use the Azure CLI to clean up Azure resources
 
-To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name {your resource group}

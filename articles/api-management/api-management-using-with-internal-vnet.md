@@ -44,7 +44,7 @@ For configurations specific to the *external* mode, where the service endpoints 
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
-1. Select **Virtual network**.
+1. Select **Network** > **Virtual network**.
 1. Select the **Internal** access type.
 1. In the list of locations (regions) where your API Management service is provisioned: 
     1. Choose a **Location**.
@@ -55,7 +55,7 @@ For configurations specific to the *external* mode, where the service endpoints 
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 1. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
-    It can take 15 to 45 minutes to update the API Management instance.
+    It can take 15 to 45 minutes to update the API Management instance. The Developer tier has downtime during the process. The Basic and higher SKUs don't have downtime during the process.
 
 After successful deployment, you should see your API Management service's **private** virtual IP address and **public** virtual IP address on the **Overview** blade. For more information about the IP addresses, see [Routing](#routing) in this article.
 
@@ -66,7 +66,7 @@ After successful deployment, you should see your API Management service's **priv
  
 ### Enable connectivity using a Resource Manager template (`stv2` platform)
 
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-publicip) (API version 2021-01-01-preview )
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-publicip) (API version 2021-08-01 )
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet-publicip%2Fazuredeploy.json)
 

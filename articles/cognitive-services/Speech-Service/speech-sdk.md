@@ -7,12 +7,12 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/16/2022
 ms.author: eur
 ---
 
-# About the Speech SDK
+# What is the Speech SDK?
 
 The Speech software development kit (SDK) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available in many programming languages and across all platforms.
 

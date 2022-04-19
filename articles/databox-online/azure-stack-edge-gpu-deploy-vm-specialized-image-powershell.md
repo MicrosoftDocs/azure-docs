@@ -66,7 +66,7 @@ Follow these steps to copy VHD to local storage account:
 
 1. Take note of the resulting URI. You'll use this URI in a later step.
 
-    To create and access a local storage account, see the sections [Create a storage account](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) through [Upload a VHD](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) in the article: [Deploy VMs on your Azure Stack Edge device via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
+    To create and access a local storage account, see the sections [Create a storage account](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-local-storage-account) through [Upload a VHD](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) in the article: [Deploy VMs on your Azure Stack Edge device via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
 
 ## Create a managed disk from VHD
 

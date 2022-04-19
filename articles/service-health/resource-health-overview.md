@@ -65,7 +65,10 @@ Different resources have their own criteria for when they report that they are d
 
 ## History information
 
-You can access up to 30 days of history in the **Health history** section of Resource Health.
+> [!NOTE]
+> You can query data up to 1 year using the QueryStartTime parameter of [Events](/rest/api/resourcehealth/events/list-by-subscription-id) REST API.
+ 
+You can access up to 30 days of history in the **Health history** section of Resource Health from Azure Portal.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
 
@@ -83,7 +86,7 @@ To open Resource Health for one resource:
 
 ![Opening Resource Health from the resource view](./media/resource-health-overview/from-resource-blade.png)
 
-You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
 ![Opening Resource Health from "All services"](./media/resource-health-overview/FromOtherServices.png)
 

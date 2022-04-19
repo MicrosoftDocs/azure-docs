@@ -1,9 +1,9 @@
 ---
 title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
 description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server. 
-author: kgremban
-ms.author: kgremban
-ms.date: 09/03/2020
+author: PatAltimore
+ms.author: patricka
+ms.date: 02/28/2022
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -278,11 +278,15 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 1. Open the config file on your IoT Edge device: `/etc/aziot/config.toml`. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor.
 
-2. In the config file, find the `[agent]` section, which contains all the configuration information for the edgeAgent module to use on startup. The IoT Edge agent definition includes an `[agent.env]` subsection where you can add environment variables.
+2. In the config file, find the `[agent]` section, which contains all the configuration information for the edgeAgent module to use on startup. Check and make sure that the `[agent]`section is uncommented or add it if it is not included in the `config.toml`. The IoT Edge agent definition includes an `[agent.env]` subsection where you can add environment variables.
 
 3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
 
    ```toml
+   [agent]
+   name = "edgeAgent"
+   type = "docker"
+   
    [agent.env]
    # "RuntimeLogLevel" = "debug"
    # "UpstreamProtocol" = "AmqpWs"
@@ -382,6 +386,10 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 If the proxy you're attempting to use performs traffic inspection on TLS-secured connections, it's important to note that authentication with X.509 certificates doesn't work. IoT Edge establishes a TLS channel that's encrypted end to end with the provided certificate and key. If that channel is broken for traffic inspection, the proxy can't reestablish the channel with the proper credentials, and IoT Hub and the IoT Hub device provisioning service return an `Unauthorized` error.
 
 To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allowlist to avoid inspection.
+
+## Fully qualified domain names (FQDNs) of destinations that IoT Edge communicates with
+
+If your proxy has a firewall that requires you to allow-list all FQDNs for internet connectivity, review the list from [Allow connections from IoT Edge devices](production-checklist.md#allow-connections-from-iot-edge-devices) to determine which FQDNs to add.
 
 ## Next steps
 

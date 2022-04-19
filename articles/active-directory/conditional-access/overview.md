@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 12/02/2021
+ms.date: 04/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -51,6 +51,7 @@ Common signals that Conditional Access can take in to account when making a poli
    - Administrators can specify entire countries/regions IP ranges to block or allow traffic from.
 - Device
    - Users with devices of specific platforms or marked with a specific state can be used when enforcing Conditional Access policies.
+   - Use filters for devices to target policies to specific devices like privileged access workstations.
 - Application
    - Users attempting to access specific applications can trigger different Conditional Access policies. 
 - Real-time and calculated risk detection
@@ -88,7 +89,9 @@ Many organizations have [common access concerns that Conditional Access policies
 
 Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features. 
 
-[Sign-in Risk](concept-conditional-access-conditions.md#sign-in-risk) requires access to [Identity Protection](../identity-protection/overview-identity-protection.md)
+Risk-based policies require access to [Identity Protection](../identity-protection/overview-identity-protection.md), which is an Azure AD P2 feature.
+
+Other products and features that may interact with Conditional Access policies require appropriate licensing for those products and features.
 
 ## Next steps
 

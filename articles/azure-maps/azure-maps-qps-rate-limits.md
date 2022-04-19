@@ -38,4 +38,4 @@ Below are the QPS usage limits for each Azure Maps service by Pricing Tier.
 | Traffic Service | 50 | 50 | 50 |
 | Weather Service | 50 | 50 | 50 |
 
-When QPS limits are reached, an HTTP 429 error will be returned. If you are using the Gen 2 or Gen 1 S1 pricing tiers, you can create an Azure Maps *Technical* Support Request in the [Azure portal](https://ms.portal.azure.com/) to increase a specific QPS limit if needed. QPS limits for the Gen 1 S0 pricing tier cannot be increased.
+When QPS limits are reached, an HTTP 429 error will be returned. If you are using the Gen 2 or Gen 1 S1 pricing tiers, you can create an Azure Maps *Technical* Support Request in the [Azure portal](https://portal.azure.com/) to increase a specific QPS limit if needed. QPS limits for the Gen 1 S0 pricing tier cannot be increased.

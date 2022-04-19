@@ -31,7 +31,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
 
-+ [Go](https://golang.org/doc/install), latest version recommended. Use the `go version` command to check your version.
++ [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
 
 # [Rust](#tab/rust)
 

@@ -56,6 +56,20 @@ Once the network admin creates the Private Endpoint (PE), the SQL admin can mana
    which finally leads to the IP address for the private endpoint
    ![Screenshot of Private IP][9]
 
+> [!IMPORTANT]
+> When you add a private endpoint connection, public routing to your Azure SQL logical server isn't blocked by default. In the **Firewall and virtual networks** pane, the setting **Deny public network access** is not selected by default. To disable public network access, ensure that you select **Deny public network access**.
+
+## Disable public access to your Azure SQL logical server
+
+For this scenario, assume you want to disable all public access to your Azure SQL logical server and allow connections only from your virtual network.
+
+First, ensure that your private endpoint connections are enabled and configured. Then, to disable public access to your logical server:
+
+1. Go to the **Firewalls and virtual network** pane of your Azure SQL logical server.    
+1. Select the **Deny public network access** checkbox.
+
+![Screenshot that shows selecting the Deny public network access option.](./media/private-endpoint/pec-deny-public-access.png)
+
 ## Test connectivity to SQL Database from an Azure VM in same virtual network
 For this scenario, assume you've created an Azure Virtual Machine (VM) running a recent version of Windows in the same virtual network as the private endpoint.
 
@@ -160,7 +174,7 @@ To establish connectivity from an on-premises environment to the database in SQL
 - [Site-to-Site VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
-Consider [DNS configuration scenarios](/azure/private-link/private-endpoint-dns#dns-configuration-scenarios) as well, as the FQDN of the service can resolve to the public IP address.
+Consider [DNS configuration scenarios](../../private-link/private-endpoint-dns.md#dns-configuration-scenarios) as well, as the FQDN of the service can resolve to the public IP address.
 
 ## Connecting from Azure Synapse Analytics to Azure Storage using Polybase and the COPY statement
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Group writeback'
-description: This article describes group writeback in Azure AD Connect.
+title: 'Azure AD Connect: Group writeback V1'
+description: This article describes group writeback V1 in Azure AD Connect. 
 services: active-directory
 author: billmath
 manager: karenhoran

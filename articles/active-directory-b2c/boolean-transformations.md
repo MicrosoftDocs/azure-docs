@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ This article provides examples for using the boolean claims transformations of t
 
 ## AndClaims
 
-Computes an `And` operation of two boolean input claims, and sets the output claim with result of the operation.
+Computes an `And` operation of two boolean input claims, and sets the output claim with result of the operation. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/boolean#andclaims) of this claims transformation.
 
 | Element  | TransformationClaimType  | Data Type  | Notes |
 |-------| ------------------------ | ---------- | ----- |
@@ -54,7 +54,7 @@ The following claims transformation demonstrates how to `And` two boolean claims
 
 ## AssertBooleanClaimIsEqualToValue
 
-Checks that boolean values of two claims are equal, and throws an exception if they are not.
+Checks that boolean values of two claims are equal, and throws an exception if they aren't. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/boolean#assertbooleanclaimisequaltovalue) of this claims transformation.
 
 | Element | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
@@ -63,7 +63,7 @@ Checks that boolean values of two claims are equal, and throws an exception if t
 
 The **AssertBooleanClaimIsEqualToValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** self-asserted technical profile metadata controls the error message that the technical profile presents to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
-![AssertStringClaimsAreEqual execution](./media/boolean-transformations/assert-execution.png)
+![Diagram shows how to use the AssertStringClaimsAreEqual claims transformation.](./media/boolean-transformations/assert-execution.png)
 
 ### Example of AssertBooleanClaimIsEqualToValue
 
@@ -122,7 +122,7 @@ The self-asserted technical profile calls the validation `Example-AssertBoolean`
 
 ## CompareBooleanClaimToValue
 
-Checks that boolean value of a claim is equal to `true` or `false`, and return the result of the compression.
+Checks that boolean value of a claim is equal to `true` or `false`, and return the result of the compression. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/boolean#comparebooleanclaimtovalue) of this claims transformation.
 
 | Element | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
@@ -157,7 +157,7 @@ The following claims transformation demonstrates how to check the value of a boo
 
 ## NotClaims
 
-Computes a `Not` operation of the boolean input claim and sets the output claim with result of the operation.
+Computes a `Not` operation of the boolean input claim and sets the output claim with result of the operation. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/boolean#notclaims) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -186,7 +186,7 @@ The following claims transformation demonstrates how to perform logical negation
 
 ## OrClaims
 
-Computes an `Or` of two boolean claims and sets the output claim with result of the operation.
+Computes an `Or` of two boolean claims and sets the output claim with result of the operation. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/boolean#orclaims) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -218,4 +218,4 @@ The following claims transformation demonstrates how to `Or` two boolean claims.
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/boolean) on the Azure AD B2C community GitHub repo

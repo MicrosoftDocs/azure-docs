@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 02/01/2022
 ---
 
 # Indexers in Azure Cognitive Search
@@ -51,6 +51,7 @@ Indexers crawl data stores on Azure and outside of Azure.
 + [Snowflake](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
++ [Azure Files](search-file-storage-integration.md) (in preview)
 
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 

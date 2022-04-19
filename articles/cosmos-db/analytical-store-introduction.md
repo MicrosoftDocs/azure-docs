@@ -4,9 +4,10 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/24/2022
 ms.author: rosouz
-ms.custom: "seo-nov-2020"
+ms.custom: seo-nov-2020, devx-track-azurecli
+ms.reviewer: wiassaf
 ---
 
 # What is Azure Cosmos DB analytical store?
@@ -56,16 +57,16 @@ There's no impact on the performance of your transactional workloads due to anal
 
 ## Auto-Sync
 
-Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store in near real time. Auto-sync latency is usually within 2 minutes. In cases of shared throughput database with a large number of containers, auto-sync latency of individual containers could be higher and take up to 5 minutes. We would like to learn more how this latency fits your scenarios. For that, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store in near real time. Auto-sync latency is usually within 2 minutes. In cases of shared throughput database with a large number of containers, auto-sync latency of individual containers could be higher and take up to 5 minutes. We would like to learn more how this latency fits your scenarios. For that, please reach out to the [Azure Cosmos DB Team](mailto:cosmosdbsynapselink@microsoft.com).
 
 At the end of each execution of the automatic sync process, your transactional data will be immediately available for Azure Synapse Analytics runtimes:
 
 * Azure Synapse Analytics Spark pools can read all data, including the most recent updates, through Spark tables, which are updated automatically, or via the `spark.read` command, that always reads the last state of the data.
 
-*  Azure Synapse Analytics SQL Serverless pools can read all data, including the most recent updates, through views, which are updated automatically, or via `SELECT` together with the` OPENROWSET` commands, which always reads the latest status of the data.
+*  Azure Synapse Analytics SQL Serverless pools can read all data, including the most recent updates, through views, which are updated automatically, or via `SELECT` together with the `OPENROWSET` commands, which always reads the latest status of the data.
 
 > [!NOTE]
-> Your transactional data will be synchronized to analytical store even if your transactional TTL is smaller than 2 minutes. 
+> Your transactional data will be synchronized to analytical store even if your transactional time-to-live (TTL) is smaller than 2 minutes. 
 
 > [!NOTE]
 > Please note that if you delete your container, analytical store is also deleted.
@@ -101,7 +102,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
 * Sample scenarios:
   * If your document's first level has 2000 properties, only the first 1000 will be represented.
   * If your documents have five levels with 200 properties in each one, all properties will be represented.
-  * If your documents have ten levels with 400 properties in each one, only the two first levels will be fully represented in analytical store. Half of the third level will also be represented.
+  * If your documents have 10 levels with 400 properties in each one, only the two first levels will be fully represented in analytical store. Half of the third level will also be represented.
 
 * The hypothetical document below contains four properties and three levels.
   * The levels are `root`, `myArray`, and the nested structure within the `myArray`.
@@ -148,16 +149,16 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * There's not schema versioning. The last version inferred from transactional store is what you'll see in analytical store.
 
 * Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed below. Azure Synapse SQL serverless isn't affected.
-  * `:` 
-  * ``` 
-  * `,` 
-  * `;` 
-  * `{}`
-  * `()`
-  * `\n`
-  * `\t`
-  * `=`
-  * `"`
+  * : 
+  * ` 
+  * , 
+  * ; 
+  * {}
+  * ()
+  * \n
+  * \t
+  * =
+  * "
 
 > [!NOTE]
 > White spaces are also listed in the Spark error message returned when you reach this limitation. But we have added a special treatment for white spaces, please check out more details in the items below.
@@ -227,7 +228,7 @@ It's possible to use full fidelity Schema for SQL (Core) API accounts, instead o
 
  * This option is only valid for accounts that **don't** have Synapse Link already enabled.
  * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
- * Currently Azure Cosmos DB API for MongoDB accounts aren't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently Azure Cosmos DB API for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
  * Currently this change can't be made through the Azure portal. All database accounts that have Synapse Link enabled by the Azure portal will have the default schema representation type, well-defined schema.
  
 The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
@@ -255,7 +256,7 @@ The schema representation type decision must be made at the same time that Synap
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
 * The first document defines the base schema and property must always have the same type across all documents. The only exceptions are:
-  * From null to any other data type.The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
+  * From `NULL` to any other data type. The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
   * From `float` to `integer`. All documents will be represented in analytical store.
   * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
 
@@ -275,7 +276,7 @@ WITH (num varchar(100)) AS [IntToFloat]
     * `{"id": "2", "code": "123"}`
      
  > [!NOTE]
- > The condition above doesn't apply for null properties. For example, `{"a":123} and {"a":null}` is still well-defined.
+ > The condition above doesn't apply for `NULL` properties. For example, `{"a":123} and {"a":NULL}` is still well-defined.
 
 > [!NOTE]
  > The condition above doesn't change if you update `"code"` of document `"1"` to a string in your transactional store. In analytical store, `"code"` will be kept as `integer` since currently we don't support schema reset.
@@ -289,7 +290,7 @@ WITH (num varchar(100)) AS [IntToFloat]
   * Spark pools in Azure Synapse will represent these values as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
 
-* Expect different behavior in regard to explicit `null` values:
+* Expect different behavior in regard to explicit `NULL` values:
   * Spark pools in Azure Synapse will read these values as `0` (zero). And it will change to `undefined` as soon as the column has a non-null value.
   * SQL serverless pools in Azure Synapse will read these values as `NULL`.
     
@@ -306,7 +307,7 @@ This is achieved by translating the leaf properties of the operational data into
 
 In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
 
-For example, let’s take the following sample document in the transactional store:
+For example, let's take the following sample document in the transactional store:
 
 ```json
 {
@@ -322,7 +323,7 @@ salary: 1000000
 }
 ```
 
-The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it’s a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
+The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
 **Data type to suffix map**
 
@@ -330,26 +331,56 @@ Here's a map of all the property data types and their suffix representations in 
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
-| Double |	".float64" |	24.99|
-| Array	| ".array" |	["a", "b"]|
-|Binary	| ".binary"	|0|
-|Boolean	| ".bool"	|True|
-|Int32	| ".int32"	|123|
-|Int64	| ".int64"	|255486129307|
-|Null	| ".null"	| null|
-|String| 	".string" |	"ABC"|
-|Timestamp |	".timestamp" |	Timestamp(0, 0)|
-|DateTime	|".date"	| ISODate("2020-08-21T07:43:07.375Z")|
-|ObjectId	|".objectId"	| ObjectId("5f3f7b59330ec25c132623a2")|
-|Document	|".object" |	{"a": "a"}|
+| Double |    ".float64" |    24.99|
+| Array    | ".array" |    ["a", "b"]|
+|Binary    | ".binary"    |0|
+|Boolean    | ".bool"    |True|
+|Int32    | ".int32"    |123|
+|Int64    | ".int64"    |255486129307|
+|NULL    | ".NULL"    | NULL|
+|String|     ".string" |    "ABC"|
+|Timestamp |    ".timestamp" |    Timestamp(0, 0)|
+|DateTime    |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
+|ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
+|Document    |".object" |    {"a": "a"}|
 
-* Expect different behavior in regard to explicit `null` values:
+* Expect different behavior in regard to explicit `NULL` values:
   * Spark pools in Azure Synapse will read these values as `0` (zero).
   * SQL serverless pools in Azure Synapse will read these values as `NULL`.
   
 * Expect different behavior in regard to missing columns:
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+
+## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
+
+Analytical TTL (ATTL) indicates how long data should be retained in your analytical store, for a container.
+
+Analytical store is enabled when ATTL is set with a value other than `NULL` and `0`. When enabled, inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store, irrespective of the transactional TTL (TTTL) configuration. The retention of this transactional data in analytical store can be controlled at container level by the `AnalyticalStoreTimeToLiveInSeconds` property.
+
+The possible ATTL configurations are:
+
+* If the value is set to `0` or set to `NULL`: the analytical store is disabled and no data is replicated from transactional store to analytical store
+
+* If the value is set to `-1`: the analytical store retains all historical data, irrespective of the retention of the data in the transactional store. This setting indicates that the analytical store has infinite retention of your operational data
+
+* If the value is set to any positive integer `n` number: items will expire from the analytical store `n` seconds after their last modified time in the transactional store. This setting can be leveraged if you want to retain your operational data for a limited period of time in the analytical store, irrespective of the retention of the data in the transactional store
+
+Some points to consider:
+
+*    After the analytical store is enabled with an ATTL value, it can be updated to a different valid value later. 
+*    While TTTL can be set at the container or item level, ATTL can only be set at the container level currently.
+*    You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
+*    The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
+*    If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
+
+How to enable analytical store on a container:
+
+* From the Azure portal, the ATTL option, when turned on, is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
+ 
+* From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or Azure CLI, the ATTL option can be enabled by setting it to either -1 or 'n' seconds. 
+
+To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
 ## Cost-effective archival of historical data
 
@@ -369,7 +400,7 @@ With periodic backup mode and existing containers, you can:
  
  ### Partially rebuild analytical store when TTTL < ATTL
  
-The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you delete the container. You analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
+The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you delete the container. Your analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
 
  * Container `OnlineOrders` has TTTL set to one month and ATTL set for one year.
  * When you restore it to `OnlineOrdersNew` and turn on analytical store to rebuild it, there will be only one month of data in both transactional and analytical store.
@@ -388,11 +419,11 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ## Partitioning
 
-Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.  
+Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md).  
 
 ## Security
 
-* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary, secondary, or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to these Linked Services or to these SQL credentials are available to anyone who has access to the workspace.
+* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary, secondary, or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to these Linked Services or to these SQL credentials are available to anyone who has access to the workspace. Please note that the Cosmos DB read only key can also be used.
 
 * **Network isolation using private endpoints** - You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
 
@@ -428,35 +459,6 @@ In order to get a high-level cost estimate to enable analytical store on an Azur
 > Analytical store read operations estimates aren't included in the Cosmos DB cost calculator since they are a function of your analytical workload. While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
 
 
-## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
-
-Analytical TTL indicates how long data should be retained in your analytical store, for a container. 
-
-If analytical store is enabled, inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store, irrespective of the transactional TTL configuration. The retention of this operational data in the analytical store can be controlled by the Analytical TTL value at the container level, as specified below:
-
-Analytical TTL on a container is set using the `AnalyticalStoreTimeToLiveInSeconds` property:
-
-* If the value is set to `0` or set to `null`: the analytical store is disabled and no data is replicated from transactional store to analytical store
-
-* If the value is set to `-1`: the analytical store retains all historical data, irrespective of the retention of the data in the transactional store. This setting indicates that the analytical store has infinite retention of your operational data
-
-* If the value is set to any positive integer `n` number: items will expire from the analytical store `n` seconds after their last modified time in the transactional store. This setting can be leveraged if you want to retain your operational data for a limited period of time in the analytical store, irrespective of the retention of the data in the transactional store
-
-Some points to consider:
-
-*	After the analytical store is enabled with an analytical TTL value, it can be updated to a different valid value later. 
-*	While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently.
-*	You can achieve longer retention of your operational data in the analytical store by setting analytical TTL >= transactional TTL at the container level.
-*	The analytical store can be made to mirror the transactional store by setting analytical TTL = transactional TTL.
-*	If you have analytical TTL bigger than transactional TTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
-
-How to enable analytical store on a container:
-
-* From the Azure portal, the analytical TTL option, when turned on, is set to the default value of -1. You can change this value to 'n' seconds, by navigating to container settings under Data Explorer. 
- 
-* From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or CLI, the analytical TTL option can be enabled by setting it to either -1 or 'n' seconds. 
-
-To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
 ## Next steps
 

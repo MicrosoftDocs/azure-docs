@@ -34,7 +34,7 @@ The new VPN gateway SKUs streamline the feature sets offered on the gateways:
 
 (*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to one of the new gateway SKUs, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway.
+(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to another SKU, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway.
 
 ###  <a name="workloads"></a>Gateway SKUs - Production vs. Dev-Test Workloads
 

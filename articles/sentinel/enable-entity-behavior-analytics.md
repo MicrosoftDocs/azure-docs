@@ -33,27 +33,30 @@ To enable or disable this feature (these prerequisites are not required to use t
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
 > [!NOTE]
-> No special license is required to add UEBA functionality to Microsoft Sentinel, but **additional charges** may apply.
+> - No special license is required to add UEBA functionality to Microsoft Sentinel, and there's no additional cost for using it.
+> - However, since UEBA generates new data and stores it in new tables that UEBA creates in your Log Analytics workspace, **additional data storage charges** will apply. 
 
 ## How to enable User and Entity Behavior Analytics
 
 1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
 
-1. Under the heading **Turn it on**, switch the toggle to **On**.
+1. From the top menu bar, select **Entity behavior settings**.  
+If you haven't yet enabled UEBA, you will be taken to the **Settings** page. Select **Configure UEBA**.
 
-1. Click the **Select data sources** button.
+1. On the **Entity behavior configuration** page, switch the toggle to **On**.
 
-1. In the **Data source selection** pane, mark the check boxes next to the data sources on which you want to enable UEBA, then select **Apply**.
+1. Mark the check boxes next to the data sources on which you want to enable UEBA.
 
     > [!NOTE]
     >
-    > In the lower half of the **Data source selection** pane, you will see a list of UEBA-supported data sources that you have not yet enabled. 
+    > Below the list of existing data sources, you will see a list of UEBA-supported data sources that you have not yet connected. 
     >
     > Once you have enabled UEBA, you will have the option, when connecting new data sources, to enable them for UEBA directly from the data connector pane if they are UEBA-capable.
 
-1. Select **Go to entity search**. This will take you to the entity search pane, which from now on will be what you see when you choose **Entity behavior** from the main Microsoft Sentinel menu.
+1. Select **Apply**. You will be returned to the **Entity behavior** page.
 
 ## Next steps
+
 In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

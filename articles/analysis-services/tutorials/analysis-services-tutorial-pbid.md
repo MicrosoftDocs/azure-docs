@@ -4,7 +4,7 @@ author: minewiskan
 description: In this tutorial, learn how to get an Analysis Services server name from the Azure portal and then connect to the server by using Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/12/2021
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.
@@ -25,12 +25,12 @@ In this tutorial, you use Power BI Desktop to connect to the adventureworks samp
 - [Install the newest Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 ## Sign in to the Azure portal
-In this tutorial, you sing in to the portal to get the server name only. Typically, users would get the server name from the server administrator.
+In this tutorial, you sign in to the portal to get the server name only. Typically, users would get the server name from the server administrator.
 
 Sign in to the [portal](https://portal.azure.com/).
 
 ## Get server name
-In order to connect to your server from Power BI Desktop, you first need the server name. You can get the server name from the portal.
+In order to connect to your server from Power BI Desktop, you first need the server name.
 
 In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    

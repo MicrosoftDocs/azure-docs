@@ -19,7 +19,7 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
 ## Find Tenant ID
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory**.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="The Azure Active Directory icon in the Azure portal.":::
@@ -66,7 +66,7 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
 This section describes how to find tenant, object, and partner ID association for debugging purposes.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 2. Open Azure Cloud Shell by selecting the PowerShell icon at the top-right.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell-1.png" alt-text="PowerShell icon at the top right of the screen.":::

@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 01/21/2022
 ---
 
 # Common error codes and messages 
@@ -33,7 +33,7 @@ This article lists common error codes and messages reported by mapping data flow
  
   If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. That's because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
 
-- **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
+- **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance, then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
 - **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
 - **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams for which the processing can take more than 60 seconds. Choose a smaller stream to broadcast. Large Azure SQL Data Warehouse tables and source files aren't typically good choices. In the absence of a broadcast join, use a larger cluster if this error occurs.
 
@@ -49,7 +49,7 @@ This article lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Set an alias if you're using a SQL function like min() or max().
 
 ## Error code: DF-Executor-DriverError
-- **Message**: INT96 is legacy timestamp type which is not supported by ADF Dataflow. Please consider upgrading the column type to the latest types.
+- **Message**: INT96 is legacy timestamp type, which is not supported by ADF Dataflow. Please consider upgrading the column type to the latest types.
 - **Cause**: Driver error.
 - **Recommendation**: INT96 is a legacy timestamp type that's not supported by Azure Data Factory data flow. Consider upgrading the column type to the latest type.
 
@@ -59,7 +59,7 @@ This article lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Contact the Microsoft product team for more details about this problem.
 
 ## Error code: DF-Executor-PartitionDirectoryError
-- **Message**: The specified source path has either multiple partitioned directories (for e.g. &lt;Source Path&gt;/<Partition Root Directory 1>/a=10/b=20, &lt;Source Path&gt;/&lt;Partition Root Directory 2&gt;/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example &lt;Source Path&gt;/&lt;Partition Root Directory 1&gt;/a=10/b=20, &lt;Source Path&gt;/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
+- **Message**: The specified source path has either multiple partitioned directories (for example, &lt;Source Path&gt;/<Partition Root Directory 1>/a=10/b=20, &lt;Source Path&gt;/&lt;Partition Root Directory 2&gt;/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example &lt;Source Path&gt;/&lt;Partition Root Directory 1&gt;/a=10/b=20, &lt;Source Path&gt;/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
 - **Cause**: The source path has either multiple partitioned directories or a partitioned directory that has another file or non-partitioned directory.
 - **Recommendation**: Remove the partitioned root directory from the source path and read it through separate source transformation.
 
@@ -125,7 +125,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
 - **Cause**: The pipeline expression passed in the Data Flow activity isn't being processed correctly because of a syntax error.
-- **Recommendation**: Check your activity in activity monitoring to verify the expression.
+- **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can not have a space or a hyphen.
 
 ## Error code: 2011
 - **Message**: The activity was running on Azure Integration Runtime and failed to decrypt the credential of data store or compute connected via a Self-hosted Integration Runtime. Please check the configuration of linked services associated with this activity, and make sure to use the proper integration runtime type.
@@ -248,7 +248,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Hive-InvalidBlobStagingConfiguration
 - **Message**: Blob storage staging properties should be specified.
 - **Cause**: An invalid staging configuration is provided in the Hive.
-- **Recommendation**: Please check if the account key, account name and container are set properly in the related Blob linked service which is used as staging.
+- **Recommendation**: Please check if the account key, account name and container are set properly in the related Blob linked service, which is used as staging.
 
 ## Error code: DF-Hive-InvalidGen2StagingConfiguration
 - **Message**: ADLS Gen2 storage staging only support service principal key credential.

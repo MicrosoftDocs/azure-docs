@@ -49,7 +49,7 @@ The following table describes the different device properties in the device inve
 
 **To view the device inventory**:
 
-1. Open the [Azure portal](https://ms.portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Defender for IoT** > **Device inventory**.
 
@@ -119,7 +119,7 @@ If you are under the impression that certain devices are not actively communicat
 
 **To identify all devices that have not communicated recently**:
 
-1. Open the [Azure portal](https://ms.portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Defender for IoT** > **Device inventory**.
 
