@@ -14,6 +14,8 @@
   - name: Install and set up the CLI (v1)
     displayName: azurecli, mlops
     href: reference-azure-machine-learning-cli.md
+  - name: Set up software environments CLI (v1)
+    href: how-to-use-environments.md
   - name: Deploy models
     items:
     - name: Azure Kubernetes Service
