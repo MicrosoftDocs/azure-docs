@@ -108,11 +108,15 @@ To access the rules engine, you must first select **Manage** from the top of the
 
 1. Select the policy that is deployed in production.
 
-    :::image type="content" source="./media/cdn-rules-engine/policy-builder-environment.png" alt-text="Screenshot of the CDN policy builder environment.":::
+    :::image type="content" source="./media/cdn-rules-engine/policy-production-overview.png" alt-text="Screenshot of the policy production overview page.":::
 
 1. Select **Duplicate** to clone the existing policy in production.
 
+    :::image type="content" source="./media/cdn-rules-engine/policy-production-duplicate.png" alt-text="Screenshot of the duplicate button on the policy overview page.":::
+
 1. Select the pencil icon to edit an existing rule or select **+ Rule** to add a new rule to the policy.
+
+    :::image type="content" source="./media/cdn-rules-engine/policy-production-edit.png" alt-text="Screenshot of the edit button and new rule for duplicate policy.":::
 
 1. Once you're happy with the updates, follow steps 10-12 in the last section to deploy the policy.
 
@@ -124,7 +128,10 @@ To access the rules engine, you must first select **Manage** from the top of the
 * Changes made to the staging environment will not affect your live site environment.
 * Testing HTTPS traffic using the staging environment will result in a TLS certificate mismatch.
 * Testing mechanism:
-    * After locking a draft into a policy, select **Deploy Resquest**. Select the environment as **Staging** and then select **Create Deploy Request**. 
+    * After locking a draft into a policy, select **Deploy Resquest**. Select the environment as **Staging** and then select **Create Deploy Request**.
+
+        :::image type="content" source="./media/cdn-rules-engine/policy-staging.png" alt-text="Screenshot of a staging policy.":::    
+ 
     * Edit your local host file to create an A record for your endpoint or custom domain. 
     * Check the test asset for the custom domain in the browser and proceed without using HTTPS.
     
