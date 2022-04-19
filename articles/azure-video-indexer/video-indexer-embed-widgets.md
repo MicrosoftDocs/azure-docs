@@ -7,7 +7,7 @@ ms.author: juliako
 ms.custom: devx-track-js
 ---
 
-# Embed Azure Video Indexer widgets in your apps
+# Embed Video Analyzer for Media widgets in your apps
 
 This article shows how you can embed Azure Video Indexer (formerly Azure Video Analyzer for Media) widgets in your apps. Azure Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
@@ -100,7 +100,7 @@ To provide editing insights capabilities in your embedded widget, you must pass 
 
 The Cognitive Insights widget can interact with a video on your app. This section shows how to achieve this interaction.
 
-![Cognitive Insights widget Azure Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+![Cognitive Insights widget](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
 
 ### Flow overview
 
@@ -115,7 +115,7 @@ When you edit the transcripts, the following flow occurs:
 
 ### Cross-origin communications
 
-To get Azure Video Indexer widgets to communicate with other components, the Azure Video Indexer service:
+To get Azure Video Indexer widgets to communicate with other components:
 
 - Uses the cross-origin communication HTML5 method `postMessage`.
 - Validates the message across VideoIndexer.ai origin.
@@ -139,7 +139,7 @@ For more information, see the [Azure Video Indexer - Embed both Widgets demo](ht
 
 This section shows how to achieve interaction between a Cognitive Insights widget and an Azure Media Player instance by using the [AMP plug-in](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
 
-1. Add an Azure Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
+1. Add a Azure Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instantiate Azure Media Player with the Azure Video Indexer plug-in.
 
     ```javascript
@@ -288,11 +288,11 @@ By default, the player will start playing the video. you can choose not to by pa
 
 ## Code samples
 
-See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) repo that contains samples for Azure Video Indexer API and Widgets:
+See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) repo that contains samples for Azure Video Indexer API and widgets:
 
 | File/folder                       | Description                                |
 |-----------------------------------|--------------------------------------------|
-| `azure-media-player`              | Load Azure Video Indexer video in a custom Azure Media Player.                        |
+| `azure-media-player`              | Load a Azure Video Indexer video in a custom Azure Media Player.                        |
 | `azure-media-player-vi-insights`  | Embed VI Insights with a custom Azure Media Player.                             |
 | `control-vi-embedded-player`      | Embed VI Player and control it from outside.                                    |
 | `custom-index-location`           | Embed VI Insights from a custom external location (can be customer a blob).     |
@@ -307,7 +307,7 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 
 For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
 
-## Embed and customize Azure Video Analyzer for Media widgets in your app using npm package
+## Embed and customize Azure Video Indexer widgets in your app using npm package
 Using our [@azure/video-analyzer-for-media-widgets](https://www.npmjs.com/package/@azure/video-analyzer-for-media-widgets) NPM package, you can add the insights widgets to your app and customize it according to your needs.
 
 Instead of adding an iframe element to embed the insights widget, with this new package you can easily embed & communicate between our widgets. Customizing your widget is only supported in this package - all in one place.   
