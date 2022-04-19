@@ -586,10 +586,10 @@ If the problem occurs when reading CSV files, you can allow appendable files to 
 
 More information about syntax and usage:
 
-  - [OPENROWSET syntax](https://docs.microsoft.com/azure/synapse-analytics/sql/query-single-csv-file#querying-appendable-files)  
+  - [OPENROWSET syntax](query-single-csv-file.md#querying-appendable-files)  
   ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
-  - [External Tables syntax](https://docs.microsoft.com/azure/synapse-analytics/sql/create-use-external-tables#external-table-on-appendable-files)  
+  - [External Tables syntax](create-use-external-tables.md#external-table-on-appendable-files)  
   TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
 ### Parquet files
@@ -607,7 +607,7 @@ Confirm the storage account accessed is using the "Archive" access tier.
 
 The `archive access` tier is an offline tier. While a blob is in the `archive access` tier, it can't be read or modified.
 
-To read or download a blob in the Archive tier, rehydrate it to an online tier: [Archive access tier](https://docs.microsoft.com/azure/storage/blobs/access-tiers-overview#archive-access-tier)
+To read or download a blob in the Archive tier, rehydrate it to an online tier: [Archive access tier](/azure/storage/blobs/access-tiers-overview.md#archive-access-tier)
 
 
 ### [0x80070057](#tab/x80070057)
@@ -628,9 +628,9 @@ Consider the following mitigations to resolve the issue:
 
 - Restart the client application to obtain a new Azure Active Directory token.
 - Consider switching to: 
-  - [Service Principal](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=service-principal#supported-storage-authorization-types)
-  - [Managed identity](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity#supported-storage-authorization-types) 
-  - or [Shared access signature](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=shared-access-signature#supported-storage-authorization-types)
+  - [Service Principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
+  - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) 
+  - or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
    
 
 ### [0x80072EE7](#tab/x80072EE7)
