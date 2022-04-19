@@ -235,10 +235,10 @@ Get the `operation-location` from the response header. The value will look simil
 https://your-resource.cognitiveservices.azure.com/language/analytics/v3.1/entities/health/jobs/{JOB-ID}
 ```
 
-To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value {JOB-ID} you received from the previous `operation-location` response header:
+To get the results of the request, use the following cURL command. Be sure to replace `{JOB-ID}` with the numerical ID value {JOB-ID} you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entities/health/jobs/my-job-id \
+curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entities/health/jobs/{JOB-ID} \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-text-analytics-key-here"
 ```
