@@ -20,6 +20,139 @@ If these capabilities are not enough you can also use custom naming logic by eit
 ## Provide name overrides using a json file
 
 You can specify a custom naming json file in your tfvars parameter file using the 'name_override_file' parameter.
+
+The json file has sections for the different resource types. 
+
+The deployment types are:
+
+- DEPLOYER (Control Plane)
+- SDU (SAP System Infrastructure)
+- VNET (Workload zone)
+
+### Key Vault names
+
+The names for the key vaults are defined in the "keyvault_names" structure. The example below lists the key vault names for a deployment in the "DEV" environment in West Europe. 
+
+´´´json
+"keyvault_names": {
+        "DEPLOYER": {
+            "private_access": "DEVWEEUprvtABC",
+            "user_access": "DEVWEEUuserABC"
+        },
+        "SDU": {
+            "private_access": "DEVWEEUSAP01X00pABC",
+            "user_access": "DEVWEEUSAP01X00uABC"
+        },
+        "VNET": {
+            "private_access": "DEVWEEUSAP01prvtABC",
+            "user_access": "DEVWEEUSAP01userABC"
+        }
+    }
+´´´
+
+> [!NOTE]
+> This key vault names need to be unique across Azure, SDAF appends 3 random characters (ABC in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+
+The "private_access" names are currently not used.
+
+### Storage Account names
+
+The names for the storage accounts are defined in the "storageaccount_names" structure. The example below lists the storage account names for a deployment in the "DEV" environment in West Europe. 
+
+´´´json
+"storageaccount_names": {
+        "DEPLOYER": "devweeudiagabc",
+        "LIBRARY": {
+            "library_storageaccount_name": "devweeusaplibabc",
+            "terraformstate_storageaccount_name": "devweeutfstateabc"
+        },
+        "SDU": "devweeusap01diagabc",
+        "VNET": {
+            "landscape_shared_transport_storage_account_name": "devweeusap01sharedabc",
+            "landscape_storageaccount_name": "devweeusap01diagabc",
+            "witness_storageaccount_name": "devweeusap01witnessabc"
+        }
+    }
+´´´
+
+> [!NOTE]
+> This key vault names need to be unique across Azure, SDAF appends 3 random characters (abc in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+
+### Virtual Machine names
+
+The names for the virtual machines are defined in the "virtualmachine_names" structure. Both the computer and the virtual machine names can be provided.
+
+The example below lists the virtual machine names for a deployment in the "DEV" environment in West Europe. The deployment has a database server, two application servers, a Central Services server and a web dispatcher. 
+
+´´´json
+    "virtualmachine_names": {
+        "ANCHOR_COMPUTERNAME": [],
+        "ANCHOR_SECONDARY_DNSNAME": [],
+        "ANCHOR_VMNAME": [],
+        "ANYDB_COMPUTERNAME": [
+            "x00db00l0abc"
+        ],
+        "ANYDB_SECONDARY_DNSNAME": [
+            "x00dhdb00l0abc",
+            "x00dhdb00l1abc"
+        ],
+        "ANYDB_VMNAME": [
+            "x00db00l0abc"
+        ],
+        "APP_COMPUTERNAME": [
+            "x00app00labc",
+            "x00app01labc"
+        ],
+        "APP_SECONDARY_DNSNAME": [
+            "x00app00labc",
+            "x00app01labc"
+        ],
+        "APP_VMNAME": [
+            "x00app00labc",
+            "x00app01labc"
+        ],
+        "DEPLOYER": [
+            "devweeudeploy00"
+        ],
+        "HANA_COMPUTERNAME": [
+            "x00dhdb00l0af"
+        ],
+        "HANA_SECONDARY_DNSNAME": [
+            "x00dhdb00l0abc"
+        ],
+        "HANA_VMNAME": [
+            "x00dhdb00l0abc"
+        ],
+        "ISCSI_COMPUTERNAME": [
+            "devsap01weeuiscsi00"
+        ],
+        "OBSERVER_COMPUTERNAME": [
+            "x00observer00labc"
+        ],
+        "OBSERVER_VMNAME": [
+            "x00observer00labc"
+        ],
+        "SCS_COMPUTERNAME": [
+            "x00scs00labc"
+        ],
+        "SCS_SECONDARY_DNSNAME": [
+            "x00scs00labc"
+        ],
+        "SCS_VMNAME": [
+            "x00scs00labc"
+        ],
+        "WEB_COMPUTERNAME": [
+            "x00web00labc"
+        ],
+        "WEB_SECONDARY_DNSNAME": [
+            "x00web00labc"
+        ],
+        "WEB_VMNAME": [
+            "x00web00labc"
+        ]
+    }
+´´´
+
 ## Configure custom naming module
 
 There are multiple files within the module for naming resources:
