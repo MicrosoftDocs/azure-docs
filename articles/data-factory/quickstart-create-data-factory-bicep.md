@@ -51,7 +51,7 @@ John, Doe
 Jane, Doe
 ```
 
-Save the file in the C:\ADFv2QuickstartPSH folder. (If the folder doesn't already exist, create it.)
+Save the file locally. You'll use it later in the quickstart.
 
 ## Deploy the Bicep file
 
@@ -94,29 +94,35 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ---
 
-### Upload a file
+## Upload a file
 
 Use the Azure portal to upload the **emp.txt** file.
 
-1. On the **Containers** page, select **Upload**.
+1. Navigate to your resource group and select the storage account created. Then, select the **Containers** tab on the left panel.
 
-2. In the right pane, select the **Files** box icon, and then navigate to and select the **emp.txt** file that you created earlier.
+    :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-containers-bicep.png" alt-text="Containers tab":::
 
-3. Expand the **Advanced** heading.
+2. On the **Containers** page, select the blob container created. The name is in the format - blob\<uniqueid\>.
 
-4. In the **Upload to folder** box, enter *input*.
+    :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-bicep-blob-container.png" alt-text="Blob container":::
 
-5. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
+3. Select **Upload**, and then select the **Files** box icon in the right pane. Navigate to and select the **emp.txt** file that you created earlier.
 
-6. Select the **Close** icon (an **X**) to close the **Upload blob** page.
+4. Expand the **Advanced** heading.
+
+5. In the **Upload to folder** box, enter *input*.
+
+6. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
+
+7. Select the **Close** icon (an **X**) to close the **Upload blob** page.
 
     :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-bicep-upload-blob-file.png" alt-text="Upload file to input folder":::
 
 Keep the container page open because you can use it to verify the output at the end of this quickstart.
 
-### Start trigger
+## Start trigger
 
-1. Navigate to the **Data factories** page, and select the data factory you created.
+1. Navigate to the resource group page, and select the data factory you created.
 
 2. Select **Open** on the **Open Azure Data Factory Studio** tile.
 
@@ -124,11 +130,15 @@ Keep the container page open because you can use it to verify the output at the 
 
 3. Select the **Author** tab. :::image type="icon" source="media/quickstart-create-data-factory-bicep/data-factory-author-bicep.png border="false":::
 
-4. Select the pipeline created.
+4. Select the pipeline created: **ArmtemplateSampleCopyPipeline**.
+
+    :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-bicep-pipelines.png" alt-text="Bicep pipeline":::
 
 5. Select **Add Trigger** > **Trigger Now**.
 
-6. In the right pane under **Pipeline run**, select **OK**. 
+    :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-trigger-now-bicep.png" alt-text="Trigger":::
+
+6. In the right pane under **Pipeline run**, select **OK**.
 
 ## Monitor the pipeline
 
