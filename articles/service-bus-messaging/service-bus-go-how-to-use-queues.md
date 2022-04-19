@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.devlang: golang
 ---
 
-# Send messages to and receive messages from Azure Service Bus queues (Python)
+# Send messages to and receive messages from Azure Service Bus queues (Go)
 > [!div class="op_single_selector" title1="Select the programming language:"]
 > * [C#](service-bus-dotnet-get-started-with-queues.md)
 > * [Java](service-bus-java-how-to-use-queues.md)
