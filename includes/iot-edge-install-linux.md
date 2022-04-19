@@ -64,6 +64,22 @@ Install the Moby engine.
    sudo apt-get update; \
      sudo apt-get install moby-engine
    ```
+Once the Moby Engine is successfully installed, configure the Docker daemon to use the [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
+
+>[!NOTE]
+>Local logging driver provides a default log limit size and performs log-rotation by default which helps to prevent disk exhaustion. 
+
+The following example sets the default logging driver to the `local` logging driver.   
+   
+```JSON
+   {
+      "log-driver": "local"
+   }
+   ```
+Add (or append) this information to a file named `daemon.json` and place it in the following location:
+
+`/etc/docker/`
+The container engine must be restarted for the changes to take effect.
 
 # [Raspberry Pi OS](#tab/rpios)
 
