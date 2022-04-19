@@ -118,7 +118,7 @@ In order to install the Oracle backend using the SAP Deployment Automation Frame
 > | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
 > | `platform`                   | The database backend, 'ORACLE'                                                                                   | Required   |
 > | `ora_release`                | The Oracle release version, for example 19                                                                       | Required   |
-> | `ora_release`                | The Oracle release version, for example 19                                                                       | Required   |
+> | `ora_release`                | The Oracle release version, for example 19.0.0                                                                   | Required   |
 > | `oracle_sbp_patch`           | The Oracle SBP patch file name                                                                                   | Required   |
 
 ### Shared Home support
