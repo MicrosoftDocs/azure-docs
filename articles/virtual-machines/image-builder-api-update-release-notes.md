@@ -1,5 +1,5 @@
 ---
-title: What's new? Release notes - Azure Image Builder | Microsoft Docs 
+title: What's new in Azure Image Builder 
 description: Learn what is new with Azure Image Builder; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: kof-f
 ms.service: virtual-machines
@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 ---
 
-# API Changelog + Features Updates
+# What's new in Azure Image Builder
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -98,6 +98,7 @@ For API versions October 2021 and newer, the error output will look like the fol
     - Added support for customers to use their own VNet.
     - Added support for customers to customize the build VM (VM size, OS disk size).
     - Added support for user assigned MSI (for customize/distribute steps).
+- This API is now deprecated but still supported.
 
 
 
