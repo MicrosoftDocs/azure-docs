@@ -56,7 +56,7 @@ The table below contains the parameters stored in the sap-parameters.yaml file, 
 > | `NFS_provider`               | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files, 'NONE' for NFS from the SCS server or 'NFS' for an external NFS solution.  | Optional |
 > | `sap_mnt`                    | The NFS path for sap_mnt                                                                                         | Required   |
 > | `sap_trans`                  | The NFS path for sap_trans                                                                                       | Required   |
-> | `usr_sap_install_mountpoint' | The NFS path for usr/sap/install                                                                                 | Required   |
+> | `usr_sap_install_mountpoint` | The NFS path for usr/sap/install                                                                                 | Required   |
 
 ### Miscellaneous
 
