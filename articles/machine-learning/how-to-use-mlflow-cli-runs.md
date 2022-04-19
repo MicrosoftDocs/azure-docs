@@ -16,7 +16,6 @@ ms.devlang: azurecli
 
 # Track ML experiments and models with MLflow or the Azure Machine Learning CLI (v2)
 
-
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect Azure Machine Learning as the backend of your MLflow experiments. You can accomplish this connection with either the MLflow Python API or the [Azure Machine Learning CLI v2](how-to-train-cli.md) in your terminal. You also learn how to use [MLflow's Model Registry](https://mlflow.org/docs/latest/model-registry.html) capabilities with Azure Machine Learning.
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the lifecycle of your machine learning experiments. MLflow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an [Azure Databricks cluster](how-to-use-mlflow-azure-databricks.md).
@@ -38,7 +37,6 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
-
 
 ## Track runs from your local machine
 
@@ -252,6 +250,17 @@ To register and view a model from a run, use the following steps:
 ## Example notebooks
 
 [Use MLflow and CLI (v2)](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/hello-mlflow.yml)
+
+## Limitations
+
+The following MLflow methods are not fully supported with Azure Machine Learning. 
+
+* `mlflow.tracking.MlflowClient.create_experiment() `
+* `mlflow.tracking.MlflowClient.rename_experiment()`
+* `mlflow.tracking.MlflowClient.search_runs()`
+* `mlflow.tracking.MlflowClient.download_artifacts()`
+* `mlflow.tracking.MlflowClient.rename_registered_model()`
+
 
 ## Next steps
 
