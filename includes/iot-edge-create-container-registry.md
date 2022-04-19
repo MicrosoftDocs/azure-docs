@@ -34,6 +34,6 @@ If you don't already have a container registry, follow these steps to create a n
 
    :::image type="content" source="media/iot-edge-create-container-registry/access-keys.png" alt-text="Access Keys menu location.":::
 
-6. Enable **Admin user** with the toggle button and view the **Username** and **Password** for your container registry.
+1. Enable **Admin user** with the toggle button and view the **Username** and **Password** for your container registry.
 
-7. Copy the values for **Login server**, **Username**, and **password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
+1. Copy the values for **Login server**, **Username**, and **password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
