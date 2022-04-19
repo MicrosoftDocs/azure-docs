@@ -25,9 +25,6 @@ For requests and other details about PIM APIs, check out:
 - [PIM for Azure AD roles API reference](/graph/api/resources/unifiedroleeligibilityschedulerequest?view=graph-rest-beta&preserve-view=true)
 - [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
 
-> [!IMPORTANT]
-> PIM APIs [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
 ## PIM API history
 
 There have been several iterations of the PIM API over the past few years. You'll find some overlaps in functionality, but they don't represent a linear progression of versions.
