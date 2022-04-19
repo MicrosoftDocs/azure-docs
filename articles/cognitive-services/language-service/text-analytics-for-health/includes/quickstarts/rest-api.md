@@ -41,7 +41,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 > [!NOTE]
-> To use FHIR you should use the Langauge APIs
+> FHIR support is available in Language API preview.
 
 # [text-analytics](#tab/text-analytics)
 
