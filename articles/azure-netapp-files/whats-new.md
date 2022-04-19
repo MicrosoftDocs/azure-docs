@@ -21,7 +21,7 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 * [Disable showmount](disable-showmount.md) (Preview)
-    By default, Azure NetApp Files enables showmount functionality to show NFS exported paths. The setting allows NFS clients tp use the showmount `-e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use showmount to see what is being returned. In those scenarios, you might want to disable showmount on Azure NetApp Files. This setting allows you to enable/disable showmount for your NFS-enabled storage endpoints.
+    By default, Azure NetApp Files enables showmount functionality to show NFS exported paths. The setting allows NFS clients tp use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use showmount to see what is being returned. In those scenarios, you might want to disable showmount on Azure NetApp Files. This setting allows you to enable/disable showmount for your NFS-enabled storage endpoints.
 
 ## April 2022
 
