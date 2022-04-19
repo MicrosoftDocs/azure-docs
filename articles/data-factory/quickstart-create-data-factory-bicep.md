@@ -36,11 +36,11 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 There are several Azure resources defined in the Bicep file:
 
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts?tabs=bicep): Defines a storage account.
-- [Microsoft.DataFactory/factories](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories?tabs=bicep): Create an Azure Data Factory.
-- [Microsoft.DataFactory/factories/linkedServices](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/linkedservices?tabs=bicepazure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
-- [Microsoft.DataFactory/factories/datasets](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/datasets?tabs=bicep): Create an Azure Data Factory dataset.
-- [Microsoft.DataFactory/factories/pipelines](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/pipelines?tabs=bicep): Create an Azure Data Factory pipeline.
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): Defines a storage account.
+- [Microsoft.DataFactory/factories](/azure/templates/microsoft.datafactory/factories): Create an Azure Data Factory.
+- [Microsoft.DataFactory/factories/linkedServices](/azure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
+- [Microsoft.DataFactory/factories/datasets](/azure/templates/microsoft.datafactory/factories/datasets): Create an Azure Data Factory dataset.
+- [Microsoft.DataFactory/factories/pipelines](/azure/templates/microsoft.datafactory/factories/pipelines): Create an Azure Data Factory pipeline.
 
 ## Create a file
 
@@ -125,4 +125,4 @@ Remove-AzResourceGroup -Name exampleRG
 In this quickstart, you created an Azure Data Factory using Bicep and validated the deployment. To learn more about Azure Data Factory and Bicep, continue on to the articles below.
 
 - [Azure Data Factory documentation](index.yml)
-- Learn more about [Azure Resource Manager](../azure-resource-manager/bicep/overview.md)
+- Learn more about [Bicep](../azure-resource-manager/bicep/overview.md)
