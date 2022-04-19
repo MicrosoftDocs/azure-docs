@@ -209,7 +209,7 @@ Sample JSON
 
 ### Delete Labels to an entity
 
-You can send DELETE request to the following endpoint
+You can send DELETE request to the following endpoint:
 
 DELETE {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/labels
 
