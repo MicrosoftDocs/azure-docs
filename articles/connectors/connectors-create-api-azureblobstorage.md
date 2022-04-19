@@ -301,7 +301,7 @@ To access storage accounts behind firewalls using the Azure Blob Storage managed
 - [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
 
 
-To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic apps, review the following documentation:
+To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic app, review the following documentation:
 
 - [Access storage accounts through trusted virtual network](#access-storage-accounts-through-trusted-virtual-network)
 
