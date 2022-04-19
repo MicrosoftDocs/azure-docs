@@ -147,7 +147,7 @@ PS C:\WINDOWS\system32>New-AzStorageAccount -Name myasesa1 -ResourceGroupName my
 
 StorageAccountName ResourceGroupName PrimaryLocation SkuName Kind AccessTier CreationTime ProvisioningState EnableHttpsTrafficOnly
 ------------------ ----------------- --------------- ------- ---- ---------- ------------ ----------------- ------
-myasesa1 myaserg1 DBELocal Standard_LRS Storage 4/18/2022 8:35:09 PM Succeeded False
+myasesa1        myaserg1 DBELocal Standard_LRS Storage 4/18/2022 8:35:09 PM Succeeded False
 
 PS C:\WINDOWS\system32>
 ```
@@ -182,7 +182,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 > [!NOTE]
 > Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
-A sample output is shown below.
+Here's a sample output:
 
 ```powershell
 PS C:\windows\system32> New-AzureRmStorageAccount -Name myasegpusavm -ResourceGroupName myasegpurgvm -Location DBELocal -SkuName Standard_LRS
@@ -877,7 +877,7 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
     PS C:\WINDOWS\system32
     ```
 
-    You can also run the New-AzResourceGroupDeployment command asynchronously with –AsJob parameter. Here's a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the Get-Job cmdlet.
+    You can also run the `New-AzResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here's a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
 
     ```powershell
     PS C:\WINDOWS\system32> New-AzResourceGroupDeployment `
