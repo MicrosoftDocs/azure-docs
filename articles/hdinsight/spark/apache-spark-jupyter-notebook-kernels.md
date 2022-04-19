@@ -11,7 +11,7 @@ ms.date: 04/18/2022
 
 HDInsight Spark clusters provide kernels that you can use with the Jupyter Notebook on [Apache Spark](./apache-spark-overview.md) for testing your applications. A kernel is a program that runs and interprets your code. The three kernels are:
 
-- **PySpark** - for applications written in Python2. (Applicable only for version 2.4)
+- **PySpark** - for applications written in Python2. (Applicable only for Spark 2.4 version clusters)
 - **PySpark3** - for applications written in Python3.
 - **Spark** - for applications written in Scala.
 
@@ -39,7 +39,7 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
     :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png " alt-text="Kernels for Jupyter Notebook on Spark" border="true":::
 
  > [!NOTE]  
- > For HDI 4.0, only **PySpark3**, or **Spark** will be available.
+ > For Spark 3.1, only **PySpark3**, or **Spark** will be available.
  >
  :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark-for-hdi-4-0.png " alt-text="Kernels for Jupyter Notebook on Spark HDI4.0" border="true":::
  
