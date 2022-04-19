@@ -139,7 +139,7 @@ For more information, see the [Azure Video Indexer - Embed both Widgets demo](ht
 
 This section shows how to achieve interaction between a Cognitive Insights widget and an Azure Media Player instance by using the [AMP plug-in](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
 
-1. Add a Azure Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
+1. Add an Azure Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instantiate Azure Media Player with the Azure Video Indexer plug-in.
 
     ```javascript
@@ -292,7 +292,7 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 
 | File/folder                       | Description                                |
 |-----------------------------------|--------------------------------------------|
-| `azure-media-player`              | Load a Azure Video Indexer video in a custom Azure Media Player.                        |
+| `azure-media-player`              | Load an Azure Video Indexer video in a custom Azure Media Player.                        |
 | `azure-media-player-vi-insights`  | Embed VI Insights with a custom Azure Media Player.                             |
 | `control-vi-embedded-player`      | Embed VI Player and control it from outside.                                    |
 | `custom-index-location`           | Embed VI Insights from a custom external location (can be customer a blob).     |
