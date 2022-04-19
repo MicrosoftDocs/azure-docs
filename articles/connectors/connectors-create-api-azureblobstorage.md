@@ -314,7 +314,7 @@ To access storage accounts behind firewalls using the *built-in* Azure Blob Stor
 
 ### Access storage accounts in other regions
 
-Without using managed identity authentication, logic app workflows can't directly access storage accounts behind firewalls when they're both in the same region as the logic app workflow. As a workaround, put your logic app resources in a different region than your storage account. Then, give access to the [outbound IP addresses for the managed connectors in your region](/connectors/common/outbound-ip-addresses#azure-logic-apps).
+Without using managed identity authentication, logic app workflows can't directly access storage accounts behind firewalls when both the logic app resource and storage account exist in the same region. As a workaround, put your logic app resource in a different region than your storage account. Then, give access to the [outbound IP addresses for the managed connectors in your region](/connectors/common/outbound-ip-addresses#azure-logic-apps).
 
 > [!NOTE]
 > This solution doesn't apply to the Azure Table Storage connector and Azure Queue Storage connector. 
