@@ -125,6 +125,14 @@ Once a rotation policy is set for the key, you can also rotate the key on-demand
 az keyvault key rotate --hsm-name <hsm-name> --name <key-name>
 ```
 
+## Known Issues
+
+While automatic key rotation is in preview, known issues will be tracked in this section.
+
+### `NoneType is not iterable` exception when Azure CLI receives an empty key rotation policy
+
+When no key rotation policy is configured for a key, or an existing key rotation policy is deleted, AzCLI may report this error. This will be patched in a future version of AzCLI.
+
 ## Resources
 
 - [Managed HSM role management](role-management.md)
