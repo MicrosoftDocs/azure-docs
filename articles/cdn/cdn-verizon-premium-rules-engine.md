@@ -116,7 +116,7 @@ To access the rules engine, you must first select **Manage** from the top of the
 
 1. Select the pencil icon to edit an existing rule or select **+ Rule** to add a new rule to the policy.
 
-    :::image type="content" source="./media/cdn-rules-engine/policy-production-edit.png" alt-text="Screenshot of the edit button and new rule for duplicate policy.":::
+    :::image type="content" source="./media/cdn-rules-engine/policy-production-edit.png" alt-text="Screenshot of the edit button and new rule for duplicate policy." lightbox="./media/cdn-rules-engine/policy-production-edit-expanded.png":::
 
 1. Once you're happy with the updates, follow steps 10-12 in the last section to deploy the policy.
 
@@ -130,7 +130,7 @@ To access the rules engine, you must first select **Manage** from the top of the
 * Testing mechanism:
     * After locking a draft into a policy, select **Deploy Resquest**. Select the environment as **Staging** and then select **Create Deploy Request**.
 
-        :::image type="content" source="./media/cdn-rules-engine/policy-staging.png" alt-text="Screenshot of a staging policy.":::    
+        :::image type="content" source="./media/cdn-rules-engine/policy-staging.png" alt-text="Screenshot of a staging policy." lightbox="./media/cdn-rules-engine/policy-staging-expanded.png":::    
  
     * Edit your local host file to create an A record for your endpoint or custom domain. 
     * Check the test asset for the custom domain in the browser and proceed without using HTTPS.
