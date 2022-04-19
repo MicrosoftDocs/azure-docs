@@ -34,16 +34,20 @@ East US, US South Central, North Europe, West Europe, North Central US, Australi
 
 1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) in a configured virtual network. For more information, see [Network planning checklist](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?branch=pr-en-us-193001).
 1. Create an [NFSv3 volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. Verify there is connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
-    1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription is not registered, register it now.
+    1. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription isn't registered, register it now.
     
         `az feature register --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
 
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
-    1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it is recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
+    1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it's recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
 
-## Best practice
+## Performance best practices
 
-For optimized performance, select the **UltraPerformance** gateway and enable ER FastPath from a private cloud to Azure NetApp Files volumes virtual network.
+There are some important best practices to follow for optimal performance of NFS datastores on Azure NEtApp Files volumes.
+
+- For optimized performance, choose **UltraPerformance** gateway and enable [ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
+- Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For best performance, it's recommended to use the Ultra tier.
+- For a better performance, create multiple datastores of 4 TB size. The current default datastore limit is 8. The limit can be increased up to a maximum of 64 through submitting a Support ticket.  
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -145,7 +149,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **How do I monitor Storage Usage?**
     
-    Use [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics) to monitor storage and performance usage for datastores .
+    Use [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics) to monitor storage and performance usage for datastores.
 
 - **What metrics are available for monitoring?**
 
