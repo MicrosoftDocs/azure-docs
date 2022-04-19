@@ -109,9 +109,9 @@ disks:
 
 ### Oracle support
 
-From the v3.4 release it is possible to deploy SAP on Azure systems in a hared Home configuration using an Oracle database backend. For more information on running SAP on Oracle in Azure see [Azure Virtual Machines Oracle DBMS deployment for SAP workload](dbms_guide_oracle.md). 
+From the v3.4 release, it is possible to deploy SAP on Azure systems in a Shared Home configuration using an Oracle database backend. For more information on running SAP on Oracle in Azure, see [Azure Virtual Machines Oracle DBMS deployment for SAP workload](dbms_guide_oracle.md). 
 
-In order to install the Oracle backend using the SAP Deployment Automation Framework you need to provide the following parameters
+In order to install the Oracle backend using the SAP Deployment Automation Framework, you need to provide the following parameters
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Parameter                    | Description                                                                                                      | Type       |
@@ -123,7 +123,7 @@ In order to install the Oracle backend using the SAP Deployment Automation Frame
 
 ### Shared Home support
 
-To configure shared home support for Oracle you need to add a dictionary defining the SIDs to be deployed. You can do that by adding the parameter 'MULTI_SIDS' which contains a list of the SIDs and the SID details.
+To configure shared home support for Oracle, you need to add a dictionary defining the SIDs to be deployed. You can do that by adding the parameter 'MULTI_SIDS' that contains a list of the SIDs and the SID details.
 
 ```yaml
 MULTI_SIDS:

@@ -15,7 +15,7 @@ The [SAP deployment automation framework on Azure](automation-deployment-framewo
 
 The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. The framework also supports providing you own names for some of the resources using the [parameter files](automation-configure-system.md). 
 
-If these capabilities are not enough you can also use custom naming logic by either providing a custom json file containing the resource names or by modifying the naming module used by the automation.
+If these capabilities are not enough, you can also use custom naming logic by either providing a custom json file containing the resource names or by modifying the naming module used by the automation.
 
 ## Provide name overrides using a json file
 
@@ -33,7 +33,7 @@ The deployment types are:
 
 The names for the key vaults are defined in the "keyvault_names" structure. The example below lists the key vault names for a deployment in the "DEV" environment in West Europe. 
 
-´´´json
+```json
 "keyvault_names": {
         "DEPLOYER": {
             "private_access": "DEVWEEUprvtABC",
@@ -48,7 +48,7 @@ The names for the key vaults are defined in the "keyvault_names" structure. The 
             "user_access": "DEVWEEUSAP01userABC"
         }
     }
-´´´
+```
 
 > [!NOTE]
 > This key vault names need to be unique across Azure, SDAF appends 3 random characters (ABC in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
@@ -59,7 +59,7 @@ The "private_access" names are currently not used.
 
 The names for the storage accounts are defined in the "storageaccount_names" structure. The example below lists the storage account names for a deployment in the "DEV" environment in West Europe. 
 
-´´´json
+```json
 "storageaccount_names": {
         "DEPLOYER": "devweeudiagabc",
         "LIBRARY": {
@@ -73,7 +73,7 @@ The names for the storage accounts are defined in the "storageaccount_names" str
             "witness_storageaccount_name": "devweeusap01witnessabc"
         }
     }
-´´´
+```
 
 > [!NOTE]
 > This key vault names need to be unique across Azure, SDAF appends 3 random characters (abc in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
@@ -84,7 +84,7 @@ The names for the virtual machines are defined in the "virtualmachine_names" str
 
 The example below lists the virtual machine names for a deployment in the "DEV" environment in West Europe. The deployment has a database server, two application servers, a Central Services server and a web dispatcher. 
 
-´´´json
+```json
     "virtualmachine_names": {
         "ANCHOR_COMPUTERNAME": [],
         "ANCHOR_SECONDARY_DNSNAME": [],
@@ -151,7 +151,7 @@ The example below lists the virtual machine names for a deployment in the "DEV" 
             "x00web00labc"
         ]
     }
-´´´
+```
 
 ## Configure custom naming module
 
@@ -168,7 +168,7 @@ The different resource names are identified by prefixes in the Terraform code.
 - SAP landscape deployments use resource names with the prefix `vnet_`
 - SAP system deployments use resource names with the prefix `sdu_`
 
-The calculated names are returned in a data dictionary which is used by all the terraform modules. 
+The calculated names are returned in a data dictionary, which is used by all the terraform modules. 
 
 ## Using custom names
 
