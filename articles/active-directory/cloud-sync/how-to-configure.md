@@ -45,6 +45,9 @@ To configure provisioning, follow these steps.
 
 ## Scope provisioning to specific users and groups
 You can scope the agent to synchronize specific users and groups by using on-premises Active Directory groups or organizational units. You can't configure groups and organizational units within a configuration. 
+ >[!NOTE]
+ >  You cannot use nested groups with group scoping.  Nested objects beyond the first level will not be included when scoping using security groups. Only use group scope filtering for pilot scenarios as there are limitations to syncing large groups. 
+ 
 
  1.  In the Azure portal, select **Azure Active Directory**.
  2. Select **Azure AD Connect**.

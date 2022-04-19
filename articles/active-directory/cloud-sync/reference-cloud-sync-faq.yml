@@ -114,6 +114,10 @@ sections:
         answer: |
           Yes. Today we support up to 50K group members synchronized using the OU scope filtering. 
       - question: |
+          Does Azure AD Connect cloud sync support nested groups with group scoping?
+        answer: |
+          No. Nested objects beyond the first level will not be included when scoping using security groups. Only use group scope filtering for pilot scenarios, there are limitations to syncing large groups. 
+      - question: |
           Does the cloud provisioning agent load balance if I have multiple agents installed?
         answer: |
           No. Only one agent is ever active. 
