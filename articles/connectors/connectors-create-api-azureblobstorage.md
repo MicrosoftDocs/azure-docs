@@ -359,7 +359,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 ### Access Blob Storage with managed identities
 
-To connect to blob storage in any region, you can use [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md). You can create an exception that gives Microsoft trusted services, such as a managed identity, access to your storage account through a firewall.
+To connect to Azure Blob Storage in any region, you can use [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md). You can create an exception that gives Microsoft trusted services, such as a managed identity, access to your storage account through a firewall.
 
 To use managed identities in your logic app to access Blob Storage, follow these steps:
 
