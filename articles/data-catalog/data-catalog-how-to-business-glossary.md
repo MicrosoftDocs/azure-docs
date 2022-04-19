@@ -7,7 +7,7 @@ ms.date: 02/23/2022
 ---
 # Set up the business glossary for governed tagging
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 
