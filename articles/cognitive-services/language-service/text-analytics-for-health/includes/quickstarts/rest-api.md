@@ -226,19 +226,19 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
 curl -i -X POST https://your-Language-endpoint-here/language/analyze-text/jobs?api-version=2022-03-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-Language-key-here" \
--d '{ documents: [{ id: "1", language:"en", text: "Subject was administered 100mg remdesivir intravenously over a period of 120 min"}]}'
+-d '{"analysisInput":{"documents": [{"text": "The doctor prescried 200mg Ibuprofen.","language": "en","id": "1"}]},"tasks":[{"taskName": "analyze 1","kind": "Healthcare","parameters": {"fhirVersion": "4.0.1"}}]}'
 ```
 
 Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```rest
-https://your-resource.cognitiveservices.azure.com/language/analyze-text/jobs/{JOB-ID}
+https://your-resource.cognitiveservices.azure.com/language/analyze-text/jobs/{JOB-ID}?api-version=2022-03-01-preview
 ```
 
 To get the results of the request, use the following cURL command. Be sure to replace `{JOB-ID}` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET  https://your-Language-endpoint-here/language/analyze-text/jobs/{JOB-ID} \
+curl -X GET  https://your-Language-endpoint-here/language/analyze-text/jobs/{JOB-ID}?api-version=2022-03-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-Language-key-here"
 ```
