@@ -86,18 +86,18 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 New-AzResourceGroup -Name <Resource group name> -Location DBELocal
 ```
 
-A sample output is shown below.
+Here's a sample output:
 
 ```powershell
-PS C:\windows\system32> New-AzResourceGroup -Name myasegpurgvm -Location DBELocal
+PS C:\WINDOWS\system32> New-AzResourceGroup -Name myaserg1 -Location DBELocal
 
-ResourceGroupName : myasegpurgvm
+ResourceGroupName : myaserg1
 Location          : dbelocal
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/DDF9FC44-E990-42F8-9A91-5A6A5CC472DB/resourceGroups/myasegpurgvm
+ResourceId        : /subscriptions/04a485ed-7a09-44ab-6671-66db7f111122/resourceGroups/myaserg1
 
-PS C:\windows\system32>
+PS C:\WINDOWS\system32> 
 ```
 
 ### [AzureRM](#tab/azure-rm)
@@ -140,33 +140,39 @@ New-AzStorageAccount -Name <Storage account name> -ResourceGroupName <Resource g
 > [!NOTE]
 > Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
-A sample output is shown below.
+Here's a sample output:
 
 ```powershell
-PS C:\windows\system32> New-AzStorageAccount -Name myasegpusavm -ResourceGroupName myasegpurgvm -Location DBELocal -SkuName Standard_LRS
+PS C:\WINDOWS\system32>New-AzStorageAccount -Name myasesa1 -ResourceGroupName myaserg1 -Location DBELocal -SkuName Standard_LRS
 
-StorageAccountName ResourceGroupName Location SkuName     Kind    AccessTier CreationTime
------------------- ----------------- -------- -------     ----    ---------- ------------
-myasegpusavm       myasegpurgvm      DBELocal StandardLRS Storage            7/29/2020 10:11:16 PM
+StorageAccountName ResourceGroupName PrimaryLocation SkuName      Kind    AccessTier CreationTime         ProvisioningState Enable
+                                                                                                                            HttpsT
+                                                                                                                            raffic
+                                                                                                                            Only
+------------------ ----------------- --------------- -------      ----    ---------- ------------         ----------------- ------
+myasesa1           myaserg1          DBELocal        Standard_LRS Storage            4/18/2022 8:35:09 PM Succeeded         False
 
-PS C:\windows\system32>
+PS C:\WINDOWS\system32>
 ```
 
-To get the storage account key, run the `Get-AzStorageAccountKey` command. A sample output of this command is shown here.
+To get the storage account key, run the `Get-AzStorageAccountKey` command. Here's a sample output:
 
 ```powershell
-PS C:\windows\system32> Get-AzStorageAccountKey
+PS C:\WINDOWS\system32> Get-AzStorageAccountKey
 
 cmdlet Get-AzStorageAccountKey at command pipeline position 1
 Supply values for the following parameters:
 (Type !? for Help.)
-ResourceGroupName: myasegpurgvm
-Name: myasegpusavm
+ResourceGroupName: myaserg1
+Name: myasesa1
 
-KeyName    Value                                                  Permissions   
--------     -----                                                   --
-key1 GsCm7QriXurqfqx211oKdfQ1C9Hyu5ZutP6Xl0dqlNNhxLxDesDej591M8y7ykSPN4fY9vmVpgc4ftkwAO7KQ== 11 
-key2 7vnVMJUwJXlxkXXOyVO4NfqbW5e/5hZ+VOs+C/h/ReeoszeV+qoyuBitgnWjiDPNdH4+lSm1/ZjvoBWsQ1klqQ== ll
+KeyName Value                                                                                    Permissions
+------- -----                                                                                    -----------
+key1    7a707uIh43qADXvuhwqtw39mwq3M97r1BflhoF2yZ6W9FNkGOCblxb7nDSiYVGQprpkKk0Au2AjmgUXUT6yCog==        Full
+key2    2v1VQ6qH1CJ9bOjB15p4jg9Ejn7iazU95Qe8hAGE22MTL21Ac5skA6kZnE3nbe+rdiXiORBeVh9OpJcMOfoaZg==        Full
+
+
+PS C:\WINDOWS\system32>
 ```
 
 ### [AzureRM](#tab/azure-rm)
@@ -363,55 +369,96 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
 > [!NOTE]
 > When you deploy the template if you get an authentication error, your Azure credentials for this session may have expired. Rerun the `login-Az` command to connect to Azure Resource Manager on your Azure Stack Edge Pro device again.
 
-1. Run the following command: 
-    
-    ```powershell
-    $templateFile = "Path to CreateImage.json"
-    $templateParameterFile = "Path to CreateImage.parameters.json"
-    $RGName = "<Name of your resource group>"
-    New-AzResourceGroupDeployment `
-        -ResourceGroupName $RGName ` 
-        -TemplateFile $templateFile `
-        -TemplateParameterFile $templateParameterFile `
-        -Name "<Name for your deployment>"
-    ```
-    This command deploys an image resource. To query the resource, run the following command:
+1. Run the following command:
 
-    ```powershell
-    Get-AzImage -ResourceGroupName <Resource Group Name> -name <Image Name>
-    ``` 
-    Here's a sample output of a successfully created image.
-    
-    ```powershell
-    PS C:\WINDOWS\system32> login-AzAccount -EnvironmentName aztest -TenantId c0257de7-538f-415c-993a-1b87a031879d
-    
-    Account               SubscriptionName              TenantId                             Environment
-    -------               ----------------              --------                             -----------
-    EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d aztest
-    
-   PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateImage\CreateImage.json"
-    PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateImage\CreateImage.parameters.json"
-    PS C:\WINDOWS\system32> $RGName = "rg2"
-    PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment4"
-        
-    DeploymentName          : deployment4
-    ResourceGroupName       : rg2
-    ProvisioningState       : Succeeded
-    Timestamp               : 12/10/2020 7:06:57 PM
-    Mode                    : Incremental
-    TemplateLink            :
-    Parameters              :
-                              Name             Type                       Value
-                              ===============  =========================  ==========
-                              osType           String                     Linux
-                              imageName        String                     myaselinuximg
-                              imageUri         String
-                              https://sa2.blob.myasegpuvm.wdshcsso.com/con1/ubuntu18.04waagent.vhd
-    
-    Outputs                 :
-    DeploymentDebugLogLevel :    
-    PS C:\WINDOWS\system32>
-    ```
+```powershell
+$templateFile = "Path to CreateImage.json"
+$templateParameterFile = "Path to CreateImage.parameters.json"
+$RGName = "<Name of your resource group>"
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $RGName `
+    -TemplateFile $templateFile `
+    -TemplateParameterFile $templateParameterFile `
+    -Name "<Name for your deployment>"
+```
+
+This command deploys an image resource. To query the resource, run the following command:
+
+```powershell
+Get-AzImage -ResourceGroupName <Resource Group Name> -name <Image Name>
+```
+
+Here's a sample output:
+
+```powershell
+PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateImage\CreateImage.json"
+PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateImage\CreateImage.parameters.json"
+PS C:\WINDOWS\system32> $RGName = "myaserg1"
+PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment1"
+
+DeploymentName          : deployment1
+ResourceGroupName       : myaserg1
+ProvisioningState       : Succeeded
+Timestamp               : 4/18/2022 9:24:26 PM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name             Type                       Value
+                          ===============  =========================  ==========
+                          osType           String                     Linux
+                          imageName        String                     myaselinuximg1
+                          imageUri         String
+                          https://myasepro2stor.blob.dm1176047910p.wdshcsso.com/myasepro2cont1/ubuntu13.vhd
+
+Outputs                 :
+DeploymentDebugLogLevel :
+
+PS C:\WINDOWS\system32>
+```
+
+Here is a sample json used in this article.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "value": "vm1"
+      },
+      "adminUsername": {
+          "value": "Administrator"
+      },
+      "Password": {
+          "value": "Password1"
+      },
+    "imageName": {
+      "value": "myaselinuximg1"
+    },
+    "vmSize": {
+      "value": "Standard_NC4as_T4_v3"
+    },
+    "vnetName": {
+      "value": "vswitch1"
+    },
+    "subnetName": {
+      "value": "vswitch1subNet"
+    },
+    "vnetRG": {
+      "value": "myaserg1"
+    },
+    "nicName": {
+      "value": "nic1"
+    },
+    "privateIPAddress": {
+      "value": ""
+    },
+    "IPConfigName": {
+      "value": "ipconfig1"
+    }
+  }
+}
+```
 
 ### [AzureRM](#tab/azure-rm)
 
@@ -478,6 +525,12 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
 ### [Az](#tab/az)
  
 To create a VM, use the `CreateVM.parameters.json` parameter file. It takes the following parameters.
+
+New > 
+
+Notepad line 78 has CreateImage.parameters.json that does not match .json filename here
+
+End new > 
     
 ```json
 "vmName": {
@@ -779,76 +832,75 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
 
 ### [Az](#tab/az)
 
-1. Run the following command: 
-    
-    ```powershell
-    Command:
-        
-        $templateFile = "<Path to CreateVM.json>"
-        $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "<Resource group name>"
-             
-        New-AzResourceGroupDeployment `
-            -ResourceGroupName $RGName `
-            -TemplateFile $templateFile `
-            -TemplateParameterFile $templateParameterFile `
-            -Name "<DeploymentName>"
-    ```   
+Run the following command:
 
-    The VM creation will take 15-20 minutes. Here's a sample output of a successfully created VM.
-    
-    ```powershell
-    PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateVM\CreateVM.json"
-    PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateVM\CreateVM.parameters.json"
-    PS C:\WINDOWS\system32> $RGName = "rg2"
-    PS C:\WINDOWS\system32> New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "Deployment6"
-       
-    DeploymentName          : Deployment6
-    ResourceGroupName       : rg2
-    ProvisioningState       : Succeeded
-    Timestamp               : 12/10/2020 7:51:28 PM
-    Mode                    : Incremental
-    TemplateLink            :
-    Parameters              :
-                              Name             Type                       Value
-                              ===============  =========================  ==========
-                              vmName           String                     VM1
-                              adminUsername    String                     Administrator
-                              password         String                     Password1
-                              imageName        String                     myaselinuximg
-                              vmSize           String                     Standard_NC4as_T4_v3
-                              vnetName         String                     ASEVNET
-                              vnetRG           String                     aserg
-                              subnetName       String                     ASEVNETsubNet
-                              nicName          String                     nic5
-                              ipConfigName     String                     ipconfig5
-                              privateIPAddress  String
-    
-    Outputs                 :
-    DeploymentDebugLogLevel :
-    
-    PS C:\WINDOWS\system32
-    ```   
+```powershell
+Command:
 
-    You can also run the `New-AzResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here's a sample output when the cmdlet runs in the background. You can then query the status of the job that is created using the `Get-Job` cmdlet.
+    $templateFile = "<Path to CreateVM.json>"
+    $templateParameterFile = "<Path to CreateVM.parameters.json>"
+    $RGName = "<Resource group name>"
 
-    ```powershell	
-    PS C:\WINDOWS\system32> New-AzResourceGroupDeployment `
-	>>     -ResourceGroupName $RGName `
-	>>     -TemplateFile $templateFile `
-	>>     -TemplateParameterFile $templateParameterFile `
-	>>     -Name "Deployment2" `
-	>>     -AsJob
-	 
-	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-	--     ----            -------------   -----         -----------     --------             -------
-	2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
-	 
-	PS C:\WINDOWS\system32> Get-Job -Id 2
-	 
-	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-	--     ----            -------------   -----         -----------     --------             -------
-	```
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $RGName `
+        -TemplateFile $templateFile `
+        -TemplateParameterFile $templateParameterFile `
+        -Name "<DeploymentName>"
+```
+The VM creation will take 15-20 minutes. Here's a sample output of a successfully created VM:
+
+```powershell
+PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateVM\CreateVM.json"
+PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\CreateVM\CreateVM.parameters.json"
+PS C:\WINDOWS\system32> $RGName = "myaserg1"
+PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "Deployment2"
+
+DeploymentName          : Deployment2
+ResourceGroupName       : myaserg1
+ProvisioningState       : Succeeded
+Timestamp               : 04/18/2022 1:51:28 PM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name             Type                       Value
+                          ===============  =========================  ==========
+                          vmName           String                     vm1
+                          adminUsername    String                     Administrator
+                          password         String                     Password1
+                          imageName        String                     myaselinuximg
+                          vmSize           String                     Standard_NC4as_T4_v3
+                          vnetName         String                     vswitch1
+                          vnetRG           String                     myaserg1
+                          subnetName       String                     vswitch1subNet
+                          nicName          String                     nic1
+                          ipConfigName     String                     ipconfig1
+                          privateIPAddress  String
+
+Outputs                 :
+DeploymentDebugLogLevel :
+
+PS C:\WINDOWS\system32
+```
+
+You can also run the New-AzResourceGroupDeployment command asynchronously with –AsJob parameter. Here's a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the Get-Job cmdlet.
+
+```powershell
+PS C:\WINDOWS\system32> New-AzResourceGroupDeployment `
+ >>     -ResourceGroupName $RGName `
+ >>     -TemplateFile $templateFile `
+ >>     -TemplateParameterFile $templateParameterFile `
+ >>     -Name "Deployment4" `
+ >>     -AsJob
+
+ Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+ --     ----            -------------   -----         -----------     --------             -------
+ 4      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+
+ PS C:\WINDOWS\system32> Get-Job -Id 4
+
+ Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+ --     ----            -------------   -----         -----------     --------             -------
+```
 
 7. Check if the VM is successfully provisioned. Run the following command:
 
