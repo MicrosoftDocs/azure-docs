@@ -438,7 +438,14 @@ The following steps are the same for Consumption logic apps in multi-tenant envi
 
 #### Enable managed identity support on logic app
 
-Next, add an Azure Blob Storage connector trigger or action in your workflow. Make sure to create a new API onnection and [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity).  Once you have configured the trigger or action, you can save the workflow and test. 
+Next, complete the following steps:
+
+1. If you have a blank workflow, add an Azure Blob Storage connector trigger. Otherwise, add an Azure Blob Storage connector action. Make sure that you create a new connection for the trigger or action, rather than use an existing connection.
+
+1. Make sure that you [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity).
+
+1. After you configure the trigger or action, you can save the workflow and test the trigger or action.
+
 
 ### Troubleshooting
 
