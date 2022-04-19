@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.  
 author: sdgilley
 ms.author: sgilley
-ms.custom: subject-cost-optimization, devx-track-azurecli
+ms.custom: subject-cost-optimization, devx-track-azurecli, sdkv1
 ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
@@ -79,6 +79,7 @@ After you delete an Azure Machine Learning workspace in the Azure portal or with
 
 To delete the workspace along with these dependent resources, use the SDK:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 ```python
 ws.delete(delete_dependent_resources=True)
 ```
