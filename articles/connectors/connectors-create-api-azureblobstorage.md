@@ -456,7 +456,7 @@ Next, complete the following steps:
 
 
   ```json
-{
+  {
     'status': 403,
     'message': 'This request is not authorized to perform this operation.\\r\\nclientRequestId: a3da2269-7120-44b4-9fe5-ede7a9b0fbb8',
     'error': {
