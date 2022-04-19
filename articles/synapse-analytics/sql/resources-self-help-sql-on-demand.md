@@ -539,11 +539,11 @@ File {path} cannot be opened because it does not exist or it is used by another 
 
 - If an Azure AD login has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails. This includes querying storage using Azure AD pass-through and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This affects tools that keep connections open, like in query editor in SSMS and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
 
-- Azure AD authentication token might be cached by the client applications. For example Power BI caches AAD token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
+- Azure AD authentication token might be cached by the client applications. For example Power BI caches Azure Active Directory token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
 
 Consider the following mitigations:
 
-- Restart the client application to obtain a new AAD token.
+- Restart the client application to obtain a new Azure Active Directory token.
 - Consider switching to: 
   - [Service Principal](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=service-principal#supported-storage-authorization-types)
   - [Managed identity](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity#supported-storage-authorization-types) 
@@ -612,7 +612,7 @@ To read or download a blob in the Archive tier, rehydrate it to an online tier: 
 
 ### [0x80070057](#tab/x80070057)
 
-This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the AAD access token expires.
+This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the Azure Active Directory access token expires.
 
 The error message might also resemble the following:
 
@@ -626,7 +626,7 @@ File {path} cannot be opened because it does not exist or it is used by another 
 
 Consider the following mitigations to resolve the issue:
 
-- Restart the client application to obtain a new AAD token.
+- Restart the client application to obtain a new Azure Active Directory token.
 - Consider switching to: 
   - [Service Principal](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=service-principal#supported-storage-authorization-types)
   - [Managed identity](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity#supported-storage-authorization-types) 
