@@ -72,14 +72,14 @@ Most of these fields are documented in the [Top-level common schema](/azure-moni
 |     traceContext                        |     JSON blob representing the W3C trace-context |
 |    uri                       |     Request URI  |
 
-The properties contains additional Azure attestation specific context: 
+The properties contain additional Azure attestation specific context: 
 
 |     Field Name                           |     Description                                                                         |
 |------------------------------------------|-----------------------------------------------------------------------------------------------|
 |     failureResourceId                        |     Resource ID of component which resulted in request failure  |
 |    failureCategory                       |     Broad category indicating category of a request failure. Includes categories such as AzureNetworkingPhysical, AzureAuthorization etc.   |
 |    failureDetails                       |     Detailed information about a request failure, if available   |
-|    infoDataReceived                       |     Information about the request received from the client. Includes some HTTP headers, the number of headers received, the conent type and content length    |
+|    infoDataReceived                       |     Information about the request received from the client. Includes some HTTP headers, the number of headers received, the content type and content length    |
 
 ## Next steps
 - [How to enable Microsoft Azure Attestation logging ](azure-diagnostic-monitoring.md)
