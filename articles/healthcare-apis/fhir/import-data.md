@@ -29,7 +29,7 @@ The FHIR data to be imported must be stored in resource specific files in FHIR N
 
 Make a ```POST``` call to ```<<FHIR service base URL>>/$import``` with the following required headers and body, which contains a FHIR [Parameters](http://hl7.org/fhir/parameters.html) resource.
 
-As `$import` is an async operation, a **callback** link will be returned in the `Content-location` header of the response together with ```202-Accepted``` status code. You can use this callback link to check import status.
+An empty response body with a **callback** link will be returned in the `Content-location` header of the response together with ```202-Accepted``` status code. You can use this callback link to check the import status.
 
 #### Request Header
 
