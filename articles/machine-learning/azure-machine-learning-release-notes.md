@@ -18,6 +18,30 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2022-04-25
+
+### Azure Machine Learning SDK for Python v1.41.0
+
+**Breaking change warning**
+
+In AzureML SDK June release, azureml-defaults will not support installation on python 3.6 any more. This coming breaking change comes from azureml-inference-server-http package release in June will drop python 3.6 support. If you are not using azureml-defaults for inference, feel free to use azureml-core or any other AzureML SDK package directly instead of install azureml-defaults.
+
+  + **azureml-automl-dnn-nlp**
+    + Turning on long range text feature by default using hyper-parameter adjustments of reducing train batch size while increasing gradient accumulation steps in a way that effective train batch size remains consistent with the default configuration, while also not increasing the GPU memory requirements as a result of possibly using a larger model (due to increased max sequence length)
+  + **azureml-automl-dnn-vision**
+    + Chaning the ObjectAnnotation Class type from object to "dataobject"(https://pypi.org/project/recordclass/)
+  + **azureml-core**
+    + This release updates the Keyvault class used by customers to enable them to provide the keyvault content type when creating a secret using the SDK. This release also updates the SDK to include a new function that enables customers to retrieve the value of the content type from a specific secret.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.25.0
+  + **azureml-pipeline-core**
+    + Do not print run detail anymore if `pipeline_run.wait_for_completion` with `show_output=False`
+  + **azureml-train-automl-runtime**
+    + Fixes a bug that would cause code generation to fail when the azureml-contrib-automl-dnn-forecasting package is present in the training environment.
+    + Fix error when using a test dataset without a label column with AutoML Model Testing.
+
+
+
 ## 2022-03-28
 
 ### Azure Machine Learning SDK for Python v1.40.0
