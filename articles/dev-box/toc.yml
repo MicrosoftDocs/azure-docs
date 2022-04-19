@@ -1,16 +1,18 @@
-- name: Project Fidalgo Dev Box docs
+- name: Microsoft Dev Box docs
   href: index.yml
 - name: Overview
   expanded: true
   items: 
-    - name: What is Project Fidalgo Dev Box?
+    - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
-      href: overview-what-is-project-fidalgo-dev-box.md
+      href: overview-what-is-microsoft-dev-box.md
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Quickstart-1
-      href: quickstart-1.md
+    - name: Create a Dev Box
+      href: quickstart-create-dev-box.md
+    - name: Create a Dev Box Pool
+      href: quickstart-create-dev-box-pool.md  
 - name: Tutorials
   expanded: true
   items: 
@@ -19,12 +21,18 @@
 - name: How-tos
   expanded: true
   items: 
-    - name: How to 1
-      href: how-to-1.md
+    - name: Configure an Azure Compute Gallery
+      href: how-to-configure-azure-compute-gallery.md
+    - name: Provide access to Project Admins
+      href: how-to-project-admin.md
+    - name: Provide access to Dev Box users
+      href: how-to-dev-box-user.md  
 - name: Reference
   items:
-      - name: Reference 1
-        href: reference-1.md
+      - name: Microsoft Dev Box concepts
+        href: concept-dev-box-concepts.md
+      - name: CLI reference
+        href: CLI-reference.md
 - name: Resources
   items: 
     - name: Azure roadmap

@@ -24,12 +24,12 @@ highlightedContent:
       url: overview-what-is-microsoft-dev-box.md
       
     # Card
-    - title: 'Create a Dev Box Pool'
+    - title: Create a Dev Box Pool
       itemType: quickstart
       url: quickstart-create-dev-box-pool.md
 
     # Card
-    - title: 'Create a Dev Box'
+    - title: Create a Dev Box
       itemType: quickstart
       url: quickstart-create-dev-box.md      
    
@@ -61,7 +61,7 @@ conceptualContent:
           text: Learn how to provide access to Dev Box users.
 
     # Card
-    - title: Reference
+    - title: Microsoft Dev Box concepts
       links:
         - url: concept-dev-box-concepts.md
           itemType: reference
