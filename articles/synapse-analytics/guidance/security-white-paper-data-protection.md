@@ -24,10 +24,10 @@ Once the data discovery process is complete, it provides classification recommen
 Azure Synapse provides two options for data discovery and classification:
 
 - [Data Discovery & Classification](../../azure-sql/database/data-discovery-and-classification-overview.md), which is built into Azure Synapse and dedicated SQL pool (formerly SQL DW).
-- [Azure Purview](https://azure.microsoft.com/services/purview/), which is a unified data governance solution that helps manage and govern on-premises, multicloud, and software-as-a-service (SaaS) data. It can automate data discovery, lineage identification, and data classification. By producing a unified map of data assets and their relationships, it makes data easily discoverable.
+- [Microsoft Purview](https://azure.microsoft.com/services/purview/), which is a unified data governance solution that helps manage and govern on-premises, multicloud, and software-as-a-service (SaaS) data. It can automate data discovery, lineage identification, and data classification. By producing a unified map of data assets and their relationships, it makes data easily discoverable.
 
 > [!NOTE]
-> Azure Purview data discovery and classification is in public preview for Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. However, data lineage is currently not supported for Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. Apache Spark pool only supports [lineage tracking](../../purview/how-to-lineage-spark-atlas-connector.md).
+> Microsoft Purview data discovery and classification is in public preview for Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. However, data lineage is currently not supported for Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool. Apache Spark pool only supports [lineage tracking](../../purview/how-to-lineage-spark-atlas-connector.md).
 
 ## Data encryption
 

@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage MongoDB
-description: This guide describes how to connect to MongoDB in Azure Purview, and use Azure Purview's features to scan and manage your MongoDB source.
+description: This guide describes how to connect to MongoDB in Microsoft Purview, and use Microsoft Purview's features to scan and manage your MongoDB source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 04/12/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage MongoDB in Azure Purview (Preview)
+# Connect to and manage MongoDB in Microsoft Purview (Preview)
 
-This article outlines how to register MongoDB, and how to authenticate and interact with MongoDB in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register MongoDB, and how to authenticate and interact with MongoDB in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -24,7 +24,7 @@ This article outlines how to register MongoDB, and how to authenticate and inter
 
 The supported MongoDB versions are 2.6 to 5.1.
 
-When scanning MongoDB source, Azure Purview supports extracting technical metadata including:
+When scanning MongoDB source, Microsoft Purview supports extracting technical metadata including:
 
 - Server
 - Databases
@@ -37,9 +37,9 @@ When setting up scan, you can choose to scan one or more MongoDB database(s) ent
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.16.8093.1.
 
@@ -49,13 +49,13 @@ When setting up scan, you can choose to scan one or more MongoDB database(s) ent
 
 ## Register
 
-This section describes how to register MongoDB in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register MongoDB in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new MongoDB source in your data catalog, do the following:
 
-1. Navigate to your Azure Purview account in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **MongoDB**. Select **Continue**.
@@ -138,7 +138,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
+- [Data insights in Microsoft Purview](concept-insights.md)
 - [Search Data Catalog](how-to-search-catalog.md)
