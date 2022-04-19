@@ -51,7 +51,7 @@ You can initialize `SpeechTranslationConfig` in a few ways:
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's look at how you can create a `SpeechTranslationConfig` instance by using a key and region. Get the Speech resource and key in the [Azure portal](https://portal.azure.com).
+Let's look at how you can create a `SpeechTranslationConfig` instance by using a key and region. Get the Speech resource key and region in the [Azure portal](https://portal.azure.com).
 
 ```python
 from_language, to_language = 'en-US', 'de'
