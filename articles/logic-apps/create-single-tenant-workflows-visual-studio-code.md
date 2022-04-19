@@ -541,7 +541,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. Find the **Callback URL** value, which looks similar to this URL for the example Request trigger:
 
-      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
       ![Screenshot that shows your workflow's overview page with callback URL](./media/create-single-tenant-workflows-visual-studio-code/find-callback-url.png)
 
