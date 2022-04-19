@@ -23,7 +23,7 @@ The following table illustrates the default and maximum limits of the number of 
 > | Standard_ZRS snapshots<sup>1</sup> | 75,000 |
 > | Managed image | 50,000 |
 
-<sup>1</sup> The total number of full disk snapshots an individual disk may have is 200. An individual disk may also have 200 incremental snapshots, which are counted separately from full disk snapshots. 
+<sup>1</sup>An individual disk can have 500 incremental snapshots. 
 
 **For standard storage accounts:**
 

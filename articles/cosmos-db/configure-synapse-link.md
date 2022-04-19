@@ -294,7 +294,7 @@ The following links show how to update containers analytical TTL by using PowerS
 
 ## <a id="disable-analytical-store"></a> Optional - Disable analytical store in a container
 
-Analytical store can be disabled in SQL API containers using PowerShell, by updating `-AnalyticalStorageTtl` (analytical Time-To-Live) to `0`. Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled. 
+Analytical store can be disabled in SQL API containers using `Update-AzCosmosDBSqlContainer` PowerShell command, by updating `-AnalyticalStorageTtl` (analytical Time-To-Live) to `0`. Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled. 
 
 Currently you can't be disabled in MongoDB API collections.
 

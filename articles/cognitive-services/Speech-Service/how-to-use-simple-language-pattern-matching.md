@@ -8,7 +8,7 @@ manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 04/19/2022
 ms.author: chschrae
 zone_pivot_groups: programming-languages-set-nine
 ms.custom: devx-track-cpp, devx-track-csharp, mode-other
@@ -68,6 +68,5 @@ Intents will be added using calls to the IntentRecognizer->AddIntent() API.
 
 ## Next steps
 
-> Improve your pattern matching by using [custom entities](../../../../how-to-use-custom-entity-pattern-matching.md).
-
-> Look through our [github samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+* Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
+* Look through our [Github samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).

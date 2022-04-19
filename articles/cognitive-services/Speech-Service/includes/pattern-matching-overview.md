@@ -12,6 +12,8 @@ keywords: intent recognition pattern matching
 
 Pattern matching can be customized to group together pattern intents and entities inside a ``PatternMatchingModel``. Using this grouping, it's possible to access more advanced entity types that will help make your intent recognition more precise.
 
+For supported locales see [here](../language-support.md?tabs=IntentRecognitionPatternMatcher).
+
 ### Patterns vs. Exact Phrases
 
 There are two types of strings used in the pattern matcher: "exact phrases" and "patterns". It's important to understand the differences.

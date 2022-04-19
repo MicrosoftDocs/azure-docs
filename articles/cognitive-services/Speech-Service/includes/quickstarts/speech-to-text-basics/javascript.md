@@ -60,7 +60,7 @@ Follow these steps to create a new console application for speech recognition.
                     break;
                 case sdk.ResultReason.Canceled:
                     const cancellation = sdk.CancellationDetails.fromResult(result);
-                    console.log("CANCELED: Reason=${cancellation.reason}");
+                    console.log(`CANCELED: Reason=${cancellation.reason}`);
 
                     if (cancellation.reason == sdk.CancellationReason.Error) {
                         console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);

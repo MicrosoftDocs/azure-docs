@@ -27,6 +27,9 @@ Application Gateway redirection support offers the following capabilities:
 -  **Global redirection**
 
    Redirects from one listener to another listener on the gateway. This enables HTTP to HTTPS redirection on a site.
+   When configuring redirects with a multi-site target listener, it is required that all the host names (with or without wildcard characters) defined as part of the source listener are also part of the destination listener. This ensures that no traffic is dropped due to missing host names on the destination listener while setting up HTTP to HTTPS redirection.  
+
+
 - **Path-based redirection**
 
    This type of redirection enables HTTP to HTTPS redirection only on a specific site area, for example a shopping cart area denoted by /cart/*.

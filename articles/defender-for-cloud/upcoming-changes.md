@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 04/06/2022
+ms.date: 04/11/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -21,12 +21,14 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | May 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2022 |
+| [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) | May 2022 |
+| [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | May 2022 |
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** March 2022
+**Estimated date for change:** May 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
@@ -88,6 +90,28 @@ Defender for Cloud includes multiple recommendations for improving the managemen
     |Name     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
     |Description     |User accounts that have been blocked from signing in, should be removed from your subscriptions.<br>These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed.<br>Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).|
     |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
+
+### Changes to vulnerability assessment
+
+**Estimated date for change:** May 2022
+
+Currently, Defender for Containers doesn't show vulnerabilities that have medium and low level severities that are not patchable.
+
+As part of this update, vulnerabilities that have medium and low severities, that don't have patches will be shown. This update will provide maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule.
+
+:::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
+
+Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
+
+### Key Vault recommendations changed to "audit"
+
+The Key Vault recommendations listed here are currently disabled so that they don't impact your secure score. We will change their effect to "audit".
+
+| Recommendation name | Recommendation ID |
+| ------- | ------ |
+| Validity period of certificates stored in Azure Key Vault should not exceed 12 months | fc84abc0-eee6-4758-8372-a7681965ca44 |
+| Key Vault secrets should have an expiration date | 14257785-9437-97fa-11ae-898cfb24302b |
+| Key Vault keys should have an expiration date | 1aabfa0d-7585-f9f5-1d92-ecb40291d9f2 |
 
 
 ## Next steps
