@@ -17,11 +17,13 @@ ms.devlang: golang
 > * [Python](service-bus-python-how-to-use-queues.md)
 > * [Go](service-bus-go-how-to-use-queues.md)
 
-In this tutorial, you will learn how to send messages to and receive messages from Azure Service Bus queues using the Go programming language.
+In this tutorial, you'll learn how to send messages to and receive messages from Azure Service Bus queues using the Go programming language.
 
-Azure Service Bus is a fully managed enterprise message broker with message queues and publish/subscribe capabilities. Service bus is used to decouple applications and services from each other, providing a distributed, reliable, and high performance message transport. The Azure SDK for GO's [azservicebus](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus) package allows you to send and receive messages from Azure Service Bus and using the Go programming language.
+Azure Service Bus is a fully managed enterprise message broker with message queues and publish/subscribe capabilities. Service bus is used to decouple applications and services from each other. Providing a distributed, reliable, and high performance message transport.
 
-By the end of this tutorial, you will be able to: send a single or bulk messages to a queue, recieve those message, and dead letter messages that are not processed.
+The Azure SDK for GO's [azservicebus](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus) package allows you to send and receive messages from Azure Service Bus and using the Go programming language. 
+
+By the end of this tutorial, you'll be able to: send a single or bulk message to a queue, receive messages, and dead letter messages that aren't processed.
 
 ## Prerequisites
 
@@ -35,7 +37,7 @@ By the end of this tutorial, you will be able to: send a single or bulk messages
 To begin, create a new Go module.
 
 1. Create a new directory for the module named `service-bus-go-how-to-use-queues`.
-1. In the `azservicebus` directory, initalize the module and install the required packages.
+1. In the `azservicebus` directory, initialize the module and install the required packages.
   
     ```bash
     go mod init service-bus-go-how-to-use-queues
@@ -90,7 +92,7 @@ func GetClient() *azservicebus.Client {
 
 The `GetClient` function returns a new `azservicebus.Client` object that's created by using an Azure Service Bus namespace and a credential. The name space is provided by the `AZURE_SERVICEBUS_HOSTNAME` environment variable. And the credential is created by using the `azidentity.NewDefaultAzureCredential` function. 
 
-For local development the `DefaultAzureCredential` used the access token from azure cli, which can be created by running the `az login` command to authenticate to Azure. 
+For local development, the `DefaultAzureCredential` used the access token from Azure CLI, which can be created by running the `az login` command to authenticate to Azure. 
 
 To learn more about other authentication methods, see [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 
@@ -145,7 +147,7 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 
 ## Receive messages from a queue
 
-After you've sent messages to the queue, you can receive them with the `receiver` type. To recieve messaged from a queue, add the `ReceiveMessage` function to your `main.go` file.
+After you've sent messages to the queue, you can receive them with the `receiver` type. To receive messaged from a queue, add the `ReceiveMessage` function to your `main.go` file.
 
 ```go
 func ReceiveMessage(client *azservicebus.Client) {
@@ -175,9 +177,9 @@ func ReceiveMessage(client *azservicebus.Client) {
 
 `RecieveMessage` takes a `azservicebus.Client` object and creates a new `azservicebus.Receiver` object. It then receives the messages from the queue. The `ReceiveMessages` function takes two parameters: a context and the number of messages to receive. The `ReceiveMessages` function returns a slice of `azservicebus.Message` objects. 
 
-Next, a `for` loop iterates through the messages and prints the message body. After printing the message body, the `CompleteMessage` function is called to complete the message, removing it from the queue.
+Next, a `for` loop iterates through the messages and prints the message body. Then the `CompleteMessage` function is called to complete the message, removing it from the queue.
 
-Messages that exceede lenght limits, are sent to an invalid queue, or are not successfully processed can be sent to the dead letter queue. To send messages to the dead letter queue, add the `SendDeadLetterMessage` function to your `main.go` file.
+Messages that exceed length limits, are sent to an invalid queue, or aren't successfully processed can be sent to the dead letter queue. To send messages to the dead letter queue, add the `SendDeadLetterMessage` function to your `main.go` file.
 
 
 ```go
@@ -236,7 +238,7 @@ func ReceiveDeadLetterMessage(client *azservicebus.Client) {
 }
 ```
 
-`ReceiveDeadLetterMessage` takes a `azservicebus.Client` object and creates a new `azservicebus.Receiver` object with options for the dead letter queue. It then receives the messages from the dead letter queue. The function then receives 1 message from the dead letter queue. Then it prints the dead letter reason and description for that message.
+`ReceiveDeadLetterMessage` takes a `azservicebus.Client` object and creates a new `azservicebus.Receiver` object with options for the dead letter queue. It then receives the messages from the dead letter queue. The function then receives one message from the dead letter queue. Then it prints the dead letter reason and description for that message.
 
 ## Sample code
 
@@ -419,7 +421,7 @@ go run main.go
 ```
 
 ## Next steps
-See the following links for more information.
+For more information, check out the following links:
 
 - [Azure Service Bus SDK for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus)
 - [Azure Service Bus SDK for Go on GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus)
