@@ -35,7 +35,7 @@ SAS token is required for Synapse link for SQL Server 2022 to access the landing
 
 ## Self-hosted integration runtime
 
-Self-hosted integration runtime is required to be set up for Synapse link for SQL Server 2022. It helps Synapse link to access the data on SQL Server 2022 on premise that is behind the firewall. For more information, see [Create a self-hosted integration runtime](../../data-factory/create-self-hosted-integration-runtime.md&tabs=synapse-analytics)
+Self-hosted integration runtime is required to be set up for Synapse link for SQL Server 2022. It helps Synapse link to access the data on SQL Server 2022 on premise that is behind the firewall. For more information, see [Create a self-hosted integration runtime](../../data-factory/create-self-hosted-integration-runtime.md?tabs=synapse-analytics)
 
 ## Monitoring
 

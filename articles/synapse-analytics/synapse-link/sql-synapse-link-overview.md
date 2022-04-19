@@ -31,7 +31,7 @@ Azure Synapse Link for SQL provides fully managed and turnkey experience for you
 With the new change feed technology in Azure SQL Database and SQL Server 2022, Synapse link for SQL can automatically extract incremental changes from Azure SQL DB or SQL Server 2022. It then replicates to Azure Synapse dedicated SQL pool without impacting the operational workload.
 
 * **Reduced complexity with No ETL jobs to manage**
-After going through a few clicks including selecting operational database and tables, updates made to the operational data in Azure SQL DB or SQL Server 2022 are visible in the Azure Synapse dedicated SQL pool. They are available in near real-time with no ETL or data integration logic. You can focus on analytical and reporting logic against operational data via all the capabilities within Azure Synapse Analytics.
+After going through a few clicks including selecting operational database and tables, updates made to the operational data in Azure SQL DB or SQL Server 2022 are visible in the Azure Synapse dedicated SQL pool. They're available in near real-time with no ETL or data integration logic. You can focus on analytical and reporting logic against operational data via all the capabilities within Azure Synapse Analytics.
 
 * **Near real-time insights into your operational data**
 You can now get rich insights by analyzing operational data in Azure SQL DB or SQL Server 2022 in near real-time to enable new business scenarios including operational BI reporting, real time scoring and personalization, or supply chain forecasting etc. via Synapse link for SQL.
