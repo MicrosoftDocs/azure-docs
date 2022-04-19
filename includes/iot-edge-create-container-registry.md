@@ -29,8 +29,8 @@ If you don't already have a container registry, follow these steps to create a n
 1. Select **Create**.
 
 1. Select your newly-created container registry from the **Resources** section of your Azure portal home page to open it.
- 
-1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**. 
+
+1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**.
 
    :::image type="content" source="media/iot-edge-create-container-registry/access-keys.png" alt-text="Access Keys menu location.":::
 
