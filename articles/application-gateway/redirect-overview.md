@@ -25,12 +25,14 @@ A redirect type sets the response status code for the clients to understand the 
 
 ## Redirection capabilities:
 
--  **Global redirection**
-
-   Redirects from one listener to another listener on the gateway. This enables HTTP to HTTPS redirection on a site.
+-  **Listener redirection**
+   
+   Redirects from one listener to another listener. Listener redirection is commonly used to enables HTTP to HTTPS redirection.
+   
 - **Path-based redirection**
 
-   This type of redirection enables HTTP to HTTPS redirection only on a specific site area, for example a shopping cart area denoted by /cart/*.
+   This type of redirection enables redirection only on a specific site area, for example, redirecting HTTP to HTTPS requests for a shopping cart area denoted by /cart/\*.
+   
 - **Redirect to external site**
 
 ![Diagram shows users and an App Gateway and connections between the two, including an unlocked H T T P red arrow, a not allowed 301 direct red arrow, and a locked H T T P S a green arrow.](./media/redirect-overview/redirect.png)
