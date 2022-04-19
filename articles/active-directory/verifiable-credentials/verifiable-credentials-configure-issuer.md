@@ -7,7 +7,7 @@ author: barclayn
 manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 04/19/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -58,33 +58,6 @@ Create and configure Blob Storage by following these steps:
 1. Select **Create**.  
 
    ![Screenshot that shows how to create a container.](media/verifiable-credentials-configure-issuer/create-container.png)
-
-## Grant access to the container
-
-After you create your container, grant the signed-in user the correct role assignment so they can access the files in Blob Storage.
-
-1. From the list of containers, select **vc-container**.
-
-1. From the menu, select **Access Control (IAM)**.
-
-1. Select **+ Add,** and then select **Add role assignment**.
-
-     ![Screenshot that shows how to add a new role assignment to the blob container.](media/verifiable-credentials-configure-issuer/add-role-assignment.png)
-
-1. In **Add role assignment**:
-
-    1. For the **Role**, select **Storage Blob Data Reader**.
-
-    1. For the **Assign access to**, select **User, group, or service
-        principal**.
-
-    1. Then, search the account that you're using to perform these steps, and
-        select it.
-
-        ![Screenshot that shows how to set up the new role assignment.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
-
->[!IMPORTANT]
->By default, container creators get the owner role assigned. The owner role isn't enough on its own. Your account needs the storage blob data reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md).
 
 ### Upload the configuration files
 
