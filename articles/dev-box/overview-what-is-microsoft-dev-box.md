@@ -20,7 +20,7 @@ Several roles within an organization should collaborate to successfully deploy, 
 
 ## How does Microsoft Dev Box work?
 
-![Diagram that shows the Microsoft Dev Box service structure.](/Documentation/media/service-structure.png)
+![Diagram that shows the Microsoft Dev Box service structure.](./media/overview-what-is-microsoft-dev-box/service-structure.png)
 
 The Microsoft Dev Box service uses DevCenters to align resources with the needs of business or functional units. DevCenter Owners create and manage DevCenters, configuring network connections, security and access policies, update policies, and audit policies. A DevCenter Owner can define one or more DevCenters for the enterprise. 
 
