@@ -1482,13 +1482,13 @@ items:
   items:
   - name: Quickstarts
     items:
-    - name: Connect an Azure Purview Account
+    - name: Connect a Microsoft Purview Account
       href: ./catalog-and-governance/quickstart-connect-azure-purview.md
   - name: How-to guides
     items:
-    - name: Access a secured Azure Purview account
+    - name: Access a secured Microsoft Purview account
       href: ./catalog-and-governance/how-to-access-secured-purview-account.md
-    - name: Discover, connect and explore data in Synapse using Azure Purview
+    - name: Discover, connect and explore data in Synapse using Microsoft Purview
       href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: How-to
   items:
