@@ -247,6 +247,8 @@
         href: bcinthecloud-tutorial.md
       - name: Bealink
         href: bealink-tutorial.md  
+      - name: Beatrust
+        href: beatrust-tutorial.md
       - name: Beekeeper Azure AD Data Connector
         href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
