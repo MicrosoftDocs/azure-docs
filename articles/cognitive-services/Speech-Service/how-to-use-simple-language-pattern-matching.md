@@ -35,6 +35,8 @@ Use this sample code if:
 * You don't have access to a [LUIS](../LUIS/index.yml) app, but still want intents. 
 * You can't or don't want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
 
+For more information, see the [pattern matching overview](./pattern-matching-overview.md).
+
 ## Prerequisites
 
 Be sure you have the following items before you begin this guide:
