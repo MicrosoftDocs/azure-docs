@@ -16,11 +16,42 @@ ms.reviewer: ylunagaria
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
+>
+> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
+
+## Known unsupported clients
+
+The following clients are known to be incompatible with SFTP for Azure Blob Storage (preview). See [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms) for more information.
+
+- Axway
+- Five9
+- Kemp
+- Moveit
+- Mule
+- paramiko 1.16.0
+- Salesforce
+- SSH.NET 2016.1.0
+- Workday
+- XFB.Gateway
+
+> [!NOTE]
+> The unsupported client list above is not exhaustive and may change over time.
+
+## Unsupported operations
+
+| Category | Unsupported operations |
+|---|---|
+| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving permissions |
+| Resume operations |<li>`reget`, `get -a`- resume download<li>`reput`. `put -a` - resume upload |
+| Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
+| Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
+| Capacity Information | `df` - usage info for filesystem |
+| Extensions | Unsupported extensions include but are not limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
+| SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of the key exchange will fail. |
+| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  are not allowed from other protocols on blobs that are created by using SFTP. Full overwrites are allowed.|
 
 ## Authentication and authorization
 
@@ -61,13 +92,13 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - Special containers such as $logs, $blobchangefeed, $root, $web are not accessible via the SFTP endpoint. 
 
-- When using custom domains the connection string is `<accountName>.<userName>@customdomain.com`. If home directory has not been specified for the user, it is `<accountName>.<containerName>.<userName>@customdomain.com`.
-
 - Symbolic links are not supported.
 
 - `ssh-keyscan` is not supported.
 
 - SSH commands, that are not SFTP, are not supported.
+
+- West Europe will temporarily still require registration of the SFTP preview feature.
 
 ## Troubleshooting
 
@@ -77,7 +108,7 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
   
   - The account needs to have hierarchical namespace enabled on it.
   
-  - Customer's subscription needs to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
+  - Accounts in West Europe will temporarily require the customer's subscription to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   

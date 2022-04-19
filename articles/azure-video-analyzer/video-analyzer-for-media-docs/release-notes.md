@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 03/01/2022
+ms.date: 04/07/2022
 ms.author: juliako
 ---
 
@@ -13,10 +13,49 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Analyzer for Media (former Video Indexer) developments, this article provides you with information about:
 
+* [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## Upcoming critical changes
+
+> [!Important]
+> This section describes a critical upcoming change for the `Upload-Video` API.
+
+
+### Upload-Video API
+
+In the past, the `Upload-Video` API was tolerant to calls to upload a video from a URL where an empty multipart form body was provided in the C# code, such as:
+
+```csharp
+var content = new MultipartFormDataContent();
+var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
+```
+
+In the coming weeks, our service will fail requests of this type.
+
+In order to upload a video from a URL, change your code to send null in the request body:
+
+```csharp
+var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
+```
+
+## March 2022 release updates
+
+### Closed Captioning files now support including speakers’ attributes
+
+Video Analyzer for Media enables you to include speakers' characteristic based on a closed captioning file that you choose to download. To include the speakers’ attributes, select Downloads -> Closed Captions -> choose the closed captioning downloadable file format (SRT, VTT, TTML, TXT, or CSV) and check **Include speakers** checkbox.
+
+### Improvements to the widget offering
+
+The following improvements were made:
+
+* Video Analyzer for Media widgets support more than 1 locale in a widget's parameter.
+* The Insights widgets support initial search parameters and multiple sorting options. 
+* The Insights widgets also include a confirmation step before deleting a face to avoid mistakes.
+* The widget customization now supports width as strings (for example 100%, 100vw).
 
 ## February 2022
 
@@ -108,7 +147,7 @@ Fixed bugs related to CSS, theming and accessibility:
 
 ### Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
 
@@ -244,7 +283,7 @@ To enable the dark mode open the settings panel and toggle on the **Dark Mode** 
 
 :::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
 
-## December 2020
+## December 2020 
 
 ### Video Analyzer for Media deployed in the Switzerland West and Switzerland North
 
@@ -457,7 +496,7 @@ Multiple advancements announced at IBC 2019:
 
     The topic inferencing model now supports deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## August 2019
+## August 2019 updates
 
 ### Video Analyzer for Media deployed in UK South
 

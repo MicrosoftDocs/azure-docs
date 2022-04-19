@@ -404,11 +404,11 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | **Supported by** | Microsoft |
 
 
-## Azure Purview
+## Microsoft Purview
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md). |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md). |
 | **Log Analytics table(s)** | PurviewDataSensitivityLogs |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
@@ -1115,7 +1115,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration:<br>[Connect data from Microsoft 365 Defender to Microsoft Sentinel](connect-microsoft-365-defender.md)** (Top connector article) |
 | **License prerequisites/<br>Cost information** | [Valid license for Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
-| **Log Analytics table(s)** | **Alerts:**<br>SecurityAlert<br>SecurityIncident<br>**Defender for Endpoint events:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Defender for Office 365 events:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents |
+| **Log Analytics table(s)** | **Alerts:**<br>SecurityAlert<br>SecurityIncident<br>**Defender for Endpoint events:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Defender for Office 365 events:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents<br>**Defender for Identity events:**<br>IdentityDirectoryEvents<br>IdentityInfo<br>IdentityLogonEvents<br>IdentityQueryEvents<br>**Defender for Cloud Apps events:**<br>CloudAppEvents<br>**Defender alerts as events:**<br>AlertInfo<br>AlertEvidence |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
 

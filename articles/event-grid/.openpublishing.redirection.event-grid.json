@@ -39,6 +39,11 @@
       "source_path": "event-subscription-template.md",
       "redirect_url": "/azure/event-grid/template-samples",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "partner-onboarding-overview.md",
+      "redirect_url": "/azure/event-grid/onboard-partner",
+      "redirect_document_id": false
+    }    
   ]
 }

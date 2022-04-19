@@ -2,6 +2,8 @@
 title: Network isolation
 description: Learn how to enable and configure network isolation for labs in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/21/2022
 ---
 

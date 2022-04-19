@@ -44,7 +44,7 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
     ![Application Settings](./media/configure-common/open-ui.png)
 
-    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show value** button.
+    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show values** button.
 
 1. To add a new app setting, click **New application setting**. To edit a setting, click the **Edit** button on the right side.
 
@@ -213,7 +213,7 @@ At runtime, connection strings are available as environment variables, prefixed 
 * Custom: `CUSTOMCONNSTR_`
 * PostgreSQL: `POSTGRESQLCONNSTR_`  
 
-For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
+For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](configure-language-nodejs.md#access-environment-variables)

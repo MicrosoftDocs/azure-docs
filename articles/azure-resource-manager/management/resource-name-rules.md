@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 03/29/2022
+ms.date: 04/13/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -77,6 +77,13 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | configurationStores | resource group | 5-50 | Alphanumerics, underscores, and hyphens. |
+
+## Microsoft.AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | spring | resource group | 4-32 | Lowercase letters, numbers, and hyphens. |
 
 ## Microsoft.Authorization
 
@@ -511,6 +518,16 @@ In the following tables, the term alphanumeric refers to:
 > | mediaservices / liveEvents / liveOutputs | Live event | 1-256 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 
+## Microsoft.NetApp
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | netAppAccounts | resource group | 1-128 | Alphanumerics, underscores, periods, and hyphens. |
+> | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts / volumeGroups | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
+
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -569,7 +586,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
-> | workspaces | global | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | workspaces | resource group | 4-63 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
 
 ## Microsoft.OperationsManagement
 
@@ -598,6 +615,13 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | capacities | region | 3-63 | Lowercase letters or numbers<br><br>Start with lowercase letter. |
+
+## Microsoft.Quantum
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | workspaces | region | 2-54 | Alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 
 ## Microsoft.RecoveryServices
 
@@ -689,13 +713,13 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br> Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place.<br><br> Can't have any special characters, such as `@`. |
-> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. Can’t have hyphen twice in both third and fourth place. |
+> | managedInstances | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br> Can't start or end with hyphen. |
+> | servers | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / administrators | server |  | Must be `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
-> | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | servers / failoverGroups | global |  1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
 > | servers / keys | server |  | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
 
