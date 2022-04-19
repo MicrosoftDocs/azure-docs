@@ -226,7 +226,7 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
 curl -i -X POST https://your-Language-endpoint-here/language/analyze-text/jobs?api-version=2022-04-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-Language-key-here" \
--d '{"analysisInput":{"documents": [{"text": "The doctor prescried 200mg Ibuprofen.","language": "en","id": "1"}]},"tasks":[{"taskName": "analyze 1","kind": "Healthcare","parameters": {"fhirVersion": "4.0.1"}}]}'
+-d '{"analysisInput":{"documents": [{"text": "The doctor prescried 200mg Ibuprofen.","language": "en","id": "1"}]},"tasks":[{"taskId": "analyze 1","kind": "Healthcare","parameters": {"fhirVersion": "4.0.1"}}]}'
 ```
 
 Get the `operation-location` from the response header. The value will look similar to the following URL:
