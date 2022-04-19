@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) support
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 04/04/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
@@ -377,7 +377,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | No |
+| Partial | Only supported with unique indexes |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
@@ -404,7 +404,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 | Command | Supported |
 |---------|---------|
-| $expr | No |
+| $expr | Yes |
 | $jsonSchema | No |
 | $mod | Yes |
 | $regex | Yes |
