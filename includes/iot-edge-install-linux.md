@@ -89,6 +89,7 @@ We recommend using `local` logging driver as it offers a default log size limit,
 Add (or append) this information to a file named `daemon.json` and place it in the following location:
 
 * `/etc/docker/`
+
 The container engine must be restarted for the changes to take effect.
 
    > [!TIP]
