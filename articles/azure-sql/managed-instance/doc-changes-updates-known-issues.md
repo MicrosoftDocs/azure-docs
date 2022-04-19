@@ -84,8 +84,10 @@ If an instance participates in an [auto-failover group](../database/auto-failove
 
 ### Procedure sp_send_dbmail may transiently fail when @query parameter is used
 
-Procedure `sp_send_dbmail` may transiently fail when `@query` parameter is used. When this issue occurs, every second execution of procedure sp_send_dbmail fails with error `Msg 22050, Level 16, State 1` and message `Failed to initialize sqlcmd library with error number -2147467259`. To be able to see this error properly, the procedure should be called with default value 0 for the parameter `@exclude_query_output`, otherwise the error will not be propagated.
+Procedure `sp_send_dbmail` may transiently fail when `@query` parameter is used. When this issue occurs, every second execution of procedure `sp_send_dbmail` fails with error `Msg 22050, Level 16, State 1` and message `Failed to initialize sqlcmd library with error number -2147467259`. To be able to see this error properly, the procedure should be called with default value 0 for the parameter `@exclude_query_output`, otherwise the error will not be propagated.
+
 This problem is caused by a known bug related to how `sp_send_dbmail` is using impersonation and connection pooling.
+
 To work around this issue wrap code for sending email into a retry logic that relies on output parameter `@mailitem_id`. If the execution fails, then parameter value will be NULL, indicating `sp_send_dbmail` should be called one more time to successfully send an email. Here is an example this retry logic.
 
 ```sql
