@@ -27,11 +27,6 @@ This article lists significant changes to Azure Monitor documentation.
 
 ### Application Insights
 
-**New articles**
-
-- [Error retrieving data message on Application Insights portal](app/troubleshoot-portal-connectivity.md)
-- [Troubleshooting Azure Application Insights auto-instrumentation](app/auto-instrumentation-troubleshoot.md)
-
 **Updated articles**
 
 - [Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)
