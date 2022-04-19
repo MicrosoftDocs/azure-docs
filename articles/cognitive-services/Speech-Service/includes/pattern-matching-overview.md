@@ -14,7 +14,7 @@ Pattern matching can be customized to group together pattern intents and entitie
 
 For supported locales see [here](../language-support.md?tabs=IntentRecognitionPatternMatcher).
 
-### Patterns vs. Exact Phrases
+## Patterns vs. Exact Phrases
 
 There are two types of strings used in the pattern matcher: "exact phrases" and "patterns". It's important to understand the differences.
 
@@ -26,25 +26,25 @@ A pattern is a phrase that contains a marked entity. Entities are marked with "{
 
 > "Take me to floor {floorName}"
 
-### Outline of a PatternMatchingModel
+## Outline of a PatternMatchingModel
 
 The ``PatternMatchingModel`` contains an ID to reference that model by, a list of ``PatternMatchingIntent`` objects, and a list of ``PatternMatchingEntity`` objects.
 
-#### Pattern Matching Intents
+### Pattern Matching Intents
 
 ``PatternMatchingIntent`` objects represent a collection of phrases that will be used to evaluate speech or text in the ``IntentRecognizer``. If the phrases are matched, the ``IntentRecognitionResult`` returned will have the ID of the ``PatternMatchingIntent`` that was matched.
 
-#### Pattern Matching Entities
+### Pattern Matching Entities
 
 ``PatternMatchingEntity`` objects represent an individual entity reference and its corresponding properties that tell the ``IntentRecognizer`` how to treat it. All ``PatternMatchingEntity`` objects must have an ID that is present in a phrase or else it will never be matched.
 
-##### Entity Naming restrictions
+#### Entity Naming restrictions
 
 Entity names containing ':' characters will assign a role to an entity. (See below)
 
-### Types of Entities
+## Types of Entities
 
-#### Any Entity
+### Any Entity
 
 The "Any" entity will match any text that appears in that slot regardless of the text it contains. If we consider our previous example using the pattern "Take me to floor {floorName}", the user might say something like:
 
@@ -60,7 +60,7 @@ In this case, the utterance "Take me to the floor parking 2" would match and ret
 
 It may be tricky to handle extra text if it's captured. Perhaps the user kept talking and the utterance captured more than their command. "Take me to floor parking 2 yes Janice I heard about that let's". In this case the floorName1 would be correct, but floorName2 would = "2 yes Janice I heard about that let's". It's important to be aware of the way the Entities will match and adjust to your scenario appropriately. The Any entity type is the most basic and least precise.
 
-#### List Entity
+### List Entity
 
 The "List" entity is made up of a list of phrases that will guide the engine on how to match it. The "List" entity has two modes. "Strict" and "Fuzzy".
 
@@ -81,11 +81,11 @@ When an entity is of type "List" and is in "Fuzzy" mode, the engine will still m
 > [!WARNING]
 > Fuzzy list entities are implemented, but not integrated into the speech recognition part. Therefore, they will match entities, but not improve speech recognition.
 
-#### Prebuilt Integer Entity
+### Prebuilt Integer Entity
 
 The "PrebuiltInteger" entity is used when you expect to get an integer in that slot. It won't match the intent if an integer cannot be found. The return value is a string representation of the number.
 
-#### Examples of a valid match and return values
+### Examples of a valid match and return values
 
 > "Two thousand one hundred and fifty-five" -> "2155"
 
@@ -97,7 +97,7 @@ The "PrebuiltInteger" entity is used when you expect to get an integer in that s
 
 If there's text that is not recognizable as a number, the entity and intent will not match.
 
-#### Examples of an invalid match
+### Examples of an invalid match
 
 > "the third"
 
@@ -113,7 +113,7 @@ Consider our elevator example.
 
 If "floorName" is a prebuilt integer entity, the expectation is that whatever text is inside the slot will represent an integer. Here a floor number would match well, but a floor with a name such as "lobby" would not.
 
-### Grouping required and optional items
+## Grouping required and optional items
 
 In the pattern it's allowed to include words or entities that may be present in the utterance or not. This is especially useful for determiners like  "the", "a", or "an". This doesn't have any functional difference from hard coding out the many combinations, but can help reduce the number of patterns needed. Indicate optional items with "[" and "]". Indicate required items with "(" and ")". You may include multiple items in the same group by separating them with a '|' character.
 
@@ -143,14 +143,14 @@ It's also possible to include optional entities. Imagine there are multiple park
 
 >"Take me to [{floorType}] {floorName}"
 
-Optionals are also very useful if you might be using keyword recognition and a push to talk function. This means sometimes the keyword will be present, and sometimes it won't. Assuming your keyword was "computer" your pattern would look something like this.
+Optionals are also very useful if you might be using keyword recognition and a push-to-talk function. This means sometimes the keyword will be present, and sometimes it won't. Assuming your keyword was "computer" your pattern would look something like this.
 
 >"[Computer] Take me to {floorName}"
 
 > [!NOTE]
 > While it's helpful to use optional items, it increases the chances of pattern collisions. This is where two patterns can match the same-spoken phrase. If this occurs, it can sometimes be solved by separating out the optional items into separate patterns.
 
-### Entity roles
+## Entity roles
 
 Inside the pattern, there may be a scenario where you want to use the same entity multiple times. Consider the scenario of booking a flight from one city to another. In this case the list of cities is the same, but it's necessary to know which city is the user coming from and which city is the destination. To accomplish this, you can use a role assigned to an entity using a ':'.
 
@@ -158,7 +158,7 @@ Inside the pattern, there may be a scenario where you want to use the same entit
 
 Given a pattern like this, there will be two entities in the result labeled "city:from" and "city:destination" but they'll both be referencing the "city" entity for matching purposes.
 
-### Intent Matching Priority
+## Intent Matching Priority
 
 Sometimes multiple patterns may match the same utterance. In this case, the engine will give priority to patterns as follows.
 
@@ -172,4 +172,4 @@ Sometimes multiple patterns may match the same utterance. In this case, the engi
 
 * Start with [simple pattern matching](../how-to-use-simple-language-pattern-matching.md).
 * Improve your pattern matching by using [custom entities](../how-to-use-custom-entity-pattern-matching.md).
-* Look through our [Github samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+* Look through our [GitHub samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).

@@ -48,10 +48,6 @@ Be sure you have the following items before you begin this guide:
 - A [Cognitive Services Azure resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
 
-## Pattern Matching Model overview
-
-[!INCLUDE [Pattern Matching Overview](includes/pattern-matching-overview.md)]
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [csharp](includes/how-to/intent-recognition/csharp/pattern-matching.md)]
 ::: zone-end

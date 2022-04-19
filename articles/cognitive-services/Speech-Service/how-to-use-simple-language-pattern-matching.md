@@ -67,4 +67,4 @@ Intents will be added using calls to the IntentRecognizer->AddIntent() API.
 ## Next steps
 
 * Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
-* Look through our [Github samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+* Look through our [GitHub samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
