@@ -657,12 +657,3 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
    }
 }
 ```
-
-
-
-
-
-
-
-
-
