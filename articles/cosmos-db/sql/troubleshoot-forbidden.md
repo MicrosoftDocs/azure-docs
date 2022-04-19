@@ -69,7 +69,7 @@ Forbidden (403); Substatus: 5300; The given request [PUT ...] cannot be authoriz
 
 ### Solution
 Perform the operation through Azure Resource Manager, Azure portal, Azure CLI, or Azure PowerShell.
-If you are using the [Azure Functions Cosmos DB Trigger](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) make sure `CreateLeaseContainerIfNotExists` is not set to `true`, as any non-data operation (like creating the lease container) would be blocked when using Azure AD identities.
+If you are using the [Azure Functions Cosmos DB Trigger](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) make sure the `CreateLeaseContainerIfNotExists` property of the trigger isn't set to `true`. Using Azure AD identities blocks any non-data operation, such as creating the lease container.
 
 ## Next steps
 * Configure [IP Firewall](../how-to-configure-firewall.md).
