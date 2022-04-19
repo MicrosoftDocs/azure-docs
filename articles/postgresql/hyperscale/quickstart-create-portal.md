@@ -7,17 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/09/2022
+ms.date: 04/19/2022
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
 # Create a Hyperscale (Citus) server group in the Azure portal
 
 Azure Database for PostgreSQL - Hyperscale (Citus) is a managed service that
-you to run horizontally scalable PostgreSQL databases in the cloud. This
-Quickstart shows you how to create a Hyperscale (Citus) server group using the
-Azure portal. You'll explore distributed data: sharding tables across nodes,
-generating sample data, and running queries that execute on multiple nodes.
+allows you to run horizontally scalable PostgreSQL databases in the cloud.
+Using the Basic Tier, you can experiment with Hyperscale (Citus) for a few
+dollars a day. Let's get started.
 
 ## Prerequisites
 
@@ -29,12 +28,23 @@ To follow this quickstart, you'll first need to:
 
 ## Create server group
 
-1. Select **Create a resource** (+) in the upper-left corner of the portal.
-2. Select **Databases** > **Azure Database for PostgreSQL**.
-   ![create a resource menu](../media/quickstart-hyperscale-create-portal/database-service.png)
+# [Direct link](#tab/direct)
+
+Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup).
+
+# [Via portal search](#tab/portal-search)
+
+1. Visit the [Azure portal](https://portal.azure.com/) and search for
+   **citus**. Select **Azure Database for PostgreSQL Hyperscale (Citus)**.
+   ![search for citus](../media/quickstart-hyperscale-create-portal/portal-search.png)
+2. Select **+ Create**.
+   ![create button](../media/quickstart-hyperscale-create-portal/create-button.png)
 3. Select the **Hyperscale (Citus) server group** deployment option.
    ![deployment options](../media/quickstart-hyperscale-create-portal/deployment-option.png)
-4. Fill out the **Basics** form with the following information:
+
+---
+
+1. Fill out the **Basics** form with the following information:
    ![basic info form](../media/quickstart-hyperscale-create-portal/basics.png)
 
    | Setting           | Description       |
@@ -47,26 +57,25 @@ To follow this quickstart, you'll first need to:
    | Password          | A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.). |
    | Version           | The latest PostgreSQL major version, unless you have specific requirements. |
 
-5. Select **Configure server group**.
+2. Select **Configure server group**.
 
    ![compute and storage](../media/quickstart-hyperscale-create-portal/compute.png)
 
    For this quickstart, you can accept the default value of **Basic** for
-   **Tiers**. The other option, standard tier, creates worker nodes for
-   greater total data capacity and query parallelism. See
-   [tiers](concepts-server-group.md#tiers) for a more in-depth comparison.
+   **Tiers**. The Basic Tier allows you to experiment with a single-node
+   server group for a few dollars a day.
 
-6. Select **Save**.
+3. Select **Save**.
 
-7. Select **Next : Networking >** at the bottom of the screen.
-8. In the **Networking** tab, select **Allow public access from Azure services
+4. Select **Next : Networking >** at the bottom of the screen.
+5. In the **Networking** tab, select **Allow public access from Azure services
    and resources within Azure to this server group**.
 
    ![networking configuration](../media/quickstart-hyperscale-create-portal/networking.png)
 
-9. Select **Review + create** and then **Create** to create the server.
+6. Select **Review + create** and then **Create** to create the server.
    Provisioning takes a few minutes.
-10. The page will redirect to monitor deployment. When the live status changes
+7. The page will redirect to monitor deployment. When the live status changes
    from **Deployment is in progress** to **Your deployment is complete**.
    After this transition, select **Go to resource**.
 
