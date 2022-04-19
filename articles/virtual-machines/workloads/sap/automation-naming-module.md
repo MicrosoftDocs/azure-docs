@@ -17,11 +17,10 @@ The Terraform module `sap_namegenerator` defines the names of all resources that
 
 If these capabilities are not enough you can also use custom naming logic by either providing a custom json file containing the resource names or by modifying the naming module used by the automation.
 
-# Provide name overrides using a json file
+## Provide name overrides using a json file
 
 You can specify a custom naming json file in your tfvars parameter file using the 'name_override_file' parameter.
-# Configure custom naming module
-
+## Configure custom naming module
 
 There are multiple files within the module for naming resources:
 
