@@ -21,7 +21,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * To get started, you must have an existing Microsoft Purview account. If you don't have a catalog, see the [quickstart for creating a Azure Purview account](create-catalog-portal.md).
 
-* To establish bearer token and to call any Data Plane APIs see the documentation here [how to call REST APIs for Purview Data planes](tutorial-using-rest-apis.md).
+* To establish bearer token and to call any Data Plane APIs see [the documentation about how to call REST APIs for Purview Data planes](tutorial-using-rest-apis.md).
 
 ## Business Metadata APIs
 
