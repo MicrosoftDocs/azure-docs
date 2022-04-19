@@ -35,7 +35,7 @@ The following versions of the Windows and Linux operating system are officially 
 * Oracle Linux 7 and 8
 
 > [!NOTE] 
-> On Linux, Azure Arc-enabled servers installs several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-Enabled servers is not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
+> On Linux, Azure Arc-enabled servers installs several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers is not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
 
 
 > [!WARNING]
