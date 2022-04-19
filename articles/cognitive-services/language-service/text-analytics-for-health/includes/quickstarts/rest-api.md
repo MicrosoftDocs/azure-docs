@@ -43,7 +43,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 > [!NOTE]
 > FHIR support is available in Language API preview.
 
-# [Language](#tab/Language API (Preview))
+# [Language API (Preview)](#tab/Language)
 
 ```bash
 curl -i -X POST https://your-Language-endpoint-here/language/analyze-text/jobs?api-version=2022-04-01-preview \
@@ -480,7 +480,7 @@ curl -X GET  https://your-Language-endpoint-here/language/analyze-text/jobs/{JOB
 
 ```
 
-# [Text-Analytics-API](#tab/Text Analytics API)
+# [Text Analytics API](#tab/Text-Analytics-API)
 
 ```bash
 curl -i -X POST https://your-text-analytics-endpoint-here/text/analytics/v3.1/entities/health/jobs \
