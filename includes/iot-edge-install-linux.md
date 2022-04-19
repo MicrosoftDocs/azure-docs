@@ -67,7 +67,7 @@ Install the Moby engine.
 Once the Moby Engine is successfully installed, configure the Docker daemon to use the [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
 >[!NOTE]
->Local logging driver provides a default log limit size and performs log-rotation by default which helps to prevent disk exhaustion. 
+>By default, the Moby container engine does not set a container log size limit which can lead to the device filling up with logs over time and running out of disk space. The local logging driver provides a default log limit size and performs log-rotation by default which helps to prevent disk exhaustion. 
 
 The following example sets the default logging driver to the `local` logging driver.   
    
