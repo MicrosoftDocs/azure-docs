@@ -48,7 +48,7 @@ MATLAB is supported on more operating systems than Windows 10. For more informat
 
 ## Template machine configuration
 
-After the template machine is created, start the machine and connect it to complete the following major tasks:
+After the template machine is created, start the machine and connect to the template machine to complete the following major tasks:
 
 1. Download the installation files for the MATLAB client software.
 2. Install MATLAB using the file installation key.
