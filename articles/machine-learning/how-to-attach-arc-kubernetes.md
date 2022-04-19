@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/23/2021
 ms.topic: how-to
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, sdkv1
 ---
 
 # Configure Kubernetes clusters for machine learning (preview)
@@ -331,6 +331,8 @@ You can use the Azure Machine Learning Python SDK to attach Azure Arc-enabled Ku
 The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target with managed identity enabled.
 
 Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md).
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import KubernetesCompute

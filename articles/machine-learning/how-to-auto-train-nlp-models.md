@@ -8,13 +8,15 @@ ms.author: wenxwei
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom:
+ms.custom: sdkv1
 ms.date: 03/15/2022
 
 # Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
 # Set up AutoML to train a natural language processing model with Python (preview)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

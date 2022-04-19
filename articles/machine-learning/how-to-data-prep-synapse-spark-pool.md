@@ -10,13 +10,16 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
+ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1
 
 
 # Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
 ---
 
 # Data wrangling with Apache Spark pools (preview) 
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 
 In this article, you learn how to perform data wrangling tasks interactively within a dedicated Synapse session, powered by [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), in a Jupyter notebook using the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). 
 

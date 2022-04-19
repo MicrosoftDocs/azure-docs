@@ -11,7 +11,7 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml
+ms.custom: devx-track-python, data4ml, sdkv1
 
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 
@@ -114,6 +114,8 @@ If you don't want to create a ML pipeline, you can access the data directly from
 
 The following Python code demonstrates how to create a datastore that connects to Azure DataLake Generation 2 storage. [Learn more about datastores and where to find service principal permissions](how-to-access-data.md#create-and-register-datastores).
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 ws = Workspace.from_config()
 adlsgen2_datastore_name = '<ADLS gen2 storage account alias>'  #set ADLS Gen2 storage account alias in AML
@@ -138,6 +140,8 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(
 Next, create a dataset to reference the file(s) you want to use in your machine learning task. 
 
 The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](how-to-create-register-datasets.md#dataset-types). 
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace, Datastore, Dataset

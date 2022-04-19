@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1
+ms.custom: devx-track-azurecli, cliv1, sdkv1
 ms.author: ssambare
 author:  shivanissambare
 ms.reviewer: larryfr
@@ -158,6 +158,8 @@ The following example demonstrates how to create a new AKS cluster using the SDK
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
@@ -232,6 +234,8 @@ The following example demonstrates how to attach an existing AKS cluster to your
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 # Set the resource group that contains the AKS cluster and the cluster name
@@ -290,6 +294,9 @@ For information on attaching an AKS cluster in the portal, see [Create compute t
 When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md), you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both methods return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
 
 Following example shows how to enable TLS termination with automatic TLS certificate generation and configuration by using Microsoft certificate under the hood.
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
    
@@ -310,6 +317,8 @@ Following example shows how to enable TLS termination with automatic TLS certifi
 
 ```
 Following example shows how to enable TLS termination with custom certificate and custom domain name. With custom domain and certificate, you must update your DNS record to point to the IP address of scoring endpoint, please see [Update your DNS](how-to-secure-web-service.md#update-your-dns)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
@@ -335,6 +344,8 @@ When you create or attach an AKS cluster, you can configure the cluster to use a
 
 # [Create](#tab/akscreate)
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 To create an AKS cluster that uses an Internal Load Balancer, use the `load_balancer_type` and `load_balancer_subnet` parameters:
 
 ```python
@@ -356,6 +367,8 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 # [Attach](#tab/aksattach)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 To attach an AKS cluster and use an internal load balancer (no public IP for the cluster), use the `load_balancer_type` and `load_balancer_subnet` parameters:
 
@@ -398,6 +411,8 @@ To detach a cluster from your workspace, use one of the following methods:
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 aks_target.detach()
 ```
@@ -425,6 +440,8 @@ Updates to Azure Machine Learning components installed in an Azure Kubernetes Se
 
 You can apply these updates by detaching the cluster from the Azure Machine Learning workspace and reattaching the cluster to the workspace. 
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
 compute_target.detach()
@@ -445,6 +462,8 @@ kubectl delete cm azuremlfeconfig
 ```
 
 If TLS is enabled in the cluster, you will need to supply the TLS/SSL certificate and private key when reattaching the cluster.
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)

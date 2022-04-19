@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl
+ms.custom: automl, sdkv1
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
@@ -15,6 +15,8 @@ ms.date: 11/15/2021
 ---
 
 # Configure training, validation, cross-validation and test data in automated machine learning
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn the different options for configuring training data and validation data splits along with cross-validation settings for your automated machine learning, automated ML, experiments.
 

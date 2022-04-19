@@ -10,11 +10,12 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy
+ms.custom: devx-track-python, deploy, sdkv1
 ---
 
 # Deploy a deep learning model for inference with GPU
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 

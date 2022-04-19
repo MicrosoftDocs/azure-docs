@@ -10,7 +10,7 @@ ms.author: wibuchan
 author: buchananwp
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: data4ml, contperf-fy21q2
+ms.custom: data4ml, contperf-fy21q2, sdkv1
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 
@@ -104,6 +104,8 @@ The target dataset needs the `timeseries` trait set on it by specifying the time
 # [Python](#tab/python)
 <a name="sdk-dataset"></a>
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 The [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
 
 ```python 
@@ -160,6 +162,9 @@ Create a dataset monitor to detect and alert to data drift on a new dataset.  Us
 
 # [Python](#tab/python)
 <a name="sdk-monitor"></a>
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 See the [Python SDK reference documentation on data drift](/python/api/azureml-datadrift/azureml.datadrift) for full details. 
 
 The following example shows how to create a dataset monitor using the Python SDK

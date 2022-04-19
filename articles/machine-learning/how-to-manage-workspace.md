@@ -9,7 +9,7 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 03/08/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1
 
 ---
 
@@ -37,6 +37,8 @@ As your needs change or requirements for automation increase you can also manage
 ## Create a workspace
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 * **Default specification.** By default, dependent resources and the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
@@ -264,6 +266,8 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## Connect to a workspace
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
 
 ```python
@@ -284,6 +288,8 @@ ws = Workspace.from_config()
 
 * **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
+   [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
     from azureml.core import Workspace
@@ -299,6 +305,8 @@ If you have problems in accessing your subscription, see [Set up authentication 
 See a list of all the workspaces you can use.
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Find your subscriptions in the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Copy the ID and use it in the code below to see all workspaces available for that subscription.
 
@@ -380,6 +388,8 @@ When you no longer need a workspace, delete it.
 If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Delete the workspace `ws`:
 
