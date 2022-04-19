@@ -91,7 +91,7 @@ You'll need a form document. You can use our [sample form document](https://raw.
 * For best results, provide one clear photo or high-quality scan per document.
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
+* The file size must be less than 50 MB (4 MB for the free tier).
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 
 > [!NOTE]

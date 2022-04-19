@@ -20,10 +20,10 @@ In this article, you learn how to create a user-assigned managed identity for yo
 
 ## Create a user-assigned managed identity
 
-To create a user-assigned managed identity, your account needs the [Managed Identity Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) assignment.
+To create a user-assigned managed identity, your account needs the [Managed Identity Contributor role](../role-based-access-control/built-in-roles.md#managed-identity-contributor) assignment.
 
 > [!NOTE] 
-> Only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported when you create user-assigned managed identities. For the assignment to a virtual machine or virtual machine scale set to work correctly, the name is limited to 24 characters. For more information, see [**FAQs and known issues**](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues)
+> Only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported when you create user-assigned managed identities. For the assignment to a virtual machine or virtual machine scale set to work correctly, the name is limited to 24 characters. For more information, see [**FAQs and known issues**](../active-directory/managed-identities-azure-resources/known-issues.md)
 
    ![Create managed identity](./media/common/create-managed-identity.png)
    
@@ -37,7 +37,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
 4. Select **Review + create** to review changes
 5. Select **Create**
 
-For more information on how to manager user-assigned managed identities please visit the [Managed user-assigned managed identities page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
+For more information on how to manager user-assigned managed identities please visit the [Managed user-assigned managed identities page](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp).
 
 
 ## Switching to user-assigned managed identity
@@ -62,8 +62,6 @@ After creating your user-assigned identity and configuring your input and output
 3.	Wait for a few minutes for the input/output to be granted access to the job.
 
 You can select each input and output on the endpoint management to manually configure an adapter to the job.
-
-
 
 ## Next steps
 

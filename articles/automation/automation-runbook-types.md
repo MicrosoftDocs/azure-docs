@@ -166,6 +166,7 @@ Python 3 runbooks are supported in the following Azure global infrastructures:
 * To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
 * Using **Start-AutomationRunbook** cmdlet in PowerShell/PowerShell Workflow to start a Python 3 runbook (preview) doesn't work. You can use **Start-AzAutomationRunbook** cmdlet from Az.Automation module or **Start-AzureRmAutomationRunbook** cmdlet from AzureRm.Automation module to work around this limitation.  
 * Azure Automation doesn't support **sys.stderr**.
+* The Python **automationassets** package is not available on pypi.org, so it's not available for import onto a Windows machine.
 
 ### Multiple Python versions
 

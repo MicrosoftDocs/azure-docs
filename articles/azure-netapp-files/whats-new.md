@@ -23,6 +23,14 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Disable showmount](disable-showmount.md) (Preview)
     By default, Azure NetApp Files enables showmount functionality to show NFS exported paths. The setting allows NFS clients tp use the showmount `-e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use showmount to see what is being returned. In those scenarios, you might want to disable showmount on Azure NetApp Files. This setting allows you to enable/disable showmount for your NFS-enabled storage endpoints.
 
+## April 2022
+
+* Features that are now generally available (GA)   
+
+    The following features are now GA. You no longer need to register the features before using them.   
+    * [Dynamic change of service level](dynamic-change-volume-service-level.md)
+    * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)    
+
 ## March 2022
 
 * Features that are now generally available (GA)   
