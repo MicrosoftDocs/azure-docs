@@ -355,7 +355,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 - Your logic app and storage account exist in different regions.
 
-There is no need to create private endpoint. You can simply whitelist ISE outgoing IPs on the storage account. 
+  You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account. 
 
 ### Access Blob Storage with managed identities
 
