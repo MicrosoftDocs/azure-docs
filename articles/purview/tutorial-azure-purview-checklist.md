@@ -53,4 +53,5 @@ This article lists prerequisites that help you get started quickly on Microsoft 
 |36     |Register and scan Data Sources in Microsoft Purview          |*Data Source admin* <br> *Data Reader* or *Data Curator*         | For more information, see [supported data sources and file types](azure-purview-connector-overview.md)        |
 |35     |Grant access to data roles in the organization          |*Collection admin*          |Provide access to other teams to use Microsoft Purview: <ul><li> Data curator</li><li>Data reader</li><li>Collection admin</li><li>Data source admin</li><li>Policy Author</li><li>Workflow admin</li></ul> <br> For more information, see [Access control in Microsoft Purview](catalog-permissions.md).      |
 
+## Next steps
 -  [Review Microsoft Purview deployment best practices](./deployment-best-practices.md)
