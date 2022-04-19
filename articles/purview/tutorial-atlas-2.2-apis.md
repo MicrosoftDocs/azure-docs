@@ -192,7 +192,7 @@ Sample JSON
 
 Labels are free text tags which can be applied to any atlas entity.
 
-### Set Labels to an entity
+### Set labels to an entity
 
 You can send POST request to the following endpoint
 
