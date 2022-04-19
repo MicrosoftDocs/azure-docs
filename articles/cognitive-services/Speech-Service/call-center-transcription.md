@@ -14,7 +14,7 @@ ms.author: eur
 
 # Speech service for telephony data
 
-Telephony data that's generated through landlines, mobile phones, and radios is ordinarily of low quality. This data is also narrowband, in the range of 8&nbsp;KHz, which can create challenges when you're converting speech to text. 
+Telephony data that's generated through landlines, mobile phones, and radios is ordinarily of low quality. This data is also narrowband, in the range of 8 KHz, which can create challenges when you're converting speech to text. 
 
 The latest Speech service speech-recognition models excel at transcribing this telephony data, even when the data is difficult for a human to understand. These models are trained with large volumes of telephony data, and they have best-in-market recognition accuracy, even in noisy environments.
 
@@ -131,7 +131,7 @@ Another scenario is direct integration with the Session Initiation Protocol (SIP
 
 The Speech service works well with built-in models. However, you might want to further customize and tune the experience for your product or environment. Customization options range from acoustic model tuning to unique voice fonts for your brand. After you've built a custom model, you can use it with any of the Speech service features in real-time or batch mode.
 
-| Speech service | Model | Description |
+| Speech feature | Model | Description |
 | -------------- | ----- | ----------- |
 | Speech-to-text | [Acoustic model](./how-to-custom-speech-train-model.md) | Create a custom acoustic model for applications, tools, or devices that are used in particular environments, such as in a car or on a factory floor, each with its own recording conditions. Examples include accented speech, background noises, or using a specific microphone for recording. |
 |                | [Language model](./how-to-custom-speech-train-model.md) | Create a custom language model to improve transcription of industry-specific vocabulary and grammar, such as medical terminology or IT jargon. |
@@ -156,4 +156,4 @@ Sample code is available on GitHub for each of the Speech service features. Thes
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+> [Learn about batch transcription](./batch-transcription.md)

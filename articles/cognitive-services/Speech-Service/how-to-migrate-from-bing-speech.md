@@ -83,6 +83,5 @@ For Speech service, SDK, and API support, visit the Speech service [support page
 
 ## Next steps
 
-* [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
 * [Get started with speech-to-text](get-started-speech-to-text.md)
 * [Get started with text-to-speech](get-started-text-to-speech.md)

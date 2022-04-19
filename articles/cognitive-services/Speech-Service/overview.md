@@ -56,7 +56,7 @@ The [Speech Studio](speech-studio-overview.md) is a set of UI-based tools for bu
 
 ## Delivery and presence
 
-You can deploy Azure Cognitive Speech features in the cloud or on-premises. 
+You can deploy Azure Cognitive Services Speech features in the cloud or on-premises. 
 
 With [containers](speech-container-howto.md), you can bring the service closer to your data for compliance, security, or other operational reasons. 
 

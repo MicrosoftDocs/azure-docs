@@ -336,12 +336,10 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Custom Speech portal](https://speech.microsoft.com/customspeech).
 
 The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the Custom Speech portal. From the Custom Speech portal, go to the **Training** page and select the model.
-<br>
 
 ![Screenshot that shows the Custom Speech training page.](media/custom-speech/custom-speech-model-training.png)
 
 Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the `docker run` command.
-<br>
 
 ![Screenshot that shows Custom Speech model details.](media/custom-speech/custom-speech-model-details.png)
 

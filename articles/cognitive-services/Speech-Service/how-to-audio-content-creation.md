@@ -30,7 +30,7 @@ The next sections cover how to create an Azure account and get a Speech resource
 
 ### Step 1: Create an Azure account
 
-To work with Audio Content Creation, you need a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). To set up the accounts, see the "Try the Speech service for free" section in [What is the Speech service?](./overview.md#try-the-speech-service-for-free).
+To work with Audio Content Creation, you need a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). 
 
 [The Azure portal](https://portal.azure.com/) is the centralized place for you to manage your Azure account. You can create the Speech resource, manage the product access, and monitor everything from simple web apps to complex cloud deployments.
 
