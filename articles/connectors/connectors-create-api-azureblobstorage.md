@@ -339,7 +339,8 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 ### Access storage accounts through trusted virtual network
 
 - Your logic app and storage account exist in the same region.
-You can put the storage account in an Azure virtual network by creating a private endpoint for it, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account through a [trusted virtual network](../virtual-network/virtual-networks-overview.md), you need to deploy that logic app to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in a virtual network. You can then add the subnets in that ISE to the trusted list. ISE Storage connectors, such as the ISE Blob Storage connector, can directly access the storage container. This setup is the same experience as using the service endpoints from an ISE.
+
+  You can put your storage account in an Azure virtual network by creating a private endpoint, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account through a [trusted virtual network](../virtual-network/virtual-networks-overview.md), you need to deploy that logic app to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in a virtual network. You can then add the subnets in that ISE to the trusted list. ISE-based storage connectors, such as the ISE-versioned Azure Blob Storage connector, can directly access the storage container. This setup is the same experience as using the service endpoints from an ISE.
 
 2. Logic app and storage account are in different regions
 There is no need to create private endpoint. You can simply whitelist ISE outgoing IPs on the storage account. 
