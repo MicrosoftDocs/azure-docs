@@ -27,7 +27,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
 1. Edit the URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` by replacing `SPARKCLUSTER` with the name of your Spark cluster. Then enter the edited URL in a web browser. If prompted, enter the cluster login credentials for the cluster.
 
-2. From the Jupyter web page, Select **New** > **PySpark** to create a notebook. For the coming Spark 3.1 release, Please Select **New** > **PySpark3** to create a notebook instead as PySpark kernel is no longer available in Spark 3.1. 
+2. From the Jupyter web page, **For the Spark 2.4** clusters,  Select **New** > **PySpark** to create a notebook. **For the Spark 3.1** release, Please Select **New** > **PySpark3** to create a notebook instead as PySpark kernel is no longer available in Spark 3.1. 
 
    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Create a Jupyter Notebook to run interactive Spark SQL query" border="true":::
 
@@ -35,6 +35,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
 
     > [!NOTE]  
     > By using the PySpark or the PySpark3 kernel to create a notebook, the `spark` session is automatically created for you when you run the first code cell. You do not need to explicitly create the session.
+
 
 ## Create a dataframe from a csv file
 
