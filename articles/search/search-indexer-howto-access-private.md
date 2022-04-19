@@ -27,6 +27,9 @@ To create a shared private link, use the Azure portal or the [Create Or Update S
 
 + If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
 
+> [!NOTE]
+> When using Private Link for data sources, [Import data](search-import-data-portal.md) wizard is not supported.
+
 <a name="group-ids"></a>
 
 ## Supported resources and group IDs
