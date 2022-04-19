@@ -68,10 +68,10 @@ After you've completed this final step, you're ready to import data using $impor
 In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service account from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
 
 >[!div class="nextstepaction"]
->[Converting your data to FHIR](convert-data.md)
+>[Use $import](import-data.md)
 
 >[!div class="nextstepaction"]
->[Use $import](import-data.md)
+>[Converting your data to FHIR](convert-data.md)
 
 >[!div class="nextstepaction"]
 >[Configure export settings and set up a storage account](configure-export-data.md)
