@@ -111,10 +111,10 @@ sections:
           | Brazil South | France Central | | Australia East |
           | Canada Central | Germany West Central | | Southeast Asia |
           | Central US | North Europe | | Japan East |
-          | East US | Sweden Central | | Korea Central |
+          | East US | Norway East | | Korea Central |
           | East US 2 | UK South | | |
           | South Central US | West Europe | | |
-          | West US 2 | | | |
+          | West US 2 | Sweden Central | | |
           | West US 3 | | | |
           
       - question: Are there any limits on the number of requests made to App Configuration?

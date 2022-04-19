@@ -35,6 +35,8 @@ doesn't impact its operation with Azure Policy.
 > - If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
 >   assignment
 > - If the template accesses properties on resources outside the scope of the policy assignment
+>
+> Also, changing a a policy definition does not update the assignment or the associated managed identity.
 
 ## Configure policy definition
 

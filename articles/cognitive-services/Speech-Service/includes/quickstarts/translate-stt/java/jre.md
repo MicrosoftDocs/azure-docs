@@ -94,7 +94,7 @@ Before you get started, make sure to:
                if (cancellation.getReason() == CancellationReason.Error) {
                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                   System.out.println("CANCELED: Did you update the subscription info?");
+                   System.out.println("CANCELED: Did you set the speech resource key and region values?");
                }
            }
 

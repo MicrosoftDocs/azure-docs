@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/17/2022
+ms.date: 04/19/2022
 ms.author: anfdocs
 ---
 
@@ -22,6 +22,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Reset Active Directory computer account](create-active-directory-connections.md#reset-active-directory) (Preview)
 
+## April 2022
+
+* Features that are now generally available (GA)   
+
+    The following features are now GA. You no longer need to register the features before using them.   
+    * [Dynamic change of service level](dynamic-change-volume-service-level.md)
+    * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)    
 
 ## March 2022
 

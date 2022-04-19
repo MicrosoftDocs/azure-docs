@@ -70,7 +70,7 @@ Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath 
 The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<zip-package-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=zip
+curl -X POST -u <username:password> --data-binary "@<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=zip
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -78,7 +78,7 @@ curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name
 The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```bash
-curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
+curl -X POST -u <username:password> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
 ```
 
 # [Kudu UI](#tab/kudu-ui)
@@ -142,7 +142,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 The following example uses the cURL tool to deploy a .war, .jar, or .ear file. Replace the placeholders `<username>`, `<file-path>`, `<app-name>`, and `<package-type>` (`war`, `jar`, or `ear`, accordingly). When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=<package-type>
+curl -X POST -u <username> --data-binary @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]

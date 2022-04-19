@@ -31,10 +31,7 @@ To change your routing preference to Internet routing:
 
 2. Navigate to your storage account in the portal.
 
-3. Under **Settings**, choose **Networking**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Networking menu option](./media/configure-network-routing-preference/networking-option.png)
+3. Under **Security + networking**, choose **Networking**.
 
 4. In the **Firewalls and virtual networks** tab, under **Network Routing**, change the **Routing preference** setting to **Internet routing**.
 
@@ -112,7 +109,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
 1. Navigate to your storage account in the portal.
 
-2. Under **Settings**, choose **Networking**.
+2. Under **Security + networking**, choose **Networking**.
 
 3. In the **Firewalls and virtual networks** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
 
@@ -165,10 +162,7 @@ If you configured a route-specific endpoint, you can find the endpoint in the pr
 
 ### [Portal](#tab/azure-portal)
 
-1. Under **Settings**, choose **Properties**.
-
-    > [!div class="mx-imgBorder"]
-    > ![properties menu option](./media/configure-network-routing-preference/properties.png)
+1. Under **Settings**, choose **Endpoints**.
 
 2. The **Microsoft network routing** endpoint is shown for each service that supports routing preferences. This image shows the endpoint for the blob and file services.
 
