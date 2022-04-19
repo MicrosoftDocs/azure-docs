@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service provides speech-to-text, text-to-speech, and speech translation capabilities with an Azure resource. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](#reference-docs).
+The Speech service provides speech-to-text, text-to-speech, and speech translation capabilities with an Azure resource. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](#use-speech-in-your-application).
 
 ## Speech capabilities
 
@@ -76,7 +76,6 @@ In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In th
 - [Speech-to-text REST API for short audio](rest-speech-to-text-short.md)
 - [Text-to-speech REST API](rest-text-to-speech.md)
 - [Speaker Recognition REST API](/rest/api/speakerrecognition/)
-
 
 ## Get started
 

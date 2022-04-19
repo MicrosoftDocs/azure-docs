@@ -121,7 +121,7 @@ Internally, Microsoft uses the previously mentioned technologies to analyze Micr
 
 ## About interactive voice responses
 
-You can easily integrate Speech service into any solution by using either the [Speech SDK](speech-sdk.md) or the [REST API](./overview.md#reference-docs). However, call center transcription might require additional technologies. Ordinarily, a connection between an IVR system and Azure is required. Although we don't offer such components, the next paragraph describes what a connection to an IVR entails.
+You can easily integrate Speech service into any solution by using either the [Speech SDK](speech-sdk.md) or the [REST API](https://signature.centralus.cts.speech.microsoft.com/UI/index.html). However, call center transcription might require additional technologies. Ordinarily, a connection between an IVR system and Azure is required. Although we don't offer such components, the next paragraph describes what a connection to an IVR entails.
 
 Several IVR or telephony service products (such as Genesys or AudioCodes) offer integration capabilities that can be applied to enable an inbound and outbound audio pass-through to an Azure service. Basically, a custom Azure service might provide a specific interface to define phone call sessions (such as Call Start or Call End) and expose a WebSocket API to receive inbound stream audio that's used with Speech service. Outbound responses, such as a conversation transcription or connections with the Bot Framework, can be synthesized with the Microsoft text-to-speech service and returned to the IVR for playback.
 

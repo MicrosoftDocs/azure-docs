@@ -15,12 +15,12 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Speech service supported regions
 
-The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs. You can perform custom configurations to your speech experience, for all regions, at the [Speech portal](https://speech.microsoft.com).
+The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs. You can perform custom configurations to your speech experience, for all regions, at the [Speech Studio](https://speech.microsoft.com).
 
 Keep in mind the following points:
 
 * If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when you create a speech configuration. Make sure the region matches the region of your subscription.
-* If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
+* If your application uses one of the Speech service REST APIs, the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. If you attempt to use them with other regions, you get authentication errors.
 
 > [!NOTE]
