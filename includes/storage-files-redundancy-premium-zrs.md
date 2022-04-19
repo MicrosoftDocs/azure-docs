@@ -2,20 +2,21 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 11/15/2021
+ms.date: 04/19/2022
 ms.author: tamram
 ---
-Premium file shares are available in a subset of Azure regions:
 
-- East Asia
-- Southeast Asia
-- Australia East
-- Brazil South
-- North Europe 
-- West Europe
-- France Central
-- Japan East
-- UK South
-- East US 
-- East US 2
-- West US 2
+Premium file shares are available for a subset of Azure regions:
+
+- (Asia Pacific) Australia East
+- (Asia Pacific) East Asia
+- (Asia Pacific) Japan East
+- (Asia Pacific) Southeast Asia
+- (Europe) France Central
+- (Europe) North Europe
+- (Europe) West Europe
+- (Europe) UK South
+- (North America) East US
+- (North America) East US 2
+- (North America) West US 2
+- (South America) Brazil South

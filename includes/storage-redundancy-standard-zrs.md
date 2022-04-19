@@ -2,36 +2,37 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 11/15/2021
+ms.date: 04/19/2022
 ms.author: tamram
 ---
-Standard ZRS storage is available in a subset of Azure regions:
 
-- East Asia 
-- Southeast Asia 
-- Australia East
-- Australia Southeast
-- Brazil South
-- Canada Central
-- North Europe
-- West Europe
-- France Central
-- Germany West Central
-- Central India
-- South India
-- Japan East
-- Korea Central
-- Norway East
-- South Africa North
-- Sweden Central
-- UK South
-- Central US 
-- East US
-- East US 2
-- South Central US 
-- West Central US
-- West US 2
-- West US 3
-- US Gov Arizona
-- US Gov Texas
-- US Gov Virginia
+ZRS for standard general-purpose v2 storage accounts is available for a subset of Azure regions:
+
+- (Africa) South Africa North
+- (Asia Pacific) Australia East
+- (Asia Pacific) Australia Southeast
+- (Asia Pacific) Central India
+- (Asia Pacific) East Asia
+- (Asia Pacific) Japan East
+- (Asia Pacific) Korea Central
+- (Asia Pacific) South India
+- (Asia Pacific) Southeast Asia
+- (Europe) France Central
+- (Europe) Germany West Central
+- (Europe) North Europe
+- (Europe) Norway East
+- (Europe) Sweden Central
+- (Europe) UK South
+- (Europe) West Europe
+- (North America) Canada Central
+- (North America) Central US
+- (North America) East US
+- (North America) East US 2
+- (North America) South Central US
+- (North America) West Central US
+- (North America) US Gov Arizona
+- (North America) US Gov Texas
+- (North America) US Gov Virginia
+- (North America) West US 2
+- (North America) West US 3
+- (South America) Brazil South

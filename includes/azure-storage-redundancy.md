@@ -5,10 +5,11 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 07/19/2019
+ ms.date: 04/19/2022
  ms.author: tamram
  ms.custom: include file
 ---
+
 - [Locally redundant storage (LRS)](../articles/storage/common/storage-redundancy.md)
 - [Zone-redundant storage (ZRS)](../articles/storage/common/storage-redundancy.md)
 - [Geo-redundant storage (GRS)](../articles/storage/common/storage-redundancy.md)

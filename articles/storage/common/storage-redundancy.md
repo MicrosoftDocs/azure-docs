@@ -18,16 +18,16 @@ Azure Storage always stores multiple copies of your data so that it is protected
 
 When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. The factors that help determine which redundancy option you should choose include:
 
-- How your data is replicated in the primary region
-- Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
-- Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
+- How your data is replicated in the primary region.
+- Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters (geo-replication).
+- Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason (geo-replication with read access).
 
 > [!NOTE]
 > The features and regional availability described in this article are also available to accounts that have a hierarchical namespace (Azure Blob storage).
 
-The services that comprise Azure Storage are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy storage resources such as blob containers (Blob Storage), file shares (Azure Files), tables (Table Storage), or queues (Queue Storage).
+The services that comprise Azure Storage are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy storage resources such as blob containers (Blob Storage), file shares (Azure Files), tables (Table Storage), or queues (Queue Storage). For more information about Azure Storage accounts, see [Storage account overview](storage-account-overview.md).
 
-The redundancy setting for a storage account is shared for all storage resources, meaning that all storage resources deployed in the same storage account have the same redundancy setting.
+The redundancy setting for a storage account is shared for all storage services exposed by that account. All storage resources deployed in the same storage account have the same redundancy setting. You may want to isolate different types of resources in separate storage accounts if they have different redundancy requirements.
 
 ## Redundancy in the primary region
 
@@ -55,16 +55,19 @@ LRS is a good choice for the following scenarios:
 
 - If your application stores data that can be easily reconstructed if data loss occurs, you may opt for LRS.
 - If your application is restricted to replicating data only within a country or region due to data governance requirements, you may opt for LRS. In some cases, the paired regions across which the data is geo-replicated may be in another country or region. For more information on paired regions, see [Azure regions](https://azure.microsoft.com/regions/).
+- If your scenario is using Azure unmanaged disks. While it is possible to create a storage account for Azure unmanaged disks that uses GRS, it is not recommended due to potential issues with consistency over asynchronous geo-replication.
 
 ### Zone-redundant storage
 
 Zone-redundant storage (ZRS) replicates your storage account synchronously across three Azure availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS offers durability for storage resources of at least 99.9999999999% (12 9's) over a given year.
 
-With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. No remounting of Azure file shares from the connected clients is required. If a zone becomes unavailable, Azure undertakes networking updates, such as DNS re-pointing. These updates may affect your application if you access data before the updates have completed. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
+With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. If a zone becomes unavailable, Azure undertakes networking updates, such as DNS re-pointing. These updates may affect your application if you access data before the updates have completed. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
 
 A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones.
 
 Microsoft recommends using ZRS in the primary region for scenarios that require high availability. ZRS is also recommended for restricting replication of data to within a country or region to meet data governance requirements.
+
+Microsoft recommends using ZRS for Azure Files workloads. If a zone becomes unavailable, no remounting of Azure file shares from the connected clients is required.
 
 The following diagram shows how your data is replicated across availability zones in the primary region with ZRS:
 
@@ -72,7 +75,7 @@ The following diagram shows how your data is replicated across availability zone
 
 ZRS provides excellent performance, low latency, and resiliency for your data if it becomes temporarily unavailable. However, ZRS by itself may not protect your data against a regional disaster where multiple zones are permanently affected. For protection against regional disasters, Microsoft recommends using [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS), which uses ZRS in the primary region and also geo-replicates your data to a secondary region.
 
-For information about which regions support ZRS, see **Services support by region** in [What are Azure Availability Zones?](../../availability-zones/az-overview.md).
+The Archive tier for Blob Storage is not currently supported for ZRS accounts. Unmanaged disks don't support ZRS or GZRS.
 
 #### Standard storage accounts
 
@@ -85,37 +88,26 @@ ZRS is supported for all Azure Storage services through standard general-purpose
 
 [!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-zrs.md)]
 
+For more information about which regions support ZRS, see **Services support by region** in [What are Azure Availability Zones?](../../availability-zones/az-overview.md).
+
 #### Premium block blob accounts
 
 ZRS is supported for premium block blobs accounts. For more information about premium block blobs, see [Premium block blob storage accounts](../blobs/storage-blob-block-blob-premium.md).
 
-Will's change:
-
 Premium block blobs are available in a subset of Azure regions:
 
-- East Asia
-- Southeast Asia
-- Australia East
-- Brazil South
-- North Europe
-- West Europe
-- France Central
-- Japan East
-- UK South
-- East US
-- East US 2
-- West US 2
-
-Original:
-
-| Storage account type | Supported regions | Supported services |
-|--|--|--|
-| General-purpose v2<sup>1</sup> | (Africa) South Africa North<br /> (Asia Pacific) Southeast Asia<br /> (Asia Pacific) Australia East<br /> (Asia Pacific) Japan East<br /> (Asia Pacific) Central India<br /> (Canada) Canada Central<br /> (Europe) North Europe<br /> (Europe) West Europe<br /> (Europe) France Central<br /> (Europe) Germany West Central<br /> (Europe) UK South<br /> (South America) Brazil South<br /> (US) Central US<br /> (US) East US<br /> (US) East US 2<br /> (US) South Central US<br /> (US) West US 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
-| Premium block blobs<sup>1</sup> | (Asia) Southeast Asia<br />(Asia Pacific) Australia East<br /> Brazil South<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2| Premium block blobs only |
-| Premium file shares | Asia Southeast<br /> Australia East<br /> Brazil South<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2 | Premium files shares only |
-
-<sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
-<sup>2</sup> Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Unmanaged disks don't support ZRS or GZRS.
+- (Asia Pacific) Australia East
+- (Asia Pacific) East Asia
+- (Asia Pacific) Japan East
+- (Asia Pacific) Southeast Asia
+- (Europe) France Central
+- (Europe) North Europe
+- (Europe) West Europe
+- (Europe) UK South
+- (North America) East US
+- (North America) East US 2
+- (North America) West US 2
+- (South America) Brazil South
 
 #### Premium file share accounts
 
@@ -178,7 +170,7 @@ Only standard general-purpose v2 storage accounts support GZRS. GZRS is supporte
 Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages. However, that data is available to be read only if the customer or Microsoft initiates a failover from the primary to secondary region. When you enable read access to the secondary region, your data is available to be read at all times, including in a situation where the primary region becomes unavailable. For read access to the secondary region, enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).
 
 > [!NOTE]
-> Azure Files does not support read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS).
+> Azure Files does not support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).
 
 ### Design your applications for read access to the secondary
 
