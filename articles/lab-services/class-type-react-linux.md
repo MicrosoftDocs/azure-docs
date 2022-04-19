@@ -99,7 +99,7 @@ sudo iptables -I INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
 
 ## Cost
 
-Let’s cover an example cost estimate for this class. The virtual machine size we chose was **Small**, which is 20 lab units.
+Let's cover an example cost estimate for this class. The virtual machine size we chose was **Small**, which is 20 lab units.
 
 For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the cost estimate would be:
 
