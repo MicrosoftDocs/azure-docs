@@ -21,7 +21,7 @@ zone_pivot_groups: programming-languages-text-analytics
 Use this article to get started with Text Analytics for health using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 > [!IMPORTANT]
-> FHIR is now supported for APIs. SDK support is coming soon.
+> FHIR structuring is now available for preview using Language REST API. SDK support is coming soon.
 
 ::: zone pivot="programming-language-csharp"
 
