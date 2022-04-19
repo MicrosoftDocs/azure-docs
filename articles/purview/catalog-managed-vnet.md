@@ -263,7 +263,7 @@ You can also use other supported options to scan data sources using Microsoft Pu
 
 To set up a scan using Account Key or SQL Authentication follow these steps:
 
-1. [Grant Microsoft Purview access to your Azure Key Vault](manage-credentials.md#grant-azure-purview-access-to-your-azure-key-vault).
+1. [Grant Microsoft Purview access to your Azure Key Vault](manage-credentials.md#grant-microsoft-purview-access-to-your-azure-key-vault).
    
 2. [Create a new credential in Microsoft Purview](manage-credentials.md#create-a-new-credential).
    
