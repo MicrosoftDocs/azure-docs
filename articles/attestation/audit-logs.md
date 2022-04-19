@@ -30,7 +30,7 @@ Individual blobs are stored as text, formatted as a JSON blob. Let’s look at a
 
 ```json
 {  
- "resourceId": /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Attestation/attestationProviders/<provider name>, 
+ "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Attestation/attestationProviders/<provider name>", 
  "region": "EastUS", 
  "operationName": "AttestSgxEnclave", 
  "category": "Operational", 
