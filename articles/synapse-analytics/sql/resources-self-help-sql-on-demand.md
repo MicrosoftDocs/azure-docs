@@ -545,9 +545,9 @@ Consider the following mitigations:
 
 - Restart the client application to obtain a new Azure Active Directory token.
 - Consider switching to: 
-  - [Service Principal](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=service-principal#supported-storage-authorization-types)
-  - [Managed identity](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=managed-identity#supported-storage-authorization-types) 
-  - or [Shared access signature](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-storage-access-control?tabs=shared-access-signature#supported-storage-authorization-types)
+  - [Service Principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
+  - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) 
+  - or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
 
 
 ### [0x80070008](#tab/x80070008)
