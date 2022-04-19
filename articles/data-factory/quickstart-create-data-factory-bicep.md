@@ -8,7 +8,7 @@ author: schaffererin
 ms.author: v-eschaffer
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/15/2022
+ms.date: 04/19/2022
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
@@ -94,13 +94,59 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ---
 
-## Upload a file
+### Upload a file
 
-## Start trigger
+Use the Azure portal to upload the **emp.txt** file.
+
+1. On the **Containers** page, select **Upload**.
+
+2. In the right pane, select the **Files** box icon, and then navigate to and select the **emp.txt** file that you created earlier.
+
+3. Expand the **Advanced** heading.
+
+4. In the **Upload to folder** box, enter *input*.
+
+5. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
+
+6. Select the **Close** icon (an **X**) to close the **Upload blob** page.
+
+    :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-bicep-upload-blob-file.png" alt-text="Upload file to input folder":::
+
+Keep the container page open because you can use it to verify the output at the end of this quickstart.
+
+### Start trigger
+
+1. Navigate to the **Data factories** page, and select the data factory you created.
+
+2. Select **Open** on the **Open Azure Data Factory Studio** tile.
+
+    :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-open-tile-bicep.png" alt-text="Author & Monitor":::
+
+3. Select the **Author** tab. :::image type="icon" source="media/quickstart-create-data-factory-bicep/data-factory-author-bicep.png border="false":::
+
+4. Select the pipeline created.
+
+5. Select **Add Trigger** > **Trigger Now**.
+
+6. In the right pane under **Pipeline run**, select **OK**. 
 
 ## Monitor the pipeline
 
+1. Select the **Monitor** tab. :::image type="icon" source ="media/quickstart-create-data-factory-bicep/data-factory-monitor-bicep.png" border="false":::
+
+2. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline only has one activity of type **Copy**. You should see a run for that activity.
+
 ## Verify the output file
+
+The pipeline automatically creates an output folder in the blob container. It then copies the **emp.txt** file from the input folder to the output folder.
+
+1. On the **Containers** page in the Azure portal, select **Refresh** to see the output folder.
+
+2. Select **output** in the folder list.
+
+3. Confirm that the **emp.txt** is copied to the output folder.
+
+    :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-bicep-output.png" alt-text="Output":::
 
 ## Clean up resources
 
