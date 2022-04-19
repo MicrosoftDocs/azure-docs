@@ -7,9 +7,8 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: template-how-to
+ms.custom: template-how-to, sdkv1
 ms.date: 10/13/2021
-ms.custom: sdkv1
 ---
 
 # Prepare data for computer vision tasks with automated machine learning (preview)

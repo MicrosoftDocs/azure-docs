@@ -8,8 +8,8 @@ ms.subservice: mlops
 author: nibaccam
 ms.author: nibaccam
 ms.date: 10/21/2021
-ms.topic: troubleshooting, sdkv1
-ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
+ms.topic: troubleshooting
+ms.custom: troubleshooting, devx-track-python, contperf-fy21q2, sdkv1
 #Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.
 ---
 

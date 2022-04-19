@@ -6,7 +6,8 @@ services: machine-learning
 author: cesardl
 ms.author: cesardl
 ms.service: machine-learning
-ms.subservice: automl, sdkv1
+ms.subservice: automl
+ms.custom: sdkv1
 ms.topic: how-to
 ms.date: 02/16/2022
 ---
