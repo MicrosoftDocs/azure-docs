@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 04/18/2022
+ms.date: 04/19/2022
 ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
@@ -42,18 +42,18 @@ HTTP 307 responses are presented when a redirection rule is specified with the *
 #### 400 – Bad Request
 
 HTTP 400 response codes are commonly observed when:
-1.	Non-HTTP / HTTPS traffic is initiated to an application gateway with an HTTP or HTTPS listener.
-2.	HTTP traffic is initiated to a listener with HTTPS, with no redirection configured.
-3.	Mutual authentication is configured and unable to properly negotiate.
+- Non-HTTP / HTTPS traffic is initiated to an application gateway with an HTTP or HTTPS listener.
+- HTTP traffic is initiated to a listener with HTTPS, with no redirection configured.
+- Mutual authentication is configured and unable to properly negotiate.
 
 For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
-1.	Client certificate isn't presented, but mutual authentication is enabled.
-2.	DN validation is enabled and the DN of the client certificate doesn't match the DN of the specified certificate chain.
-3.	Client certificate chain doesn't match certificate chain configured in the defined SSL Policy.
-4.	Client certificate is expired.
-5.	OCSP Client Revocation check is enabled and the certificate is revoked.
-6.	OCSP Client Revocation check is enabled, but unable to be contacted.
-7.	OCSP Client Revocation check is enabled, but OCSP responder isn't provided in the certificate.
+- Client certificate isn't presented, but mutual authentication is enabled.
+- DN validation is enabled and the DN of the client certificate doesn't match the DN of the specified certificate chain.
+- Client certificate chain doesn't match certificate chain configured in the defined SSL Policy.
+- Client certificate is expired.
+- OCSP Client Revocation check is enabled and the certificate is revoked.
+- OCSP Client Revocation check is enabled, but unable to be contacted.
+- OCSP Client Revocation check is enabled, but OCSP responder isn't provided in the certificate.
 
 For more information about troubleshooting mutual authentication, see [Error code troubleshooting](mutual-authentication-troubleshooting.md#solution-2).
 

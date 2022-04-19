@@ -2,11 +2,11 @@
 title: Redirect overview for Azure Application Gateway
 description: Learn about the redirect capability in Azure Application Gateway to redirect traffic received on one listener to another listener or to an external site.
 services: application-gateway
-author: amsriva
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2019
-ms.author: amsriva
+ms.date: 04/19/2022
+ms.author: greglin
 ---
 
 # Application Gateway redirect overview
@@ -23,7 +23,7 @@ A redirect type sets the response status code for the clients to understand the 
 - 307 (Temporary redirect): Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
 - 308 (Permanent redirect): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource should use one of the enclosed URIs.
 
-## Redirection capabilities:
+## Redirection capabilities
 
 -  **Listener redirection**
    
