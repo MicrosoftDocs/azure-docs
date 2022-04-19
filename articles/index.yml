@@ -830,7 +830,7 @@ productDirectory:
         - devops
       url: /azure/devops/test/
     # Card
-    - title: Azure Load Testing
+    - title: Azure Load Testing (Preview)
       summary: Generate high-scale load and identify app performance bottlenecks
       imageSrc: https://static.docs.com/ui/media/product/azure/load-testing.svg
       azureCategories:
