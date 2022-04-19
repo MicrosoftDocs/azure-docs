@@ -150,17 +150,33 @@ To obtain the link, run this command:
 | Operating system  | Command |
 |--------|-----------|
 | **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
+| **Windows PowerShell** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue).headers.location` |
+| **PowerShell Core** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue -SkipHttpErrorCheck).headers.location` |
 
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
 
 The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
 
-| Operating system  | Command |
-|--------|-----------|
-| **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
-| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
+**Linux**
+```bash
+wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
+```
+**Windows PowerShell** 
+```PowerShell
+Invoke-WebRequest 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\'
+$AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullName
+# Invoke AzCopy 
+& $AzCopy
+```
+**PowerShell Core**
+```PowerShell
+Invoke-WebRequest 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+$AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
+# Invoke AzCopy
+& $AzCopy
+``` 
 
 #### Escape special characters in SAS tokens
 
