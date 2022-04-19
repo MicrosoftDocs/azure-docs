@@ -30,7 +30,7 @@ To follow this quickstart, you'll first need to:
 
 # [Direct link](#tab/direct)
 
-Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup).
+Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
 
 # [Via portal search](#tab/portal-search)
 
