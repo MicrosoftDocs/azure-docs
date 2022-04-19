@@ -98,8 +98,6 @@ After you've gathered your audio files and corresponding transcriptions, package
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows audio files and a transcription file in Speech Studio.](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-For a list of recommended regions for your Speech service subscriptions, see [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-account). Setting up the Speech subscriptions in one of these regions will reduce the time it takes to train the model. In these regions, training can process about 10 hours of audio per day, compared to just 1 hour per day in other regions. If model training can't be completed within a week, the model will be marked as failed.
-
 Not all base models support training with audio data. If the base model doesn't support it, the service will ignore the audio and just train with the text of the transcriptions. In this case, training will be the same as training with related text. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text).
 
 ## Plain-text data for training
@@ -262,7 +260,7 @@ Not all base models support [training with audio data](language-support.md#speec
 
 Even if a base model supports training with audio data, the service might use only part of the audio. But it will use all the transcripts.
 
-If you change the base model that's used for training, and you have audio in the training dataset, *always* check whether the new selected base model supports training with audio data. If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will drastically increase. It could easily go from several hours to several days and more. This is especially true if your Speech service subscription is *not* in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+If you change the base model that's used for training, and you have audio in the training dataset, *always* check whether the new selected base model supports training with audio data. If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will drastically increase. It could easily go from several hours to several days and more. This is especially true if your Speech service subscription isn't in a region with the dedicated hardware for training.
 
 If you face the problem described in the previous paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. 
 

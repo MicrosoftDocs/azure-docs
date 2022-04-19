@@ -126,20 +126,20 @@ Consider these details:
 * Avoid sentences that are unrelated to your problem domain. Unrelated sentences can harm your model.
 * When the transcript quality varies, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
 * The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as though they were added as related text.
-* It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a [region that has dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+* It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a region that has dedicated hardware for training.
 
 
 > [!NOTE]
 > Not all base models support training with audio. If a base model doesn't support audio, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
 
 > [!NOTE]
-> When you change the base model that's used for training, and you have audio in the training dataset, *always* check to see whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model didn't support training with audio data, and the training dataset contains audio, training time with the new base model will *drastically* increase. The duration might easily go from several hours to several days or longer. This is especially true if your Speech service subscription is *not* in a [region that has the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+> When you change the base model that's used for training, and you have audio in the training dataset, *always* check to see whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model didn't support training with audio data, and the training dataset contains audio, training time with the new base model will *drastically* increase. The duration might easily go from several hours to several days or longer. This is especially true if your Speech service subscription isn't in a region that has the dedicated hardware for training.
 >
 > If you face this issue, you can decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. We recommend the latter option if your Speech service subscription is *not* in a region that has such dedicated hardware.
 
 ### Add new words with pronunciation
 
-Words that are made up or highly specialized might have unique pronunciations. These words can be recognized if they can be broken down into smaller words to pronounce them. For example, to recognize *Xbox*, pronounce it as *X box*. This approach won't increase overall accuracy, but can improve recognition of this and other keywords.
+Words that are made up or highly specialized might have unique pronunciations. These words can be recognized if they can be broken down into smaller words to pronounce them. For example, to recognize "Xbox", pronounce it as "X box". This approach won't increase overall accuracy, but can improve recognition of this and other keywords.
 
 > [!NOTE]
 > This technique is available for only certain languages at this time. To see which languages support customization of pronunciation, search for "Pronunciation" in the **Customizations** column in the [speech-to-text table](language-support.md#speech-to-text).

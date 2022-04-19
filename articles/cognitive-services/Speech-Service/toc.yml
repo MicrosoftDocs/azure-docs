@@ -45,9 +45,9 @@ items:
       displayName: stt
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
-    - name: Speech recognition
+    - name: How to recognize speech
       items:
-      - name: How to recognize speech
+      - name: Start speech recognition
         href: how-to-recognize-speech.md
       - name: Change recognition source language
         href: how-to-specify-source-language.md

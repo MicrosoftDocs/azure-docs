@@ -21,6 +21,18 @@ Speech recognition models that are provided by Microsoft are referred to as base
 
 Custom Speech models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, the speech recognition accuracy and quality will remain consistent, even if the base model from which it was adapted gets updated.  
 
+The Azure speech-to-text service analyzes audio in real-time or batch to transcribe the spoken word into text. Out of the box, speech to text utilizes a Universal Language Model as a baseline model that is trained with Microsoft-owned data and reflects commonly used spoken language. This baseline model is pre-trained with dialects and phonetics representing a variety of common domains. As a result, consuming the baseline model requires no additional configuration and works very well in most scenarios. The best way to see if the base model will suffice is to analyze the transcription produced from the baseline model and compare it with a human-generated transcript for the same audio. You can use Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions when evaluating the results, then training a custom model to recognize those words is recommended.
+
+The baseline model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, building a custom speech model makes sense by training with additional data associated with that specific domain. You can create and train custom acoustic, language, and pronunciation models. Custom speech models are private and can offer a competitive advantage. 
+
+Furthermore, depending on the size of the custom domain, it may also make sense to train multiple models and compartmentalize a model for an individual application. One model is typically sufficient if the utterances are closely related to one area or domain. On the other hand, multiple models are best if the vocabulary is quite different across the domain areas. Regardless, this situation still requires a decent variety of training data. For instance, Olympic commentators report on various events, each associated with its own vernacular. Because each Olympic event vocabulary differs significantly from others, building a custom model specific to an event increases accuracy by limiting the utterance data relative to that particular event. As a result, the model doesn’t need to sift through unrelated data to make a match. Include audio from various commentators who have different accents, gender, age, etc. In addition, it is essential to consider which languages and locales need to be supported; it may make sense to create these models by locale. 
+
+In summary, there are three different approaches to implementing Azure speech-to-text:
+1)	The baseline model applies when the audio is clear of ambient noise and the speech transcribed consists of commonly spoken language.
+2)	A custom model augments the baseline model to include domain-specific vocabulary shared across all areas of the custom domain.
+3)	Multiple custom models make sense when the custom domain has numerous areas, each a specific vocabulary.
+
+
 ## What's in Custom Speech?
 
 With Custom Speech, you can upload your own data, train and test models, inspect recognition quality, evaluate accuracy, and then deploy and use the custom model.
@@ -31,7 +43,7 @@ This diagram highlights the pieces that make up the [Custom Speech area of the S
 
 Here's more information about the sequence of steps that the diagram shows:
 
-1. [Subscribe and create a project](#set-up-your-azure-account). Create an Azure account and subscribe to the Speech service. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the [Speech Studio](https://speech.microsoft.com/customspeech). Then use your Speech service subscription to create your first Custom Speech project.
+1. Create an Azure account and subscribe to the Speech service. This subscription gives you access to speech-to-text, text-to-speech, speech translation, and the [Speech Studio](https://speech.microsoft.com/customspeech). Then use your Speech service subscription to create your first Custom Speech project.
 
 1. [Upload test data](./how-to-custom-speech-upload-data.md). Upload test data (audio files) to evaluate the Microsoft speech-to-text offering for your applications, tools, and products.
 

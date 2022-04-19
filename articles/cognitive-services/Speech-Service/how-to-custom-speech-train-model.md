@@ -35,7 +35,7 @@ If you're encountering recognition problems with a base model, you can use human
 
 The first step in training a model is to upload training data. For step-by-step instructions for preparing human-labeled transcriptions and related text (utterances and pronunciations), see [Prepare and test your data](./how-to-custom-speech-test-and-train.md). After you upload training data, follow these instructions to start training your model:
 
-1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech). If you plan to train a model with audio + human-labeled transcription datasets, pick a Speech subscription in a [region with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech). If you plan to train a model with audio + human-labeled transcription datasets, pick a Speech subscription in a region with dedicated hardware for training.
 
 1. Go to **Speech-to-text** > **Custom Speech** > **[name of project]** > **Training**.
 
@@ -54,9 +54,9 @@ The first step in training a model is to upload training data. For step-by-step 
    > Not all base models support training with audio. If a base model doesn't support it, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text).
 
    > [!NOTE]
-   > In cases when you change the base model used for training, and you have audio in the training dataset, *always* check to see whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model didn't support training with audio data, and the training dataset contains audio, training time with the new base model will *drastically* increase, and might easily go from several hours to several days and more. This is especially true if your Speech service subscription is *not* in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+   > In cases when you change the base model used for training, and you have audio in the training dataset, *always* check to see whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model didn't support training with audio data, and the training dataset contains audio, training time with the new base model will *drastically* increase, and might easily go from several hours to several days and more. This is especially true if your Speech service subscription isn't in a region with the dedicated hardware for training.
    >
-   > If you face the issue described in the preceding paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. We recommend the latter option if your Speech service subscription is *not* in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+   > If you face the issue described in the preceding paragraph, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. We recommend the latter option if your Speech service subscription isn't in a region with the dedicated hardware for training.
 
 1. After training is complete, you can do accuracy testing on the newly trained model. This step is optional.
 1. Select **Create** to build your custom model.
