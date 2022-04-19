@@ -346,7 +346,8 @@ To add your outbound IP addresses to the storage account firewall, follow these 
   You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account. 
 
 
-### Access storage accounts through VNet Integration
+### Access storage accounts through VNet integration
+
 
 1. Logic app and storage account are in a same region
 
