@@ -72,6 +72,10 @@ An HTTP 404 response can be returned if a request is sent to an application gate
 
 An HTTP 408 response can be observed when client requests to the frontend listener of application gateway do not respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when traffic is inspected by virtual appliances, or the client itself becomes overwhelmed.
 
+#### 499 – Client closed the connection
+
+An HTTP 499 response is presented if a client request that is sent to application gateways using v2 is closed before the server finished responding. This error can be observed when a large response is returned to the client, but the client may have closed or refreshed their browser/application before the server had a chance to finish responding.
+
 
 ## 5XX response codes (server error)
 
@@ -79,7 +83,7 @@ An HTTP 408 response can be observed when client requests to the frontend listen
 
 #### 500 – Internal Server Error
 
-Azure Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code, because this issue is an internal error to the service.  For information on how to open a support case, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure Application Gateway shouldn't exhibit 500 response codes. Please open a support request if you see this code, because this issue is an internal error to the service. For information on how to open a support case, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 #### 502 – Bad Gateway
 
@@ -95,7 +99,7 @@ For information about scenarios where 502 errors occur, and how to troubleshoot 
 
 #### 504 – Request timeout
 
-HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response exceeds the time-out value associated to the listener’s rule. This value is defined in the HTTP setting.
+HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response exceeds the time-out value associated to the listener's rule. This value is defined in the HTTP setting.
 
 ## Next steps
 
