@@ -33,7 +33,7 @@ Sometimes you encounter Authentication issues like HTTP status 401. Especially w
 
 #### Cause
 
-What we have observed is that the token was obtained from the original tenant, but the service is in guest tenant and trying to use the token to visit DevOps in guest tenant. This isn't  the expected behavior.
+The token was obtained from the original tenant, but the service is in guest tenant trying to use the token to visit DevOps in guest tenant. This type of token access isn't the expected behavior.
 
 #### Recommendation
 
@@ -156,15 +156,15 @@ Until recently, the it was only possible to publish a pipeline for deployments b
 
 CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
 
-###  Cannot publish because of 4 MB ARM template limit  
+###  Cannot publish because of 4-MB ARM template limit  
 
 #### Issue
 
-You can't  deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
+You can't  deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
@@ -178,7 +178,7 @@ While publishing ADF resources, the azure pipeline triggers twice instead of onc
 
 #### Cause
  
-DevOps has limitation of 20 MB REST api load for arm templates, linked template and  global parameters. Large ADF resources are reorganized to get around  GitHub API rate limits. That may rarely cause ADF DevOps APIs hit 20 MB limit.
+DevOps has limitation of 20-MB REST api load for arm templates, linked template and  global parameters. Large ADF resources are reorganized to get around  GitHub API rate limits. That may rarely cause ADF DevOps APIs hit 20-MB limit.
 
 #### Resolution
 
@@ -283,7 +283,7 @@ You can monitor the pipeline using **SDK**, **Azure Monitor** or [Monitor](./mon
 You want to perform unit testing during development and deployment of your pipelines.
 
 #### Cause
-During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically re-testing all your pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines can significantly improve quality. In long run, tested pipeline artifacts are reused saving you cost and time.  
+During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically retesting all your pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines can significantly improve quality. In long run, tested pipeline artifacts are reused saving you cost and time.  
  
 #### Resolution
 Because customers may have different unit testing requirements with different skillsets, usual practice is to follow following steps:
@@ -345,7 +345,7 @@ If you want to share integration runtimes across all stages, consider using a te
 ### GIT publish may fail because of PartialTempTemplates files
 
 #### Issue
-When you have 1000s of old temporary ARM json files in PartialTemplates folder, publish may fail.
+When you have 1000 s of old temporary ARM json files in PartialTemplates folder, publish may fail.
 
 #### Cause
 On publish, ADF fetches every file inside each folder in the collaboration branch. In the past, publishing generated two folders in the publish branch: PartialArmTemplates and LinkedTemplates. PartialArmTemplates files are no longer generated. However, because there can be many old files (thousands) in the PartialArmTemplates folder, this may result in many requests being made to GitHub on publish and the rate limit being hit. 
