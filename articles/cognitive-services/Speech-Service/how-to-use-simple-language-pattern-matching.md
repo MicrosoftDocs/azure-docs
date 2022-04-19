@@ -28,12 +28,12 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 > - Recognize speech from a microphone
 > - Use asynchronous, event-driven continuous recognition
 
-## When should you use this?
+## When to use pattern matching
 
 Use this sample code if: 
-* You are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
-* You do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents. This can be helpful since it is embedded within the SDK.
-* You cannot or do not want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
+* You're only interested in matching strictly what the user said. These patterns match more aggressively than LUIS.
+* You don't have access to a [LUIS](../LUIS/index.yml) app, but still want intents. 
+* You can't or don't want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
 
 ## Prerequisites
 
@@ -46,13 +46,11 @@ Be sure you have the following items before you begin this guide:
 
 The simple patterns are a feature of the Speech SDK and need a Cognitive Services resource or a Unified Speech resource.
 
-A pattern is a phrase that includes an Entity somewhere within it. An Entity is defined by wrapping a word in curly brackets. For example:
+A pattern is a phrase that includes an Entity somewhere within it. An Entity is defined by wrapping a word in curly brackets. This example defines an Entity with the ID "floorName", which is case-sensitive:
 
 ```
     Take me to the {floorName}
 ```
-
-This defines an Entity with the ID "floorName" which is case-sensitive.
 
 All other special characters and punctuation will be ignored.
 
