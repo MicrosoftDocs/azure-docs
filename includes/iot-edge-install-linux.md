@@ -64,12 +64,22 @@ Install the Moby engine.
    sudo apt-get update; \
      sudo apt-get install moby-engine
    ```
+
+# [Raspberry Pi OS](#tab/rpios)
+
+Install the Moby engine.
+
+   ```bash
+   sudo apt-get update; \
+     sudo apt-get install moby-engine
+   ```
+---
 Once the Moby Engine is successfully installed, configure the Docker daemon to use the [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
 >[!NOTE]
->By default, the Moby container engine does not set a container log size limit which can lead to the device filling up with logs over time and running out of disk space. The local logging driver provides a default log limit size and performs log-rotation by default which helps to prevent disk exhaustion. 
+>By default, the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space.
 
-The following example sets the default logging driver to the `local` logging driver.   
+We recommend using `local` logging driver as it offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk exhaustion. Additionally, you may choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limit based your need. The following example sets the default logging driver to the `local` logging driver. 
    
 ```JSON
    {
@@ -80,17 +90,6 @@ Add (or append) this information to a file named `daemon.json` and place it in t
 
 `/etc/docker/`
 The container engine must be restarted for the changes to take effect.
-
-# [Raspberry Pi OS](#tab/rpios)
-
-Install the Moby engine.
-
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install moby-engine
-   ```
-
----
 
    > [!TIP]
    > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
