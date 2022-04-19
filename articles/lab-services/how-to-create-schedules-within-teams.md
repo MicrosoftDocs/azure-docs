@@ -8,16 +8,16 @@ ms.custom: devdivchpfy22
 
 # Create and manage Lab Services schedules within Teams
 
-Schedules allow you to configure a lab such that the VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The article covers the procedures to create and manage schedules for a lab.
+Schedules allow you to configure a classroom lab such that the VMs automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The article covers the procedures to create and manage schedules for a lab.
 
 Here's how schedules affect lab virtual machines:
 
-- Template virtual machine isn't included in schedules.
+- Template VM isn't included in schedules.
 - Only assigned virtual machines are started. If a machine isn't claimed by user (student), the machine won't start on the scheduled hours.
 - All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule.
 
 > [!IMPORTANT]
-> The scheduled running time of VMs doesn't count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs.
+> The scheduled run time of VMs doesn't count against the quota allotted to a user. The alloted quota is for the time outside of schedule hours that a student spends on VMs.
 
 Users can create, edit, and delete lab schedules within Teams as in the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). For more information, see [creating and managing schedules](how-to-create-schedules-within-teams.md).
 
