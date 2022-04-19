@@ -78,7 +78,7 @@ The following are not supported:
 - CIS
 - SELinux (custom hardening like MLS)
 
-CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like Github Enterprise Server which include customizations such as limitations to user account privileges are not supported.
+CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges are not supported.
 
 ## Agent prerequisites
 
