@@ -24,7 +24,7 @@ When you create a serverless Apache Spark pool, you will have the option to sele
 > - You should test and validate that your applications run properly when using new runtime versions.
 
 > [!IMPORTANT]
-> __Log4J 1.2.x security patches__
+> __Log4j 1.2.x security patches__
 >
 > Open-source Log4J library version 1.2.x has several known CVEs (Common Vulnerabilities and Exposures), as described [here](https://logging.apache.org/log4j/1.2/index.html).
 >
