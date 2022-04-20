@@ -68,6 +68,8 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
 1. On the **Roles** tab, select **Storage Blob Data Owner**.
 
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
 1. Select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
