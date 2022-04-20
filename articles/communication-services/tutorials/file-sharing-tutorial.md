@@ -56,7 +56,9 @@ Once implemented, you can call this Azure Function inside the `uploadHandler` fu
 
 ```tsx
 import { FileUploadHandler, FileUploadManager } from '@azure/communication-react';
+import { initializeFileTypeIcons } from '@fluentui/react-file-type-icons'; 
 
+initializeFileTypeIcons();
 const App = () => (
   <ChatComposite 
     options={{
