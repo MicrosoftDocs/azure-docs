@@ -20,14 +20,14 @@
       expanded: true
       items:
         - name: Use the Azure CLI
-          href: kubernetes-walkthrough.md
+          href: learn/quick-kubernetes-deploy-cli.md
         - name: Use Azure PowerShell
-          href: kubernetes-walkthrough-powershell.md
+          href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
-          href: kubernetes-walkthrough-portal.md
+          href: learn/quick-kubernetes-deploy-portal.md
         - name: Use ARM template
           displayName: Resource Manager
-          href: kubernetes-walkthrough-rm-template.md
+          href: learn/quick-kubernetes-deploy-rm-template.md
     - name: Develop applications
       expanded: true
       items:
