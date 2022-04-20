@@ -371,7 +371,7 @@ Then, configure and host a web endpoint that returns a JSON file that lists the 
     "lights" : [
         "bulb",
         "bulbs",
-        "light"
+        "light",
         "light bulb"
     ],
     "tv" : [
