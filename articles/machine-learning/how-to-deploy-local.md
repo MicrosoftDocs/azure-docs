@@ -9,10 +9,12 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.date: 11/20/2020
 ms.topic: how-to
-ms.custom: deploy
+ms.custom: deploy, sdkv1
 ---
 
 # Deploy models trained with Azure Machine Learning on your local machines 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article describes how to use your local computer as a target for training or deploying models created in Azure Machine Learning. Azure Machine Learning is flexible enough to work with most Python machine learning frameworks. Machine learning solutions generally have complex dependencies that can be difficult to duplicate. This article will show you how to balance total control with ease of use.
 
@@ -98,7 +100,7 @@ The easiest way to replicate the environment used by Azure Machine Learning is t
 The following code shows these steps:
 
 ```python
-from azureml.core.webservice import Webservice
+from azureml.core.webservice import LocalWebservice
 from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment
 from azureml.core import Workspace

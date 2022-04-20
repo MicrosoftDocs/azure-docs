@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1
+ms.custom: devx-track-azurecli, cliv1, sdkv1
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -32,6 +32,8 @@ In this article, learn how to:
 * The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -116,7 +118,9 @@ You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low
 Use any of these ways to specify a low-priority VM:
     
 # [Python](#tab/python)
-    
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
                                                             vm_priority='lowpriority',
@@ -144,6 +148,8 @@ In the studio, choose **Low Priority** when you create a VM.
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 * Configure managed identity in your provisioning configuration:  
 

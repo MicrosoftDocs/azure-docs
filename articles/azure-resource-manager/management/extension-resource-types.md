@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 04/18/2022
 ---
 
 # Resource types that extend capabilities of other resources
@@ -22,6 +22,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Authorization
 
+* accessReviewHistoryDefinitions
 * batchResourceCheckAccess
 * denyAssignments
 * eligibleChildResources
@@ -106,6 +107,7 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.CostManagement
 
 * Alerts
+* BenefitRecommendations
 * BenefitUtilizationSummaries
 * Budgets
 * CheckNameAvailability
@@ -117,6 +119,8 @@ An extension resource is a resource that adds to another resource's capabilities
 * Insights
 * OperationResults
 * OperationStatus
+* Pricesheets
+* Publish
 * Query
 * Reportconfigs
 * Reports
@@ -131,10 +135,15 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * DatabaseMigrations
 
+## Microsoft.DataProtection
+
+* backupInstances
+
 ## Microsoft.Diagnostics
 
-* InsightDiagnostics
-* Solutions
+* apollo
+* insights
+* solutions
 
 ## Microsoft.EventGrid
 
@@ -143,9 +152,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.GuestConfiguration
 
-* configurationProfileAssignments
 * guestConfigurationAssignments
-* software
 
 ## Microsoft.HybridConnectivity
 
@@ -253,6 +260,8 @@ An extension resource is a resource that adds to another resource's capabilities
 * InformationProtectionPolicies
 * insights
 * jitPolicies
+* secureScoreControls
+* secureScores
 * serverVulnerabilityAssessments
 * sqlVulnerabilityAssessments
 
@@ -269,11 +278,13 @@ An extension resource is a resource that adds to another resource's capabilities
 * enrichment
 * entities
 * entityQueryTemplates
+* fileImports
 * incidents
 * listrepositories
 * metadata
 * MitreCoverageRecords
 * onboardingStates
+* securityMLAnalyticsSettings
 * settings
 * sourceControls
 * threatIntelligence

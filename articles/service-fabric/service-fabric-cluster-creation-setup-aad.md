@@ -8,14 +8,16 @@ ms.custom: ignite-fall-2021
 
 # Set up Azure Active Directory for client authentication
 
+> [!WARNING]
+> At this time, AAD client authentication and the Managed Identity Token Service are mutually incompatible on Linux.
+
 For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints. This article describes how to setup Azure AD to authenticate clients for a Service Fabric cluster.
+
+On Linux, you must complete the following steps before you create the cluster. On Windows, you also have the option to [configure Azure AD authentication for an existing cluster](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
 
 In this article, the term "application" will be used to refer to [Azure Active Directory applications](../active-directory/develop/developer-glossary.md#client-application), not Service Fabric applications; the distinction will be made where necessary. Azure AD enables organizations (known as tenants) to manage user access to applications.
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you will create two Azure AD applications to control access to the cluster: one web application and one native application. After the applications are created, you will assign users to read-only and admin roles.
-
-> [!NOTE]
-> On Linux, you must complete the following steps before you create the cluster. On Windows, you also have the option to [configure Azure AD authentication for an existing cluster](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
 
 > [!NOTE]
 > It is a [known issue](https://github.com/microsoft/service-fabric/issues/399) that applications and nodes on Linux AAD-enabled clusters cannot be viewed in Azure Portal.
