@@ -102,6 +102,8 @@
       href: core/overview-iot-central-solution-builder.md
     - name: Application administration guide
       href: core/overview-iot-central-admin.md
+    - name: Application security guide
+      href: core/overview-iot-central-security.md
     - name: Network security using private endpoints
       href: core/concepts-private-endpoints.md
     - name: FAQ
