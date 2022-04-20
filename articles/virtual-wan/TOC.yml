@@ -35,7 +35,7 @@
       href: work-remotely-support.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
-  - name: NVA in the Virtual WAN Hub
+  - name: NVA in a Virtual WAN Hub
     href: about-nva-hub.md
   - name: Locations and Partners
     items:
