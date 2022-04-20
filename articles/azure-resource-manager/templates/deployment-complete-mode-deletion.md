@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 04/19/2022
+ms.date: 04/20/2022
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -2567,27 +2567,13 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
-> | builtInTemplateSpecs | No |
-> | builtInTemplateSpecs / versions | No |
-> | bulkDelete | No |
-> | calculateTemplateHash | No |
 > | deployments | No |
 > | deploymentScripts | Yes |
 > | deploymentScripts / logs | No |
 > | deploymentStacks / snapshots | No |
 > | links | No |
-> | notifyResourceJobs | No |
-> | providers | No |
 > | resourceGroups | No |
-> | resources | No |
 > | subscriptions | No |
-> | subscriptions / providers | No |
-> | subscriptions / resourceGroups | No |
-> | subscriptions / resourcegroups / resources | No |
-> | subscriptions / resources | No |
-> | subscriptions / tagnames | No |
-> | subscriptions / tagNames / tagValues | No |
-> | tags | No |
 > | templateSpecs | Yes |
 > | templateSpecs / versions | Yes |
 > | tenants | No |
