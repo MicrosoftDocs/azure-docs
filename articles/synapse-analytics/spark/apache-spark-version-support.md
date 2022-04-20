@@ -26,7 +26,7 @@ When you create a serverless Apache Spark pool, you will have the option to sele
 > [!IMPORTANT]
 > __Log4j 1.2.x security patches__
 >
-> Open-source Log4J library version 1.2.x has several known CVEs (Common Vulnerabilities and Exposures), as described [here](https://logging.apache.org/log4j/1.2/index.html).
+> Open-source Log4j library version 1.2.x has several known CVEs (Common Vulnerabilities and Exposures), as described [here](https://logging.apache.org/log4j/1.2/index.html).
 >
 > On all Synapse Spark Pool runtimes, we have patched the Log4J 1.2.17 JARs to mitigate the following CVEs: CVE-2019-1751, CVE-2020-9488, CVE-2021-4104, CVE-2022-23302, CVE-2022-2330, CVE-2022-23307
 >
