@@ -229,7 +229,7 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 
 ## File Downloads - Advanced Usage
 
-By default, the file `url` provided through `notifyUploadCompleted` method  will be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Below we will modify the `fileDownloadHandler` that we declared above to check for an authorized user before allowing to download the file.
+By default, the file `url` provided through `notifyUploadCompleted` method will be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Below we will modify the `fileDownloadHandler` that we declared above to check for an authorized user before allowing to download the file.
 
 ```tsx
 import { FileDownloadHandler } from "communication-react";
