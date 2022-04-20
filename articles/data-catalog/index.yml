@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Azure Purview - next generation of unified data governance
+          - text: Microsoft Purview - next generation of unified data governance
             url: ../purview/overview.md
       - linkListType: overview
         links:
