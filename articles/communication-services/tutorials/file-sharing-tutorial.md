@@ -118,8 +118,10 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 /** Provide the fileUploadHandler to ChatComposite */
 const App = () => (
   <ChatComposite 
-    fileSharing={{
-      uploadHandler: fileUploadHandler
+    options={{
+      fileSharing: {
+        uploadHandler: fileUploadHandler
+      }
     }}
   />
 );
