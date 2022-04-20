@@ -79,7 +79,7 @@ Once the Moby Engine is successfully installed, configure the Docker daemon to u
 >[!NOTE]
 >By default, the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space.
 
-We recommend using `local` logging driver as it offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk exhaustion. Additionally, you may choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limit based your need. The following example sets the default logging driver to the `local` logging driver. 
+We recommend using `local` logging driver as it offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limit based on your need. The following example sets the default logging driver to the `local` logging driver. 
    
 ```JSON
    {
