@@ -2,14 +2,22 @@
 title: Tutorial - New policy assignment with Azure portal
 description: In this tutorial, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 04/20/2022
 ---
 
 # Tutorial: Create a policy assignment to identify non-compliant resources
 
-The first step in understanding compliance in Azure is to identify the status of your resources. Azure Policy supports auditing the state of your Azure Arc-enabled server with guest configuration policies. Azure Policy's guest configuration definitions can audit or apply settings inside the machine. This tutorial steps you through the process of creating and assigning a policy, identifying which of your Azure Arc-enabled servers don't have the Log Analytics agent installed.
+The first step in understanding compliance in Azure is to identify the status of your resources. Azure Policy supports auditing the state of your Azure Arc-enabled server with guest configuration policies. Azure Policy's guest configuration definitions can audit or apply settings inside the machine. 
 
-At the end of this process, you'll successfully identify machines that don't have the Log Analytics agent for Windows or Linux installed. They're _non-compliant_ with the policy assignment.
+This tutorial steps you through the process of creating and assigning a policy in order to identify which of your Azure Arc-enabled servers don't have the Log Analytics agent for Windows or Linux installed. These machines are considered _non-compliant_ with the policy assignment.
+
+In this tutorial, you will learn how to:
+
+> [!div class="checklist"]
+> * Create policy assignment and assign a definition to it
+> * Identify resources that aren't compliant with the new policy
+> * Remove the policy from non-compliant resources
+
 
 ## Prerequisites
 
@@ -18,9 +26,9 @@ before you begin.
 
 ## Create a policy assignment
 
-In this tutorial, you create a policy assignment and assign the _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ policy definition.
+Create a policy assignment and assign the policy definition _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ to it by following these steps:
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
+1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
 
    :::image type="content" source="./media/tutorial-assign-policy-portal/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
@@ -54,21 +62,21 @@ In this tutorial, you create a policy assignment and assign the _\[Preview]: Log
    For a partial list of available built-in policies, see [Azure Policy samples](../../../governance/policy/samples/index.md).
 
 1. Search through the policy definitions list to find the _\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines_
-   definition if you have enabled the Arc-enabled servers agent on a Windows-based machine. For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
+   definition (if you have enabled the Arc-enabled servers agent on a Windows-based machine). For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
-   change it. For this example, leave _\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines_ or _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ depending on which one you selected. You can also add an optional **Description**. The description provides details about this policy assignment.
+   change it. For this example, leave _\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines_ or _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_, depending on which one you selected. You can also add an optional **Description**. The description provides details about this policy assignment.
    **Assigned by** will automatically fill based on who is logged in. This field is optional, so
    custom values can be entered.
 
-1. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or
+1. Select **Next** at the bottom of the page to go to the Remediation tab. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or
    initiative includes a policy with the
    [deployIfNotExists](../../../governance/policy/concepts/effects.md#deployifnotexists) effect. As the policy used for this
    quickstart doesn't, leave it blank. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and
    [how remediation security works](../../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Click **Assign**.
+1. Select **Review and Create** to review your new policy assignment, then select **Create**.
 
 You're now ready to identify non-compliant resources to understand the compliance state of your
 environment.
