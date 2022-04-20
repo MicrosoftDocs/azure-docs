@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 04/18/2022
+ms.date: 04/19/2022
 ms.custom: devx-track-js, devx-track-azurepowershell
 ---
 
@@ -140,7 +140,7 @@ The following instructions show you how to upload files by using the Azure porta
 
 2. In the **Containers** pane, select the **$web** container to open the container's **Overview** pane.
 
-    :::image type="content" source="media/storage-blob-static-website-how-to/web-containers-sml.png" alt-text="Image showing" lightbox="media/storage-blob-static-website-how-to/web-containers-lrg.png":::
+    :::image type="content" source="media/storage-blob-static-website-how-to/web-containers-sml.png" alt-text="Image showing where to locate the website storage container in Azure portal" lightbox="media/storage-blob-static-website-how-to/web-containers-lrg.png":::
 
 3. In the **Overview** pane, select the **Upload** icon to open the **Upload blob** pane. Next, select the **Files** field within the **Upload blob** pane to open the file browser. Navigate to the file you want to upload, select it, and then select **Open** to populate the **Files** field. Optionally, select the **Overwrite if files already exist** checkbox.
 
