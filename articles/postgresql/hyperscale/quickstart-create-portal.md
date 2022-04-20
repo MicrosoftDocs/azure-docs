@@ -50,18 +50,13 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 
 ---
 
-1. Fill out the **Basics** form with the following information:
+1. Fill out the **Basics** form.
    ![basic info form](../media/quickstart-hyperscale-create-portal/basics.png)
 
-   | Setting           | Description       |
-   |-------------------|-------------------|
-   | Subscription      | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
-   | Resource group    | A new resource group name or an existing one from your subscription. |
-   | Server group name | A unique name that identifies your Hyperscale server group. The domain name postgres.database.azure.com is appended to the server group name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain fewer than 40 characters. |
-   | Location          | The location that is closest to you.        |
-   | Admin username    | Currently required to be the value `citus`, and can't be changed. |
-   | Password          | A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.). |
-   | Version           | The latest PostgreSQL major version, unless you have specific requirements. |
+   Most options are self-explanatory. Note that the server group name will
+   determine the DNS name your applications use to connect, in the form
+   `server-group-name.postgres.database.azure.com`. Also, the admin username
+   is required to be the value `citus`.
 
 2. Select **Configure server group**.
 
