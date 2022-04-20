@@ -1,6 +1,6 @@
 ---
-title: Self-service hybrid access workflows
-description: This article describes how to create and manage hybrid self-service data access workflows in Azure Purview.
+title: Self-service hybrid data access workflows
+description: This article describes how to create and manage hybrid self-service data access workflows in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -30,7 +30,7 @@ This guide will show you how to create and manage self-service access workflows 
 
 ## Create and enable self-service access workflow
 
-1. Sign in to [Azure Purview Studio](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents.
+1. Sign in to [Microsoft Purview Studio](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-section.png" alt-text="Screenshot showing the management center left menu with the new workflow section highlighted.":::
 
@@ -45,11 +45,11 @@ This guide will show you how to create and manage self-service access workflows 
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-select-new.png" alt-text="Screenshot showing the authoring workflows page, with the + New button highlighted.":::
 
-1. You'll be presented with different categories workflows creatable in Azure Purview. To create an **access request workflow** Select **Governance** and select **Continue**.
+1. You'll be presented with different categories workflows creatable in Microsoft Purview. To create **an access request workflow** Select **Governance** and select **Continue**.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-governance.png" alt-text="Screenshot showing the new workflow window, with the Governance option selected.":::
 
-1. In the next screen, you'll see all the templates provided by Azure Purview to create a self-service data access workflow. Select the template **Data access request** and select **Continue**.
+1. In the next screen, you'll see all the templates provided by Microsoft Purview to create a self-service data access workflow. Select the template **Data access request** and select **Continue**.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-data-access-request.png" alt-text="Screenshot showing the new workflow window, with the Data access request option selected.":::
 
@@ -124,7 +124,7 @@ To delete a workflow, select the workflow and then select **Delete**.
 
 For more information about workflows, see these articles:
 
-- [What are Azure Purview workflows](concept-workflow.md)
+- [What are Microsoft Purview workflows](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
 
