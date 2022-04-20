@@ -66,6 +66,8 @@ Follow the steps below to register for preview *InGuestScheduledPatchVMPreview* 
 
 1. In the **Allows subscription to enable automatic VM guest patching on schedule** pane, select **Register** to register the provider with your subscription.
 
+For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
+
 ---
 
 >[!NOTE]
@@ -73,7 +75,6 @@ Follow the steps below to register for preview *InGuestScheduledPatchVMPreview* 
 
 After your register for the above feature, go to update management center (preview) portal link: **https://aka.ms/umc-preview**.
 
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
 
  
 ## Using the Azure PowerShell
@@ -100,15 +101,14 @@ To register the resource provider for both Azure VMs and Arc-enabled servers, us
 Register-AzResourceProvider -FeatureName InGuestScheduledPatchVMPreview -ProviderNamespace Microsoft.Compute
 ```
 
+For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
 ---
 
 >[!NOTE]
 > This preview feature will be auto-approved.
 
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
- 
 
-## Using the Azure CLI
+ ## Using the Azure CLI
 
 The following section describes how to enable periodic assessment and scheduled patching features in Azure for your subscription using the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
 
@@ -128,14 +128,13 @@ az feature register --namespace Microsoft.Compute --name InGuestAutoAssessmentVM
 ```azurecli
 az feature register --namespace Microsoft.Compute --name InGuestScheduledPatchVMPreview
 ```
-
+For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
 ---
 
 >[!NOTE]
 > This preview feature will be auto-approved.
 
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching)
- 
+
 
 ## Using the Azure REST API
 
@@ -168,13 +167,11 @@ POST on `/subscriptions/subscriptionId/providers/Microsoft.Features/providers/Mi
 
 Replace the value `subscriptionId` with the ID of the target subscription.
 
+For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
 ---
 
 >[!NOTE]
 > This preview feature will be auto-approved.
-
-For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
-
 
 ## Next steps
 
