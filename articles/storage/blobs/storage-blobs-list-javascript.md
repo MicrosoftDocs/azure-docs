@@ -65,95 +65,125 @@ To organize blobs into virtual directories, use a delimiter character in the blo
 
 If you name your blobs using a delimiter, then you can choose to list blobs hierarchically. For a hierarchical listing operation, Azure Storage returns any virtual directories and blobs beneath the parent object. You can call the listing operation recursively to traverse the hierarchy, similar to how you would traverse a classic file system programmatically.
 
+If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
+
 ## Use a flat listing
 
 By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs are not organized by virtual directory.
 
-The following example lists the blobs in the specified container using a flat listing, with an optional segment size specified, and writes the blob name to a console window.
-
-If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
-
-
-
-## Use a hierarchical listing
-
-When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy.
-
-To list blobs hierarchically, call the [BlobContainerClient.GetBlobsByHierarchy]() method.
-
-The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
-
+The following example lists the blobs in the specified container using a flat listing.
 
 ```javascript
-async function listBlobsFlatWithPageMarker(containerClient){
+async function listBlobsFlatWithPageMarker(containerClient) {
 
-    // page size
-    const maxPageSize = 10;
+  // page size
+  const maxPageSize = 2;
 
-    let i = 1;
-    let marker;
+  let i = 1;
+  let marker;
 
-    const listOptions = {
-      includeMetadata: true,
-      includeSnapshots: false,
-      includeTags: true,
-      includeVersions: false,
-      prefix: ''
-    };  
+  const listOptions = {
+    includeMetadata: true,
+    includeSnapshots: false,
+    includeTags: true,
+    includeVersions: false,
+    prefix: ''
+  };
 
-    let iterator = containerClient.listBlobsFlat(listOptions).byPage({ maxPageSize });
-    let response = (await iterator.next()).value;
-    
-    // Prints blob names
-    for (const blob of response.segment.blobItems) {
-      console.log(`Blob ${i++}: ${blob.name}`);
-    }
-    
-    // Gets next marker
-    marker = response.continuationToken;
-    
-    // Passing next marker as continuationToken    
-    iterator = containerClient.listBlobsFlat().byPage({ continuationToken: marker, maxPageSize: maxPageSize * 2 });
-    response = (await iterator.next()).value;
-    
-    // Prints next blob names
-    for (const blob of response.segment.blobItems) {
-      console.log(`Blob ${i++}: ${blob.name}`);
-    }
+  let iterator = containerClient.listBlobsFlat(listOptions).byPage({ maxPageSize });
+  let response = (await iterator.next()).value;
+
+  // Prints blob names
+  for (const blob of response.segment.blobItems) {
+    console.log(`Flat listing: ${i++}: ${blob.name}`);
+  }
+
+  // Gets next marker
+  marker = response.continuationToken;
+
+  // Passing next marker as continuationToken    
+  iterator = containerClient.listBlobsFlat().byPage({ continuationToken: marker, maxPageSize: maxPageSize * 2 });
+  response = (await iterator.next()).value;
+
+  // Prints next blob names
+  for (const blob of response.segment.blobItems) {
+    console.log(`Flat listing: ${i++}: ${blob.name}`);
+  }
 }
-
 ```
 
 The sample output is similar to:
 
 ```console
-Virtual directory prefix: FolderA/
-Blob name: FolderA/blob1.txt
-Blob name: FolderA/blob2.txt
-Blob name: FolderA/blob3.txt
+Flat listing: 1: a0/blob-0.txt
+Flat listing: 2: a1/blob-1.txt
+Flat listing: 3: a2/blob-2.txt
+```
 
-Virtual directory prefix: FolderA/FolderB/
-Blob name: FolderA/FolderB/blob1.txt
-Blob name: FolderA/FolderB/blob2.txt
-Blob name: FolderA/FolderB/blob3.txt
+## Use a hierarchical listing
 
-Virtual directory prefix: FolderA/FolderB/FolderC/
-Blob name: FolderA/FolderB/FolderC/blob1.txt
-Blob name: FolderA/FolderB/FolderC/blob2.txt
-Blob name: FolderA/FolderB/FolderC/blob3.txt
+When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy.
+
+To list blobs hierarchically, call the [BlobContainerClient.listBlobsByHierarchy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy) method.
+
+The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
+
+```javascript
+// Recursively list virtual folders and blobs
+async function listBlobHierarchical(containerClient, virtualHierarchyDelimiter='/') {
+
+  // page size
+  const maxPageSize = 2;
+
+  const listOptions = {
+    includeMetadata: true,
+    includeSnapshots: false,
+    includeTags: true,
+    includeVersions: false,
+    prefix: ''
+  };
+
+  let i = 1;
+  console.log(`Folder ${virtualHierarchyDelimiter}`);
+
+  for await (const response of containerClient
+    .listBlobsByHierarchy(virtualHierarchyDelimiter, listOptions)
+    .byPage({ maxPageSize })) {
+
+    console.log(`   Page ${i++}`);
+    const segment = response.segment;
+
+    if (segment.blobPrefixes) {
+```
+
+The sample output is similar to:
+
+```console
+Hier listing: Folder /
+   Page 1
+Hier listing: Folder /a0/
+   Page 1
+        BlobItem: name - a0/blob-0.txt
+        BlobItem: name - a1/blob-1.txt
+   Page 2
+        BlobItem: name - a2/blob-2.txt
+Hier listing: Folder /a1/
+   Page 1
+        BlobItem: name - a0/blob-0.txt
+        BlobItem: name - a1/blob-1.txt
+   Page 2
+        BlobItem: name - a2/blob-2.txt
+   Page 2
+Hier listing: Folder /a2/
+   Page 1
+        BlobItem: name - a0/blob-0.txt
+        BlobItem: name - a1/blob-1.txt
+   Page 2
+        BlobItem: name - a2/blob-2.txt
 ```
 
 > [!NOTE]
 > Blob snapshots cannot be listed in a hierarchical listing operation.
-
-### List blob versions or snapshots
-
-To list blob versions or snapshots, specify the [BlobStates]() parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. 
-
-The following code example shows how to list blob versions.
-
-```javascript
-```
 
 ## Next steps
 
