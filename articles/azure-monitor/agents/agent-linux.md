@@ -188,10 +188,9 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
 > [!NOTE]
 > Because the [Container Monitoring solution](../containers/containers.md) is being retired, the following documentation uses the optional setting --skip-docker-provider-install to disable the Container Monitoring data collection.
 
-
-    ```
-    sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key> --skip-docker-provider-install
-    ```
+   ```
+   sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key> --skip-docker-provider-install
+   ```
 
 3. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command providing the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *proxyhost* property accepts a fully qualified domain name or IP address of the Log Analytics gateway server.  
 
