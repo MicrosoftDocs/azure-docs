@@ -23,10 +23,11 @@ See the following sections for detailed information:
 
 Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
->[!NOTE]
-> You can check the updates from **Overview** or **Machines** blade.
 
 ## Install updates on single VM
+
+>[!NOTE]
+> You can install the updates from the Overview or Machines blade in update management center (preview) page or from the Azure home page.
 
 # [From Overview blade](#tab/install-single-overview) 
 
@@ -108,6 +109,8 @@ To create a new update deployment for multiple machines, follow these steps:
 
 >[!NOTE]
 > You can check the updates from **Overview** or **Machines** blade.
+
+You can schedule updates 
 
 # [From Overview blade](#tab/install-scale-overview) 
 
