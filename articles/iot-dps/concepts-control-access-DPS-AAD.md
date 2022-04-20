@@ -37,10 +37,10 @@ Azure IoT Hub Device Provisioning Service (DPS) provides the following Azure bui
 | Role | Description | 
 | ---- | ----------- | 
 | Device Provisioning Service Data Contributor | Allows for full access to Device Provisioning Service data-plane operations. |
-| Device Provisioning Service Reader | Allows for full read access to Device Provisioning Service data-plane properties. |
+| Device Provisioning Service Data Reader | Allows for full read access to Device Provisioning Service data-plane properties. |
 
 
-You can also define custom roles to use with Azure IoT Hub Device Provisioning Service (DPS) by combining the [permissions](#permissions-for-azure-iot-hub-device-provisioning-service-dps-apis-) that you need. For more information, see [Create custom roles for Azure role-based access control](../role-based-access-control/custom-roles.md).
+You can also define custom roles to use with Azure IoT Hub Device Provisioning Service (DPS) by combining the [permissions](#permissions-for-azure-iot-hub-device-provisioning-service-dps-apis) that you need. For more information, see [Create custom roles for Azure role-based access control](../role-based-access-control/custom-roles.md).
 
 ### Resource scope
 
@@ -85,11 +85,14 @@ Most commands against Azure IoT Hub Device Provisioning Service (DPS) support Az
 
 For more information, see the [Azure IoT extension for Azure CLI release page](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.13.0).
 
-## SDK
+## SDKs and samples
 
-- [Azure IoT SDKs for Node.js Provisioning Service](https://aka.ms/IoTDPSNodeJSSDKRBACSample)
-- [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBACSample)
-- [.NET Microsoft.Azure.Devices](https://aka.ms/IoTDPScsharpSDKRBACSample)
+- [Azure IoT SDKs for Node.js Provisioning Service](https://aka.ms/IoTDPSNodeJSSDKRBAC)
+    - [Sample](https://aka.ms/IoTDPSNodeJSSDKRBACSample)
+- [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
+    - [Sample](https://aka.ms/IoTDPSJavaSDKRBACSample)
+- [•	Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
+    - [Sample](https://aka.ms/IoTDPScsharpSDKRBACSample)
 
 ## Azure AD access from the Azure portal
 

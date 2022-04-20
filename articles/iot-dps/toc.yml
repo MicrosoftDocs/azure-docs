@@ -62,7 +62,7 @@
       href: concepts-control-access-DPS.md
     - name: Control access to DPS with SAS
       href: how-to-control-access.md
-    - name: Control access to DPS with AAD (preview)
+    - name: Control access to DPS with AAD (Preview)
       href: concepts-control-access-DPS-AAD.md
   - name: Roles and operations
     href: concepts-roles-operations.md

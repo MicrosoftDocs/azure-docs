@@ -1,12 +1,12 @@
 ---
 title: Access control and security for DPS by using shared access signatures | Microsoft Docs
 description: Concepts - how to control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
-author: wesmc7777
+author: kgremban
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -272,6 +272,13 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 The result, which would grant access to read all enrollment records, would be:
 
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=enrollmentread`
+
+## SDKs and samples
+
+- [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
+    - [Sample](https://aka.ms/IoTDPSJavaSDKSASSample])
+- [•	Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
+    - [Sample](https://aka.ms/IoTDPSscharpSDKSASSample)
 
 ## Reference topics:
 
