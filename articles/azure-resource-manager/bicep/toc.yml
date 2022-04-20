@@ -79,6 +79,10 @@
     items:
     - name: DevTest Labs
       href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Integration
+    items:
+    - name: API for FHIR
+      href: ../../healthcare-apis/fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
     - name: Application Gateway
