@@ -76,7 +76,7 @@ Next, implement a small [Express](https://expressjs.com/) web server to serve yo
 
     In the *index.html* file, add the following code:
 
-    :::code language="js" source="~/ms-identity-javascript-v2/app/index.html":::
+        :::code language="html" source="~/ms-identity-javascript-v2/app/index.html":::
 
 2. Next, also in the *app* folder, create a file named *ui.js* and add the following code. This file will access and update DOM elements.
 
@@ -98,7 +98,7 @@ Create a file named *authConfig.js* in the *app* folder to contain your configur
 
 Still in the *app* folder, create a file named *graphConfig.js*. Add the following code to provide your application the configuration parameters for calling the Microsoft Graph API:
 
-:::code language="js" source="~/ms-identity-javascript-v2/app/authConfig.js":::
+:::code language="js" source="~/ms-identity-javascript-v2/app/graphConfig.js":::
 
 Modify the values in the `graphConfig` section as described here:
 
