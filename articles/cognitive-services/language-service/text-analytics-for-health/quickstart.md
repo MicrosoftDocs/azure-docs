@@ -49,7 +49,7 @@ Use this article to get started with Text Analytics for health using the client 
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
+[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)] 
 
 ::: zone-end
 
