@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 04/19/2022
 ms.author: tamram
 ms.subservice: common
+ms.custom: references_regions
 ---
 
 # Azure Storage redundancy
