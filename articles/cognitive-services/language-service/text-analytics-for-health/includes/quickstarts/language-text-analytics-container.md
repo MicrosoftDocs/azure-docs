@@ -13,8 +13,7 @@ ms.author: aahi
 # [Language API (Preview)](#tab/language)
 
 > [!NOTE]
-> The Language API is available in preview, and provides the following additional feature:
-> * Fast Healthcare Interoperability Resources (FHIR) support.
+> Fast Healthcare Interoperability Resources (FHIR) feature is available in the latest container, and is exposed through the new language REST API. 
 
 ```bash
 curl -i -X POST 'http://<serverURL>:5000/language/analyze-text/jobs?api-version=2022-04-01-preview' --header 'Content-Type: application/json' --header --data-binary @example.json

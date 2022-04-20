@@ -262,9 +262,6 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 You can use Postman or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
 
-> [!NOTE]
-> Fast Healthcare Interoperability Resources (FHIR) feature is available in the latest container, and is exposed through the new language REST API. 
-
 [!INCLUDE [Use APIs in container](../includes/quickstarts/language-text-analytics-container.md)]
 
 
