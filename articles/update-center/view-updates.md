@@ -17,22 +17,53 @@ This article details how to check the status of available updates on a single VM
 
 ## Check updates on single VM
 
-To check the updates on a single VM, follow these steps:
+>[!NOTE]
+> You can check the updates from the **Overview** or **Machines** blade.
 
-1. Sign in to the [Azure portal](https://aka.ms/umc-preview).
+# [From Overview blade](#tab/singlevm-overview)
 
-1. Select any machine and the **virtual machines | Updates** page appears.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In Update management center (Preview), **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
+
+1. In **Select resources and check for updates**, choose the machine for which you want to check the updates and select **Check for updates**.
+
+    An assessment is performed and a notification appears as a confirmation.
+
+    :::image type="content" source="./media/view-updates/check-updates-overview-inline.png" alt-text="Screenshot of checking updates from Overview." lightbox="./media/view-updates/check-updates-overview-expanded.png":::
+    
+    The **Update status of machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
+
+# [From Machines blade](#tab/singlevm-machines)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In Update management center (preview), **Machines**, select your **Subscription** to view all your machines.
+
+1. Select your machine from the checkbox and select **Check for updates**, **Assess now** or alternatively, you can select your machine, in **Updates Preview**, select **Assess updates**, and in **Trigger assess now**, select **OK**.
+
+    An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful* else, you will see the notification *Assessment Failed*.
+
+
+# [From Home page](#tab/singlevm-home)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In **Home** page, select your machine from **Recent Resources** and the **virtual machines | Updates** page opens.
 
 1. In **Operations**, select **Updates**.
 
 1. In **Updates**, select **Go to Updates using Update Center**. 
 
+      :::image type="content" source="./media/view-updates/resources-check-updates.png" alt-text="Screenshot showing selection of updates from Home page.":::
+
 1. In **Updates (Preview)**, select **Assess updates**, in **Trigger assess now**, select **OK**.
 
-    :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Example of checking updates from Overview." lightbox="./media/view-updates/check-updates-expanded.png":::
+   An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful* else, you will see the notification *Assessment Failed*.
 
-    An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful*.
+    :::image type="content" source="./media/view-updates/check-updates-home-inline.png" alt-text="Screenshot of status after checking updates." lightbox="./media/view-updates/check-updates-home-expanded.png":::
 
+ ---  
 
 ## Check updates at scale
 

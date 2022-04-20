@@ -82,11 +82,28 @@ To install one time updates on a single VM, follow these steps:
 
 1. Select to **Install now** to proceed with installing updates.
 
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#install-updates-on-single-vm).
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#from-machines-bladetabinstall-single-machine).
+
+   A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
+
+# [From Home page](#tab/singlevm-deploy-home)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In **Home** page, select your machine from **Recent Resources** and the **virtual machines | Updates** page opens.
+
+1. In **Operations**, select **Updates**.
+
+1. In **Updates**, select **Go to Updates using Update Center**.
+
+1. In **Updates (Preview)**, select **One-time update** to install the updates.
+
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#from-machines-bladetabinstall-single-machine).
+
 
 ---
 
-A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log). 
+ 
 
 ## Install updates at scale
  
