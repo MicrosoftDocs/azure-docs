@@ -41,7 +41,7 @@ span various verticals such as Sales & Marketing Automation, IOT/telemetry,
 finance, logistics, and search.
 
 > [!div class="nextstepaction"]
-> [Try the quickstart >](quickstart-reate.md)
+> [Try the quickstart >](quickstart-create-portal.md)
 
 ## Always the latest PostgreSQL features
 
@@ -71,4 +71,4 @@ application requires greater scale, you can add nodes and rebalance your data.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the quickstart >](quickstart-reate.md)
+> [Try the quickstart >](quickstart-create-portal.md)
