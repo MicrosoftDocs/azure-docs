@@ -285,6 +285,7 @@ In the case of a URL redirect, Application Gateway sends a redirect response to 
 - Rewrites are not supported when the application gateway is configured to redirect the requests or to show a custom error page.
 - Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (\_) special character in Header names.
 - Connection and upgrade headers cannot be rewritten
+- Rewrites are not supported for 4xx and 5xx responses generated directly from Application Gateway
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
 ms.date: 03/01/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # Configure export settings and set up a storage account
