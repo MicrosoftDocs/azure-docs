@@ -29,7 +29,7 @@ To set up B2B collaboration between partner organizations in different Microsoft
 
 1. Configures their Microsoft cloud settings to enable collaboration with the partner's cloud.
 
-1. Adds the partner's tenant ID to their organizational settings.
+1. Uses the partner's tenant ID to find and add the partner to their organizational settings.
 
 1. Configures their inbound and outbound settings for the partner organization. The admin can either apply the default settings or configure specific settings for the partner.
 

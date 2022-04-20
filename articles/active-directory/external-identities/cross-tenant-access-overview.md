@@ -45,7 +45,7 @@ The default cross-tenant access settings apply to all Azure AD organizations ext
 
 - **Organizational settings**: No organizations are added to your Organizational settings by default. This means all external Azure AD organizations are enabled for B2B collaboration with your organization.
 
-The behaviors described above apply to B2B collaboration with other Azure AD tenants in your same Microsoft Azure cloud. In cross-cloud scenarios, default settings work a little differently. See [Microsoft cloud settings](#cross-cloud-settings) later in this article.
+The behaviors described above apply to B2B collaboration with other Azure AD tenants in your same Microsoft Azure cloud. In cross-cloud scenarios, default settings work a little differently. See [Microsoft cloud settings](#microsoft-cloud-settings) later in this article.
 
 ## Organizational settings
 
@@ -65,7 +65,7 @@ Microsoft cloud settings let you collaborate with organizations from different M
 - Microsoft Azure Government
 - Microsoft Azure China 21Vianet
 
-To set up B2B collaboration, both organizations configure their Microsoft cloud settings to enable the partner's cloud. Then each organization adds the partner's tenant to their organizational settings. From there, each organization can allow their default cross-tenant access settings apply to the partner, or they can configure partner-specific inbound and outbound settings. After you establish B2B collaboration with a partner in another cloud, you'll be able to:
+To set up B2B collaboration, both organizations configure their Microsoft cloud settings to enable the partner's cloud. Then each organization uses the partner's tenant ID to find and add the partner to their organizational settings. From there, each organization can allow their default cross-tenant access settings apply to the partner, or they can configure partner-specific inbound and outbound settings. After you establish B2B collaboration with a partner in another cloud, you'll be able to:
 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
