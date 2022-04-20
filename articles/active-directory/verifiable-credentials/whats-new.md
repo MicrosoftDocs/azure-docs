@@ -47,17 +47,19 @@ From April 25th, 2022 the Azure AD Verifiable Credential service is available to
     get-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
     get-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
     ```
-  If you get an error on one of them, follow step 4 to create a new service principal.
+  
+
+If you get an error on one of them, follow step 4 to create a new service principal.
 1. Run the following commands in the same PowerShell session. 
 
    >[!NOTE]
    >The AppId ```bb2a64ee-5d29-4b07-a491-25806dc854d3``` and ```3db474b9-6a0c-4840-96ac-1fceb342124f``` refer to the new Verifiable Credentials service principals.
 
-    1. ```azurepowershell
-       new-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
-       new-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
-      
-       ```
+ ```azurepowershell
+    new-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
+    new-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
+  
+ ```
 
 #### Azure Key Vault policies
 
