@@ -98,8 +98,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - SSH commands, that are not SFTP, are not supported.
 
-- West Europe will temporarily still require registration of the SFTP preview feature.
-
 ## Troubleshooting
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
@@ -107,8 +105,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
   - The account needs to be a general-purpose v2 and premium block blob accounts.
   
   - The account needs to have hierarchical namespace enabled on it.
-  
-  - Accounts in West Europe will temporarily require the customer's subscription to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
