@@ -20,7 +20,7 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 ## April
 
-From April 25th, 2022 the Azure AD Verifiable Credential service is available to Azure Active Directory [Free subscriptions](https://azure.microsoft.com/free/). With this update any Azure AD tenant can issue and verify verifiable credentials independent of the subscription tier.  Prior to this change, the service was only available to tenants in Azure AD P2. Existing Verifiable Credentials deployments require administrators to take steps to ensure ongoing service operation.
+From April 25, 2022 the Azure AD Verifiable Credential service is available to Azure Active Directory [Free subscriptions](https://azure.microsoft.com/free/). With this update, any Azure AD tenant can issue and verify verifiable credentials independent of the subscription tier.  Prior to this change, the service was only available to tenants in Azure AD P2. Existing Verifiable Credentials deployments require administrators to take steps to ensure ongoing service operation.
 
 >[!IMPORTANT]
 > Tenants currently using the Azure AD Verifiable Credentials service must follow the steps below before April 25th, 2022 to avoid service disruptions.
@@ -28,7 +28,7 @@ From April 25th, 2022 the Azure AD Verifiable Credential service is available to
 
 ### Administrator update steps
 
-1. Run the following PowerShell commands. These commands install and import the Az module. For more information, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#installation).
+1. Run the following PowerShell commands. These commands install and import the AZ PowerShell module. For more information, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#installation).
 
     ```azurepowershell
     if((get-module -listAvailable -name "az.accounts") -eq $null){install-module -name "az.accounts" -scope currentUser}
@@ -46,7 +46,7 @@ From April 25th, 2022 the Azure AD Verifiable Credential service is available to
 ```azurepowershell
     get-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
     get-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
-    ```
+```
   
 
 If you get an error on one of them, follow step 4 to create a new service principal.
@@ -87,7 +87,7 @@ We need to do this for all storage accounts being used to store rules and displa
 1. From the menu, select Access Control (IAM).
 1. Select + Add, and then select Add role assignment.
 1. In Add role assignment:
-    1. For the Role, select Storage Blob Data Reader. Click Next
+    1. For the Role, select Storage Blob Data Reader. Select Next
     1. For the Assign access to, select User, group, or service principal.
     1. Then +Select members and search for Verifiable Credentials Service (make sure this is the exact name, since there are several similar service principals!) and hit Select
     1. Select Review + assign
@@ -105,23 +105,23 @@ We need to do this for all storage accounts being used to store rules and displa
 
 #### Adjust the API scopes used in your application
 
-For the Request API the new scope for your application or postman is now:
+For the Request API the new scope for your application or Postman is now:
 
 ```3db474b9-6a0c-96ac-1fceb342124f/.default```
 
-For the Admin API (private preview) the new scope for your application or postman is now:
+For the Admin API (private preview) the new scope for your application or Postman is now:
 
 ```6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access```
 
 ### Clean up steps
 
-Suggested after May 6th, 2022. Once you have confirmed that the Azure AD verifiable credentials service is working normally, you can issue, verify, etc after May 6th, 2022 you can proceed to clean up your tenant so that the Azure AD Verifiable Credentials service has only the new service principals.
+Suggested after May 6, 2022. Once you have confirmed that the Azure AD verifiable credentials service is working normally, you can issue, verify, etc after May 6, 2022 you can proceed to clean up your tenant so that the Azure AD Verifiable Credentials service has only the new service principals.
 
 1. Run the following PowerShell command to connect to your Azure AD tenant. Replace ```<your tenant ID>``` with your Azure AD tenant ID.
 1. Run the following commands in the same PowerShell session. The AppId ```603b8c59-ba28-40ff-83d1-408eee9a93e5``` and ```bbb94529-53a3-4be5-a069-7eaf2712b826``` refer to the previous Verifiable Credentials service principals.
 
 ## March 2022
-- Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure Portal.
+- Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure portal.
 - We made updates to Microsoft Authenticator that change the interaction between the Issuer of a verifiable credential and the user presenting the verifiable credential. This update forces all Verifiable Credentials to be reissued in Microsoft Authenticator for iOS. [More information](whats-new.md?#microsoft-authenticator-did-generation-update)
 
 ## February 2022
