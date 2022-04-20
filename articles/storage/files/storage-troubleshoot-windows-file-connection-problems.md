@@ -478,7 +478,7 @@ This error is most likely triggered by a syntax error in the Join-AzStorageAccou
 
 ## Azure Files on-premises AD DS Authentication support for AES-256 Kerberos encryption
 
-Azure Files supports AES-256 Kerberos encryption for AD DS authentication with the [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). AES-256 is now the recommended authentication method. If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+Azure Files supports AES-256 Kerberos encryption for AD DS authentication with the [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). AES-256 is the recommended authentication method. If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
