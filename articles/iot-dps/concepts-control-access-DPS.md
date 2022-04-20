@@ -1,0 +1,26 @@
+---
+title:  Access control and security for DPS | Microsoft Docs
+description: Overview on how to control access to Azure IoT Hub Device Provisioning Service (DPS), includes links to depth articles on AAD integration (Public Preview) and SAS options.
+author: jesusbar
+ms.author: jesusbar
+ms.service: iot-dps
+ms.topic: conceptual
+ms.date: 02/07/2022
+ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp]
+---
+
+# Control access to Azure IoT Hub Device Provisioning Service (DPS)
+
+This article describes the available options for securing your Azure IoT Hub Device Provisioning Service (DPS). The provisioning service uses *authentication* and *permissions* to grant access to each endpoint. Permissions allow the authentication process to limit access to a service instance based on functionality.
+
+There are two different ways for controlling access to Azure IoT Hub Device Provisioning Service (DPS):
+
+- **Shared access signatures** lets you group permissions and grant them to applications using access keys and signed security tokens. To learn more, see [Control access to Azure IoT Hub Device Provisioning Service (DPS) with Shared Access Signatures and security tokens](how-to-control-access.md). 
+- **Azure Active Directory (Azure AD) integration (Public Preview)** for service APIs. Azure provides identity-based authentication with AAD and fine-grained authorization with Azure role-based access control (Azure RBAC). Azure AD and RBAC integration is supported for Azure IoT Hub Device Provisioning Service (DPS) service APIs only. To learn more, see [Control access to Azure IoT Hub Device Provisioning Service (DPS) with Azure Active Directory (Public Preview)](concepts-control-access-DPS-AAD.md).
+
+
+
+## Next steps
+
+- [Control access to Azure IoT Hub Device Provisioning Service (DPS) with Shared Access Signatures and security tokens](how-to-control-access.md)
+- [Control access to Azure IoT Hub Device Provisioning Service (DPS) with Azure Active Directory (Public Preview)](concepts-control-access-DPS-AAD.md)
