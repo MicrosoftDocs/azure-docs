@@ -298,7 +298,7 @@ You can also configure your `log-opts` keys to use appropriate values in the `da
 
 ```JSON
 {
-    "log-driver": "json-file",
+    "log-driver": "local",
     "log-opts": {
         "max-size": "10m",
         "max-file": "3"
