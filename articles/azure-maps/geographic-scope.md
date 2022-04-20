@@ -22,10 +22,10 @@ For disaster recovery and high availability, Microsoft may replicate customer da
 
 The following table describes the mapping between geography and supported Azure geographic API endpoint. For example, if you want all of your Azure Maps Search Address requests to be processed and stored within the European Azure geography then all API calls to the Azure Maps Search Address service must be made to eu.atlas.microsoft.com/search/address.
 
-| Azure Geographic areas (geos) | Azure datacenters (regions) | API geographic endpoint   |
-|-------------------------------|-----------------------------|---------------------------|
-| Europe                        | West Europe, North Europe   | `eu.atlas.microsoft.com`  |
-| United States                 | West US 2, East US 2        | `us.atlas.microsoft.com`  |
+| Azure Geographic areas (geos) | API geographic endpoint   |
+|-------------------------------|---------------------------|
+| Europe                        | `eu.atlas.microsoft.com`  |
+| United States                 | `us.atlas.microsoft.com`  |
 
 ### URL example for geographic mapping
 
@@ -44,3 +44,4 @@ GET https://us.atlas.microsoft.com/mapData?api-version=2.0
 ## Additional information
 
 - [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies)
+- [Azure Government cloud support](how-to-use-map-control.md#azure-government-cloud-support)
