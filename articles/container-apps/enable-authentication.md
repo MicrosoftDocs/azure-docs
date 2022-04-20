@@ -230,7 +230,7 @@ To complete the procedure in this article, you need a GitHub account. To create 
 
 1. If this is the first identity provider configured for the application, you will also be prompted with a **Container Apps authentication settings** section. Otherwise, you may move on to the next step.
     
-    These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+    These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow]([Authentication flow](authentication.md#authentication-flow)).
 
 1. Click **Add**.
 
