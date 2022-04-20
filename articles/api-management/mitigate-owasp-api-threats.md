@@ -24,7 +24,7 @@ ms.author: danlep
 |Row5     |         |         |         |
 |Row6     |         |         |         |
 |Row7     |         |         |         |
-|[Injection](#injection)     |  Attackers will feed the API with malicious data through whatever injection vectors are available       |  + Configure WAF<br/>+ Validate requests      | [API8:2019 Injection](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa8-injection.md)        |
+|[Injection](#injection)     |  Attackers can feed the API with malicious data through whatever injection vectors are available       |  * Configure WAF<br/>* Validate requests      | [API8:2019 Injection](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa8-injection.md)        |
 |Row9     |         |         |         |
 |Row10     |         |         |         |
 
@@ -59,7 +59,7 @@ Any accessible endpoint accepting user data is potentially vulnerable to an "inj
 
 * [Modern Web Application Firewall (WAF) policies]( https://github.com/SpiderLabs/ModSecurity) cover many common injection vulnerabilities. While API Management doesn’t have a built-in WAF component, a WAF can be deployed upstream (in front) of the API Management instance.  
 
-    A WAF may be added at the [network edge](../web-application-firewall/afds/afds-overview.md), for external parties connecting to externally facing APIs. Alternatively, include a WAF locally as a component of a Layer 7 capable firewall upstream of the APIs, or as a component of an upstream [reverse proxy also acting as a gateway](../web-application-firewall/ag/application-gateway-waf-faq.md).  
+    A WAF may be added at the [network edge](../web-application-firewall/afds/afds-overview.md), for external parties connecting to externally facing APIs. Alternatively, include a WAF locally as a component of a Layer 7 capable firewall upstream of the APIs, or as a component of an upstream [reverse proxy also acting as a gateway](../web-application-firewall/ag/application-gateway-waf-faq.yml).  
 
     > [!IMPORTANT]
     > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](api-management-access-restriction-policies.md#RestrictCallerIPs), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or “mTLS”). 
