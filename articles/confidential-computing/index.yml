@@ -45,7 +45,11 @@ landingContent:
             url: ../virtual-machines/dcv2-series.md
           - text: DCsv3 and DCdsv3-series Virtual Machines
             url: ../virtual-machines/dcv3-series.md
-
+          - text: DCasv5 and DCadsv5-series Virtual Machines
+            url: ../virtual-machines/dcasv5-dcadsv5-series.md
+          - text: ECasv5 and ECadsv5-series Virtual Machines
+            url: ../virtual-machines/ecasv5-ecadsv5-series.md
+          
 
   # Card (optional)
   - title: Virtual machines
