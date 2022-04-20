@@ -39,31 +39,76 @@ A copy operation can take any of the following forms:
 
 ## Copy a blob
 
-To copy a blob, call the following method:
-
-- [startCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
-
-The `startCopyFromUri` method return a [copyFromUriOperation]() object containing information about the copy operation.
-
-The following code example gets a [BlobClient]() representing a previously created blob and copies it to a new blob in the same container:
+To copy a blob, use the [BlobClient.beginCopyFromURL method](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-begincopyfromurl). The following code example gets a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) representing a previously created blob and copies it to a new blob:
 
 ```javascript
+async function copyBlob(
+    blobServiceClient, 
+    sourceBlobContainer, 
+    sourceBlobName, 
+    destinationBlobContainer,
+    destinationBlobName,) {
 
+    // create container clients
+    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainer); 
+    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainer);   
+    
+    // create blob clients
+    const sourceBlobClient = await sourceContainerClient.getBlobClient(sourceBlobName);
+    const destinationBlobClient = await destinationContainerClient.getBlobClient(destinationBlobName);
+
+    // start copy
+    const copyPoller = await destinationBlobClient.beginCopyFromURL(sourceBlobClient.url);
+    console.log("start copy from A to B");
+
+    // wait until done
+    await copyPoller.pollUntilDone();
+}
+```
+
+## Cancel a copy operation
+
+When you abort a copy operation, the destination blob's property, [copyStatus](/javascript/api/@azure/storage-blob/blobbegincopyfromurlresponse#properties), is set to [aborted](/javascript/api/@azure/storage-blob/copystatustype).
+
+```javascript
+async function copyThenAbortBlob(
+    blobServiceClient, 
+    sourceBlobContainer, 
+    sourceBlobName, 
+    destinationBlobContainer,
+    destinationBlobName,) {
+
+    // create container clients
+    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainer); 
+    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainer);   
+    
+    // create blob clients
+    const sourceBlobClient = await sourceContainerClient.getBlobClient(sourceBlobName);
+    const destinationBlobClient = await destinationContainerClient.getBlobClient(destinationBlobName);
+
+    // start copy
+    const copyPoller = await destinationBlobClient.beginCopyFromURL(sourceBlobClient.url);
+    console.log('start copy from A to C');
+
+    // cancel operation after starting it.
+    // sample file is too small to be canceled.
+    try {
+      await copyPoller.cancelOperation();
+      console.log('request to cancel copy from A to C');
+
+      // calls to get the result now throw PollerCancelledError
+      await copyPoller.getResult();
+    } catch (err) {
+      if (err.name === 'PollerCancelledError') {
+        console.log('The copy was cancelled.');
+      }
+    }
+}
 ```
 
 ## Abort a copy operation
 
-Aborting a copy operation results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods.
-
-Check the BlobProperties.copyStatus property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
-
-When you abort a copy operation, the destination blob's copy status is set to [copyStatus.Aborted]().
-
-The [abortCopyFromUri]() method cancels an ongoing copy operation.
-
-```javascript
-
-```
+Aborting a copy operation, with [BlobClient.abortCopyFromURL](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-abortcopyfromurl) results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods. The final blob will be committed when the copy completes.
 
 ## See also
 

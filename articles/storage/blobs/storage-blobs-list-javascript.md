@@ -21,8 +21,14 @@ When you list blobs from your code, you can specify a number of options to manag
 
 To list the blobs in a storage account, call one of these methods:
 
-- [BlobContainerClient.GetBlobs]()
-- [BlobContainerClient.GetBlobsByHierarchy]()
+
+- [ContainerClient.listBlobsByHierarcy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy)
+- [ContainerClient.listBlobFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
+
+Related functionality can be found in the following methods:
+
+- [BlobServiceClient.findBlobsByTag](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
+- [ContainerClient.findBlobsByTag](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-findblobsbytags)
 
 ### Manage how many results are returned
 
@@ -30,11 +36,26 @@ By default, a listing operation returns up to 5000 results at a time, but you ca
 
 ### Filter results with a prefix
 
-To filter the list of blobs, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
+To filter the list of blobs, specify a string for the `prefix` property in the [list options](/javascript/api/@azure/storage-blob/containerlistblobsoptions). The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix.
+
+```javascript
+const listOptions = {
+    includeCopy: false,                 // include metadata from previous copies
+    includeDeleted: false,              // include deleted blobs 
+    includeDeletedWithVersions: false,  // include deleted blobs with versions
+    includeLegalHost: false,            // include legal host id  
+    includeMetadata: true,              // include custom metadata
+    includeSnapshots: true,             // include snapshots
+    includeTags: true,                  // include indexable tags
+    includeUncommittedBlobs: false,     // include uncommitted blobs
+    includeVersions: false,             // include all blob version
+    prefix: ''                          // filter by blob name prefix
+};
+```
 
 ### Return metadata
 
-You can return blob metadata with the results by specifying the **Metadata** value for the [BlobTraits]() enumeration.
+You can return blob metadata with the results by specifying the `includeMetadata` property in the [list options](/javascript/api/@azure/storage-blob/containerlistblobsoptions).
 
 ### Flat listing versus hierarchical listing
 
@@ -52,25 +73,7 @@ The following example lists the blobs in the specified container using a flat li
 
 If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
-```javascript
-
-```
-
-The sample output is similar to:
-
-```console
-Blob name: FolderA/blob1.txt
-Blob name: FolderA/blob2.txt
-Blob name: FolderA/blob3.txt
-Blob name: FolderA/FolderB/blob1.txt
-Blob name: FolderA/FolderB/blob2.txt
-Blob name: FolderA/FolderB/blob3.txt
-Blob name: FolderA/FolderB/FolderC/blob1.txt
-Blob name: FolderA/FolderB/FolderC/blob2.txt
-Blob name: FolderA/FolderB/FolderC/blob3.txt
-```
 
 ## Use a hierarchical listing
 
@@ -80,9 +83,44 @@ To list blobs hierarchically, call the [BlobContainerClient.GetBlobsByHierarchy]
 
 The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
 ```javascript
+async function listBlobsFlatWithPageMarker(containerClient){
+
+    // page size
+    const maxPageSize = 10;
+
+    let i = 1;
+    let marker;
+
+    const listOptions = {
+      includeMetadata: true,
+      includeSnapshots: false,
+      includeTags: true,
+      includeVersions: false,
+      prefix: ''
+    };  
+
+    let iterator = containerClient.listBlobsFlat(listOptions).byPage({ maxPageSize });
+    let response = (await iterator.next()).value;
+    
+    // Prints blob names
+    for (const blob of response.segment.blobItems) {
+      console.log(`Blob ${i++}: ${blob.name}`);
+    }
+    
+    // Gets next marker
+    marker = response.continuationToken;
+    
+    // Passing next marker as continuationToken    
+    iterator = containerClient.listBlobsFlat().byPage({ continuationToken: marker, maxPageSize: maxPageSize * 2 });
+    response = (await iterator.next()).value;
+    
+    // Prints next blob names
+    for (const blob of response.segment.blobItems) {
+      console.log(`Blob ${i++}: ${blob.name}`);
+    }
+}
 
 ```
 

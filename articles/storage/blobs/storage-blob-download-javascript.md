@@ -17,46 +17,71 @@ ms.custom: "devx-track-javascript"
 
 You can download a blob by using any of the following methods:
 
-- [DownloadTo]()
-- [DownloadContent]()
-
-You can also open a stream to read from a blob. The stream will only download the blob as the stream is read from. Use the following method:
-
-- [OpenRead](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.openread)
+- Blob.[download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download)
+- Blob.[DownloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1)
+- Blob.[DownloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile)
 
 
 > [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient]() object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article.  
+> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
  
 ## Download to a file path
 
-The following example downloads a blob by using a file path:
+The following example downloads a blob by using a file path with the [BlobClient.downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile) method:
 
 ```javascript
+async function downloadBlobToFile(containerClient, blobName, fileNameWithPath) {
 
+    const blobClient = await containerClient.getBlobClient(blobName);
+    
+    await blobClient.downloadToFile(fileNameWithPath);
+    console.log(`download of ${blobName} success`);
+}
 ```
 
-## Download to a stream
+## Download as a stream
 
-The following example downloads a blob by creating a [Stream]() object and then downloading to that stream.
+The following example downloads a blob by creating a Node.js writable stream object and then piping to that stream with the [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download) method.
 
 ```javascript
+async function downloadBlobAsStream(client, blobName, writableStream) {
 
+    const blobClient = await client.getBlobClient(blobName);
+
+    const downloadResponse = await blobClient.download();
+
+    downloadResponse.readableStreamBody.pipe(writableStream);
+    console.log(`download of ${blobName} succeeded`);
+}
 ```
 
 ## Download to a string
 
-The following example downloads a blob to a string. This example assumes that the blob is a text file.  
+The following example downloads a blob to a string with [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download) method.  
 
 ```javascript
+async function downloadBlobToString(client, blobName) {
 
-```
+    const blobClient = await client.getBlobClient(blobName);
 
-## Download from a stream
+    const downloadResponse = await blobClient.download();
 
-The following example downloads a blob by reading from a stream. 
+    const downloaded = await streamToBuffer(downloadResponse.readableStreamBody);
+    console.log("Downloaded blob content:", downloaded.toString());
+}
 
-```javascript
+async function streamToBuffer(readableStream) {
+    return new Promise((resolve, reject) => {
+        const chunks = [];
+        readableStream.on("data", (data) => {
+            chunks.push(data instanceof Buffer ? data : Buffer.from(data));
+        });
+        readableStream.on("end", () => {
+            resolve(Buffer.concat(chunks));
+        });
+        readableStream.on("error", reject);
+    });
+}
 ```
 
 ## See also
