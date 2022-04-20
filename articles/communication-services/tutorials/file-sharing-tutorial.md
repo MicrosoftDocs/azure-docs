@@ -31,7 +31,7 @@ This tutorial assumes that you already know how to setup and run a Chat Composit
 
 ## Overview
 
-The UI Library Chat Composite supports file sharing by enabling developers to pass the URL to a hosted file that is sent through the Azure Communication Services chat service. The UI Library renders the attached file and support multiple extensions to configure the look and feel of the file sent. More specifically, it supports the following features:
+The UI Library Chat Composite supports file sharing by enabling developers to pass the URL to a hosted file that is sent through the Azure Communication Services chat service. The UI Library renders the attached file and supports multiple extensions to configure the look and feel of the file sent. More specifically, it supports the following features:
 
 1. Attach file button for picking files through the OS File Picker
 2. Configure allowed file extensions. 
