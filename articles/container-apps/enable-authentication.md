@@ -33,7 +33,7 @@ This option is designed to make enabling authentication simple and requires just
 
 1. If this is the first identity provider configured for the application, you'll also be prompted with a **Container Apps authentication settings** section. Otherwise, you may move on to the next step.
     
-    These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](authentication.md#authentication-flow).
+    These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](authentication.md#authentication-flow).
 
 1. (Optional) Click **Next: Permissions** and add any scopes needed by the application. These will be added to the app registration, but you can also change them later.
 1. Click **Add**.
@@ -55,7 +55,7 @@ First, you will create your app registration. As you do so, collect the followin
 
 To register the app, perform the following steps:
 
-1. Sign in to the [Azure portal], search for and select **Container Appss**, and then select your app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
+1. Sign in to the [Azure portal], search for and select **Container Apps**, and then select your app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
 1. From the portal menu, select **Azure Active Directory**, then go to the **App registrations** tab and select **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Web** and type `<app-url>/.auth/login/aad/callback`. For example, `https://<hostname>.azurecontainerapps.io/.auth/login/aad/callback`.
@@ -77,7 +77,7 @@ To register the app, perform the following steps:
 1. (Optional) To create a client secret, select **Certificates & secrets** > **Client secrets** > **New client secret**.  Enter a description and expiration and select **Add**. Copy the client secret value shown in the page. It won't be shown again.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
 
-### <a name="secrets"> </a>Enable Azure Active Directory in your container app
+### <a name="aad-secrets"> </a>Enable Azure Active Directory in your container app
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
@@ -125,7 +125,7 @@ You have now configured a native client application that can request access your
 
 ### Daemon client application (service-to-service calls)
 
-Your application can acquire a token to call a Web API hosted in your container app or Function app on behalf of itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 [client credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) grant.
+Your application can acquire a token to call a Web API hosted in your container app on behalf of itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 [client credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) grant.
 
 1. In the [Azure portal], select **Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your daemon app registration.
@@ -138,13 +138,13 @@ You can now [request an access token using the client ID and client secret](../a
 
 At present, this allows _any_ client application in your Azure AD tenant to request an access token and authenticate to the target app. If you also want to enforce _authorization_ to allow only certain client applications, you must perform some additional configuration.
 
-1. [Define an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration representing the Container Apps or Function app you want to protect.
+1. [Define an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration representing the container app you want to protect.
 1. On the app registration representing the client that needs to be authorized, select **API permissions** > **Add a permission** > **My APIs**.
 1. Select the app registration you created earlier. If you don't see the app registration, make sure that you've [added an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
 1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
 1. Make sure to click **Grant admin consent** to authorize the client application to request the permission.
 1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token will include a `roles` claim containing the App Roles that were authorized for the client application.
-1. Within the target Container Apps or Function app code, you can now validate that the expected roles are present in the token (this is not performed by Container Apps Authentication / Authorization). For more information, see [Access user claims](#access-user-claims-in-app-code).
+1. Within the target Container Apps code, you can now validate that the expected roles are present in the token (this is not performed by Container Apps Authentication / Authorization). For more information, see [Access user claims](#access-user-claims-in-app-code).
 
 You have now configured a daemon client application that can access your container app using its own identity.
 
@@ -154,11 +154,11 @@ You have now configured a daemon client application that can access your contain
 
 This article shows how to configure Azure Container Apps to use Facebook as an authentication provider.
 
-To complete the procedure in this article, you need a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
+To complete the procedure in this article, you need a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com](https://facebook.com/).
 
 ## <a name="facebook-register"> </a>Register your application with Facebook
 
-1. Go to the [Facebook Developers] website and sign in with your Facebook account credentials.
+1. Go to the [Facebook Developers](https://go.microsoft.com/fwlink/p/?LinkId=268286) website and sign in with your Facebook account credentials.
 
    If you don't have a Facebook for Developers account, select **Get Started** and follow the registration steps.
 1. Select **My Apps** > **Add New App**.
@@ -460,7 +460,7 @@ When using fully qualified URLs, the URL must be hosted in the same domain.
 
 ## Access user claims in app code
 
-For all language frameworks, Container Apps makes the claims in the incoming token (whether from an authenticated end user or a client application) available to your code by injecting them into the request headers. External requests aren't allowed to set these headers, so they are present only if set by App Service. Some example headers include:
+For all language frameworks, Container Apps makes the claims in the incoming token (whether from an authenticated end user or a client application) available to your code by injecting them into the request headers. External requests aren't allowed to set these headers, so they are present only if set by Container Apps. Some example headers include:
 
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
@@ -474,3 +474,7 @@ Code that is written in any language or framework can get the information that i
 
 > [!div class="nextstepaction"]
 > [Azure Container Apps authentication and authorization](monitor.md)
+
+
+<!-- URLs. -->
+[Azure portal]: https://portal.azure.com/
