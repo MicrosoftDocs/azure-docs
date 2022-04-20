@@ -82,8 +82,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Select to **Install now** to proceed with installing updates.
 
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#from-overview-blade)
-
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#from-overview-bladetabinstall-scale-overview).
 
    A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
@@ -99,7 +98,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. In **Updates (Preview)**, select **One-time update** to install the updates.
 
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#from-overview-blade)
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#from-overview-bladetabinstall-scale-overview).
 
 ---
 
