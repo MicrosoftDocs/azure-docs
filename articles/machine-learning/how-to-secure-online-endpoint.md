@@ -163,11 +163,11 @@ When prompted, enter the password you used when creating the VM.
     > [!TIP]
     > Use the tabs to select whether you want to perform a deployment using an MLflow model or generic ML model.
 
-    # [MLflow model](#tabs/mlflow)
+    # [MLflow model](#tab/mlflow)
 
     :::code language="{language}" source="{source}" range="{range}":::
 
-    # [Generic model](#tabs/model)
+    # [Generic model](#tab/model)
 
     :::code language="{language}" source="{source}" range="{range}":::
 
