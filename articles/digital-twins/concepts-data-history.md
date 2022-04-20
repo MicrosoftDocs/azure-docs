@@ -23,7 +23,7 @@ Once twin property values are historized to Azure Data Explorer, you can run joi
 
 For more of an introduction to data history, including a quick demo, watch the following IoT show video:
 
-<iframe src="https://aka.ms/docs/player?id=120e08ee-7134-4ed8-96d4-618cf9c312ac " width="1920" height="1080" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15" width="1080" height="530"></iframe>
 
 ## Required resources and data flow
 
