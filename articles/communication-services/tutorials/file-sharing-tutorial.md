@@ -59,10 +59,12 @@ import { FileUploadHandler, FileUploadManager } from '@azure/communication-react
 
 const App = () => (
   <ChatComposite 
-    fileSharing={{
-      uploadHandler: fileUploadHandler,
-      accept: "image/png, image/jpeg", // Optional allowed file types
-      multiple: true // Optional allow multiple file uploads
+    options={{
+      fileSharing: {
+        uploadHandler: fileUploadHandler,
+        accept: 'image/png, image/jpeg', // Optional allowed file types
+        multiple: true // Optional allow multiple uploads
+      }
     }}
   />;
 );
