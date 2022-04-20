@@ -1,5 +1,5 @@
 ---
-title: 'Create a site-to-site connection to Azure Virtual WAN using PowerShell'
+title: 'Create site-to-site connections using Virtual WAN - PowerShell'
 description: Learn how to create a site-to-site connection from your branch site to Azure Virtual WAN using PowerShell.
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 04/12/2022
 ms.author: cherylmc
 
 ---
@@ -20,7 +20,7 @@ This article shows you how to use Virtual WAN to connect to your resources in Az
 ## Prerequisites
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-* Decide the IP address range that you want to use for your virtual hub private address space. This information is used when configuring your virtual hub. A virtual hub is a virtual network that is created and used by Virtual WAN. It's the core of your Virtual WAN network in a region. The address space range must conform the certain rules:
+* Decide the IP address range that you want to use for your virtual hub private address space. This information is used when configuring your virtual hub. A virtual hub is a virtual network that is created and used by Virtual WAN. It's the core of your Virtual WAN network in a region. The address space range must conform to certain rules.
 
   * The address range that you specify for the hub can't overlap with any of the existing virtual networks that you connect to.
   * The address range can't overlap with the on-premises address ranges that you connect to.
@@ -36,15 +36,15 @@ This article shows you how to use Virtual WAN to connect to your resources in Az
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-Before you can create a virtual wan, you have to create a resource group to host the virtual wan or use an existing resource group. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a new resource group named **testRG** in the **West US** location:
+Before you can create a virtual wan, you have to create a resource group to host the virtual wan or use an existing resource group. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a new resource group named **testRG** in the **West US** location.
 
-1. Create a resource group:
+1. Create a resource group.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Location "West US" -Name "testRG" 
    ```
 
-1. Create the virtual wan:
+1. Create the virtual wan.
 
    ```azurepowershell-interactive
    $virtualWan = New-AzVirtualWan -ResourceGroupName testRG -Name myVirtualWAN -Location "West US"
@@ -68,7 +68,7 @@ Use the steps in this section if you need to create the virtual wan in an alread
 
 ## <a name="hub"></a>Create the hub and configure hub settings
 
-A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Create a virtual hub with [New-AzVirtualHub](/powershell/module/az.Network/New-AzVirtualHub). This example creates a default virtual hub named **westushub** with the specified address prefix and a location for the hub:
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Create a virtual hub with [New-AzVirtualHub](/powershell/module/az.Network/New-AzVirtualHub). This example creates a default virtual hub named **westushub** with the specified address prefix and a location for the hub.
 
 ```azurepowershell-interactive
 $virtualHub = New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.11.0.0/24" -Location "westus"
