@@ -40,7 +40,8 @@ The preview is currenty availabe in US South Central and West Europe regions. [S
 | Standard_NV36adms_A10_v5 |36 |880 |720 | 1 | 24 | 32 | 8 / 80000 |
 | Standard_NV72ads_A10_v5 |72 |880 |1400 | 2 | 48 | 32 | 8 / 80000 |
 
-<sup>1</sup> NVadsA10v5-series VMs feature AMD Simultaneous multithreading Technology<br>
+<sup>1</sup> NVadsA10v5-series VMs feature AMD Simultaneous multithreading Technology
+
 <sup>2</sup> The actual GPU VRAM reported in the operating system will be little less due to Error Correcting Code (ECC) support.
 
 
