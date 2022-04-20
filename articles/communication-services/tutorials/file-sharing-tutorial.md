@@ -54,23 +54,73 @@ Once implemented, you can call this Azure Function inside the `uploadHandler` fu
 
 ## Configuring Chat Composite to Enable File Sharing
 
+You will need to replace the variable values for both common variable required to initialize the chat composite.
+
 ```tsx
 import { FileUploadHandler, FileUploadManager } from '@azure/communication-react';
 import { initializeFileTypeIcons } from '@fluentui/react-file-type-icons'; 
 
 initializeFileTypeIcons();
 
-const App = () => (
-  <ChatComposite 
-    options={{
-      fileSharing: {
-        uploadHandler: fileUploadHandler,
-        accept: 'image/png, image/jpeg', // Optional allowed file types
-        multiple: true // Optional allow multiple uploads
-      }
-    }}
-  />;
-);
+function App(): JSX.Element {
+  // Common variables
+  const endpointUrl = 'INSERT_ENDPOINT_URL';
+  const userId = ' INSERT_USER_ID';
+  const displayName = 'INSERT_DISPLAY_NAME';
+  const token = 'INSERT_ACCESS_TOKEN';
+  const threadId = 'INSERT_THREAD_ID';
+
+  const [chatAdapter, setChatAdapter] = useState<ChatAdapter>();
+
+  // We can't even initialize the Chat and Call adapters without a well-formed token.
+  const credential = useMemo(() => {
+    try {
+      return new AzureCommunicationTokenCredential(token);
+    } catch {
+      console.error('Failed to construct token credential');
+      return undefined;
+    }
+  }, [token]);
+
+  useEffect(() => {
+    const createAdapter = async (): Promise<void> => {
+      setChatAdapter(
+        await createAzureCommunicationChatAdapter({
+          endpoint: endpointUrl,
+          userId: { communicationUserId: userId },
+          displayName,
+          credential: new AzureCommunicationTokenCredential(token),
+          threadId
+        })
+      );
+    };
+    createAdapter();
+  }, []);
+
+  if (!!chatAdapter) {
+    return (
+      <>
+        <div style={containerStyle}>
+          <ChatComposite
+            adapter={chatAdapter}
+            options={{
+              fileSharing: {
+                uploadHandler: fileUploadHandler,
+                // If `fileDownloadHandler` is not provided. The file URL is opened in a new tab.
+                downloadHandler: fileDownloadHandler,
+                accept: 'image/png, image/jpeg, text/plain, .docx',
+                multiple: true
+              }
+            }} />
+        </div>
+      </>
+    );
+  }
+  if (credential === undefined) {
+    return <h3>Failed to construct credential. Provided token is malformed.</h3>;
+  }
+  return <h3>Initializing...</h3>;
+}
 
 const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
   for (const fileUpload of fileUploads) {
@@ -87,6 +137,7 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 
 const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   // You need to handle the file upload here and upload it to Azure Blob Storage.
+  // Below you can find snippets for how to configure the upload
   // Optionally, you can also update the file upload progress.
   fileUpload.notifyUploadProgressChanged(0.2);
   return {
@@ -94,7 +145,64 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
     url: 'https://sample.com/sample.jpg', // Download URL of the file.
     extension: 'jpeg' // File extension used for file icon during download.
   };
+  
+const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
+      return new URL(fileData.url);
+    }
+  };
 }
+
+```
+
+## Configure upload method to use Azure Blob Storage
+
+To enable Azure Blob Storage upload, we will modify the `uploadFileToAzureBlob` method we declared above with the following code. You will need to replace the Azure Function information below to enable to upload.
+
+```javascript
+
+const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
+  // You need to handle the file upload here and upload it to Azure Blob Storage.
+  // Optionally, you can update the file upload progress.
+  fileUpload.notifyUploadProgressChanged(0.2);
+
+  const file = fileUpload.file;
+  if (!file) {
+    throw new Error('fileUpload.file is undefined');
+  }
+
+  const filename = file.name;
+
+  // Following is an example of calling an Azure Function to handle file upload
+  // The https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
+  // tutorial uses 'username' parameter to specify the storage container name.
+  // Note that the container in the tutorial is private by default. To get default downloads working in
+  // this sample, you need to change the container's access level to Public via Azure Portal.
+  const username = 'ui-library';
+  
+  // You can get function url from the Azure Portal:
+  const azFunctionBaseUri='<YOUR_AZURE_FUNCTION_URL>';
+  const uri = `${azFunctionBaseUri}&username=${username}&filename=${filename}`;
+  
+  const formData = new FormData();
+  formData.append(file.name, file);
+  const response = await fetch(uri, {
+    method: 'POST',
+    body: formData
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to upload file, status code:${response.status}`);
+  }
+
+  const storageBaseUrl = 'https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net';
+
+  return {
+    name: filename,
+    url: `${storageBaseUrl}/${username}/${filename}`,
+    extension: getFileExtension(filename)
+  };
+}
+
 ```
 
 ## Error Handling
@@ -103,7 +211,7 @@ When an upload fails, the UI Library Chat Composite will display an error messag
 
 ![File Upload Error Bar](./media/file-too-big.png "File Upload Error Bar")
 
-Here is sample code showcasing how you can fail an upload due to a size validation error.
+Here is sample code showcasing how you can fail an upload due to a size validation error by changing the `fileUploadHandler` above.
 
 ```tsx
 import { FileUploadHandler } from from '@azure/communication-react';
@@ -117,22 +225,11 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
     }
   }
 }
-
-/** Provide the fileUploadHandler to ChatComposite */
-const App = () => (
-  <ChatComposite 
-    options={{
-      fileSharing: {
-        uploadHandler: fileUploadHandler
-      }
-    }}
-  />
-);
 ```
 
 ## File Downloads - Advanced Usage
 
-By default, the file `url` provided through `notifyUploadCompleted` method  will be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite.
+By default, the file `url` provided through `notifyUploadCompleted` method  will be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Below we will modify the `fileDownloadHandler` that we declared above to check for an authorized user before allowing to download the file.
 
 ```tsx
 import { FileDownloadHandler } from "communication-react";
@@ -151,15 +248,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
     return new URL(fileData.url);
   }
 }
-  
-const App = () => (
-  <ChatComposite
-    ...
-    fileSharing={{
-      // If `fileDownloadHandler` is not provided. The file URL is opened in a new tab.
-      downloadHandler: fileDownloadHandler
-    }}
-  />
+
 )
 ```
 
