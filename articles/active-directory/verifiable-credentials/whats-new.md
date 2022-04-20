@@ -29,17 +29,21 @@ From April 25th, 2022 the Azure AD Verifiable Credential service is available to
 ### Administrator update steps
 
 1. Run the following PowerShell commands. These commands install and import the Az module. For more information, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#installation).
-    1. ```azurepowershell
+
+    ```azurepowershell
     if((get-module -listAvailable -name "az.accounts") -eq $null){install-module -name "az.accounts" -scope currentUser}
     if ((get-module -listAvailable -name "az.resources") -eq $null){install-module "az.resources" -scope currentUser}
     ```
+
 1. Run the following PowerShell command to connect to your Azure AD tenant. Replace ```<your tenant ID>``` with your [Azure AD tenant ID](../fundamentals/active-directory-how-to-find-tenant.md)
-    1. ```azurepowershell
-    connect-azaccount -tenantID <your tenant ID>
+
+    ```azurepowershell
+    connect-azaccount -tenantID \<your tenant ID>
     ```
-    ~~~
+ 
 1. Check if of the following Service principals have been added to your tenant by running the following command:
-    1. ```azurepowershell
+
+```azurepowershell
     get-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
     get-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
     ```
