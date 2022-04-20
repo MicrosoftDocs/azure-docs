@@ -186,7 +186,8 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     >You need to use the `--upgrade` argument if any dependent packages such as omi, scx, omsconfig or their older versions are installed, as would be the case if the system Center Operations Manager agent for Linux is already installed. 
 
 > [!NOTE]
-> Because the [Container Monitoring solution](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/containers) is being retired, the following documentation uses the optional setting --skip-docker-provider-install to disable the Container Monitoring data collection.
+> Because the [Container Monitoring solution](../containers/containers.md) is being retired, the following documentation uses the optional setting --skip-docker-provider-install to disable the Container Monitoring data collection.
+
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key> --skip-docker-provider-install
