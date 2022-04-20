@@ -14,7 +14,7 @@ ms.date: 03/16/2021
 Virtual machines and other compute resources require an agent to collect monitoring data required to measure the performance and availability of their guest operating system and workloads. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
 
 > [!NOTE]
-> Azure Monitor recently launched a new agent, the [Azure Monitor agent](./azure-monitor-agent-overview.md), that provides all capabilities necessary to collect guest operating system monitoring data. **Use this new agent if you don't require [these current limitations](./azure-monitor-agent-overview.md#current-limitations)**, as it consolidates the features of all the legacy agents listed below and provides additional benefits. If you do require the limitations today, you may continue using the other legacy agents listed below until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
+> Azure Monitor recently launched a new agent, the [Azure Monitor agent](./azure-monitor-agent-overview.md), that provides all capabilities necessary to collect guest operating system monitoring data. **Use this new agent if you are not bound by [these limitations](./azure-monitor-agent-overview.md#current-limitations)**, as it consolidates the features of all the legacy agents listed below and provides additional benefits. If you do require the limitations today, you may continue using the other legacy agents listed below until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
 
 ## Summary of agents
 

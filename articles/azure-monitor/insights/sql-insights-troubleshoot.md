@@ -4,7 +4,7 @@ description: Learn how to troubleshoot SQL insights in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 1/3/2022
+ms.date: 4/19/2022
 ---
 
 # Troubleshoot SQL insights (preview)
@@ -186,6 +186,7 @@ For common cases, we provide troubleshooting tips in our logs view:
 During preview of SQL Insights, you may encounter the following known issues.
 
 * **'Login failed' error connecting to server or database**. Using certain special characters in SQL authentication passwords saved in the monitoring VM configuration or in Key Vault may prevent the monitoring VM from connecting to a SQL server or database. This set of characters includes parentheses, square and curly brackets, the dollar sign, forward and back slashes, and dot (`[ { ( ) } ] $ \ / .`).
+* Spaces in the database connection string attributes may be replaced with special characters, leading to database connection failures. For example, if the space in the `User Id` attribute is replaced with a special character, connections will fail with the **Login failed for user ''** error. To resolve, edit the monitoring profile configuration, and delete every special character appearing in place of a space. Some special characters may look indistinguishable from a space, thus you may want to delete every space character, type it again, and save the configuration.
 
 ## Best practices
 
