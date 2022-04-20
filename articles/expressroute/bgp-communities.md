@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 04/20/2022
 ms.author: duau
 
 ---
@@ -28,6 +28,8 @@ Once these values are configured on your virtual networks, ExpressRoute will pre
 A common scenario for customers to use ExpressRoute is to access workloads deployed in their Azure virtual networks (VNets). ExpressRoute facilitates the exchange of Azure and on-premises private IP address ranges using a BGP session over a private connection. This feature enables a seamless extension of your existing networks into the Cloud. 
 
 When a customer begins using multiple ExpressRoute connections to multiple Azure regions, their traffic can take more than one path. The hybrid network architecture diagram below demonstrates the emergence of suboptimal routing when establishing a mesh network with multiple regions and ExpressRoute circuits: 
+
+:::image type="content" source="./media/bgp-communities/bgp-community.png" alt-text="Diagram of optimal and sub-optimal routing with ExpressRoute.":::
 
 To ensure traffic going to **Region A** takes the optimal path over **ER Circuit 1**, the customer could configure a route filter on-premises to ensure that **Region A** routes gets only learned at the customer edge from **ER Circuit 1**, and not learned at all by **ER Circuit 2**. This approach requires you to maintain a comprehensive list of IP prefixes in each region and regularly update this list whenever new virtual networks gets added or private IP address space gets expanded in the cloud. As the customer continues to grow their presence in the Cloud, this burden can become excessive. 
 
