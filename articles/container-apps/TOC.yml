@@ -63,7 +63,19 @@
     - name: Use a custom VNET
       href: vnet-custom.md
     - name: Enable authentication
-      href: enable-authentication.md
+      items:
+      - name: Azure Active Directory
+        href: authentication-azure-active-directory.md
+      - name: Facebook
+        href: authentication-facebook.md
+      - name: GitHub
+        href: authentication-github.md
+      - name: Google
+        href: authentication-google.md
+      - name: Twitter
+        href: authentication-twitter.md
+      - name: Custom OpenID Connect provider
+        href: authentication-openid.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
