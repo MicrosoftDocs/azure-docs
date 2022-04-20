@@ -5,24 +5,20 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 04/20/2022
 ---
 
 # Dapr integration with Azure Container Apps (preview)
 
-When building a distributed microservice application, you may encounter common patterns and challenges, like how you: 
+Distributed Application Runtime ([Dapr][dapr-concepts]) is a programming model that simplifies microservice implementation by addressing complexities you often encounter when authoring a distributed microservice app. For example, how your application intercommunicates, whether through messaging via pubsub or reliable, direct service-to-service calls. 
 
-- Integrate external systems with your application.
-- Observe and monitor your application.
-- Persist and retrieve data.
-- Discover and reliably call other services.
-- Design reliability and fault tolerance into your application.
+In Container Apps, Dapr offers a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container Apps to help with implementing types of patterns. Once you enable Dapr on the container, Dapr's programming model and sidecars are automatically available to you.
 
-Thanks to Distributed Application Runtime ([Dapr][dapr-concepts]), you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
+Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
 
 ## How Dapr works in Container Apps
 
-In Container Apps, Dapr offers a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container Apps. Dapr exposes these APIs, or building blocks, to your Container Apps as a sidecar: a process that runs in tandem with each of your Container Apps. 
+In Container Apps, Dapr exposes these HTTP and gRPC APIs, or building blocks, to your Container Apps as a sidecar: a process that runs in tandem with each of your Container Apps. 
 
 ### Dapr building blocks available to Container Apps
 
@@ -44,6 +40,16 @@ Dapr's portable building blocks are built on best practice industry standards, t
 
 ### Dapr settings in Container Apps
 
+:::image type="content" source="media/dapr-overview/aca_dapr_architecture.png" alt-text="diagram demonstrating Dapr pub/sub":::
+
+| # | Core concepts | Description |
+| - | ------------- | ----------- |
+| 1 | Container App environment |  |
+| 2 | Container App with Dapr enabled |  |
+| 3 | Dapr sidecar |  |
+| 4 | Dapr component scoped to each Container App |  |
+| 5 | Azure Service Bus |  |
+
 **Dapr components**
 
 Dapr components are scoped to a Container App environment and are pluggable modules that:
@@ -52,7 +58,28 @@ Dapr components are scoped to a Container App environment and are pluggable modu
 - Can be scoped to specific Container Apps.
 - Can be easily swapped out at the environment level of your Container App.
 
-Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. See examples of the various schemas you can define for a Dapr component in Azure Container Apps below.
+Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, view the various schemas you can define for a Dapr component in Azure Container Apps and compare with the schema provided with Dapr OSS.
+
+# [Dapr OSS](#tab/oss)
+
+In Dapr OSS, running `dapr init` generates the following `<component>.yml` spec in the Dapr components directory.
+
+```yml
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: localhost:6379
+  - name: redisPassword
+    value: ""
+  - name: actorStateStore
+    value: "true"
+```
 
 # [YAML](#tab/yaml)
 
