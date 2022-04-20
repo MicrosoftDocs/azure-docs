@@ -41,7 +41,7 @@ Migration of Hive tables to a new Storage Account needs to be done as a separate
 
 * If the cluster uses a default Hive metastore, follow this [guide](./hive-default-metastore-export-import.md) to export metadata to an external metastore. Then, create a copy of the external metastore for upgrade.
 
-* If the cluster uses an external Hive metastore, create a copy of it. Options include [export/import](/azure/azure-sql/database/database-export) and [point-in-time restore](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore).
+* If the cluster uses an external Hive metastore, create a copy of it. Options include [export/import](/azure/azure-sql/database/database-export) and [point-in-time restore](/azure/azure-sql/database/recovery-using-backups#point-in-time-restore).
 
 ### 3. Upgrade the metastore schema
 

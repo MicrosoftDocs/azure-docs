@@ -14,7 +14,7 @@ ms.date: 02/17/2021
 ---
 
 # Classify your Azure SQL data using Azure Purview labels
-[!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](/azure/azure-sql/includes/appliesto-sqldb-asa)]
 
 This document describes how to add Azure Purview labels in your Azure SQL Database and Azure Synapse Analytics (formerly SQL DW).
 
