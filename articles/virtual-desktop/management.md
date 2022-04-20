@@ -18,7 +18,7 @@ Microsoft Endpoint Configuration Manager versions 1906 and later can manage your
 
 ## Microsoft Intune
 
-Microsoft Intune can manage your Azure AD-joined and Hybrid Azure AD-joined session hosts. To learn more about using Intune to manage Windows 11 and Windows 10 single-session hosts, see [Using Azure Virtual Desktop with Intune](/mem/intune/fundamentals/windows-virtual-desktop).
+Microsoft Intune can manage your Azure AD-joined and Hybrid Azure AD-joined session hosts. To learn more about using Intune to manage Windows 11 and Windows 10 single session hosts, see [Using Azure Virtual Desktop with Intune](/mem/intune/fundamentals/windows-virtual-desktop).
 
 For Windows 11 and Windows 10 multi-session hosts, Intune currently supports device-based configurations. To learn more about using Intune to manage multi-session hosts, see [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
