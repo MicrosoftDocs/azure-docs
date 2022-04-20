@@ -277,7 +277,7 @@ The result, which would grant access to read all enrollment records, would be:
 
 - [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
     - [Sample](https://aka.ms/IoTDPSJavaSDKSASSample])
-- [•	Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
+- [Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
     - [Sample](https://aka.ms/IoTDPSscharpSDKSASSample)
 
 ## Reference topics:

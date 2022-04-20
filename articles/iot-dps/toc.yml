@@ -59,13 +59,11 @@
   - name: Control access to DPS
     items: 
     - name: Overview
-      href: concepts-control-access-DPS.md
+      href: concepts-control-access-dps.md
     - name: Control access to DPS with SAS
       href: how-to-control-access.md
-    - name: Control access to DPS with AAD (Preview)
-      href: concepts-control-access-DPS-AAD.md
-  - name: Roles and operations
-    href: concepts-roles-operations.md
+    - name: Control access to DPS with Azure AD (preview)
+      href: concepts-control-access-dps-azure-ad.md
   - name: Roles and operations
     href: concepts-roles-operations.md  
   - name: Virtual networks support
