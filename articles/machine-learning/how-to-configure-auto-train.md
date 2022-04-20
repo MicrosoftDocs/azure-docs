@@ -1,7 +1,7 @@
 ---
-title: Set up AutoML with Python
+title: Set up AutoML with Python (v2)
 titleSuffix: Azure Machine Learning
-description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
+description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK v2 (preview) using Azure Machine Learning automated ML.
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: ssalgadodev
@@ -14,7 +14,7 @@ ms.custom: devx-track-python, automl, sdkv2
 
 ---
 
-# Set up AutoML training with Python
+# Set up AutoML training with the Azure ML Python SDK v2 (preview)
 
 [!INCLUDE [sdk v2](../../../includes/machine-learning-sdk-v2.md)] 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
@@ -92,8 +92,16 @@ Requirements for training data in machine learning:
 > Automated ML experiments do not support training with datasets that use [identity-based data access](how-to-identity-based-data-access.md).
 
 **For remote experiments**, training data must be accessible from the remote compute. Automated ML only accepts MLtable data assets when working on a remote compute. 
+```Python
+# Create MLTables for training dataset from your local directory
 
+my_training_data_input = JobInput(
+    type=AssetTypes.MLTABLE, path="./data/training-mltable-folder"
+)
 
+# Remote MLTable definition
+my_training_data_input  = JobInput(type=AssetTypes.MLTABLE, path="azureml://datastores/workspaceblobstore/paths/Classification/Train")
+```
 **For local compute experiments**, we recommend pandas dataframes for faster processing times.
 
   ```python

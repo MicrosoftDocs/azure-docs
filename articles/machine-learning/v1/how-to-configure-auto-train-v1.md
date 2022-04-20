@@ -16,25 +16,25 @@ ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-am
 
 # Set up AutoML training with Python
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
 > * [v1](how-to-configure-auto-train-v1.md)
 > * [v2 (current version)](../how-to-configure-auto-train.md)
 
 In this guide, learn how to set up an automated machine learning, AutoML, training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
 
-For an end to end example, see [Tutorial: AutoML- train regression model](tutorial-auto-train-models.md).
+For an end to end example, see [Tutorial: AutoML- train regression model](../tutorial-auto-train-models.md).
 
-If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
+If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md).
 
 ## Prerequisites
 
 For this article you need, 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md) for more information. 
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
@@ -45,12 +45,12 @@ For this article you need,
 
 ## Select your experiment type
 
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](../concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
 
 >[!NOTE]
-> Support for computer vision tasks: image classification (multi-class and multi-label), object detection, and instance segmentation is available in public preview. [Learn more about computer vision tasks in automated ML](concept-automated-ml.md#computer-vision-preview). 
+> Support for computer vision tasks: image classification (multi-class and multi-label), object detection, and instance segmentation is available in public preview. [Learn more about computer vision tasks in automated ML](../concept-automated-ml.md#computer-vision-preview). 
 >
->Support for natural language processing (NLP) tasks: image classification (multi-class and multi-label) and named entity recognition is available in public preview. [Learn more about NLP tasks in automated ML](concept-automated-ml.md#nlp). 
+>Support for natural language processing (NLP) tasks: image classification (multi-class and multi-label) and named entity recognition is available in public preview. [Learn more about NLP tasks in automated ML](../concept-automated-ml.md#nlp). 
 >
 > These preview capabilities are provided without a service-level agreement. Certain features might not be supported or might have constrained functionality. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -65,23 +65,23 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**. [Learn more about datasets](how-to-create-register-datasets.md).
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**. [Learn more about datasets](../how-to-create-register-datasets.md).
 
 Requirements for training data in machine learning:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
 > [!IMPORTANT]
-> Automated ML experiments do not support training with datasets that use [identity-based data access](how-to-identity-based-data-access.md).
+> Automated ML experiments do not support training with datasets that use [identity-based data access](../how-to-identity-based-data-access.md).
 
 **For remote experiments**, training data must be accessible from the remote compute. Automated ML only accepts [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset) when working on a remote compute. 
 
 Azure Machine Learning datasets expose functionality to:
 
 * Easily transfer data from static files or URL sources into your workspace.
-* Make your data available to training scripts when running on cloud compute resources. See [How to train with datasets](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your remote compute target.
+* Make your data available to training scripts when running on cloud compute resources. See [How to train with datasets](../how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your remote compute target.
 
-The following code creates a TabularDataset from a web url. See [Create a TabularDataset](how-to-create-register-datasets.md#create-a-tabulardataset) for code examples on how to create datasets from other sources like local files and datastores.
+The following code creates a TabularDataset from a web url. See [Create a TabularDataset](../how-to-create-register-datasets.md#create-a-tabulardataset) for code examples on how to create datasets from other sources like local files and datastores.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -102,7 +102,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## Training, validation, and test data
 
-You can specify separate **training data and validation data sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure training, validation, cross validation, and test data](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
+You can specify separate **training data and validation data sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure training, validation, cross validation, and test data](../how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
 
 If you do not explicitly specify a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques to determine how validation is performed. This determination depends on the number of rows in the dataset assigned to your `training_data` parameter. 
 
@@ -115,10 +115,10 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 > [!TIP] 
 > You can upload **test data (preview)** to evaluate models that automated ML generated for you. These features are  [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capabilities, and may change at any time.
 > Learn how to: 
-> * [Pass in test data to your AutoMLConfig object](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
+> * [Pass in test data to your AutoMLConfig object](../how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 > * [Test the models automated ML generated for your experiment](#test-models-preview).
 >  
-> If you prefer a no-code experience, see [step 12 in Set up AutoML with the studio UI](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
+> If you prefer a no-code experience, see [step 12 in Set up AutoML with the studio UI](../how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
 
 
 ### Large data 
@@ -136,19 +136,23 @@ Task | Setting | Notes
 |---|---|---
 Block&nbsp;data streaming algorithms | `blocked_models` in your `AutoMLConfig` object and list the model(s) you don't want to use. | Results in either run failure or long run time
 Use&nbsp;data&nbsp;streaming&nbsp;algorithms| `allowed_models` in your `AutoMLConfig` object and list the model(s) you want to use.| 
-Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|Block all models except the big data algorithms you want to use. |
+Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](../how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|Block all models except the big data algorithms you want to use. |
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated ML training experiment can run on the following compute options. Learn the [pros and cons of local and remote compute](concept-automated-ml.md#local-remote) options. 
+Next determine where the model will be trained. An automated ML training experiment can run on the following compute options. 
 
-* Your **local** machine such as a local desktop or laptop – Generally when you have a small dataset and you are still in the exploration stage. See [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) for a local compute example. 
- 
-* A **remote** machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. Compute instance is also supported as a compute target.
+Consider these factors when choosing your compute target:
 
-    See [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) for a remote example using Azure Machine Learning Managed Compute. 
+ * **Choose a local compute**: If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.  There is no setup time, the infrastructure resources (your PC or VM) are directly available. See [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) for a local compute example. 
+ * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.[Azure Machine Learning Managed Compute](../concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. Compute instance is also supported as a compute target.
 
-* An **Azure Databricks cluster** in your Azure subscription. You can find more details in [Set up an Azure Databricks cluster for automated ML](how-to-configure-databricks-automl-environment.md). See this [GitHub site](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks) for examples of notebooks with Azure Databricks.
+ * An **Azure Databricks cluster** in your Azure subscription. You can find more details in [Set up an Azure Databricks cluster for automated ML](../how-to-configure-databricks-automl-environment.md). See this [GitHub site](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks) for examples of notebooks with Azure Databricks.
+
+|  | Pros (Advantages)  |Cons (Handicaps)  |
+|---------|---------|---------|---------|
+|**Local compute target** |  <li> No environment start-up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
+|**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start-up time for cluster nodes <li> Start-up time for each child run    |
 
 <a name='configure-experiment'></a>
 
@@ -167,7 +171,7 @@ The following example is for a classification task. The experiment uses AUC weig
                                    label_column_name=label,
                                    n_cross_validations=2)
 ```
-You can also configure forecasting tasks, which requires extra setup. See the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
+You can also configure forecasting tasks, which requires extra setup. See the [Set up AutoML for time-series forecasting](../how-to-auto-train-forecast.md) article for more details. 
 
 ```python
     time_series_settings = {
@@ -198,7 +202,7 @@ The three different `task` parameter values determine the list of algorithms, or
 The following table summarizes the supported models by task type. 
 
 > [!NOTE]
-> If you plan to export your automated ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * (asterisk) are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
+> If you plan to export your automated ML created models to an [ONNX model](../concept-onnx.md), only those algorithms indicated with an * (asterisk) are able to be converted to the ONNX format. Learn more about [converting models to ONNX](../concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
 > 
 Classification | Regression | Time Series Forecasting
 |-- |-- |--
@@ -226,7 +230,7 @@ The `primary_metric` parameter determines the metric to be used during model tra
 
 Choosing a primary metric for automated ML to optimize depends on many factors. We recommend your primary consideration be to choose a metric that best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.). The following sections summarize the recommended primary metrics based on task type and business scenario. 
 
-Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
+Learn about the specific definitions of these metrics in [Understand automated machine learning results](../how-to-understand-automated-ml.md).
 
 #### Metrics for classification scenarios 
 
@@ -273,7 +277,7 @@ The recommendations are similar to those noted for regression scenarios.
 ### Data featurization
 
 In every automated ML experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
-See [Featurization in AutoML](how-to-configure-auto-features.md#) for more detail and code examples. 
+See [Featurization in AutoML](../how-to-configure-auto-features.md) for more detail and code examples. 
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same featurization steps applied during training are applied to your input data automatically.
@@ -282,9 +286,9 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
+|`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](../how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
 |`"featurization": 'off'`| Indicates featurization step shouldn't be done automatically.|
-|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-features.md#customize-featurization).|
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](../how-to-configure-auto-features.md#customize-featurization).|
 
 
 
@@ -413,14 +417,14 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * You can view your training results in a widget or inline if you are in a notebook. See [Monitor automated machine learning runs](#monitor) for more details.
 
-* For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
+* For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](../how-to-understand-automated-ml.md).
 
-* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
+* To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](../how-to-configure-auto-features.md#featurization-transparency). 
 
-You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](how-to-configure-auto-features.md#scaling-and-normalization). 
+You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](../how-to-configure-auto-features.md#scaling-and-normalization). 
 
 > [!TIP]
-> Automated ML also let's you [view the generated model training code for Auto ML trained models](how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
+> Automated ML also let's you [view the generated model training code for Auto ML trained models](../how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
 
 ## <a name="monitor"></a> Monitor automated machine learning runs
 
@@ -436,7 +440,7 @@ run = Run(experiment, run_id)
 RunDetails(run).show()
 ```
 
-![Jupyter notebook widget for Automated Machine Learning](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
+![Jupyter notebook widget for Automated Machine Learning](../media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
 ## Test models (preview)
 
@@ -445,16 +449,16 @@ RunDetails(run).show()
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
->  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
->  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
->  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
+>  * [Computer vision tasks (preview)](../how-to-auto-train-image-models.md)
+>  * [Many models and hiearchical time series forecasting training (preview)](../how-to-auto-train-forecast.md)
+>  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](../how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [Automated ML runs from local computes or Azure Databricks clusters](../how-to-configure-auto-train.md#compute-to-run-experiment)
 
-Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](../how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
 ### Get test run results 
 
-You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) or with the following code. 
+You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) or with the following code. 
 
 
 ```python
@@ -519,7 +523,7 @@ model = run.register_model(model_name = model_name,
 ```
 
 
-For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
+For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
 
 > [!TIP]
 > For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
@@ -529,17 +533,17 @@ For details on how to create a deployment configuration and deploy a registered 
 
 Model interpretability allows you to understand why your models made predictions, and the underlying feature importance values. The SDK includes various packages for enabling model interpretability features, both at training and inference time, for local and deployed models.
 
-See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.
+See how to [enable interpretability features](../how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.
 
-For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept article on interpretability](how-to-machine-learning-interpretability.md) .
+For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept article on interpretability](../how-to-machine-learning-interpretability.md) .
 
 > [!NOTE]
 > The ForecastTCN model is not currently supported by the Explanation Client. This model will not return an explanation dashboard if it is returned as the best model, and does not support on-demand explanation runs.
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
++ Learn more about [how and where to deploy a model](../how-to-deploy-and-where.md).
 
-+ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
++ Learn more about [how to train a regression model with Automated machine learning](../tutorial-auto-train-models.md).
 
-+ [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
++ [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md). 

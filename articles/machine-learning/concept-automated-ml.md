@@ -197,7 +197,7 @@ The following diagram illustrates this process.
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
+While model building is automated, you can also [learn how important or relevant features are](./v1/how-to-configure-auto-train-v1.md#explain) to the generated models.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -217,6 +217,7 @@ Consider these factors when choosing your compute target:
  * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
 
 ### Pros and cons
+
 Consider these pros and cons when choosing to use local vs. remote.
 
 |  | Pros (Advantages)  |Cons (Handicaps)  |
@@ -257,7 +258,7 @@ To help confirm that such bias isn't applied to the final recommended model, aut
 
 Learn how to [configure AutoML experiments to use test data (preview) with the SDK](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) or with the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-You can also [test any existing automated ML model (preview)](how-to-configure-auto-train.md#test-existing-automated-ml-model)), including models from child runs, by providing your own test data or by setting aside a portion of your training data. 
+You can also [test any existing automated ML model (preview)](./v1/how-to-configure-auto-train-v1.md#test-existing-automated-ml-model)), including models from child runs, by providing your own test data or by setting aside a portion of your training data. 
 
 ## Feature engineering
 
@@ -290,7 +291,7 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to five models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
-See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
+See the [how-to](./v1/how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
 
 <a name="use-with-onnx"></a>
 
