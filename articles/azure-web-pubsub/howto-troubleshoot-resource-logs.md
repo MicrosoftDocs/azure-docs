@@ -170,18 +170,18 @@ Once you check `Send to Log Analytics`, and select target Azure Log Analytics, t
 
 1. Select `Logs` in your target Log Analytics.
 
-    ![Log Analytics menu item](./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png)
+    :::image type="content" alt-text="Log Analytics menu item" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
 
 2. Enter `WebPubSubConnectivity`, `WebPubSubMessaging` or `WebPubSubHttpRequest` and select time range to query [connectivity log](#connectivity-logs), [messaging log](#messaging-logs) or [http request logs](#http-request-logs) correspondingly. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-    ![Query log in Log Analytics](./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png)
+    :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 
 To use sample query for SignalR service, please follow the steps below:
 1. Select `Logs` in your target Log Analytics.
 2. Select `Queries` to open query explorer.
 3. Select `Resource type` to group sample queries in resource type.
 4. Select `Run` to run the script.
-    ![Sample query in Log Analytics](./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png)
+    :::image type="content" alt-text="Sample query in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-sample-query.png":::
 
 
 Archive log columns include elements listed in the following table:
