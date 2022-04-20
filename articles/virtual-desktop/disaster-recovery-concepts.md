@@ -21,7 +21,7 @@ To prevent system outages or downtime, every system and component in your Azure 
 
 ## Azure Virtual Desktop infrastructure
 
-In order to figure out which areas to make fault-tolerant, we first need to know who's responsible for maintaining each area. You can divide responsibility in the Azure Virtual Desktop service into two areas: Microsoft-managed and customer-managed. Metadata like the host pools, app groups, and workspaces is controlled by Microsoft. The metadata is always available and doesn't require extra setup by the customer to replicate host pool data or configurations. We've designed the gateway infrastructure that connects people to their session hosts to be a global, high-resilience service managed by Microsoft. Meanwhile, customer-managed areas involve the virtual machines (VMs) used in Azure Virtual Desktop and the settings and configurations unique to the customer's deployment. The following table gives a clearer idea of which areas are managed by which party.
+In order to figure out which areas to make fault-tolerant, we first need to know who's responsible for maintaining each area. You can divide responsibility in the Azure Virtual Desktop service into two areas: Microsoft-managed and customer-managed. Metadata like the host pools, app groups, and workspaces is controlled by Microsoft. The metadata is always available and doesn't require extra setup by the customer to replicate host pool data or configurations. We've designed the gateway infrastructure that connects people to their session hosts to be a global, highly-resilient service managed by Microsoft. Meanwhile, customer-managed areas involve the virtual machines (VMs) used in Azure Virtual Desktop and the settings and configurations unique to the customer's deployment. The following table gives a clearer idea of which areas are managed by which party.
 
 | Managed by Microsoft    | Managed by customer |
 |-------------------------|-------------------|
@@ -39,13 +39,13 @@ In this section, we'll discuss actions and design principles that can protect yo
 
 When you design a disaster recovery plan, you should keep the following three things in mind:
 
-- High availability: distributing infrastructure so smaller, more localized outages don't interrupt your entire deployment. Designing with HA in mind can minimize outage impact and avoid the need for disaster recovery.
+- High availability: distributing infrastructure so smaller, more localized outages don't interrupt your entire deployment. Designing with HA in mind can minimize outage impact and avoid the need for a full disaster recovery.
 - Business continuity: how an organization can keep operating during outages of any size.
 - Disaster recovery: the process of getting back to operation after a full outage.
 
-Azure has many built-in, free-of-charge features that can deliver high availability at many levels. The first feature is [availability sets](../virtual-machines/availability-set-overview.md), which distribute VMs across different fault and update domains within Azure. Next are [availability zones](../availability-zones/az-region.md), which are physically isolated and geographically distributed groups of data centers that can reduce the impact of an outage. Finally, distributing session hosts across multiple Azure regions provides even more geographical distribution, which further reduces outage impact. All three features provide a certain level of protection within Azure Virtual Desktop, and you should carefully consider them along with any cost implications.
+Azure has many built-in, free-of-charge features that can deliver high availability at many levels. The first feature is [availability sets](../virtual-machines/availability-set-overview.md), which distribute VMs across different fault and update domains within Azure. Next are [availability zones](../availability-zones/az-region.md), which are physically isolated and geographically distributed groups of data centers that can reduce the impact of an outage. Finally, distributing session hosts across multiple [Azure regions](../best-practices-availability-paired-regions.md) provides even more geographical distribution, which further reduces outage impact. All three features provide a certain level of protection within Azure Virtual Desktop, and you should carefully consider them along with any cost implications.
 
-Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop is to deploy resources across multiple availability zones within a region. If you need more protection, you can also deploy resources across multiple [paired Azure regions](../best-practices-availability-paired-regions.md).
+Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop is to deploy resources across multiple availability zones within a region. If you need more protection, you can also deploy resources across multiple paired Azure regions.
 
 ## Recommended diaster recovery methods
 
@@ -53,7 +53,7 @@ The disaster recovery methods we recommend are:
 
 - Configure and deploy Azure resources across multiple availability zones.
 
-- Configure and deploy Azure resources across multiple regions in either active or passive configurations as [shared host pools](create-host-pools-azure-marketplace.md).
+- Configure and deploy Azure resources across multiple regions in either active-active or active-passive configurations as [shared host pools](create-host-pools-azure-marketplace.md).
 
 - Use dedicated or personal host pools to [replicate VMs using Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-replication.md) to another region.
 
@@ -63,13 +63,14 @@ We'll go into more detail about the two main methods you can achieve these metho
 
 ## Disaster recovery for shared host pools
 
+In this section we will discuss a shared or pooled host pool, using an active-passive approach.
 Disaster recovery in a shared host pool involves dividing up existing resources into a primary and secondary region. Normally, your organization would do all its work in the primary region, but during a disaster, all it takes to switch over to the secondary region is to turn off the resources in the primary region and turn on the ones in the secondary one.
 
-The following diagram shows an example of a deployment with redundant infrastructure in a secondary region. "Redundant" means that a copy of the original infrastructure exists in this other region, and is standard in deployments to provide resiliency for all components. Beneath a single Azure Active Directory, there are two regions: West US and East US. Each region has two session hosts running a multi-session operating system (OS), An account controller running Azure AD Connect, a domain controller, a profile with Azure Files Premium, a storage account, and a virtual network (VNET). In the primary region, West US, all resources are turned on. In the secondary region, East US, the session hosts in the host pool are either turned off or in drain mode, and the account controller is in staging mode. The two VNETs in both regions are connected by peering.
+The following diagram shows an example of a deployment with redundant infrastructure in a secondary region. "Redundant" means that a copy of the original infrastructure exists in this other region, and is standard in deployments to provide resiliency for all components. Beneath a single Azure Active Directory, there are two regions: West US and East US. Each region has two session hosts running a multi-session operating system (OS), A server running Azure AD Connect, an Active Directory Domain Controller, an Azure Files Premium File share for FSLogix profiles, a storage account, and a virtual network (VNET). In the primary region, West US, all resources are turned on. In the secondary region, East US, the session hosts in the host pool are either turned off or in drain mode, and the Azure AD Connect server is in staging mode. The two VNETs in both regions are connected by peering.
 
 :::image type="content" source="media/shared-host-pool-recovery.png" alt-text="A diagram of a deployment using the recommended shared host pool disaster recovery strategy described in the previous paragraph. On the left is the primary region in West US with the host pool with two personal hosts, a domain and account controller, a profile storage with Azure Files Premium, a Storage account, and a VNET labeled Infra1. The right side is the secondary region in East US, which is a mirror image of the primary region. The host pools and profiles in both regions are connected by two rectangles labeled AVD Host Pool 1 and Cloud Cache FSLogix GPO. The two VNETs are connected by a line labeled VNET Peering. Above both rectangles is a blue triangle logo labeled Azure Active Directory, which is connected by a line to the account controller.":::
 
-In most cases, if a component fails or the primary region isn't available, then the only action the customer needs to perform is to turn on the hosts or remove drain mode in the secondary region to be up and running again. This scenario focuses on reducing downtime. However, a redundancy-based disaster recovery plan may cost more due to having to maintain those extra components in the secondary region.
+In most cases, if a component fails or the primary region isn't available, then the only action the customer needs to perform is to turn on the hosts or remove drain mode in the secondary region to enable end users to connect. This scenario focuses on reducing downtime. However, a redundancy-based disaster recovery plan may cost more due to having to maintain those extra components in the secondary region.
 
 The potential benefits of this plan are as follows:
 
@@ -89,7 +90,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - Having multiple session hosts online across many regions can impact user experience. The managed network load balancer doesn't account for geographic proximity, instead treating all hosts in a host pool equally.
 
-- Having multiple active user sessions across regions in the FSLogix cloud cache can corrupt user profiles. We recommend you limit active Azure Virtual Desktop sessions within the cache to one. The service evaluates RemoteApps as multi-session occurrences, and desktops as single-session occurrences, which means you should avoid active or active host pool configurations.
+- Having multiple active user sessions across regions using the same FSLogix cloud cache can corrupt user profiles. We recommend you limit active Azure Virtual Desktop sessions using the cache to one. The service evaluates RemoteApps as multi-session occurrences, and desktops as single-session occurrences, which means you should avoid active or active host pool configurations.
 
 - Make sure that you configure your virtual machines (VMs) exactly the same way within your host pool. Also, make sure all VMs within your host pool are the same size. If your VMs aren't the same, the managed network load balancer will distribute user connections evenly across all available VMs. The smaller VMs may become resource-constrained earlier than expected compared to larger VMs, resulting in a negative user experience.
 
@@ -113,11 +114,11 @@ The following table lists deployment recommendations for host pool disaster reco
 
 For personal host pools, your disaster recovery strategy should involve replicating your resources to a secondary region using Azure Recovery Services Vault. If your primary region goes down during a disaster, Azure Recovery Services Vault can failover and turn on the resources in your secondary region.
 
-For example, let's say we have a deployment with a primary region in the West US and a secondary region in the East US. The two regions are connected by Azure AD Join, but are otherwise not connected directly to each other. The primary region has two personal host pools, each with their own local disk user profile data, and their own VNET that's not paired with anything. If there's a disaster, Azure Backup Vault would failover ot the secondary region in East US using Azure AD Joined. Unlike the primary region, the secondary region doesn't have local machines or disks, but instead does everything virtually through the cloud. During the failover, Azure Site Recovery Vault would take the data from the Azure Backup Vault cloud and use it to create two VMs that are copies of the original session hosts, including the local disk's user profile data. The secondary region has its own independent VNET, so the VNET going offline in the primary region won't affect functionality.
+For example, let's say we have a deployment with a primary region in the West US and a secondary region in the East US. The primary region has a personal host pool, that has two session hosts each with their own local disk containing the user profile data, and their own VNET that's not paired with anything. If there's a disaster, Azure Backup Vault can be used to failover to the secondary region in East US (or alternatively to a different Availability Zone in the same region). Unlike the primary region, the secondary region doesn't have local machines or disks. During the failover, Azure Site Recovery Vault would take the replicated data from the Azure Backup Vault and use it to create two new VMs that are copies of the original session hosts, including the local disk's and user profile data. The secondary region has its own independent VNET, so the VNET going offline in the primary region won't affect functionality.
 
 The following diagram shows the example deployment we just described.
 
-:::image type="content" source="media/personal-host-pool-recovery.png" alt-text="A diagram of a deployment using the recommended personal host pool disaster recovery strategy described in the previous paragraph. On the left is the primary region in West US with the host pool with two personal hosts, two local disk user profile data icons, a VNET, and an Azure Backup Vault. On the right is the secondary region, with Azure Site Recovery Vault, two replicated VMs, and two local disk user profile data icons that are grayed out and transparent, indicating that they're absent from this region. It also has its own VNET. Between the two regions is the blue triangle Azure logo labeled Azure AD Joined.":::
+:::image type="content" source="media/personal-host-pool-recovery.png" alt-text="A diagram of a deployment using the recommended personal host pool disaster recovery strategy described in the previous paragraph. On the left is the primary region in West US with the host pool with two personal hosts, two local disks with user profile data, a VNET, and an Azure Backup Vault. On the right is the secondary region, with Azure Site Recovery Vault, two replicated VMs, and two local disks with user profile data icons that are grayed out and transparent, indicating that they're absent from this region. It also has its own VNET. Between the two regions is the blue triangle Azure logo labeled Azure AD Joined, however the session hosts being joined to Azure AD is not a pre-requisite for this recovery option.":::
 
 The benefits of this plan include a lower overall cost and not requiring maintenance to patch or update due to resources only being provisioned when you need them. However, a potential drawback is that you'll spend more time provisioning, integrating, and validating failover infrastructure than you would with a shared host pool disaster recovery setup.
 
@@ -125,7 +126,7 @@ The benefits of this plan include a lower overall cost and not requiring mainten
 
 When using this disaster recovery strategy, it's important to keep the following things in mind:
 
-- There may be requirements that the host pool VMs need to function in the secondary site, such as virtual networks, subnets, network security, or VPNs to access a directory such as on-premises active directory.
+- There may be requirements that the host pool VMs need to function in the secondary site, such as virtual networks, subnets, network security, or VPNs to access a directory such as on-premises Active Directory.
 
     >[!NOTE]
     > Using an [Azure Active Directory (AD)-joined VM](deploy-azure-ad-joined-vm.md) fulfills some of these requirements automatically.
