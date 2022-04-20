@@ -200,7 +200,7 @@ The following table describes key parameters for each redundancy option:
 | Parameter | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | Percent durability of objects over a given year | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
-| Availability for read requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) for GRS<br /><br />At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GRS | At least 99.9% (99% for Cool or Archive access tiers) for GZRS<br /><br />At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GZRS |
+| Availability for read requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) for GRS<br/><br/>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GRS | At least 99.9% (99% for Cool or Archive access tiers) for GZRS<br/><br/>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GZRS |
 | Availability for write requests | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) | At least 99.9% (99% for Cool or Archive access tiers) |
 | Number of copies of data maintained on separate nodes | Three copies within a single region | Three copies across separate availability zones within a single region | Six copies total, including three in the primary region and three in the secondary region | Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region |
 
@@ -225,11 +225,11 @@ The following table shows which redundancy options are supported by each Azure S
 
 | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
 |---|---|---|---|---|---|
-| Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure managed disks<sup>3</sup> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> |
+| Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks | Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1,</sup><sup>2</sup> <br/>Azure managed disks<sup>3</sup> | Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage <br/>Queue storage <br/>Table storage <br/> | Blob storage <br/>Queue storage <br/>Table storage <br/>Azure Files<sup>1</sup> | Blob storage <br/>Queue storage <br/>Table storage <br/> |
 
-<sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they are less than or equal to five TiB in size.<br />
-<sup>2</sup> Premium file shares are supported on LRS and ZRS.<br />
-<sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](../../virtual-machines/disks-redundancy.md#limitations) section of the redundancy options for managed disks article for details.<br />
+<sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they are less than or equal to five TiB in size.<br/>
+<sup>2</sup> Premium file shares are supported on LRS and ZRS.<br/>
+<sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](../../virtual-machines/disks-redundancy.md#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 ### Supported storage account types
 
@@ -237,7 +237,7 @@ The following table shows which redundancy options are supported for each type o
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br /></li><li>Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br /></li><li>Premium file shares (`FileStorage`)</li></ul>Legacy:<ul><li>Standard/general-purpose v1 (`Storage`)</li><li>Legacy blob (`BlobStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br /><li>Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br /></li><li>Premium file shares (`FileStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br /></li></ul>Legacy:<ul><li>Standard/general-purpose v1 (`Storage`)</li><li>Legacy blob (`BlobStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br /></li></ul> |
+| Recommended<br/> - Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br/> - Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/><br/> - Premium file shares (`FileStorage`)<br/><br/>Legacy:<br/> - Standard/general-purpose v1 (`Storage`)<br/> - Legacy blob (`BlobStorage`) | Recommended<br/> - Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br/> - Premium block blobs (`BlockBlobStorage`)<sup>1</sup><br/> - Premium file shares (`FileStorage`) | Recommended<br/> - Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br/><br/>Legacy:<br/> - Standard/general-purpose v1 (`Storage`)<br/> - Legacy blob (`BlobStorage`) | Recommended<br/> - Standard/general-purpose v2 (`StorageV2`)<sup>1</sup><br/> |
 
 <sup>1</sup> Accounts of this type with a hierarchical namespace enabled also support the specified redundancy option.
 
