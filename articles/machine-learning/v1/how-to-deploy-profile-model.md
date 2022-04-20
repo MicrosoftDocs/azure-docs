@@ -10,7 +10,7 @@ ms.topic: how-to
 zone_pivot_groups: aml-control-methods
 ms.author: larryfr
 author: blackmist
-ms.custom: deploy, cliv1
+ms.custom: deploy, cliv1, sdkv1
 ---
 
 # Profile your model to determine resource utilization
@@ -46,6 +46,8 @@ In order to profile your model, you will need:
 Below is an example of how you can construct an input dataset to profile a service that expects its incoming request data to contain serialized json. In this case, we created a dataset based 100 instances of the same request data content. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
 
 ::: zone pivot="py-sdk"
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import json

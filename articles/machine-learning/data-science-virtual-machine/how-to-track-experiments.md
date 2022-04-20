@@ -4,7 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
 ms.service: data-science-vm
-
+ms.custom: sdkv1
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
@@ -12,6 +12,8 @@ ms.date: 07/17/2020
 ---
 
 # Track experiments and deploy models in Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script using the [MLflow](https://mlflow.org/) API and track the experiment in Azure Machine Learning.
 
