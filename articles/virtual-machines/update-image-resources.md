@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 04/20/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -314,8 +314,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## Community Galleries
 
+> [!IMPORTANT]
+> Azure Compute Gallery – Community Galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - Community Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To list your own galleries, and output the public names for the community galleries:
+To list your own galleries, and output the public names for your community galleries:
 
 ```azurecli-interactive
 az sig list --query [*]."{Name:name,PublicName:sharingProfile.communityGalleryInfo.publicNames}"
@@ -323,10 +325,12 @@ az sig list --query [*]."{Name:name,PublicName:sharingProfile.communityGalleryIn
 
 
 > [!NOTE]
-> As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
+> As an end user, to get the public name of a community gallery, you currently need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 
-List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
+List all of the image definitions that are available in a community gallery using [az sig image-definition list-community](/cli/azure/sig/image-definition#az_sig_image_definition_list_community). 
+
+In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
 
 ```azurecli-interactive 
  az sig image-definition list-community \

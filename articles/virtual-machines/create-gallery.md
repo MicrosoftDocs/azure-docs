@@ -107,11 +107,16 @@ A [community gallery](azure-compute-gallery.md#community) is shared publicly wit
 During the preview, make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly.
 
 > [!IMPORTANT]
-> Community Galleries is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – Community Galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - Community Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > To publish to a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
+
+When creating a community shared gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing:
+- Community gallery prefix
+- Publisher support email
+- Publisher URL
+- Legal agreement URL
+
 
 ### Prerequisites
 

@@ -88,13 +88,11 @@ New-AzRoleAssignment `
 To share a gallery with all Azure users, you can also create a [Community Galleries (preview)](azure-compute-gallery.md#community). Community Galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
 > [!IMPORTANT]
-> Community Galleries is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – Community Galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - Community Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > To publish to a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 > 
-> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you can't migrate a regular gallery to a community gallery.
+> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
 
 To learn more, see [Community Galleries (preview) overview](azure-compute-gallery.md#community) and [Create a community gallery](create-gallery.md#community).
 

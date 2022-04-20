@@ -161,9 +161,9 @@ New-AzVM `
 ## Create a VM from a community gallery image
 
 > [!IMPORTANT]
-> The Community Gallery is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – Community Galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - Community Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> Microsoft does not provide support for images in the [Community Gallery](azure-compute-gallery.md#community).
 
 ### [Portal](#tab/portal2)
 
