@@ -20,7 +20,7 @@ For disaster recovery and high availability, Microsoft may replicate customer da
 
 ## Geographic and regional mapping
 
-The following table describes the mapping between geography and supported Azure regions, and the respective geographic API endpoint. For example, if an Azure Maps account is provisioned in the West US 2 region that falls within the United States geography, all API calls to the Data and Spatial services must be made to `us.atlas.microsoft.com/`.
+The following table describes the mapping between geography and supported Azure geographic API endpoint. For example, if you want all of your Azure Maps Search Address requests to be processed and stored within the European Azure geography then all API calls to the Azure Maps Search Address service must be made to eu.atlas.microsoft.com/search/address.
 
 | Azure Geographic areas (geos) | Azure datacenters (regions) | API geographic endpoint   |
 |-------------------------------|-----------------------------|---------------------------|
