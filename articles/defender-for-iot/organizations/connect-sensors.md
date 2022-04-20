@@ -108,9 +108,9 @@ Attach the gateway to the `GatewaySubnet` subnet you created [earlier](#step-2-d
 
 For more information, see:
 
-- [About VPN gateways](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [Connect a virtual network to an ExpressRoute circuit using the portal](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
-- [Modify local network gateway settings using the Azure portal](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway-portal)
+- [About VPN gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
+- [Connect a virtual network to an ExpressRoute circuit using the portal](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
+- [Modify local network gateway settings using the Azure portal](../../vpn-gateway/vpn-gateway-modify-local-network-gateway-portal.md)
 
 ### Step 4: Define network security groups
 
@@ -152,7 +152,7 @@ For more information, see:
 
 Define an Azure virtual machine scale set to create and manage a group of load-balanced virtual machine, where you can automatically increase or decrease the number of virtual machines as needed.
 
-Use the following procedure to create a scale set to use with your sensor connection. For more information, see [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
+Use the following procedure to create a scale set to use with your sensor connection. For more information, see [What are virtual machine scale sets?](../../virtual-machine-scale-sets/overview.md)
 
 1. Create a scale set with the following parameter definitions:
 
@@ -239,7 +239,7 @@ Use the following procedure to create a scale set to use with your sensor connec
 
 Azure Load Balancer is a layer-4 load balancer that distributes incoming traffic among healthy virtual machine instances using a hash-based distribution algorithm.
 
-For more information, see the [Azure Load Balancer documentation](/azure/load-balancer/load-balancer-overview).
+For more information, see the [Azure Load Balancer documentation](../../load-balancer/load-balancer-overview.md).
 
 To create an Azure load balancer for your sensor connection:
 

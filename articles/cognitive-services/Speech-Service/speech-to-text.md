@@ -57,12 +57,12 @@ The [Speech SDK](speech-sdk.md) provides most of the functionalities that you ne
 
 Use the following list to find the appropriate Speech SDK reference docs:
 
-- <a href="https://aka.ms/csspeech/csharpref">C# SDK </a>
-- <a href="https://aka.ms/csspeech/cppref">C++ SDK </a>
-- <a href="https://aka.ms/csspeech/javaref">Java SDK </a>
-- <a href="https://aka.ms/csspeech/pythonref">Python SDK</a>
-- <a href="https://aka.ms/csspeech/javascriptref">JavaScript SDK</a>
-- <a href="https://aka.ms/csspeech/objectivecref">Objective-C SDK </a>
+- <a href="/dotnet/api/overview/azure/cognitiveservices/client/speechservice">C# SDK </a>
+- <a href="/cpp/cognitive-services/speech/">C++ SDK </a>
+- <a href="/java/api/com.microsoft.cognitiveservices.speech">Java SDK </a>
+- <a href="/python/api/azure-cognitiveservices-speech/">Python SDK</a>
+- <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/">JavaScript SDK</a>
+- <a href="/objectivec/cognitive-services/speech/">Objective-C SDK </a>
 
 > [!TIP]
 > The Speech service SDK is actively maintained and updated. To track changes, updates, and feature additions, see the [Speech SDK release notes](releasenotes.md).
