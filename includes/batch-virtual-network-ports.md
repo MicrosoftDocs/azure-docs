@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 06/09/2021
+ms.date: 04/20/2022
 ms.author: jenhayes
 ms.custom: include file
 ---
