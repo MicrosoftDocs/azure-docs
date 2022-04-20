@@ -51,11 +51,12 @@ For each table, you'll see the following status:
 
 * **Snapshotting:** a source table is initially loaded to destination with full snapshot.
 * **Replicating:** any updates on source table are replicated to destination.
-* **Failed:** the data on source table can't be replicated to destination.
+* **Failed:** the data on source table can't be replicated to destination. If you want to retry after fixing the error, remove the table from link and add it back.
+* **Suspended:** replication is suspended for this table due to an error. It will be resumed after the error is resolved. 
 
 ## Transactional consistency across tables
 
-You can enable transactional consistency across table for each link connection. However, it adds some performance overhead.
+You can enable transactional consistency across table for each link connection. However, it limits overall replication throughput.
 
 ## Next steps
 
