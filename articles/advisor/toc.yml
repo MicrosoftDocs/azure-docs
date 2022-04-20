@@ -8,6 +8,8 @@
     href: advisor-release-notes.md
 - name: Quickstarts
   items:
+  - name: Get started with Advisor
+    href: advisor-get-started.md
   - name: Configure alerts for new recommendations
     items:
     - name: Azure portal
@@ -29,11 +31,7 @@
       href: advisor-reference-performance-recommendations.md
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
-- name: Tutorials
-  items:
-  - name: Get started with Advisor
-    href: advisor-get-started.md
-- name: Samples
+- name: Samples 
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md

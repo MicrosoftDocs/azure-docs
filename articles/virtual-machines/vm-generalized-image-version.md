@@ -37,7 +37,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 ### [CLI](#tab/cli)
 
 
-List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -45,7 +45,7 @@ gallery=myGallery
 az sig image-definition list --resource-group $resourceGroup --gallery-name $gallery --query "[].[name, id]" --output tsv
 ```
 
-Create a VM using [az vm create](/cli/azure/vm#az_vm_create). To use the latest version of the image, set `--image` to the ID of the image definition. 
+Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest version of the image, set `--image` to the ID of the image definition. 
 
 The example below is for creating a Linux VMsecured with SSH. For Windows or to secure a Linux VM with a password, remove `--generate-ssh-keys` to be prompted for a password. If you want to supply a password directly, replace `--generate-ssh-keys` with `--admin-password`. Replace resource names as needed in this example. 
 

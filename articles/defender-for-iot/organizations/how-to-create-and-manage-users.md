@@ -271,9 +271,6 @@ You can recover the password for the on-premises management console, or the sens
 
     :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
 
-    > [!NOTE]
-    > Don't alter the password recovery file. It's a signed file, and will not work if tampered with.
-
 1. On the Password recovery screen, select **Upload**. **The Upload Password Recovery File** window will open.
 
 1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.

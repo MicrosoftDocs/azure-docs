@@ -1,7 +1,7 @@
 ---
 author: madansr7
 ms.author: saumadan
-ms.date: 01/13/2022
+ms.date: 04/05/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
@@ -11,7 +11,6 @@ The following API and HTTP scheme-based application ID URI formats are supported
 
 | Supported application ID <br/> URI formats | Example app ID URIs |
 |--|--|
-| _api://\<string\>_ | _api://myapp1234_ |
 | _api://\<appId\>_ | _api://fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed_ |
 | _api://\<tenantId\>/\<appId\>_ | _api://a8573488-ff46-450a-b09a-6eca0c6a02dc/fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed_ |
 | _api://\<tenantId\>/\<string\>_ | _api://a8573488-ff46-450a-b09a-6eca0c6a02dc/api_ |

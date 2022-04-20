@@ -1,7 +1,7 @@
 ---
 title: Create a Translator resource
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to create an Azure Cognitive Services Translator resource and get a subscription key and endpoint URL.
+description: This article will show you how to create an Azure Cognitive Services Translator resource and get a key and endpoint URL.
 services: cognitive-services
 author: laujan
 ms.author: lajanuar
@@ -14,7 +14,7 @@ ms.date: 02/24/2022
 
 # Create a Translator resource
 
-In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access.
+In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **key** for authenticating access.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ All Cognitive Services API requests require an endpoint URL and a read-only key 
 
 1. After your new resource deploys, select **Go to resource** or navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
-1. Copy and paste your subscription keys and endpoint URL in a convenient location, such as *Microsoft Notepad*.
+1. Copy and paste your keys and endpoint URL in a convenient location, such as *Microsoft Notepad*.
 
 :::image type="content" source="../media/cognitive-services-apis-create-account/get-cog-serv-keys.png" alt-text="Get key and endpoint.":::
 

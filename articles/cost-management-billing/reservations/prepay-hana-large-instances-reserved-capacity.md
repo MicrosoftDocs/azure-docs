@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/22/2022
 ms.author: banders
 ---
 

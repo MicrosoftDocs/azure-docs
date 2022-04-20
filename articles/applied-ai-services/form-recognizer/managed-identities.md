@@ -124,4 +124,4 @@ You need to grant Form Recognizer access to your storage account before it can c
 ## Learn more about  managed identity
 
 > [!div class="nextstepaction"]
-> [Access Azure Storage form a web app using managed identities](/azure/app-service/scenario-secure-app-access-storage?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json )
+> [Access Azure Storage form a web app using managed identities](../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json)

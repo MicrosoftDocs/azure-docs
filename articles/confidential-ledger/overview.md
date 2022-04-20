@@ -36,7 +36,7 @@ The data to the Ledger is sent through TLS 1.2 connection and the TLS 1.2 connec
 
 ### Ledger storage
 
-Confidential ledgers are created as blocks in blob storage containers belonging to an Azure Storage account. Transaction data can either be stored encrypted or in plaintext depending on your needs. When you create a Ledger, you will associate a Storage Account using the steps described in [Register a confidential ledger Service Principal](register-ledger-service-principal.md).
+Confidential ledgers are created as blocks in blob storage containers belonging to an Azure Storage account. Transaction data can either be stored encrypted or in plaintext depending on your needs.
 
 The confidential ledger can be managed by administrators utilizing Administrative APIs (Control Plane), and can be called directly by your application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete.
 
