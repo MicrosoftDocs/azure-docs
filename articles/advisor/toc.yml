@@ -8,12 +8,12 @@
     href: advisor-release-notes.md
 - name: Quickstarts
   items:
+  - name: Get started with Advisor
+    href: advisor-get-started.md
   - name: Configure alerts for new recommendations
     items:
     - name: Azure portal
       href: advisor-alerts-portal.md
-    - name: Get started with Advisor
-      href: advisor-get-started.md
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md

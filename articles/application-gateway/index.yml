@@ -9,8 +9,8 @@ metadata:
   services: application-gateway
   ms.service: application-gateway
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
+  author: greg-lindsay
+  ms.author: greglin
   ms.date: 03/30/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -35,6 +35,8 @@ landingContent:
             url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
       - linkListType: learn
         links:
+          - text: Intro to Azure Application Gateway
+            url: /learn/modules/intro-to-azure-application-gateway
           - text: Load balance your web service traffic with Application Gateway
             url: /learn/modules/load-balance-web-traffic-with-application-gateway/
   # Card
@@ -125,4 +127,4 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Well-Architected review of Application Gateway
-            url: /azure/architecture/framework/services/networking/application-gateway.md
+            url: /azure/architecture/framework/services/networking/azure-application-gateway

@@ -10,7 +10,7 @@ ms.date: 09/27/2021
 
 Planning your Azure VMware Solution deployment is critical for a successful production-ready environment for creating virtual machines (VMs) and migration. During the planning process, you'll identify and gather what's needed for your deployment. As you plan, make sure to document the information you gather for easy reference during the deployment. A successful deployment results in a production-ready environment for creating virtual machines (VMs) and migration.
 
-In this how-to, you'll':
+In this how-to, you'll:
 
 > [!div class="checklist"]
 > * Identify the Azure subscription, resource group, region, and resource name
@@ -75,7 +75,7 @@ After the support team receives your request for a host quota, it takes up to fi
 
 ## Define the IP address segment for private cloud management
 
-Azure VMware Solution requires a /22 CIDR network, for example, `10.0.0.0/22`. This address space is carved into smaller network segments (subnets) and used for Azure VMware Solution management segments, including vCenter, VMware HCX, NSX-T, and vMotion functionality. The diagram highlights Azure VMware Solution management IP address segments.
+Azure VMware Solution requires a /22 CIDR network, for example, `10.0.0.0/22`. This address space is carved into smaller network segments (subnets) and used for Azure VMware Solution management segments, including vCenter Server, VMware HCX, NSX-T Data Center, and vMotion functionality. The diagram highlights Azure VMware Solution management IP address segments.
 
 :::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Diagram showing Azure VMware Solution management IP address segments." border="false":::  
 
@@ -86,7 +86,7 @@ Azure VMware Solution requires a /22 CIDR network, for example, `10.0.0.0/22`. T
 
 ## Define the IP address segment for VM workloads
 
-Like with any VMware environment, the VMs must connect to a network segment.  As the production deployment of Azure VMware Solution expands, there is often a combination of L2 extended segments from on-premises and local NSX-T network segments. 
+Like with any VMware vSphere environment, the VMs must connect to a network segment.  As the production deployment of Azure VMware Solution expands, there is often a combination of L2 extended segments from on-premises and local NSX-T network segments. 
 
 For the initial deployment, identify a single network segment (IP network), for example, `10.0.4.0/24`. This network segment is used primarily for testing purposes during the initial deployment.  The address block shouldn't overlap with any network segments on-premises or within Azure and shouldn't be within the /22 network segment already defined. 
   
@@ -104,23 +104,23 @@ Azure VMware Solution requires an Azure Virtual Network and an ExpressRoute circ
 
 ## Define VMware HCX network segments
 
-VMware HCX is an application mobility platform that simplifies application migration, workload rebalancing, and business continuity across data centers and clouds. You can migrate your VMware workloads to Azure VMware Solution and other connected sites through various migration types. 
+VMware HCX is an application mobility platform that simplifies application migration, workload rebalancing, and business continuity across data centers and clouds. You can migrate your VMware vSphere workloads to Azure VMware Solution and other connected sites through various migration types. 
 
 VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments. Identify the following for the VMware HCX deployment, which supports a pilot or small product use case.  Depending on the needs of your migration, modify as necessary. 
 
-- **Management network:** When deploying VMware HCX on-premises, you'll need to identify a management network for VMware HCX.  Typically, it's the same management network used by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
+- **Management network:** When deploying VMware HCX on-premises, you'll need to identify a management network for VMware HCX.  Typically, it's the same management network used by your on-premises VMware vSphere cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
   >[!NOTE]
-  >Preparing for large environments, instead of using the management network used for the on-premises VMware cluster, create a new /26 network and present that network as a port group to your on-premises VMware cluster.  You can then create up to 10 service meshes and 60 network extenders (-1 per service mesh). You can stretch **eight** networks per network extender by using Azure VMware Solution private clouds.
+  >Preparing for large environments, instead of using the management network used for the on-premises VMware vSphere cluster, create a new /26 network and present that network as a port group to your on-premises VMware vSphere cluster.  You can then create up to 10 service meshes and 60 network extenders (-1 per service mesh). You can stretch **eight** networks per network extender by using Azure VMware Solution private clouds.
 
 - **Uplink network:** When deploying VMware HCX on-premises, you'll need to identify an Uplink network for VMware HCX. Use the same network which you’ll use for the Management network. 
 
-- **vMotion network:** When deploying VMware HCX on-premises, you'll need to identify a vMotion network for VMware HCX.  Typically, it's the same network used for vMotion by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
+- **vMotion network:** When deploying VMware HCX on-premises, you'll need to identify a vMotion network for VMware HCX.  Typically, it's the same network used for vMotion by your on-premises VMware vSphere cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
   You must expose the vMotion network on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accommodate.
 
   >[!NOTE]
-  >Many VMware environments use non-routed network segments for vMotion, which poses no problems.
+  >Many VMware vSphere environments use non-routed network segments for vMotion, which poses no problems.
   
 - **Replication network:** When deploying VMware HCX on-premises, you'll need to define a replication network. Use the same network as you are using for your Management and Uplink networks.  If the on-premises cluster hosts use a dedicated Replication VMkernel network, reserve **two** IP addresses in this network segment and use the Replication VMkernel network for the replication network.
 
