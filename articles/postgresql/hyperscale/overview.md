@@ -38,8 +38,8 @@ IOT/telemetry, finance, logistics, and search.
 
 Hyperscale (Citus) is built around the open-source
 [Citus](https://github.com/citusdata/citus) extension to PostgreSQL. Because
-Citus is an extension--not a fork--of the underlying database, it supports
-the latest PostgreSQL versions within one day of their release.
+Citus is an extension--not a fork--of the underlying database, it always
+supports the latest PostgreSQL version within one day of release.
 
 Your apps can use the newest PostgreSQL features and extensions, such as
 native partitioning for performance, JSONB support to store and query
