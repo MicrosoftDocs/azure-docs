@@ -321,9 +321,9 @@ The final section to complete is to be able to deploy the test drives automatica
 
    1. From the Azure portal:
 
-       1. Select the **Subscription** being used for the test drive.
+       1. Select the subscription being used for the test drive.
 
-       1. Select **Access Control (IAM)**.
+       1. Select **Access control (IAM)**.
 
        1. Select **Add > Add role assignment**.
 
@@ -333,7 +333,7 @@ The final section to complete is to be able to deploy the test drives automatica
 
       1. On the **Members** tab, select **User, group, or service principal**, and then choose **Select members**.
 
-      1. Find and select the the Microsoft TestDrive service principal that you created previously.
+      1. Select the the Microsoft TestDrive service principal that you created previously.
 
       1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 

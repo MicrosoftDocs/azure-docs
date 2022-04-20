@@ -60,7 +60,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-1. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
@@ -70,7 +70,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. Select **User-assigned managed identity**, select your subscription, and then search for and select the user-assigned managed identity that you created previously.
+1. Select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
