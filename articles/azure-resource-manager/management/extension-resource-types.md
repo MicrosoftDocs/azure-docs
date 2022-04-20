@@ -227,6 +227,7 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.Resources
 
 * links
+* tags
 
 ## Microsoft.Security
 

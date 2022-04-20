@@ -2574,6 +2574,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | links | No |
 > | resourceGroups | No |
 > | subscriptions | No |
+> | tags | No |
 > | templateSpecs | Yes |
 > | templateSpecs / versions | Yes |
 > | tenants | No |
