@@ -552,7 +552,7 @@ Consider the following mitigations:
 
 ### [0x80070008](#tab/x80070008)
 
-This error message can occur when the serverless SQL pool is experiencing resource contraints, or if there was a transient platform issue.
+This error message can occur when the serverless SQL pool is experiencing resource constraints, or if there was a transient platform issue.
 
 - Transient issues:
   - This error can occur when Azure detects a potential platform issue that results in a change in topology to keep the service in a healthy state.
@@ -568,7 +568,7 @@ If the issue is non-transient or you confirmed the problem is not related to hig
 
 ### [0x8007000C](#tab/x8007000C)
 
-This error code occurrs when a query is executing and the source files are modified at the same time.
+This error code occurs when a query is executing and the source files are modified at the same time.
 The default behavior is to terminate the query execution with an error message.
 
 The error message returned can also have the following format:
