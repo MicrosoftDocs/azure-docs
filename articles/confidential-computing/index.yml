@@ -58,20 +58,30 @@ landingContent:
         links:
           - text: Intel SGX virtual machines
             url: confidential-computing-enclaves.md
+          - text: Virtual Machines based on AMD processors with SEV-SNP technology
+            url: confidential-vm-overview.md
       - linkListType: concept
         links:
           - text: Solutions on SGX virtual machines
             url: virtual-machine-solutions-sgx.md
+          - text: Azure Confidential VM options on AMD
+            url: virtual-machine-solutions-amd.md
       - linkListType: quickstart
         links:
           - text: Create Intel SGX VM in the Azure Portal
             url: quick-create-portal.md
           - text: Create Intel SGX VM in the Azure Marketplace
             url: quick-create-marketplace.md
+          - text: Create an AMD confidential VM in the Azure portal
+            url: quick-create-confidential-vm-portal-amd.md
+          - text: Create an AMD confidential VM with ARM template
+            url: quick-create-confidential-vm-arm-amd.md
       - linkListType: reference
         links:
           - text: Confidential computing enclaves FAQ 
             url: faq-application-enclaves.yml
+          - text: AMD confidential VMs FAQ 
+            url: confidential-vm-faq-amd.yml
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
           - text: Availability
