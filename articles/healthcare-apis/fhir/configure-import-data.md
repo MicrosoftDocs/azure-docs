@@ -1,6 +1,6 @@
 ---
 title: Configure import settings in the FHIR service - Azure Health Data Services
-description: This article describes how to configure import settings in the FHIR service
+description: This article describes how to configure import settings in the FHIR service.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir

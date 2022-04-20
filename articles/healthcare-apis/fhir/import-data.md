@@ -1,6 +1,6 @@
 ---
 title: Executing the import by invoking $import operation on FHIR service in Azure Health Data Services
-description: This article describes how to import FHIR data using $import
+description: This article describes how to import FHIR data using $import.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
