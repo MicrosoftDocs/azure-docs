@@ -24,9 +24,16 @@ your tables.
 ![distributed architecture](../media/overview-hyperscale/distributed.png)
 
 As Hyperscale (Citus) is a fully managed service, it has all the features for
-worry-free operation in production. Features include automatic high
-availability, backups, built-in pgBouncer, read-replicas, easy monitoring,
-security features such as private endpoint, encryption and so on. 
+worry-free operation in production. Features include:
+
+* automatic high availability
+* backups
+* built-in pgBouncer
+* read-replicas
+* easy monitoring
+* private endpoints
+* encryption
+* and more
 
 Real-world customer applications built on Citus include SaaS apps, real-time
 operational analytics apps, and high throughput transactional apps. These apps
@@ -40,10 +47,10 @@ finance, logistics, and search.
 
 Hyperscale (Citus) is built around the open-source
 [Citus](https://github.com/citusdata/citus) extension to PostgreSQL. Because
-Citus is an extension -- not a fork -- of the underlying database, it supports
+Citus is an extension--not a fork--of the underlying database, it supports
 the latest PostgreSQL versions within one day of their release.
 
-Your apps can leverage the newest PostgreSQL features and extensions, such as
+Your apps can use the newest PostgreSQL features and extensions, such as
 native partitioning for performance, JSONB support to store and query
 unstructured data, and geospatial functionality via the PostGIS extension.
 It's the speed you need, on the database you love.
