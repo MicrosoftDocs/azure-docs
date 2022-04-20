@@ -76,6 +76,8 @@
       href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
+  - name: Metrics
+    href: concept-metrics.md
   - name: Performance considerations
     href: signalr-concept-performance.md
   - name: Authentication

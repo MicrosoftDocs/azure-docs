@@ -3,9 +3,10 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/17/2021
+ms.date: 04/14/2022
 ms.author: helohr
 manager: femila
+ms.custom: subject-rbac-steps
 ---
 # Start Virtual Machine on Connect
 
@@ -30,7 +31,10 @@ The following Remote Desktop clients support the Start VM on Connect feature:
 
 ## Create a custom role for Start VM on Connect
 
-Before you can configure the Start VM on Connect feature, you'll need to assign a subscription-level custom RBAC (role-based access control) role to the Azure Virtual Desktop service principal . This role will let Azure Virtual Desktop manage the VMs in your subscription. This role grants Azure Virtual Desktop the permissions to turn on VMs, check their status, and report diagnostic info. If you want to know more about Azure custom RBAC roles, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
+Before you can configure the Start VM on Connect feature, you'll need to assign a subscription-level custom RBAC (role-based access control) role to the Azure Virtual Desktop service principal. This role will let Azure Virtual Desktop manage the VMs in your subscription. This role grants Azure Virtual Desktop the permissions to turn on VMs, check their status, and report diagnostic info. If you want to know more about Azure custom RBAC roles, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
+
+>[!IMPORTANT]
+>You must have global admin permissions in order to assign the RBAC role to the service principal.
 
 >[!NOTE]
 >If your VMs and host pool are in different subscriptions, the RBAC role needs to be created in the subscription that the VMs are in.
@@ -65,19 +69,23 @@ To use the Azure portal to create a custom role for Start VM on Connect:
 
 After that, you'll need to assign the role to the Azure Virtual Desktop service principal.
 
-To assign the custom role:
+The following steps describe how to assign the custom role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the **Access control (IAM) tab**, select **Add role assignment**.
+1. In the navigation menu of the subscription, select **Access control (IAM)**.
 
-2. Search for and select the role you just created.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-3. On the **Members** tab, enter and select **Windows Virtual Desktop** in the search bar.
+1. On the **Role** tab, search for and select the role you just created.
 
-      >[!NOTE]
-      >You might see both the Windows Virtual Desktop and Windows Virtual Desktop Azure Resource Manager Provider first party applications appear if you've deployed Azure Virtual Desktop (classic). Assign the role to both apps.
-      >
-      > [!div class="mx-imgBorder"]
-      > ![A screenshot of the Access control (IAM) tab. In the search bar, both Azure Virtual Desktop and Azure Virtual Desktop (classic) are highlighted in red.](media/add-role-assignment.png)
+1. On the **Members** tab, search for and select **Windows Virtual Desktop**.
+
+   > [!NOTE]
+   > If you've deployed Azure Virtual Desktop (classic), both the Windows Virtual Desktop and Windows Virtual Desktop Azure Resource Manager Provider first party applications might appear. If so, assign the role to both apps.
+   >
+
+   ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ### Create a custom role with a JSON file template
 

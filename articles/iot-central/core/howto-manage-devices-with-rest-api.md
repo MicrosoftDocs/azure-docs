@@ -194,43 +194,6 @@ The response to this request looks like the following example:
 }
 ```
 
-### List device groups
-
-Use the following request to retrieve a list of device groups from your application:
-
-```http
-GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=1.1-preview
-```
-
-The response to this request looks like the following example: 
-
-```json
-{
-    "value": [
-        {
-            "id": "1dbb2610-04f5-47f8-81ca-ba38a24a6cf3",
-            "displayName": "Thermostat - All devices",
-            "organizations": [
-            "seattle"
-            ]
-        },
-        {
-            "id": "b37511ca-1beb-4781-ae09-c2d73c9104bf",
-            "displayName": "Cascade 500 - All devices",
-            "organizations": [
-            "redmond"
-            ]
-        },
-        {
-            "id": "788d08c6-2d11-4372-a994-71f63e108cef",
-            "displayName": "RS40 Occupancy Sensor - All devices"
-        }
-    ]
-}
-```
-
-The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
-
 ### Use ODATA filters
 
 You can use ODATA filters to filter the results returned by the list devices API.
@@ -429,6 +392,161 @@ The response to this request looks like the following example:
     ]
 }
 ```
+
+## Device groups
+
+### Add a device group
+
+Use the following request to create a new device group.
+
+```http
+PUT https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=1.2-preview
+```
+
+When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
+
+```json
+{
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+The request body has some required fields:
+
+* `@displayName`: Display name of the device group.
+* `@filter`: Query defining which devices should be in this group.
+* `@etag`: ETag used to prevent conflict in device updates.
+* `description`: Short summary of device group.
+
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
+
+The response to this request looks like the following example: 
+
+```json
+{
+  "id": "group1",
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+### Get a device group
+
+Use the following request to retrieve details of a device group from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=1.2-preview
+```
+
+* deviceGroupId - Unique ID for the device group.
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "475cad48-b7ff-4a09-b51e-1a9021385453",
+  "displayName": "DeviceGroupEntry1",
+  "description": "This is a default device group containing all the devices for this particular Device Template.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+### Update a device group
+
+```http
+PATCH https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=1.2-preview
+```
+
+The sample request body looks like the following example which updates the `displayName` of the device group:
+
+```json
+{
+  "displayName": "New group name"
+}
+
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "id": "group1",
+  "displayName": "New group name",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+### Delete a device group
+
+Use the following request to delete a device group:
+
+```http
+DELETE https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=1.2-preview
+```
+
+### List device groups
+
+Use the following request to retrieve a list of device groups from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=1.2-preview
+```
+
+The response to this request looks like the following example: 
+
+```json
+{
+  "value": [
+    {
+      "id": "475cad48-b7ff-4a09-b51e-1a9021385453",
+      "displayName": "DeviceGroupEntry1",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+      "organizations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "c2d5ae1d-2cb7-4f58-bf44-5e816aba0a0e",
+      "displayName": "DeviceGroupEntry2",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:model1\"",
+      "organizations": [
+        "redmond"
+      ]
+    },
+    {
+      "id": "241ad72b-32aa-4216-aabe-91b240582c8d",
+      "displayName": "DeviceGroupEntry3",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:model2\" AND $simulated = true"
+    },
+    {
+      "id": "group4",
+      "displayName": "DeviceGroupEntry4",
+      "description": "This is a default device group containing all the devices for this particular Device Template.",
+      "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:model3\""
+    }
+  ]
+}
+```
+
 
 ## Next steps
 
