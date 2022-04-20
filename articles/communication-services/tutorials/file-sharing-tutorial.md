@@ -75,7 +75,9 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
       const { name, url, extension } = await uploadFileToAzureBlob(fileUpload);
       fileUpload.notifyUploadCompleted({ name, extension, url });
     } catch (error) {
-      fileUpload.notifyUploadFailed(error.message);
+      if (error instanceof Error) {
+        fileUpload.notifyUploadFailed(error.message);
+      }
     }
   }
 }
