@@ -15,8 +15,6 @@ ms.date: 04/19/2022
 
 Azure Database for PostgreSQL - Hyperscale (Citus) is a managed service that
 allows you to run horizontally scalable PostgreSQL databases in the cloud.
-Using the Basic Tier, you can experiment with Hyperscale (Citus) for a few
-dollars a day. Let's get started.
 
 ## Prerequisites
 
@@ -26,7 +24,14 @@ To follow this quickstart, you'll first need to:
   an Azure subscription).
 * Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create server group
+## Get started with the Basic Tier
+
+The Basic Tier allows you to deploy Hyperscale (Citus) as a single node, while
+having the superpower of distributing tables. At a few dollars a day, it's the
+most cost-effective way to experience Hyperscale (Citus). Later, if your
+application requires greater scale, you can add nodes and rebalance your data.
+
+Let's get started!
 
 # [Direct link](#tab/direct)
 
