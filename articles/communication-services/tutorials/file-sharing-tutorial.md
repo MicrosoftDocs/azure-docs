@@ -55,7 +55,7 @@ Once implemented, you can call this Azure Function inside the `uploadHandler` fu
 ## Configuring Chat Composite to Enable File Sharing
 
 ```tsx
-import { FileUploadHandler } from 'communication-react';
+import { FileUploadHandler, FileUploadManager } from '@azure/communication-react';
 
 const App = () => (
   <ChatComposite 
