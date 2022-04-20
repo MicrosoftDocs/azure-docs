@@ -6,6 +6,7 @@ ms.date: 04/20/2022
 ---
 
 # Tag support for Azure resources
+
 This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
@@ -855,6 +856,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | virtualMachineScaleSets / virtualMachines / extensions | No | No |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No | No |
 
+> [!NOTE]
+> You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+
+
 ## Microsoft.ConfidentialLedger
 
 > [!div class="mx-tableFixed"]
@@ -1250,8 +1255,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / queryTexts | No | No |
 > | servers / recoverableServers | No | No |
 > | servers / resetQueryPerformanceInsightData | No | No |
-> | servers / start | No | No |
-> | servers / stop | No | No |
 > | servers / topQueryStatistics | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / waitStatistics | No | No |
@@ -1272,10 +1275,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / queryTexts | No | No |
 > | servers / recoverableServers | No | No |
 > | servers / resetQueryPerformanceInsightData | No | No |
-> | servers / start | No | No |
-> | servers / stop | No | No |
 > | servers / topQueryStatistics | No | No |
-> | servers / upgrade | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / waitStatistics | No | No |
 
@@ -2290,7 +2290,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > 
 > Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
 > 
-> Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) command.
+> Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
 
 
 ## Microsoft.NetworkCloud
@@ -2855,9 +2855,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | managedInstances / metrics | No | No |
 > | managedInstances / recoverableDatabases | No | No |
 > | managedInstances / sqlAgent | No | No |
-> | managedInstances / start | No | No |
 > | managedInstances / startStopSchedules | No | No |
-> | managedInstances / stop | No | No |
 > | managedInstances / tdeCertificates | No | No |
 > | managedInstances / vulnerabilityAssessments | No | No |
 > | servers | Yes | Yes |
@@ -2931,6 +2929,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / virtualNetworkRules | No | No |
 > | servers / vulnerabilityAssessments | No | No |
 > | virtualClusters | Yes | Yes |
+
+<a id="sqlnote"></a>
+
+> [!NOTE]
+> The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
+
 
 ## Microsoft.SqlVirtualMachine
 

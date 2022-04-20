@@ -1249,8 +1249,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | servers / queryTexts | No |
 > | servers / recoverableServers | No |
 > | servers / resetQueryPerformanceInsightData | No |
-> | servers / start | No |
-> | servers / stop | No |
 > | servers / topQueryStatistics | No |
 > | servers / virtualNetworkRules | No |
 > | servers / waitStatistics | No |
@@ -1271,10 +1269,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | servers / queryTexts | No |
 > | servers / recoverableServers | No |
 > | servers / resetQueryPerformanceInsightData | No |
-> | servers / start | No |
-> | servers / stop | No |
 > | servers / topQueryStatistics | No |
-> | servers / upgrade | No |
 > | servers / virtualNetworkRules | No |
 > | servers / waitStatistics | No |
 
@@ -2841,9 +2836,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | managedInstances / metrics | No |
 > | managedInstances / recoverableDatabases | No |
 > | managedInstances / sqlAgent | No |
-> | managedInstances / start | No |
 > | managedInstances / startStopSchedules | No |
-> | managedInstances / stop | No |
 > | managedInstances / tdeCertificates | No |
 > | managedInstances / vulnerabilityAssessments | No |
 > | servers | Yes |
