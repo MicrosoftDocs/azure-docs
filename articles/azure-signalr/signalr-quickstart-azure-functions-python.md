@@ -24,7 +24,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 - Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Python Azure Function apps locally.
 
-- Azure Functions requires [Python 3.6+](https://www.python.org/downloads/). (See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version))
+- Azure Functions requires [Python 3.6+](https://www.python.org/downloads/). (See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version).)
 
 - SignalR binding needs Azure Storage, but you can use a local storage emulator when a function is running locally. You'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
 
@@ -45,7 +45,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 2. After you initialize a project, you need to create functions. In this sample, we need to create three functions: `index`, `negotiate`, and `broadcast`.
 
-    1. Run the following command to create a `index` function, which will host a web page for a client.
+    1. Run the following command to create an `index` function, which will host a web page for a client.
 
         ```bash
         func new -n index -t HttpTrigger
@@ -244,7 +244,7 @@ This quickstart can be run on macOS, Windows, or Linux.
     func start
     ```
 
-    After then Azure Function is running locally, go to `http://localhost:7071/api/index` and you'll see the current star count. If you star or unstar in GitHub, you'll get a refreshed star count every few seconds.
+    After the Azure Function is running locally, go to `http://localhost:7071/api/index` and you'll see the current star count. If you star or unstar in GitHub, you'll get a refreshed star count every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use a local storage emulator when the function is running locally.
