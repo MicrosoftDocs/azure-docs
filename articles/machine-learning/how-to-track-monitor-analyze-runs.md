@@ -297,10 +297,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     # [Python](#tab/python)
     
-    ```Python
-
     [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
+    ```Python
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
     list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
     ```
@@ -342,7 +341,6 @@ If you notice a mistake or if your run is taking too long to finish, you can can
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
 ```python
-
 src = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
 local_run = exp.submit(src)
 print(local_run.get_status())
