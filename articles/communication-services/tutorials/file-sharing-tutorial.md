@@ -103,7 +103,7 @@ When an upload fails, the UI Library Chat Composite will display an error messag
 Here is sample code showcasing how you can fail an upload due to a size validation error.
 
 ```tsx
-import { FileUploadHandler } from 'communication-react';
+import { FileUploadHandler } from from '@azure/communication-react';
 
 const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
   for (const fileUpload of fileUploads) {
