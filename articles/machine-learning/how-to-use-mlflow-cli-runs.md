@@ -38,7 +38,6 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 
 * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the ml extension.
 
-
 ## Track runs from your local machine
 
 MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts runs that were executed on your local machine into your Azure Machine Learning workspace. 
@@ -259,6 +258,17 @@ To register and view a model from a run, use the following steps:
 ## Example notebooks
 
 [Use MLflow and CLI (v2)](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/hello-mlflow.yml)
+
+## Limitations
+
+The following MLflow methods are not fully supported with Azure Machine Learning. 
+
+* `mlflow.tracking.MlflowClient.create_experiment() `
+* `mlflow.tracking.MlflowClient.rename_experiment()`
+* `mlflow.tracking.MlflowClient.search_runs()`
+* `mlflow.tracking.MlflowClient.download_artifacts()`
+* `mlflow.tracking.MlflowClient.rename_registered_model()`
+
 
 ## Next steps
 
