@@ -144,7 +144,7 @@ sections:
       - question: |
           How do I migrate my classic storage accounts to ARM?
         asnswer: |
-          Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
+          If you have a classic VM attached to your account, please migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
           1. [Migrate using PowerShell](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-ps#step-52-migrate-a-storage-account)
           2. [Migrate using Azure CLI](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account)
           3. [Migrate using Azure Portal](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
@@ -157,7 +157,7 @@ sections:
       - question: |
           What happens to existing classic storage accounts after 31 August 2024?
         answer: |
-          Once the deadline arrives you will no longer be able to access your classic storage accounts and will be forced to migrate them to ARM.
+          Once the deadline arrives you will no longer be able to access your classic storage accounts.
 
       - question: |
           How do I identify my classic storage accounts in my subscription?
@@ -165,19 +165,14 @@ sections:
           In Azure Portal, search for Storage Account to get the list of all storage accounts. Look at the Type column to identify the classic ones. If Type is microsoft.classicstorage/storageaccounts then the account is classic.
 
       - question : |
-          How do I determine what is connected to my classic storage account?
-        answer: |
-          1. [Find unattached disks](https://docs.microsoft.com/azure/virtual-machines/disks-find-unattached-portal#unmanaged-disks-find-and-delete-unattached-disks)
-          2. [Other connections not related to VMS](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
-      - question : |
           Can Microsoft migrate this data for me?
         answer: |
           No, Microsoft cannot migrate user's data on their behalf. Users will have to use the self-serve options listed above.
       
       - question: |
-          What is the downtime when migrating from Classic to ARM?
+          What is the downtime when migrating my storage account from Classic to ARM?
         answer: |
-          There is no downtime.
+          There is no downtime to migrate classic storage account to ARM. However, there is downtime for other scenarios linked to classic VM Migration.
           
 
 additionalContent: |
