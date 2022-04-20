@@ -95,10 +95,8 @@
       href: about-client-address-pools.md
     - name: About P2S global and hub-based profiles
       href: global-hub-profile.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
   - name: Secured virtual hubs
     href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
   - name: Pricing explained
