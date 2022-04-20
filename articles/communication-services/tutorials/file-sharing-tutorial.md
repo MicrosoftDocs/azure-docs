@@ -82,7 +82,7 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
   }
 }
 
-const uploadFileToAzureBlob = async (fileUpload) => {
+const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   // You need to handle the file upload here and upload it to Azure Blob Storage.
   // Optionally, you can also update the file upload progress.
   fileUpload.notifyUploadProgressed(0.2);
