@@ -91,7 +91,6 @@ For the illustrated example above, the DNS resource records for the data factory
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| DataFactoryA.{region}.datafactory.azure.net |
 | DataFactoryA.{region}.datafactory.azure.net |	CNAME	| < data factory service public endpoint > |
 | < data factory service public endpoint >	| A | < data factory service public IP address > |
 
@@ -256,7 +255,7 @@ Finally, you must create the private endpoint in your data factory.
 
 
 ## Restrict access for data factory resources using private link
-If you want to restrict access for data factory resources in your subscriptions by private link, please follow [Use portal to create private link for managing Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/create-private-link-access-portal?source=docs)
+If you want to restrict access for data factory resources in your subscriptions by private link, please follow [Use portal to create private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md?source=docs)
 
 ## Known issue
 You are unable to access each other PaaS Resources when both sides are exposed to private Link and private endpoint. This is a known limitation of private link and private endpoint. 

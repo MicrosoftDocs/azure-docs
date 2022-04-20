@@ -33,7 +33,7 @@
       items:
       - name: OT sensor cloud connection methods
         href: architecture-connections.md
-      - name: OT system requirements
+      - name: OT monitoring appliance catalog
         href: how-to-identify-required-appliances.md
       - name: Supported OT protocols
         href: concept-supported-protocols.md
@@ -155,8 +155,6 @@
           href: how-to-enhance-port-and-vlan-name-resolution.md
         - name: Import device information
           href: how-to-import-device-information.md
-        - name: Define Windows endpoint monitoring (WMI)
-          href: how-to-configure-windows-endpoint-monitoring.md
       - name: Track sensor activity
         href: how-to-track-sensor-activity.md
       - name: Set up SNMP MIB monitoring
@@ -177,8 +175,6 @@
     href: references-work-with-defender-for-iot-apis.md
   - name: Work with Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
-  - name: Manage proprietary protocols (Horizon)
-    href: resources-manage-proprietary-protocols.md
   - name: Frequently asked questions - service
     displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
     href: resources-frequently-asked-questions.md
