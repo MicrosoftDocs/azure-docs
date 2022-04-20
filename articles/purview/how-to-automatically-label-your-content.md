@@ -1,5 +1,5 @@
 ---
-title: How to automatically apply sensitivity labels to your data in Microsoft Purview
+title: How to automatically apply sensitivity labels to your data in Microsoft Purview data catalog
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
 author: jasonwhowell
 ms.author: jasonh
@@ -8,9 +8,9 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
 ---
-# How to automatically apply sensitivity labels to your data in Microsoft Purview
+# How to automatically apply sensitivity labels to your data in the Microsoft Purview data catalog
 
-## Create or extend existing sensitivity labels to Microsoft Purview
+## Create new or apply existing sensitivity labels in the data catalog
 
 > [!IMPORTANT]
 > Microsoft Purview Sensitivity Labels are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -20,15 +20,15 @@ If you don't already have sensitivity labels, you'll need to create them and mak
 
 ### Step 1: Licensing requirements
 
-Sensitivity labels are created and managed in the Microsoft 365 compliance center. To create sensitivity labels for use in Microsoft Purview, you must have an active Microsoft 365 license which offers the benefit of automatically applying sensitivity labels.
+Sensitivity labels are created and managed in the Microsoft Purview compliance portal. To create sensitivity labels for use in Microsoft Purview, you must have an active Microsoft 365 license which offers the benefit of automatically applying sensitivity labels.
 
 For the full list of licenses, see the [Sensitivity labels in Microsoft Purview FAQ](sensitivity-labels-frequently-asked-questions.yml). If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
 
-### Step 2: Consent to use sensitivity labels in Microsoft Purview
+### Step 2: Consent to use sensitivity labels in the Microsoft Purview data catalog
 
-The following steps extend your sensitivity labels and enable them to be available for use in Microsoft Purview, where you can apply sensitivity labels to files and database columns.
+The following steps extend your sensitivity labels and enable them to be available for use in the data map, where you can apply sensitivity labels to files and database columns.
 
-1. In Microsoft 365, navigate to the **Information Protection** page.</br>
+1. In the Microsoft Purview compliance portal, navigate to the **Information Protection** page.</br>
    If you've recently provisioned your subscription for Information Protection, it may take a few hours for the **Information Protection** page to display.
 1. In the **Extend labeling to assets in Microsoft Purview** area, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
 
@@ -42,13 +42,13 @@ For example:
 >If you don't see the button, and you're not sure if consent has been granted to extend labeling to assets in Microsoft Purview, see [this FAQ](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-microsoft-purview) item on how to determine the status.
 >
 
-After you've extended labeling to assets in Microsoft Purview, all published sensitivity labels are available for use in Microsoft Purview.
+After you've extended labeling to assets in Microsoft Purview, all published sensitivity labels are available for use in the data map.
 
 ### Step 3: Create or modify existing label to automatically label content
 
 **To create new sensitivity labels or modify existing labels**:
 
-1. Open the [Microsoft 365 compliance center](https://compliance.microsoft.com/).
+1. Open the [Microsoft Purview compliance portal](https://compliance.microsoft.com/).
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**.
 
@@ -84,7 +84,7 @@ After you've extended labeling to assets in Microsoft Purview, all published sen
 
     To change the order of a label, select **...** **> More actions** > **Move up** or **Move down.**
 
-    For more information, see [Label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) in the Microsoft 365 documentation.
+    For more information, see the documentation for [label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters)..
 
 #### Autolabeling for files
 
@@ -96,7 +96,7 @@ For example:
 
 :::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files-small.png" alt-text="Define auto-labeling rules for files in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files.png":::
 
-For more information, see [Apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) in the Microsoft 365 documentation.
+For more information, see the documentation to [apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps).
 
 #### Autolabeling for schematized data assets
 
@@ -114,13 +114,13 @@ For example:
 
 ### Step 4: Publish labels
 
-Once you create a label, you will need to Scan your data in Microsoft Purview to automatically apply the labels you've created, based on the autolabeling rules you've defined.
+Once you create a label, you will need to Scan your data in the Microsoft Purview data map to automatically apply the labels you've created, based on the autolabeling rules you've defined.
 
 ## Scan your data to apply sensitivity labels automatically
 
-Scan your data in Microsoft Purview to automatically apply the labels you've created, based on the autolabeling rules you've defined. Allow up to 24 hours for sensitivity label changes to reflect in Microsoft Purview.
+Scan your data in the data map to automatically apply the labels you've created, based on the autolabeling rules you've defined. Allow up to 24 hours for sensitivity label changes to reflect in the data catalog.
 
-For more information on how to set up scans on various assets in Microsoft Purview, see:
+For more information on how to set up scans on various assets in the Microsoft Purview data map, see:
 
 |Source  |Reference  |
 |---------|---------|
@@ -130,11 +130,11 @@ For more information on how to set up scans on various assets in Microsoft Purvi
 
 ## View labels on assets in the catalog
 
-Once you've defined autolabeling rules for your labels in Microsoft 365 and scanned your data in Microsoft Purview, labels are automatically applied to your assets.
+Once you've defined autolabeling rules for your labels in the Microsoft Purview compliance portal and scanned your data in the data map, labels are automatically applied to your assets in the data catalog.
 
-**To view the labels applied to your assets in the Microsoft Purview Catalog:**
+**To view the labels applied to your assets in the Microsoft Purview catalog:**
 
-In the Microsoft Purview Catalog, use the **Label** filtering options to show assets with specific labels only. For example:
+In the Microsoft Purview catalog, use the **Label** filtering options to show assets with specific labels only. For example:
 
 :::image type="content" source="media/how-to-automatically-label-your-content/filter-search-results-small.png" alt-text="Search for assets by label" lightbox="media/how-to-automatically-label-your-content/filter-search-results.png":::
 

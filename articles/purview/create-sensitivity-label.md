@@ -38,7 +38,7 @@ Sensitivity labels are tags that you can apply on assets to classify and protect
 
 Being able to apply labels to your asset in the data catalog requires you to perform the following steps:
 
-1. [Create new, or apply existing sensitivity labels](how-to-automatically-label-your-content.md) in the Microsoft Purview compliance portal. Creating sensitivity labels include autolabeling rules that tell us which label should be applied based on the classifications found in your data.
+1. [Create new or apply existing sensitivity labels](how-to-automatically-label-your-content.md) in the Microsoft Purview compliance portal. Creating sensitivity labels include autolabeling rules that tell us which label should be applied based on the classifications found in your data.
 1. [Register and scan your asset](how-to-automatically-label-your-content.md#scan-your-data-to-apply-sensitivity-labels-automatically) in the Microsoft Purview data map.
 1. Microsoft Purview applies **classifications**: When you schedule a scan on an asset, Microsoft Purview scans the type of data in your asset and applies classifications to it in the data catalog. Application of classifications is done automatically by Microsoft Purview, there is no action for you.
 1. Microsoft Purview applies **labels**: Once classifications are found on an asset, Microsoft Purview will apply labels to the assets depending on autolabeling rules. Application of labels is done automatically by Microsoft Purview, there is no action for you as long as you have created labels with autolabeling rules in step 1.
