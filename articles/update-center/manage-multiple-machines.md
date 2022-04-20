@@ -29,9 +29,9 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Update management center(Preview)**.
 
-   ![Update management center Overview page in the Azure portal](./media/manage-multiple-machines/update-center-overview-page.png)
-
-   In the **Overview** page - the summary tiles show the following status:
+   :::image type="content" source="./media/manage-multiple-machines/overview-page-inline.png" alt-text="Screenshot of update management center overview page in the Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
+   
+     In the **Overview** page - the summary tiles show the following status:
 
    - **Filters**—use filters to focus on a subset of your resources. The selectors above the tiles return **Subscription**, **Resource group**, **Resource type** (Azure VMs and Arc-enabled servers) **Location**, and **OS** type (Windows or Linux) based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource. 
 
@@ -78,7 +78,7 @@ Update management center (preview) in Azure enables you to browse information ab
 
  In the update management center (preview) page, select **Machines** from the left menu.
 
-   :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Update management center Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
+   :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Screenshot of update management center(preview) Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
 
    On the page, the table lists all the machines in the specified subscription, and for each machine it helps you understand the following details that show up based on the latest assessment.
    - **Update status**—the total number of updates available identified as applicable to the machine's OS.
@@ -106,11 +106,11 @@ To manage the machine's update settings, see [Manage update configuration settin
 
 For machines that haven't had a compliance assessment scan for the first time, you can select one or more of them from the list and then select the **Check for updates**. You'll receive status messages as the configuration is performed.
 
-   :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-multi-selection-inline.png" alt-text="Initiating a scan assessment for selected machines with the check for updates option." lightbox="./media/manage-multiple-machines/update-center-assess-now-multi-selection-expanded.png":::
+   :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-multi-selection-inline.png" alt-text="Screenshot of initiating a scan assessment for selected machines with the check for updates option." lightbox="./media/manage-multiple-machines/update-center-assess-now-multi-selection-expanded.png":::
 
   Otherwise, a compliance scan is initiated, and then the results are forwarded and stored in **Azure Resource Graph**. This process takes several minutes. When the assessment is completed, a confirmation message appears on the page.
 
-   :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-complete-banner-inline.png" alt-text="Assessment banner on Manage Machines page example." lightbox="./media/manage-multiple-machines/update-center-assess-now-complete-banner-expanded.png":::   
+   :::image type="content" source="./media/manage-multiple-machines/update-center-assess-now-complete-banner-inline.png" alt-text="Screenshot of assessment banner on Manage Machines page." lightbox="./media/manage-multiple-machines/update-center-assess-now-complete-banner-expanded.png":::   
 
 
 Select a machine from the list to open update management center (Preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
@@ -119,7 +119,7 @@ Select a machine from the list to open update management center (Preview) scoped
 
 For assessed machines that are reporting updates available, select one or more of the machines from the list and initiate an update deployment that starts immediately. Select the machine and go to **One-time update**. 
 
-   :::image type="content" source="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-inline.png" alt-text="Install one time updates for machine(s) on updates preview page example." lightbox="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-expanded.png":::
+   :::image type="content" source="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-inline.png" alt-text="Screenshot of install one time updates for machine(s) on updates preview page." lightbox="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-expanded.png":::
    
  A notification appears to confirm that an activity has started and another is created when it's completed. When it's successfully completed, the installation operation results are available to view from either the **Update history** tab, when you select the machine from the **Machines** page, or on the **History** page, which you're redirected to automatically after initiating the update deployment. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
 
@@ -135,9 +135,9 @@ Update management center (preview) enables you to browse information about your 
 
 ## Update deployment history by machines
 
-:::image type="content" source="./media/manage-multiple-machines/update-center-history-page-inline.png" alt-text="Update Center History page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-page-expanded.png":::
-
 Provides a summarized status of update and assessment actions performed against your Azure VMs and Arc-enabled servers. You can also drill into a specific machine to view update-related details and manage it directly, review the detailed update or assessment history for the machine, and other related details in the table. 
+
+:::image type="content" source="./media/manage-multiple-machines/update-center-history-page-inline.png" alt-text="Screenshot of update center History page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-page-expanded.png":::
 
    - **Machine Name**
    - **Status** 
@@ -150,18 +150,19 @@ Provides a summarized status of update and assessment actions performed against 
    - **Last assessed time**
 
 ## Update deployment history by maintenance run ID
-In the **History** page, select **By maintenance run ID** to view the history of the maintenance run schedules. Each record shows 
-- Maintenance run ID
-- Status
-- Updated machines
-- Operation start time
-- Operation end time 
+In the **History** page, select **By maintenance run ID** to view the history of the maintenance run schedules. Each record shows  
 
-   :::image type="content" source="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-inline.png" alt-text="Update Center History page by maintenance run ID in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-expanded.png":::
+   :::image type="content" source="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-inline.png" alt-text="Screenshot of update center History page by maintenance run ID in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-history-by-maintenance-run-id-expanded.png":::
+
+- **Maintenance run ID**
+- **Status**
+- **Updated machines**
+- **Operation start time**
+- **Operation end time**
 
 When you select any one maintenance run ID record, you can view an expanded status of the maintenance run. It contains information about machines and updates. It includes the number of machines that were updated and updates installed on them, along with the status of each of the machines in the form of a pie chart. At the end of the page, it contains a list view of both machines and updates that were a part of this maintenance run.
 
-   :::image type="content" source="./media/manage-multiple-machines/update-center-maintenance-run-record-inline.png" alt-text="Maintenance run ID record." lightbox="./media/manage-multiple-machines/update-center-maintenance-run-record-expanded.png":::
+   :::image type="content" source="./media/manage-multiple-machines/update-center-maintenance-run-record-inline.png" alt-text="Screenshot of maintenance run ID record." lightbox="./media/manage-multiple-machines/update-center-maintenance-run-record-expanded.png":::
 
 
 ### Resource Graph
