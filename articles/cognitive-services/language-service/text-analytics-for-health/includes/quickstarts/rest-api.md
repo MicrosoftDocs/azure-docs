@@ -40,6 +40,6 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
-[!INCLUDE [Sample request](language-text-analytics-request.md)]
+[!INCLUDE [Sample request](request.md)]
 
 

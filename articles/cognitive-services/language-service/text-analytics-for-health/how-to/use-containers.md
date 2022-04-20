@@ -262,7 +262,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 You can use Postman or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
 
-[!INCLUDE [Use APIs in container](../includes/quickstarts/language-text-analytics-container.md)]
+[!INCLUDE [Use APIs in container](../includes/container-request.md)]
 
 
 ## Run the container with client library support
