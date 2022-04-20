@@ -10,7 +10,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1
+ms.custom: devx-track-python, devx-track-azurecli, cliv1, sdkv1
 ---
 
 # Start, monitor, and track run history
@@ -58,6 +58,8 @@ You'll need the following items:
 * Start a run and its logging process
 
     # [Python](#tab/python)
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
     
     1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment), [Run](/python/api/azureml-core/azureml.core.run%28class%29), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) classes from the [azureml.core](/python/api/azureml-core/azureml.core) package.
     
@@ -126,7 +128,9 @@ You'll need the following items:
 * Monitor the status of a run
 
     # [Python](#tab/python)
-    
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
     
         ```python
@@ -228,7 +232,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 * Add properties and tags
 
     # [Python](#tab/python)
-    
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     To add searchable metadata to your runs, use the [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
     
     ```Python
@@ -292,6 +298,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     # [Python](#tab/python)
     
     ```Python
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
     list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
     ```
@@ -331,6 +340,9 @@ If you notice a mistake or if your run is taking too long to finish, you can can
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
 ```python
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 src = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
 local_run = exp.submit(src)
 print(local_run.get_status())
@@ -340,6 +352,8 @@ print(local_run.get_status())
 ```
 
 If your run finishes, but it contains an error (for example, the incorrect training script was used), you can use the [`fail()`](/python/api/azureml-core/azureml.core.run%28class%29#fail-error-details-none--error-code-none---set-status-true-) method to mark it as failed.
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 local_run = exp.submit(src)
@@ -380,6 +394,8 @@ Create child runs to group together related runs, such as for different hyperpar
 
 This code example uses the `hello_with_children.py` script to create a batch of five child runs from within a submitted run by using the [`child_run()`](/python/api/azureml-core/azureml.core.run%28class%29#child-run-name-none--run-id-none--outputs-none-) method:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 !more hello_with_children.py
 src = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
@@ -416,6 +432,8 @@ The below code:
 - Creates and submits a new child run, using the custom compute resource and argument
 - Blocks until all of the child runs complete
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 # parent.py
 # This script controls the launching of child scripts
@@ -442,6 +460,8 @@ for child in run.get_children():
 To create many child runs with identical configurations, arguments, and inputs efficiently, use the [`create_children()`](/python/api/azureml-core/azureml.core.run.run#create-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, creating a batch of runs is more efficient than creating them one by one.
 
 Within a child run, you can view the parent run ID:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 ## In child run script
