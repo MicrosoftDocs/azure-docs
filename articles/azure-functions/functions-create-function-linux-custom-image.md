@@ -318,7 +318,7 @@ COPY . /home/site/wwwroot
 In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `azurefunctionsimage`, and tag, `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```console
-docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
+docker build --network=host --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 ```
 
 When the command completes, you can run the new container locally.
