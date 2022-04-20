@@ -25,7 +25,7 @@ Integrating a BIG-IP with Azure AD provides many benefits, including:
 
 * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](../manage-apps/f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -64,7 +64,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An Azure AD free subscription or above
 
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](../manage-apps/f5-bigip-deployment-guide.md)
 
 * Any of the following F5 BIG-IP license SKUs
 
@@ -80,7 +80,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* An [SSL Web certificate](/azure/active-directory/manage-apps/f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
+* An [SSL Web certificate](../manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
 
 * An existing Oracle JDE environment
 
@@ -302,7 +302,7 @@ Along with this the SAML federation metadata for the published application is al
 
 If the BIG-IP webtop portal is used to access published applications then a sign-out from there would be processed by the APM to also call the Azure AD sign-out endpoint. But consider a scenario where the BIG-IP webtop portal isn’t used, then the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this. So for this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to either the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
 
-If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](/azure/active-directory/manage-apps/f5-big-ip-oracle-peoplesoft-easy-button#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](../manage-apps/f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
 
 ## Summary
 
@@ -316,7 +316,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](/azure/active-directory/manage-apps/f5-big-ip-header-advanced). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](../manage-apps/f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 

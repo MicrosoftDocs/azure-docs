@@ -28,6 +28,8 @@ items:
     href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
+  - name: Configure automated key rotation (preview)
+    href: key-rotation.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
   - name: Import HSM-protected keys to Managed HSM
@@ -66,7 +68,7 @@ items:
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault-index
+    href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
@@ -94,4 +96,4 @@ items:
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0
+    href: https://feedback.azure.com/d365community/forum/10b76677-75b7-ec11-983f-000d3a9e3e90

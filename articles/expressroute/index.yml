@@ -32,6 +32,8 @@ landingContent:
             url: expressroute-faqs.md
       - linkListType: learn
         links:
+          - text: Introduction to Azure ExpressRoute
+            url: /learn/modules/intro-to-azure-expressroute
           - text: Connect your on-premises network to the Microsoft global network using ExpressRoute
             url: /learn/modules/connect-on-premises-network-with-expressroute/   
   # Card
