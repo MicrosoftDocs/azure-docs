@@ -21,8 +21,6 @@ would with PostgreSQL. As your app's scalability and performance requirements
 grow, you can seamlessly scale to multiple nodes by transparently distributing
 your tables.
 
-![distributed architecture](../media/overview-hyperscale/distributed.png)
-
 As Hyperscale (Citus) is a fully managed service, it has all the features for
 worry-free operation in production. Features include automatic high
 availability, backups, built-in pgBouncer, read-replicas, easy monitoring,
