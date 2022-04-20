@@ -56,7 +56,7 @@ There are some important best practices to follow for optimal performance of NFS
 
 To attach an Azure NetApp Files volume to your private cloud using Portal, follow these steps:
 
-1. Sign in to the Azure portal.
+1. Sign into the Azure portal.
 1. Select **Subscriptions** to see a list of subscriptions.
 1. From the list, select the subscription you want to use.
 1. Under Settings, select **Resource providers**.
