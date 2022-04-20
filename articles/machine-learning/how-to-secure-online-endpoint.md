@@ -154,9 +154,7 @@ When prompted, enter the password you used when creating the VM.
 
 1. Use the following commands from the SSH session to install the CLI and Docker:
 
-    ```azurecli
-
-    ```
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/endpoints/online/managed/vnet/setup_vm/scripts/vmsetup.sh" id="setup_docker_az_cli":::
 
 1. To create the environment variables used by this example, run the following commands. Replace `<YOUR_SUBSCRIPTION_ID>` with your Azure subscription ID. Replace `<YOUR_RESOURCE_GROUP>` with the resource group that contains your workspace. Replace `<SUFFIX_USED_IN_SETUP>` with the suffix you provided earlier. Replace `<LOCATION>` with the location of your Azure workspace. Replace `<YOUR_ENDPOINT_NAME>` with the name to use for the endpoint.
 
@@ -165,29 +163,32 @@ When prompted, enter the password you used when creating the VM.
 
     # [MLflow model](#tab/mlflow)
 
-    :::code language="{language}" source="{source}" range="{range}":::
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet-mlflow.sh" id="set_env_vars":::
 
     # [Generic model](#tab/model)
 
-    :::code language="{language}" source="{source}" range="{range}":::
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet.sh" id="set_env_vars":::
 
     ---
 
 1. To login to the Azure CLI in the VM environment, use the following command:
 
-    :::code language="{language}" source="{source}" range="{range}":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
 1. To configure the defaults for the CLI, use the following commands:
 
-    :::code language="{language}" source="{source}" range="{range}":::
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/endpoints/online/managed/vnet/setup_vm/scripts/vmsetup.sh" id="configure_defaults":::
 
 1. To clone the example files for the deployment, use the following command:
 
-    :::code language="{language}" source="{source}" range="{range}":::
+    ```azurecli
+    sudo mkdir -p /home/samples; sudo git clone -b main --depth 1 https://github.com/Azure/azureml-examples.git /home/samples/azureml-examples
+    ```
+    
 
 1. To build a custom docker image to use with the deployment, use the following commands:
 
-    :::code language="{language}" source="{source}" range="{range}":::
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/endpoints/online/managed/vnet/setup_vm/scripts/build_image.sh" id="build_image":::
 
     > [!TIP]
     > In a production environment, when Azure Container Registry is behind the virtual network, you would use an Azure Machine Learning compute cluster and Azure Machine Learning environments. For more information, see [Secure Azure Machine Learning workspace](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
@@ -202,11 +203,11 @@ When prompted, enter the password you used when creating the VM.
 
 To delete the endpoint, use the following command:
 
-:::code language="{language}" source="{source}" range="{range}":::
+:::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet.sh" id="delete_endpoint":::
 
-To exit the SSH session and delete the VM, use the following commands:
+To delete the VM, use the following command:
 
-:::code language="{language}" source="{source}" range="{range}":::
+:::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet.sh" id="delete_vm":::
 
 To delete the example workspace/VNet configuration, use the following command:
 

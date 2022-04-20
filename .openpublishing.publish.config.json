@@ -448,6 +448,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-online-endpoint-vnet",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "rsethur/mvnet",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "terraform",
       "url": "https://github.com/Azure/terraform",
       "branch": "master",
