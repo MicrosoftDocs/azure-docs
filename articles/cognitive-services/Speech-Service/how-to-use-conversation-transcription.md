@@ -26,7 +26,7 @@ You can transcribe meetings and other conversations with the ability to add, rem
 
 ## Prerequisites
 
-This article assumes that you have an Azure Cognitive Services Speech resource key and region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account?tabs=speech#create-a-new-azure-cognitive-services-resource).
+This article assumes that you have an Azure Cognitive Services Speech resource key and region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 > [!NOTE]
 > The Speech SDK for C++, Java, Objective-C, and Swift support Conversation Transcription, but we haven't yet included a guide here. 
