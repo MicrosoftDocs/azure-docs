@@ -16,7 +16,7 @@ Azure Maps has several geographically scoped services and offers a resource prov
 
 ## Data locations
 
-For disaster recovery and high availability, Microsoft may replicate customer data to other regions within the same geographic area. For example, data in West Europe may be replicated to North Europe, but not to the United States. Regardless, no matter which geography the customer selected, Microsoft doesn’t control or limit the locations from which the customers, or their end users, may access customer data via Azure Maps API.  
+For disaster recovery and high availability, Microsoft may replicate customer data to other regions only within the same geographic area. For example, if you use the Azure Maps Europe API geographic endpoint, your requests and input data within the requests will only reside in an Azure datacenter in Europe and not in some other region (i.e.: United States). Regardless, no matter which geography the customer selected, Microsoft doesn’t control or limit the locations from which the customers, or their end users, may access customer data via Azure Maps API.
 
 ## Geographic and regional mapping
 
