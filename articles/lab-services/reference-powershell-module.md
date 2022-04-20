@@ -3,7 +3,8 @@ title: PowerShell module for Azure Lab Services
 titleSuffix: ""
 description: Learn how to install and launch Az.LabServices PowerShell module
 ms.topic: how-to
-ms.date: 2/16/2022
+ms.date: 04/06/2022
+ms.custom: devdivchpfy22
 ---
 
 # Az.LabServices PowerShell module for Azure Lab Services resources (deprecated)
@@ -31,7 +32,7 @@ Some example commands:
 # To list all the labs in your subscription:
 Get-AzLabAccount | Get-AzLab
 
-#To stop all running VMs in all labs
+# To stop all running VMs in all labs
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
