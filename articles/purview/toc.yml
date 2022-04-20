@@ -41,7 +41,7 @@ items:
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
   - name: Use Atlas 2.2 APIs
-    href: tutorial-atlas-2.2-apis.md
+    href: tutorial-atlas-2-2-apis.md
   - name: Data owner policies on resource groups or subscriptions
     href: tutorial-access-policies-resource-group.md
   - name: Integrate with Microsoft Sentinel
