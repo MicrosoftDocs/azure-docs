@@ -90,7 +90,7 @@ Azure AD Verifiable Credentials Request Service needs to be able to get access t
 
 ### Grant permissions to get access tokens
 
-In this step, you grant permissions to the Verifiable Credential Request Service principal created in [step 1](#set-up-a-service-principal).
+In this step, you grant permissions to the Verifiable Credential Request Service principal.
 
 To add the required permissions, follow these steps:
 
