@@ -337,11 +337,11 @@ If you notice a mistake or if your run is taking too long to finish, you can can
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
 ```python
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 src = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
 local_run = exp.submit(src)
