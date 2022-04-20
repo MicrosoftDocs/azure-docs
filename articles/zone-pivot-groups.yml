@@ -537,12 +537,12 @@ groups:
   pivots:
   - id: devlang-dotnet-core
     title: .NET Core
-  - id: devlang-python
-    title: Python
-  - id: devlang-nodejs
-    title: Node.js
   - id: devlang-java
     title: Java
+  - id: devlang-nodejs
+    title: Node.js
+  - id: devlang-python
+    title: Python
 ############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
 - id: runtime-version-programming-functions

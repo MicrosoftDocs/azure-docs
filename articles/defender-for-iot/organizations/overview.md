@@ -18,7 +18,7 @@ Microsoft Defender for IoT is a unified security solution for identifying IoT an
 
 **For end-user organizations**, Microsoft Defender for IoT provides an agentless, network-layer monitoring that integrates smoothly with industrial equipment and SOC tools. You can deploy Microsoft Defender for IoT in Azure-connected and hybrid environments or completely on-premises.
 
-**For IoT device builders**, Microsoft Defender for IoT also offers a lightweight, micro-agent that supports standard IoT operating systems, such as Linux and RTOS. The Microsoft Defender device builder agent helps you ensure that security is built into your IoT/OT projects, from the cloud. For more information, see [Microsoft Defender for IoT for device builders documentation](/azure/defender-for-iot/device-builders/overview).
+**For IoT device builders**, Microsoft Defender for IoT also offers a lightweight, micro-agent that supports standard IoT operating systems, such as Linux and RTOS. The Microsoft Defender device builder agent helps you ensure that security is built into your IoT/OT projects, from the cloud. For more information, see [Microsoft Defender for IoT for device builders documentation](../device-builders/overview.md).
 
 ## Agentless device monitoring
 
