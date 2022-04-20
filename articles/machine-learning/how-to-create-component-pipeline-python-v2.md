@@ -1,175 +1,166 @@
 ---
-title: 'Tutorial: ML pipelines for training'
+title: 'Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)'
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
+description: Build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.topic: tutorial
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/06/2022
 ms.custom: devx-track-python
 ---
 
-# [Not Ready] Tutorial: Build an Azure Machine Learning pipeline for image classification
+# Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)
 
-
-In this tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
+In this article, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) using Python SDK v2 to complete a image classification task. We will split this machine learning task into 3 steps: prepare data for training and scoring, train a image classification model and score the model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
 The example trains a small [Keras](https://keras.io/) convolutional neural network to classify images in the [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset. 
 
-In this tutorial, you complete the following tasks:
+In this article, you complete the following tasks:
 
 > [!div class="checklist"]
+> * Configure credential 
 > * Configure workspace 
-> * Create an Experiment to hold your work
 > * Provision a ComputeTarget to do the work
-> * Create a Dataset in which to store compressed data
-> * Create a pipeline step to prepare the data for training
-> * Define a runtime Environment in which to perform training
-> * Create a pipeline step to define the neural network and perform the training
-> * Compose a Pipeline from the pipeline steps
-> * Run the pipeline in the experiment
-> * Review the output of the steps and the trained neural network
-> * Register the model for further use
+> * Prepare input data for the pipeline job
+> * Create a component to prepare the data for training and scoring
+> * Create a component to train a neural network model using training data
+> * Create a component to score the model using test data
+> * Compose a Pipeline from the components
+> * Submit the pipeline job
+> * Review the output of the components and the trained neural network
+> * Register the component for further reuse and sharing within workspace
 
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 ## Prerequisites
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
-* A Python environment in which you've installed both the `azureml-core` and `azureml-pipeline` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
+* A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](TOOD:notebook_link) - check the getting started section. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 
 > [!Important]
 > Currently, the most recent Python release compatible with `azureml-pipeline` is Python 3.8. If you've difficulty installing the `azureml-pipeline` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, and so on) for instructions.
 
 ## Start an interactive Python session
 
-This tutorial uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
+This article uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The article assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook.
 
-* This tutorial is based on the `image-classification.ipynb` notebook found in the `sdk/jobs/pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the components themselves is in the `keras-mnist-fashion` subdirectory.
+This article is based on the `image_classification_keras_minist_convnet.ipynb` notebook found in the `sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the components themselves is in the `keras-mnist-fashion` subdirectory.
 
 
 ## Import types
 
-Import all the Azure Machine Learning types that you'll need for this tutorial:
+Import all the Azure Machine Learning types that you'll need for this article:
+
+TODO: update all required packages when lock down
+TODO: update link
+[!notebook-python[] (~~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=required-library)]
 
 ```python
 from azure.ml import MLClient, dsl
 from azure.ml.entities import load_component
-from azure.identity import DefaultAzureCredential
-from azure.ml.entities import AmlCompute
-from azure.ml.entities import Data, JobInput
-from azure.ml._constants import AssetTypes
-import json, os
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+from azure.ml import Input
 
-# check core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
-The Azure ML SDK version should be 1.37 or greater. If it isn't, upgrade with `pip install --upgrade azureml-core`.
+## Get access to your workspace
 
-## Configure workspace
+### Configure credential
 
-Create a workspace object from the existing Azure Machine Learning workspace.
+We will use `DefaultAzureCredential` to get access to workspace. `DefaultAzureCredential` to get access to workspace.
+
+`DefaultAzureCredential` should be capable of handling most Azure SDK authentication scenarios. 
+
+Reference for more available credentials if it does not work for you: [configure credential example](../../configuration.ipynb), [azure-identity reference doc](https://docs.microsoft.com/en-us/python/api/azure-identity/azure.identity?view=azure-python).
+
+
+TODO: update link
+[!notebook-python[] (~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=credential)]
 
 ```python
-workspace = Workspace.from_config()
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+
+try:
+    credential = DefaultAzureCredential()
+    # Check if given credential can get token successfully.
+    credential.get_token('https://management.azure.com/.default')
+except Exception as ex:
+    # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
+    credential = InteractiveBrowserCredential()
+```
+
+### Get a handle to a workspace with compute
+
+Create a `MLClient` object to manage Azure Machine Learning services.
+
+TODO: update link
+[!notebook-python[] (~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
+
+```python
+# Get a handle to workspace
+ml_client = MLClient.from_config(credential=credential)
+
+# Retrieve an already attached Azure Machine Learning Compute
+cpu_compute_target = "cpu-cluster"
+print(ml_client.compute.get(cpu_compute_target))
+gpu_compute_target = 'gpu-cluster'
+print(ml_client.compute.get(gpu_compute_target))
 ```
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration json file to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
-## Create the infrastructure for your pipeline 
 
-Create an `Experiment` object to hold the results of your pipeline runs:
-
-```python
-exp = Experiment(workspace=workspace, name="keras-mnist-fashion")
-```
-
-Create a `ComputeTarget` that represents the machine resource on which your pipeline will run. The simple neural network used in this tutorial trains in just a few minutes even on a CPU-based machine. If you wish to use a GPU for training, set `use_gpu` to `True`. Provisioning a compute target generally takes about five minutes.
-
-```python
-use_gpu = False
-
-# choose a name for your cluster
-cluster_name = "gpu-cluster" if use_gpu else "cpu-cluster"
-
-found = False
-# Check if this compute target already exists in the workspace.
-cts = workspace.compute_targets
-if cluster_name in cts and cts[cluster_name].type == "AmlCompute":
-    found = True
-    print("Found existing compute target.")
-    compute_target = cts[cluster_name]
-if not found:
-    print("Creating a new compute target...")
-    compute_config = AmlCompute.provisioning_configuration(
-        vm_size= "STANDARD_NC6" if use_gpu else "STANDARD_D2_V2"
-        # vm_priority = 'lowpriority', # optional
-        max_nodes=4,
-    )
-
-    # Create the cluster.
-    compute_target = ComputeTarget.create(workspace, cluster_name, compute_config)
-
-    # Can poll for a minimum number of nodes and for a specific timeout.
-    # If no min_node_count is provided, it will use the scale settings for the cluster.
-    compute_target.wait_for_completion(
-        show_output=True, min_node_count=None, timeout_in_minutes=10
-    )
-# For a more detailed view of current AmlCompute status, use get_status().print(compute_target.get_status().serialize())
-```
-
-> [!Note]
-> GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
-
-### Create a dataset for the Azure-stored data
+### Prepare input data for your pipeline job
 
 Fashion-MNIST is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same compressed binary form as the original [handwritten digit database](http://yann.lecun.com/exdb/mnist/) .
 
-To create a `Dataset` that references the Web-based data, run:
+To define the input data of a job that references the Web-based data, run:
+
+TODO: update link
+[!notebook-python[] (~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
 
 ```python
-data_urls = ["https://data4mldemo6150520719.blob.core.windows.net/demo/mnist-fashion"]
-fashion_ds = Dataset.File.from_files(data_urls)
+from azure.ml.entities import Input
 
-# list the files referenced by fashion_ds
-print(fashion_ds.to_path())
+fashion_ds = JobInput(path="wasbs://demo@data4mldemo6150520719.blob.core.windows.net/mnist-fashion/")
 ```
 
-This code completes quickly. The underlying data remains in the Azure storage resource specified in the `data_urls` array.
+By defining a `Input`, you create a reference to the data source location. The data remains in its existing location, so no extra storage cost is incurred.
 
-## Create the data-preparation pipeline step
+## Create components for building pipeline
 
-The first step in this pipeline will convert the compressed data files of `fashion_ds` into a dataset in your own workspace consisting of CSV files ready for use in training. Once registered with the workspace, your collaborators can access this data for their own analysis, training, and so on 
+The image classification task can be split into 3 steps: prepare data, train model and score model.
+
+[Auzre Machine Learning component](concept-component.md) is a self-contained piece of code that does one step in a machine learning pipeline. In this article, you will create 3 components for the image classification project:
+
+- Prepare data for training and test
+- Train a neural networking for image classification using training data
+- Score the model using test data
+
+### Create the data-preparation component
+
+The code that you've executed so far has create and controlled Azure resources. Now it's time to write code that does the first component. 
+
+The first component in this pipeline will convert the compressed data files of `fashion_ds` into two csv files, one for training and the other for scoring. You will use python function to define this component.
+
+If you're following along with the example in the [TODO: AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `prep/` folder. This folder contains 3 files to construct the component: `prep.py` which contains the actual logic to prepare data, `prep_dsl_component.py` which defines the interface of the component and import the function in `prep.py`, and `conda.yaml` which defines the run-time environment of the component.
+
+#### Get a script containing execution logic
+
+Let's see `prep.py` first. It contains a normal python function which performs the prepare data logic.
+
+TODO: check link
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep.py":::
 
 ```python
-datastore = workspace.get_default_datastore()
-prepared_fashion_ds = OutputFileDatasetConfig(
-    destination=(datastore, "outputdataset/{run-id}")
-).register_on_complete(name="prepared_fashion_ds")
-```
-
-The above code specifies a dataset that is based on the output of a pipeline step. The underlying processed files will be put in the workspace's default datastore's blob storage at the path specified in `destination`. The dataset will be registered in the workspace with the name `prepared_fashion_ds`. 
-
-### Create the pipeline step's source
-
-The code that you've executed so far has create and controlled Azure resources. Now it's time to write code that does the first step in the domain. 
-
-If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
-
-If you're working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
-
-```python
-# prepare.py
-# Converts MNIST-formatted files at the passed-in input path to a passed-in output path
+# Converts MNIST-formatted files at the passed-in input path to training data output path and test data output path
 import os
-import sys
 
-# Conversion routine for MNIST binary format
+
 def convert(imgf, labelf, outf, n):
     f = open(imgf, "rb")
     l = open(labelf, "rb")
@@ -191,218 +182,600 @@ def convert(imgf, labelf, outf, n):
     o.close()
     l.close()
 
-# The MNIST-formatted source
-mounted_input_path = sys.argv[1]
-# The output directory at which the outputs will be written
-mounted_output_path = sys.argv[2]
 
-# Create the output directory
-os.makedirs(mounted_output_path, exist_ok=True)
-
-# Convert the training data
-convert(
-    os.path.join(mounted_input_path, "mnist-fashion/train-images-idx3-ubyte"),
-    os.path.join(mounted_input_path, "mnist-fashion/train-labels-idx1-ubyte"),
-    os.path.join(mounted_output_path, "mnist_train.csv"),
-    60000,
-)
-
-# Convert the test data
-convert(
-    os.path.join(mounted_input_path, "mnist-fashion/t10k-images-idx3-ubyte"),
-    os.path.join(mounted_input_path, "mnist-fashion/t10k-labels-idx1-ubyte"),
-    os.path.join(mounted_output_path, "mnist_test.csv"),
-    10000,
-)
+def prep(input_path, output_path_1, output_path_2):
+    
+    convert(
+        os.path.join(input_path, "train-images-idx3-ubyte"),
+        os.path.join(input_path, "train-labels-idx1-ubyte"),
+        os.path.join(output_path_1, "mnist_train.csv"),
+        60000,
+    )
+    convert(
+        os.path.join(input_path, "t10k-images-idx3-ubyte"),
+        os.path.join(input_path, "t10k-labels-idx1-ubyte"),
+        os.path.join(output_path_2, "mnist_test.csv"),
+        10000,
+    )
 ```
 
-The code in `prepare.py` takes two command-line arguments: the first is assigned to `mounted_input_path` and the second to `mounted_output_path`. If that subdirectory doesn't exist, the call to `os.makedirs` creates it. Then, the program converts the training and testing data and outputs the comma-separated files to the `mounted_output_path`.
+The `prep()` function in `prep.py` takes 3 arguments: `input_path` is input data path, and `output_path_1` and `output_path_2` are output data paths for training data and test data. It converts the data from `input_path` into a training data csv to `output_path_1` and a test data csv to `output_path_2`.
 
-### Specify the pipeline step
+#### Define component using python function
 
-Back in the Python environment you're using to specify the pipeline, run this code to create a `PythonScriptStep` for your preparation code:
+After defining the python function successfully, you can use @dsl.command_component in Azure Machine Learning SDK v2 to wrap your function as a component which can be used in AML pipelines.
+
+TODO: check link
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_dsl_component.py":::
 
 ```python
-script_folder = "./keras-mnist-fashion"
+from pathlib import Path
+from azure.ml import dsl, Input, Output
+from azure.ml.entities import Environment
 
-prep_step = PythonScriptStep(
-    name="prepare step",
-    script_name="prepare.py",
-    # On the compute target, mount fashion_ds dataset as input, prepared_fashion_ds as output
-    arguments=[fashion_ds.as_named_input("fashion_ds").as_mount(), prepared_fashion_ds],
-    source_directory=script_folder,
-    compute_target=compute_target,
-    allow_reuse=True,
+conda_env = Environment(
+    conda_file=Path(__file__).parent / "conda.yaml",
+    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04"
+)
+
+@dsl.command_component(
+    name="prep_data",
+    version="1",
+    display_name="Prep Data",
+    description="Convert data to CSV file, and split to training and test data",
+    environment=conda_env,
+)
+def prep(
+    input_data: Input,
+    training_data: Output,
+    test_data: Output,
+):
+    # Avoid dependency issue, execution logic is in prep.py file
+    from prep import prep
+    prep(input_data, training_data, test_data)
+
+```
+
+The code above define a component with display name `Prep Data` using `@dsl.command_component`:
+
+* `name` is the unique identifier of the component.
+* `version` is the current version of the component. A component can have multiple versions.
+* `display_name` is a friendly display name of the component in UI, which is not unique.
+* `description` usually describes what task this component can complete.
+* `environment` specifies the run-time environment for this component. The environment of this component specifies a docker image and refers to the `conda.yaml` file.
+* The `prep` function defines 1 input for `input_data` and 2 outputs for `training_data` and `test_data`. The execution logic of this component is from `prep` function in `prep.py` above.
+
+#### Specify component run-time environment
+
+You'll need to modify the runtime environment in which your component runs. 
+
+```python
+conda_env = Environment(
+    conda_file=Path(__file__).parent / "conda.yaml",
+    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04"
 )
 ```
 
-The call to `PythonScriptStep` specifies that, when the pipeline step is run:
+The above code create an `Environment` class represents the runtime environment in which the component runs.
 
-* All the files in the `script_folder` directory are uploaded to the `compute_target`
-* Among those uploaded source files, the file `prepare.py` will be run
-* The `fashion_ds` and `prepared_fashion_ds` datasets will be mounted on the `compute_target` and appear as directories
-* The path to the `fashion_ds` files will be the first argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_input_path`
-* The path to the `prepared_fashion_ds` will be the second argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_output_path`
-* Because `allow_reuse` is `True`, it won't be rerun until its source files or inputs change
-* This `PythonScriptStep` will be named `prepare step`
+The `conda.yaml` file contains all packages used for the component like following:
 
-Modularity and reuse are key benefits of pipelines. Azure Machine Learning can automatically determine source code or Dataset changes. The output of a step that isn't affected will be reused without rerunning the steps again if `allow_reuse` is `True`. If a step relies on a data source external to Azure Machine Learning that may change (for instance, a URL that contains sales data), set `allow_reuse` to `False` and the pipeline step will run every time the pipeline is run. 
+TODO: check link
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/conda.yaml":::
 
-## Create the training step
-
-Once the data has been converted from the compressed format to CSV files, it can be used for training a convolutional neural network.
-
-### Create the training step's source
-
-With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, and so on) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
-
-:::code language="python" source="~/azureml-examples-main/python-sdk/tutorials/using-pipelines/keras-mnist-fashion/train.py" highlight="16-19,84-89,104-119":::
-
-Most of this code should be familiar to ML developers: 
-
-* The data is partitioned into train and validation sets for training, and a separate test subset for final scoring
-* The input shape is 28x28x1 (only 1 because the input is grayscale), there will be 256 inputs in a batch, and there are 10 classes
-* The number of training epochs will be 10
-* The model has three convolutional layers, with max pooling and dropout, followed by a dense layer and softmax head
-* The model is fitted for 10 epochs and then evaluated
-* The model architecture is written to `outputs/model/model.json` and the weights to `outputs/model/model.h5`
-
-Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=True) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via its name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
-
-The `run` object is also used to log the training progress at the end of every epoch and, at the end of training, to log the graph of loss and accuracy over time.
-
-### Create the training pipeline step
-
-The training step has a slightly more complex configuration than the preparation step. The preparation step used only standard Python libraries. More commonly, you'll need to modify the runtime environment in which your source code runs. 
-
-Create a file `conda_dependencies.yml` with the following contents:
-
-```yml
+```yaml
+name: imagekeras_train_conda_env
+channels:
+  - defaults
 dependencies:
-- python=3.6.2
-- pip:
-  - azureml-core
-  - azureml-dataset-runtime
-  - keras==2.4.3
-  - tensorflow==2.4.3
-  - numpy
-  - scikit-learn
-  - pandas
-  - matplotlib
+  - python=3.7.11
+  - pip=20.0
+  - pip:
+    # change this when stable version release
+    - --extra-index-url=https://azuremlsdktestpypi.azureedge.net/azureml-v2-cli-e2e-test/60864551
+    - azure-ml==0.0.60864551
+    - azureml-mlflow
+    - tensorflow==2.7.0
+    - numpy==1.21.4
+    - scikit-learn==1.0.1
+    - pandas==1.3.4
+    - matplotlib==3.2.2
 ```
 
-The `Environment` class represents the runtime environment in which a machine learning task runs. Associate the above specification with the training code with:
+Now, you have prepared all source files for the `Prep Data` component.
+
+
+### Create the train-model component
+
+In this section, you will create a component for training the image classification model.
+
+If you're following along with the example in the [TODO: AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `train/` folder. This folder contains 3 files to construct the component: `train.py` which contains the actual logic to train model, `train_dsl_component.py` which defines the interface of the component and import the function in `train.py`, and `conda.yaml` which defines the run-time environment of the component.
+
+#### Get a script containing execution logic
+
+The `train.py` file contains a normal python function which performs the training model logic.
+
+TODO: check link
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train.py":::
 
 ```python
-keras_env = Environment.from_conda_specification(
-    name="keras-env", file_path="./conda_dependencies.yml"
-)
+from tensorflow import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.utils import to_categorical
+from keras.callbacks import Callback
 
-train_cfg = ScriptRunConfig(
-    source_directory=script_folder,
-    script="train.py",
-    compute_target=compute_target,
-    environment=keras_env,
-)
+import argparse
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+import mlflow
+
+# Get input file
+def get_file(f):
+
+    f = Path(f)
+    if f.is_file():
+        return f
+    else:
+        files = list(f.iterdir())
+        if len(files) == 1:
+            return files[0]
+        else:
+            raise Exception("********This path contains more than one file*******")
+
+def train(train_input, model_output, epochs):
+
+    train_file = get_file(train_input)
+    data_train = pd.read_csv(train_file, header=None)
+    X = np.array(data_train.iloc[:, 1:])
+    y = to_categorical(np.array(data_train.iloc[:, 0]))
+
+    img_rows, img_cols = 28, 28
+    input_shape = (img_rows, img_cols, 1)
+
+    # Split validation data to optimiza classifier during training
+    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=13)
+
+    X_train = (
+        X_train.reshape(X_train.shape[0], img_rows, img_cols, 1).astype("float32") / 255
+    )
+
+    X_val = X_val.reshape(X_val.shape[0], img_rows, img_cols, 1).astype("float32") / 255
+
+    batch_size = 256
+    num_classes = 10
+    epochs = epochs
+
+    # Construct neuron network
+    model = Sequential()
+    model.add(
+        Conv2D(
+            32,
+            kernel_size=(3, 3),
+            activation="relu",
+            kernel_initializer="he_normal",
+            input_shape=input_shape,
+        )
+    )
+    model.add(MaxPooling2D((2, 2)))
+    model.add(Dropout(0.25))
+    model.add(Conv2D(64, (3, 3), activation="relu"))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
+    model.add(Conv2D(128, (3, 3), activation="relu"))
+    model.add(Dropout(0.4))
+    model.add(Flatten())
+    model.add(Dense(128, activation="relu"))
+    model.add(Dropout(0.3))
+    model.add(Dense(num_classes, activation="softmax"))
+
+    model.compile(
+        loss=keras.losses.categorical_crossentropy,
+        optimizer=keras.optimizers.Adam(),
+        metrics=["accuracy"],
+    )
+
+    # Log metrics
+    class LogRunMetrics(Callback):
+        # callback at the end of every epoch
+        def on_epoch_end(self, epoch, log):
+            # log a value repeated which creates a list
+            mlflow.log_metric("Loss", log["loss"])
+            mlflow.log_metric("Accuracy", log["accuracy"])
+
+
+    history = model.fit(
+        X_train,
+        y_train,
+        batch_size=batch_size,
+        epochs=epochs,
+        verbose=1,
+        validation_data=(X_val, y_val),
+        callbacks=[LogRunMetrics()],
+    )
+
+    # Log an image for training loss and accuracy
+    fig = plt.figure(figsize=(6, 3))
+    plt.title("Fashion MNIST with Keras ({} epochs)".format(epochs), fontsize=14)
+    plt.plot(history.history["accuracy"], "b-", label="Accuracy", lw=4, alpha=0.5)
+    plt.plot(history.history["loss"], "r--", label="Loss", lw=4, alpha=0.5)
+    plt.legend(fontsize=12)
+    plt.grid(True)
+    mlflow.log_figure(fig, "Loss v.s. Accuracy.png")
+
+    # Output model file
+    model.save(model_output+'/image_classification_model.h5')
 ```
 
-Creating the training step itself uses code similar to the code used to create the preparation step:
+The `train()` function in `train.py` takes 3 arguments: `train_input` is input data path, and `model_output` is the output path for the trained model, and `epochs` specifies the epoches during training. It trains an image classification model using keras.
+
+#### Define component using python function
+
+After defining the python function successfully, you can use @dsl.command_component in Azure Machine Learning SDK v2 to wrap your function as a component which can be used in AML pipelines.
+
+TODO: check link
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_dsl_component.py":::
 
 ```python
-train_step = PythonScriptStep(
-    name="train step",
-    arguments=[
-        prepared_fashion_ds.read_delimited_files().as_input(name="prepared_fashion_ds")
-    ],
-    source_directory=train_cfg.source_directory,
-    script_name=train_cfg.script,
-    runconfig=train_cfg.run_config,
+import os
+from pathlib import Path
+from azure.ml import dsl, Input, Output
+from azure.ml.entities import Environment
+
+conda_env = Environment(
+    conda_file=Path(__file__).parent / "conda.yaml",
+    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04"
 )
+
+@dsl.command_component(
+    name="train_image_classification_keras",
+    version="1",
+    display_name="Train Image Classification Keras",
+    description="train image classification with keras",
+    environment=conda_env,
+)
+def keras_train(
+    input_data: Input,
+    output_model: Output,
+    epochs=10,
+):
+    # avoid dependency issue, execution logic is in prep.py file
+    from train import train
+    train(input_data, output_model, epochs)
+
 ```
 
-## Create and run the pipeline
+The code above define a component with display name `Train Image Classification Keras` using `@dsl.command_component`:
 
-Now that you've specified data inputs and outputs and created your pipeline's steps, you can compose them into a pipeline and run it:
+* The `keras_train` function defines 1 input `input_data` where training data comes from, 1 input `epochs` specifying epochs during training, and 1 outputs `output_model` where outputs the model file. The execution logic of this component is from `train` function in `train.py` above.
+
+#### Specify component run-time environment
+
+The train-model component has a slightly more complex configuration than the prep-data component. The conda.yaml is like following:
+
+TODO: check link
+:::code language="yaml" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/conda.yaml":::
+
+```yaml
+name: imagekeras_train_conda_env
+channels:
+  - defaults
+dependencies:
+  - python=3.7.11
+  - pip=20.0
+  - pip:
+    # change this when stable version release
+    - --extra-index-url=https://azuremlsdktestpypi.azureedge.net/azureml-v2-cli-e2e-test/60864551
+    - azure-ml==0.0.60864551
+    - azureml-mlflow
+    - tensorflow==2.7.0
+    - numpy==1.21.4
+    - scikit-learn==1.0.1
+    - pandas==1.3.4
+    - matplotlib==3.2.2
+```
+
+Now, you have prepared all source files for the `Train Image Classification Keras` component.
+
+
+### Create the score-model component
+
+In this section, other than the previous components, you will create a component to score the trained model via Yaml and script.
+
+If you're following along with the example in the [TODO: AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `score/` folder. This folder contains 2 files to construct the component: `score.py` which contains the source code of the component, `score.yaml` which defines the interface and other details of the component, and `conda.yaml` which defines the run-time environment of the component.
+
+#### Get a script containing execution logic
+
+The `score.py` file contains a normal python function which performs the training model logic.
+
+TODO: check link
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/score/score.py":::
 
 ```python
-pipeline = Pipeline(workspace, steps=[prep_step, train_step])
-run = exp.submit(pipeline)
+from tensorflow import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.utils import to_categorical
+from keras.callbacks import Callback
+from keras.models import load_model
+
+import argparse
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+import mlflow
+
+
+def get_file(f):
+
+    f = Path(f)
+    if f.is_file():
+        return f
+    else:
+        files = list(f.iterdir())
+        if len(files) == 1:
+            return files[0]
+        else:
+            raise Exception("********This path contains more than one file*******")
+
+def parse_args():
+    # setup argparse
+    parser = argparse.ArgumentParser()
+
+    # add arguments
+    parser.add_argument(
+        "--input_data", type=str, help="path containing data for scoring"
+    )
+    parser.add_argument(
+        "--input_model", type=str, default="./", help="input path for model"
+    )    
+
+    parser.add_argument(
+        "--output_result", type=str, default="./", help="output path for model"
+    )
+
+    # parse args
+    args = parser.parse_args()
+
+    # return args
+    return args
+
+def score(input_data, input_model, output_result):
+
+    test_file = get_file(input_data)
+    data_test = pd.read_csv(test_file, header=None)
+
+    img_rows, img_cols = 28, 28
+    input_shape = (img_rows, img_cols, 1)
+
+    # Read test data
+    X_test = np.array(data_test.iloc[:, 1:])
+    print("*******************X_test**************************")
+    print(X_test)
+    y_test = to_categorical(np.array(data_test.iloc[:, 0]))
+    X_test = X_test.reshape(X_test.shape[0], img_rows, img_cols, 1).astype("float32") / 255
+    print("*******************X_test reshape**************************")
+    print(X_test)
+
+    # Load model
+    files=[f for f in os.listdir(input_model) if f.endswith(".h5")]
+    print(input_model)
+    print(files)
+    model = load_model(input_model+'/'+files[0])
+
+    # Log metrics of the model
+    eval = model.evaluate(X_test, y_test, verbose=0)
+
+    mlflow.log_metric("Final test loss", eval[0])
+    print("Test loss:", eval[0])
+
+    mlflow.log_metric("Final test accuracy", eval[1])
+    print("Test accuracy:", eval[1])
+
+
+    # Score model using test data
+    y_predict = model.predict(X_test)
+    print("*******************y_predict**************************")
+    print(type(y_predict))
+    print(y_predict)
+    y_result = np.argmax(y_predict, axis=1)
+    print("*******************y_result**************************")
+    print(type(y_result))
+    print(y_result)
+
+    # Output result
+    np.savetxt(output_result+'/predict_result.csv', y_result, delimiter=',')
+  
+
+def main(args):
+    score(args.input_data, args.input_model, args.output_result)
+
+# run script
+if __name__ == "__main__":
+    # parse args
+    args = parse_args()
+
+    # call main function
+    main(args)
 ```
 
-The `Pipeline` object you create runs in your `workspace` and is composed of the preparation and training steps you've specified. 
+The code in score.py takes three command-line arguments: `input_data`, `input_model` and `output_result`. The program score the input model using input data and then output the scoring result.
 
-> [!Note]
-> This pipeline has a simple dependency graph: the training step relies on the preparation step and the preparation step relies on the `fashion_ds` dataset. Production pipelines will often have much more complex dependencies. Steps may rely on multiple upstream steps, a source code change in an early step may have far-reaching consequences, and so on. Azure Machine Learning tracks these concerns for you. You need only pass in the array of `steps` and Azure Machine Learning takes care of calculating the execution graph.
+#### Define component via Yaml
+
+In this section you will learn to create a component specification in the valid YAML component specification format. This file specifies the following information:
+
+- Metadata: name, display_name, version, type, and so on.
+- Interface: inputs and outputs
+- Command, code, & environment: The command, code, and environment used to run the component
+
+TODO: check link
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/score/score.yaml":::
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: score_image_classification_keras
+display_name: Score Image Classification Keras
+inputs:
+  input_data: 
+    type: uri_folder
+  input_model:
+    type: uri_folder
+outputs:
+  output_result:
+    type: uri_folder
+code: ./
+command: python score.py --input_data ${{inputs.input_data}} --input_model ${{inputs.input_model}} --output_result ${{outputs.output_result}}
+environment:
+  conda_file: ./conda.yaml
+  image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+
+```
+
+`name` is the unique identifier of the component. Its display name is `Score Image Classification Keras`. This component has 2 inputs and 1 output. The source code path of it is defined in the `code` section and when the component is run in cloud, all files from that path will be uploaded as the snapshot of this component. The `command` section specifies the command to execute while running this component. The `environment` section contains a docker image and a conda yaml file.
+
+#### Specify component run-time environment
+
+The score component uses the same image and conda.yaml file as the train component.
+
+TODO: check link
+:::code language="yaml" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/conda.yaml":::
+
+
+## Load components to build pipeline
+
+For prep-data component and train-model component defined by python function, you can import the component just like normal python functions.
+
+TODO: update link
+[!notebook-python[] (~~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-dsl-component)]
+
+```python
+# load component function from dsl component python file
+from prep.prep_dsl_component import prep
+from train.train_dsl_component import keras_train
+
+# print hint of components
+help(prep)
+help(keras_train)
+```
+
+For score component defined by yaml, you can using `load_component()` function to load.
+
+TODO: update link
+[!notebook-python[] (~~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-yaml)]
+
+```python
+# load component function from yaml
+keras_score = load_component(yaml_file='./score/score.yaml')
+```
+
+## Build and submit the pipeline
+
+Now that you've created and loaded all components to build the pipeline. You can compose them into a pipeline:
+
+TODO: update link
+[!notebook-python[] (~~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+
+```python
+# define a pipeline containing 3 nodes: Prepare data node, train node, and score node
+@dsl.pipeline(
+    description='E2E image classification pipeline with keras',
+    default_compute=cpu_compute_target,
+)
+def image_classification_keras_minist_convnet():
+
+    prepare_data_node = prep(input_data=fashion_ds)
+
+    train_node = keras_train(input_data=prepare_data_node.outputs.training_data)
+    train_node.compute = gpu_compute_target
+
+    score_node = keras_score(input_data=prepare_data_node.outputs.test_data, input_model=train_node.outputs.output_model)
+
+# create a pipeline
+pipeline = image_classification_keras_minist_convnet()
+```
+
+The pipeline has a default compute `cpu_compute_target`, which menas if you do not specify compute for a specific node, that node will run on the default compute.
+
+The pipeline contains 3 nodes, prepare_data_node, train_node and score_node. The `input_data` of train_node is from the `training_data` output of the prepare_data_node. The `input_data` of score_node is from the `test_data` output of prepare_data_node, and the `input_model` is from the `output_model` of train_node. Since train_node will train a CNN model, you can specify its compute as the gpu_compute_target, which can improve the training performance.
+
+Now you've defined the pipeline, you can submit to your workspace.
+
+TODO: update link
+[!notebook-python[] (~~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=submit-pipeline)]
+
+```python
+pipeline_job = ml_client.jobs.create_or_update(pipeline, experiment_name='pipeline_samples')
+pipeline_job
+```
+
+The code above submit this image classification pipeline job to experiment called `pipeline_samples`. It will auto create the experiment if not exists.
+
+The call to `pipeline_job`produces output similar to:
 
 The call to `submit` the `Experiment` completes quickly, and produces output similar to:
 
-```dotnetcli
-Submitted PipelineRun 5968530a-abcd-1234-9cc1-46168951b5eb
-Link to Azure Machine Learning Portal: https://ml.azure.com/runs/abc-xyz...
-```
+| Experiment | Name | Type | Status | Details Page |
+| --- | ---- | ----------- | -------------- | ------------- |
+| pipeline_samples | sharp_pipe_4gvqx6h1fb | pipeline | Preparing | Link to Azure Machine Learning studio |
 
 You can monitor the pipeline run by opening the link or you can block until it completes by running:
 
+TODO: update link
+[!notebook-python[] (~~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=stream-pipeline)]
+
 ```python
-run.wait_for_completion(show_output=True)
+ml_client.jobs.stream(pipeline_job.name)
 ```
 
 > [!IMPORTANT]
 > The first pipeline run takes roughly *15 minutes*. All dependencies must be downloaded, a Docker image is created, and the Python environment is provisioned and created. Running the pipeline again takes significantly less time because those resources are reused instead of created. However, total run time for the pipeline depends on the workload of your scripts and the processes that are running in each pipeline step.
 
-Once the pipeline completes, you can retrieve the metrics you logged in the training step: 
+### Checkout outputs and debug your pipeline in UI
+
+You can open the `Link to Azure Machine LEarning studio`, which is the job detail page of your pipeline. You wil see the pipeline graph like following. 
+
+![TODO: Pipeline job detail page](./media/how-to-create-component-pipeline-python-v2/pipeline-ui.png)
+
+You can check the logs and outputs of each component by right-click the component, or select the component to open its detail pane. To learn more about how to debug your pipeline in UI, you can refer to [this article](how-to-use-pipeline-ui.md).
+
+## (Optional) Register components to workspace
+
+In the previous section, you have built a pipeline using three components to E2E complete an image classification task. You can also register these components to your workspace so that they can be shared and resued within the worskpace.
+
+TODO: update link
+[!notebook-python[] (~~/azureml-examples/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=register component)]
 
 ```python
-run.find_step_run("train step")[0].get_metrics()
+try:
+    # try get back the dsl.command_component defined component
+    prep = ml_client.components.get(name="prep_data", version="1")
+except:
+    # if not exists, register component using following code
+    prep = ml_client.components.create_or_update(prep)
+
+# list all components registered in workspace
+for c in ml_client.components.list():
+    print(c)
 ```
 
-If you're satisfied with the metrics, you can register the model in your workspace:
-
-```python
-run.find_step_run("train step")[0].register_model(
-    model_name="keras-model",
-    model_path="outputs/model/",
-    datasets=[("train test data", fashion_ds)],
-)
-```
-
-## Clean up resources
-
-Don't complete this section if you plan to run other Azure Machine Learning tutorials.
-
-### Stop the compute instance
-
-[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
-
-### Delete everything
-
-If you don't plan to use the resources you created, delete them, so you don't incur any charges:
-
-1. In the Azure portal, in the left menu, select **Resource groups**.
-1. In the list of resource groups, select the resource group you created.
-1. Select **Delete resource group**.
-1. Enter the resource group name. Then, select **Delete**.
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties, and then select **Delete**.
+Using `ml_client.components.get()`, you can get a registered component by name and version. Using `ml_client.compoennts.create_or_update()`, you can register a component previously loaded from python function or yaml.
 
 ## Next steps
 
-In this tutorial, you used the following types:
+For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples/sdk/jobx/pipelines).
 
-* The `Workspace` represents your Azure Machine Learning workspace. It contained:
-    * The `Experiment` that contains the results of training runs of your pipeline
-    * The `Dataset` that lazily loaded the data held in the Fashion-MNIST datastore
-    * The `ComputeTarget` that represents the machine(s) on which the pipeline steps run
-    * The `Environment` that is the runtime environment in which the pipeline steps run
-    * The `Pipeline` that composes the `PythonScriptStep` steps into a whole
-    * The `Model` that you registered after being satisfied with the training process
-    
-The `Workspace` object contains references to other resources (notebooks, endpoints, and so on) that weren't used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
-
-The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset. For more information on datasets and working with data, see [How to access data](./how-to-access-data.md).
-
-For more on compute targets and environments, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md) and [What are Azure Machine Learning environments?](concept-environments.md)
-
-The `ScriptRunConfig` associates a `ComputeTarget` and `Environment` with Python source files. A `PythonScriptStep` takes that `ScriptRunConfig` and defines its inputs and outputs, which in this pipeline was the file dataset built by the `OutputFileDatasetConfig`. 
-
-For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples).
+For how to transform your original script to component, see [TODO: how to productionize your script](yijun's-doc).
