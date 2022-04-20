@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 03/04/2022
+ms.custom: fasttrack-edit
 ---
 
 # Microsoft Purview network architecture and best practices
