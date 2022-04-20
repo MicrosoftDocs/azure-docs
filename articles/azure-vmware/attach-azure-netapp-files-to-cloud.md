@@ -1,8 +1,8 @@
 ---
-title: Attach Azure NetApp Files datastores to a private cloud (Preview)
-description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution private cloud.
+title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
+description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 04/20/2022
 ---
 
 # Attach Azure NetApp Files datastores to a private cloud (Preview)
@@ -44,7 +44,7 @@ Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, 
 
 ## Performance best practices
 
-There are some important best practices to follow for optimal performance of NFS datastores on Azure NEtApp Files volumes.
+There are some important best practices to follow for optimal performance of NFS datastores on Azure NetApp Files volumes.
 
 - For optimized performance, choose **UltraPerformance** gateway and enable [ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For best performance, it's recommended to use the Ultra tier.
