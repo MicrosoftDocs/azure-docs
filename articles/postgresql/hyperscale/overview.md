@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 04/19/2022
+ms.date: 04/20/2022
 ---
 
 # What is Azure Database for PostgreSQL - Hyperscale (Citus)?
 
-## The power of distributed data
+## The superpower of distributed tables
 
 Hyperscale (Citus) is PostgreSQL extended with the superpower of "distributed
 tables." This superpower enables you to build highly scalable relational apps.
@@ -24,16 +24,9 @@ your tables.
 ![distributed architecture](../media/overview-hyperscale/distributed.png)
 
 As Hyperscale (Citus) is a fully managed service, it has all the features for
-worry-free operation in production. Features include:
-
-* automatic high availability
-* backups
-* built-in pgBouncer
-* read-replicas
-* easy monitoring
-* private endpoints
-* encryption
-* and more
+worry-free operation in production. Features include automatic high
+availability, backups, built-in pgBouncer, read-replicas, easy monitoring,
+private endpoints, and encryption.
 
 Real-world customer applications built on Citus include SaaS apps, real-time
 operational analytics apps, and high throughput transactional apps. These apps
@@ -55,7 +48,7 @@ native partitioning for performance, JSONB support to store and query
 unstructured data, and geospatial functionality via the PostGIS extension.
 It's the speed you need, on the database you love.
 
-## Start simply, grow easily
+## Start simply, scale seamlessly
 
 The Basic Tier allows you to deploy Hyperscale (Citus) as a single node, while
 having the superpower of distributing tables. At a few dollars a day, it's the
