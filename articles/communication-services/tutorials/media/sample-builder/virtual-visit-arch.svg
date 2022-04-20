@@ -7,6 +7,8 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+			<v:ud v:nameU="visV14CFF" v:prompt="" v:val="VT0(1):26"/>
+			<v:ud v:nameU="visFlowchartType" v:prompt="" v:val="VT4(CrossFunctional)"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -580,11 +582,11 @@
 				<text x="9.63" y="266.41" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>B</text>			</g>
 			<g id="shape1155-187" v:mID="1155" v:groupContext="shape">
 				<title>Sheet.1155</title>
-				<desc>M365 Booking</desc>
+				<desc>Microsoft 365 Booking</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="33.0157" cy="264.793" width="66.04" height="21.655"/>
 				<rect x="0" y="253.965" width="66.0315" height="21.655" class="st10"/>
-				<text x="22.33" y="262.09" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>M365<v:newlineChar/><tspan
+				<text x="7.42" y="262.09" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft 365<v:newlineChar/><tspan
 							x="18.26" dy="1.2em" class="st5">Booking</tspan></text>			</g>
 		</g>
 		<g id="shape1156-191" v:mID="1156" v:groupContext="shape" v:layerMember="1" transform="translate(164.639,-198.523)">
