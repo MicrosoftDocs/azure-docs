@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 04/20/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
@@ -263,7 +263,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 You can use Postman or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
 
 > [!NOTE]
-> FHIR feature is available in the latest on-prem container tag, and is exposed through the new language API. 
+> Fast Healthcare Interoperability Resources (FHIR) feature is available in the latest container, and is exposed through the new language REST API. 
 
 [!INCLUDE [Use APIs in container](../includes/quickstarts/language-text-analytics-container.md)]
 
