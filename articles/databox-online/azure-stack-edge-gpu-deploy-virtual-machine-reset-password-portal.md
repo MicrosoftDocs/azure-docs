@@ -17,13 +17,13 @@ ms.author: alkohli
 
 This article covers steps to reset the password on both Windows and Linux VMs using Azure portal.
 
-### Reset Windows VM password for your Azure Stack Edge Pro GPU device via Azure portal
+## Reset Windows VM password for your Azure Stack Edge Pro GPU device via Azure portal
 
 Use the following steps to reset the VM password for your Azure Stack Edge Pro GPU device:
 
 1. From Azure portal VM list view, click the VM name.
 
-    ![Azure portal VM list view](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/az-portal-vm-list-view-windows.png)
+    ![Azure portal Windows VM list view](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/az-portal-vm-list-view-windows.png)
 
 1. Click **Reset password**.
 
@@ -47,13 +47,13 @@ Use the following steps to reset the VM password for your Azure Stack Edge Pro G
  
 1. At this point you can connect to the VM with the new password.
 
-### Reset Linux VM password for your Azure Stack Edge Pro GPU device via Azure portal
+## Reset Linux VM password for your Azure Stack Edge Pro GPU device via Azure portal
 
 Use the following steps to reset the VM password for your Azure Stack Edge Pro GPU device:
 
 1. From Azure portal VM list view, click the VM name.
 
-    ![Azure portal VM list view](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/az-portal-vm-list-view-linux.png)
+    ![Azure portal Linux VM list view](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/az-portal-vm-list-view-linux.png)
 
 
 ## Next steps
