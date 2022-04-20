@@ -88,11 +88,11 @@ Follow these steps to make a user eligible for an Azure resource role.
 
 1. If the role has been defined with actions that permit assignments to that role with conditions, then you can select **Add condition** to add a condition based on the principal user and resource attributes that are part of the assignment.
 
-    ![New assignment - Conditions](./media/pim-resource-roles-assign-roles/resources-new-assignment-conditions.png)
+    ![New assignment - Conditions](./media/pim-resource-roles-assign-roles/new-assignment-conditions.png)
     
     Conditions can be entered in the expression builder. 
 
-    ![New assignment - Condition built from an expression](./media/pim-resource-roles-assign-roles/resources-new-assignment-condition-expression.png)
+    ![New assignment - Condition built from an expression](./media/pim-resource-roles-assign-roles/new-assignment-condition-expression.png)
 
 1. When finished, select **Assign**.
 
