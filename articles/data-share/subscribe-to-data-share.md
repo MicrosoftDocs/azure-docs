@@ -253,7 +253,7 @@ Use these commands to configure where you want to receive data.
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Use the [az datashare consumer dataset-mapping create](/cli/azure/datashare/data-set-mappingt#az-datashare-data-set-mapping-create) command to create the dataset mapping:
+1. Use the [az datashare consumer dataset-mapping create](/cli/azure/datashare/data-set-mapping#az-datashare-data-set-mapping-create) command to create the dataset mapping:
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
