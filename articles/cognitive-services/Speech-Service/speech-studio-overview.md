@@ -18,7 +18,7 @@ ms.author: eur
 
 ## Prerequisites
 
-Before you can begin using [Speech Studio](https://speech.microsoft.com), you need to have an Azure account and a Speech resource. Create a Speech resource on the [Azure portal](https://portal.azure.com)keys. For more information, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
+Before you can begin using [Speech Studio](https://speech.microsoft.com), you need to have an Azure account and a Speech resource. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
 
 After you've created an Azure account and a Speech service resource, do the following:
 
