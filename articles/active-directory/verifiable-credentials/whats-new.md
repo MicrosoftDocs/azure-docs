@@ -33,9 +33,9 @@ From April 25th, 2022 the Azure AD Verifiable Credential service is available to
     if((get-module -listAvailable -name "az.accounts") -eq $null){install-module -name "az.accounts" -scope currentUser}
     if ((get-module -listAvailable -name "az.resources") -eq $null){install-module "az.resources" -scope currentUser}
     ```
-1. Run the following PowerShell command to connect to your Azure AD tenant. Replace <your-tenant-ID> with your [Azure AD tenant ID](../fundamentals/active-directory-how-to-find-tenant.md)
+1. Run the following PowerShell command to connect to your Azure AD tenant. Replace ```<your tenant ID>``` with your [Azure AD tenant ID](../fundamentals/active-directory-how-to-find-tenant.md)
     1. ```azurepowershell
-    connect-azaccount -tenantID <your-tenant-ID>
+    connect-azaccount -tenantID <your tenant ID>
     ```
 1. Check if of the following Service principals have been added to your tenant by running the following command:
     1. ```azurepowershell
@@ -94,7 +94,7 @@ We need to do this for all storage accounts being used to store rules and displa
 1. Search for **Verifiable Credentials Service Request** (make sure you are selecting the exact name and not the Verifiable Credential Request Service) and select it. Make sure the Application Client ID is ```3db474b9-6a0c-4840-96ac-1fceb342124f```
 1. Choose Application Permission, and expand VerifiableCredential.Create.All.
 1. Select Add permissions.
-1. Select Grant admin consent for <your-tenant-name>.
+1. Select Grant admin consent for ```<your tenant name>```.
 
 #### Adjust the API scopes used in your application
 
@@ -110,7 +110,7 @@ For the Admin API (private preview) the new scope for your application or postma
 
 Suggested after May 6th, 2022. Once you have confirmed that the Azure AD verifiable credentials service is working normally, you can issue, verify, etc after May 6th, 2022 you can proceed to clean up your tenant so that the Azure AD Verifiable Credentials service has only the new service principals.
 
-1. Run the following PowerShell command to connect to your Azure AD tenant. Replace <your-tenant-ID> with your Azure AD tenant ID.
+1. Run the following PowerShell command to connect to your Azure AD tenant. Replace ```<your tenant ID>``` with your Azure AD tenant ID.
 1. Run the following commands in the same PowerShell session. The AppId ```603b8c59-ba28-40ff-83d1-408eee9a93e5``` and ```bbb94529-53a3-4be5-a069-7eaf2712b826``` refer to the previous Verifiable Credentials service principals.
 
 ## March 2022
