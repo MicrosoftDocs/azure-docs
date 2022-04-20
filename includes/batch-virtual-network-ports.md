@@ -77,7 +77,7 @@ Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need 
 | Any | * | [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
 | Any | * | [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
 
-For more information about outbound to the `BatchNodeManagement` service tag, please see using [simplified compute node communication](../articles/batch/simplified-compute-node-communication.md).
+For more information about outbound security rules for the `BatchNodeManagement` service tag, see [Use simplified compute node communication](../articles/batch/simplified-compute-node-communication.md).
 
 ### Pools in the Cloud Services configuration
 
