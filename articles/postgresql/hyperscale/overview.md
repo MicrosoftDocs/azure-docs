@@ -33,7 +33,8 @@ operational analytics apps, and high throughput transactional apps. These apps
 span various verticals such as Sales & Marketing Automation, IOT/telemetry,
 finance, logistics, and search.
 
-[!div class="nextstepaction"] Try the quickstart >
+> [!div class="nextstepaction"]
+> [Try the quickstart >](quickstart-reate.md)
 
 ## Always the latest PostgreSQL features
 
@@ -62,4 +63,5 @@ application requires greater scale, you can add nodes and rebalance your data.
 
 ## Next steps
 
-[!div class="nextstepaction"] Try the quickstart >
+> [!div class="nextstepaction"]
+> [Try the quickstart >](quickstart-reate.md)
