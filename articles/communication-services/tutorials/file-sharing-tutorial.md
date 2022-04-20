@@ -107,7 +107,7 @@ import { FileUploadHandler } from from '@azure/communication-react';
 
 const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
   for (const fileUpload of fileUploads) {
-    if (fileUpload.file.size > 99 * 1024 * 1024) {
+    if (fileUpload.file && fileUpload.file.size > 99 * 1024 * 1024) {
       // Notify ChatComposite about upload failure. 
       // Allows you to provide a custom error message.
       fileUpload.notifyUploadFailed('File too big. Select a file under 99 MB.');
