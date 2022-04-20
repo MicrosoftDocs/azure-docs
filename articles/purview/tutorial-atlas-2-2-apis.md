@@ -31,7 +31,9 @@ Business Metadata is a template containing multiple custom attributes (key value
 
 You can send POST request to the following endpoint
 
-{{endpoint}}/api/atlas/v2/types/typedefs
+```
+POST {{endpoint}}/api/atlas/v2/types/typedefs
+```
 
 Sample JSON
 
@@ -69,7 +71,9 @@ Sample JSON
 
 You can send PUT request to the following endpoint:
 
+```
 PUT {{endpoint}}/api/atlas/v2/types/typedefs
+```
 
 Sample JSON
 
@@ -118,13 +122,17 @@ Sample JSON
 
 You can send GET request to the following endpoint
 
+```
 GET {endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
+```
 
 ### Set Business metadata attribute to an entity 
 
 You can send POST request to the following endpoint
 
+```
 POST {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/businessmetadata?isOverwrite=true
+```
 
 Sample JSON
 
@@ -141,7 +149,9 @@ Sample JSON
 
 You can send DELETE request to the following endpoint
 
+```
 DELETE {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/businessmetadata?isOverwrite=true
+```
 
 Sample JSON
 
@@ -157,7 +167,9 @@ Sample JSON
 
 You can send DELETE request to the following endpoint
 
+```
 DELETE {{endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
+```
 
 ## Custom Attribute APIs
 
@@ -167,7 +179,9 @@ Custom Attributes are key value pairs which can be directly added to an atlas en
 
 You can send POST request to the following endpoint
 
+```
 POST {{endpoint}}/api/atlas/v2/entity
+```
 
 Sample JSON
 
@@ -196,7 +210,9 @@ Labels are free text tags which can be applied to any atlas entity.
 
 You can send POST request to the following endpoint
 
+```
 POST {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/labels
+```
 
 Sample JSON
 
@@ -211,7 +227,9 @@ Sample JSON
 
 You can send DELETE request to the following endpoint:
 
+```
 DELETE {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/labels
+```
 
 Sample JSON
 
