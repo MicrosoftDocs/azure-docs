@@ -19,7 +19,7 @@ This article describes how to enable update management center (preview) for peri
 - Using the Azure CLI
 - Using the Azure REST API
 
-Register the periodic assessment and scheduled patching feature resource providers in your Azure subscription, as detailed below to enable update management center (preview) functionality, After your register for the features, access the preview link: **https://aka.ms/umc-preview**.
+Register the periodic assessment and scheduled patching feature resource providers in your Azure subscription, as detailed below, to enable update management center (preview) functionality. After your register for the features, access the preview link: **https://aka.ms/umc-preview**.
 
 ## Prerequisites
 
