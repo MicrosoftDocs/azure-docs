@@ -27,7 +27,7 @@ Learn more about [Managed Disk Snapshot - ManagedDiskSnapshot (Use Standard Stor
 
 We've analyzed the usage patterns of your virtual machine over the past 7 days and identified virtual machines with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines.
 
-Learn more about [Virtual machine - LowUsageVmV2 (Right-size or shutdown underutilized virtual machines)](./advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances).
+Learn more about [Virtual machine - LowUsageVmV2 (Right-size or shutdown underutilized virtual machines)](/azure/advisor/advisor-cost-recommendations#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances).
 
 ### You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.
 

@@ -7,10 +7,10 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: AlainDormehlMSFT
-ms.author: aldorme
+author: dimitri-furman 
+ms.author: dfurman
 ms.reviewer: kendralittle, mathoma, wiassaf
-ms.date: 06/12/2020
+ms.date: 01/31/2022
 ---
 
 # Use the Intelligent Insights performance diagnostics log of Azure SQL Database and Azure SQL Managed Instance performance issues
@@ -23,7 +23,7 @@ This page provides information on how to use the performance diagnostics log gen
 
 ## Log header
 
-The diagnostics log uses JSON standard format to output Intelligent Insights findings. The exact category property for accessing an Intelligent Insights log is the fixed value "SQLInsights".
+The diagnostics log uses JSON standard format to output Intelligent Insights findings. The exact category property for accessing an Intelligent Insights log is the fixed value "SQLInsights", unrelated to [Monitoring Azure SQL Database with Azure Monitor SQL Insights (preview)](../../azure-sql/database/monitoring-sql-database-azure-monitor.md).
 
 The header of the log is common and consists of the time stamp (TimeGenerated) that shows when an entry was created. It also includes a resource ID (ResourceId) that refers to the particular database the entry relates to. The category (Category), level (Level), and operation name (OperationName) are fixed properties whose values do not change. They indicate that the log entry is informational and that it comes from Intelligent Insights (SQLInsights).
 

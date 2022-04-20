@@ -38,7 +38,7 @@ Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization ha
 
 Cache instances perform best when not running under high network bandwidth which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce network bandwidth or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](../azure-cache-for-redis/cache-troubleshoot-server.md#server-side-bandwidth-limitation).
+Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](/azure/azure-cache-for-redis/cache-troubleshoot-server#server-side-bandwidth-limitation).
 
 ### Improve your Cache and application performance when running with many connected clients
 
@@ -50,13 +50,13 @@ Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your 
 
 Cache instances perform best when not running under high server load which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](../azure-cache-for-redis/cache-troubleshoot-client.md#high-client-cpu-usage).
+Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](/azure/azure-cache-for-redis/cache-troubleshoot-client#high-client-cpu-usage).
 
 ### Improve your Cache and application performance when running with high memory pressure
 
 Cache instances perform best when not running under high memory pressure which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](../azure-cache-for-redis/cache-troubleshoot-client.md#memory-pressure-on-redis-client).
+Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](/azure/azure-cache-for-redis/cache-troubleshoot-client#memory-pressure-on-redis-client).
 
 ## Cognitive Service
 
@@ -669,7 +669,7 @@ Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTables
 
 Time to Live (TTL) affects how recent of a response a client will get when it makes a request to Azure Traffic Manager. Reducing the TTL value means that the client will be routed to a functioning endpoint faster in the case of a failover. Configure your TTL to 20 seconds to route traffic to a health endpoint as quickly as possible.
 
-Learn more about [Traffic Manager profile - FastFailOverTTL (Configure DNS Time to Live to 20 seconds)](../traffic-manager/traffic-manager-monitoring.md#endpoint-failover-and-recovery).
+Learn more about [Traffic Manager profile - FastFailOverTTL (Configure DNS Time to Live to 20 seconds)](/azure/traffic-manager/traffic-manager-monitoring#endpoint-failover-and-recovery).
 
 ### Configure DNS Time to Live to 60 seconds
 
@@ -713,7 +713,7 @@ Learn more about [SQL data warehouse - CreateTableStatisticsSqlDW (Create statis
 
 We have detected distribution data skew greater than 15%. This can cause costly performance bottlenecks.
 
-Learn more about [SQL data warehouse - DataSkewSqlDW (Remove data skew to increase query performance)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Learn more about [SQL data warehouse - DataSkewSqlDW (Remove data skew to increase query performance)](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
 ### Update statistics on table columns
 
@@ -737,7 +737,7 @@ Learn more about [SQL data warehouse - SqlDwIncreaseCacheCapacity (Scale up to o
 
 We have detected that you had high tempdb utilization which can impact the performance of your workload.
 
-Learn more about [SQL data warehouse - SqlDwReduceTempdbContention (Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-tempdb).
+Learn more about [SQL data warehouse - SqlDwReduceTempdbContention (Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse)](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-tempdb).
 
 ### Convert tables to replicated tables with SQL Data Warehouse
 
@@ -749,19 +749,19 @@ Learn more about [SQL data warehouse - SqlDwReplicateTable (Convert tables to re
 
 We have detected that you can increase load throughput by splitting your compressed files that are staged in your storage account. A good rule of thumb is to split compressed files into 60 or more to maximize the parallelism of your load.
 
-Learn more about [SQL data warehouse - FileSplittingGuidance (Split staged files in the storage account to increase load performance)](../synapse-analytics/sql/data-loading-best-practices.md#prepare-data-in-azure-storage).
+Learn more about [SQL data warehouse - FileSplittingGuidance (Split staged files in the storage account to increase load performance)](/azure/synapse-analytics/sql/data-loading-best-practices#preparing-data-in-azure-storage).
 
 ### Increase batch size when loading to maximize load throughput, data compression, and query performance
 
 We have detected that you can increase load performance and throughput by increasing the batch size when loading into your database. You should consider using the COPY statement. If you are unable to use the COPY statement, consider increasing the batch size when using loading utilities such as the SQLBulkCopy API or BCP - a good rule of thumb is a batch size between 100K to 1M rows.
 
-Learn more about [SQL data warehouse - LoadBatchSizeGuidance (Increase batch size when loading to maximize load throughput, data compression, and query performance)](../synapse-analytics/sql/data-loading-best-practices.md#increase-batch-size-when-using-sqlbulkcopy-api-or-bcp).
+Learn more about [SQL data warehouse - LoadBatchSizeGuidance (Increase batch size when loading to maximize load throughput, data compression, and query performance)](/azure/synapse-analytics/sql/data-loading-best-practices#increase-batch-size-when-using-sqlbulkcopy-api-or-bcp).
 
 ### Co-locate the storage account within the same region to minimize latency when loading
 
 We have detected that you are loading from a region that is different from your SQL pool. You should consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data.
 
-Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the storage account within the same region to minimize latency when loading)](../synapse-analytics/sql/data-loading-best-practices.md#prepare-data-in-azure-storage).
+Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the storage account within the same region to minimize latency when loading)](/azure/synapse-analytics/sql/data-loading-best-practices#preparing-data-in-azure-storage).
 
 ## Storage
 
@@ -831,7 +831,7 @@ Learn more about [App service - AppServiceMoveToPremiumV2 (Move your App Service
 
 Your app has opened too many TCP/IP socket connections. Exceeding ephemeral TCP/IP port connection limits can cause unexpected connectivity issues for your apps.
 
-Learn more about [App service - AppServiceOutboundConnections (Check outbound connections from your App Service resource)](../app-service/app-service-best-practices.md#socketresources).
+Learn more about [App service - AppServiceOutboundConnections (Check outbound connections from your App Service resource)](/azure/app-service/app-service-best-practices#socketresources).
 
 
 ## Next steps
