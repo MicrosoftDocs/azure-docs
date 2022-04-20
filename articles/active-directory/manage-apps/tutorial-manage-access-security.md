@@ -129,20 +129,20 @@ The My Apps portal enables administrators and users to manage the applications u
 
 You can keep the resources for future use, or if you're not going to continue to use the resources created in this tutorial, delete them with the following steps.
 
-## Delete the application
+### Delete the application
 
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to delete.
 1. In the **Manage** section of the left menu, select **Properties**.
 1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
 
-## Delete the conditional access policy
+### Delete the conditional access policy
 
 1. Select **Enterprise applications**.
 1. Under **Security**, select **Conditional Access**.
 1. Search for and select **MFA Pilot**.
 1. Select **Delete** at the top of the pane.
 
-## Delete the group
+### Delete the group
 
 1. Select **Azure Active Directory**, and then select **Groups**.
 1. From the **Groups - All groups** page, search for and select the **MFA-Test-Group** group.

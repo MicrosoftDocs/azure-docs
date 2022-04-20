@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/10/2021
+ms.date: 02/15/2022
 ---
 
 # Testing the FHIR API on Azure API for FHIR

@@ -42,7 +42,7 @@ Now that you've set up the authentication methods to the ARO cluster, let's enab
    1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
    
    :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
-   1. Select **openid**
+   1. Select **AAD**
 
    > [!NOTE]
    > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.

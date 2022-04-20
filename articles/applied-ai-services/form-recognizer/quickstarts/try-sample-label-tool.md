@@ -105,7 +105,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. In the **API key** field, paste  the subscription key you obtained from your Form Recognizer resource.
 
-1. In the **Source: URL** field, paste paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`  and select the **Fetch** button.
+1. In the **Source: URL** field, paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`  and select the **Fetch** button.
 
 1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
 

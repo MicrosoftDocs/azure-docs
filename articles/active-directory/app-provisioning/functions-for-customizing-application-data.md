@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 04/13/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -1049,7 +1049,7 @@ Example: Based on the user's first name, middle name and last name, you need to 
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:** 
-Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time. This function is not supported in scenarios where users have multiple app role assignments. 
 
 **Parameters:** 
 
@@ -1236,6 +1236,18 @@ Generate a user alias by taking first three letters of user's first name and fir
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
 * **OUTPUT**:  "JohDoe"
+
+### Add a comma between last name and first name. 
+Add a comma between last name and first name. 
+
+**Expression:** 
+`Join(", ", "", [surname], [givenName])`
+
+**Sample input/output:** 
+
+* **INPUT** (givenName): "John"
+* **INPUT** (surname): "Doe"
+* **OUTPUT**:  "Doe, John"
 
 
 ## Related Articles

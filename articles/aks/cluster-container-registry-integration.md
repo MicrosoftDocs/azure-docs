@@ -216,7 +216,7 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
 ### Troubleshooting
-* Run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
+* Run the [az aks check-acr](/cli/azure/aks#az-aks-check-acr) command to validate that the registry is accessible from the AKS cluster.
 * Learn more about [ACR Monitoring](../container-registry/monitor-service.md)
 * Learn more about [ACR Health](../container-registry/container-registry-check-health.md)
 

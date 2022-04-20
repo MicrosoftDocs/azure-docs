@@ -39,6 +39,9 @@
     href: search-get-started-powershell.md
   - name: Python
     href: search-get-started-python.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: search-get-started-bicep.md
   - name: ARM template
     displayName: Resource Manager 
     href: search-get-started-arm.md
@@ -281,6 +284,8 @@
       href: search-how-to-load-search-index.md
     - name: Drop and rebuild an index
       href: search-howto-reindex.md
+    - name: Create an index alias
+      href: search-how-to-alias.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Index large data sets
@@ -512,7 +517,7 @@
     - name: Search API
       href: /javascript/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /javascript/api/overview/azure/search/management
+      href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
     - name: Search API

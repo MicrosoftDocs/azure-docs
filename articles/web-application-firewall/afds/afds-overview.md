@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 03/30/2022
 ms.author: victorh
 ---
 
@@ -19,7 +19,7 @@ WAF prevents malicious attacks close to the attack sources, before they enter yo
 
 ![Azure web application firewall](../media/overview/wafoverview.png)
 
-Azure Front Door introduces [two new SKUs in preview](../../frontdoor/standard-premium/overview.md): Front Door Standard and Front Door Premium SKU. WAF is natively integrated with Front Door Premium SKU with full capabilities. For Front Door Standard SKU, only [custom rules](#custom-authored-rules) are supported.
+Azure Front Door has [two tiers](../../frontdoor/standard-premium/overview.md): Front Door Standard and Front Door Premium. WAF is natively integrated with Front Door Premium with full capabilities. For Front Door Standard, only [custom rules](#custom-authored-rules) are supported.
 
 ## WAF policy and rules
 
@@ -90,8 +90,7 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 For more information, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md).
 
-
-### Bot protection rule set (preview)
+### Bot protection rule set
 
 You can enable a managed bot protection rule set to take custom actions on requests from known bot categories. 
 
@@ -104,9 +103,6 @@ Good Bots include validated search engines. Unknown categories include additiona
 Unknown bots are classified via published user agents without additional validation. You can set custom actions to block, allow, log, or redirect for different types of bots.
 
 ![Bot Protection Rule Set](../media/afds-overview/botprotect2.png)
-
-> [!IMPORTANT]
-> The Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 If bot protection is enabled, incoming requests that match bot rules are logged at the FrontdoorWebApplicationFirewallLog log. You may access WAF logs from a storage account, event hub, or log analytics.
 

@@ -122,7 +122,6 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [DeviceNetworkInfo](/azure/azure-monitor/reference/tables/devicenetworkinfo) | |
 | [DnsEvents](/azure/azure-monitor/reference/tables/dnsevents) | |
 | [DnsInventory](/azure/azure-monitor/reference/tables/dnsinventory) | |
-| [DummyHydrationFact](/azure/azure-monitor/reference/tables/dummyhydrationfact) | |
 | [Dynamics365Activity](/azure/azure-monitor/reference/tables/dynamics365activity) | |
 | [EmailAttachmentInfo](/azure/azure-monitor/reference/tables/emailattachmentinfo) | |
 | [EmailEvents](/azure/azure-monitor/reference/tables/emailevents) | |
@@ -177,8 +176,8 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [MicrosoftHealthcareApisAuditLogs](/azure/azure-monitor/reference/tables/microsofthealthcareapisauditlogs) | |
 | [NWConnectionMonitorPathResult](/azure/azure-monitor/reference/tables/nwconnectionmonitorpathresult) | |
 | [NWConnectionMonitorTestResult](/azure/azure-monitor/reference/tables/nwconnectionmonitortestresult) | |
-| [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | || 
-| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | |
+| [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | |
+| [Perf](/azure/azure-monitor/reference/tables/perf) | Partial support – only windows perf data is currently supported. | 
 | [PowerBIDatasetsWorkspace](/azure/azure-monitor/reference/tables/powerbidatasetsworkspace) | |
 | [HDInsightRangerAuditLogs](/azure/azure-monitor/reference/tables/hdinsightrangerauditlogs) | |
 | [PurviewScanStatusLogs](/azure/azure-monitor/reference/tables/purviewscanstatuslogs) | |

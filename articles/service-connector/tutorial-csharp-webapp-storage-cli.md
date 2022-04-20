@@ -52,14 +52,14 @@ git clone https://github.com/Azure-Samples/serviceconnector-webapp-storageblob-d
 
 and go to the root folder of repository:
 ```Bash
-cd WebAppStorageMISample
+cd serviceconnector-webapp-storageblob-dotnet
 ```
 
 ## 3. Create the App Service app
 
 In the terminal, make sure you're in the *WebAppStorageMISample* repository folder that contains the app code.
 
-Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
 ```Azure CLI
 az webapp up --name <app-name> --sku B1 --location eastus --resource-group ServiceConnector-tutorial-rg

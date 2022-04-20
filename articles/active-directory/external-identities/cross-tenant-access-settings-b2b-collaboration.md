@@ -31,7 +31,7 @@ Use External Identities cross-tenant access settings to manage how you collabora
 - Decide on the default level of access you want to apply to all external Azure AD organizations.
 - Identify any Azure AD organizations that will need customized settings so you can configure **Organizational settings** for them.
 - If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
-- If you want to set up B2B collaboration with a partner organization in an external Microsoft Azure cloud, follow the steps in [Configure cross-cloud settings](cross-cloud-settings.md). An admin in the partner organization will need to do the same for your tenant.
+- If you want to set up B2B collaboration with a partner organization in an external Microsoft Azure cloud, follow the steps in [Configure Microsoft cloud settings](cross-cloud-settings.md). An admin in the partner organization will need to do the same for your tenant.
 
 ## Configure default settings
 
@@ -107,12 +107,12 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Under **Access status**, select one of the following:
 
-   - **Allow access**: Allows the users and groups specified under **Target** to be invited for B2B collaboration.
-   - **Block access**: Blocks the users and groups specified under **Target** from being invited to B2B collaboration.
+   - **Allow access**: Allows the users and groups specified under **Applies to** to be invited for B2B collaboration.
+   - **Block access**: Blocks the users and groups specified under **Applies to** from being invited to B2B collaboration.
 
    ![Screenshot showing selecting the user access status for B2B collaboration](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-external-users-groups-access.png)
 
-1. Under **Target**, select one of the following:
+1. Under **Applies to**, select one of the following:
 
    - **All external users and groups**: Applies the action you chose under **Access status** to all users and groups from external Azure AD organizations.
    - **Select external users and groups** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific users and groups within the external organization.
@@ -139,12 +139,12 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Under **Access status**, select one of the following:
 
-   - **Allow access**: Allows the applications specified under **Target** to be accessed by B2B collaboration users.
-   - **Block access**: Blocks the applications specified under **Target** from being accessed by B2B collaboration users.
+   - **Allow access**: Allows the applications specified under **Applies to** to be accessed by B2B collaboration users.
+   - **Block access**: Blocks the applications specified under **Applies to** from being accessed by B2B collaboration users.
 
     ![Screenshot showing applications access status](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-applications-access.png)
 
-1. Under **Target**, select one of the following:
+1. Under **Applies to**, select one of the following:
 
    - **All applications**: Applies the action you chose under **Access status** to all of your applications.
    - **Select applications** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific applications in your organization.
@@ -212,12 +212,12 @@ With outbound settings, you select which of your users and groups will be able t
 
 1. Under **Access status**, select one of the following:
 
-   - **Allow access**: Allows your users and groups specified under **Target** to be invited to external organizations for B2B collaboration.
-   - **Block access**: Blocks your users and groups specified under **Target** from being invited to B2B collaboration. If you block access for all users and groups, this will also block all external applications from being accessed via B2B collaboration.
+   - **Allow access**: Allows your users and groups specified under **Applies to** to be invited to external organizations for B2B collaboration.
+   - **Block access**: Blocks your users and groups specified under **Applies to** from being invited to B2B collaboration. If you block access for all users and groups, this will also block all external applications from being accessed via B2B collaboration.
 
     ![Screenshot showing users and groups access status for b2b collaboration](media/cross-tenant-access-settings-b2b-collaboration/generic-outbound-external-users-groups-access.png)
 
-1. Under **Target**, select one of the following:
+1. Under **Applies to**, select one of the following:
 
    - **All \<your organization\> users**: Applies the action you chose under **Access status** to all your users and groups.
    - **Select \<your organization\> users and groups** (requires an Azure AD premium subscription): Lets you apply the action you chose under **Access status** to specific users and groups.
@@ -238,12 +238,12 @@ With outbound settings, you select which of your users and groups will be able t
 
 1. Under **Access status**, select one of the following:
 
-   - **Allow access**: Allows the external applications specified under **Target** to be accessed by your users via B2B collaboration.
-   - **Block access**: Blocks the external applications specified under **Target** from being accessed by your users via B2B collaboration.
+   - **Allow access**: Allows the external applications specified under **Applies to** to be accessed by your users via B2B collaboration.
+   - **Block access**: Blocks the external applications specified under **Applies to** from being accessed by your users via B2B collaboration.
 
     ![Screenshot showing applications access status for b2b collaboration](media/cross-tenant-access-settings-b2b-collaboration/generic-outbound-applications-access.png)
 
-1. Under **Target**, select one of the following:
+1. Under **Applies to**, select one of the following:
 
    - **All external applications**: Applies the action you chose under **Access status** to all external applications.
    - **Select external applications**: Applies the action you chose under **Access status** to all external applications.
@@ -265,4 +265,5 @@ With outbound settings, you select which of your users and groups will be able t
 
 ## Next steps
 
-See [Configure external collaboration settings](external-collaboration-settings-configure.md) for B2B collaboration with non-Azure AD identities, social identities, and non-IT managed external accounts.
+- See [Configure external collaboration settings](external-collaboration-settings-configure.md) for B2B collaboration with non-Azure AD identities, social identities, and non-IT managed external accounts.
+- [Configure cross-tenant access settings for B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md)

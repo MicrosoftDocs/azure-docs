@@ -13,7 +13,7 @@ ms.reviewer: kendralittle, mathoma
 ms.date: 01/26/2022 
 ---
 
-# Use the Azure CLI to scale an elastic pool in Azure SQL Database
+# Scale an elastic pool in Azure SQL Database using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -29,7 +29,7 @@ This Azure CLI script example creates elastic pools in Azure SQL Database, moves
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/scale-pool/scale-pool.sh" range="4-35":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/scale-pool/scale-pool.sh" id="FullScript"
 
 ## Clean up resources
 

@@ -69,8 +69,8 @@ To learn more, see [Create an IoT Central organization](howto-create-organizatio
 
 Devices that connect to your IoT Central application typically use X.509 certificates or shared access signatures (SAS) as credentials. An administrator manages the group certificates or keys that these device credentials are derived from. To learn more, see:
 
-- [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment)
-- [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment)
+- [X.509 group enrollment](concepts-device-authentication.md#x509-enrollment-group)
+- [SAS group enrollment](concepts-device-authentication.md#sas-enrollment-group)
 - [How to roll X.509 device certificates](how-to-connect-devices-x509.md).
 
 An administrator can also create and manage the API tokens that a client application uses to authenticate with your IoT Central application. Client applications use the REST API to interact with IoT Central. To learn more, see:
@@ -104,12 +104,6 @@ An administrator can:
 
 To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) .
 
-## Migrate to a new version
-
-An administrator can migrate an application to a newer version. Currently, all newly created applications are V3 applications. Depending on when it was created, it may be V2. An administrator is responsible for migrating a V2 application to a V3 application.
-
-To learn more, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
-
 ## Monitor application health
 
 An administrator can use IoT Central metrics to assess the health of connected devices and the health of running data exports.
@@ -124,7 +118,7 @@ To learn how to monitor your IoT Edge fleet remotely by using Azure Monitor and 
 
 ## Tools
 
-Many of the tools you use as an administrator are available in the **Administration** section of each IoT Central application. You can also use the following tools to complete some administrative tasks:
+Many of the tools you use as an administrator are available in the **Security** and **Settings** sections of each IoT Central application. You can also use the following tools to complete some administrative tasks:
 
 - [Azure Command-Line Interface (CLI) or PowerShell](howto-manage-iot-central-from-cli.md)
 - [Azure portal](howto-manage-iot-central-from-portal.md)

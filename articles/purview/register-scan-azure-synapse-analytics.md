@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
 # Connect to and manage dedicated SQL pools in Azure Purview
 
-This article outlines how to register dedicated SQL pools(formerly SQL DW), and how to authenticate and interact with dedicated SQL pools in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md)
+This article outlines how to register dedicated SQL pools (formerly SQL DW), and how to authenticate and interact with dedicated SQL pools in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md)
 
 > [!NOTE]
 > If you are looking to register and scan a dedicated SQL database within a Synapse workspace, you must follow instructions [here](register-scan-synapse-workspace.md).
@@ -33,7 +33,7 @@ This article outlines how to register dedicated SQL pools(formerly SQL DW), and 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Azure Purview account](create-catalog-portal.md).
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 

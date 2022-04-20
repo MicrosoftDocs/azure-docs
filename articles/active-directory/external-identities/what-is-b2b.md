@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 03/31/2022
 
 ms.author: mimart
 author: msmimart
@@ -26,7 +26,7 @@ A simple invitation and redemption process lets partners use their own credentia
 Developers can use Azure AD business-to-business APIs to customize the invitation process or write applications like self-service sign-up portals. For licensing and pricing information related to guest users, refer to [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 > [!IMPORTANT]
-> **Starting July 2022**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode)..
+> We've begun rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode). Soon, we'll stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption.
 
 ## Collaborate with any partner using their identities
 
@@ -44,7 +44,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 - Use [external collaboration settings](external-collaboration-settings-configure.md) to define who can invite external users, allow or block B2B specific domains, and set restrictions on guest user access to your directory.
 
-- Use [cross-cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between global and sovereign Microsoft Azure clouds.
+- Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between global and sovereign Microsoft Azure clouds.
 
 ## Easily invite guest users from the Azure AD portal
 

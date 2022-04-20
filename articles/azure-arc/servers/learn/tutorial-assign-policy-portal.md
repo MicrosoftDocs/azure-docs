@@ -18,7 +18,7 @@ before you begin.
 
 ## Create a policy assignment
 
-In this tutorial, you create a policy assignment and assign the _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ policy definition.
+In this tutorial, you create a policy assignment and assign the _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ policy definition.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
    for and selecting **Policy**.
@@ -53,13 +53,11 @@ In this tutorial, you create a policy assignment and assign the _\[Preview]: Log
 
    For a partial list of available built-in policies, see [Azure Policy samples](../../../governance/policy/samples/index.md).
 
-1. Search through the policy definitions list to find the _\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines_
-   definition if you have enabled the Arc-enabled servers agent on a Windows-based machine. For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
-
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Find the correct policy definition" border="false":::
+1. Search through the policy definitions list to find the _\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines_
+   definition if you have enabled the Arc-enabled servers agent on a Windows-based machine. For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
-   change it. For this example, leave _\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines_ or _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ depending on which one you selected. You can also add an optional **Description**. The description provides details about this policy assignment.
+   change it. For this example, leave _\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines_ or _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ depending on which one you selected. You can also add an optional **Description**. The description provides details about this policy assignment.
    **Assigned by** will automatically fill based on who is logged in. This field is optional, so
    custom values can be entered.
 
@@ -77,7 +75,7 @@ environment.
 
 ## Identify non-compliant resources
 
-Select **Compliance** in the left side of the page. Then locate the **\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines** policy assignment you created.
+Select **Compliance** in the left side of the page. Then locate the **\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines** policy assignment you created.
 
 :::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Compliance details on the Policy Compliance page" border="false":::
 
@@ -106,7 +104,7 @@ condition triggers evaluation of the existence condition for the related resourc
 To remove the assignment created, follow these steps:
 
 1. Select **Compliance** (or **Assignments**) in the left side of the Azure Policy page and locate
-   the **\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines** policy assignment you created.
+   the **\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines** policy assignment you created.
 
 1. Right-click the policy assignment and select **Delete assignment**.
 

@@ -17,14 +17,14 @@ Defender for IoT alerts lets you enhance the security and operation of your netw
 - Protocol and operational anomalies
 - Suspected malware traffic
 
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Main Alerts page in the Cloud." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
+:::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Screenshot of the Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
 
 Alerts triggered by Defender for IoT are displayed on the Alerts page in the Azure portal. Use the Alerts page to:
 
 - Learn when an alert was detected.
 - Investigate the alert by reviewing an extensive range of alert information. This may include,  source and destination details, PCAP information, vendor, firmware and OS details, and MITRE ATT&CK information.
 - Manage the alert by taking remediation steps on the device or network process, or changing the device status or severity.
-- Integrate alert details with other Microsoft services. For example, with Microsoft Sentinel playbooks and workbooks. See [About the Defender for IoT and Microsoft Sentinel Integration](concept-sentinel-integration.md#about-the-defender-for-iot-and-microsoft-sentinel-integration).
+- Integrate alert details with other Microsoft services. For example, with Microsoft Sentinel playbooks and workbooks. See [About the Defender for IoT and Microsoft Sentinel Integration](concept-sentinel-integration.md).
 
 ### How is the Alerts page populated?
 
@@ -89,7 +89,7 @@ Various Alerts page options help you easily find and view alerts and alert infor
 
 1. Use the **Search**, **Time Range**, and **Filter** options at the top of the Alerts page.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/filters-on-alerts-page.png" alt-text="Filters bar on alerts Cloud page":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/filters-on-alerts-page.png" alt-text="Screenshot of the filters bar on the Alerts page in the Azure portal.":::
 
 **To group alerts:**
 
@@ -104,7 +104,7 @@ Various Alerts page options help you easily find and view alerts and alert infor
 
 Use the category filter to quickly find information important to you. Using category filters also gives you information regarding the number of alerts for each category. For example, 50 operational alerts, 13 firmware changes or 23 command failures.
 
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/category-filter.png" alt-text="Category filter option in cloud alerts page":::
+:::image type="content" source="media/how-to-view-manage-cloud-alerts/category-filter.png" alt-text="Screenshot of the Category filter option in Alerts page in the Azure portal.":::
 
 The following categories are available:
 - Abnormal Communication Behavior
@@ -140,11 +140,11 @@ The number of alerts currently detected appears on the top-left section of the A
 
 1. Select **Group by** and select a group. The number of alerts is displayed for each group.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/group-by-severity.png" alt-text="Alerts page group by filter with severity filter chosen":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/group-by-severity.png" alt-text="Screenshot of the Alerts page, filtered by severity.":::
 
 1. Alternatively use the **Add filter** option to choose a subject of interest and select **Column.** The column dropdown shows the number alerts associated with the column name.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-count-breakdown.png" alt-text="Alert filters showing protocols with count for each protocol":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-count-breakdown.png" alt-text="Screenshot of Alert filters showing protocols with count for each protocol.":::
 
 ## View alert descriptions and other details
 
@@ -160,11 +160,11 @@ View more information about the alert, such as:
 1. Select an alert.
 1. The details pane opens with the alert description, source, and destination information and other details.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Alert selected from Alerts cloud page":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal.":::
 
 1. To view more details and review remediation steps,  select **View full details**. The Alert Details pane provides more information about source device and related entities. Related links in the MITRE Partnership website are also available.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Selected alert with full details":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of a selected alert with full details.":::
   
 If you're integrating with Microsoft Sentinel, the Alert details and entity information are sent to Microsoft Sentinel.  
 
@@ -177,7 +177,7 @@ Defender for IoT provides remediation steps you can carry out for the alert. Rem
 1. Select an alert from the Alerts page.
 1. Select **Take action** in the dialog box that opens.
 
-    :::image type="content" source="media/how-to-view-manage-cloud-alerts/take-action-cloud-alert.png" alt-text="Remediation action for sample cloud alert":::
+    :::image type="content" source="media/how-to-view-manage-cloud-alerts/take-action-cloud-alert.png" alt-text="Screenshot of a remediation action for a sample alert in the Azure portal.":::
 
 ## Manage alert status and severity
 
@@ -205,10 +205,10 @@ Users working with alerts in Azure and on-premises should understand how alert m
 
  Parameter | Description
 |--|--|
-| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console impact the rules detected by managed sensors. As a result, the alerts excluded be these rules won't be displayed in the Alerts page. See [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules) for more information.
-| **Managing alerts on-premises**  |  Alerts  **Learned**,  **Acknowledged**, or **Muted** in the on-premises management console or in sensors aren't simultaneously updated in Alerts page on the Defender for IoT Cloud Alerts page. This means that this alert will stay open on the Cloud. However another alert  will not be triggered from the on-premises components for this activity.
-| **Managing alert in the portal Alerts page** | Changing the status of an alert to **New**, **Active**, or **Closed** on the Alerts page or changing the alert severity on the Alerts page doesn't impact the alert status or severity  in the on-premises management console or sensors.
+| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console affect the rules detected by managed sensors. As a result, the alerts excluded be these rules won't be displayed in the Alerts page. See [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules) for more information.
+| **Managing alerts on-premises**  |  Alerts  **Learned**,  **Acknowledged**, or **Muted** in the on-premises management console or in sensors aren't simultaneously updated in Alerts page on the Defender for IoT Cloud Alerts page. This means that this alert will stay open on the Cloud. However another alert  won't be triggered from the on-premises components for this activity.
+| **Managing alert in the portal Alerts page** | Changing the status of an alert to **New**, **Active**, or **Closed** on the Alerts page or changing the alert severity on the Alerts page doesn't affect the alert status or severity  in the on-premises management console or sensors.
 
-## See also
+## Next steps
 
-[Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats)
+For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats).
