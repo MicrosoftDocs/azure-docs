@@ -32,6 +32,38 @@ The minimum number of replicas suitable for production is three, preferably comb
 
 By default, a self-hosted gateway is deployed with a **RollingUpdate** deployment [strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy). Review the default values and consider explicitly setting the [maxUnavailable](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-unavailable) and [maxSurge](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#max-surge) fields, especially when you're using a high replica count.
 
+## Autoscaling
+
+While we provide [guidance on the minimum number of replicas](#number-of-replicas) for the self-hosted gateway, we recommend that you use autoscaling for the self-hosted gateway to meet the demand of your traffic more proactively.
+
+There are two ways to autoscale the self-hosted gateway horizontally:
+
+- Autoscale based on resource usage (CPU and memory)
+- Autoscale based on the number of requests per second
+
+This is possible through native Kubernetes functionality, or by using [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/). KEDA is a CNCF Incubation project that strives to make application autoscaling simple.
+
+> [!NOTE]
+> KEDA is an open-source technology that is not supported by Azure support and needs to be operated by customers.
+
+### Resource-based autoscaling
+
+Kubernetes allows you to autoscale the self-hosted gateway based on resource usage by using a [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/). It allows you to [define CPU and memory thresholds](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-resource-metrics), and the number of replicas to scale out or in.
+
+An alternative is to use Kubernetes Event-driven Autoscaling (KEDA) allowing you to scale workloads based on a [variety of scalers](https://keda.sh/docs/latest/scalers/), including CPU and memory.
+
+> [!TIP]
+> If you are already using KEDA to scale other workloads, we recommend using KEDA as a unified app autoscaler. If that is not the case, then we strongly suggest to rely on the native Kubernetes functionality through Horizontal Pod Autoscaler.
+
+### Traffic-based autoscaling
+
+Kubernetes does not provide an out-of-the-box mechanism for traffic-based autoscaling.
+
+Kubernetes Event-driven Autoscaling (KEDA) provides a few ways that can help with traffic-based autoscaling:
+
+- You can scale based on metrics from a Kubernetes ingress if they are available in [Prometheus](https://keda.sh/docs/latest/scalers/prometheus/) or [Azure Monitor](https://keda.sh/docs/latest/scalers/azure-monitor/) by using an out-of-the-box scaler
+- You can install [HTTP add-on](https://github.com/kedacore/http-add-on), which is available in beta, and scales based on the number of requests per second.
+
 ## Container resources
 By default, the YAML file provided in the Azure portal doesn't specify container resource requests.
 

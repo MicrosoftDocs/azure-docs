@@ -38,7 +38,7 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 http://mystorageaccount.blob.core.windows.net
 ```
 
-The following table describes the different types of storage accounts support Blob Storage:
+The following table describes the different types of storage accounts that are supported for Blob Storage:
 
 | Type of storage account | Performance tier | Usage |
 |--|--|--|

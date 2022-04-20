@@ -34,7 +34,7 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | Dismiss alerts | - | ✔ | - | ✔ | ✔ |
 | Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | - | - | ✔ | ✔ | ✔ |
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
-|  |  |  |  |  |
+
 
 For **auto provisioning**, the specific role required depends on the extension you're deploying. For full details, check the tab for the specific extension in the [availability table on the auto provisioning quick start page](enable-data-collection.md#availability).
 

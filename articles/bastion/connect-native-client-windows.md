@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 03/17/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
 
-# Connect to a VM using a native client (Preview)
+# Connect to a VM using a native client
 
-This article helps you configure your Bastion deployment, and then connect to a VM in the VNet using a native client (SSH or RDP) on your local computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally with this feature, you can now also upload or download files, depending on the connection type and client.
+This article helps you configure your Bastion deployment, and then connect to a VM in the VNet using the native client (SSH or RDP) on your local computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally with this feature, you can now also upload or download files, depending on the connection type and client.
 
 Your capabilities on the VM when connecting via a native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
 
@@ -35,8 +35,6 @@ There are two different sets of connection instructions.
   * Connect using SSH or RDP.
   * Set up concurrent VM sessions with Bastion.
   * [Upload files](vm-upload-download-native.md#tunnel-command) to your target VM from your local computer. File download from the target VM to the local client is currently not supported for this command.
-
-**Preview limitations**
 
 Currently, this feature has the following limitation:
 
@@ -135,8 +133,8 @@ Use the example that corresponds to the type of target VM to which you want to c
    ```
 
    **SSH:**
-
-   The SSH CLI extension is currently in Preview. The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
+ 
+   The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
 
    ```azurecli
    az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
@@ -166,7 +164,7 @@ Use the example that corresponds to the type of target VM to which you want to c
 
    **SSH:**
 
-   The SSH CLI extension is currently in Preview. The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
+   The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
 
      ```azurecli
      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"

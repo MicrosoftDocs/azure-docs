@@ -11,9 +11,6 @@ ms.date: 09/29/2021
 
 Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you permissions on those resources, you'll create a virtual machine.
 
-> [!IMPORTANT]
-> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
-
 ## Prerequisites
 
 - An Azure subscription and resource group where you have an Arc VMware VM contributor role.

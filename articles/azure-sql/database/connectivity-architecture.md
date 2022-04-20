@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Connectivity Architecture 
-description: This document explains the Azure SQL Database connectivity architecture for database connections from within Azure or from outside of Azure.
+title: Azure SQL Database connectivity architecture 
+description: This article explains the Azure SQL Database connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: kendralittle, mathoma, vanto
-ms.date: 01/25/2021
+ms.date: 03/18/2022
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -30,7 +30,7 @@ The following steps describe how a connection is established to Azure SQL Databa
 
 - Clients connect to the gateway, that has a public IP address and listens on port 1433.
 - The gateway, depending on the effective connection policy, redirects or proxies the traffic to the right database cluster.
-- Inside the database cluster traffic is forwarded to the appropriate database.
+- Inside the database cluster, traffic is forwarded to the appropriate database.
 
 ## Connection policy
 
@@ -44,7 +44,7 @@ Servers in SQL Database and Azure Synapse support the following three options fo
 
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is`Redirect` for all client connections originating inside of Azure (for example, from an Azure Virtual Machine) and `Proxy`for all client connections originating outside (for example, connections from your local workstation).
 
-We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput. However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../../virtual-network/network-security-groups-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
+We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput. However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine, you can accomplish this using Network Security Groups (NSG) with [service tags](../../virtual-network/network-security-groups-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
 
 ## Connectivity from within Azure
 

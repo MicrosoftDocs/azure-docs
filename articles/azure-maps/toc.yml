@@ -329,6 +329,8 @@ items:
     items: 
     - name: The Azure Maps Power BI visual
       href: power-bi-visual-get-started.md
+    - name: Geocoding in Azure Maps Power BI Visual
+      href: power-bi-visual-geocode.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
@@ -351,6 +353,8 @@ items:
       href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
+  - name: Show right attribution
+    href: how-to-show-attribution.md
 - name: Reference
   items:
   - name: API and parameter extensions

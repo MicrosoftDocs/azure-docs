@@ -665,7 +665,6 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 + [collectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.collectionname)
 + [createIfNotExists](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.createifnotexists)
 + [dataType](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.datatype)
-+ [id](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.id)
 + [partitionKey](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.partitionkey)
 + [preferredLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.preferredlocations)
 + [useMultipleWriteLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.usemultiplewritelocations)

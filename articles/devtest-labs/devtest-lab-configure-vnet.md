@@ -2,6 +2,8 @@
 title: Configure a virtual network
 description: Learn how to configure an existing virtual network and subnet to use for creating virtual machines in Azure DevTest Labs.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 02/15/2022
 ---
 
@@ -67,5 +69,5 @@ If you allowed VM creation in one of the subnets, you can now create lab VMs in 
 
 ## Next steps
 
-- For more information about how to set up, use, and manage virtual networks, see the [Azure virtual network documentation](/azure/virtual-network).
+- For more information about how to set up, use, and manage virtual networks, see the [Azure virtual network documentation](../virtual-network/index.yml).
 - You can deploy [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) in a new or existing virtual network to enable browser connection to your lab VMs. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).

@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 Testing your QnA Maker knowledge base is an important part of an iterative process to improve the accuracy of the responses being returned. You can test the knowledge base through an enhanced chat interface that also allows you make edits.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Interactively test in QnA Maker portal
 
 1. Access your knowledge base by selecting its name on the **My knowledge bases** page.

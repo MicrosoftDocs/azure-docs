@@ -26,7 +26,7 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 
 ### Spatial Analysis container requirements
 
-To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
+To run the Spatial Analysis container, you need a compute device with an NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -39,7 +39,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 4 GB system RAM
 * 4 GB of GPU RAM
 * 8 core CPU
-* 1 NVIDIA Tesla T4 GPU
+* 1 NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti)
 * 20 GB of HDD space
 
 #### Recommended hardware
@@ -47,7 +47,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 32 GB system RAM
 * 16 GB of GPU RAM
 * 8 core CPU
-* 2 NVIDIA Tesla T4 GPUs
+* 2 NVIDIA CUDA Compute Capable GPUs 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti)
 * 50 GB of SSD space
 
 In this article, you will download and install the following software packages. The host computer must be able to run the following (see below for instructions):

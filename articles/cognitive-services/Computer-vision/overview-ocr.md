@@ -39,7 +39,8 @@ The **Read** call takes images and documents as its input. They have the followi
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
 * For PDF and TIFF files, up to 2000 pages (only first two pages for the free tier) are processed.
-* The file size must be less than 50 MB (6 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
+* The file size must be less than 50 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
+* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This corresponds to about 8 font point text at 150 DPI.
 
 ## Supported languages
 The Read API latest preview supports 164 languages for print text and 9 languages for handwritten text.

@@ -2,8 +2,10 @@
 title: How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
+ms.author: elkrieger
+author: Elazark
 zone_pivot_groups: k8s-host
-ms.date: 03/15/2022
+ms.date: 03/27/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -17,8 +19,7 @@ Defender for Containers protects your clusters whether they're running in:
 
 - **Google Kubernetes Engine (GKE) in a connected Google Cloud Platform (GCP) project** - Google’s managed environment for deploying, managing, and scaling applications using GCP infrastructure.
 
-- **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
-
+- **Other Kubernetes distributions** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS. For more information, see the **On-prem/IaaS (Arc)** section of [Supported features by environment](supported-machines-endpoint-solutions-clouds-containers.md#supported-features-by-environment).
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 

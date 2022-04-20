@@ -3,7 +3,7 @@ title: Restrict access to PaaS resources - tutorial - Azure portal
 description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as an Azure Storage, with virtual network service endpoints using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 07/16/2021
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal

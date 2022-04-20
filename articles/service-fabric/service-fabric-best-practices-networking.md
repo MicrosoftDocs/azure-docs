@@ -146,7 +146,7 @@ The integration of Azure API Management (Service Tag: ApiManagement) need Client
 
 * Use a reverse proxy such as [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) or the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) to expose common application ports such as 80 or 443.
 
-* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
+* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
 
 ## Next steps
 
