@@ -71,9 +71,9 @@ using Microsoft.ApplicationInsights;
 
 By default this SDK will collect and store the computer name of the system emitting telemetry.
 
-Computer name is used by Application Insights [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier) for internal billing purposes. By default if you use a telemetry initializer to override `telemetry.Context.Cloud.RoleInstance`, a separate property `ai.internal.nodeName` will be sent which will still contain the computer name value. This value will not be stored with your Application Insights telemetry, but is used internally at ingestion to allow for backwards compatibility with the legacy node-based billing model.
+Computer name is used by Application Insights [Legacy Enterprise (Per Node) pricing tier](../logs/cost-logs.md#legacy-pricing-tiers) for internal billing purposes. By default if you use a telemetry initializer to override `telemetry.Context.Cloud.RoleInstance`, a separate property `ai.internal.nodeName` will be sent which will still contain the computer name value. This value will not be stored with your Application Insights telemetry, but is used internally at ingestion to allow for backwards compatibility with the legacy node-based billing model.
 
-If you are on the [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier) and simply need to override storage of the computer name, use a telemetry Initializer:
+If you are on the Legacy Enterprise (Per Node) pricing tier and simply need to override storage of the computer name, use a telemetry Initializer:
 
 **Write custom TelemetryInitializer as below.**
 
@@ -114,7 +114,7 @@ Instantiate the initializer in the `Program.cs` `Main()` method below setting th
 
 ## Override transmission of computer name
 
-If you aren't on the [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier) and wish to completely prevent any telemetry containing computer name from being sent, you need to use a telemetry processor.
+If you aren't on the Legacy Enterprise (Per Node) pricing tier and wish to completely prevent any telemetry containing computer name from being sent, you need to use a telemetry processor.
 
 ### Telemetry processor
 
@@ -170,7 +170,7 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> While you can technically use a telemetry processor as described above even if you are on the [Legacy Enterprise (Per Node) pricing tier](./pricing.md#legacy-enterprise-per-node-pricing-tier), this will result in the potential for over-billing due to the inability to properly distinguish nodes for per node pricing.
+> While you can technically use a telemetry processor as described above even if you are on the Legacy Enterprise (Per Node) pricing tier, this will result in the potential for over-billing due to the inability to properly distinguish nodes for per node pricing.
 
 ## Next steps
 * [Create a dashboard](./overview-dashboard.md)

@@ -687,7 +687,7 @@ You can also:
 [cert-manager-issuer]: https://cert-manager.io/docs/concepts/issuer/
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
-[helm-install]: https://docs.helm.sh/using-helm/#installing-helm
+[helm-install]: https://helm.sh/docs/helm/helm_install
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 
 <!-- LINKS - internal -->

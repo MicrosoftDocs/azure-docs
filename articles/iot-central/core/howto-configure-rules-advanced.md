@@ -27,9 +27,6 @@ To complete the steps in this how-to guide, you need:
 
 [!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
-> [!NOTE]
-> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
-
 ## Trigger a workflow from a rule
 
 Before you can trigger a workflow in Power Automate or Azure Logic Apps, you need a rule in your IoT Central application. To learn more, see [Configure rules and actions in Azure IoT Central](./howto-configure-rules.md).

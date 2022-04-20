@@ -11,8 +11,6 @@ ms.date: 03/22/2022
 
 This article describes platform-as-a-service (PaaS) support in Azure DevTest Labs. DevTest Labs supports PaaS through *environments*, which can include both PaaS and infrastructure-as-a-service (IaaS) resources. Environments contain services and software like virtual machines (VMs), databases, virtual networks, and web apps that are customized to work together.
 
-DevTest Labs creates environments by using preconfigured Azure Resource Manager (ARM) templates from Git repositories. Keeping the ARM templates under source control promotes consistent environment deployment and management.
-
 The following image shows a SharePoint farm created as an environment in a lab.
 
 ![Screenshot of a SharePoint environment in a lab.](media/use-paas-services/environments.png)
@@ -48,11 +46,13 @@ Lab owners can customize resource access or permissions without granting subscri
 
 ## Environment templates
 
+DevTest Labs creates environments by using preconfigured Azure Resource Manager (ARM) templates from Git repositories. Keeping the ARM templates under source control promotes consistent environment deployment and management.
+
 In large organizations, development teams typically provide customized or isolated testing environments. The IT group provides environments that all teams within a business unit or a division can use.
 
 To enable and configure environment creation for labs, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). DevTest Labs has a public repository of preconfigured ARM templates for creating certain environments. For more information about the public environments, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#enable-and-configure-public-environments).
 
-You can also create or configure your own ARM environment templates, store them in private Git repositories, and connect those repositories to labs. For more information, see [Use Azure Resource Manager (ARM) templates in Azure DevTest Labs](devtest-lab-use-arm-and-powershell-for-lab-resources.md).
+You can also [create or configure your own ARM templates](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), [store them in private Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to labs](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories).
 
 ## Template customization
 
@@ -62,15 +62,15 @@ You can provide certain custom lab information in ARM templates when creating en
 - Lab location
 - Lab storage account where the ARM templates files are copied
  
-### Existing virtual network
+### Use an existing virtual network
 
 When you create an environment, DevTest Labs can replace the `$(LabSubnetId)` token with the first lab subnet where **Use in virtual machine creation** is set to **true**. This modification allows the environment to use previously created virtual networks.
 
 [Connect environments to the lab's virtual network](connect-environment-lab-virtual-network.md) describes how to modify an ARM template to use the `$(LabSubnetId)` token. To use the same ARM template in test, staging, and production environments, use `$(LabSubnetId)` as a value in an ARM template parameter.
 
-### Nested templates
+### Use nested templates
 
-DevTest Labs supports [nested ARM templates](/azure/azure-resource-manager/templates/linked-templates). To use `_artifactsLocation` and `_artifactsLocationSasToken` tokens to create a URI to a nested ARM template, see [Deploy DevTest Labs environments by using nested templates](deploy-nested-template-environments.md). For more information, see the **Deployment artifacts** section of the [Azure Resource Manager Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
+DevTest Labs supports [nested ARM templates](../azure-resource-manager/templates/linked-templates.md). To use `_artifactsLocation` and `_artifactsLocationSasToken` tokens to create a URI to a nested ARM template, see [Deploy DevTest Labs environments by using nested templates](deploy-nested-template-environments.md). For more information, see the **Deployment artifacts** section of the [Azure Resource Manager Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 ## Next steps
 
@@ -78,4 +78,3 @@ DevTest Labs supports [nested ARM templates](/azure/azure-resource-manager/templ
 - [Create an environment with a self-contained Service Fabric cluster in Azure DevTest Labs](create-environment-service-fabric-cluster.md)
 - [Connect an environment to your lab's virtual network in Azure DevTest Labs](connect-environment-lab-virtual-network.md)
 - [Integrate environments into your Azure DevOps CI/CD pipelines](integrate-environments-devops-pipeline.md)
-

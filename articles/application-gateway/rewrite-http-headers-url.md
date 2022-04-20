@@ -175,9 +175,6 @@ For example, say you have the following header rewrite rule for the header `"Acc
 
 Here, with only header rewrite configured, the WAF evaluation will be done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation will be done on `"Accept" : "image/png"`.
 
->[!NOTE]
-> URL rewrite operations are expected to cause a minor increase in the CPU utilization of your WAF Application Gateway. It is recommended that you monitor the [CPU utilization metric](high-traffic-support.md) for a brief period of time after enabling the URL rewrite rules on your WAF Application Gateway.
-
 ### Common scenarios for header rewrite
 
 #### Remove port information from the X-Forwarded-For header
@@ -288,6 +285,7 @@ In the case of a URL redirect, Application Gateway sends a redirect response to 
 - Rewrites are not supported when the application gateway is configured to redirect the requests or to show a custom error page.
 - Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (\_) special character in Header names.
 - Connection and upgrade headers cannot be rewritten
+- Rewrites are not supported for 4xx and 5xx responses generated directly from Application Gateway
 
 ## Next steps
 

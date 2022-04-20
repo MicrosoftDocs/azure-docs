@@ -288,7 +288,7 @@ Forbidden. The authorization token isn't provided, is invalid or expired.  Or th
 
 You can call the usage events API to get the list of usage events. ISVs can use this API to see the usage events that have been posted for a certain configurable duration of time and what state these events are at the point of calling the API.
 
-GET: https://marketplaceapi.microsoft.com/api/usageEvents
+GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
 
 *Query parameters*:
 
