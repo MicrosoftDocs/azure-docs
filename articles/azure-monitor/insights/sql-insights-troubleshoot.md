@@ -1,14 +1,14 @@
 ---
-title: Troubleshoot SQL insights (preview)
-description: Learn how to troubleshoot SQL insights in Azure Monitor.
+title: Troubleshoot SQL Insights (preview)
+description: Learn how to troubleshoot SQL Insights (preview) in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 4/19/2022
 ---
 
-# Troubleshoot SQL insights (preview)
-To troubleshoot data collection issues in SQL insights, check the status of the monitoring machine on the **Manage profile** tab. The statuses are:
+# Troubleshoot SQL Insights (preview)
+To troubleshoot data collection issues in SQL Insights (preview), check the status of the monitoring machine on the **Manage profile** tab. The statuses are:
 
 - **Collecting** 
 - **Not collecting** 
@@ -24,7 +24,7 @@ The monitoring machine has a status of **Not collecting** if there's no data in 
 > [!NOTE]
 > Make sure that you're trying to collect data from a [supported version of SQL](sql-insights-overview.md#supported-versions). For example, trying to collect data with a valid profile and connection string but from an unsupported version of Azure SQL Database will result in a **Not collecting** status.
 
-SQL insights uses the following query to retrieve this information:
+SQL Insights (preview) uses the following query to retrieve this information:
 
 ```kusto
 InsightsMetrics 
@@ -206,4 +206,4 @@ During preview of SQL Insights, you may encounter the following known issues.
 
 ## Next steps
 
-- Get details on [enabling SQL insights](sql-insights-enable.md).
+- Get details on [enabling SQL Insights (preview)](sql-insights-enable.md).
