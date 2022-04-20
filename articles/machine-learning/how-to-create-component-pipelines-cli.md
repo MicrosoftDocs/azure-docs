@@ -65,7 +65,10 @@ In this article, you learn how to create and run [machine learning pipelines](co
 4. Register component for resue and sharing
 
 
+
 ## 1. Create your first pipeline using component
+
+Let's create your first pipeline with component using an example. This aims to give you an initial impression of what pipeline and components looks like in AzureML.
 
 From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `3b_pipeline_with_data` subdirector. List your available compute resources with the following command: 
 
@@ -79,7 +82,7 @@ If you don't have it, create a cluster called `cpu-cluster` by running:
 az ml compute create -n cpu-cluster --type amlcompute --min-instances 0 --max-instances 10
 ```
 
-Now, create a pipeline job with the following command:
+Now, create a pipeline job defined in the pipeline.yml file with the following command:
 
 ```azurecli
 az ml job create --file pipeline.yml
@@ -94,15 +97,14 @@ You should receive a JSON dictionary with information about the pipeline job, in
 | `services.Studio.endpoint` | A URL for monitoring and reviewing the pipeline job. | 
 | `status` | The status of the job. This will likely be `Preparing` at this point. |
 
-Open the `services.Studio.endpoint` URL you will see a graph visualization of the pipeline looks like below image.
+Open the `services.Studio.endpoint` URL you will see a graph visualization of the pipeline looks like below. 
 ![pipeline-graph](./media/how-to-create-component-pipelines-cli/pipeline-graph-dependencies.png) 
 
 
 
 ## Understand the pipeline defination YAML
 
-Let's take a look at code snippet in the *jobs/pipelines-with-components/basics/basics/3b_pipeline_with_data/pipeline.yml* file. 
-
+Let's take a look at the pipeline defination in the *3b_pipeline_with_data/pipeline.yml* file.  
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/basics/3b_pipeline_with_data/pipeline.yml":::
 
@@ -151,25 +153,27 @@ jobs:
       #  mode: upload
 ```
 
-Below table describes the key pipeline YAML schema. See [full pipeline YAML schema here](./reference-pipeline-yaml.md).  
+Below table describes the most common used fields of pipeline YAML schema. See [full pipeline YAML schema here](./reference-pipeline-yaml.md).  
 
 |key|description|
 |------|------|
-|type|**Required**. Need to be `pipeline`|
+|type|**Required**. Job type, need to be `pipeline` for pipeline jobs.|
 |name|Name of the pipeline job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name.|
-|display_name|Display name of the pipeline job in Studio UI. Editable.  Don't need be unique across all jobs in the workspace.|
+|display_name|Display name of the pipeline job in Studio UI. Editable in Studio UI.  Don't need be unique across all jobs in the workspace.|
 |jobs|**Required**. Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. In this release, supported job types in pipeline are `command` and `sweep`
 |inputs|Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the ${{ parent.inputs.<input_name> }} expression.|
 |outputs|Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job and the value is the output configuration.These pipeline outputs can be referenced by the outputs of an individual step job in the pipeline using the ${{ parents.outputs.<output_name> }} expression. |
 
-This example *cli/jobs/pipelines-with-components/basics/basics/3b_pipeline_with_data/pipeline.yml* is a three steps pipeline:
-- The three steps are all command jobs.
-- component A takes data input from local folder under `./data`, and pass it's output to componentB. This is defined in: 
-![input-output](./media/how-to-create-component-pipelines-cli/inputs-and-outputs.png)
+In the *3b_pipeline_with_data/pipeline.yml* example, we have created a three step pipeline.
+- The three steps are defined under `jobs`. All three steps are command job. Each step's defination is in corresponding `component.yml` file. You can see the files under *3b_pipeline_with_data* deirectory. We will exlain the componentA.yml in next section. 
+- This pipeline have data dependency, which is common is most real world pipelines. Component_a takes data input from local folder under `./data`(line 17-20), and pass it's output to componentB (line 29). Component_a's output can be referenced with `${{parent.jobs.component_a.outputs.component_a_output}}`
+
+![pipeline-input-output](./media/how-to-create-component-pipelines-cli/pipeline-inputs-and-outputs.png)
 
 
-### Use data in pipeline job
-To use data as input of a pipeline job, there is no special handle for pipeline. See [Sam's data aeticle](add link to data article). Below are examples of using data stored in different location as pipeline input. 
+
+### Reading and writing data in pipeline
+One common scenario is to reading and writing data in your pipeline . In AuzreML, we use the same schema to read and write data for pipeline job and single step job. See [Sam's data aeticle](add link to Sam's data article) to understand how to read and write data. Below are pipeline examples of using data for comman use cases. 
 
 **to-do: update below link after merge to main**
 - [local data](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/cli/jobs/pipelines-with-components/basics/4a_local_data_input) 
@@ -178,12 +182,13 @@ To use data as input of a pipeline job, there is no special handle for pipeline.
 - [AzureML data asset](https://github.com/Azure/azureml-examples/tree/april-sdk-preview/cli/jobs/pipelines-with-components/basics/4d_data_input) 
 
 
-### Overwrite component inputs in pipeline
-If you have a input defined in component, and you want to change the input value at run time. You don't have to update the component , just pass value in the pipeline YAML. Pipeline value will overwrite the pipeline YAML value. 
+<!-- ### Overwrite component inputs in pipeline
+If you have a input defined in component, and you want to change the input value at run time. You don't have to update the component , just pass value in the pipeline YAML. Pipeline value will overwrite the pipeline YAML value.  -->
 
 
 ## Understand the component defination YAML 
-In the *cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data* example, we use three components with data dependency. Let's take a look at *componentA.yml*
+
+Now let's look at the *componentA.yml* as an example to understand component defination YAML.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/basics/3b_pipeline_with_data/componentA.yml":::
 
@@ -227,9 +232,8 @@ The key schema of the component YAML is described in below table. See [full comp
 |is_deterministic|Whether to reuse previous job's result if the component input not change. Default value is `true`, aka resue by default. The common scenario to set it as `false` is to force reload data from a cloud storage or URL.|
 
 
-For the example in *3b_pipeline_with_data/componentA.yml*, componentA has 1 data input and 1 data output, which can be connect to other steps in the parent pipeline. All the files under `code` secion in component YAML will be uploaded to AzureML when submit the pipeline job. You can see a component's soucre code in Studio UI: double click the ComponentA step and navigate to Snapshot tab. As shown in below picture, componentA's source code (hello.py) is a simple hello world script. 
-
-We suggest to use `argparse` to add input and output as argument in your source code.  
+For the example in *3b_pipeline_with_data/componentA.yml*, componentA has 1 data input and 1 data output, which can be connect to other steps in the parent pipeline. All the files under `code` secion in component YAML will be uploaded to AzureML when submit the pipeline job. You can see a component's soucre code in Studio UI: double click the ComponentA step and navigate to Snapshot tab. The source code of componentA is shown in below screenshot. We can see it's a hello-world script just doing some simple printing, and write current datatime to the `componentA_output` path. The input and output is handled in the script using `argparse`. 
+  
 ![componentA](./media/how-to-create-component-pipelines-cli/component-snapshot.png)
 
 
@@ -238,13 +242,14 @@ Input and output defines the interface of a command. Input and output could be e
 
 Object input (of type `uri_file`, `uri_folder`,`mlflow_model`,`custom_model`) can connect to other steps in the parent pipeline job and hence pass data/model to other steps. You can also define how data will be delieverd to the compute target. See more in [command component YAML defination](./reference-yaml-component-command.md#component-input) 
 
-Literal value inputs (`string`,`number`,`integer`,`boolean`) are the parameters you can pass to the component at run time. You can add `default` value of leteral inputs. For `number` and `integer` type, you can also add `min` and `max` value of the accepted value. If the input value exceeds the min and max, pipeline will fail at validation (happens when you submit a pipeline job) and save you time on debugging. 
+Literal value inputs (`string`,`number`,`integer`,`boolean`) are the parameters you can pass to the component at run time. You can add `default` value of leteral inputs. For `number` and `integer` type, you can also add `min` and `max` value of the accepted value. If the input value exceeds the min and max, pipeline will fail at validation. Validation happens before you submit a pipeline job to save you time on debugging. Validation works for CLI, Python SDK and designer UI. below screenshot shows a validatoin example in designer UI. 
+
 
 Below is an example of train_example.yml. 
 
-to-do: add an screenshot of YAML, grpah and right panel. 
 ![component-input-output](./media/how-to-create-component-pipelines-cli/component-input-output.png)
 
+If you want to add an input to a component, remember to edit three places: 1)component source code, 2)input section in component YAML 3)command sesction in component YAML. It's marked in green box in above screenshot.  
 
 ### Environment
 Environment defines the environemnt to execu te the component. It's possible value and example shows in below list: 
@@ -284,6 +289,21 @@ Click on a component. You'll see some basic information about the component, suc
 In the `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The keys and values in the `inputs` and `outputs` dictionaries are similar to those already discussed. The only significant difference is the value of the `command` values in the `jobs.<JOB_NAME>.component` entries. The `component` value is of the form `azureml:<JOB_NAME>:<COMPONENT_VERSION>`. The `train-job` definition, for instance, specifies the latest version of the registered component `Train` should be used:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40" highlight="4":::
+```yaml
+jobs:
+  train_job:
+    type: command
+    component: azureml:my_train@latest
+    inputs:
+      training_data: 
+        type: uri_folder 
+        path: ./data      
+      max_epocs: ${{parent.inputs.pipeline_job_training_max_epocs}}
+      learning_rate: ${{parent.inputs.pipeline_job_training_learning_rate}}
+      learning_rate_schedule: ${{parent.inputs.pipeline_job_learning_rate_schedule}}
+    outputs:
+      model_output: ${{parent.outputs.pipeline_job_trained_model}}
+```
  
 
 ### Manage components
