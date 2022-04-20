@@ -124,7 +124,7 @@ Image version:
 - Exclusion from latest
 - End of life date
 
-If you plan on adding replica regions, do not delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
+If you plan on adding replica regions, don't delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
 Update the description of a gallery using ([az sig update](/cli/azure/sig#az-sig-update). 
 
@@ -199,7 +199,7 @@ Image version:
 - Exclusion from latest
 - End of life date
 
-If you plan on adding replica regions, do not delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
+If you plan on adding replica regions, don`t delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
 To update the description of a gallery, use [Update-AzGallery](/powershell/module/az.compute/update-azgallery).
 
