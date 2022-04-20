@@ -13,6 +13,8 @@ ms.author: cshoe
 
 Azure Container Apps provides built-in authentication and authorization capabilities (sometimes referred to as "Easy Auth"), so you can sign in users and access data by writing minimal or no code in your ingress-enabled container app.
 
+For examples of how enable authentication and authorization features in your app, refer to [Enable authentication and authorization](./enable-authentication.md).
+
 ## Why use the built-in authentication?
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards, and keep your implementation up to date.
