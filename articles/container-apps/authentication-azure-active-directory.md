@@ -141,7 +141,7 @@ This process allows _any_ client application in your Azure AD tenant to request 
 1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
 1. Make sure to select **Grant admin consent** to authorize the client application to request the permission.
 1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token will include a `roles` claim containing the App Roles that were authorized for the client application.
-1. Within the target Container Apps code, you can now validate that the expected roles are present in the token. The validation steps aren't performed by the Container Apps auth layer. For more information, see [Access user claims](#access-user-claims-in-app-code).
+1. Within the target Container Apps code, you can now validate that the expected roles are present in the token. The validation steps aren't performed by the Container Apps auth layer. For more information, see [Access user claims](authentication.md#access-user-claims-in-application-code).
 
 You've now configured a daemon client application that can access your container app using its own identity.
 
