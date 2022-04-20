@@ -48,7 +48,7 @@ There are some important best practices to follow for optimal performance of NFS
 
 - For optimized performance, choose **UltraPerformance** gateway and enable [ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For best performance, it's recommended to use the Ultra tier.
-- For a better performance, create multiple datastores of 4-TB size. The current default datastore limit is 8. The limit can be increased up to a maximum of 64 through submitting a Support ticket.  
+- Create multiple datastores of 4-TB size for better performance. The current default datastore limit is 8. The limit can be increased up to a maximum of 64 through submitting a Support ticket.  
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
