@@ -5,13 +5,15 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/22/2022
 ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+
 ---
+
 # Scale an Azure Cache for Redis instance
 
-Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. For a Basic, Standard or Premium cache, you can change its size and tier after creating it to match your application needs. This article shows you how to scale your cache using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.
+Azure Cache for Redis has different cache offerings that provide flexibility in the choice of cache size and features. For a Basic, Standard or Premium cache, you can change its size and tier after creating it to match your application needs. This article shows you how to scale your cache using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.
 
 ## When to scale
 
@@ -37,16 +39,16 @@ For more information on determining the cache pricing tier to use, see [Choosing
 
 ## Scale a cache
 
-To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
+1. To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
 
-:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
+    :::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
 
-Choose a pricing tier on the right and then choose **Select**.
-
-:::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
+1. Choose a pricing tier on the right and then choose **Select**.
+    
+    :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
 
 > [!NOTE]
-> Scaling is currently not avaialble with Enterprise Tier.
+> Scaling is currently not available with Enterprise Tier.
 >
 
 You can scale to a different pricing tier with the following restrictions:
@@ -67,6 +69,12 @@ When scaling is complete, the status changes from **Scaling** to **Running**.
 ## How to automate a scaling operation
 
 You can scale your cache instances in the Azure portal. And, you can scale using PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML).
+
+When you scale a cache up or down, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size. For example, if `maxmemory-reserved` is set to 3 GB on a 6-GB cache, and you scale to 12-GB cache, the settings automatically get updated to 6 GB during scaling. When you scale down, the reverse happens.
+
+> [!NOTE]
+> When you scale a cache up or down programmatically, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
+
 
 - [Scale using PowerShell](#scale-using-powershell)
 - [Scale using Azure CLI](#scale-using-azure-cli)
@@ -136,7 +144,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
 - You can scale from one **Premium** cache pricing tier to another.
 - You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a later scaling operation.
-- If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size). If your cache was created without clustering enabled, you can configure clustering at a later time.
+- If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#set-up-clustering). If your cache was created without clustering enabled, you can configure clustering at a later time.
 
 For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
 

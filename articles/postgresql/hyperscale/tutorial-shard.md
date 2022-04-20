@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Shard data on worker nodes - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: This tutorial shows how to create distributed tables and visualize their data distribution with Azure Database for PostgreSQL Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc

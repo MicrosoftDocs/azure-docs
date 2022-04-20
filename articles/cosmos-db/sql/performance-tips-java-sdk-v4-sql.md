@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 04/01/2021
 ms.author: jroth
 ms.custom: devx-track-java, contperf-fy21q2
 ---
@@ -168,22 +168,6 @@ As a first step, use the following recommended configuration settings below. The
 | idleEndpointTimeout        | "PT1H"    |
 | maxRequestsPerConnection   | "30"      |
 
-* **Tuning parallel queries for partitioned collections**
-
-Azure Cosmos DB Java SDK v4 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) related to working with Azure Cosmos DB Java SDK v4. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
-
-* ***Tuning setMaxDegreeOfParallelism\:***
-    
-Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use setMaxDegreeOfParallelism to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
-
-It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
-
-* ***Tuning setMaxBufferedItemCount\:***
-    
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
-
-Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
-
 * **Scale out your client-workload**
 
 If you are testing at high throughput levels, the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
@@ -191,20 +175,6 @@ If you are testing at high throughput levels, the client application may become 
 A good rule of thumb is not to exceed >50% CPU utilization on any given server, to keep latency low.
 
 <a id="tune-page-size"></a>
-
-* **Tune the page size for queries/read feeds for better performance**
-
-When performing a bulk read of documents by using read feed functionality (for example, *readItems*) or when issuing a SQL query (*queryItems*), the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
-
-Suppose that your application issues a query to Azure Cosmos DB, and suppose that your application requires the full set of query results in order to complete its task. To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by adjusting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header field. 
-
-* For single-partition queries, adjusting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) field value to -1 (no limit on page size) maximizes latency by minimizing the number of query response pages: either the full result set will return in a single page, or if the query takes longer than the timeout interval, then the full result set will be returned in the minimum number of pages possible. This saves on multiples of the request round-trip time.
-    
-* For cross-partition queries, setting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) field to -1 and removing the page size limit risks overwhelming the SDK with unmanageable page sizes. In the cross-partition case we recommend raising the page size limit up to some large but finite value, perhaps 1000, to reduce latency. 
-    
-In some applications, you may not require the full set of query results. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
-
-You may also set the preferred page size argument of the *byPage* method, rather than modifying the REST header field directly. Keep in mind that [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) or the preferred page size argument of *byPage* are only setting an upper limit on page size, not an absolute requirement; so for a variety of reason you may see Azure Cosmos DB return pages which are smaller than your preferred page size. 
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
@@ -299,6 +269,10 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 --- 
 
 The latter is supported but will add latency to your application; the SDK must parse the item and extract the partition key.
+
+## Query operations
+
+For query operations see the [performance tips for queries](performance-tips-query-sdk.md?pivots=programming-language-java).
 
 ## Indexing policy
  

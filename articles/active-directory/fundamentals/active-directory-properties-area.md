@@ -39,7 +39,7 @@ You add your organization's privacy information in the **Properties** area of Az
 
     - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
     
-    - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach. If there's no person listed here, Microsoft contacts your global administrators.
+    - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach related to Azure Active Directory services . If there's no person listed here, Microsoft contacts your global administrators. For Microsoft 365 related privacy incident notifications please see [Microsoft 365 Message center FAQs](/microsoft-365/admin/manage/message-center?preserve-view=true&view=o365-worldwide#frequently-asked-questions)
 
     - **Privacy statement URL.** Type the link to your organization's document that describes how your organization handles both internal and external guest's data privacy.
 

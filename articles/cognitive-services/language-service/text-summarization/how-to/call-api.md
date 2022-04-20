@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 03/16/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
@@ -37,7 +37,11 @@ Extractive summarization returns a rank score as a part of the system response a
 
 There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
 * key phrase extraction returns phrases while extractive summarization returns sentences
-* extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per request
+* extractive summarization returns sentences together with a rank score, and. Top ranked sentences will be returned per request
+* extractive summarization also returns the following positional information:
+    * offset: The start position of each extracted sentence, and
+    * Length: is the length of each extracted sentence.
+
 
 ## Determine how to process the data (optional)
 
@@ -82,7 +86,6 @@ Using the above example, the API might return the following summarized sentences
 *"In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z)."*
 
 *"At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better."*
-
 
 ## Service and data limits
 

@@ -14,7 +14,7 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 
 Here are some videos on the common use cases of Azure Files:
 * [Replace your file server with a serverless Azure file share](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-* [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
+* [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
 ## Why Azure Files is useful
 Azure file shares can be used to:

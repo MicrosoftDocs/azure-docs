@@ -2,8 +2,9 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 03/15/2022
 ---
+
 # Bicep CLI commands
 
 This article describes the commands you can use in the Bicep CLI. You must have the [Bicep CLI installed](./install.md) to run the commands.
@@ -162,11 +163,19 @@ module stgModule 'br:exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
 }
 ```
 
-The local cache is found at:
+The local cache is found in:
 
-```path
-%USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
-```
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
 
 ## upgrade
 
@@ -202,6 +211,6 @@ If you haven't installed Bicep CLI, you see an error indicating Bicep CLI wasn't
 
 To learn about deploying a Bicep file, see:
 
-* [Azure CLI](deploy-cli.md)
-* [Cloud Shell](deploy-cloud-shell.md)
-* [PowerShell](deploy-powershell.md)
+- [Azure CLI](deploy-cli.md)
+- [Cloud Shell](deploy-cloud-shell.md)
+- [PowerShell](deploy-powershell.md)
