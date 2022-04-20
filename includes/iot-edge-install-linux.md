@@ -44,7 +44,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
    sudo apt install ./packages-microsoft-prod.deb
 
 > [!TIP]
-> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
+> If you gave the "root" account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
@@ -90,9 +90,6 @@ Install the Moby engine.
    sudo apt-get update; \
      sudo apt-get install moby-engine
    ```
-
-> [!TIP]
-> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
@@ -144,9 +141,6 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
    sudo apt-get update; \
      sudo apt-get install iotedge
    ```
-
-> [!TIP]
-> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
@@ -203,9 +197,6 @@ Install the latest version of IoT Edge and the IoT identity service package:
    sudo apt-get update; \
      sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
-
-> [!TIP]
-> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
 
