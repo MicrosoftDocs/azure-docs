@@ -10,7 +10,7 @@
  ms.custom: include file
 
 ---
-The following limits apply to NAT gateway resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](/azure/networking/check-usage-against-limits).
+The following limits apply to NAT gateway resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 
 | Resource            | Limit              |
