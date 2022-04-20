@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 04/07/2022
+ms.date: 04/20/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -20,7 +20,98 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 ## April
 
-Azure AD Verifiable Credentials no longer requires Azure AD P2 licenses. All you need is An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+From April 25th, 2022 the Azure AD Verifiable Credential service is available to Azure Active Directory [Free subscriptions](https://azure.microsoft.com/free/). With this update any Azure AD tenant can issue and verify verifiable credentials independent of the subscription tier.  Prior to this change, the service was only available to tenants in Azure AD P2. Existing Verifiable Credentials deployments require administrators to take steps to ensure ongoing service operation.
+
+>[!IMPORTANT]
+> Tenants currently using the Azure AD Verifiable Credentials service must follow the steps below before April 25th, 2022 to avoid service disruptions.
+> You will need to perform clean up steps after you confirm that the verifiable credentials service is working as expected. We suggest that you implement the clean up steps after May 6th 2022.
+
+### Administrator update steps
+
+1. Run the following PowerShell commands. These commands install and import the Az module. For more information, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#installation).
+    1. ```azurepowershell
+    if((get-module -listAvailable -name "az.accounts") -eq $null){install-module -name "az.accounts" -scope currentUser}
+    if ((get-module -listAvailable -name "az.resources") -eq $null){install-module "az.resources" -scope currentUser}
+    ```
+1. Run the following PowerShell command to connect to your Azure AD tenant. Replace <your-tenant-ID> with your [Azure AD tenant ID](../fundamentals/active-directory-how-to-find-tenant.md)
+    1. ```azurepowershell
+    connect-azaccount -tenantID <your-tenant-ID>
+    ```
+1. Check if of the following Service principals have been added to your tenant by running the following command:
+    1. ```azurepowershell
+    get-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
+    get-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
+    ```
+  If you get an error on one of them, follow step 4 to create a new service principal.
+1. Run the following commands in the same PowerShell session. 
+
+   >[!NOTE]
+   >The AppId ```bb2a64ee-5d29-4b07-a491-25806dc854d3``` and ```3db474b9-6a0c-4840-96ac-1fceb342124f``` refer to the new Verifiable Credentials service principals.
+
+    1. ```azurepowershell
+       new-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
+       new-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
+      
+       ```
+
+#### Azure Key Vault policies
+
+Add an access policy for the Verifiable Credentials Service.
+
+1. In the Azure portal, go to the key vault you are using for the verifiable credential service.
+1. Under Settings, select Access policies.
+1. Select + Add Access Policy to For Key permissions, select **Get** and **Sign**.
+1. On the Service principal search for **bb2a64ee-5d29-4b07-a491-25806dc854d3** which is the Verifiable Credentials Service
+1. Select Add
+
+Add an access policy for the Verifiable Credentials Service Request.
+
+1. Select + Add Access Policy to For Key permissions, select Get and Sign.
+1. On the Service principal search for **3db474b9-6a0c-4840-96ac-1fceb342124f** which is the Verifiable Credentials Service Request part of Azure AD Free
+1. Select **Add**.
+1. Select **Save** to save your changes
+
+#### Grant the new Service Principal Access to the container
+
+We need to do this for all storage accounts being used to store rules and display files for your credentials.
+
+1. Find the correct storage account and open it.
+1. From the list of containers, open select the container that you are using for the Verifiable Credentials service.
+1. From the menu, select Access Control (IAM).
+1. Select + Add, and then select Add role assignment.
+1. In Add role assignment:
+    1. For the Role, select Storage Blob Data Reader. Click Next
+    1. For the Assign access to, select User, group, or service principal.
+    1. Then +Select members and search for Verifiable Credentials Service (make sure this is the exact name, since there are several similar service principals!) and hit Select
+    1. Select Review + assign
+
+### API developer steps
+
+#### Grant the new service principal permissions to get access tokens
+
+1. In your application. Select API permissions > Add a permission.
+1. Select APIs my organization uses.
+1. Search for **Verifiable Credentials Service Request** (make sure you are selecting the exact name and not the Verifiable Credential Request Service) and select it. Make sure the Application Client ID is ```3db474b9-6a0c-4840-96ac-1fceb342124f```
+1. Choose Application Permission, and expand VerifiableCredential.Create.All.
+1. Select Add permissions.
+1. Select Grant admin consent for <your-tenant-name>.
+
+#### Adjust the API scopes used in your application
+
+For the Request API the new scope for your application or postman is now:
+
+```3db474b9-6a0c-96ac-1fceb342124f/.default```
+
+For the Admin API (private preview) the new scope for your application or postman is now:
+
+```6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access```
+
+### Clean up steps
+
+Suggested after May 6th, 2022. Once you have confirmed that the Azure AD verifiable credentials service is working normally, you can issue, verify, etc after May 6th, 2022 you can proceed to clean up your tenant so that the Azure AD Verifiable Credentials service has only the new service principals.
+
+1. Run the following PowerShell command to connect to your Azure AD tenant. Replace <your-tenant-ID> with your Azure AD tenant ID.
+1. Run the following commands in the same PowerShell session. The AppId ```603b8c59-ba28-40ff-83d1-408eee9a93e5``` and ```bbb94529-53a3-4be5-a069-7eaf2712b826``` refer to the previous Verifiable Credentials service principals.
 
 ## March 2022
 - Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure Portal.

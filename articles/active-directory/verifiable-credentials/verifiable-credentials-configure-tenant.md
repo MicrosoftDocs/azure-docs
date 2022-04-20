@@ -7,7 +7,7 @@ author: barclayn
 manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 04/20/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -37,32 +37,6 @@ See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going ove
 
 - You need an Azure tenant with an active subscription. If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) permission for the directory you want to configure.
-- Ensure that you have [PowerShell](/powershell/scripting/install/installing-powershell) 7.0.6 LTS-x64, PowerShell 7.1.3-x64, or later installed.
-
-## Set up a service principal
-
-Create a service principal for the Request Service API. The service API is the Microsoft service that you use to issue or verify Azure AD Verifiable Credentials.
-
-To create the service principal:
-
-1. Run the following PowerShell commands. These commands install and import the `Az` module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps#installation).
-
-    ```powershell
-    if ((Get-Module -ListAvailable -Name "Az.Accounts") -eq $null) { Install-Module -Name "Az.Accounts" -Scope CurrentUser }
-    if ((Get-Module -ListAvailable -Name "Az.Resources") -eq $null) { Install-Module "Az.Resources" -Scope CurrentUser }
-    ```
-
-1. Run the following PowerShell command to connect to your Azure AD tenant. Replace \<*your-tenant-ID*> with your [Azure AD tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
-
-    ```powershell
-    Connect-AzAccount -TenantId <your-tenant-ID>
-    ```
-
-1. Run the following command in the same PowerShell session. The `AppId` `bbb94529-53a3-4be5-a069-7eaf2712b826` refers to the Verifiable Credentials Microsoft service.
-
-    ```powershell
-    New-AzADServicePrincipal -ApplicationId "bbb94529-53a3-4be5-a069-7eaf2712b826" -DisplayName "Verifiable Credential Request Service" 
-    ```
 
 ## Create a key vault
 
