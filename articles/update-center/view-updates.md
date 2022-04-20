@@ -19,34 +19,20 @@ This article details how to check the status of available updates on a single VM
 
 To check the updates on a single VM, follow these steps:
 
->[!NOTE]
-> You can check the updates from the **Overview** or **Machines** blade.
+1. Sign in to the [Azure portal](https://aka.ms/umc-preview).
 
-# [From Overview blade](#tab/singlevm-overview)
+1. Select any machine and the **virtual machines | Updates** page appears.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In **Operations**, select **Updates**.
 
-1. In Update management center (Preview), **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
+1. In **Updates**, select **Go to Updates using Update Center**. 
 
-1. In **Select resources and check for updates**, choose the machine for which you want to check the updates and select **Check for updates**.
+1. In **Updates (Preview)**, select **Assess updates**, in **Trigger assess now**, select **OK**.
 
     :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Example of checking updates from Overview." lightbox="./media/view-updates/check-updates-expanded.png":::
 
-    An assessment is performed and a notification appears as a confirmation. 
-    
-    The **Update status of machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
+An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful*.
 
-# [From Machines blade](#tab/singlevm-machines)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In Update management center (preview), **Machines**, select your **Subscription** to view all your machines.
-
-1. Select your machine and select **Check for updates**.
-
-    An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful*.
-
----
 
 ## Check updates at scale
 
