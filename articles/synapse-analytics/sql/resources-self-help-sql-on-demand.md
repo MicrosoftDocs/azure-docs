@@ -695,7 +695,7 @@ If you are getting the error '*CREATE DATABASE failed. User database limit has b
 
 ### Please create a master key in the database or open the master key in the session before performing this operation.
 
-If your query fails with the error message *Please create a master key in the database or open the master key in the session before performing this operation*, it means that your user database has no access to a master key at the moment. 
+If your query fails with the error message '*Please create a master key in the database or open the master key in the session before performing this operation*', it means that your user database has no access to a master key at the moment. 
 
 Most likely, you just created a new user database and did not create a master key yet. 
 
@@ -905,7 +905,7 @@ If a user cannot access a lake house or Spark database, it might not have permis
 Dataverse tables are accessing storage using the callers Azure AD identity. SQL user with high permissions might try to select data from a table, but the table would not be able to access Dataverse data. This scenario is not supported.
 
 ### Azure AD service principal login failures when SPI is creating a role assignment
-If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
+If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to log in, you're probably receiving following error:
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
@@ -950,7 +950,7 @@ Connect to serverless SQL endpoint and verify that the external login with SID `
 select name, convert(uniqueidentifier, sid) as sid, create_date
 from sys.server_principals where type in ('E', 'X')
 ```
-or just try to login on serverless SQL endpoint using the just set admin app.
+or just try to log in on serverless SQL endpoint using the just set admin app.
 
 ## Constraints
 
