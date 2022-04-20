@@ -6,6 +6,8 @@
     href: overview.md
   - name: Support matrix
     href: support-matrix.md
+  - name: Onboarding preview features
+    href: enable-machines.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
