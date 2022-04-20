@@ -16,7 +16,7 @@ This article describes how to configure the collection of file-based text logs, 
 To complete this procedure, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/azure/azure-monitor/essentials/data-collection-rule-overview#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - An agent with supported log file as described in the next section.
 
 ## Log files supported
