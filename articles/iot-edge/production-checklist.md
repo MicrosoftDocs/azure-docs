@@ -281,7 +281,7 @@ Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemo
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
 
-### Set up logging driver
+### Set up default logging driver
 
 By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. If you have not already set up your logging mechanism during the Moby Engine installation step, we recommend that you configure the setting to use the `local` logging driver as your logging mechanism. Local logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk exhaustion. 
 
