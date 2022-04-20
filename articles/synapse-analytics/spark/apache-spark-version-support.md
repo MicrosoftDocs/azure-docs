@@ -38,7 +38,7 @@ When you create a serverless Apache Spark pool, you will have the option to sele
 > * ```org/apache/log4j/jdbc/JDBCAppender.class```
 > * ```org/apache/log4j/chainsaw/*```
 >
-> While the above classes were not used in the default Log4J configurations in Synapse, it is possible that some user application could still depend on it. If your application needs to use these classes, use Library Management to add a secure version of log4j to the Spark Pool. __Do not use log4j version 1.2.17__, as it would be reintroducing the vulnerabilities.
+> While the above classes were not used in the default Log4j configurations in Synapse, it is possible that some user application could still depend on it. If your application needs to use these classes, use Library Management to add a secure version of Log4j to the Spark Pool. __Do not use Log4j version 1.2.17__, as it would be reintroducing the vulnerabilities.
 >
 
 ## Supported Azure Synapse runtime releases 
