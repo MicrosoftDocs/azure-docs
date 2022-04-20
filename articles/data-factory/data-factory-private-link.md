@@ -255,7 +255,7 @@ Finally, you must create the private endpoint in your data factory.
 
 
 ## Restrict access for data factory resources using private link
-If you want to restrict access for data factory resources in your subscriptions by private link, please follow [Use portal to create private link for managing Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/create-private-link-access-portal?source=docs)
+If you want to restrict access for data factory resources in your subscriptions by private link, please follow [Use portal to create private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md?source=docs)
 
 ## Known issue
 You are unable to access each other PaaS Resources when both sides are exposed to private Link and private endpoint. This is a known limitation of private link and private endpoint. 

@@ -140,7 +140,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
     `contoso.azure-devices.net/MyDevice01/?api-version=2021-04-12`
 
     It's strongly recommended to include api-version in the field. Otherwise it could cause unexpected behaviors. 
-    
+
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
@@ -170,8 +170,6 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
    `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
-For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel. This event has additional information that can help you to troubleshoot connectivity issues.
-
 The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
 
 ## Using the MQTT protocol directly (as a module)
@@ -182,13 +180,17 @@ Connecting to IoT Hub over MQTT using a module identity is similar to the device
 
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2021-04-12` and use the SAS token associated with the module identity as your password.
 
-* Use `devices/{device_id}/modules/{module_id}/messages/events/` as topic for publishing telemetry.
+* Use `devices/{device_id}/modules/{module_id}/messages/events/` as a topic for publishing telemetry.
 
 * Use `devices/{device_id}/modules/{module_id}/messages/events/` as WILL topic.
+
+* Use `devices/{deviceName}/modules/{moduleName}/#` as a topic for receiving messages.
 
 * The twin GET and PATCH topics are identical for modules and devices.
 
 * The twin status topic is identical for modules and devices.
+
+For more information about using MQTT with modules, see [Publish and subscribe with IoT Edge](../iot-edge/how-to-publish-subscribe.md) and learn more about the [Edge Hub MQTT endpoint](https://github.com/Azure/iotedge/blob/main/doc/edgehub-api.md#edge-hub-mqtt-endpoint).
 
 ## TLS/SSL configuration
 
