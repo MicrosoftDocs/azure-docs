@@ -26,6 +26,8 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 - Azure Functions requires [Python 3.6+](https://www.python.org/downloads/). (See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version))
 
+- SignalR binding needs Azure Storage, but you can use a local storage emulator when a function is running locally. You'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an Azure SignalR Service instance
