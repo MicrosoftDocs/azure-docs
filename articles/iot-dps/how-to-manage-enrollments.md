@@ -115,7 +115,7 @@ To create a symmetric key individual enrollment:
     | **Mechanism** | Select *Symmetric Key* |
     | **Auto Generate Keys** |Check this box. |
     | **Registration ID** | Type in a unique registration ID.|
-    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry. If the device ID is left unspecified, then the registration ID will be used.|
+    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry.md). If the device ID is left unspecified, then the registration ID will be used.|
     | **Select how you want to assign devices to hubs** |Select *Static configuration* so that you can assign to a specific hub|
     | **Select the IoT hubs this group can be assigned to** |Select one of your hubs.|
 
