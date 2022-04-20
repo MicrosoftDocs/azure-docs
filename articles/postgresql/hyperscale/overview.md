@@ -59,7 +59,7 @@ application requires greater scale, you can add nodes and rebalance your data.
 
 ## Watch a demo
 
-> [!VIDEO https://www.youtube.com/watch?v=Q30KQ5wRGxU]
+> [!VIDEO https://www.youtube.com/embed/Q30KQ5wRGxU]
 
 ## Next steps
 
