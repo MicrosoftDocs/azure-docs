@@ -37,6 +37,7 @@ From April 25th, 2022 the Azure AD Verifiable Credential service is available to
     1. ```azurepowershell
     connect-azaccount -tenantID <your tenant ID>
     ```
+    ~~~
 1. Check if of the following Service principals have been added to your tenant by running the following command:
     1. ```azurepowershell
     get-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
