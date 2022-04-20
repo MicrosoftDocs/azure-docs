@@ -102,6 +102,7 @@ Register-AzResourceProvider -FeatureName InGuestScheduledPatchVMPreview -Provide
 ```
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
+
 ---
 
 >[!NOTE]
@@ -129,6 +130,7 @@ az feature register --namespace Microsoft.Compute --name InGuestAutoAssessmentVM
 az feature register --namespace Microsoft.Compute --name InGuestScheduledPatchVMPreview
 ```
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
+
 ---
 
 >[!NOTE]
@@ -168,6 +170,7 @@ POST on `/subscriptions/subscriptionId/providers/Microsoft.Features/providers/Mi
 Replace the value `subscriptionId` with the ID of the target subscription.
 
 For detailed steps to start using scheduled patching, refer to [Prerequisites for scheduled patching](scheduled-patching.md#prerequisites-for-scheduled-patching).
+
 ---
 
 >[!NOTE]
