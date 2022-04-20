@@ -122,7 +122,9 @@ Use the following platform-specific command steps to configure the **root CA cer
 > If you created your certificates on a different device, you can transfer the files using options such as a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or using [Secure file copy](https://www.ssh.com/ssh/scp/).
 
 > [!IMPORTANT]
-> Make sure that the user **iotedge** has read permissions for the directory holding the certificates and keys.
+> Make sure that the service user **aziotcs** has read permissions for the directories holding the certificates and keys. 
+> * The private key file should be owned by the **aziotks** group.
+> * The certificate files should be owned by the **aziotcs** group.
 
 
 01. Install the **root CA certificate** on the parent and child IoT Edge devices. Copy the root certificate into the certificate directory and add `.crt` to the end of the file name.
@@ -234,7 +236,7 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     local_gateway_hostname = "parent-device-vm.westus.cloudapp.azure.com"
     ```
 
-01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device.
+01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device. IoT Edge requires the certificate and private key to be in text-based PEM format.
 
     ```toml
     # ==============================================================================
@@ -347,8 +349,8 @@ To verify the *hostname*, you need to inspect the environment variables of the *
 01. Find the **EdgeDeviceHostName** parameter in the *Env* section.
 
     ```json
-            "Env": [
-                "EdgeDeviceHostName=iotedge-parent-vm.westus2.cloudapp.azure.com",
+    "Env": [
+        "EdgeDeviceHostName=iotedge-parent-vm.westus2.cloudapp.azure.com",
     ```
 
 01. Verify the *EdgeDeviceHostName* parameter value matches the `config.toml` *hostname* setting. If it doesn't match, the *edgeHub* container was running when you modified and applied the configuration. To update the *EdgeDeviceHostName*, remove the *edgeAgent* container.
