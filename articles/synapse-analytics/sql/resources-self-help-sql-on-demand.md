@@ -651,12 +651,12 @@ The error *Incorrect syntax near 'NOT'* indicates that there are some external t
 
 If your query returns `NULL` values instead of partitioning columns or cannot find the partition columns, you have few possible troubleshooting steps:
 - If you are using tables to query partitioned data set, note that tables do not support partitioning. Replace the table with the [partitioned views](create-use-views.md#partitioned-views).
-- If you are using the [partitioned views](create-use-views.md#partitioned-views) with the OPENROWSET that [queries partitioned files using the FILEPATH() function](query-specific-files.md), make sure that you have correctly specified wildcard pattern in the location that that you have used the proper index for referencing the wildcard.
+- If you are using the [partitioned views](create-use-views.md#partitioned-views) with the OPENROWSET that [queries partitioned files using the FILEPATH() function](query-specific-files.md), make sure that you have correctly specified wildcard pattern in the location and that you have used the proper index for referencing the wildcard.
 - If you are querying the files directly in the partitioned folder, note that the partitioning columns are not the parts of the file columns. The partitioning values are placed in the folder paths and not the files. Therefore, the files do not contain the partitioning values.
 
 ### Inserting value to batch for column type DATETIME2 failed
 
-The error *Inserting value to batch for column type DATETIME2 failed* indicates that the serverless pool cannot read the date values form the underlying files. The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julian calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+The error *Inserting value to batch for column type DATETIME2 failed* indicates that the serverless pool cannot read the date values from the underlying files. The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julian calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
 
 Try to use Spark to update these values because they are treated as invalid date values in SQL. The following sample shows how to update the values that are out of SQL date ranges to `NULL` in Delta Lake:
 
@@ -882,7 +882,7 @@ See the [Synapse Studio section](#synapse-studio).
 ### Cannot connect to Synapse pool from a tool
 
 Some tools might not have an explicit option that enables you to connect to the Synapse serverless SQL pool. 
-Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog do not need to be branded as "Synapse" because the serverless SQL pool use the same protocol as SQL Server or Azure SQL database. 
+Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog do not need to be branded as "Synapse" because the serverless SQL pool uses the same protocol as SQL Server or Azure SQL database. 
 
 Even if a tool enables you to enter only a logical server name and predefines `database.windows.net` domain, put the Synapse workspace name followed by `-ondemand` suffix and `database.windows.net` domain.
 
@@ -929,7 +929,7 @@ go
 
 **Solution #3**
 
-You can also setup service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
+You can also set up service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
 The solution is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. PowerShell script:
 ```azurepowershell
 $spAppId = "<app_id_which_is_already_an_admin_on_the_workspace>"
