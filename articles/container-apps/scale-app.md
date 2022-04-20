@@ -82,7 +82,7 @@ In the following example, the container app scales out up to five replicas and c
 
 1. In Azure portal, select **Scale** and then select your revision from the dropdown menu.
 
-    :::image type="content" source="media/scalers/scale.png" alt-text="A screenshot showing revisions scale.":::
+    :::image type="content" source="media/scalers/scale-revisions.png" alt-text="A screenshot showing revisions scale.":::
 
 1. Select **Edit and deploy**.
 
@@ -165,7 +165,7 @@ To create a custom scale trigger, we must first create a connection string secre
 
 1. In Azure portal, select **Scale** and then select your revision from the dropdown menu.
 
-    :::image type="content" source="media/scalers/scale.png" alt-text="A screenshot showing the revisions scale page.":::
+    :::image type="content" source="media/scalers/scale-revisions.png" alt-text="A screenshot showing the revisions scale page.":::
 
 1. Select **Edit and deploy**.
 
