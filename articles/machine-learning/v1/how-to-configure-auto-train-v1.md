@@ -38,7 +38,7 @@ For this article you need,
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
-    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+    [!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
     
     > [!WARNING]
     > Python 3.8 is not compatible with `automl`. 
@@ -526,7 +526,7 @@ model = run.register_model(model_name = model_name,
 For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](../how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
 
 > [!TIP]
-> For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
+> For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 <a name="explain"></a>
 
 ## Model interpretability

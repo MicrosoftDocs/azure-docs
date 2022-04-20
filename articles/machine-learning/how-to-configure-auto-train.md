@@ -16,7 +16,7 @@ ms.custom: devx-track-python, automl, sdkv2
 
 # Set up AutoML training with the Azure ML Python SDK v2 (preview)
 
-[!INCLUDE [sdk v2](../../../includes/machine-learning-sdk-v2.md)] 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)] 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
 > * [v1](./v1/how-to-configure-auto-train-v1.md)
 > * [v2 (current version)](how-to-configure-auto-train.md)
