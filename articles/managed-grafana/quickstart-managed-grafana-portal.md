@@ -22,7 +22,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. In the upper-left corner of the home page, select **Create a resource**. In the **Search services and marketplace** box, enter *Managed Grafana* and select **Azure Managed Grafana**.
 
-    :::image type="content" source="media/managed-grafana-quickstart-marketplace.png" alt-text="Image alt text." lightbox="media/managed-grafana-quickstart-marketplace-expanded.png":::
+    :::image type="content" source="media/managed-grafana-quickstart-marketplace.png" alt-text="Screenshot of the Azure platform. Find Azure Managed Grafana in the marketplace." lightbox="media/managed-grafana-quickstart-marketplace-expanded.png":::
 
 1. Select **Create**.
 
