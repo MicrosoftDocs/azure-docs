@@ -44,6 +44,6 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 > FHIR support is available in Language API preview.
 
 
-[!INCLIDE [Sample request](language-text-analytics-request.md)]
+[!INCLUDE [Sample request](language-text-analytics-request.md)]
 
 
