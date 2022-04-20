@@ -51,6 +51,12 @@
       href: ../../analysis-services/analysis-services-create-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Event Hubs
       href: ../../event-hubs/event-hubs-bicep-namespace-event-hub.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: HDInsight - Hadoop
+      href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: HDInsight - HBase
+      href: ../../hdinsight/hbase/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: HDInsight - Interactive Query
+      href: ../../hdinsight/interactive-query/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
@@ -65,6 +71,8 @@
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases
     items:
+    - name: Cosmos DB
+      href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database Migration Service
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: DevOps
@@ -73,6 +81,8 @@
       href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
+    - name: Application Gateway
+      href: ../../application-gateway/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Content Delivery Network
       href: ../../cdn/create-profile-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: DDoS Protection
@@ -83,10 +93,14 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: NAT gateway
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Security
     items:
     - name: Attestation
       href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Key Vault - secret
+      href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -190,6 +204,8 @@
     items:
     - name: Best practices
       href: best-practices.md
+    - name: Visual Studio Code
+      href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
       displayName: module registry,private module registry

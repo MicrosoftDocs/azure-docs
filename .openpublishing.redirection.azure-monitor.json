@@ -11,11 +11,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/application-insights/cloudservices.md",
-            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/insights/service-bus-insights.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-insights",
             "redirect_document_id": false
@@ -33,6 +28,16 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/change-analysis-visualizations.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/troubleshoot-portal-connectivity.md",
+            "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-portal-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/auto-instrumentation-troubleshoot.md",
+            "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/auto-instrumentation-troubleshoot",
             "redirect_document_id": false
         },
         {
