@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 04/21/2022
 ms.author: helohr
 manager: femila
 ---
@@ -46,6 +46,14 @@ When you design a disaster recovery plan, you should keep the following three th
 Azure has many built-in, free-of-charge features that can deliver high availability at many levels. The first feature is [availability sets](../virtual-machines/availability-set-overview.md), which distribute VMs across different fault and update domains within Azure. Next are [availability zones](../availability-zones/az-region.md), which are physically isolated and geographically distributed groups of data centers that can reduce the impact of an outage. Finally, distributing session hosts across multiple [Azure regions](../best-practices-availability-paired-regions.md) provides even more geographical distribution, which further reduces outage impact. All three features provide a certain level of protection within Azure Virtual Desktop, and you should carefully consider them along with any cost implications.
 
 Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop is to deploy resources across multiple availability zones within a region. If you need more protection, you can also deploy resources across multiple paired Azure regions.
+
+Something else you should keep in mind is the difference between active-passive and active-active plans. Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). If the active region is taken offline by an emergency, the organization can switch to the passive region by turning it on and moving all their users there.
+
+Another option is an active-active deployment, where you use both sets of infrastructure at the same time. While some users may be affected by outages, the damage is limited to the users in the region that went down. Users in the other region that's still online won't be affected, and damage recovery is limited to moving the users in the affected region to the functioning active region. Active-active deployments can take many forms, including:
+
+- Overprovisioning infrastructure in each region to accommodate affected users in the event one of the regions goes down. A potential drawback to this method is that maintaining the additional resources costs more.
+- Have extra session hosts in both active regions, but deallocate them when they aren't needed, which reduces costs.
+- Only provision new infrastructure during disaster recovery and allow affected users to connect to the newly-provisioned session hosts. This method requires regular testing with infrastructure-as-code tools so you can deploy the new infrastructure as quickly as possible during a disaster.
 
 ## Recommended diaster recovery methods
 
