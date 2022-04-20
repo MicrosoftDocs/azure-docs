@@ -281,13 +281,20 @@ Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemo
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
 
-### Place limits on log size
+### Set logging driver
 
-By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. Consider the following options to prevent this:
+By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. If you have not already set up your logging mechanism during the Moby Engine installation step, configure to use the `local` logging driver as it offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk exhaustion. 
 
-#### Option: Set global limits that apply to all container modules
+#### Option: Configure the default logging driver for all container modules
 
-You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
+You can configure the Docker daemon to use a specific logging driver by setting the value of `log driver` to the name of the log driver in the `daemon.json`. The following example sets the default logging driver to the `local` log driver (recommended).
+
+```JSON
+{
+    "log-driver": "local"
+}
+```
+You can also configure your `log-opts` keys to use appropriate values in the `daemon.json` file. The following example sets the log driver to `local` and sets the `max-size` and `max-file` options.  
 
 ```JSON
 {
