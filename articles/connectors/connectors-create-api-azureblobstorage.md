@@ -17,7 +17,8 @@ You can connect to Blob Storage from both **Logic App (Consumption)** and **Logi
 
 > [!IMPORTANT]
 > A logic app workflow can't directly access a storage account behind a firewall if they're both in the same region. 
-> As a workaround, your logic app and storage account can be in different regions. For more information about enabling access from Azure Logic Apps to storage accounts behind firewalls, review the [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls) section later in this topic.
+> As a workaround, your logic app and storage account can be in different regions. For more information about enabling 
+> access from Azure Logic Apps to storage accounts behind firewalls, review the [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls) section later in this topic.
 
 ## Prerequisites
 
@@ -293,24 +294,17 @@ If you have problems connecting to your storage account, review [how to access s
 
 ## Access storage accounts behind firewalls
 
-You can add network security to an Azure storage account by [restricting access with a firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup creates a challenge for Azure and other Microsoft services that need access to the storage account. Local communication in the data center abstracts the internal IP addresses, so just permitting traffic through IP addresses might not be enough to successfully allow communication across the firewall. Based on which Azure Blob Storage connector you use, the following options are available.
+You can add network security to an Azure storage account by [restricting access with a firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup creates a challenge for Azure and other Microsoft services that need access to the storage account. Local communication in the data center abstracts the internal IP addresses, so just permitting traffic through IP addresses might not be enough to successfully allow communication across the firewall. Based on which Azure Blob Storage connector you use, the following options are available:
 
-To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption, Standard, and ISE-based logic apps, review the following documentation:
+- To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption, Standard, and ISE-based logic apps, review the following documentation:
 
-- [Access storage accounts with managed identities](#access-blob-storage-with-managed-identities)
-- [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
+  - [Access storage accounts with managed identities](#access-blob-storage-with-managed-identities)
 
+  - [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
 
-To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic app, review the following documentation:
+- To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic app, review [Access storage accounts through trusted virtual network](#access-storage-accounts-through-trusted-virtual-network).
 
-- [Access storage accounts through trusted virtual network](#access-storage-accounts-through-trusted-virtual-network)
-
-To access storage accounts behind firewalls using the *built-in* Azure Blob Storage connector that's only available in Standard logic apps, review the following documentation:
-
-- [Access storage accounts through VNet integration](#access-storage-accounts-through-vnet-integration)
-
-
-
+- To access storage accounts behind firewalls using the *built-in* Azure Blob Storage connector that's only available in Standard logic apps, review [Access storage accounts through VNet integration](#access-storage-accounts-through-vnet-integration).
 
 ### Access storage accounts in other regions
 
@@ -346,13 +340,11 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
   You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account. 
 
-
 ### Access storage accounts through VNet integration
-
 
 - Your logic app and storage account exist in the same region.
 
-  You can put the storage account in an Azure virtual network by creating a private endpoint, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account, you need to [Set up outbound traffic using VNet integration](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-outbound) to enable connecting to resources in a virtual network. You can then add the VNet to the storage account's trusted virtual networks list.
+  You can put the storage account in an Azure virtual network by creating a private endpoint, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account, you have to [Set up outbound traffic using VNet integration](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-outbound) to enable connecting to resources in a virtual network. You can then add the VNet to the storage account's trusted virtual networks list.
 
 - Your logic app and storage account exist in different regions.
 
@@ -374,8 +366,9 @@ To use managed identities in your logic app to access Blob Storage, follow these
 > Limitations for this solution:
 >
 > - You must set up a managed identity to authenticate your storage account connection.
-> - For logic apps in a single-tenant environment, only the system-assigned managed identity is 
-> available and supported, not the user-assigned managed identity.
+> 
+> - For Standard logic apps in the single-tenant Azure Logic Apps environment, only the system-assigned 
+> managed identity is available and supported, not the user-assigned managed identity.
 
 #### Configure storage account access
 
@@ -447,23 +440,20 @@ Next, complete the following steps:
 
 1. After you configure the trigger or action, you can save the workflow and test the trigger or action.
 
-
 ## Troubleshoot problems with accessing storage accounts
-
 
 - **"This request is not authorized to perform this operation."**
 
-   The following error is a commonly reported problem that happens when your logic app and storage account exist in the same region. However, options are available to resolve this limitation as described in the section, [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
-
+  The following error is a commonly reported problem that happens when your logic app and storage account exist in the same region. However, options are available to resolve this limitation as described in the section, [Access storage accounts behind firewalls](#access-storage-accounts-behind-firewalls).
 
   ```json
   {
-     'status': 403,
-     'message': 'This request is not authorized to perform this operation.\\r\\nclientRequestId: a3da2269-7120-44b4-9fe5-ede7a9b0fbb8',
-     'error': {
-        'message': 'This request is not authorized to perform this operation.'
+     "status": 403,
+     "message": "This request is not authorized to perform this operation.\\r\\nclientRequestId: a3da2269-7120-44b4-9fe5-ede7a9b0fbb8",
+     "error": {
+        "message": "This request is not authorized to perform this operation."
      },
-     'source': 'azureblob-ase.azconn-ase.p.azurewebsites.net'
+     "source": "azureblob-ase.azconn-ase.p.azurewebsites.net"
   }
   ```
 
