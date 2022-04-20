@@ -22,28 +22,18 @@ Speech feature summaries are provided below with links for more information.
 
 ### Speech-to-text
 
-[Speech-to-text](speech-to-text.md) transcribes or translates audio streams or local files to text in real time that your applications, tools, or devices can consume or display. 
+Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in real time or asynchronously. 
 
 - [Batch speech-to-text](batch-transcription.md): Batch speech-to-text enables asynchronous speech-to-text transcription of large volumes of speech audio data stored in Azure Blob Storage. In addition to converting speech audio to text, batch speech-to-text allows for diarization and sentiment analysis.
 - [Create custom speech models](custom-speech-overview.md): If you're using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. Custom speech models are private and can offer a competitive advantage.
-- [Pronunciation assessment](./how-to-pronunciation-assessment.md): Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence.
-- [Multidevice conversation](multi-device-conversation.md): Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation.
-- [Conversation transcription](./conversation-transcription.md): Enables real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
 - [Intent recognition](./intent-recognition.md): Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. 
 
 ### Text-to-speech
 
 [Text-to-speech](text-to-speech.md) converts input text into humanlike synthesized speech by using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Use neural voices, which are humanlike voices powered by deep neural networks. 
 
-Besides the pre-built neural voices that come out of the box, you can also create a [custom neural voice](custom-neural-voice.md) that is recognizable and unique to your brand or product. Custom neural voices are private and can offer a competitive advantage.
-
-Prebuilt neural voice (called *Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)). Highly natural out-of-the-box voices. Check the [voice samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
-
-
-Custom neural voice (called *Custom Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)). Easy-to-use self-service for creating a natural brand voice, with limited access for responsible use. Check the [voice samples](https://aka.ms/customvoice).
-
-In addition to prebuilt neural voices, you can create and fine-tune custom neural voices that are unique to your product or brand. All it takes to get started is a handful of audio files and the associated transcriptions. For more information, see [Get started with custom neural voice](how-to-custom-voice.md).
-
+- Prebuilt neural voice (called *Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)): Highly natural out-of-the-box voices. Check the prebuilt neural voice samples [here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
+- Custom neural voice (called *Custom Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)). Besides the pre-built neural voices that come out of the box, you can also create a [custom neural voice](custom-neural-voice.md) that is recognizable and unique to your brand or product. Custom neural voices are private and can offer a competitive advantage. Check the custom neural voice samples [here](https://aka.ms/customvoice).
 
 ### Speech translation
 
@@ -56,7 +46,21 @@ In addition to prebuilt neural voices, you can create and fine-tune custom neura
 ### Speaker recognition
 [Speaker recognition](speaker-recognition-overview.md) provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker recognition is used to answer the question, "Who is speaking?". 
 
-[Voice assistants](voice-assistants.md) using the Speech service empower developers to create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion.
+### Pronunciation assessment
+
+[Pronunciation assessment](./how-to-pronunciation-assessment.md) evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence.
+
+### Intent recognition
+
+[Intent recognition](./intent-recognition.md): Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. 
+
+## Speech scenarios
+
+Common scenarios for speech include:
+- [Captioning](./captioning-concepts.md): Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
+- [Multidevice conversation](multi-device-conversation.md): Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation.
+- [Conversation transcription](./conversation-transcription.md): Enable real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
+- [Voice assistants](voice-assistants.md): Create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion.
 
 ## Speech Studio
 
