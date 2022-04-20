@@ -88,13 +88,11 @@ Requirements for training data in machine learning:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
-> [!IMPORTANT]
-> Automated ML experiments do not support training with datasets that use [identity-based data access](how-to-identity-based-data-access.md).
+Training data must be accessible from the remote compute. Automated ML only accepts MLtable data assets when working on a remote compute. 
 
-**For remote experiments**, training data must be accessible from the remote compute. Automated ML only accepts MLtable data assets when working on a remote compute. 
 ```Python
-# Create MLTables for training dataset from your local directory
 
+# Create MLTable for training data from your local directory
 my_training_data_input = JobInput(
     type=AssetTypes.MLTABLE, path="./data/training-mltable-folder"
 )
@@ -102,16 +100,6 @@ my_training_data_input = JobInput(
 # Remote MLTable definition
 my_training_data_input  = JobInput(type=AssetTypes.MLTABLE, path="azureml://datastores/workspaceblobstore/paths/Classification/Train")
 ```
-**For local compute experiments**, we recommend pandas dataframes for faster processing times.
-
-  ```python
-  import pandas as pd
-  from sklearn.model_selection import train_test_split
-
-  df = pd.read_csv("your-local-file.csv")
-  train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
-  label = "label-col-name"
-  ```
 
 ## Training, validation, and test data
 
@@ -143,14 +131,8 @@ Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated ML training experiment can run on the following compute options. Learn the [pros and cons of local and remote compute](concept-automated-ml.md#local-remote) options. 
-
-* Your **local** machine such as a local desktop or laptop – Generally when you have a small dataset and you are still in the exploration stage. See [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) for a local compute example. 
+Automated ML jobs with the Python SDK v2 are only supported on remote computes. 
  
-* A **remote** machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines. Compute instance is also supported as a compute target.
-
-    See [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) for a remote example using Azure Machine Learning Managed Compute. 
-
 <a name='configure-experiment'></a>
 
 ## Configure your experiment settings
