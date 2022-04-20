@@ -51,9 +51,7 @@ Selecting any one of the update deployments from the list will open the **Assess
 
 In the **Scheduling** section, you can either **create a maintenance configuration** or **attach existing maintenance configuration**. 
 
-See the section for more information on [how to create a maintenance configuration](schedule-updates-scale-overview#create-a-new-maintenance-configuration) and [how to attach existing maintenance configuration](schedule-updates-scale-overview#attach-a-maintenance-configuration).
-
-
+See the section for more information on [how to create a maintenance configuration](scheduled-patching.md#create-a-new-maintenance-configuration) and [how to attach existing maintenance configuration](scheduled-patching.md#attach-a-maintenance-configuration).
 
 
 ## Next steps
