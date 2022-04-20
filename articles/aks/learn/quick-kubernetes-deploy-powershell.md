@@ -25,9 +25,9 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](concepts-identity.md).
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
@@ -38,7 +38,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you will be prompted to specify a location. This location is:
+An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you will be prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -67,8 +67,8 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet with the *--WorkspaceResourceId* parameter to enable [Azure Monitor container insights][azure-monitor-containers].
 
 1. Generate an SSH key pair using the `ssh-keygen` command-line utility. For more details, see:
-    * [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
-    * [How to use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md)
+    * [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md)
+    * [How to use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md)
 
 1. Create an AKS cluster named **myAKSCluster** with one node.
 
@@ -79,7 +79,7 @@ Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet with
 After a few minutes, the command completes and returns information about the cluster.
 
 > [!NOTE]
-> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
+> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -278,7 +278,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
 
-<!-- LINKS - external -->
+<!-- LINKS - external -->[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [azure-dev-spaces]: /previous-versions/azure/dev-spaces/
@@ -286,14 +286,16 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 
 <!-- LINKS - internal -->
-[windows-container-powershell]: windows-container-powershell.md
-[kubernetes-concepts]: concepts-clusters-workloads.md
+[windows-container-powershell]: ../windows-container-powershell.md
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
+[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: concepts-network.md#services
+[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
+[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
+[kubernetes-service]: ../concepts-network.md#services
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
+[aks-tutorial]: tutorial-kubernetes-prepare-app.md

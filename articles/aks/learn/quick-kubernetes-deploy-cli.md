@@ -26,8 +26,8 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.33.0 or greater of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](concepts-identity.md).
-- - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [Az account](/cli/azure/account) command.
 - Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* are registered on your subscription. To check the registration status:
 
@@ -48,7 +48,7 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -87,7 +87,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
 > [!NOTE]
-> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
+> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -297,8 +297,8 @@ This quickstart is for introductory purposes. For guidance on a creating full so
 [kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 
 <!-- LINKS - internal -->
-[kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
+[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -307,10 +307,10 @@ This quickstart is for introductory purposes. For guidance on a creating full so
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install_azure_cli
-[azure-monitor-containers]: ../azure-monitor/containers/container-insights-overview.md
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
+[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
+[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
-[kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: concepts-network.md#services
-[windows-container-cli]: windows-container-cli.md
+[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
+[kubernetes-service]: ../concepts-network.md#services
+[windows-container-cli]: ../windows-container-cli.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
