@@ -57,7 +57,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 # Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-# Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# Login with an Azure AD credential that has either storage account owner or contributor Azure role assignment
 # If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
 # See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
 # for more information.
@@ -70,7 +70,7 @@ $StorageAccountName = "<storage-account-name-here>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
 # If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
-# Specify the encryption agorithm used for Kerberos authentication. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption.
+# Specify the encryption algorithm used for Kerberos authentication. AES256 is recommended. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption.
 $EncryptionType = "<AES256|RC4|AES256,RC4>"
 
 # Select the target subscription for the current session
@@ -88,7 +88,7 @@ Join-AzStorageAccount `
         -OrganizationalUnitDistinguishedName $OuDistinguishedName `
         -EncryptionType $EncryptionType
 
-#Run the command below if you want to enable AES 256 authentication. If you plan to use RC4, you can skip this step.
+#Run the command below to enable AES256 encryption. If you plan to use RC4, you can skip this step.
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, see Azure Files Windows troubleshooting guide.

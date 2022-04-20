@@ -2,7 +2,7 @@
 title: Security overview
 description: Security information about Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 03/17/2022
+ms.date: 04/15/2022
 ---
 
 # Azure Arc-enabled servers security overview
@@ -83,6 +83,16 @@ azcmagent config set guestconfiguration.enabled false
 ```
 
 When Guest Configuration is disabled, any Guest Configuration policies assigned to the machine in Azure will report as non-compliant. Consider [creating an exemption](../../governance/policy/concepts/exemption-structure.md) for these machines or [changing the scope](../../governance/policy/concepts/assignment-structure.md#excluded-scopes) of your policy assignments if you don't want to see these machines reported as non-compliant.
+
+### Enable or disable the extension manager
+
+The extension manager is responsible for installing, updating, and removing [VM Extensions](manage-vm-extensions.md) on your server. You can disable the extension manager to prevent managing any extensions on your server, but we recommend using the [allow and blocklists](#extension-allowlists-and-blocklists) instead for more granular control.
+
+```bash
+azcmagent config set extensions.enabled false
+```
+
+Disabling the extension manager will not remove any extensions already installed on your server. Extensions that are hosted in their own Windows or Linux services, such as the Log Analytics Agent, may continue to run even if the extension manager is disabled. Other extensions that are hosted by the extension manager itself, like the Azure Monitor Agent, will not run if the extension manger is disabled. You should [remove any extensions](manage-vm-extensions-portal.md#remove-extensions) before disabling the extension manager to ensure no extensions continue to run on the server.
 
 ### Locked down machine best practices
 

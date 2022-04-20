@@ -52,3 +52,4 @@ Depending on your requirements and environment, you can create a test Applicatio
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI](quick-create-cli.md)
+- [Learn module: Introduction to Azure Application Gateway](/learn/modules/intro-to-azure-application-gateway)

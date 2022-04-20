@@ -83,7 +83,7 @@ Do the following steps in the Azure portal to order a device:
 
     - If you are using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, you will also see the **Enable copy to archive** option in addition to the **Enable large file shares** option. Enabling copy to archive will allow you to send your blobs to the archive tier directly. Any data that is uploaded to the archive tier is offline and will need to be rehydrated before reading or modifying. 
     
-        When copy to archive is enabled, you will see an extra archive share on the data box during the copy process.The extra share is available for [SMB, NFS, REST, and data copy service](/azure/databox/data-box-deploy-copy-data) methods. 
+        When copy to archive is enabled, you will see an extra archive share on the data box during the copy process.The extra share is available for [SMB, NFS, REST, and data copy service](../articles/databox/data-box-deploy-copy-data.md) methods. 
 
          :::image type="content" source="media/data-box-order-portal/enable-copy-to-archive.png" alt-text="Screenshot of Enable copy to archive option.":::
 
