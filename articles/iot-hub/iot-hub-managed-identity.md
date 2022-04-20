@@ -231,9 +231,11 @@ Managed identities can be used for egress connectivity from IoT Hub to other Azu
 
 ## Configure message routing with managed identities
 
-In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) to an event hub custom endpoint as an example. The example applies to other routing custom endpoints. 
+In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) to an event hub custom endpoint as an example. The example applies to other routing custom endpoints.
 
-1. Select **Access Control (IAM)**.
+1. Go to your event hub in the Azure portal to assign the managed identity the right access.
+
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
@@ -244,11 +246,13 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
     > [!NOTE]
     > For a storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/blobs/assign-azure-role-data-access.md)) as the role. For a service bus, select **Azure Service Bus Data Sender**.
 
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. For user-assigned managed identities, select **User-assigned managed identity**, select your subscription, and then select your user-assigned managed identity.
+1. For user-assigned managed identities, select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
 
-1. For system-assigned managed identities, select **System-assigned managed identity**, select your subscription, and then select your IoT Hub's resource name.
+1. For system-assigned managed identities, select your subscription, select **All system-assigned managed identities**, and then select your IoT Hub's resource name.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
@@ -273,9 +277,11 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 
 ## Configure file upload with managed identities
 
-IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, IoT Hub needs to have connectivity to the storage account. Similar to message routing, you can pick the preferred authentication type and managed identity for IoT Hub egress connectivity to your Azure Storage account. 
+IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, IoT Hub needs to have connectivity to the storage account. Similar to message routing, you can pick the preferred authentication type and managed identity for IoT Hub egress connectivity to your Azure Storage account.
 
-1. From your storage account, select **Access Control (IAM)**.
+1. In the Azure portal, navigate to your storage account.
+
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
@@ -285,9 +291,9 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. For user-assigned managed identities, select **User-assigned managed identity**, select your subscription, and then select your user-assigned managed identity.
+1. For user-assigned managed identities, select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
 
-1. For system-assigned managed identities, select **System-assigned managed identity**, select your subscription, and then select your IoT Hub's resource name.
+1. For system-assigned managed identities, select your subscription, select **All system-assigned managed identities**, and then select your IoT Hub's resource name.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
@@ -309,7 +315,9 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 
 IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-identity-mgmt.md)' information in bulk from/to a customer-provided storage blob. This functionality requires connectivity from IoT Hub to the storage account.
 
-1. From your storage account, select **Access Control (IAM)**.
+1. In the Azure portal, navigate to your storage account.
+
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
@@ -319,9 +327,9 @@ IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-ident
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-1. For user-assigned managed identities, select **User-assigned managed identity**, select your subscription, and then select your user-assigned managed identity.
+1. For user-assigned managed identities, select your subscription, select **User-assigned managed identity**, and then select your user-assigned managed identity.
 
-1. For system-assigned managed identities, select **System-assigned managed identity**, select your subscription, and then select your IoT Hub's resource name.
+1. For system-assigned managed identities, select your subscription, select **All system-assigned managed identities**, and then select your IoT Hub's resource name.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
