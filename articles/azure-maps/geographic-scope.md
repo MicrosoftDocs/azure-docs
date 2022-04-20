@@ -27,7 +27,7 @@ The following table describes the mapping between geography and supported Azure 
 | Europe                        | West Europe, North Europe   | `eu.atlas.microsoft.com`  |
 | United States                 | West US 2, East US 2        | `us.atlas.microsoft.com`  |
 
-### URL example for geographic and regional mapping
+### URL example for geographic mapping
 
 The following is the [Data V2 - List](/rest/api/maps/data-v2/list) command:
 
