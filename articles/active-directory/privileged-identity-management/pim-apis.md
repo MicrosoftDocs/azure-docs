@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Understand the Privileged Identity Management APIs
 
-You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and the Azure Resource Manager API for Azure resource roles (sometimes called Azure RBAC roles). This article describes important concepts for using the APIs for Privileged Identity Management.
+You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and the Azure Resource Manager API for Azure roles. This article describes important concepts for using the APIs for Privileged Identity Management.
 
 For requests and other details about PIM APIs, check out:
 
