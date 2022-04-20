@@ -63,7 +63,7 @@ Write a key rotation policy and save it to a file. Use ISO8601 Duration formats 
 ```azurecli
 az keyvault key rotation-policy update --hsm-name <hsm-name> --name <key-name> --value </path/to/policy.json>
 ```
-#### Example Policies
+#### Example policies
 
 Rotate the key 18 months after creation and set the new key to expire after two years.
 
@@ -125,7 +125,7 @@ Once a rotation policy is set for the key, you can also rotate the key on-demand
 az keyvault key rotate --hsm-name <hsm-name> --name <key-name>
 ```
 
-## Known Issues
+## Known issues
 
 While automatic key rotation is in preview, known issues will be tracked in this section.
 

@@ -29,7 +29,7 @@ items:
   - name: Set up logging for managed HSM
     href: logging.md
   - name: Configure automated key rotation (preview)
-    href: mhsm-key-rotation.md
+    href: key-rotation.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
   - name: Import HSM-protected keys to Managed HSM

@@ -1,6 +1,6 @@
 ---
 title: Managed HSM data plane role management - Azure Key Vault | Microsoft Docs
-description: Use this article to manage role assignments for your managed HSM 
+description: Use this article to manage role assignments for your managed HSM. 
 services: key-vault
 author: mbaldwin
 
@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-This article show you how to manage roles for a Managed HSM data plane. To learn about Managed HSM access control model, see [Managed HSM access control](access-control.md).
+This article shows you how to manage roles for a Managed HSM data plane. To learn about Managed HSM access control model, see [Managed HSM access control](access-control.md).
 
 To allow a security principal (such as a user, a service principal, group or a managed identity) to perform managed HSM data plane operations, they must be assigned a role that permits performing those operations. For example, if you want to allow an application to perform a sign operation using a key, it must be assigned a role that contains the "Microsoft.KeyVault/managedHSM/keys/sign/action" as one of the data actions. A role can be assigned at a specific scope. Managed HSM local RBAC supports two scopes, HSM-wide (`/` or `/keys`) and per key (`/keys/<keyname>`).
 
