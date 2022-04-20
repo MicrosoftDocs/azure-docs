@@ -47,7 +47,7 @@ The SharePoint List Online connector uses service principal authentication to co
         - App Domain: `localhost.com`
         - Redirect URL: `https://www.localhost.com`
         - Permission Request XML   
-            For "Owner" role, the Permission Request XML is:  
+            For the site owner role, the Permission Request XML is:  
 
             ```xml
             <AppPermissionRequests>
@@ -55,12 +55,12 @@ The SharePoint List Online connector uses service principal authentication to co
             </AppPermissionRequests>
             ```           
             
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Owner role.":::
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site owner role.":::
 
             > [!NOTE]
-            > You can find the owner by going to the site home page -> click the "X members" in the right corner -> check who has the "Owner" role.   
+            > You can find the site owner by going to the site home page -> select **Settings** in the top right corner -> select **Site permissions** and check who has the site owner role.   
 
-            For "Admin" role, the Permission Request XML is:  
+            For the site admin role, the Permission Request XML is:  
 
             ```xml
             <AppPermissionRequests AllowAppOnlyPolicy="true">
@@ -68,7 +68,7 @@ The SharePoint List Online connector uses service principal authentication to co
             </AppPermissionRequests>
             ```
 
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have Admin role.":::
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
 
     3. Click "Trust It" for this app.
 
