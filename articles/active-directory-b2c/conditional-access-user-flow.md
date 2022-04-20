@@ -130,7 +130,7 @@ To add a Conditional Access policy:
     | **User risk**  | P2  |User risk represents the probability that a given identity or account is compromised.   |
     | **Sign-in risk**   | P2  |Sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner.   |
     | **Device platforms**  |Not supported   |Characterized by the operating system that runs on a device. For more information, see [Device platforms](../active-directory/conditional-access/concept-conditional-access-conditions.md#device-platforms).   |
-    | **Locations**  |P1,P2   |Named locations may include the public IPv4 network information, country or region, or unknown areas that don't map to specific countries or regions. For more information, see [Locations](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations).   |
+    | **Locations**  |P1, P2   |Named locations may include the public IPv4 network information, country or region, or unknown areas that don't map to specific countries or regions. For more information, see [Locations](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations).   |
 
 3. Under **Access controls**, select **Grant**. Then select whether to block or grant access:
 
