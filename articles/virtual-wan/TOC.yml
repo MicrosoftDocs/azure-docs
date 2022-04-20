@@ -57,30 +57,30 @@
     items:
     - name: About virtual hub routing
       href: about-virtual-hub-routing.md
-  - name: Routing scenarios
-    items:
-    - name: Any-to-any
-      href: scenario-any-to-any.md
-    - name: Isolating VNets
-      href: scenario-isolate-vnets.md
-    - name: Isolating VNets - custom
-      href: scenario-isolate-vnets-custom.md
-    - name: Isolating virtual networks and branches
-      href: scenario-isolate-virtual-networks-branches.md
-    - name: Shared services VNets
-      href: scenario-shared-services-vnet.md
-    - name: Route through an NVA
-      href: scenario-route-through-nva.md
-    - name: Route through an NVA - custom
-      href: scenario-route-through-nvas-custom.md
-    - name: BGP peering with virtual hub
-      href: scenario-bgp-peering-hub.md
-    - name: Azure Firewall - custom
-      href: scenario-route-between-vnets-firewall.md
-    - name: Application Gateway and backend pools
-      href: scenario-secured-hub-app-gateway.md
-    - name: Microsoft 365 - ExpressRoute private peering
-      href: scenario-365-expressroute-private.md
+    - name: Routing scenarios
+      items:
+      - name: Any-to-any
+        href: scenario-any-to-any.md
+      - name: Isolating VNets
+        href: scenario-isolate-vnets.md
+      - name: Isolating VNets - custom
+        href: scenario-isolate-vnets-custom.md
+      - name: Isolating virtual networks and branches
+        href: scenario-isolate-virtual-networks-branches.md
+      - name: Shared services VNets
+        href: scenario-shared-services-vnet.md
+      - name: Route through an NVA
+        href: scenario-route-through-nva.md
+      - name: Route through an NVA - custom
+        href: scenario-route-through-nvas-custom.md
+      - name: BGP peering with virtual hub
+        href: scenario-bgp-peering-hub.md
+      - name: Azure Firewall - custom
+        href: scenario-route-between-vnets-firewall.md
+      - name: Application Gateway and backend pools
+        href: scenario-secured-hub-app-gateway.md
+      - name: Microsoft 365 - ExpressRoute private peering
+        href: scenario-365-expressroute-private.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
