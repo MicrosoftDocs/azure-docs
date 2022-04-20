@@ -20,7 +20,7 @@ ms.author: v-ydequadros
 
 
 > [!NOTE] 
-> Due to the General Data Protection Regulation (GDPR) on data protection, the CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
+> The CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 
 This article describes how to onboard a Google Cloud Platform (GCP) project on CloudKnox Permissions Management (CloudKnox).

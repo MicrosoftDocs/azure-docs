@@ -19,7 +19,7 @@ ms.author: v-ydequadros
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 > [!NOTE] 
-> Due to the General Data Protection Regulation (GDPR) on data protection, the CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
+> The CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 
 This article answers frequently asked questions (FAQs) about CloudKnox Permissions Management (CloudKnox).
@@ -51,7 +51,7 @@ Yes, non-Azure customers can use our solution. CloudKnox is a multi-cloud soluti
 
 ## Is CloudKnox available for tenants hosted in the European Union (EU)?
 
-No, due to the General Data Protection Regulation (GDPR) on data protection, the CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
+No, the CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## If I’m already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does CloudKnox provide?
 

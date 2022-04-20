@@ -20,7 +20,7 @@ ms.author: v-ydequadros
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 > [!NOTE] 
-> Due to the General Data Protection Regulation (GDPR) on data protection, the CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
+> The CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## Overview
 
