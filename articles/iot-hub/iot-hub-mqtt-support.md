@@ -72,7 +72,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |Node.js     |   180 seconds      |     No    |
 |Java     |    230 seconds     |     [Yes](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/ClientOptions.java#L64)    |
 |C     | 240 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
-|C#     | 300 seconds* |  [Yes](https://github.com/Azure/azure-iot-sdk-csharp/blob/833b13c5de60311fbadf3ddf236c0bbb71973554/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L194)   |
+|C#     | 300 seconds* |  [Yes](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.client.transport.mqtt.mqtttransportsettings.keepaliveinseconds?view=azure-dotnet)   |
 |Python   | 60 seconds |  No   |
 
 > *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds but in reality the SDK sends a ping request 4 times per keep-alive duration set. This means the SDK sends a keep-alive ping every 75 seconds.
