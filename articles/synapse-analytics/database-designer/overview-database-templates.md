@@ -31,8 +31,8 @@ You can set up this use case by selecting the six tables in the retail database 
 
 A typical database template addresses the core requirements of a specific industry and consists of: 
 
-* A supporting set of [business area templates](concepts-database-templates.md#business-area-templates).
-* One or more [enterprise templates](concepts-database-templates.md#enterprise-templates).  
+* One or more [enterprise templates](concepts-database-templates.md#enterprise-templates).
+* Tables grouped by **business areas**.   
 
 ## Available database templates 
 

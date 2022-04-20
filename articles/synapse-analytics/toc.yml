@@ -238,6 +238,8 @@ items:
       href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
+    - name: Clone a lake database
+      href: database-designer/clone-lake-database.md  
 - name: Synapse SQL
   items:
   - name: Overview
