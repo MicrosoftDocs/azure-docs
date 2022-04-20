@@ -4,14 +4,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021 
+ms.date: 04/20/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021
 ---
 
 
 
-# [Language API (Preview)](#tab/Language)
+# [Language API (Preview)](#tab/language)
+
+> [!NOTE]
+> The Language API is available in preview, and provides the following additional feature:
+> * Fast Healthcare Interoperability Resources (FHIR) support.
 
 ```bash
 curl -i -X POST 'http://<serverURL>:5000/language/analyze-text/jobs?api-version=2022-04-01-preview' --header 'Content-Type: application/json' --header --data-binary @example.json
@@ -459,7 +462,8 @@ The following JSON is an example of the Language response body from the containe
 ```
 
 
-# [Text Analytics API](#tab/Text-Analytics-API)
+# [Text Analytics API](#tab/text-analytics-api)
+
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
@@ -628,3 +632,5 @@ The following JSON is an example of the Text Analytics for health response body 
     "modelVersion": "2021-03-01"
 }
 ```
+
+---
