@@ -62,7 +62,7 @@ Any accessible endpoint accepting user data is potentially vulnerable to an "inj
     A WAF may be added at the [network edge](../web-application-firewall/afds/afds-overview.md), for external parties connecting to externally facing APIs. Alternatively, include a WAF locally as a component of a Layer 7 capable firewall upstream of the APIs, or as a component of an upstream [reverse proxy also acting as a gateway](../web-application-firewall/ag/application-gateway-waf-faq.yml).  
 
     > [!IMPORTANT]
-    > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](api-management-access-restriction-policies.md#RestrictCallerIPs), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or “mTLS”). 
+    > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](api-management-access-restriction-policies.md#RestrictCallerIPs), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or mTLS). 
 
 * Schema, request content, and parameter [validation](validation-policies.md) can all be applied using API Management, where applicable, to further constrain and validate the request before it reaches the backend API service. 
 
@@ -81,5 +81,4 @@ Any accessible endpoint accepting user data is potentially vulnerable to an "inj
 
 ## Next steps
 
--   [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md)
--   [How to upload certificates](./api-management-howto-mutual-certificates.md)
+[TBD]
