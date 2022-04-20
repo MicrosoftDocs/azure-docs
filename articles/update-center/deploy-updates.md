@@ -23,10 +23,11 @@ See the following sections for detailed information:
 
 Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
->[!NOTE]
-> You can check the updates from **Overview** or **Machines** blade.
 
 ## Install updates on single VM
+
+>[!NOTE]
+> You can install the updates from the Overview or Machines blade in update management center (preview) page or from the Azure home page.
 
 # [From Overview blade](#tab/install-single-overview) 
 
@@ -82,11 +83,25 @@ To install one time updates on a single VM, follow these steps:
 
 1. Select to **Install now** to proceed with installing updates.
 
-1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the steps from step 6 listed [in this procedure](#install-updates-on-single-vm).
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 6 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
 
+   A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
+
+# [From Home page](#tab/singlevm-deploy-home)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In **Home** page, select your machine from **Recent Resources** and the **virtual machines | Updates** page opens.
+
+1. In **Operations**, select **Updates**.
+
+1. In **Updates**, select **Go to Updates using Update Center**.
+
+1. In **Updates (Preview)**, select **One-time update** to install the updates.
+
+1. In **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next** and follow the procedure from step 6 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
+ 
 ---
-
-A notification appears to inform you the activity has started and another is created when it's completed. When it is successfully completed, you can view the installation operation results in **History**. The status of the operation can be viewed at any time from the [Azure Activity log](/azure/azure-monitor/essentials/activity-log). 
 
 ## Install updates at scale
  
@@ -94,6 +109,8 @@ To create a new update deployment for multiple machines, follow these steps:
 
 >[!NOTE]
 > You can check the updates from **Overview** or **Machines** blade.
+
+You can schedule updates 
 
 # [From Overview blade](#tab/install-scale-overview) 
 
@@ -108,7 +125,7 @@ To create a new update deployment for multiple machines, follow these steps:
 
 1. In **Machines**, you can view all the machines available in your subscription. You can also use the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose **Select all** and select **Add**.
 
-The **Machines** displays a list of machines for which you can deploy one-time update. Select **Next** and follow the steps from step 6 listed [in this procedure](#install-updates-on-single-vm).
+The **Machines** displays a list of machines for which you can deploy one-time update. Select **Next** and follow the procedure from step 6 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
 
 
 # [From Machines blade](#tab/install-scale-machines) 
@@ -123,7 +140,7 @@ The **Machines** displays a list of machines for which you can deploy one-time u
 
 1.  In **Machines**, you can view all the machines available in your subscription. You can also select using the **+Add machine** to add the machines for deploying one-time updates. You can add up to 20 machines. Choose the **Select all** and select **Add**.
 
-The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the steps from step 6 listed [in this procedure](#install-updates-on-single-vm).
+The **Machines** displays a list of machines for which you want to deploy one-time update, select **Next** and follow the procedure from step 6 listed in **From Overview blade** of [Install updates on single VM](#install-updates-on-single-vm).
 
 ----
 
