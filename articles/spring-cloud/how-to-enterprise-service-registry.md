@@ -162,11 +162,11 @@ mvn clean package
 
 ## Deploy Service A and register with Service Registry
 
-This section explains how to deploy Service A to Azure Spring Cloud Enterprise and register it with Service Registry.
+This section explains how to deploy Service A to Azure Spring Cloud Enterprise tier and register it with Service Registry.
 
 ### Create an Azure Spring Cloud application
 
-First, create an application in Azure Spring Cloud by using the following command.
+First, create an application in Azure Spring Cloud by using the following command:
 
 ```azurecli
 az spring-cloud app create \
@@ -223,7 +223,7 @@ You can also be set up the Application bindings from the Azure portal, as shown 
 
 ### Deploy an application to Azure Spring Cloud
 
-Now that you've bound your application, you'll then deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Cloud. To deploy, run the following command:
+Now that you've bound your application, you'll deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Cloud. To deploy, run the following command:
 
 ```azurecli
 az spring-cloud app deploy \
@@ -253,10 +253,10 @@ servicea                  southeastasia  $RESOURCE_GROUP         https://$AZURE_
 
 ### Confirm that the Service A application is running
 
-From the result of the above command, you can get the access URL listed in the `Public URL`. Access the RESTful endpoint with `/serviceA`. Then the following result will be returned.
+The output of the previous command includes the public URL for the service. To access the RESTful endpoint, append `/serviceA` to this URL, as shown in the following command:
 
 ```bash
-curl https://AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/serviceA
+curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/serviceA
 ```
 
 This command produces the following output.
@@ -265,7 +265,7 @@ This command produces the following output.
 This is a result of Service A
 ```
 
-Service A includes a RESTful endpoint that displays a list of environment variables. Access the endpoint with `/env` to see the environment variables. The lists of environment variables will be displayed.
+Service A includes a RESTful endpoint that displays a list of environment variables. Access the endpoint with `/env` to see the environment variables.
 
 ```bash
 curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/env
@@ -277,7 +277,7 @@ This command produces the following output.
 "JAVA_TOOL_OPTIONS":"-Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_CLOUD_NAME.svc.azuremicroservices.io/eureka/default/eureka
 ```
 
-As you can see, `eureka.client.service-url.defaultZone` has been added to the Java options (`JAVA_TOOL_OPTIONS`). In this way, the application can register the service to the Service Registry and make it available from other services.
+As you can see, `eureka.client.service-url.defaultZone` has been added to `JAVA_TOOL_OPTIONS`. In this way, the application can register the service to the Service Registry and make it available from other services.
 
 You can now register the service to the Service Registry (Eureka Server) in Azure Spring Cloud. Other services can now access the service by using service registry.
 
@@ -295,7 +295,7 @@ Then, select **GENERATE** to get the new project.
 
 ### Implement Service B as a Service Registry client (Eureka client)
 
-Like Service A, add the `@EnableEurekaClient` annotation to Service B to implement it as a Eureka client.
+Like Service A, add the `@EnableEurekaClient` annotation to Service B to configure it as a Eureka client.
 
 ```java
 package com.example.Sample.Service.B;
@@ -318,7 +318,7 @@ public class SampleServiceBApplication {
 
 Next, implement a new service endpoint (`/invoke-serviceA`) that invokes Service A. For simplicity, it implements with `RestTemplate` in the sample, and it returns the string with another string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by Service B.
 
-We've also implemented another endpoint (`/list-all`) for validation. This implementation ensures that the service is communicating correctly with the Service Registry. You can call this endpoint to get the lists of applications registered in the Service Registry.
+We've also implemented another endpoint (`/list-all`) for validation. This implementation ensures that the service is communicating correctly with the Service Registry. You can call this endpoint to get the list of applications registered in the Service Registry.
 
 ```java
 package com.example.Sample.Service.B;
@@ -357,7 +357,7 @@ public class ServiceBEndpoint {
 
 ### Build Service B
 
-Run the following command to build your Maven project.
+Run the following command to build your project.
 
 ```bash
 mvn clean package
@@ -365,7 +365,7 @@ mvn clean package
 
 ## Deploy Service B to Azure Spring Cloud
 
-Create an application in Azure Spring Cloud to deploy Service B.
+Use the following command to create an application in Azure Spring Cloud to deploy Service B.
 
 ```azurecli
 az spring-cloud app create \
@@ -377,7 +377,7 @@ az spring-cloud app create \
     --assign-endpoint
 ```
 
-After you create the application, it's time to bind the application to the Service Registry.
+Next, use the following command to bind the application to the Service Registry.
 
 ```azurecli
 az spring-cloud service-registry bind \
@@ -386,7 +386,7 @@ az spring-cloud service-registry bind \
     --app serviceB
 ```
 
-After the binding is complete, deploy the service with following command.
+Next, use the following command to deploy the service.
 
 ```azurecli
 az spring-cloud app deploy \
@@ -397,7 +397,7 @@ az spring-cloud app deploy \
     --jvm-options="-Xms1024m -Xmx1024m"
 ```
 
-After the deployment is complete, check the status of the application with following command.
+Next, use the following command to check the status of the application.
 
 ```azurecli
 az spring-cloud app list \
@@ -406,7 +406,7 @@ az spring-cloud app list \
     --output table
 ```
 
-If Service A and Service B are deployed correctly, the result will be similar to the following output.
+If Service A and Service B are deployed correctly, this command will produce a result similar to the following output.
 
 ```output
 Name      Location       ResourceGroup           Public Url                                                       Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
