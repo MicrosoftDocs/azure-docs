@@ -86,6 +86,17 @@ We recommend using `local` logging driver as it offers a default log size limit,
       "log-driver": "local"
    }
    ```
+You can also configure your `log-opts` keys to use appropriate values in the `daemon.json` file. The following example sets the log driver to `local` and sets the `max-size` and `max-file` options.
+
+```JSON
+{
+    "log-driver": "local",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
+    }
+}
+```
 Add (or append) this information to a file named `daemon.json` and place it in the following location:
 
 * `/etc/docker/`
