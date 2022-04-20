@@ -29,7 +29,7 @@ If you're using Windows Server, make sure you [install the Hyper-V role](/window
 
 Intel bare-metal based VMware ESXi [6.7](https://docs.vmware.com/en/VMware-vSphere/6.7/vsphere-esxi-67-installation-setup-guide.pdf) and [7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html) versions support nested virtualization needed for hosting Azure IoT Edge for Linux on Windows on top of a Windows virtual machine. 
 
-To set up an Azure IoT Edge for Linux on Windows on a VMware ESXi Windows Server virtual machine, use the following steps:
+To set up an Azure IoT Edge for Linux on Windows on a VMware ESXi Windows virtual machine, use the following steps:
 
 1. Create a Windows virtual machine on the VMware ESXi host. For more information about VMware VM deployment, see [VMware - Deploying Virtual Machines](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-39D19B2B-A11C-42AE-AC80-DDA8682AB42C.html).
 
