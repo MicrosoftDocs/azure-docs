@@ -141,7 +141,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | Yes | Yes |
+> | configurationStores | Yes | No |
 > | configurationStores / eventGridFilters | No | No |
 > | configurationStores / keyValues | No | No |
 > | configurationStores / replicas | No | No |
@@ -289,7 +289,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | b2cDirectories | Yes | Yes |
+> | b2cDirectories | Yes | No |
 > | b2ctenants | No | No |
 > | guestUsages | Yes | Yes |
 
@@ -774,7 +774,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | plans | Yes | Yes |
+> | plans | Yes | No |
 > | registeredSubscriptions | No | No |
 
 ## Microsoft.CognitiveServices
@@ -1895,7 +1895,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | Yes | Yes |
+> | labaccounts | Yes | No |
 > | labplans | Yes | Yes |
 > | labs | Yes | Yes |
 > | users | No | No |
@@ -2162,11 +2162,11 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Yes | Yes |
+> | netAppAccounts | Yes | No |
 > | netAppAccounts / accountBackups | No | No |
 > | netAppAccounts / backupPolicies | Yes | Yes |
 > | netAppAccounts / capacityPools | Yes | Yes |
-> | netAppAccounts / capacityPools / volumes | Yes | Yes |
+> | netAppAccounts / capacityPools / volumes | Yes | No |
 > | netAppAccounts / capacityPools / volumes / backups | No | No |
 > | netAppAccounts / capacityPools / volumes / mountTargets | No | No |
 > | netAppAccounts / capacityPools / volumes / snapshots | No | No |
@@ -2185,7 +2185,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | applicationGatewayWebApplicationFirewallPolicies | Yes | Yes |
 > | applicationSecurityGroups | Yes | Yes |
 > | azureFirewallFqdnTags | No | No |
-> | azureFirewalls | Yes | Yes |
+> | azureFirewalls | Yes | No |
 > | azureWebCategories | No | No |
 > | bastionHosts | Yes | Yes |
 > | bgpServiceCommunities | No | No |
@@ -2220,11 +2220,11 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | expressRouteProviderPorts | No | No |
 > | expressRouteServiceProviders | No | No |
 > | firewallPolicies | Yes | Yes |
-> | frontdoors | Yes, but limited (see [note below](#frontdoor)) | Yes |
-> | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#frontdoor)) | No |
-> | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#frontdoor)) | No |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Yes, but limited (see [note below](#frontdoor)) | No |
-> | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#frontdoor)) | Yes |
+> | frontdoors | Yes, but limited (see [note below](#network-limitations)) | Yes |
+> | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#network-limitations)) | No |
+> | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#network-limitations)) | No |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Yes, but limited (see [note below](#network-limitations)) | No |
+> | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | getDnsResourceReference | No | No |
 > | internalNotify | No | No |
 > | ipGroups | Yes | Yes |
@@ -2240,10 +2240,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkSecurityPerimeters | Yes | Yes |
 > | networkVirtualAppliances | Yes | Yes |
 > | networkWatchers | Yes | Yes |
-> | networkWatchers / connectionMonitors | Yes | Yes |
+> | networkWatchers / connectionMonitors | Yes | No |
 > | networkWatchers / flowLogs | Yes | Yes |
-> | networkWatchers / lenses | Yes | Yes |
-> | networkWatchers / pingMeshes | Yes | Yes |
+> | networkWatchers / lenses | Yes | No |
+> | networkWatchers / pingMeshes | Yes | No |
 > | p2sVpnGateways | Yes | Yes |
 > | privateDnsZones | Yes | Yes |
 > | privateDnsZones / A | No | No |
@@ -2322,8 +2322,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | namespaces | Yes | Yes |
-> | namespaces / notificationHubs | Yes | Yes |
+> | namespaces | Yes | No |
+> | namespaces / notificationHubs | Yes | No |
 
 ## Microsoft.ObjectStore
 
@@ -2599,7 +2599,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | applications | Yes | Yes |
-> | resources | Yes | Yes |
+> | resources | Yes | No |
 > | saasresources | No | No |
 
 ## Microsoft.Scom
@@ -3075,13 +3075,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | environments | Yes | Yes |
+> | environments | Yes | No |
 > | environments / accessPolicies | No | No |
-> | environments / eventsources | Yes | Yes |
+> | environments / eventsources | Yes | No |
 > | environments / privateEndpointConnectionProxies | No | No |
 > | environments / privateEndpointConnections | No | No |
 > | environments / privateLinkResources | No | No |
-> | environments / referenceDataSets | Yes | Yes |
+> | environments / referenceDataSets | Yes | No |
 
 ## Microsoft.VideoIndexer
 
@@ -3134,8 +3134,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
-> | plans | Yes | Yes |
+> | accounts | Yes | No |
+> | plans | Yes | No |
 > | registeredSubscriptions | No | No |
 
 ## Microsoft.Web
