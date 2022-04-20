@@ -60,7 +60,7 @@ You can configure your container app for authentication with or without restrict
 
 The authentication and authorization middleware component is a feature of the platform that runs as a sidecar container on each replica in your application. When enabled, every incoming HTTP request passes through the security layer before being handled by your application.
 
-:::image type="content" source="../app-service/media/authentication/architecture.png" alt-text="An architecture diagram showing requests being intercepted by a sidecar container which interacts with identity providers before allowing traffic to the app container" lightbox="../app-service/media/authentication/architecture.png":::
+:::image type="content" source="media/authentication/architecture.png" alt-text="An architecture diagram showing requests being intercepted by a sidecar container which interacts with identity providers before allowing traffic to the app container" lightbox="media/authentication/architecture.png":::
 
 The platform middleware handles several things for your app:
 
