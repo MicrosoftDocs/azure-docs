@@ -146,7 +146,7 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
    ```
 
 > [!TIP]
-> If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
+> If you gave the "root" account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
