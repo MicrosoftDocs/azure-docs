@@ -1,7 +1,7 @@
 ---
-title: Secure online endpoints with virtual networks
+title: Secure online endpoints with private endpoints
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning online endpoints.
+description: Use private endpoints to secure your Azure Machine Learning online endpoints.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -14,13 +14,13 @@ ms.custom:
 
 ---
 
-# Secure online endpoints with Azure Virtual Network
+# Secure online endpoints with private endpoints
 
-If your Azure Machine Learning workspace is connected to an Azure Virtual Network (VNet) using a private endpoint, your can configure your online endpoints to use the VNet for secure communications. Securing an online endpoint with a VNet is currently a preview feature.
+With a private endpoint, you can configure your Azure Machine Learning online endpoints to securely communicate with resources in an Azure Virtual Network (VNet). Using a private endpoint with online endpoints is currently a preview feature.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-When securing an online endpoint with a virtual network, you can secure the inbound communication from clients (scoring requests for example) separately from the outbound communications between the online endpoint and associated resources in the VNet. For example, you may allow scoring requests over the public network while restricting communications between the online endpoint, workspace, Azure Container Registry, etc. to the VNet.
+When securing an online endpoint with a private endpoint, you can secure the inbound communication from clients (scoring requests for example) separately from the outbound communications between the online endpoint and associated resources. For example, you may allow scoring requests over the public network while restricting communications between the online endpoint and the Azure Machine Learning workspace, blob storage, and container registry.
 
 ## Prerequisites
 
@@ -30,10 +30,10 @@ When securing an online endpoint with a virtual network, you can secure the inbo
 
 * You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
-* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint to communicate with a virtual network. If you don't have one, use the steps in the [Create a secure workspace using a template](tutorial-create-secure-workspace-template.md) tutorial to create an example workspace and virtual network configuration.
+* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint to communicate with a virtual network. If you don't have one, the steps in this article create an example workspace and VNet, then deploy a model to an online endpoint secured with a private endpoint.
 
 > [!IMPORTANT]
-> The sample code in this article comes from the files in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory: 
+> The end-to-end example in this article comes from the files in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory, use the following commands: 
 >
 > ```azurecli
 > git clone https://github.com/Azure/azureml-examples
@@ -42,26 +42,33 @@ When securing an online endpoint with a virtual network, you can secure the inbo
 
 ## Limitations
 
-Your Azure Machine Learning workspace can be configured to allow public network access, even while participating in a VNet. This behavior is configured using the `public_network_access` flag on the workspace. If this flag is `disabled`, then communication with the workspace is restricted to the VNet.
-
-* If this flag is `disabled`, you can't create online endpoint deployments that communicate with public networks. You can only create deployments that use the VNet.
-* If the flag was originally `enabled`, and you switch it to `disabled`, any existing online endpoint deployments that allowed public network communications will start failing.
-
+* If your Azure Machine Learning workspace has a private endpoint that was created before 5/24/2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+ 
 ## Inbound (scoring)
 
 To restrict communications to the online endpoint to the virtual network, set the `public_network_access` flag for the endpoint to `disabled`:
 
-code snippet goes here
+```azurecli
+az ml online-endpoint create -f endpoint.yml --set public_network_access=disabled
+```
 
 When `public_network_access` is `disabled`, inbound scoring requests are received using the private endpoint(s) of the Azure Machine Learning workspace.
 
 ## Outbound (resource access)
 
-To restrict communication between the online endpoint and the Azure resources used by the endpoint (Azure Container Registry, Key Vault, Storage Account, and Machine Learning workspace), set the `private_network_connection` flag to `true`:
+To restrict communication between the online endpoint and the Azure resources used by the endpoint set the `private_network_connection` flag to `true`. Enable this flag to ensure that the download of the model, code, and images needed by your endpoint deployment are secured within the VNet and not sent over the public network.
 
-code snippet goes here
+The following are the resources that the online endpoint uses outbound communication with:
 
-When you configure the `private_network_connection` to `true`, a new private endpoint is created _per deployment_. For example, if you set the flag to `true` for three deployments to an online endpoint, three private endpoints are created.
+* The Azure Machine Learning workspace.
+* The Azure Storage blob that is the default storage for the workspace.
+* The Azure Container Registry for the workspace.
+
+When you configure the `private_network_connection` to `true`, a new private endpoint is created for each service, _per deployment_. For example, if you set the flag to `true` for three deployments to an online endpoint, nine private endpoints are created.
+
+```azurecli
+az ml online-deployment create -f deployment.yml --set private_network_connection true
+```
 
 ## Scenarios
 
@@ -73,5 +80,136 @@ The following table lists the supported configurations when configuring inbound 
 | secure inbound with public outbound | `public_network_access` is disabled | `private_network_connection` is false  | Yes |
 | public inbound with secure outbound | `public_network_access` is enabled | `private_network_connection` is true    | Yes |
 | public inbound with public outbound | `public_network_access` is enabled | `private_network_connection` is false  | Yes |
+
+## End-to-end example
+
+Use the information in this section to create an example configuration that uses private endpoints to secure online endpoints.
+
+> [!TIP]
+> In this example, and Azure Virtual Machine is created inside the VNet. You connect to the VM using SSH, and run the deployment from the VM. This configuration is used to simplify the steps in this example, and does not represent a typical secure configuration. For example, in a production environment you would most likely use a VPN client or Azure ExpressRoute to directly connect clients to the virtual network.
+
+### Create workspace and secured resources
+
+The steps in this section use an Azure Resource Manager template to create the following Azure resources:
+
+* Azure Virtual Network
+* Azure Machine Learning workspace
+* Azure Container Registry
+* Azure Key Vault
+* Azure Storage account (blob & file storage)
+
+Public access is disabled for all the services. A scoring subnet is created, along with outbound rules that allow communication with the following Azure services:
+
+* Azure Active Directory
+* Azure Resource Manager
+* Azure Front Door
+* Microsoft Container Registries
+
+To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
+
+```azurecli
+# SUFFIX will be used as resource name suffix in created workspace and related resources
+export SUFFIX="<UNIQUE_SUFFIX>"
+# This bicep template sets up secure workspace and relevant resources
+az deployment group create --template-file endpoints/online/managed/vnet/setup_vm/vm-main.bicep --parameters suffix=$SUFFIX
+```
+
+### Create the virtual machine jump box
+
+To create an Azure Virtual Machine that can be used to connect to the VNet, use the following command. Replace `<your-new-password>` with the password you want to use when connecting to this VM:
+
+```azurecli
+# create vm
+az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --image UbuntuLTS --admin-username azureuser --admin-password <your-new-password>
+```
+
+> [!IMPORTANT]
+> The VM created by these commands has a public endpoint that you can connect to over the public network.
+
+The response from this command is a JSON document similar to the following:
+
+```json
+{
+  "fqdns": "",
+  "id": "/subscriptions/<GUID>/resourceGroups/<my-resource-group>/providers/Microsoft.Compute/virtualMachines/test-vm",
+  "location": "westus",
+  "macAddress": "00-0D-3A-ED-D8-E8",
+  "powerState": "VM running",
+  "privateIpAddress": "192.168.0.12",
+  "publicIpAddress": "20.114.122.77",
+  "resourceGroup": "<my-resource-group>",
+  "zones": ""
+}
+```
+
+Use the following command to connect to the VM using SSH. Replace `publicIpAddress` with the value of the public IP address in the response from the previous command:
+
+```azurecli
+ssh azureusere@publicIpAddress
+```
+
+When prompted, enter the password you used when creating the VM.
+
+### Configure the VM
+
+1. Use the following commands from the SSH session to install the CLI and Docker:
+
+    ```azurecli
+
+    ```
+
+1. To create the environment variables used by this example, run the following commands. Replace `<YOUR_SUBSCRIPTION_ID>` with your Azure subscription ID. Replace `<YOUR_RESOURCE_GROUP>` with the resource group that contains your workspace. Replace `<SUFFIX_USED_IN_SETUP>` with the suffix you provided earlier. Replace `<LOCATION>` with the location of your Azure workspace. Replace `<YOUR_ENDPOINT_NAME>` with the name to use for the endpoint.
+
+    > [!TIP]
+    > Use the tabs to select whether you want to perform a deployment using an MLflow model or generic ML model.
+
+    # [MLflow model](#tabs/mlflow)
+
+    :::code language="{language}" source="{source}" range="{range}":::
+
+    # [Generic model](#tabs/model)
+
+    :::code language="{language}" source="{source}" range="{range}":::
+
+    ---
+
+1. To login to the Azure CLI in the VM environment, use the following command:
+
+    :::code language="{language}" source="{source}" range="{range}":::
+
+1. To configure the defaults for the CLI, use the following commands:
+
+    :::code language="{language}" source="{source}" range="{range}":::
+
+1. To clone the example files for the deployment, use the following command:
+
+    :::code language="{language}" source="{source}" range="{range}":::
+
+1. To build a custom docker image to use with the deployment, use the following commands:
+
+    :::code language="{language}" source="{source}" range="{range}":::
+
+    > [!TIP]
+    > In a production environment, when Azure Container Registry is behind the virtual network, you would use an Azure Machine Learning compute cluster and Azure Machine Learning environments. For more information, see [Secure Azure Machine Learning workspace](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+
+### Create a secured managed online endpoint
+
+1. To create a managed online endpoint that is secured using a private endpoint for inbound and outbound communication, use the following commands:
+
+1. To make a scoring request using the endpoint, use the following commands:
+
+### Cleanup
+
+To delete the endpoint, use the following command:
+
+:::code language="{language}" source="{source}" range="{range}":::
+
+To exit the SSH session and delete the VM, use the following commands:
+
+:::code language="{language}" source="{source}" range="{range}":::
+
+To delete the example workspace/VNet configuration, use the following command:
+
+
 
 ## Next steps
