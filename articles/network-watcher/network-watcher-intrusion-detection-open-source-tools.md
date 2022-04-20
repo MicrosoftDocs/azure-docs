@@ -74,7 +74,7 @@ While the logs that Suricata produces contain valuable information about what's 
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have Java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have Java installed, refer to documentation on the [Azure-supported JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 
 1. Download the correct binary package for your system:
 

@@ -9,7 +9,7 @@ ms.custom: sqldbrb=1
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma, moslake
-ms.date: 01/18/2022
+ms.date: 04/06/2022
 ---
 # Migrate Azure SQL Database from the DTU-based model to the vCore-based model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,17 +27,17 @@ For most DTU to vCore migration scenarios, databases and elastic pools in the Ba
 To choose the service objective, or compute size, for the migrated database in the vCore model, you can use a simple but approximate rule of thumb: every 100 DTUs in the Basic or Standard tiers require *at least* 1 vCore, and every 125 DTUs in the Premium tier require *at least* 1 vCore. 
 
 > [!TIP]
-> This rule is approximate because it does not consider the hardware generation used for the DTU database or elastic pool. 
+> This rule is approximate because it does not consider the specific type of hardware used for the DTU database or elastic pool. 
 
-In the DTU model, the system may select any available [hardware generation](service-tiers-dtu.md#hardware-generations) for your database or elastic pool. Further, in the DTU model you have only indirect control over the number of vCores (logical CPUs) by choosing higher or lower DTU or eDTU values. 
+In the DTU model, the system may select any available [hardware configuration](service-tiers-dtu.md#hardware-configuration) for your database or elastic pool. Further, in the DTU model you have only indirect control over the number of vCores (logical CPUs) by choosing higher or lower DTU or eDTU values. 
 
-In the vCore model, customers must make an explicit choice of both the hardware generation and the number of vCores (logical CPUs). While DTU model does not offer these choices, the hardware generation and the number of logical CPUs used for every database and elastic pool are exposed via dynamic management views. This makes it possible to determine the matching vCore service objective more precisely. 
+In the vCore model, customers must make an explicit choice of both the hardware configuration and the number of vCores (logical CPUs). While DTU model does not offer these choices, hardware type and the number of logical CPUs used for every database and elastic pool are exposed via dynamic management views. This makes it possible to determine the matching vCore service objective more precisely. 
 
 The following approach uses this information to determine a vCore service objective with a similar allocation of resources, to obtain a similar level of performance after migration to the vCore model.
 
 ### DTU to vCore mapping
 
-A T-SQL query below, when executed in the context of a DTU database to be migrated, returns a matching (possibly fractional) number of vCores in each hardware generation in the vCore model. By rounding this number to the closest number of vCores available for [databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md) in each hardware generation in the vCore model, customers can choose the vCore service objective that is the closest match for their DTU database or elastic pool. 
+A T-SQL query below, when executed in the context of a DTU database to be migrated, returns a matching (possibly fractional) number of vCores in each hardware configuration in the vCore model. By rounding this number to the closest number of vCores available for [databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md) in each hardware configuration in the vCore model, customers can choose the vCore service objective that is the closest match for their DTU database or elastic pool. 
 
 Sample migration scenarios using this approach are described in the [Examples](#dtu-to-vcore-migration-examples) section.
 
@@ -94,21 +94,21 @@ FROM dtu_vcore_map;
 
 ### Additional factors
 
-Besides the number of vCores (logical CPUs) and the hardware generation, several other factors may influence the choice of vCore service objective:
+Besides the number of vCores (logical CPUs) and the type of hardware, several other factors may influence the choice of vCore service objective:
 
 - The mapping Transact-SQL query matches DTU and vCore service objectives in terms of their CPU capacity, therefore the results will be more accurate for CPU-bound workloads.
-- For the same hardware generation and the same number of vCores, IOPS and transaction log throughput resource limits for vCore databases are often higher than for DTU databases. For IO-bound workloads, it may be possible to lower the number of vCores in the vCore model to achieve the same level of performance. Actual resource limits for DTU and vCore databases are exposed in the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view. Comparing these values between the DTU database or pool to be migrated, and a vCore database or pool with an approximately matching service objective will help you select the vCore service objective more precisely.
-- The mapping query also returns the amount of memory per core for the DTU database or elastic pool to be migrated, and for each hardware generation in the vCore model. Ensuring similar or higher total memory after migration to vCore is important for workloads that require a large memory data cache to achieve sufficient performance, or workloads that require large memory grants for query processing. For such workloads, depending on actual performance, it may be necessary to increase the number of vCores to get sufficient total memory.
+- For the same hardware type and the same number of vCores, IOPS and transaction log throughput resource limits for vCore databases are often higher than for DTU databases. For IO-bound workloads, it may be possible to lower the number of vCores in the vCore model to achieve the same level of performance. Actual resource limits for DTU and vCore databases are exposed in the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view. Comparing these values between the DTU database or pool to be migrated, and a vCore database or pool with an approximately matching service objective will help you select the vCore service objective more precisely.
+- The mapping query also returns the amount of memory per core for the DTU database or elastic pool to be migrated, and for each hardware configuration in the vCore model. Ensuring similar or higher total memory after migration to vCore is important for workloads that require a large memory data cache to achieve sufficient performance, or workloads that require large memory grants for query processing. For such workloads, depending on actual performance, it may be necessary to increase the number of vCores to get sufficient total memory.
 - The [historical resource utilization](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) of the DTU database should be considered when choosing the vCore service objective. DTU databases with consistently under-utilized CPU resources may need fewer vCores than the number returned by the mapping query. Conversely, DTU databases where consistently high CPU utilization causes inadequate workload performance may require more vCores than returned by the query.
 - If migrating databases with intermittent or unpredictable usage patterns, consider the use of [Serverless](serverless-tier-overview.md) compute tier. Note that the max number of concurrent [workers](resource-limits-logical-server.md#sessions-workers-and-requests) in serverless is 75% of the limit in provisioned compute for the same number of max vCores configured. Also, the max memory available in serverless is 3 GB times the maximum number of vCores configured, which is less than the per-core memory for provisioned compute. For example, on Gen5 max memory is 120 GB when 40 max vCores are configured in serverless, vs. 204 GB for a 40 vCore provisioned compute.
-- In the vCore model, the supported maximum database size may differ depending on hardware generation. For large databases, check supported maximum sizes in the vCore model for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
+- In the vCore model, the supported maximum database size may differ depending on hardware. For large databases, check supported maximum sizes in the vCore model for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
 - For elastic pools, the [DTU](resource-limits-dtu-elastic-pools.md) and [vCore](resource-limits-vcore-elastic-pools.md) models have differences in the maximum supported number of databases per pool. This should be considered when migrating elastic pools with many databases.
-- Some hardware generations may not be available in every region. Check availability under [Hardware generations for SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations).
+- Some hardware configurations may not be available in every region. Check availability under [Hardware configuration for SQL Database](./service-tiers-sql-database-vcore.md#hardware-configuration).
 
 > [!IMPORTANT]
 > The DTU to vCore sizing guidelines above are provided to help in the initial estimation of the target database service objective.
 >
-> The optimal configuration of the target database is workload-dependent. Thus, to achieve the optimal price/performance ratio after migration, you may need to leverage the flexibility of the vCore model to adjust the number of vCores, hardware generation, and service and compute tiers. You may also need to adjust database configuration parameters, such as [maximum degree of parallelism](configure-max-degree-of-parallelism.md), and/or change the database [compatibility level](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) to enable recent improvements in the database engine.
+> The optimal configuration of the target database is workload-dependent. Thus, to achieve the optimal price/performance ratio after migration, you may need to leverage the flexibility of the vCore model to adjust the number of vCores, hardware configuration, and service and compute tiers. You may also need to adjust database configuration parameters, such as [maximum degree of parallelism](configure-max-degree-of-parallelism.md), and/or change the database [compatibility level](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) to enable recent improvements in the database engine.
 > 
 
 ### DTU to vCore migration examples
@@ -135,7 +135,7 @@ The mapping query returns the following result (some columns not shown for brevi
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |0.25|Gen4|0.42|0.250|7|0.425|5.05|
 
-We see that the DTU database has the equivalent of 0.25 logical CPUs (vCores), with 0.42 GB of memory per vCore, and is using Gen4 hardware. The smallest vCore service objectives in the Gen4 and Gen5 hardware generations, **GP_Gen4_1** and **GP_Gen5_2**, provide more compute resources than the Standard S0 database, so a direct match is not possible. Since Gen4 hardware is being [decommissioned](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/), the **GP_Gen5_2** option is preferred. Additionally, if the workload is well-suited for the [Serverless](serverless-tier-overview.md) compute tier, then **GP_S_Gen5_1** would be a closer match.
+We see that the DTU database has the equivalent of 0.25 logical CPUs (vCores), with 0.42 GB of memory per vCore, and is using Gen4 hardware. The smallest vCore service objectives in the Gen4 and Gen5 hardware configurations, **GP_Gen4_1** and **GP_Gen5_2**, provide more compute resources than the Standard S0 database, so a direct match is not possible. Since Gen4 hardware is being [decommissioned](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/), the **GP_Gen5_2** option is preferred. Additionally, if the workload is well-suited for the [Serverless](serverless-tier-overview.md) compute tier, then **GP_S_Gen5_1** would be a closer match.
 
 **Migrating a Premium P15 database**
 

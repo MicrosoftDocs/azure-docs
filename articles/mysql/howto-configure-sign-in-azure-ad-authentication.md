@@ -47,7 +47,7 @@ We’ve designed the Azure AD integration to work with common MySQL tools like t
 We currently have tested the following clients:
 
 - MySQLWorkbench 
-- Mysql CLI
+- MySQL CLI
 
 We have also tested most common application drivers, you can see details at the end of this page.
 
