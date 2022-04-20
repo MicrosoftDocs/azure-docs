@@ -19,7 +19,7 @@ ms.author: danlep
 |---------|---------|---------|---------|
 |Row1     |         |         |         |
 |Row2     |         |         |         |
-|[Excessive data exposure](#excessive-data-exposure)     |  Request and response interfaces may contain more data fields than the consuming applications require       |    * Review APIs frequently<br/> * Define strict API schemas<br/>* Mask and filter data      |   [API3:2019 Excessive Data Exposure](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa3-excessive-data-exposure.md)     |
+|Row3     |         |         |         |
 |Row4     |         |         |         |
 |Row5     |         |         |         |
 |Row6     |         |         |         |
@@ -34,16 +34,6 @@ ms.author: danlep
 ## Broken user authentication 
 
 ## Excessive data exposure 
-
-Good API interface design is deceptively challenging. Very often, particularly with legacy APIs which have evolved over time, the request and response interfaces will contain more data fields than the consuming applications require.  
-
- A bad actor could attempt to access the API directly (perhaps by replaying a valid request), or sniff the traffic between server and API. Analysis of the API actions and the data available could yield sensitive data that is not surfaced to, or used by, the frontend application. 
-
-This problem is particularly likely with APIs that are data driven, where data structures used for storage have been used as a basis for the APIs' externally facing contracts.
-
-### Recommendations
-
- 
 
 ## Lack of resources and rate limiting 
 
