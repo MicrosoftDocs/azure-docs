@@ -28,8 +28,8 @@ private endpoints, and encryption.
 
 Real-world customer applications built on Citus include SaaS apps, real-time
 operational analytics apps, and high throughput transactional apps. These apps
-span various verticals such as Sales & Marketing Automation, IOT/telemetry,
-finance, logistics, and search.
+span various verticals such as sales & marketing automation, healthcare,
+IOT/telemetry, finance, logistics, and search.
 
 > [!div class="nextstepaction"]
 > [Try the quickstart >](quickstart-create-portal.md)
