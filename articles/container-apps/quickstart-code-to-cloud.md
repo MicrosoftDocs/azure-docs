@@ -359,7 +359,7 @@ From your web browser, navigate to the FQDN on the `/albums` endpoint.
 
 ## Clean up resources
 
-If you're not going to continue to the next tutorial, run the following command to delete the resource group along with all the resources created in this quickstart.
+If you're not going to continue on to the [Communication between microservices](communicate-between-microservices.md) tutorial, you can remove the Auzre resources created during this quickstart. Run the following command to delete the resource group along with all the resources created in this quickstart.
 
 # [Bash](#tab/bash)
 
