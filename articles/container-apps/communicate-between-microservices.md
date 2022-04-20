@@ -46,19 +46,9 @@ Select the **Fork** button at the top of the page to fork the repo to your accou
 
 Use the following git command to clone your forked repo into the *code-to-cloud-ui* folder:
 
-# [Bash](#tab/bash)
-
 ```git
 git clone https://github.com/$GITHUB_USERNAME/containerapps-albumui.git code-to-cloud-ui
 ```
-
-# [PowerShell](#tab/powershell)
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumui.git code-to-cloud-ui
-```
-
----
 
 > [!NOTE]
 > If the `clone` command fails, then you probably forgot to first fork the repository.
@@ -97,7 +87,7 @@ $CONTAINER_IMAGE_NAME="$ACR_LOGIN_SERVER/$API_NAME-$LANGUAGE:1.0"
 
 ### Prepare Azure CLI
 
-Sign in to Azure.
+If you're not still signed in to Azure, sign in again.
 
 # [Bash](#tab/bash)
 
@@ -109,22 +99,6 @@ az login
 
 ```powershell
 Connect-AzAccount
-```
-
----
-
-Ensure you're running the latest version of the CLI via the upgrade command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az upgrade
 ```
 
 ---
@@ -153,104 +127,27 @@ az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
 
 ::: zone pivot="docker-local"
 
-::: zone-end
-
-## Verify your container in ACR
-
- Your container should be listed in the output of the following command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az acr show --name $ACR_NAME
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az acr show --name $ACR_NAME
-```
-
----
-
 ### Build your application locally
 
-### Build your application using ACR
-
-With ACR you can build a docker container without needing to install Docker locally.  For this example, a docker file is provided for you.
-
-### Example Docker file
-
-<!-- Do we want to detail one or all Dockerfiles? -->
-
-### Build the container with ACR
-
-## Create a Container Apps environment
-
-The Azure Container Apps environment acts as a secure boundary around a group of container apps. Container Apps deployed to the same environment share a virtual network and write logs to the same Log Analytics workspace.
-
-Your container apps are monitored with Azure Log Analytics. A Log Analytics workspace is automatically created when you create the environment.
-
-Create the Container Apps environment.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location "$LOCATION"
-```
-
-# [PowerShell](#tab/powershell)
-
-```azurecli
-az containerapp env create `
-  --name $CONTAINERAPPS_ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --location "$LOCATION"
-```
-
----
-## Create a container app
-
-Now that you have an environment created, you can create and deploy your container app with the `containerapp create` command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az containerapp create \
-  --name front-end-album-app \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image $CONTAINER_IMAGE_NAME \
-  --target-port 80 \
-  --ingress 'external' \
-  --query configuration.ingress.fqdn
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az containerapp create `
-  --name my-container-app `
-  --resource-group $RESOURCE_GROUP `
-  --environment $CONTAINERAPPS_ENVIRONMENT `
-  --image $CONTAINER_IMAGE_NAME `
-  --target-port 80 `
-  --ingress 'external' `
-  --query configuration.ingress.fqdn
-```
-
----
-
-By setting `--ingress` to `external`, you make the container app available to public requests.
+::: zone-end
 
 ## Verify deployment
 
-Get the URL from the output of the `az containerapp create` command.
+Your container should be listed in the output of the following command.
 
-The `az containerapp create` command returned the fully qualified domain name for the container app. Copy this location to a web browser.
+# [Bash](#tab/bash)
+
+```azurecli
+az acr show --name $ACR_NAME
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az acr show --name $ACR_NAME
+```
+
+---
 
 ## Clean up resources
 

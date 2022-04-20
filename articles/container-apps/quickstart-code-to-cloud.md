@@ -64,19 +64,9 @@ Now you can clone your fork of the sample repository.
 
 Use the following git command to clone your forked repo into the *code-to-cloud* folder:
 
-# [Bash](#tab/bash)
-
 ```git
 git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-$LANGUAGE.git code-to-cloud
 ```
-
-# [PowerShell](#tab/powershell)
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-$LANGUAGE.git code-to-cloud
-```
-
----
 
 > [!NOTE]
 > If the `clone` command fails, then you probably forgot to first fork the repository.
