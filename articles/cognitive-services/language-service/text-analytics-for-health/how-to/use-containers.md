@@ -265,7 +265,7 @@ You can use Postman or the example cURL request below to submit a query to the c
 > [!NOTE]
 > FHIR feature is available in the latest on-prem container tag, and is exposed through the new language API. 
 
-[!INCLUDE [How to stop the container](../includes/language-text-analytics-container.md)]
+[!INCLUDE [How to stop the container](../../includes/language-text-analytics-container.md)]
 
 
 ## Run the container with client library support
