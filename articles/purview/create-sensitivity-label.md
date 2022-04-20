@@ -1,5 +1,5 @@
 ---
-title: Labeling in Microsoft Purview
+title: Labeling in Microsoft Purview Data Map
 description: Start utilizing sensitivity labels and classifications to enhance your Microsoft Purview assets
 author: batamig
 ms.author: bagol
@@ -8,7 +8,8 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
 ---
-# Labeling in Microsoft Purview
+
+# Labeling in Microsoft Purview Data Map
 
 > [!IMPORTANT]
 > Microsoft Purview Sensitivity Labels are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
