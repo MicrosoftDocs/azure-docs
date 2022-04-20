@@ -335,7 +335,7 @@ You can do so in the **createOptions** of each module. For example:
 "createOptions": {
     "HostConfig": {
         "LogConfig": {
-            "Type": "json-file",
+            "Type": "local",
             "Config": {
                 "max-size": "10m",
                 "max-file": "3"
