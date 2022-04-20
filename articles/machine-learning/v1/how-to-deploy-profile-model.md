@@ -47,7 +47,7 @@ Below is an example of how you can construct an input dataset to profile a servi
 
 ::: zone pivot="py-sdk"
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import json

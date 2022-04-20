@@ -13,8 +13,6 @@ ms.date: 07/17/2020
 
 # Track experiments and deploy models in Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
 Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script using the [MLflow](https://mlflow.org/) API and track the experiment in Azure Machine Learning.
 
 The following diagram illustrates that with MLflow Tracking, you track an experiment's run metrics and store model artifacts in your Azure Machine Learning workspace.
@@ -177,6 +175,8 @@ When the model has deployed successfully, you should see the following (to get t
 You should see that the deployment state goes from __transitioning__ to __healthy__. In addition, this details section provides the REST endpoint and Swagger URLs that an application developer can use to integrate your ML model into their apps.
 
 You can test the endpoint using [Postman](https://www.postman.com/), or you can use the AzureML SDK:
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Webservice

@@ -15,7 +15,7 @@ ms.date: 10/21/2021
 
 # Deploy a model to an Azure Kubernetes Service cluster with v1
 
-[!INCLUDE [deploy-v1](../../../includes/machine-learning-deploy-v1.md)]
+[!INCLUDE [deploy-v1](../../../../includes/machine-learning-deploy-v1.md)]
 
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
