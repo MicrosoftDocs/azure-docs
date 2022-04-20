@@ -35,7 +35,7 @@ If you're encountering recognition problems with a base model, you can use human
 
 The first step in training a model is to upload training data. For step-by-step instructions for preparing human-labeled transcriptions and related text (utterances and pronunciations), see [Prepare and test your data](./how-to-custom-speech-test-and-train.md). After you upload training data, follow these instructions to start training your model:
 
-1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech). If you plan to train a model with audio + human-labeled transcription datasets, pick a Speech subscription in a region with dedicated hardware for training.
+1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). If you plan to train a model with audio + human-labeled transcription datasets, pick a Speech subscription in a region with dedicated hardware for training.
 
 1. Go to **Speech-to-text** > **Custom Speech** > **[name of project]** > **Training**.
 
@@ -76,7 +76,7 @@ After you upload and inspect data, evaluate accuracy, and train a custom model, 
 
 To create a custom endpoint:
 
-1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
 
 1. On the **Custom Speech** menu at the top of the page, select **Deployment**. 
 

@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Evaluate and improve Custom Speech accuracy
 
-In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
+In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided in the [Speech Studio](speech-studio-overview.md). 
 
 ## Evaluate Custom Speech accuracy
 
@@ -49,7 +49,7 @@ If you want to test the quality of the Microsoft speech-to-text baseline model o
 
 To evaluate models side by side, do the following:
 
-1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech).
 
 1. Select **Speech-to-text** > **Custom Speech** > **\<name of project>** > **Testing**.
 1. Select **Add Test**.
@@ -87,11 +87,11 @@ Different scenarios produce different quality outcomes. The following table exam
 | Video closed captioning | Depends on video type (can be <&nbsp;50%&nbsp;WER) | Low | Can be high because of music, noises, microphone quality | Jargon might cause these errors |
 | | |
 
-Determining the components of the WER (number of insertion, deletion, and substitution errors) helps determine what kind of data to add to improve the model. Use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to view the quality of a baseline model. The portal reports insertion, substitution, and deletion error rates that are combined in the WER quality rate.
+The insertion, substitution, and deletion error rates help you determine what kind of data to add to improve the model.
 
 ## Improve model recognition
 
-You can reduce recognition errors by adding training data in the [Custom Speech portal](https://speech.microsoft.com/customspeech). 
+You can reduce recognition errors by adding training data in the [Speech Studio](https://speech.microsoft.com/customspeech). 
 
 Plan to maintain your custom model by adding source materials periodically. Your custom model needs additional training to stay aware of changes to your entities. For example, you might need updates to product names, song names, or new service locations.
 
@@ -128,7 +128,6 @@ Consider these details:
 * The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as though they were added as related text.
 * It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a region that has dedicated hardware for training.
 
-
 > [!NOTE]
 > Not all base models support training with audio. If a base model doesn't support audio, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
 
@@ -159,8 +158,5 @@ The following table shows voice recognition scenarios and lists source materials
 ## Next steps
 
 * [Train and deploy a model](how-to-custom-speech-train-model.md)
-
-## Additional resources
-
 * [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
