@@ -108,7 +108,7 @@ Use the following steps to create an emergency access account:
 
 1. [Validate accounts regularly](../active-directory/roles/security-emergency-access.md#validate-accounts-regularly).
 
-Once you create your emergence accounts, you need to do the following: 
+Once you create your emergency accounts, you need to do the following: 
 
 - Make sure you [exclude at least one account from phone-based multi-factor authentication](../active-directory/roles/security-emergency-access.md#exclude-at-least-one-account-from-phone-based-multi-factor-authentication)
 
