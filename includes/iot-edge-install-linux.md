@@ -92,7 +92,7 @@ Install the Moby engine.
    ```
 
 > [!TIP]
-> If you gave the "root" account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
+> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
@@ -146,7 +146,7 @@ Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
    ```
 
 > [!TIP]
-> If you gave the "root" account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
+> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 # [Raspberry Pi OS](#tab/rpios)
 
@@ -205,7 +205,7 @@ Install the latest version of IoT Edge and the IoT identity service package:
    ```
 
 > [!TIP]
-> If you gave the “root” account a password during the OS install, you will not need 'sudo'. If not, you can run the 'cp' command without 'sudo'.
+> If you gave the “root” account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
 
 The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
 
