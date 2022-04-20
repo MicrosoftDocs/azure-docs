@@ -10,9 +10,9 @@ ms.date: 04/20/2022
 
 # Deploy a FHIR service within Azure Health Data Services - using Bicep
 
-In this article, you'll learn how to deploy FHIR service within the Azure Health Data Services (hereby called FHIR service) using [Bicep](../azure-resource-manager/bicep/overview.md).
+In this article, you'll learn how to deploy FHIR service within the Azure Health Data Services (hereby called FHIR service) using Bicep.
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 The Bicep file used in this article is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-for-fhir/).
 
-:::code language="bicep" source="../azure-quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/main.bicep":::
+:::code language="bicep" source="~quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/main.bicep":::
 
 The Bicep file defines three Azure resources:
 
