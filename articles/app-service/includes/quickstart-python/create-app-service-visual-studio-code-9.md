@@ -4,4 +4,4 @@ ms.author: daberry
 ms.topic: include
 ms.date: 04/30/2022
 ---
-Choose the **Create new Web App...** option.
+Select the runtime stack for the application. In this example, select **Python 3.9**.
