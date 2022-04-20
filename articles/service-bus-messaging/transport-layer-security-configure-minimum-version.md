@@ -13,9 +13,9 @@ ms.author: EldertGrootenboer
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace
 
-Communication between a client application and an Azure Service Bus namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
+Communication between a client application and an Azure Service Bus namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
 
-Azure Service Bus currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Service Bus uses TLS 1.2 on public endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+Azure Service Bus supports choosing a specific TLS version for namespaces. Currently Azure Service Bus uses TLS 1.2 on public endpoints by default, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
 Azure Service Bus namespaces permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail.
 

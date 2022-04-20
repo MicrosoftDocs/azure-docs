@@ -13,9 +13,9 @@ ms.author: EldertGrootenboer
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace
 
-Communication between a client application and an Azure Event Hubs namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
+Communication between a client application and an Azure Event Hubs namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
 
-Azure Event Hubs currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Event Hubs uses TLS 1.2 on public endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+Azure Event Hubs supports choosing a specific TLS version for namespaces. Currently Azure Service Bus uses TLS 1.2 on public endpoints by default, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
 Azure Event Hubs namespaces permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your Event Hubs namespace to require that clients send and receive data with a newer version of TLS. If an Event Hubs namespace requires a minimum version of TLS, then any requests made with an older version will fail.
 
