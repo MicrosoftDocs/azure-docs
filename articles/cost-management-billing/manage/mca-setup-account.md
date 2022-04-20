@@ -122,6 +122,10 @@ If your enrollment still has credits, you'll see the following error that preven
 
 `Select another enrollment. This enrollment still has credits and can't be transitioned to a billing account.`
 
+If your new billing profile doesn't have the new plan enabled, you'll see the following error. You must enable the plan before you can transition your enrollment.
+
+`Select another Billing Profile. The current selection does not have Azure Plan and Azure dev test plan enabled on it.`
+
 ## Understand changes to your billing hierarchy
 
 Your new billing account simplifies billing for your organization while providing you enhanced billing and cost management capabilities. The following diagram explains how billing is organized in the new billing account.
