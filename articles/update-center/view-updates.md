@@ -31,7 +31,7 @@ To check the updates on a single VM, follow these steps:
 
     :::image type="content" source="./media/view-updates/check-updates-inline.png" alt-text="Example of checking updates from Overview." lightbox="./media/view-updates/check-updates-expanded.png":::
 
-An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful*.
+    An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful*.
 
 
 ## Check updates at scale
