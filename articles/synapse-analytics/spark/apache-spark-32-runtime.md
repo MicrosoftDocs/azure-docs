@@ -5,12 +5,12 @@ author: DaniBunny
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 04/18/2022 
+ms.date: 04/20/2022 
 ms.author: dacoelho
 ms.custom: has-adal-ref
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.2 
+# Azure Synapse Runtime for Apache Spark 3.2 (Public Preview)
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2. 
 
