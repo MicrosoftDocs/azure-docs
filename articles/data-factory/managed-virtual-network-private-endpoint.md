@@ -19,14 +19,14 @@ This article will explain managed virtual network and Managed private endpoints 
 
 ## Managed virtual network
 
-When you create an Azure integration runtime within Azure Data Factory managed virtual network, the integration runtime will be provisioned with the managed virtual network and will leverage private endpoints to securely connect to supported data stores. 
+When you create an Azure integration runtime within Azure Data Factory managed virtual network, the integration runtime will be provisioned with the managed virtual network and will use private endpoints to securely connect to supported data stores. 
 
 Creating an Azure integration runtime within managed virtual network ensures that data integration process is isolated and secure. 
 
 Benefits of using managed virtual network:
 
 - With a managed virtual network, you can offload the burden of managing the virtual network to Azure Data Factory. You don't need to create a subnet for Azure Integration Runtime that could eventually use many private IPs from your virtual network and would require prior network infrastructure planning. 
-- It does not require deep Azure networking knowledge to do data integrations securely. Instead getting started with secure ETL is much simplified for data engineers. 
+- It doesn't require deep Azure networking knowledge to do data integrations securely. Instead getting started with secure ETL is much simplified for data engineers. 
 - Managed virtual network along with managed private endpoints protects against data exfiltration. 
 
 > [!IMPORTANT]
@@ -70,12 +70,12 @@ If the owner approves the connection, the private link is established. Otherwise
 Only a managed private endpoint in an approved state can send traffic to a given private link resource.
 
 ## Interactive authoring
-Interactive authoring capabilities is used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure integration runtime which is in Azure Data Factory managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The Time-To-Live (TTL) for interactive authoring is 60 minutes, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation.
+Interactive authoring capabilities are used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure integration runtime, which is in Azure Data Factory managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The Time-To-Live (TTL) for interactive authoring is 60 minutes, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation.
 
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Interactive authoring":::
 
 ## Activity execution time using managed virtual network
-By design, Azure integration runtime in managed virtual network takes longer queue time than global Azure integration runtime as we are not reserving one compute node per data factory, so there is a warm up for each activity to start, and it occurs primarily on virtual network join rather than Azure integration runtime. For non-copy activities including pipeline activity and external activity, there is a 60 minutes Time-To-Live (TTL) when you trigger them at the first time. Within TTL, the queue time is shorter because the node is already warmed up. 
+By design, Azure integration runtime in managed virtual network takes longer queue time than global Azure integration runtime as we aren't reserving one compute node per data factory, so there's a warm-up for each activity to start, and it occurs primarily on virtual network join rather than Azure integration runtime. For non-copy activities including pipeline activity and external activity, there's a 60 minutes Time-To-Live (TTL) when you trigger them at the first time. Within TTL, the queue time is shorter because the node is already warmed up. 
 > [!NOTE]
 > Copy activity doesn't have TTL support yet.
 
@@ -159,14 +159,14 @@ The following data sources and services have native private endpoint support and
 > Because Azure SQL Managed Instance native private endpoint in private preview, you can access it from managed virtual network using Private Linked Service and Load Balancer. Please see [How to access SQL Managed Instance from Azure Data Factory managed virtual network using private endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
 
 ### On-premises data sources
-To access on-premises data sources from managed virtual network using private endpoint, please see this tutorial [How to access on-premises SQL Server from Azure Data Factory managed virtual network using private endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).
+To access on-premises data sources from managed virtual network using private endpoint, see this tutorial [How to access on-premises SQL Server from Azure Data Factory managed virtual network using private endpoint](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
 
 ### Outbound communications through public endpoint from ADF managed virtual network
 - All ports are opened for outbound communications.
 
 ### Linked service creation of Azure Key Vault 
-- When you create a linked service for Azure Key Vault, there is no Azure integration runtime reference. So you can't create private endpoint during linked service creation of Azure Key Vault. But when you create linked service for data stores which references Azure Key Vault linked service and this linked service references Azure integration runtime with managed virtual network enabled, then you are able to create a private endpoint for the Azure Key Vault linked service during the creation. 
+- When you create a linked service for Azure Key Vault, there's no Azure integration runtime reference. So you can't create private endpoint during linked service creation of Azure Key Vault. But when you create linked service for data stores, which references Azure Key Vault linked service and this linked service references Azure integration runtime with managed virtual network enabled, then you're able to create a private endpoint for the Azure Key Vault linked service during the creation. 
 - **Test connection** operation for linked service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
 - The column **Using private endpoint** is always shown as blank even if you create private endpoint for Azure Key Vault.
 
