@@ -184,7 +184,6 @@ When prompted, enter the password you used when creating the VM.
     ```azurecli
     sudo mkdir -p /home/samples; sudo git clone -b main --depth 1 https://github.com/Azure/azureml-examples.git /home/samples/azureml-examples
     ```
-    
 
 1. To build a custom docker image to use with the deployment, use the following commands:
 
@@ -197,7 +196,11 @@ When prompted, enter the password you used when creating the VM.
 
 1. To create a managed online endpoint that is secured using a private endpoint for inbound and outbound communication, use the following commands:
 
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/endpoints/online/managed/vnet/setup_vm/scripts/create_moe.sh" id="create_vnet_deployment":::
+
 1. To make a scoring request using the endpoint, use the following commands:
+
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/endpoints/online/managed/vnet/setup_vm/scripts/score_endpoint.sh" id="check_deployment":::
 
 ### Cleanup
 
@@ -209,8 +212,16 @@ To delete the VM, use the following command:
 
 :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet.sh" id="delete_vm":::
 
-To delete the example workspace/VNet configuration, use the following command:
+To delete all the resources created in this article, use the following command. Replace `<resource-group-name>` with the name of the resource group used in this example:
 
-
+```azurecli
+az group delete --resource-group <resource-group-name>
+```
 
 ## Next steps
+
+- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
