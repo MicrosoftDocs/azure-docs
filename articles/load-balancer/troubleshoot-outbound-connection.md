@@ -6,7 +6,7 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.date: 04/05/2022
+ms.date: 04/21/2022
 ms.author: allensu
 ---
 # Troubleshoot SNAT exhaustion and connection timeouts
@@ -45,7 +45,7 @@ Virtual network NAT gateway is a highly resilient and scalable Azure service tha
 
 ### Configure load balancer outbound rules to maximize SNAT ports per VM
 
-If you’re using a public Standard Azure Load Balancer and experience SNAT exhaustion or connection failures, ensure you’re using outbound rules with manual port allocation. Otherwise, you’re likely relying on load balancer’s default outbound access. Default outbound access automatically allocates a conservative number of ports, which is based on the number of instances in your backend pool. Default outbound access isn't a recommended method for enabling outbound connections. When your backend pool scales, your connections may be impacted if ports need to be reallocated. 
+If you’re using a public standard load balancer and experience SNAT exhaustion or connection failures, ensure you’re using outbound rules with manual port allocation. Otherwise, you’re likely relying on load balancer’s default outbound access. Default outbound access automatically allocates a conservative number of ports, which is based on the number of instances in your backend pool. Default outbound access isn't a recommended method for enabling outbound connections. When your backend pool scales, your connections may be impacted if ports need to be reallocated. 
 
 To learn more about default outbound access and default port allocation, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 
