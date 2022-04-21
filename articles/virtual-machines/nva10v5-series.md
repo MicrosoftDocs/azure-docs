@@ -7,7 +7,7 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/01/2022
 ms.author: vikancha
- ms.custom: references_regions
+ms.custom: references_regions
 ---
 
 # NVadsA10 v5-series (Preview)
