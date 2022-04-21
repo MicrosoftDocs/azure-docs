@@ -47,7 +47,7 @@ Convert audio to text from a range of sources, including microphones, audio file
 - [Batch speech-to-text](batch-transcription.md): Batch speech-to-text enables asynchronous speech-to-text transcription of large volumes of speech audio data stored in Azure Blob Storage. In addition to converting speech audio to text, batch speech-to-text allows for diarization and sentiment analysis.
 - [Create custom speech models](custom-speech-overview.md): If you're using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. Custom speech models are private and can offer a competitive advantage.
 
-You can try speech to text with [this demo web app](https://azure.microsoft.com/en-us/services/cognitive-services/speech-to-text/#features) or in the [Speech Studio](https://aka.ms/speechstudio/speechtotexttool).
+You can try speech to text with [this demo web app](https://azure.microsoft.com/services/cognitive-services/speech-to-text/#features) or in the [Speech Studio](https://aka.ms/speechstudio/speechtotexttool).
 
 ### Text-to-speech
 
