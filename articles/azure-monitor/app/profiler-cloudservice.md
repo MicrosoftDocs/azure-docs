@@ -3,11 +3,7 @@ title: Profile live Azure Cloud Services with Application Insights | Microsoft D
 description: Enable Application Insights Profiler for Azure Cloud Services.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-author: cweining
-ms.author: cweining
 ms.date: 08/06/2018
-
-ms.reviewer: mbullwin
 ---
 
 # Profile live Azure Cloud Services with Application Insights
@@ -64,6 +60,8 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
     > After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys that are used by the application and the ApplicationInsightsProfiler sink need to match each other.
 
 1. Deploy your service with the new Diagnostics configuration, and Application Insights Profiler is configured to run on your service.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
  
 ## Next steps
 

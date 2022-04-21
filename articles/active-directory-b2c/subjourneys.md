@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2021
+ms.date: 02/09/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -102,8 +102,6 @@ A new orchestration step of type `InvokeSubJourney` is used to execute a sub jou
 </OrchestrationStep>
 ```
 
-> [!NOTE]
-> A sub journey should not call another sub journey.
 
 ## Components
 

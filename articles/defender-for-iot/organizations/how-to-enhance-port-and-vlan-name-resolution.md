@@ -1,64 +1,35 @@
 ---
-title: Enhance port and VLAN name resolution
-description: Customize port and VLAN names on your sensors to enrich device resolution.
-ms.date: 11/09/2021
+title: Enhance port and VLAN name resolution in Defender for IoT
+description: Customize port and VLAN names on your sensors 
+ms.date: 01/02/2022
 ms.topic: how-to
 ---
 
-# Enhance port, VLAN and OS resolution
+# Customize port and VLAN names
 
 You can customize port and VLAN names on your sensors to enrich device resolution.
 
-## Customize port names
+## Customize a port name
 
-Microsoft Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. You can customize port names for other ports that Defender for IoT detects. For example, assign a name to a non-reserved port because that port shows unusually high activity.
+Microsoft Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. You can customize port names for other ports that Defender for IoT detects. For example, you might assign a name to a non-reserved port because that port shows unusually high activity. Names appear when you view device groups from the device map, or when you create reports that provide port information.
 
-These names appear when:
+Customize a name as follows:
 
-  - You select **Device groups** from the device map.
-
-  - You create widgets that provide port information.
-
-### View custom port names in the device map
-
-Ports that include a name defined by users appear in the device map, in the **Known Applications** group.
-
-:::image type="content" source="media/how-to-enrich-asset-information/applications-v2.png" alt-text="Screenshot of the device map, showing the Known Applications group.":::
-
-### View custom port names in widgets
-
-Port names that you defined appear in the widgets that cover traffic by port.
-
-:::image type="content" source="media/how-to-enrich-asset-information/traffic-v2.png" alt-text="Cover traffic.":::
-
-To define custom port names:
-
-1. Select **System Settings** and then select **Standard Aliases**.
-
-2. Select **Add Port Alias**.
-
-    :::image type="content" source="media/how-to-enrich-asset-information/edit-aliases.png" alt-text="Add Port Alias.":::
-
-3. Enter the port number, select **TCP/UDP**, or select **Both**, and add the name.
-
+1. Select **System Settings**. Under **Network monitoring**, select **Port Naming**.
+2. Select **Add port**.
+3. Enter the port number, select the protocol (TCP, UDP, both) and type in a name.
 4. Select **Save**.
 
-## Configure VLAN names
+## Customize a VLAN name
 
-You can enrich device inventory data with device VLAN numbers and tags. In addition to data enrichment, you can view the number of devices per VLAN, and view bandwidth by VLAN widgets.
+You can enrich device inventory data with device VLAN numbers and tags. 
 
-VLANs support is based on 802.1q (up to VLAN ID 4094).
+- VLANs support is based on 802.1q (up to VLAN ID 4094). VLANS can be discovered automatically by the sensor or added manually.
+- Automatically discovered VLANs can't be edited or deleted. You should add a name to each VLAN, if you don't add a name, the VLAN number will appear when VLAN information is reported.
+- When you add a manual VLN, you must add a unique name. These VLANs can be edited and deleted.
+- VLAN names can contain up to 50 ASCII characters.
 
-Two methods are available for retrieving VLAN information:
-
-- **Automatically discovered**: By default, the sensor automatically discovers VLANs. VLANs detected with traffic are displayed on the VLAN configuration screen, in data-mining reports, and in other reports that contain VLAN information. Unused VLANs are not displayed. You can't edit or delete these VLANs. 
-
-  You should add a unique name to each VLAN. If you don't add a name, the VLAN number appears in all the locations where the VLAN is reported.
-
-- **Manually added**: You can add VLANs manually. You must add a unique name for each VLAN that was manually added, and you can edit or delete these VLANs.
-
-VLAN names can contain up to 50 ASCII characters.
-
+## Before you start
 > [!NOTE]
 > VLAN names are not synchronized between the sensor and the management console. You need to define the name on the management console as well.  
 For Cisco switches, add the following line to the span configuration: `monitor session 1 destination interface XX/XX encapsulation dot1q`. In that command, *XX/XX* is the name and number of the port.
@@ -73,20 +44,6 @@ To configure VLAN names:
 
 3. Add a unique name next to each VLAN ID.
 
-## Improve device operating system classification: data enhancement
-
-Sensors continuously auto discover new devices, as well as changes to previously discovered devices, including operating system types.
-
-Under certain circumstances, conflicts might be detected in discovered operating systems. This can happen, for example, if you have an operating systems version that refers to either desktop or server systems. If it happens, you'll receive a notification with optional operating systems classifications.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Enhance data.":::
-
-Investigate the recommendations in order to enrich  operating system classification. This classification appears in the device inventory, data-mining reports, and other displays. Making sure this information is up-to-date can improve the accuracy of alerts, threats, and risk analysis reports.
-
-To access operating system recommendations:
-
-1. Select **System Settings**.
-1. Select **Data Enhancement**.
 
 ## Next steps
 

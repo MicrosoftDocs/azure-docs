@@ -43,7 +43,7 @@ For reference, the following parameters are used in this article, but can be mod
 | **Listener** | AGListener (10.0.0.7) | 
 | **DNS suffix** | ag.wgcluster.example.com | 
 | **Work group name** | AGWorkgroup | 
-| &nbsp; | &nbsp; |
+
 
 ## Set a DNS suffix 
 

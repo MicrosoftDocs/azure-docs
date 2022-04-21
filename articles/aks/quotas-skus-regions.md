@@ -59,7 +59,7 @@ When you create a cluster using the Azure portal, you can choose a preset config
 You can increase certain default limits and quotas. If your resource supports an increase, request the increase through an [Azure support request][azure-support] (for **Issue type**, select **Quota**).
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->

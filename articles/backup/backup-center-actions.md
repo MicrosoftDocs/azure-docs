@@ -134,8 +134,8 @@ To stop protection, navigate to Backup center and select the **Backup Instances*
 
 You can resume backup for your workloads if you have retained data during **Stop Protection**.
 
-- [Learn more](manage-azure-database-postgresql.md#resume-protection) about resuming protection for your disk.
-- [Learn more](manage-azure-managed-disks.md#resume-protection) about resuming protection for Azure Database for PostgreSQL server.
+- [Learn more](manage-azure-managed-disks.md#resume-protection) about resuming protection for your disk.
+- [Learn more](manage-azure-database-postgresql.md#resume-protection) about resuming protection for Azure Database for PostgreSQL server.
 
 ## Next steps
 

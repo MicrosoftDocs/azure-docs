@@ -7,8 +7,8 @@
  ms.topic: include
  ms.date: 04/13/2018
  ms.author: genli
- ms.custom: include file
-
+ ms.custom: include file, devx-track-azurecli 
+ ms.devlang: azurecli
 ---
 
 ## How to create a classic VNet using Azure CLI

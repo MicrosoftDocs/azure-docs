@@ -2,7 +2,7 @@
 title: Template functions - scope
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about deployment scope.
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 03/10/2022
 ---
 
 # Scope functions for ARM templates
@@ -16,11 +16,16 @@ Resource Manager provides the following functions for getting deployment scope v
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [scope](../bicep/bicep-functions-scope.md) functions.
+
 ## managementGroup
 
 `managementGroup()`
 
 Returns an object with properties from the management group in the current deployment.
+
+In Bicep, use the [managementGroup](../bicep/bicep-functions-scope.md#managementgroup) scope function.
 
 ### Remarks
 
@@ -120,6 +125,8 @@ The next example creates a new management group and uses this function to set th
 
 Returns an object that represents the current resource group.
 
+In Bicep, use the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) scope function.
+
 ### Return value
 
 The returned object is in the following format:
@@ -186,6 +193,8 @@ The preceding example returns an object in the following format:
 
 Returns details about the subscription for the current deployment.
 
+In Bicep, use the [subscription](../bicep/bicep-functions-scope.md#subscription) scope function.
+
 ### Return value
 
 The function returns the following format:
@@ -214,6 +223,8 @@ The following example shows the subscription function called in the outputs sect
 `tenant()`
 
 Returns properties about the tenant for the current deployment.
+
+In Bicep, use the [tenant](../bicep/bicep-functions-scope.md#tenant) scope function.
 
 ### Remarks
 

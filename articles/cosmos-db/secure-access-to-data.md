@@ -6,9 +6,8 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.custom: devx-track-csharp
-
+ms.date: 04/06/2022
+ms.custom: devx-track-csharp, subject-rbac-steps
 ---
 # Secure access to data in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -100,6 +99,8 @@ Azure Cosmos DB RBAC is the ideal access control method in situations where:
 - You wish to materialize your access control policies as "roles" that you can assign to multiple identities.
 
 See [Configure role-based access control for your Azure Cosmos DB account](how-to-setup-rbac.md) to learn more about Azure Cosmos DB RBAC.
+
+For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](mongodb/how-to-setup-rbac.md).
 
 ## <a id="resource-tokens"></a> Resource tokens
 
@@ -204,12 +205,20 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 To add Azure Cosmos DB account reader access to your user account, have a subscription owner perform the following steps in the Azure portal.
 
 1. Open the Azure portal, and select your Azure Cosmos DB account.
-2. Click the **Access control (IAM)** tab, and then click  **+ Add role assignment**.
-3. In the **Add role assignment** pane, in the **Role** box, select **Cosmos DB Account Reader Role**.
-4. In the **Assign access to box**, select **Azure AD user, group, or application**.
-5. Select the user, group, or application in your directory to which you wish to grant access.  You can search the directory by display name, email address, or object identifiers.
-    The selected user, group, or application appears in the selected members list.
-6. Click **Save**.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+    | Setting | Value |
+    | --- | --- |
+    | Role | Cosmos DB Account Reader |
+    | Assign access to | User, group, or service principal |
+    | Members | The user, group, or application in your directory to which you wish to grant access. |
+
+    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 The entity can now read Azure Cosmos DB resources.
 
@@ -223,4 +232,5 @@ As a database service, Azure Cosmos DB enables you to search, select, modify and
 
 - To learn more about Cosmos database security, see [Cosmos DB Database security](database-security.md).
 - To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
-- User management samples with users and permissions, [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
+- For user management samples with users and permissions, see [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
+- For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](mongodb/how-to-setup-rbac.md)

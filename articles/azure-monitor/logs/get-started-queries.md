@@ -11,7 +11,7 @@ ms.date: 10/20/2021
 # Get started with log queries in Azure Monitor
 
 > [!NOTE]
-> If you're collecting data from at least one virtual machine, you can work through this exercise in your own environment. For other scenarios, use our [demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data.  
+> If you're collecting data from at least one virtual machine, you can work through this exercise in your own environment. For other scenarios, use our [demo environment](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data.  
 >
 > If you already know how to query in Kusto Query Language, but need to quickly create useful queries based on resource types, see the saved example queries pane in the [Use queries in Azure Monitor Log Analytics](../logs/queries.md) article.
 

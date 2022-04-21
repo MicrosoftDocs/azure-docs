@@ -5,31 +5,24 @@
 # NOTE: The people you choose as code owners must have _write_ permissions for the repository. When the code owner is a team, that team must be _visible_ and it must have _write_ permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 # Azure Policy: Samples and Compliance Controls
-/articles/**/policy-reference.md @DCtheGeek
-/articles/**/security-controls-policy.md @DCtheGeek
-/includes/policy/ @DCtheGeek
+/articles/**/policy-reference.md @timwarner-msft
+/articles/**/security-controls-policy.md @timwarner-msft
+/includes/policy/ @timwarner-msft
 
 # Azure Monitor
 articles/azure-monitor/* @bwren
 articles/azure-monitor/agents @bwren
-articles/azure-monitor/alerts @rboucher @abbyMSFT
-articles/azure-monitor/app @bwren 
+articles/azure-monitor/alerts @abbyMSFT
+articles/azure-monitor/app @AaronMaxwell 
 articles/azure-monitor/autoscale @rboucher
 articles/azure-monitor/containers @bwren
 articles/azure-monitor/essentials @bwren @rboucher
 articles/azure-monitor/insights @bwren @rboucher 
-articles/azure-monitor/logs @bwren @abbyMSFT
-articles/azure-monitor/visualize @bwren  @rboucher
+articles/azure-monitor/logs @guywi-ms
+articles/azure-monitor/visualize @abbyMSFT @rboucher
 articles/azure-monitor/vm @bwren
 articles/advisor @rboucher
 articles/service-health @rboucher
-
-
-# Azure Active Directory
-/articles/active-directory-b2c/ @msmimart @yoelhor
-/articles/active-directory/app-provisioning/ @CelesteDG
-/articles/active-directory/develop/ @mmacy
-/articles/active-directory/manage-apps/ @CelesteDG
 
 # Azure Synapse Analytics
 /articles/synapse-analytics/ @julieMSFT @ryanmajidi @saveenr 
@@ -46,7 +39,7 @@ articles/service-health @rboucher
 /articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
 
 # Cognitive Services
-/articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan @eric-urban
+/articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan @eric-urban @jboback
 
 # DevOps
 /articles/ansible/ @TomArcherMsft
@@ -64,7 +57,7 @@ articles/service-health @rboucher
 /articles/container-registry/ @dlepow @mimckitt
 
 # Governance
-/articles/governance/ @DCtheGeek
+/articles/governance/ @timwarner-msft
 
 # Security
 /articles/security/fundamentals/feature-availability.md @msmbaldwin @terrylanfear

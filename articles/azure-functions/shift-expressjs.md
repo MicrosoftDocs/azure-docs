@@ -18,7 +18,7 @@ When migrating code to a serverless architecture, refactoring Express.js endpoin
 
 - **Differing APIs**: The API used to process both requests and responses differs among Azure Functions and Express.js. The following example details the required changes.
 
-- **Default route**: By default, Azure Functions endpoints are exposed under the `api` route. Routing rules are configurable via [`routePrefix` in the _host.json_ file](./functions-bindings-http-webhook-output.md#hostjson-settings).
+- **Default route**: By default, Azure Functions endpoints are exposed under the `api` route. Routing rules are configurable via [`routePrefix` in the _host.json_ file](./functions-bindings-http-webhook.md#hostjson-settings).
 
 - **Configuration and conventions**: A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./functions-triggers-bindings.md). By default, the folder name that which contains the function files defines the endpoint name, but you can change the name via the `route` property in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file.
 
@@ -103,7 +103,7 @@ When moving to Functions, the following changes are made:
 
 - **Module:** The function code is implemented as a JavaScript module.
 
-- **Context  and response object**: The [`context`](./functions-reference-node.md#context-object) allows you to communicate with the Function's runtime. From the context, you can read request data and set the function's response. Synchronous code requires you to call `context.done()` to complete execution, while `asyc` functions resolve the request implicitly.
+- **Context  and response object**: The [`context`](./functions-reference-node.md#context-object) allows you to communicate with the Function's runtime. From the context, you can read request data and set the function's response. Synchronous code requires you to call 1.x `context.done()` to complete execution, while 2.x+ `async` functions resolve the request implicitly.
 
 - **Naming convention**: The folder name used to contain the Azure Functions files is used as the endpoint name by default (this can be overridden in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint)).
 

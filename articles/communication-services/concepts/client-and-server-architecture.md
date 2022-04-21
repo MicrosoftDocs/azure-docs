@@ -33,6 +33,7 @@ Azure Communication Services clients must present `user access tokens` to access
 - **Concept:** [User Identity](identity-model.md)
 - **Quickstart:** [Create and manage access tokens](../quickstarts/access-tokens.md)
 - **Tutorial:** [Build a identity management services use Azure Functions](../tutorials/trusted-service-tutorial.md)
+- **Sample:** [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
 > [!IMPORTANT]
 > For simplicity, we do not show user access management and token distribution in subsequent architecture flows.

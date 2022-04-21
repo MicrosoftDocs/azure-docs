@@ -63,7 +63,7 @@ HTTP/2 protocol support is available to clients connecting to Azure Front Door o
 Origin groups can be composed of two types of origins:
 
 - Public origins include storage accounts, App Service apps, Kubernetes instances, or any other custom hostname that has public connectivity. These origins must be defined either via a public IP address or a publicly resolvable DNS hostname. Members of origin groups can be deployed across availability zones, regions, or even outside of Azure as long as they have public connectivity. Public origins are supported for Azure Front Door Standard and Premium tiers.
-- [Private Link origins](concept-private-link.md) are available when you use Azure Front Door (Premium).
+- [Private Link origins](../private-link.md) are available when you use Azure Front Door (Premium).
 
 ### What regions is the service available in?
 
@@ -79,13 +79,13 @@ Azure Front Door is a globally distributed multi-tenant service. The infrastruct
 
 ### Is HTTP->HTTPS redirection supported?
 
-Yes. In fact, Azure Front Door supports host, path, query string redirection, and part of URL redirection. Learn more about [URL redirection](concept-rule-set-url-redirect-and-rewrite.md). 
+Yes. In fact, Azure Front Door supports host, path, query string redirection, and part of URL redirection. Learn more about [URL redirection](../front-door-url-redirect.md). 
 
 ### How do I lock down the access to my backend to only Azure Front Door?
 
 The best way to lock down your application to accept traffic only from your specific Front Door instance is to publish your application via Private Endpoint. Network traffic between Front Door and the application traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-Learn more about the [securing origin for Front Door with Private Link](concept-private-link.md).  
+Learn more about the [securing origin for Front Door with Private Link](../private-link.md).  
 
 Alternative way to lock down your application to accept traffic only from your specific Front Door, you'll need to set up IP ACLs for your backend. Then restrict the traffic of your backend to the specific value of the header 'X-Azure-FDID' sent by Front Door. These steps are detailed out as below:
 
@@ -152,11 +152,11 @@ Any updates to routes or backend pools are seamless and will cause zero downtime
 
 Azure Front Door (Standard) requires a public IP or a publicly resolvable DNS name to route traffic. Azure Front Door can't route directly to resources in a virtual network. You can use an Application Gateway or an Azure Load Balancer with a public IP to solve this problem.
 
-Azure Front Door (Premium) supports routing traffic to [Private Link origins](concept-private-link.md).
+Azure Front Door (Premium) supports routing traffic to [Private Link origins](../private-link.md).
 
 ### What are the various timeouts and limits for Azure Front Door?
 
-Learn about all the documented [timeouts and limits for Azure Front Door](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
+Learn about all the documented [timeouts and limits for Azure Front Door](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits).
 
 ### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
 

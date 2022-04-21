@@ -3,14 +3,13 @@ title: Speech Devices SDK release notes
 titleSuffix: Azure Cognitive Services
 description: The release notes provide a log of updates, enhancements, bug fixes, and changes to the Speech Devices SDK. This article is updated with each release of the Speech Devices SDK.
 services: cognitive-services
-author: wsturman
+author: eric-urban
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 02/12/2020
-ms.author: wellsi
+ms.topic: reference
+ms.date: 02/12/2022
+ms.author: eur
 ---
 
 # Release notes: Speech Devices SDK (retired)

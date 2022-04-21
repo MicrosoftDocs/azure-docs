@@ -351,7 +351,7 @@ When the flow log is disabled, the flow logging for associated NSG is stopped. B
 
 *Delete flow logs*
 
-When the flow log is deleted, not only the flow logging for the associated NSG is stopped but also the flow log resource is deleted with its settings and associations. To begin flow logging again, a new flow log resource must be created for that NSG. A flow log can be deleted using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), [CLI](/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) or [REST API](/rest/api/network-watcher/flowlogs/delete). The support for deleting flow logs from Azure portal is in pipeline.    
+When the flow log is deleted, not only the flow logging for the associated NSG is stopped but also the flow log resource is deleted with its settings and associations. To begin flow logging again, a new flow log resource must be created for that NSG. A flow log can be deleted using [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), [CLI](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-delete) or [REST API](/rest/api/network-watcher/flowlogs/delete). The support for deleting flow logs from Azure portal is in pipeline.    
 
 Also, when a NSG is deleted, by default the associated flow log resource is deleted.
 
@@ -433,11 +433,11 @@ Flow logs data is collected outside of the path of your network traffic, and the
 
 To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
-- Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
+- Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 - Under the  **SETTINGS**  section, select  **Firewalls and virtual networks**
 - In **Allow access from**, select  **Selected networks**. Then under  **Exceptions**, tick the box next to  ****Allow trusted Microsoft services to access this storage account****
 - If it is already selected, no change is needed.
-- Locate your target NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs with the above storage account selected.
+- Locate your target NSG on the [NSG Flow Logs overview page](https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs with the above storage account selected.
 
 You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
 

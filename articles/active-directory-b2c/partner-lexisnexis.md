@@ -3,7 +3,8 @@ title: Tutorial to configure Azure Active Directory B2C with LexisNexis
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with LexisNexis which is a profiling and identity validation service and is used to verify user identification and provide comprehensive risk assessments based on the user's device.
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -38,7 +39,7 @@ The ThreatMetrix integration includes the following components:
 
 - ThreatMetrix – The ThreatMetrix service takes inputs provided by the user and combines it with profiling information gathered from the user's machine to verify the security of the user interaction.
 
-- Custom Rest API – This API implements the integration between Azure AD B2C and the ThreatMetrix service.
+- Custom REST API – This API implements the integration between Azure AD B2C and the ThreatMetrix service.
 
 The following architecture diagram shows the implementation.
 
@@ -75,7 +76,7 @@ Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrati
 
 ### Part 2 - Configure the API
 
-Application settings can be [configured in the App service in Azure](../app-service/configure-common.md#configure-app-settings).  With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in the App service in Azure](../app-service/configure-common.md#configure-app-settings).  With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|

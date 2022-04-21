@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/08/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021

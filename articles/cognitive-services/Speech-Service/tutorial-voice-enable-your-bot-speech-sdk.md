@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 01/24/2022
 ms.author: eur
 ms.devlang: csharp
@@ -64,7 +64,7 @@ The client app that you'll create in this tutorial uses a handful of Azure servi
 
 This section walks you through creating a resource group in the West US region. You'll use this resource group when you're creating individual resources for the Bot Framework, the Direct Line Speech channel, and the Speech service.
 
-1. Go to the [Azure portal page for creating a resource group](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup).
+1. Go to the [Azure portal page for creating a resource group](https://portal.azure.com/#create/Microsoft.ResourceGroup).
 1. Provide the following information:
    * Set **Subscription** to **Free Trial**. (You can also use an existing subscription.)
    * Enter a name for **Resource group**. We recommend **SpeechEchoBotTutorial-ResourceGroup**.
@@ -85,7 +85,7 @@ Now that you have a resource group in a supported region, the next step is to cr
 
 ### Create a Speech service resource
 
-1. Go to the [Azure portal page for creating a Speech service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
+1. Go to the [Azure portal page for creating a Speech service resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
 1. Provide the following information:
    * For **Name**, we recommend **SpeechEchoBotTutorial-Speech** as the name of your resource.
    * For **Subscription**, make sure that **Free Trial** is selected.
@@ -105,7 +105,7 @@ At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceG
 
 An App Service plan defines a set of compute resources for a web app to run.
 
-1. Go to the [Azure portal page for creating an Azure App Service plan](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate).
+1. Go to the [Azure portal page for creating an Azure App Service plan](https://portal.azure.com/#create/Microsoft.AppServicePlanCreate).
 1. Provide the following information:
    * Set **Subscription** to **Free Trial**. (You can also use an existing subscription.)
    * For **Resource group**, select **SpeechEchoBotTutorial-ResourceGroup**.
@@ -174,7 +174,7 @@ Follow these steps to use the Bot Framework Emulator to test your echo bot runni
 
 ## Deploy your bot to Azure App Service
 
-The next step is to deploy the echo bot to Azure. There are a few ways to deploy a bot, including the [Azure CLI](/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot). This tutorial focuses on publishing directly from Visual Studio.
+The next step is to deploy the echo bot to Azure. There are a few ways to deploy a bot, including the [Azure CLI](/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/13.core-bot). This tutorial focuses on publishing directly from Visual Studio.
 
 > [!NOTE]
 > If **Publish** doesn't appear as you perform the following steps, use Visual Studio Installer to add the **ASP.NET and web development** workload.
@@ -235,7 +235,7 @@ You need to make a small configuration change so that your bot can communicate w
 
 Now that you've created an Azure App Service resource to host your bot, the next step is to create a channel registration. Creating a channel registration is a prerequisite for registering your bot with Bot Framework channels, including the Direct Line Speech channel. If you want to learn more about how bots use channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels).
 
-1. Go to the [Azure portal page for creating an Azure bot](https://ms.portal.azure.com/#create/Microsoft.AzureBot).
+1. Go to the [Azure portal page for creating an Azure bot](https://portal.azure.com/#create/Microsoft.AzureBot).
 1. Provide the following information:
    * For **Bot handle**, enter **SpeechEchoBotTutorial-BotRegistration-####**. Replace **####** with a number of your choice. 
    

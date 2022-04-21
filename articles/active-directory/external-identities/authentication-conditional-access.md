@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 03/21/2022
 
 ms.author: mimart
 author: msmimart
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 # Authentication and Conditional Access for External Identities
 
-When an external user accesses resources in your organization, the authentication flow is determined by the user's identity provider (an external Azure AD tenant, social identity provider, etc.), Conditional Access policies, and the [cross-tenant access settings](cross-tenant-access-overview.md) configured both in the user's home tenant and the tenant hosting resources.
+When an external user accesses resources in your organization, the authentication flow is determined by the collaboration method (B2B collaboration or B2B direct connect), user's identity provider (an external Azure AD tenant, social identity provider, etc.), Conditional Access policies, and the [cross-tenant access settings](cross-tenant-access-overview.md) configured both in the user's home tenant and the tenant hosting resources.
 
 This article describes the authentication flow for external users who are accessing resources in your organization. Organizations can enforce multiple Conditional Access policies for their external users, which can be enforced at the tenant, app, or individual user level in the same way that they're enabled for full-time employees and members of the organization.
 
 ## Authentication flow for external Azure AD users
 
-The following diagram illustrates the authentication flow when an Azure AD organization shares resources with users from other Azure AD organizations. This diagram shows how cross-tenant access settings work with Conditional Access policies, such as multi-factor authentication (MFA), to determine if the user can access resources.
+The following diagram illustrates the authentication flow when an Azure AD organization shares resources with users from other Azure AD organizations. This diagram shows how cross-tenant access settings work with Conditional Access policies, such as multi-factor authentication (MFA), to determine if the user can access resources. This flow applies to both B2B collaboration and B2B direct connect, except as noted in step 6.
 
 ![Diagram illustrating the cross-tenant authentication process](media/authentication-conditional-access/cross-tenant-auth.png)
 
@@ -34,7 +34,7 @@ The following diagram illustrates the authentication flow when an Azure AD organ
 |**3**     | Azure AD checks Contoso’s inbound trust settings to see if Contoso trusts MFA and device claims (device compliance, hybrid Azure AD joined status) from Fabrikam. If not, skip to step 6.         |
 |**4**     | If Contoso trusts MFA and device claims from Fabrikam, Azure AD checks the user’s credentials for an indication the user has completed MFA. If Contoso trusts device information from Fabrikam, Azure AD uses the device ID to look up the device object in Fabrikam to determine its state (compliant or hybrid Azure AD joined).         |
 |**5**     | If MFA is required but not completed or if a device ID isn't provided, Azure AD issues MFA and device challenges in the user's home tenant as needed. When MFA and device requirements are satisfied in Fabrikam, the user is allowed access to the resource in Contoso. If the checks can’t be satisfied, access is blocked.        |
-|**6**     | When no trust settings are configured and MFA is required, B2B collaboration users are prompted for MFA, which they need to satisfy in the resource tenant. If device compliance is required, access is blocked.             |
+|**6**     | When no trust settings are configured and MFA is required, B2B collaboration users are prompted for MFA, which they need to satisfy in the resource tenant. Access is blocked for B2B direct connect users. If device compliance is required but can't be evaluated, access is blocked for both B2B collaboration and B2B direct connect users.             |
 
 For more information, see the [Conditional Access for external users](#conditional-access-for-external-users) section.
 
@@ -52,7 +52,7 @@ The following diagram illustrates the authentication flow when an external user 
 |--------------|-----------------------|
 | **1** | The B2B guest user requests access to a resource. The resource redirects the user to its resource tenant,  a trusted IdP.|
 | **2** | The resource tenant identifies the user as external and redirects the user to the B2B guest user’s IdP. The user performs primary authentication in the IdP.
-| **3** | Outbound cross-tenant access settings are evaluated. If the user is allowed outbound access, the B2B guest user’s IdP issues a token to the user. The user is redirected back to the resource tenant with the token. The resource tenant validates the token and then evaluates the user against its Conditional Access policies. For example, the resource tenant could require the user to perform Azure Active Directory (AD) MFA.
+| **3** | Authorization policies are evaluated in the B2B guest user's IdP. If the user satisfies these policies, the B2B guest user's IdP issues a token to the user. The user is redirected back to the resource tenant with the token. The resource tenant validates the token and then evaluates the user against its Conditional Access policies. For example, the resource tenant could require the user to perform Azure Active Directory (AD) MFA.
 | **4** | Inbound cross-tenant access settings and Conditional Access policies are evaluated. If all policies are satisfied, the resource tenant issues its own token and redirects the user to its resource.
 
 ### Example 2: Authentication flow and token for one-time passcode user
@@ -70,7 +70,7 @@ The following diagram illustrates the flow when email one-time passcode authenti
 
 ## Conditional Access for external users
 
-Organizations can enforce Conditional Access policies for external B2B collaboration users in the same way that they're enabled for full-time employees and members of the organization. This section describes important considerations for applying Conditional Access to users outside of your organization.
+Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they're enabled for full-time employees and members of the organization. This section describes important considerations for applying Conditional Access to users outside of your organization.
 
 ### Azure AD cross-tenant trust settings for MFA and device claims
 

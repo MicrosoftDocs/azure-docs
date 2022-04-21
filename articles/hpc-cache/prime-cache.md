@@ -4,7 +4,7 @@ description: Use the cache priming feature (preview) to populate or preload cach
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 02/03/2022
 ms.author: rohogue
 ---
 
@@ -47,7 +47,9 @@ In the manifest, specify the namespace path to the directories or files that you
     "config": {
         "cache_mode": "0",
         "maxreadsize": "0",
-        "resolve_symlink": "0"
+        "resolve_symlink": "0",
+        "threads":"8",
+        "skip_estimation":"0"
     },
     
     "files": [
@@ -75,14 +77,17 @@ In the manifest, specify the namespace path to the directories or files that you
 
 There are three sections to the priming manifest file:
 
-* `config` - settings for the priming job
-* `files` - individual files that will be pre-loaded
-* `directories` - file paths that will be pre-loaded
-* `include` and `exclude` - regular expression strings that modify the directory priming task
+* Configuration (`config`) - settings for the priming job
+* File and directory statements:
+
+  * `files` - individual files that will be pre-loaded
+  * `directories` - file paths that will be pre-loaded
+
+* Global include and exclude statements (`include` and `exclude`) - regular expression strings that modify the directory priming task
 
 ### Configuration settings
 
-There are three settings in the `config` section of the manifest file:
+The `config` section of the manifest file sets these parameters:
 
 * Cache mode - Sets the behavior of the priming job. Options are:
 
@@ -92,7 +97,11 @@ There are three settings in the `config` section of the manifest file:
 
 * `maxreadsize` - Sets the maximum number of bytes that will be pre-loaded per file. Leave this set to 0 (the default) to always load the entire file regardless of size.
 
-* `resolve_symlink` - Set this to true (`1`) if you want to resolve symbolic links when priming. If `resolve_symlink` is enabled, symbolic link targets are pre-loaded entirely, regardless of include and exclude rules.
+* `resolve_symlink` - Set this to true (1) if you want to resolve symbolic links when priming. If `resolve_symlink` is enabled, symbolic link targets are pre-loaded entirely, regardless of include and exclude rules.
+
+* `threads` - The number of priming threads to use. Valid values are 1 to 128. The default value is 8, to balance between priming and servicing client requests.
+
+* `skip_estimation` - Before it starts copying files, the priming job runs an estimate of the amount of data to be primed. Set the `skip_estimation` flag to true (1) if you want to move directly to the file priming phase. If you skip the estimation phase, the progress report might be less accurate. The default value is 0, to include the estimation phase.
 
 ### File and directory paths
 
@@ -195,7 +204,9 @@ Priming jobs are listed in the **Prime cache** page in the Azure portal.
 
 ![screenshot of the priming jobs list in the portal, with jobs in various states (running, paused, and success). The cursor has clicked the ... symbol at the right side of one job's row, and a context menu shows options to pause or resume.](media/prime-cache-list.png)
 
-This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses.
+This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses. The **Status** field is populated when a priming job starts; this field also gives basic error information like **Invalid manifest** if a problem occurs.
+
+Before a priming job starts, it has the state **Queued**. Its **Status** and **Details** fields are empty.
 
 Click the **...** section at the right of the table to pause or resume a priming job.
 

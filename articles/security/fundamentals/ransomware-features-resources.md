@@ -111,12 +111,12 @@ Key Features:
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 - [Azure Security Control – Incident Response](/security/benchmark/azure/security-controls-v3-incident-response)
 - [Zero Trust Guidance Center](/security/zero-trust/)
-- [Azure Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=owasp32)
-- [Azure VPN gateway](/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
-- [Azure Active Directory Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/howto-mfa-userstates)
-- [Azure AD Identity Protection](/azure/active-directory/authentication/concept-password-ban-bad)
-- [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview)
-- [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/)
+- [Azure Web Application Firewall](../../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp32)
+- [Azure VPN gateway](../../vpn-gateway/openvpn-azure-ad-tenant.md#enable-authentication)
+- [Azure Active Directory Multi-Factor Authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
+- [Azure AD Identity Protection](../../active-directory/authentication/concept-password-ban-bad.md)
+- [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md)
+- [Microsoft Defender for Cloud documentation](../../defender-for-cloud/index.yml)
 
 ## Conclusion
 
@@ -139,5 +139,3 @@ Other articles in this series:
 - [Ransomware protection in Azure](ransomware-protection.md)
 - [Prepare for a ransomware attack](ransomware-prepare.md)
 - [Detect and respond to ransomware attack](ransomware-detect-respond.md)
-
-

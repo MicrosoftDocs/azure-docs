@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Monitor app lifecycle events using Azure Activity log and Azure Service Health
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.
 
 Azure Spring Cloud provides built-in tools to monitor the status and health of your applications. App lifecycle events help you understand any changes that were made to your applications so you can take action as necessary. 

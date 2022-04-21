@@ -144,7 +144,7 @@ Please note that details of network connectivity requirements can be found in [n
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
@@ -155,7 +155,7 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automatio
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region | Storage.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement

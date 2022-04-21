@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting connectivity
 description: Troubleshooting connectivity in dedicated SQL pool (formerly SQL DW).
-services: synapse-analytics
 author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics

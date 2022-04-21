@@ -87,7 +87,7 @@ The three types of modes are
 
 - **Round Robin**: Workers are ordered by `Id` and the next worker after the previous one that got an offer is picked.
 - **Longest Idle**: The worker that has not been working on a job for the longest.
-- **Best Worker**: The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers.
+- **Best Worker**: The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers. [See example][worker-scoring]
 
 ## Labels
 
@@ -128,13 +128,14 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 [nuget]: https://www.nuget.org/
 [netstandars2mappings]:https://github.com/dotnet/standard/blob/master/docs/versions.md
 [useraccesstokens]:https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp
-[communication_resource_docs]: https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
-[communication_resource_create_portal]:  https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
-[communication_resource_create_power_shell]: https://docs.microsoft.com/powershell/module/az.communication/new-azcommunicationservice
-[communication_resource_create_net]: https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-net
+[communication_resource_docs]: ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
+[communication_resource_create_portal]:  ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
+[communication_resource_create_power_shell]: /powershell/module/az.communication/new-azcommunicationservice
+[communication_resource_create_net]: ../../quickstarts/create-communication-resource.md?pivots=platform-net&tabs=windows
 
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
 [job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
 [offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
 [offer_accepted_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferaccepted
+[worker-scoring]: ../../how-tos/router-sdk/customize-worker-scoring.md

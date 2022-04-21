@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-
 ---
 
 # Explore .NET/.NET Core and Python trace logs in Application Insights
@@ -16,6 +15,9 @@ Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILog
 > Do you need the log-capture module? It's a useful adapter for third-party loggers. But if you aren't already using NLog, log4Net, or System.Diagnostics.Trace, consider just calling [**Application Insights TrackTrace()**](./api-custom-events-metrics.md#tracktrace) directly.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Install logging on your app
 Install your chosen logging framework in your project, which should result in an entry in app.config or web.config.
 
@@ -189,10 +191,16 @@ You can, for example:
 >
 
 ## Troubleshooting
+
+### Delayed telemetry, overloading network, or inefficient transmission
+System.Diagnostics.Tracing has an [Autoflush feature](/dotnet/api/system.diagnostics.trace.autoflush). This causes SDK to flush with every telemetry item, which is undesirable, and can cause logging adapter issues like delayed telemetry, overloading network, inefficient transmission, etc.
+
+
+
 ### How do I do this for Java?
 In Java codeless instrumentation (recommended) the logs are collected out of the box, use [Java 3.0 agent](./java-in-process-agent.md).
 
-If you are using the Java SDK, use the [Java log adapters](java-2x-trace-logs.md).
+If you're using the Java SDK, use the [Java log adapters](java-2x-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
 * Make sure that Developer Analytics Tools is installed on the development machine. At Visual Studio **Tools** > **Extensions and Updates**, look for **Developer Analytics Tools**. If it isn't on the **Installed** tab, open the **Online** tab and install it.
@@ -200,7 +208,7 @@ If you are using the Java SDK, use the [Java log adapters](java-2x-trace-logs.md
 
 ### There's no log adapter option in the configuration tool
 * Install the logging framework first.
-* If you're using System.Diagnostics.Trace, make sure that you have it [configured in *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
+* If you're using System.Diagnostics.Trace, make sure that you've it [configured in *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
 * Make sure that you have the latest version of Application Insights. In Visual Studio, go to **Tools** > **Extensions and Updates**, and open the **Updates** tab. If **Developer Analytics Tools** is there, select it to update it.
 
 ### <a name="emptykey"></a>I get the "Instrumentation key cannot be empty" error message

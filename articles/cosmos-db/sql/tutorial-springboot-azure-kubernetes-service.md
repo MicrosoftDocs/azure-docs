@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: jroth
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Tutorial - Spring Boot Application with Azure Cosmos DB SQL API and Azure Kubernetes Service

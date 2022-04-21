@@ -18,6 +18,10 @@ The linter is integrated into the Bicep CLI and the Bicep extension for Visual S
 The default set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md). The extension and Bicep CLI check the following rules, which are set to the warning level.
 
 - [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
+- [max-outputs](./linter-rule-max-outputs.md)
+- [max-params](./linter-rule-max-parameters.md)
+- [max-resources](./linter-rule-max-resources.md)
+- [max-variables](./linter-rule-max-variables.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
 - [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
 - [no-unused-params](./linter-rule-no-unused-parameters.md)

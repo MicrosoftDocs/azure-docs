@@ -1,11 +1,11 @@
 ---
 title: Use coarse relocalization without an anchor session
 description: Use coarse relocalization without an anchor session
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors

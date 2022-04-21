@@ -7,7 +7,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Cloud

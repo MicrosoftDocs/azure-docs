@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python, devx-track-azurepowershell
 
-author: lobrien
-ms.author: laobri
+author: Blackmist
+ms.author: larryfr
 ms.topic: conceptual
 ms.date: 05/08/2020
 

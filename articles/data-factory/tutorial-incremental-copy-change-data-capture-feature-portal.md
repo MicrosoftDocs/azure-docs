@@ -233,7 +233,7 @@ In this step, you create a pipeline, which first checks the number of changed re
     DECLARE  @from_lsn binary(10), @to_lsn binary(10);  
     SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers');  
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal',  GETDATE());
-    SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+    SELECT count(1) changecount FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
     ```
 
    3. Enable **First row only**
@@ -280,7 +280,7 @@ In this step, you create a pipeline, which first checks the number of changed re
       DECLARE @from_lsn binary(10), @to_lsn binary(10); 
       SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
       SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
-      SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+      SELECT * FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
       ```
 
    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png" alt-text="Copy Activity - source settings":::
@@ -317,7 +317,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
-    SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
+    SELECT count(1) changecount FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
 3. Navigate to the **Copy** activity in the True case of the **If Condition** activity and click on the **Source** tab. Copy the following into the query:
@@ -327,7 +327,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
-    SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
+    SELECT * FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 4. Click on the **Sink** tab of the **Copy** activity and click **Open** to edit the dataset properties. Click on the **Parameters** tab and add a new parameter called **triggerStart**    
 

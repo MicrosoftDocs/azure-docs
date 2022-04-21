@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 01/28/2022
+ms.date: 03/22/2022
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -688,7 +688,7 @@ Appending data is the default behavior of the SQL Managed Instance sink connecto
 
 ### Upsert data
 
-Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data.
+Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data. To learn more about upsert settings in copy activities, see [SQL Managed Instance as a sink](#sql-managed-instance-as-a-sink).
 
 ### Overwrite the entire table
 
@@ -764,6 +764,18 @@ The below table lists the properties supported by Azure SQL Managed Instance sou
 | Query | If you select Query as input, specify a SQL query to fetch data from source, which overrides any table you specify in dataset. Using queries is a great way to reduce rows for testing or lookups.<br><br>**Order By** clause is not supported, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table that you can use in data flow.<br>Query example: `Select * from MyTable where customerId > 1000 and customerId < 2000`| No | String | query |
 | Batch size | Specify a batch size to chunk large data into reads. | No | Integer | batchSize |
 | Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
+
+> [!TIP]
+> The [common table expression (CTE)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15&preserve-view=true) in SQL is not supported in the mapping data flow **Query** mode, because the prerequisite of using this mode is that queries can be used in the SQL query FROM clause but CTEs cannot do this.
+>To use CTEs, you need to create a stored procedure using the following query:
+>```SQL
+> CREATE PROC CTESP @query nvarchar(max)
+> AS
+> BEGIN
+> EXECUTE sp_executesql @query;
+> END
+>```
+>Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` like example `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
 
 #### Azure SQL Managed Instance source script example
 

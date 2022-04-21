@@ -52,7 +52,7 @@ If the layer 3 is managed by you the following information is required before yo
 Detailed instructions to enable Microsoft peering can be found in the following articles:
 
 * [Create Microsoft peering using Azure portal](expressroute-howto-routing-portal-resource-manager.md#msft)<br>
-* [Create Microsoft peering using Azure Powershell](expressroute-howto-routing-arm.md#msft)<br>
+* [Create Microsoft peering using Azure PowerShell](expressroute-howto-routing-arm.md#msft)<br>
 * [Create Microsoft peering using Azure CLI](howto-routing-cli.md#msft)
 
 ## <a name="validate"></a>2. Validate Microsoft peering is enabled

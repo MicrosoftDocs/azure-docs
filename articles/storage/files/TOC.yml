@@ -7,12 +7,14 @@
     href: storage-files-introduction.md
 - name: Quickstarts
   items:
-  - name: Create / use file shares - Windows
-    href: storage-files-quick-create-use-windows.md
   - name: Create file shares
     href: storage-how-to-use-files-portal.md
 - name: Tutorials
   items:
+  - name: Create a Windows SMB file share
+    href: storage-files-quick-create-use-windows.md
+  - name: Create a Linux NFS file share
+    href: storage-files-quick-create-use-linux.md
   - name: Extend Windows file servers with Azure File Sync
     href: ../file-sync/file-sync-extend-servers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Concepts
@@ -62,7 +64,7 @@
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
     - name: Create an NFS file share
-      href: storage-files-how-to-create-nfs-shares.md
+      href: storage-files-quick-create-use-linux.md
     - name: Use DFS-N with Azure Files
       href: files-manage-namespaces.md
     - name: SQL Server FCI with premium file shares

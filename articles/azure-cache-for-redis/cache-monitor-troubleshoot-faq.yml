@@ -5,9 +5,8 @@ metadata:
   author: flang-msft
   ms.author: franlanglois
   ms.service: cache
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 12/01/2021
-    
 title: Azure Cache for Redis monitoring and troubleshooting FAQs
 summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Cache for Redis.
 

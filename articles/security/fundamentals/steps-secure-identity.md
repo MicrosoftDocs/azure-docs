@@ -18,7 +18,7 @@ tags: azuread
 ---
 # Five steps to securing your identity infrastructure
 
-If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/microsoft-digital-defense-report).
+If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report).
 
 This document will help you get a more secure posture using the capabilities of Azure Active Directory by using a five-step checklist to improve your organization's protection against cyber-attacks.
 
@@ -75,7 +75,7 @@ Passwords are never stored in clear text or encrypted with a reversible algorith
 
 ### Implement AD FS extranet smart lockout
 
-Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive. Organizations, which configure applications to authenticate directly to Azure AD benefit from Azure AD smart lockout. Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection.md). 
+Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive. Organizations, which configure applications to authenticate directly to Azure AD benefit from Azure AD smart lockout. Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection). 
 
 ## Step 2 - Reduce your attack surface area
 

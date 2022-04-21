@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 02/18/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with OrgChart Now
@@ -72,13 +72,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    In the **Identifier** text box, type the URL:
-    `https://sso2.orgchartnow.com`
+    a. In the **Identifier** text box, type the URL:
+    `https://<OrgChartNowServer>.orgchartnow.com/saml/sso_metadata?entityID=<Your_Azure_AD_Entity_ID>`
+
+	b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<OrgChartServer>.orgchartnow.com/saml/sso_acs?entityID=<Your_Azure_AD_Entity_ID>`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
+    `https://<OrgChartServer>.orgchartnow.com/saml/sso_acs?entityID=<Your_Azure_AD_Entity_ID>`
 
 	> [!NOTE]
 	> `<YourEntityID>` is the **Azure AD Identifier** copied from the **Set up OrgChart Now** section, described later in tutorial.
@@ -117,47 +120,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure OrgChart Now SSO
 
-To configure single sign-on on **OrgChart Now** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [OrgChart Now support team](mailto:ocnsupport@officeworksoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on in OrgChart Now, follow the steps enumerated in the [SSO Configuration article](https://help.orgchartnow.com/en/topics/sso-configuration.html#configuring-sso-41334) on OrgChart Now's Help site.
 
 ### Create OrgChart Now test user
 
-To enable Azure AD users to log in to OrgChart Now, they must be provisioned into OrgChart Now. 
+To enable Azure AD users to log in to OrgChart Now, they must be set up as a user in OrgChart Now, or **Auto-Provisioning** must be enabled in the [SSO Configuration](https://help.orgchartnow.com/en/topics/sso-configuration.html#configuring-sso-41334) panel.
 
-1. OrgChart Now supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access OrgChart Now if it doesn't exist yet. The just-in-time user provisioning feature will only create a **read-only** user when an SSO request comes from a recognized IDP and the email in the SAML assertion is not found in the user list. For this auto provisioning feature you need to create an access group titled **General** in OrgChart Now. Please follow the below steps to create an access group:
-
-	a. Go to the **Manage Groups** option after clicking the **gear** in the top right corner of the UI.
-
-   	  ![OrgChart Now groups](./media/orgchartnow-tutorial/groups.png)	
-
-	b. Select the **Add** icon and name the group **General** then click **OK**. 
-
-	  ![OrgChart Now add](./media/orgchartnow-tutorial/general.png)
-
-	c. Select the folder(s) you wish the general or read-only users to be able to access:
-	
-	  ![OrgChart Now folders](./media/orgchartnow-tutorial/folders.png)
-
-	d. **Lock** the folders so that only Admin users can modify them. Then press **OK**.
-
-	  ![OrgChart Now lock](./media/orgchartnow-tutorial/lock.png)
-
-2. To create **Admin** users and **read/write** users, you must manually create a user in order to get access to their privilege level via SSO. To provision a user account, perform the following steps:
-
-	a. Log in to OrgChart Now as a Security Administrator.
-
-	b. Click on **Settings** on the top right corner and then navigate to **Manage Users**.
-
-	  ![OrgChart Now settings](./media/orgchartnow-tutorial/settings.png)
-
-	c. Click on **Add** and perform the following steps:
-
-	  ![OrgChart Now manage](./media/orgchartnow-tutorial/manage-users.png)
-
-	1. In the **User ID** textbox, enter the User ID like **brittasimon\@contoso.com**.
-
-	1. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
-
-	1. Click **Add**.
+If you do not wish to enable auto-provisioning at this time, you can manually add a user to OrgChart Now for SSO testing purposes. To do so, follow the steps enumerated in the [Creating a New User](https://help.orgchartnow.com/en/account-settings/manage-users.html#UUID-a921b00b-a5a2-3099-8fe5-d0f28f5a50b9_bridgehead-idm4532421481724832584395125038) section of the [Account Settings: Manage Users](https://help.orgchartnow.com/en/account-settings/manage-users.html) article.
 
 ## Test SSO
 

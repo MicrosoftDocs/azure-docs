@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: When creating filter expressions in Azure Cognitive Search queries, use "any" and "all" operators in lambda expressions when the filter is on a collection or complex collection field.  
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 09/16/2021

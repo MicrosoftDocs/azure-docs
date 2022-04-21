@@ -1,10 +1,10 @@
 ---
 title: Call, trigger, or nest logic apps by using Request triggers
-description: Set up HTTPS endpoints for calling, triggering, or nesting logic app workflows in Azure Logic Apps
+description: Set up HTTPS endpoints for calling, triggering, or nesting logic app workflows in Azure Logic Apps.
 services: logic-apps
 ms.workload: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 11/19/2020
 ---
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 10/27/2021
 ms.author: curtand
 ms.custom: aaddev;it-pro
-ms.reviewer: jeffsta
+ms.reviewer: vincesm
 
 ms.collection: M365-identity-device-management
 ---

@@ -14,10 +14,9 @@ ms.custom: mode-ui
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
-If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
-
 ## Prerequisites
 
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
 
@@ -71,6 +70,13 @@ After you sign in with GitHub, enter the repository information.
     1. Keep the default value in the _App location_ box.
     1. Leave the _Api location_ box empty.
     1. Type **dist/angular-basic** in the _App artifact location_ box.
+
+    # [Blazor](#tab/blazor)
+
+    1. Select **Blazor** from the _Build Presets_ dropdown.
+    1. Keep the default value of **Client** in the _App location_ box.
+    1. Leave the _Api location_ box empty.
+    1. Keep the default value of **wwwroot** in the _App artifact location_ box.
 
     # [React](#tab/react)
 

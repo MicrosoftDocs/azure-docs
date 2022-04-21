@@ -18,8 +18,8 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 25 |
-| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 25 |
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 10 |
+| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 10 |
 
 - If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
@@ -198,53 +198,6 @@ The following example shows how to create a memory scaling rule.
 - In this example, the container app scales when memory usage exceeds 50%.
 - At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
 
-## Azure Pipelines
-
-Azure Pipelines scaling allows your container app to scale in or out depending on the number of jobs in the Azure DevOps agent pool. With Azure Pipelines, your app can scale to zero, but you need [at least one agent registered in the pool schedule additional agents](https://keda.sh/blog/2021-05-27-azure-pipelines-scaler/). For more information regarding this scaler, see [KEDA Azure Pipelines scaler](https://keda.sh/docs/2.4/scalers/azure-pipelines/).
-
-The following example shows how to create a memory scaling rule.
-
-```json
-{
-  ...
-  "resources": {
-    ...
-    "properties": {
-      ...
-      "template": {
-        ...
-        "scale": {
-          "minReplicas": "0",
-          "maxReplicas": "10",
-          "rules": [{
-            "name": "azdo-agent-scaler",
-            "custom": {
-              "type": "azure-pipelines",
-              "metadata": {
-                  "poolID": "<pool id>",
-                  "targetPipelinesQueueLength": "1"
-              },
-              "auth": [
-                  {
-                      "secretRef": "<secret reference pat>",
-                      "triggerParameter": "personalAccessToken"
-                  },
-                  {
-                      "secretRef": "<secret reference Azure DevOps url>",
-                      "triggerParameter": "organizationURL"
-                  }
-              ]
-          }
-          }]
-        }
-      }
-    }
-  }
-}
-```
-
-In this example, the container app scales when at least one job is waiting in the pool queue.
-
 ## Considerations
 
 - Vertical scaling is not supported.
@@ -254,4 +207,4 @@ In this example, the container app scales when at least one job is waiting in th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure your container app](secure-app.md)
+> [Manage secrets](manage-secrets.md)

@@ -27,7 +27,8 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
 | **Windows**  | ![Chrome supports USB on Windows for AAD accounts.][y] | ![Chrome supports NFC on Windows for AAD accounts.][y] | ![Chrome supports BLE on Windows for AAD accounts.][y] | ![Edge supports USB on Windows for AAD accounts.][y] | ![Edge supports NFC on Windows for AAD accounts.][y] | ![Edge supports BLE on Windows for AAD accounts.][y] | ![Firefox supports USB on Windows for AAD accounts.][y] | ![Firefox supports NFC on Windows for AAD accounts.][y] | ![Firefox supports BLE on Windows for AAD accounts.][y] |
-| **macOS**  | ![Chrome supports USB on macOS for AAD accounts.][y] | ![Chrome does not support NFC on macOS for AAD accounts.][n] | ![Chrome does not support BLE on macOS for AAD accounts.][n] | ![Edge supports USB on macOS for AAD accounts.][y] | ![Edge does not support NFC on macOS for AAD accounts.][n] | ![Edge does not support BLE on macOS for AAD accounts.][n] | ![Firefox does not support USB on macOS for AAD accounts.][n] | ![Firefox does not support NFC on macOS for AAD accounts.][n] | ![Firefox does not support BLE on macOS for AAD accounts.][n] |
+| **MacOS**  | ![Chrome supports USB on MacOS for AAD accounts.][y] | ![Chrome does not support NFC on MacOS for AAD accounts.][n] | ![Chrome does not support BLE on MacOS for AAD accounts.][n] | ![Edge supports USB on MacOS for AAD accounts.][y] | ![Edge does not support NFC on MacOS for AAD accounts.][n] | ![Edge does not support BLE on MacOS for AAD accounts.][n] | ![Firefox supports USB on MacOS for AAD accounts.][y] | ![Firefox does not support NFC on MacOS for AAD accounts.][n] | ![Firefox does not support BLE on MacOS for AAD accounts.][n] |
+| **ChromeOS**  | ![Chrome supports USB on ChromeOS for AAD accounts.][y] | ![Chrome supports NFC on ChromeOS for AAD accounts.][n] | ![Chrome supports BLE on ChromeOS for AAD accounts.][n] | ![Edge supports USB on ChromeOS for AAD accounts.][n] | ![Edge supports NFC on ChromeOS for AAD accounts.][n] | ![Edge supports BLE on ChromeOS for AAD accounts.][n] | ![Firefox supports USB on ChromeOS for AAD accounts.][n] | ![Firefox supports NFC on ChromeOS for AAD accounts.][n] | ![Firefox supports BLE on ChromeOS for AAD accounts.][n] |
 | **Linux**  | ![Chrome supports USB on Linux for AAD accounts.][y] | ![Chrome does not support NFC on Linux for AAD accounts.][n] | ![Chrome does not support BLE on Linux for AAD accounts.][n] | ![Edge does not support USB on Linux for AAD accounts.][n] | ![Edge does not support NFC on Linux for AAD accounts.][n] | ![Edge does not support BLE on Linux for AAD accounts.][n] | ![Firefox does not support USB on Linux for AAD accounts.][n] | ![Firefox does not support NFC on Linux for AAD accounts.][n] | ![Firefox does not support BLE on Linux for AAD accounts.][n] |
 
 
@@ -41,7 +42,6 @@ The following operating system and browser combinations are not supported, but f
 | iOS | Safari, Brave |
 | macOS | Safari |
 | Android | Chrome |
-| ChromeOS | Chrome |
 
 ## Minimum browser version
 

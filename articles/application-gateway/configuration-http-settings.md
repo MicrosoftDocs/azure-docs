@@ -2,11 +2,11 @@
 title: Azure Application Gateway HTTP settings configuration
 description: This article describes how to configure Azure Application Gateway HTTP settings.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.author: surmb
+ms.date: 02/17/2022
+ms.author: greglin
 ---
 
 # Application Gateway HTTP settings configuration
@@ -19,12 +19,12 @@ Azure Application Gateway uses gateway-managed cookies for maintaining user sess
 
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
 > [!NOTE]
-> Some vulnerability scans may flag the Applicaton Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans do not take into account that the data in the cookie is generated using a one-way hash. The cookie does not contain any user information and is used purely for routing. 
+> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans do not take into account that the data in the cookie is generated using a one-way hash. The cookie does not contain any user information and is used purely for routing. 
 
 
-The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) attribute has to be treated as SameSite=Lax. In the case of CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in a HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
+The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) attribute have to be treated as SameSite=Lax. In the case of CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in an HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
 
-To support this change, starting February 17 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky session are maintained even for cross-origin requests.
+To support this change, starting February 17 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky sessions are maintained even for cross-origin requests.
 
 Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. In case you're using a custom affinity cookie name, an additional cookie is added with CORS as suffix. For example, *CustomCookieNameCORS*.
 
@@ -73,9 +73,6 @@ This setting lets you configure an optional custom forwarding path to use when t
   | /pathrule/home/secondhome/ | /pathrule/home* | /override/            | /override/secondhome/        |
   | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
-## Use for app service
-
-This is a UI only shortcut that selects the two required settings for the Azure App Service back end. It enables **pick host name from back-end address**, and it creates a new custom probe if you don't have one already. (For more information, see the [Pick host name from back-end address](#pick-host-name-from-back-end-address) setting section of this article.) A new probe is created, and the probe header is picked from the back-end member's address.
 
 ## Use custom probe
 
@@ -83,6 +80,18 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 
 > [!NOTE]
 > The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.
+
+## Configuring the host name
+
+Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway.  While this configuration can be useful in some cases, overriding the hostname to be different between the client and application gateway and application gateway to backend target, should be done with care.  
+
+In production, it is recommended to keep the hostname used by the client towards the application gateway as the same hostname used by the application gateway to the backend target. This avoids potential issues with absolute URLs, redirect URLs, and host-bound cookies.
+
+Before setting up Application Gateway that deviates from this, please review the implications of such configuration as discussed in more detail in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
+
+There are two aspects of an HTTP setting that influence the [`Host`](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23) HTTP header that is used by Application Gateway to connect to the backend:
+- "Pick host name from backend-address"
+- "Host name override"
 
 ## Pick host name from back-end address
 
@@ -92,9 +101,9 @@ This feature helps when the domain name of the back end is different from the DN
 
 An example case is multi-tenant services as the back end. An app service is a multi-tenant service that uses a shared space with a single IP address. So, an app service can only be accessed through the hostnames that are configured in the custom domain settings.
 
-By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
+By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you can override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
 
-For a custom domain whose existing custom DNS name is mapped to the app service, you don't have to enable this setting.
+For a custom domain whose existing custom DNS name is mapped to the app service, the recommended configuration is not to enable the **pick host name from backend address**.
 
 > [!NOTE]
 > This setting is not required for App Service Environment, which is a dedicated deployment.
