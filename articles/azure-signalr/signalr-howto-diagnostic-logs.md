@@ -45,7 +45,7 @@ Resource logs are disabled by default. To enable resource logs, follow these ste
    1. Set the archive target that you want. Currently, SignalR service supports **Archive to a storage account** and **Send to Log Analytics**.
    1. Select the logs you want to archive. Only `AllLogs` is available for resource log. It only controls whether you want to archive the logs. To configure which log types need to be generated in SignalR service, configure in **Log Source Settings** section.
     ![Diagnostics settings pane](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
-   2. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs will be sent to configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview).
+   2. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs will be sent to configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### Resource logs categories
 
