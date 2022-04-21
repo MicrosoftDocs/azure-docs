@@ -38,7 +38,7 @@ In this article, you learn how to create and run [machine learning pipelines](co
     cd azureml-examples/cli/jobs/pipelines-with-components/
     ```
 
-## Suggested pre-reading
+### Suggested pre-reading
 - [What is Azure Machine Learning pipeline](./concept-ml-pipelines.md)
 - [What is Azure Machine Learning component](./concept-component.md)
 
