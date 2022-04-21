@@ -285,12 +285,12 @@ To learn more about AKS by walking through a complete example, including buildin
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 
 <!-- LINKS - internal -->
-[kubernetes-concepts]: concepts-clusters-workloads.md
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az_aks_delete
 [aks-monitor]: ../azure-monitor/containers/container-insights-overview.md
-[aks-network]: ./concepts-network.md
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[http-routing]: ./http-application-routing.md
-[preset-config]: ./quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
+[aks-network]: ../concepts-network.md
+[aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
+[http-routing]: ../http-application-routing.md
+[preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
+[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
