@@ -28,7 +28,7 @@ Microsoft Purview uses a set of predefined roles to control who can access what 
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
 - **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
-- **Workflow administrator** - a role that allows a user to access the workflow authoring page in the Microsoft Purview studio, and publish workflows on collections where they have access permissions. Workflow administrator only has access to authoring, and so will need at least Data reader permission on a collection to be able to access the Purview Studio.
+- **Workflow administrator** - a role that allows a user to access the workflow authoring page in the Microsoft Purview governance portal, and publish workflows on collections where they have access permissions. Workflow administrator only has access to authoring, and so will need at least Data reader permission on a collection to be able to access the Purview governance portal.
 
 > [!NOTE] 
 > At this time, Microsoft Purview Policy author role is not sufficient to create policies. The Microsoft Purview Data source admin role is also required.
@@ -42,7 +42,7 @@ Microsoft Purview uses a set of predefined roles to control who can access what 
 |I need to edit the glossary or set up new classification definitions|Data curator|
 |I need to view Insights to understand the governance posture of my data estate|Data curator|
 |My application's Service Principal needs to push data to Microsoft Purview|Data curator|
-|I need to set up scans via the Microsoft Purview Studio|Data curator on the collection **or** data curator **and** data source administrator where the source is registered.|
+|I need to set up scans via the Microsoft Purview governance portal|Data curator on the collection **or** data curator **and** data source administrator where the source is registered.|
 |I need to enable a Service Principal or group to set up and monitor scans in Microsoft Purview without allowing them to access the catalog's information |Data source administrator|
 |I need to put users into roles in Microsoft Purview | Collection administrator |
 |I need to create and publish access policies | Data source administrator and policy author |
@@ -54,7 +54,7 @@ Microsoft Purview uses a set of predefined roles to control who can access what 
 
 ## Understand how to use Microsoft Purview's roles and collections
 
-All access control is managed in Microsoft Purview's collections. Microsoft Purview's collections can be found in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/). Open your Microsoft Purview account in the [Azure portal](https://portal.azure.com) and select the Microsoft Purview Studio tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
+All access control is managed in Microsoft Purview's collections. Microsoft Purview's collections can be found in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Open your Microsoft Purview account in the [Azure portal](https://portal.azure.com) and select the Microsoft Purview governance portal tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
 
 When a Microsoft Purview account is created, it starts with a root collection that has the same name as the Microsoft Purview account itself. The creator of the Microsoft Purview account is automatically added as a Collection Admin, Data Source Admin, Data Curator, and Data Reader on this root collection, and can edit and manage this collection.
 
@@ -71,7 +71,7 @@ You can assign Microsoft Purview roles to users, security groups and service pri
 After creating a Microsoft Purview account, the first thing to do is create collections and assign users to roles within those collections.
 
 > [!NOTE]
-> If you created your Microsoft Purview account using a service principal, to be able to access the Microsoft Purview Studio and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
+> If you created your Microsoft Purview account using a service principal, to be able to access the Microsoft Purview governance portal and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
 > You can use [this Azure CLI command](/cli/azure/purview/account#az-purview-account-add-root-collection-admin):
 >
 >   ```azurecli
@@ -104,7 +104,7 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 
 ### Add users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Microsoft Purview Studio](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they'll be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they'll be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
 

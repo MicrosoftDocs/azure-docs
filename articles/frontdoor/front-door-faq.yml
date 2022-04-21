@@ -214,6 +214,17 @@ sections:
 
   - name: TLS configuration
     questions:
+  
+      - question: | 
+          How does Front Door handle ‘domain fronting’ behavior? 
+        answer: |
+          As of April 29, 2022, Microsoft has made a change to the behavior of Azure Front Door Standard/Premium/(classic) and Azure CDN from Microsoft (classic) in alignment with its commitment to stop allowing domain fronting behavior on its platform.  After this date, new Front Door and Azure CDN Standard from Microsoft resources that are created will block any HTTP request that exhibit this behavior.
+          If this behavior is enabled for your resource, requests where Host header in HTTP/HTTPS requests doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
+
+          When Front Door blocks a request due to this mismatch: 
+          The client will receive a HTTP “421 Misdirected Request” error code response 
+          Front Door will log the block in its diagnostic logs under the “Error Info” property with the value “SSLMismatchedSNI” 
+ 
       - question: |
           What TLS versions are supported by Azure Front Door?
         answer: |
