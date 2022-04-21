@@ -9,11 +9,13 @@ ms.author: minxia
 author: mx-iao
 ms.date: 02/23/2022
 ms.topic: how-to
-
+ms.custom: sdkv1
 # Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
 # Train TensorFlow models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning.
 

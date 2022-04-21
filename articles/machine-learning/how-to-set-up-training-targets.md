@@ -10,10 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1
 ---
 
 # Configure and submit training runs
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to configure and submit Azure Machine Learning runs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebooks) to find the full end-to-end working examples.
 
