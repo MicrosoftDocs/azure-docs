@@ -38,7 +38,7 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 
 ## Register component in your workspace
 
-After you have defined your components, you can use CLI to register to your workspace, so that you can share and resue the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
+After you have defined your components, you can use CLI to register to your workspace, so that you can share and resue the component within the workspace. Registered components support automatic versioning so you can update the component. The pipelines that require an older version will continue to work.  
 
 1. From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `1b_e2e_registered_components` subdirectory.
 

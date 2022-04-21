@@ -1,7 +1,7 @@
 ---
 title: 'How to use studio UI to build and debug Machine Learning pipelines'
 titleSuffix: Azure Machine Learning
-description: how to use v2 pipeline UI, including multiple new UI features
+description: Learn how to build, debug, clone, and compare V2 pipeline with the studio UI. 
 ms.reviewer: lagayhar
 author: likebupt
 ms.author: keli19
@@ -90,7 +90,7 @@ In pipeline job detail page, there's an outline left to the canvas, which shows 
 
 ![TODO: Screenshot showing outline locate in canvas](./media/new-pipeline-ui/.png)
 
-You can also quickly filter failed or completed nodes, or filter only components or dataset for further search. Then the left pane will show matched nodes with richer information including status, duration, and created time.
+You can filter failed or completed nodes, as well as filter by only components or dataset for further search. The left pane will show the matched nodes with more information including status, duration, and created time.
 
 ![TODO: Screenshot showing quick filter](./media/new-pipeline-ui/.png)
 
@@ -100,7 +100,7 @@ You can also sort the filter nodes.
 
 ### Check logs and outputs of component
 
-If your pipeline fails or gets stuck on some node, taking a look at logs are firstly recommended. 
+If your pipeline fails or gets stuck on a node, first view the logs.
 
 1. You can select the specific node and open the right pane.
 
@@ -143,7 +143,7 @@ If you would like to work based on an existing pipeline job in the workspace, yo
 After cloning, you can also know which pipeline job it's cloned from by clicking **Showing lineage**.
 ![TODO: Screenshot showing draft lineage](./media/new-pipeline-ui/draft-show-lineage.png)
 
-You can edit your pipeline and then submit again. After submitting, you can also easily the lineage between the job you submit and the original job by **Show lineage**.
+You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage**.
 ![TODO: Screenshot job lineage](./media/new-pipeline-ui/job-show-lineage.png)
 
 ## Compare pipelines
@@ -154,7 +154,7 @@ Compare
 
 When you have multiple pipeline jobs for the same project but with different settings, you can easily compare the graph structure, pipeline configurations, component configurations, and pipeline job properties in the studio portal.
 
-1. In each detail page of pipeline jobs you would like to compare, select **Add to compare**.
+1. On each detail page of pipeline jobs you would like to compare, select **Add to compare**.
 
     Select **Show compare list** and you'll see all the selected pipeline jobs. You can also remove jobs, which you don't need to compare anymore.
     ![TODO: Screenshot showing compare list](./media/new-pipeline-ui/compare-list.png)
@@ -166,18 +166,18 @@ When you have multiple pipeline jobs for the same project but with different set
 
     ![TODO: Screenshot showing compare graph](./media/new-pipeline-ui/compare-graph.png)
 
-    In the screenshot above, you can see the detailed difference of each node in the two pipelines your compare.
+    In the screenshot above, you can see the detailed difference of each node in the two pipelines you compared.
     - The red and green colors mean those nodes only occur in Copy of sample pipeline1 and sample pipeline 1 respectively. 
-    - The "Train" node shows that it has parameter changed. You can select that node to see which parameters are changed. The blue lines are different values for same parameters.
+    - The "Train" node shows that its parameter changed. Select that node to see which parameters are changed. The blue lines are different values for same parameters.
         ![Screenshot showing parameter difference](./media/new-pipeline-ui/compare-parameter.png)
 
-    In the comparison page, you can select **Show details** to see the difference of the two pipeline job properties.
+    On the comparison page, select **Show details** to see the difference of the two pipeline job properties.
 
     By default, in the comparison table, it will only show difference and show difference inline, and you can uncheck on the top of comparison table.
 
     ![Screenshot showing job overview difference](./media/new-pipeline-ui/job-overview-compare.png)
 
-1. If you want to directly see the difference of pipeline job properties, in the compare list, you can select **Compare detail**. 
+1. If you want to directly see the difference between pipeline job properties, in the compare list, select **Compare detail**. 
 
     ![TODO: Screenshot showing select compare detail](./media/new-pipeline-ui/select-compare-detail.png)
 
@@ -193,7 +193,7 @@ When you have multiple pipeline jobs for the same project but with different set
 
 ## Next steps
 
-In this article, you learned the key features in how to create, explore and debug a pipeline in UI. To learn more about how you can use the pipeline, see the following links:
+In this article, you learned the key features in how to create, explore, and debug a pipeline in UI. To learn more about how you can use the pipeline, see the following articles:
 
 + [How to train a model in the designer](tutorial-designer-automobile-price-train-score.md)
 + [How to deploy model to real-time endpoint in the designer](tutorial-designer-automobile-price-deploy.md)
