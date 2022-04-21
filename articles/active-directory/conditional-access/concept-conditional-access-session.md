@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 04/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, vmahtani
+ms.reviewer: calebb, vmahtani, ripull
 
 ms.collection: M365-identity-device-management
 ---
@@ -80,7 +80,7 @@ For more information, see the article [Configure authentication session manageme
 
 ## Disable resilience defaults (Preview)
 
-During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy cannot be evaluated, access is determined by resilience settings. 
+During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy can't be evaluated, access is determined by resilience settings. 
 
 If resilience defaults are disabled, access is denied once existing sessions expire. For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
 

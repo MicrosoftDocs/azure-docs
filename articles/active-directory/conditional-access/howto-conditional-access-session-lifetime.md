@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 04/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: jlu, calebb
+ms.reviewer: jlu, calebb, ripull
 
 ms.collection: M365-identity-device-management
 ---
@@ -119,33 +119,37 @@ To make sure that your policy works as expected, the recommended best practice i
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions for customer’s environment, including the target cloud apps.
 
    > [!NOTE]
    > It is recommended to set equal authentication prompt frequency for key Microsoft Office apps such as Exchange Online and SharePoint Online for best user experience.
 
-1. Go to **Access Controls** > **Session** and select **Sign-in frequency**
-1. Enter the required value of days and hours in the first text box
-1. Select a value of **Hours** or **Days** from dropdown
-1. Save your policy
+1. Under **Access controls** > **Session**.
+   1. Select **Sign-in frequency**.
+   1. Enter the required value of days or hours in the first text box.
+   1. Select a value of **Hours** or **Days** from dropdown.
+1. Save your policy.
 
 ![Conditional Access policy configured for sign-in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
-On Azure AD registered Windows devices, sign in to the device is considered a prompt. For example, if you've configured the sign-in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the sign-in frequency policy by signing in to the device. Users aren't prompted again when opening Office apps.
+On Azure AD registered Windows devices, sign in to the device is considered a prompt. For example, if you've configured the sign-in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the sign-in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
 
 ### Policy 2: Persistent browser session
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions.
 
    > [!NOTE]
    > Please note that this control requires to choose “All Cloud Apps” as a condition. Browser session persistence is controlled by authentication session token. All tabs in a browser session share a single session token and therefore they all must share persistence state.
 
-1. Go to **Access Controls** > **Session** and select **Persistent browser session**
-1. Select a value from dropdown
-1. Save your policy
+1. Under **Access controls** > **Session**.
+   1. Select **Persistent browser session**.
+   1. Select a value from dropdown.
+1. Save your policy.
 
 ![Conditional Access policy configured for persistent browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
