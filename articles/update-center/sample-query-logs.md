@@ -4,7 +4,7 @@ description: The article provides details of sample query logs from update manag
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/12/2022
+ms.date: 04/21/2022
 ms.topic: conceptual
 ---
 

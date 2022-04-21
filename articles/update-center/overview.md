@@ -4,7 +4,7 @@ description: The article tells what update management center (preview) in Azure 
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/07/2022
+ms.date: 04/21/2022
 ms.topic: overview
 ---
 
