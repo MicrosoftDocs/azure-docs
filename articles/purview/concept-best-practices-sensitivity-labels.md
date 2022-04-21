@@ -54,7 +54,7 @@ The following sections walk you through the process of implementing labeling for
    > Microsoft Purview Information Protection trainable classifiers aren't used by the Microsoft Purview data map.
 
 - Maintain consistency in labeling across your data estate. If you use autolabeling rules for files, use the same sensitive information types for autolabeling database columns.
-- [Define your sensitivity labels via Microsoft Information Protection to identify your personal data at a central place](/microsoft-365/compliance/information-protection).
+- [Define your sensitivity labels via Microsoft Purview Information Protection to identify your personal data at a central place](/microsoft-365/compliance/information-protection).
 - [Use policy templates as a starting point to build your rule sets](/microsoft-365/compliance/what-the-dlp-policy-templates-include#general-data-protection-regulation-gdpr).
 - [Combine data classifications to an individual rule set](./supported-classifications.md).
 - [Force labeling by using autolabel functionality](./how-to-automatically-label-your-content.md).
@@ -64,7 +64,7 @@ The following sections walk you through the process of implementing labeling for
 - Run test scans from the Microsoft Purview data map on different data sources like hybrid cloud and on-premises to identify sensitivity labels.
 - Gather and consider insights, for example, by using Microsoft Purview Insights. Use alerting mechanisms to mitigate potential breaches of regulations.
 
-By using sensitivity labels with the Microsoft Purview data map, you can extend Microsoft Information Protection beyond the border of your Microsoft data estate to your on-premises, hybrid cloud, multicloud, and software as a service (SaaS) scenarios.
+By using sensitivity labels with the Microsoft Purview data map, you can extend Microsoft Purview Information Protection beyond the border of your Microsoft data estate to your on-premises, hybrid cloud, multicloud, and software as a service (SaaS) scenarios.
 
 ## Next steps
 

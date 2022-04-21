@@ -20,9 +20,9 @@ If you don't already have sensitivity labels, you'll need to create them and mak
 
 ### Step 1: Licensing requirements
 
-Sensitivity labels are created and managed in the Microsoft Purview compliance portal. To create sensitivity labels for use through Microsoft Purview, you must have an active Microsoft 365 license which offers the benefit of automatically applying sensitivity labels.
+Sensitivity labels are created and managed in the Microsoft Purview compliance portal. To create sensitivity labels for use through Microsoft Purview, you must have an active Microsoft 365 license that offers the benefit of automatically applying sensitivity labels.
 
-For the full list of licenses, see the [Sensitivity labels in Microsoft Purview FAQ](sensitivity-labels-frequently-asked-questions.yml). If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
+For the full list of licenses, see the [Sensitivity labels in Microsoft Purview FAQ](sensitivity-labels-frequently-asked-questions.yml). If you don't already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
 
 ### Step 2: Consent to use sensitivity labels in the Microsoft Purview data map
 
@@ -57,7 +57,7 @@ After you've extended labeling to assets in the Microsoft Purview data map, all 
 1. Name the label. Then, under **Define the scope for this label**:
 
     - In all cases, select **Schematized data assets**.
-    - To label files, also select **Files & emails**. This option is not required to label schematized data assets only
+    - To label files, also select **Files & emails**. This option isn't required to label schematized data assets only
 
     :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Automatically label in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
 
@@ -84,7 +84,7 @@ After you've extended labeling to assets in the Microsoft Purview data map, all 
 
     To change the order of a label, select **...** **> More actions** > **Move up** or **Move down.**
 
-    For more information, see the documentation for [label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters)..
+    For more information, see the documentation for [label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters).
 
 #### Autolabeling for files
 
@@ -114,7 +114,7 @@ For example:
 
 ### Step 4: Publish labels
 
-Once you create a label, you will need to Scan your data in the Microsoft Purview data map to automatically apply the labels you've created, based on the autolabeling rules you've defined.
+Once you create a label, you'll need to Scan your data in the Microsoft Purview data map to automatically apply the labels you've created, based on the autolabeling rules you've defined.
 
 ## Scan your data to apply sensitivity labels automatically
 
@@ -125,7 +125,7 @@ For more information on how to set up scans on various assets in the Microsoft P
 |Source  |Reference  |
 |---------|---------|
 |**Files within Storage** | [Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md) </br> [Register and scan Azure Files](register-scan-azure-files-storage-source.md) [Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)</br>[Register and scan Amazon S3](register-scan-amazon-s3.md) |
-|**database columns** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos Database (SQL API)](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
+|**database columns** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos Database (SQL API)](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
 | | |
 
 ## View labels on assets in the catalog
@@ -138,7 +138,7 @@ In the Microsoft Purview catalog, use the **Label** filtering options to show as
 
 :::image type="content" source="media/how-to-automatically-label-your-content/filter-search-results-small.png" alt-text="Search for assets by label" lightbox="media/how-to-automatically-label-your-content/filter-search-results.png":::
 
-To view details of an asset including classifications found and label applied, click on the asset in the results.
+To view details of an asset including classifications found and label applied, select the asset in the results.
 
 For example:
 
