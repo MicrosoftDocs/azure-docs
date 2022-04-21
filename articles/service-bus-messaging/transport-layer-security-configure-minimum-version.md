@@ -23,9 +23,8 @@ This article describes how to set the minimum TLS version clients can use to con
 
 For information about how to specify a particular version of TLS when sending a request from a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-### Important
-
-If you are using a service that connects to Azure Service Bus, make sure that that service is using the appropriate version of TLS to send requests to Azure Service Bus before you set the required minimum version for a Service Bus namespace.
+> [!IMPORTANT]
+> If you are using a service that connects to Azure Service Bus, make sure that that service is using the appropriate version of TLS to send requests to Azure Service Bus before you set the required minimum version for a Service Bus namespace.
 
 ## Configure the minimum TLS version for a Service Bus namespace
 
