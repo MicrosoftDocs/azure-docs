@@ -21,6 +21,10 @@ ms.service: digital-twins
 
 Once twin property values are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
+For more of an introduction to data history, including a quick demo, watch the following IoT show video:
+
+<iframe src="https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15" width="1080" height="530"></iframe>
+
 ## Required resources and data flow
 
 Data history requires the following resources:
