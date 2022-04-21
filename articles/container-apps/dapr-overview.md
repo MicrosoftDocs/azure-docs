@@ -10,22 +10,16 @@ ms.date: 04/20/2022
 
 # Dapr integration with Azure Container Apps (preview)
 
-Distributed Application Runtime ([Dapr][dapr-concepts]) is a programming model that simplifies microservice implementation by addressing complexities you often encounter when authoring a distributed microservice app. For example, how your application intercommunicates, whether through messaging via pubsub or reliable, direct service-to-service calls. 
+The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable APIs that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pubsub or reliable and secure service-to-service calls. Once enabled in Container Apps, Dapr exposes its HTTP and gRPC APIs via a sidecar: a process that runs in tandem with each of your Container Apps. 
 
-In Container Apps, Dapr offers a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container Apps to help with implementing types of cloud-native patterns. Once you enable Dapr on the container, Dapr's programming model and sidecars are automatically available to you.
-
-Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
-
-## How Dapr works in Container Apps
-
-In Container Apps, Dapr exposes these HTTP and gRPC APIs, or building blocks, to your Container Apps as a sidecar: a process that runs in tandem with each of your Container Apps. 
-
-### Dapr building blocks available to Container Apps
-
-Dapr's portable building blocks are built on best practice industry standards, that:
+Dapr APIs, also referred to as building blocks, are built on best practice industry standards, that:
 
 - Seamlessly fit with your preferred language or framework.
 - Are incrementally adoptable; you can use one, several, or all of the building blocks depending on your needs.
+
+Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
+
+## Dapr in Container Apps
 
 <!--:::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Visualization of Dapr building blocks"::: -->
 
