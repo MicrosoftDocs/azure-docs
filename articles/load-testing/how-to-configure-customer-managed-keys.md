@@ -72,7 +72,7 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 # [Azure portal](#tab/portal)
 
-1. In the Azure portal, navigate to the Azure Load Testing page, and select the Create button to create a new resource.
+1. In the Azure portal, navigate to the **Azure Load Testing** page, and select the **Create** button to create a new resource.
 
 1. Follow the steps outlined [here](/azure/load-testing/quickstart-create-and-run-load-test#create_resource) to fill out the fields on the **Basics** tab.
 
