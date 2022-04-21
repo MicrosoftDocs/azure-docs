@@ -9,11 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1
 
 ---
 
 # Hyperparameter tuning a model with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Automate efficient hyperparameter tuning by using Azure Machine Learning [HyperDrive package](/python/api/azureml-train-core/azureml.train.hyperdrive). Learn how to complete the steps required to tune hyperparameters with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
 

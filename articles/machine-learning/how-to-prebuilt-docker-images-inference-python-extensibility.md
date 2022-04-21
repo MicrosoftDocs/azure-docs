@@ -10,10 +10,12 @@ author: shivanissambare
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, docker, prebuilt
+ms.custom: deploy, docker, prebuilt, sdkv1
 ---
 
 # Python package extensibility for prebuilt Docker images (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 
