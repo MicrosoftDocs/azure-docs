@@ -135,7 +135,9 @@ You can change the managed identity for customer-managed keys for an existing Az
 
     The **Encryption type** shows the encryption type you selected at resource creation time.
 
-1. If the selected encryption type is *Customer-managed keys*, select the type of identity to use to authenticate access to the key vault. The options include System-assigned (the default) or User-assigned. To learn more about each type of managed identity, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+1. If the encryption type is **Customer-managed keys**, select the type of identity to use to authenticate to the key vault. The options include **System-assigned** (the default) or **User-assigned**.
+
+    To learn more about each type of managed identity, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 
     - If you select System-assigned, the system-assigned managed identity needs to be enabled on the resource and granted access to the AKV before changing the identity for customer-managed keys.
     - If you select User-assigned, then you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Use managed identities for Azure Load Testing Preview](how-to-use-a-managed-identity.md).
