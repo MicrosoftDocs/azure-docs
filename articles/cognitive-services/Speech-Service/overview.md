@@ -75,10 +75,6 @@ Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation
 
 :::image type="content" source="media/overview/microsoft-uses-speech.png" alt-text="Image showing logos of Microsoft products where Speech service is used.":::
 
-## Speech Studio
-
-The [Speech Studio](speech-studio-overview.md) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
-
 ## Delivery and presence
 
 You can deploy Azure Cognitive Services Speech features in the cloud or on-premises. 
@@ -90,6 +86,8 @@ Speech service deployment in sovereign clouds is available for some government e
 :::image type="content" source="media/overview/speech-delivery-presence.png" alt-text="Diagram showing where Speech service can be deployed and accessed.":::
 
 ## Use Speech in your application
+
+The [Speech Studio](speech-studio-overview.md) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
 The [Speech CLI](spx-overview.md) is a command-line tool for using Speech service without having to write any code. Most features in the Speech SDK are available in the Speech CLI, and some advanced features and customizations are simplified in the Speech CLI. 
 
