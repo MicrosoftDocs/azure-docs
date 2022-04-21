@@ -46,7 +46,7 @@ To restore an existing dedicated SQL pool (formerly SQL DW) from a restore point
 
 7. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 
-8. After the restore has completed, you can configure your recovered dedicated SQL pool (formerly SQL DW) by following [configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. After the restore has completed, you can configure your recovered dedicated SQL pool (formerly SQL DW) by following [configure your database after recovery](/azure/azure-sql/database/disaster-recovery-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```powershell
 

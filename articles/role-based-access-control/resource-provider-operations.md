@@ -4936,7 +4936,7 @@ Azure service: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### Microsoft.Sql
 
-Azure service: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics](../synapse-analytics/index.yml)
+Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index), [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

@@ -84,7 +84,7 @@ After you've created a managed identity, you select an Active Directory admin.
 
    ![Add Active Directory admin](./media/sql-db-output-managed-identity/add-admin.png)
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Grayed out users or groups can't be selected as they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+   The Active Directory admin page shows all members and groups of your Active Directory. Grayed out users or groups can't be selected as they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 1. Select **Save** on the **Active Directory admin** page. The process for changing admin takes a few minutes.
 

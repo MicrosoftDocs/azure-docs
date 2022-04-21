@@ -1144,7 +1144,7 @@ sections:
       - question: |
           What operating systems for the virtual machine running SQL Server are supported?
         answer: |
-          We support all operating systems specified by the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#getting-started) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines.
+          We support all operating systems specified by the [Windows](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview#getting-started) and [Linux](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview#create) documentation for SQL Server on Azure Virtual Machines.
           
       - question: |
           What operating system for the monitoring virtual machine are supported?

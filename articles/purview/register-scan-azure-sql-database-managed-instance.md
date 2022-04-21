@@ -66,7 +66,7 @@ For user-assigned managed identity (preview):
 1. The object (principal) ID is displayed in the overview essential section.
 
 Either managed identity will need permission to get metadata for the database, schemas and tables, and to query the tables for classification.
-- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
 #### Service Principal to register
@@ -91,7 +91,7 @@ If you have to create a new Service Principal, follow these steps:
 
 The service principal must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification.
 - [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
-- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
 #### Add service principal to key vault and Azure Purview's credential

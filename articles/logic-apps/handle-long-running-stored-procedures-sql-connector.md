@@ -39,7 +39,7 @@ Rather than directly call the stored procedure, you can asynchronously run the p
 > which means that they can run multiple times without affecting the results. 
 > If the asynchronous processing fails or times out, the job agent might retry the step, 
 > and thus your stored procedure, multiple times. To avoid duplicating output, 
-> before you create any objects, review these [best practices and approaches](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
+> before you create any objects, review these [best practices and approaches](/azure/azure-sql/database/elastic-jobs-overview#idempotent-scripts).
 
 The next section describes how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. Some management details will differ, but the fundamental steps remain the same as setting up a job agent for Azure SQL Database.
 

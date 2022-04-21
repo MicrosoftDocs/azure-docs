@@ -100,7 +100,7 @@ If your database server has a firewall enabled, you'll need to update the firewa
 
 #### Allow Azure Connections
 
-Enabling Azure connections will allow Azure Purview to reach and connect the server without updating the firewall itself. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+Enabling Azure connections will allow Azure Purview to reach and connect the server without updating the firewall itself. You can follow the How-to guide for [Connections from inside Azure](/azure/azure-sql/database/firewall-configure#connections-from-inside-azure).
 
 1. Navigate to your database account
 1. Select the server name in the **Overview** page
@@ -173,7 +173,7 @@ Select your method of authentication from the tabs below for steps to authentica
 The managed identity needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
 
 - If you haven't already, [configure Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
-- Create Azure AD user in Azure SQL Database with the exact Azure Purview's managed identity by following tutorial on [create the user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+- Create Azure AD user in Azure SQL Database with the exact Azure Purview's managed identity by following tutorial on [create the user in Azure SQL Database](/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -217,7 +217,7 @@ If you don't have a service principal, you can [follow the service principal gui
 The service principal needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
 
 - If you haven't already, [configure Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
-- Create Azure AD user in Azure SQL Database with your service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+- Create Azure AD user in Azure SQL Database with your service principal by following tutorial on [Create the service principal user in Azure SQL Database](/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER

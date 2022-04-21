@@ -50,7 +50,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             |---|---|---|---|---|
             |TCP|Azure Cloud service tag|*|VirtualNetwork|3342|
 
-            For more information, see [Allow public endpoint traffic on the network security group](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
+            For more information, see [Allow public endpoint traffic on the network security group](/azure/azure-sql/managed-instance/public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group).
 
         - when Azure-SSIS IR inside a virtual network
 

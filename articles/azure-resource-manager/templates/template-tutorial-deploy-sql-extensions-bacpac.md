@@ -241,7 +241,7 @@ Use the project name and location that were used when you prepared the BACPAC fi
 
 ## Verify the deployment
 
-To access the server from your client computer, you need to add a firewall rule. Your client's IP address and the IP address that's used to connect to the server might be different because of network address translation (NAT). For more information, see [Create and manage IP firewall rules](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
+To access the server from your client computer, you need to add a firewall rule. Your client's IP address and the IP address that's used to connect to the server might be different because of network address translation (NAT). For more information, see [Create and manage IP firewall rules](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules).
 
 For example, when you sign in to **Query editor** a message is displayed that the IP address isn't allowed. The address is different from your client's IP address because of NAT. Select the message's link to add a firewall rule for the IP address. When you're finished, you can delete the IP address from the server's **Firewalls and virtual networks** settings.
 

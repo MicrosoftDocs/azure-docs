@@ -24,7 +24,7 @@ Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQ
 
 ### SQL Agent job limitations in SQL Managed Instance
 
-It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent). 
+It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#sql-server-agent). 
 
 Some of the SQL Agent features that are available in SQL Server are not supported in SQL Managed Instance:
 
@@ -203,5 +203,5 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 
 - [What is Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [What's new in Azure SQL Managed Instance?](doc-changes-updates-release-notes-whats-new.md)
-- [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
+- [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#sql-server-agent)
 - [Features comparison: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/features-comparison)

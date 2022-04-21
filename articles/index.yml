@@ -558,7 +558,7 @@ productDirectory:
       azureCategories:
         - compute
         - databases
-      url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      url: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - title: Static Web Apps
       summary: A modern web app service that offers streamlined full-stack development from source code to global high availability
       imageSrc: ./media/index/static-apps.svg
