@@ -572,6 +572,10 @@
               href: how-to-deploy-managed-online-endpoints.md
             - name: Deploy a MLflow model with an online endpoint
               href: how-to-deploy-mlflow-models-online-endpoints.md
+              displayName: ncd, no code deploy, no-code deployment
+            - name: Convert custom model to MLflow model 
+              href: how-to-convert-custom-model-to-mlflow.md
+              displayName: ncd, no code deploy, no-code deployment
             - name: Deploy a custom container with an online endpoint
               href: how-to-deploy-custom-container.md
             - name: Safe rollout for online endpoints
