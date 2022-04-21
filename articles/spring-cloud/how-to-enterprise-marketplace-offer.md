@@ -11,6 +11,9 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # View Azure Spring Apps Enterprise Tier offering in Azure Marketplace
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to view the Azure Spring Apps Enterprise Tier with VMware Tanzu offering through Azure Marketplace and how to redirect to the Azure Spring Apps Enterprise tier creation page from Azure Marketplace.

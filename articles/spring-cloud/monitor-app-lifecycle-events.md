@@ -11,6 +11,9 @@ ms.custom: devx-track-java
 
 # Monitor app lifecycle events using Azure Activity log and Azure Service Health
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.

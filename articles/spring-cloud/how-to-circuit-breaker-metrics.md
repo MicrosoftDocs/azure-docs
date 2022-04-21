@@ -11,6 +11,9 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer (Preview)
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights Java in-process agent. With this feature you can monitor metrics of resilience4j circuit breaker from Application Insights with Micrometer.

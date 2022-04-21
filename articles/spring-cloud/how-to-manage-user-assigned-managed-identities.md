@@ -12,6 +12,9 @@ zone_pivot_groups: spring-cloud-tier-selection
 
 # Manage user-assigned managed identities for an application in Azure Spring Apps (preview)
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to assign or remove user-assigned managed identities for an application in Azure Spring Apps, using the Azure portal and Azure CLI.

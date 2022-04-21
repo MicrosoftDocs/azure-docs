@@ -10,6 +10,9 @@ description: This reference architecture is a foundation using a typical enterpr
 
 # Azure Spring Apps reference architecture
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps. In the design, Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework][16].

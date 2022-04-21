@@ -13,6 +13,9 @@ ms.devlang: java, azurecli
 
 # Expose applications with end-to-end TLS in a virtual network
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Apps service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway.
