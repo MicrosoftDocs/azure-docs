@@ -10,7 +10,7 @@ ms.subservice: mlops
 ms.reviewer: nibaccam
 ms.date: 04/08/2022
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2
+ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2, sdkv1
 ms.devlang: azurecli
 ---
 
@@ -50,6 +50,8 @@ To track a local run, you need to point your local machine to the Azure Machine 
 > Make sure you are logged in to your Azure account, otherwise the tracking URI returns an empty string.
 
 # [MLflow SDK](#tab/mlflow)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 The following code uses `mlflow` and your Azure Machine Learning workspace details to construct the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
@@ -93,6 +95,8 @@ export MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | 
 All MLflow runs are logged to the active experiment, which can be set with the MLflow SDK or Azure CLI. 
 
 # [MLflow SDK](#tab/mlflow)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 With MLflow you can use the [`mlflow.set_experiment()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_experiment) command.
     
@@ -155,6 +159,8 @@ az ml job create -f job.yml --web
 ```
 
 ## View metrics and artifacts in your workspace
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 The metrics and artifacts from MLflow logging are tracked in your workspace. To view them anytime, navigate to your workspace and find the experiment by name in your workspace in [Azure Machine Learning studio](https://ml.azure.com).  Or run the below code. 
 
@@ -224,6 +230,8 @@ If you want to deploy and register your production ready model in one step, see 
 To register and view a model from a run, use the following steps:
 
 1. Once a run is complete, call the [`register_model()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.register_model) method.
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```Python
     # the model folder produced from a run is registered. This includes the MLmodel file, model.pkl and the conda.yaml.
