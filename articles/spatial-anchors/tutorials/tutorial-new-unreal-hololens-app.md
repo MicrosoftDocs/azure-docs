@@ -156,7 +156,7 @@ Voice Command "Delete Anchors" | Delete any cloud anchors that have been found.
 13. Connect this return value to Create ARPin Around Azure Cloud Spatial Anchor's **Pin Id** pin.
 14. Connect ASAAnchor Located Delegate's **Cloud Spatial Anchor** output pin to Create ARPin Around Azure Cloud Spatial Anchor's **In Azure Cloud Spatial Anchor** pin.
 15. Call **Spawn Actor** with **Anchor Actor** and a **Spawn Transform Location** of identity.
-16. Call Pin Component to ARPin with the **Root Component** of **SpawnActor**'s output actor.
+16. Call Pin Component to ARPin with the **Root Component** of **SpawnActor**'s output actor and the **Out ARPin** from **Create AR Pin Around Azure Cloud Spatial Anchor**.
 17. Finally populate the Found Anchors array with ASAAnchor Located Delegate's Cloud Spatial Anchor output.
 
 ![Locate Cloud Anchors](../../../includes/media/spatial-anchors-unreal/unreal-locate-anchors.png)
