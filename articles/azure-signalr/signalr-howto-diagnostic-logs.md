@@ -114,12 +114,19 @@ The following code is an example of an archive log JSON string:
 To view resource logs, follow these steps:
 
 1. Click `Logs` in your target Log Analytics.
-
-    ![Log Analytics menu item](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
+    :::image type="content" alt-text="Log Analytics menu item" source="./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png":::
 
 2. Enter `SignalRServiceDiagnosticLogs` and select time range to query resource logs. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-    ![Query log in Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
+    :::image type="content" alt-text="Query log in Log Analytics" source="./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png":::
+
+To use sample query for SignalR service, please follow the steps below:
+1. Select `Logs` in your target Log Analytics.
+2. Select `Queries` to open query explorer.
+3. Select `Resource type` to group sample queries in resource type.
+4. Select `Run` to run the script.
+    :::image type="content" alt-text="Sample query in Log Analytics" source="./media/signalr-tutorial-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/signalr-tutorial-diagnostic-logs/log-analytics-sample-query.png":::
+
 
 Archive log columns include elements listed in the following table:
 
@@ -182,7 +189,7 @@ If you find that you cannot establish SignalR client connections to Azure Signal
 ### Get help
 
 We recommend you troubleshoot by yourself first. Most issues are caused by app server or network issues. Follow [troubleshooting guide with resource log](#troubleshooting-with-resource-logs) and [basic trouble shooting guide](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) to find the root cause.
-If the issue still can't be resolved, then consider open an issue in GitHub or create ticket in Azure Portal.
+If the issue still can't be resolved, then consider open an issue in GitHub or create ticket in Azure portal.
 Provide:
 1. Time range about 30 minutes when the issue occurs
 2. Azure SignalR Service's resource ID
