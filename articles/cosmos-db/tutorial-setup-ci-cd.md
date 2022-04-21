@@ -21,11 +21,11 @@ The Azure Cosmos DB Emulator provides a local environment that emulates the Azur
 A typical PowerShell based task that will start the Cosmos DB emulator can be scripted as follows:
 
 Example of a job configuration, selecting the "windows-2019" agent type.
-:::image type="content" source="./media/tutorial-setup-ci-cd/powershellscript2.png" alt-text="Job Configuration using windows-2019":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/powershell-script2.png" alt-text="Screenshot of the job configuration using windows-2019":::
 
 Example of a task executing the PowerShell script needed to start the emulator.
 
-:::image type="content" source="./media/tutorial-setup-ci-cd/powershellscript1.png" alt-text="Executing PowerShell Script to start the emulator":::
+:::image type="content" source="./media/tutorial-setup-ci-cd/powershell-script1.png" alt-text="Screenshot executing the powershell script to start the emulator":::
 
 
 ```Powershell
