@@ -89,7 +89,7 @@ In addition to scale based on CPU, you can set your scale differently for specif
 1. Select **Specify start/end dates** for the schedule.
 1. Select the start/end dates and the start/end time for when the scale condition should be applied.
 
-[![Scale condition based on dates](/media/autoscale-get-started/scale-different-based-on-time-08.png)](/media/autoscale-get-started/scale-different-based-on-time-08.png#lightbox)
+[![Scale condition based on dates](./media/autoscale-get-started/scale-different-based-on-time-08.png)](./media/autoscale-get-started/scale-different-based-on-time-08.png#lightbox)
 
 ### View the scale history of your resource
 Whenever your resource is scaled up or down, an event is logged in the activity log. You can view the scale history of your resource for the past 24 hours by switching to the **Run history** tab.
