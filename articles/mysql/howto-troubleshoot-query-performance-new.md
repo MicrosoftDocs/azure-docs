@@ -37,7 +37,7 @@ While the slow query log is a great tool for tracing long running queries, there
 
 ## Retrieving information from the logs
 
-Logs are available for up to seven days from their creation. You can list and download slow query logs via the Azure portal or Azure CLI. In the Azure portal, navigate to your server, and then, under **Monitoring**, select **Server logs**, and then select the downward arrow next to an entry to download the logs associated with the date and time you’re investigating.
+Logs are available for up to seven days from their creation. You can list and download slow query logs via the Azure portal or Azure CLI. In the Azure portal, navigate to your server, under **Monitoring**, select **Server logs**, and then select the downward arrow next to an entry to download the logs associated with the date and time you’re investigating.
 
 ![Flexible Server retrieving data from the logs](media/howto-troubleshoot-query-performance-new/retrieving-information-logs.png)
   
