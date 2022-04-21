@@ -101,7 +101,7 @@
     - name: Defender for IoT micro agent troubleshooting (Preview)
       displayName: service status, review logs
       href: troubleshoot-defender-micro-agent.md
-- name: Classic
+- name: Legacy agent
   items:
   - name: Defender-IoT-micro-agent
     displayName: device twins, Defender-IoT-micro-agent twin
@@ -119,10 +119,10 @@
   - name: Azure security baseline for Microsoft Defender for IoT
     displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
     href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
-  - name: Defender-IoT-micro-agent classic event aggregation                                          
+  - name: Defender-IoT-micro-agent legacy event aggregation                                          
     displayName: twin, default, configuration, alerts
     href: event-aggregation.md
-  - name: Classic agent based security alerts
+  - name: Legacy agent based security alerts
     href: agent-based-security-alerts.md
   - name: Agent based security custom alerts
     href: agent-based-security-custom-alerts.md
@@ -178,10 +178,8 @@
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
   - name: Feature support and retirement
-    items:
-    - name: Feature support and retirement
-      displayName: C, C#, deprecation, support
-      href: edge-security-module-deprecation.md
+    displayName: C, C#, deprecation, support
+    href: edge-security-module-deprecation.md
 - name: Resource
   items:
   - name: Build your security skills with Microsoft Learn

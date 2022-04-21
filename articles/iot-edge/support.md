@@ -109,7 +109,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 :::moniker-end
 <!-- end 1.2 -->
 
-All Windows operating systems must be version 1809 (build 17763) or later.
+All Windows operating systems must be minimum build 17763 with all current cumulative updates installed.
 
 >[!NOTE]
 >Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1.

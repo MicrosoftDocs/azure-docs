@@ -1,0 +1,41 @@
+### YamlMime:Landing
+
+title: Events
+summary: Events documentation page for Azure Health Data Services . 
+
+metadata:
+  title: Azure Health Data Services MedTech service
+  description: Events documentation section for Azure Health Data Services
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: data-transformation
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 03/22/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: Start with Events
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Events
+            url: events-overview.md
+            
+  - title: Using Events
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Events in the Azure portal
+            url: events-deploy-portal.md
+                   
+  - title: Events message structure
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Events message structure
+            url: events-message-structure.md 

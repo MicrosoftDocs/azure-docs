@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 04/15/2022
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -31,15 +31,19 @@ For more information about rehydrating a blob, see [Blob rehydration from the Ar
 
 To rehydrate a blob from the Archive tier by copying it to an online tier, use PowerShell, Azure CLI, or one of the Azure Storage client libraries. Keep in mind that when you copy an archived blob to an online tier, the source and destination blobs must have different names.
 
+Copying an archived blob to an online destination tier is supported within the same storage account. Beginning with service version 2021-02-12, you can copy an archived blob to a different storage account, as long as the destination account is in the same region as the source account.
+
 After the copy operation is complete, the destination blob appears in the Archive tier. The destination blob is then rehydrated to the online tier that you specified in the copy operation. When the destination blob is fully rehydrated, it becomes available in the new online tier.
 
-The following examples show how to copy an archived blob with PowerShell or Azure CLI.
+### Rehydrate a blob to the same storage account
 
-### [Portal](#tab/azure-portal)
+The following examples show how to copy an archived blob to a blob in the Hot tier in the same storage account.
+
+#### [Portal](#tab/azure-portal)
 
 N/A
 
-### [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 To copy an archived blob to an online tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
@@ -67,9 +71,9 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
     -Context $ctx
 ```
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
-To copy an archived blob to an online tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
+To copy an archived blob to an online tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob copy start \
@@ -80,6 +84,87 @@ az storage blob copy start \
     --account-name <storage-account> \
     --tier hot \
     --rehydrate-priority standard \
+    --auth-mode login
+```
+
+---
+
+### Rehydrate a blob to a different storage account in the same region
+
+The following examples show how to copy an archived blob to a blob in the Hot tier in a different storage account.
+
+#### [Portal](#tab/azure-portal)
+
+N/A
+
+#### [PowerShell](#tab/azure-powershell)
+
+To copy an archived blob to a blob in an online tier in a different storage account with PowerShell, make sure you have installed the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) module, version 4.4.0 or higher. Next, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target online tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
+
+The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
+
+```powershell
+$rgName = "<resource-group>"
+$srcAccount = "<source-account>"
+$destAccount = "<dest-account>"
+$srcContainer = "<source-container>"
+$destContainer = "<dest-container>" 
+$srcBlob = "<source-blob>"
+$destBlob = "<destination-blob>"
+
+# Get the destination account context
+$destCtx = New-AzStorageContext -StorageAccountName $destAccount -UseConnectedAccount
+
+# Get the source account context
+$srcCtx = New-AzStorageContext -StorageAccountName $srcAccount -UseConnectedAccount
+
+# Get the SAS URI for the source blob
+$srcBlobUri = New-AzStorageBlobSASToken -Container $srcContainer `
+    -Blob $srcBlob `
+    -Permission rwd `
+    -ExpiryTime (Get-Date).AddDays(1) `
+    -FullUri `
+    -Context $srcCtx
+
+# Start the cross-account copy operation
+Start-AzStorageBlobCopy -AbsoluteUri $srcBlobUri `
+    -DestContainer $destContainer `
+    -DestBlob $destBlob `
+    -DestContext $destCtx `
+    -StandardBlobTier Hot `
+    -RehydratePriority Standard
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To copy an archived blob to a blob in an online tier in a different storage account with the Azure CLI, make sure you have installed version 2.35.0 or higher. Next, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target online tier and the rehydration priority. You must specify a shared access signature (SAS) with read permissions for the archived source blob.
+
+The following example shows how to copy an archived blob to the Hot tier in a different storage account. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+# Specify the expiry interval
+end=`date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'`
+
+# Get a SAS for the source blob
+srcBlobUri=$(az storage blob generate-sas \
+            --account-name <source-account> \ 
+            --container <source-container> \
+            --name <archived-source-blob> \
+            --permissions rwd \
+            --expiry $end \
+            --https-only \
+            --full-uri \
+            --as-user \
+            --auth-mode login | tr -d '"')
+
+# Copy to the destination blob in the Hot tier
+az storage blob copy start \
+    --source-uri $srcBlobUri \
+    --account-name <dest-account> \
+    --destination-container <dest-container> \
+    --destination-blob <dest-blob> \
+    --tier Hot \
+    --rehydrate-priority Standard \
     --auth-mode login
 ```
 
@@ -126,7 +211,7 @@ $blob.BlobClient.SetAccessTier("Hot", $null, "Standard")
 
 ### [Azure CLI](#tab/azure-cli)
 
-To change a blob's tier from Archive to Hot or Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
+To change a blob's tier from Archive to Hot or Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob set-tier \
@@ -172,7 +257,7 @@ $rehydratingBlob.BlobProperties.RehydratePriority
 
 ### [Azure CLI](#tab/azure-cli)
 
-To check the status and priority of a pending rehydration operation with Azure CLI, call the [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show) command, and check the **rehydrationStatus** and **rehydratePriority** properties of the destination blob. Remember to replace placeholders in angle brackets with your own values:
+To check the status and priority of a pending rehydration operation with Azure CLI, call the [az storage blob show](/cli/azure/storage/blob#az-storage-blob-show) command, and check the **rehydrationStatus** and **rehydratePriority** properties of the destination blob. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob show \
@@ -238,7 +323,7 @@ if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 
 To change the rehydration priority for a pending operation with Azure CLI, first make sure that you have installed the Azure CLI, version 2.29.2 or later. For more information about installing the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
+Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 # Update the rehydration priority for a blob moving to the Hot tier.
@@ -328,7 +413,7 @@ az storage blob show \
     --auth-mode login
 ```
 
-Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*, as described in [Change the rehydration priority for a pending Set Blob Tier operation](#change-the-rehydration-priority-for-a-pending-set-blob-tier-operation). The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Check the properties again to verify that the blob is now rehydrating with High priority.
+Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command with the `--rehydrate-priority` parameter set to *High*, as described in [Change the rehydration priority for a pending Set Blob Tier operation](#change-the-rehydration-priority-for-a-pending-set-blob-tier-operation). The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Check the properties again to verify that the blob is now rehydrating with High priority.
 
 ---
 

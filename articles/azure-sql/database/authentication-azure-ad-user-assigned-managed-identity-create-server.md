@@ -111,7 +111,7 @@ Replace the following values in the example:
 az sql server create --assign-identity --identity-type UserAssigned --user-assigned-identity-id /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managedIdentity> --primary-user-assigned-identity-id /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<primaryIdentity> --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <ServerName> -l <Location>
 ```
 
-For more information, see [az sql server create](/cli/azure/sql/server#az_sql_server_create).
+For more information, see [az sql server create](/cli/azure/sql/server#az-sql-server-create).
 
 > [!NOTE]
 > The above example provisions a server with only a user-assigned managed identity. You could set the `--identity-type` to be `UserAssigned,SystemAssigned` if you wanted both types of managed identities to be created with the server. 
