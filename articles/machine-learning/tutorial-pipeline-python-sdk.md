@@ -9,10 +9,12 @@ ms.topic: tutorial
 author: nibaccam
 ms.author: nibaccam
 ms.date: 01/28/2022
-ms.custom: devx-track-python
+ms.custom: devx-track-python, sdkv1
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 

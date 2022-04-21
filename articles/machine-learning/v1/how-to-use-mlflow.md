@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, sdk-v1
+ms.custom: devx-track-python, mlflow, sdkv1
 ---
 
 # Track ML models with MLflow and Azure Machine Learning 
@@ -18,6 +18,8 @@ ms.custom: devx-track-python, mlflow, sdk-v1
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
 > * [v1](how-to-use-mlflow.md)
 > * [v2 (current version)](../how-to-use-mlflow-cli-runs.md)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect Azure Machine Learning as the backend of your MLflow experiments. 
 
