@@ -11,9 +11,14 @@ ms.service: virtual-machines-sap
 
 # Overview
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md). 
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md).
 
-The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. The framework also supports providing you own names for some of the resources using the [parameter files](automation-configure-system.md). 
+The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. The framework also supports providing your own names for some of the resources using the [parameter files](automation-configure-system.md).
+
+The naming of the resources uses the following format:
+
+resource prefix + resource_group_prefix + separator + resource name + resource suffix.
+
 
 If these capabilities are not enough, you can also use custom naming logic by either providing a custom json file containing the resource names or by modifying the naming module used by the automation.
 
@@ -21,17 +26,29 @@ If these capabilities are not enough, you can also use custom naming logic by ei
 
 You can specify a custom naming json file in your tfvars parameter file using the 'name_override_file' parameter.
 
-The json file has sections for the different resource types. 
+The json file has sections for the different resource types.
 
 The deployment types are:
 
 - DEPLOYER (Control Plane)
 - SDU (SAP System Infrastructure)
-- VNET (Workload zone)
+- WORKLOAD_ZONE (Workload zone)
 
+### Availability set names
+
+The names for the availability sets are defined in the "availabilityset_names" structure. The example below lists the availability set names for a deployment.
+
+```json
+  "availabilityset_names" : {
+        "app": "app-avset",
+        "db" : "db-avset",
+        "scs": "scs-avset",
+        "web": "web-avset"
+    }
+```
 ### Key Vault names
 
-The names for the key vaults are defined in the "keyvault_names" structure. The example below lists the key vault names for a deployment in the "DEV" environment in West Europe. 
+The names for the key vaults are defined in the "keyvault_names" structure. The example below lists the key vault names for a deployment in the "DEV" environment in West Europe.
 
 ```json
 "keyvault_names": {
@@ -43,7 +60,7 @@ The names for the key vaults are defined in the "keyvault_names" structure. The 
             "private_access": "DEVWEEUSAP01X00pABC",
             "user_access": "DEVWEEUSAP01X00uABC"
         },
-        "VNET": {
+        "WORKLOAD_ZONE": {
             "private_access": "DEVWEEUSAP01prvtABC",
             "user_access": "DEVWEEUSAP01userABC"
         }
@@ -57,7 +74,7 @@ The "private_access" names are currently not used.
 
 ### Storage Account names
 
-The names for the storage accounts are defined in the "storageaccount_names" structure. The example below lists the storage account names for a deployment in the "DEV" environment in West Europe. 
+The names for the storage accounts are defined in the "storageaccount_names" structure. The example below lists the storage account names for a deployment in the "DEV" environment in West Europe.
 
 ```json
 "storageaccount_names": {
@@ -67,7 +84,7 @@ The names for the storage accounts are defined in the "storageaccount_names" str
             "terraformstate_storageaccount_name": "devweeutfstateabc"
         },
         "SDU": "devweeusap01diagabc",
-        "VNET": {
+        "WORKLOAD_ZONE": {
             "landscape_shared_transport_storage_account_name": "devweeusap01sharedabc",
             "landscape_storageaccount_name": "devweeusap01diagabc",
             "witness_storageaccount_name": "devweeusap01witnessabc"
@@ -82,7 +99,7 @@ The names for the storage accounts are defined in the "storageaccount_names" str
 
 The names for the virtual machines are defined in the "virtualmachine_names" structure. Both the computer and the virtual machine names can be provided.
 
-The example below lists the virtual machine names for a deployment in the "DEV" environment in West Europe. The deployment has a database server, two application servers, a Central Services server and a web dispatcher. 
+The example below lists the virtual machine names for a deployment in the "DEV" environment in West Europe. The deployment has a database server, two application servers, a Central Services server and a web dispatcher.
 
 ```json
     "virtualmachine_names": {
@@ -168,7 +185,7 @@ The different resource names are identified by prefixes in the Terraform code.
 - SAP landscape deployments use resource names with the prefix `vnet_`
 - SAP system deployments use resource names with the prefix `sdu_`
 
-The calculated names are returned in a data dictionary, which is used by all the terraform modules. 
+The calculated names are returned in a data dictionary, which is used by all the terraform modules.
 
 ## Using custom names
 
@@ -219,7 +236,7 @@ module "sap_namegenerator" {
   db_server_count  = var.database_server_count
   app_server_count = try(local.application.application_server_count, 0)
   web_server_count = try(local.application.webdispatcher_count, 0)
-  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count  
+  scs_server_count = local.application.scs_high_availability ? 2 * local.application.scs_server_count : local.application.scs_server_count
   app_zones        = local.app_zones
   scs_zones        = local.scs_zones
   web_zones        = local.web_zones
