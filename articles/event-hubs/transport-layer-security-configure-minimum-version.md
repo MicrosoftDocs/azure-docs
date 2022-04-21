@@ -8,7 +8,7 @@ author: EldertGrootenboer
 ms.service: event-hubs
 ms.topic: article
 ms.date: 04/12/2022
-ms.author: EldertGrootenboer
+ms.author: egrootenboer
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace

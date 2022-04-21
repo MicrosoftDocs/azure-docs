@@ -8,7 +8,7 @@ author: EldertGrootenboer
 ms.service: event-hubs
 ms.topic: article
 ms.date: 04/12/2022
-ms.author: EldertGrootenboer
+ms.author: egrootenboer
 ---
 
 # Configure Transport Layer Security (TLS) for a client application
