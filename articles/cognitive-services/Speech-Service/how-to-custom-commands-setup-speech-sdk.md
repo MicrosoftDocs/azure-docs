@@ -12,6 +12,7 @@ ms.date: 06/18/2020
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Integrate with a client application using Speech SDK
