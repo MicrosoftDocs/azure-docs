@@ -66,8 +66,8 @@ To configure the minimum TLS version for a Service Bus namespace with a template
 }
 ```
 
-1. Save the template.
-2. Specify resource group parameter, then choose the  **Review + create**  button to deploy the template and create a namespace with the  **MinimumTLSVersion**  property configured.
+5. Save the template.
+6. Specify resource group parameter, then choose the  **Review + create**  button to deploy the template and create a namespace with the  **MinimumTLSVersion**  property configured.
 
 > [!NOTE]
 > After you update the minimum TLS version for the Service Bus namespace, it may take up to 30 seconds before the change is fully propagated.
@@ -137,7 +137,7 @@ To create a policy with an Audit effect for the minimum TLS version with the Azu
 }
 ```
 
-1. Save the policy.
+7. Save the policy.
 
 ### Assign the policy
 
