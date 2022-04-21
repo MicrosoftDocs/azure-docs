@@ -114,7 +114,9 @@ Once you've tested your `green` deployment, you can copy (or 'mirror') a percent
 
 The following command mirrors 10% of the traffic to the `green` deployment:
 
-TBD - what is the branch on azureml-examples that contains this?
+```azurecli
+az ml online-endpoint update --name $ENDPOINT_NAME --mirror-traffic "green=10"
+```
 
 > [!IMPORTANT]
 > Mirroring has the following limitations:
@@ -125,7 +127,9 @@ TBD - what is the branch on azureml-examples that contains this?
 
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
-TBD - what is the branch on azureml-examples that contains this?
+```azurecli
+az ml online-endpoint update --name $ENDPOINT_NAME --mirror-traffic "green=0"
+```
 
 ## Test the new deployment with a small percentage of live traffic
 
