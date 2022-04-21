@@ -2793,6 +2793,8 @@
         href: new-relic-by-organization-provisioning-tutorial.md
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
+      - name: NordPass
+        href: nordpass-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
       - name: Olfeo SAAS
