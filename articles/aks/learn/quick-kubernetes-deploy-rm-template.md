@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: quickstart
-ms.date: 03/15/2021
+ms.date: 04/20/2021
 ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -11,10 +11,11 @@ ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using an ARM template
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
-* Deploy an AKS cluster using an Azure Resource Manager template. 
-* Run a multi-container application with a web front-end and a Redis instance in the cluster. 
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+* Deploy an AKS cluster using an Azure Resource Manager template.
+* Run a simple multi-container application with a web front-end and a Redis instance in the cluster.
+
+:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,9 +29,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.61 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
+
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+
+- To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles).
 
 ### Create an SSH key pair
 
@@ -58,7 +63,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
 1. Select the following button to sign in to Azure and open a template.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json)
+    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.kubernetes%2Faks%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
@@ -72,7 +77,7 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
     * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
     * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
 
-    ![Resource Manager template to create an Azure Kubernetes Service cluster in the portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
+    :::image type="content" source="./media/quick-kubernetes-deploy-rm-template/create-aks-cluster-using-template-portal.png" alt-text="Resource Manager template to create an Azure Kubernetes Service cluster in the portal":::
 
 3. Select **Review + Create**.
 
@@ -82,7 +87,7 @@ It takes a few minutes to create the AKS cluster. Wait for the cluster to be suc
 
 ### Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. 
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell.
 
 1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command:
 
@@ -102,7 +107,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     kubectl get nodes
     ```
 
-    Output shows the nodes created in the previous steps. Make sure that the status for all the nodes is *Ready*:
+    The following output example shows the single node created in the previous steps. Make sure the node status is *Ready*:
 
     ```output
     NAME                       STATUS   ROLES   AGE     VERSION
@@ -113,13 +118,15 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ### Run the application
 
-A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run. 
+A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 
 In this quickstart, you will use a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
+
 * The sample Azure Vote Python applications.
-* A Redis instance. 
+* A Redis instance.
 
 Two [Kubernetes Services][kubernetes-service] are also created:
+
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
 
@@ -221,7 +228,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
     kubectl apply -f azure-vote.yaml
     ```
 
-    Output shows the successfully created deployments and services:
+    The following example resembles output showing the successfully created deployments and services:
 
     ```output
     deployment "azure-vote-back" created
@@ -255,28 +262,22 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
 ## Clean up resources
 
-To avoid Azure charges, clean up your unnecessary resources. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
-> 
-> If you used a managed identity, the identity is managed by the platform and does not require removal.
-
-## Get the code
-
-Pre-existing container images were used in this quickstart to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are [available on GitHub.][azure-vote-app]
+> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -292,8 +293,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->
-[kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
+[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -302,9 +303,9 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
+[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
-[kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: concepts-network.md#services
-[ssh-keys]: ../virtual-machines/linux/create-ssh-keys-detailed.md
+[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
+[kubernetes-service]: ../concepts-network.md#services
+[ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

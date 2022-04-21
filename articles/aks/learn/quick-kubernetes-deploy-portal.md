@@ -35,6 +35,7 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
 3. Select **Containers** > **Kubernetes Service**.
 
 4. On the **Basics** page, configure the following options:
+
     - **Project details**:
         * Select an Azure **Subscription**.
         * Select or create an Azure **Resource group**, such as *myResourceGroup*.
@@ -57,6 +58,7 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
 6. Keep the default **Node pools** options. At the bottom of the screen, click **Next: Access**.
 
 7. On the **Access** page, configure the following options:
+
     - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
@@ -108,10 +110,12 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 A Kubernetes manifest file defines a cluster's desired state, like which container images to run.
 
 In this quickstart, you will use a manifest to create all objects needed to run the Azure Vote application. This manifest includes two Kubernetes deployments:
+
 * The sample Azure Vote Python applications.
 * A Redis instance. 
 
 Two Kubernetes Services are also created:
+
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
 
