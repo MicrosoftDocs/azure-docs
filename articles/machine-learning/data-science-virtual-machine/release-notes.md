@@ -2,10 +2,10 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine 
 description: Release notes for the Azure Data Science Virtual Machine
-author: michalmar
+author: v-jeevkumar
 ms.service: data-science-vm
 
-ms.author: mimarusa
+ms.author: v-jeevkumar
 ms.date: 12/14/2021
 ms.topic: reference
 ---
@@ -20,8 +20,13 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## April 14, 2022
+New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview) is currently live in the marketplace.
+
+Version: 22.04.05
+
 ## April 04, 2022
-New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
+New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
 
 Version: 22.04.01
 
@@ -65,7 +70,7 @@ Version: 21.12.03
 
 Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
  
-Users using Azure Resource Manager (ARM) template / virtual machine scale set (VMSS) to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
+Users using Azure Resource Manager (ARM) template / virtual machine scale set to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
 
 ## December 3, 2021
 
