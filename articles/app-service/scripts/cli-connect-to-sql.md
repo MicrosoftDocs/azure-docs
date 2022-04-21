@@ -26,7 +26,7 @@ This sample script creates a database in Azure SQL Database and an App Service a
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/app-service/connect-to-sql/connect-to-sql.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/connect-to-sql/connect-to-sql.sh" id="FullScript":::
 
 ## Clean up resources
 
