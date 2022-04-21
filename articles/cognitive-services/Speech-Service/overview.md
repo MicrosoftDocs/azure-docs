@@ -22,6 +22,18 @@ Create custom voices, add specific words to your base vocabulary, or build your 
 
 Speech is available for many [languages](language-support.md), [regions](regions.md), and [price points](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
+## Speech scenarios
+
+Common scenarios for speech include:
+- [Captioning](./captioning-concepts.md): Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
+- [Multidevice conversation](multi-device-conversation.md): Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation.
+- [Conversation transcription](./conversation-transcription.md): Enable real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
+- [Voice assistants](voice-assistants.md): Create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion.
+
+Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation in Office 365, and Read Aloud in the Edge browser. 
+
+:::image type="content" source="media/overview/microsoft-uses-speech.png" alt-text="Image showing logos of Microsoft products where Speech service is used.":::
+
 ## Speech capabilities
 
 Speech feature summaries are provided below with links for more information.
@@ -62,18 +74,6 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 ### Intent recognition
 
 [Intent recognition](./intent-recognition.md): Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. 
-
-## Speech scenarios
-
-Common scenarios for speech include:
-- [Captioning](./captioning-concepts.md): Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
-- [Multidevice conversation](multi-device-conversation.md): Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation.
-- [Conversation transcription](./conversation-transcription.md): Enable real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
-- [Voice assistants](voice-assistants.md): Create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion.
-
-Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation in Office 365, and Read Aloud in the Edge browser. 
-
-:::image type="content" source="media/overview/microsoft-uses-speech.png" alt-text="Image showing logos of Microsoft products where Speech service is used.":::
 
 ## Delivery and presence
 
