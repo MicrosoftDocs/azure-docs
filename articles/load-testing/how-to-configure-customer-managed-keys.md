@@ -30,7 +30,13 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An existing user-assigned managed identity. If you don't have a user-assigned managed identity, create one following the steps mentioned [here](azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
+- An existing user-assigned managed identity. If you don't have a user-assigned managed identity, create one following the steps mentioned [here](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
+
+## Limitations
+
+- Customer-managed keys are only available for new Azure Load Testing resources. You should configure the key during resource creation.
+
+- Azure Load Testing cannot automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.
 
 ## Configure your Azure Key Vault
 
@@ -115,9 +121,13 @@ The user-assigned managed identity that you will use to configure customer-manag
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
+:::image type="content" source="media/how-to-configure-customer-managed-keys/access-policies-akv.png" alt-text="Screenshot that shows access policies option in Azure Key Vault.":::
+
 1. Select **+ Add Access Policy**.
 
 1. Under the **Key permissions** drop-down menu, select **Get**, **Unwrap Key**, and **Wrap Key** permissions:
+
+:::image type="content" source="media/how-to-configure-customer-managed-keys/akv-permissions.png" alt-text="Screenshot that shows Azure Key Vault permissions.":::
 
 1. Under **Select principal**, select **None selected**.
 
