@@ -1,6 +1,6 @@
 ---
-title: "Tutorial - Use Circuit Breaker Dashboard with Azure Spring Cloud"
-description: Learn how to use circuit Breaker Dashboard with Azure Spring Cloud.
+title: "Tutorial - Use Circuit Breaker Dashboard with Azure Spring Apps"
+description: Learn how to use circuit Breaker Dashboard with Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -9,16 +9,16 @@ ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Tutorial: Use Circuit Breaker Dashboard with Azure Spring Cloud
+# Tutorial: Use Circuit Breaker Dashboard with Azure Spring Apps
 
 **This article applies to:** ✔️ Java ❌ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregate multiple [Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that streams can be monitored in a single view using Hystrix dashboard. This tutorial demonstrates how to use them on Azure Spring Cloud.
+Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregate multiple [Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that streams can be monitored in a single view using Hystrix dashboard. This tutorial demonstrates how to use them on Azure Spring Apps.
 
 > [!NOTE]
-> Netflix Hystrix is widely used in many existing Spring Cloud apps but it is no longer in active development. If you are developing new project, use instead Spring Cloud Circuit Breaker implementations like [resilience4j](https://github.com/resilience4j/resilience4j). Different from Turbine shown in this tutorial, the new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer, which is also supported by Azure Spring Cloud. [Learn More](./how-to-circuit-breaker-metrics.md).
+> Netflix Hystrix is widely used in many existing Spring Cloud apps but it is no longer in active development. If you are developing new project, use instead Spring Cloud Circuit Breaker implementations like [resilience4j](https://github.com/resilience4j/resilience4j). Different from Turbine shown in this tutorial, the new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer, which is also supported by Azure Spring Apps. [Learn More](./how-to-circuit-breaker-metrics.md).
 
 ## Prepare your sample applications
 
@@ -43,13 +43,13 @@ mvn clean package -D skipTests -f recommendation-service/pom.xml
 mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 ```
 
-## Provision your Azure Spring Cloud instance
+## Provision your Azure Spring Apps instance
 
 Follow the procedure, [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-cloud).
 
-## Deploy your applications to Azure Spring Cloud
+## Deploy your applications to Azure Spring Apps
 
-These apps do not use **Config Server**, so there is no need to set up **Config Server** for Azure Spring Cloud.  Create and deploy as follows:
+These apps do not use **Config Server**, so there is no need to set up **Config Server** for Azure Spring Apps.  Create and deploy as follows:
 
 ```azurecli
 az spring-cloud app create -n user-service --assign-endpoint
@@ -98,4 +98,4 @@ As a web app, Hystrix dashboard should be working on `test-endpoint`. If it is n
 ## Next steps
 
 * [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-cloud)
-* [Prepare a Java Spring application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)
+* [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md)

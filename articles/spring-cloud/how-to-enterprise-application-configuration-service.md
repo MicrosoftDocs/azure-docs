@@ -1,7 +1,7 @@
 ---
-title: Use Application Configuration Service for Tanzu with Azure Spring Cloud Enterprise Tier
-titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to use Application Configuration Service for Tanzu with Azure Spring Cloud Enterprise Tier.
+title: Use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier
+titleSuffix: Azure Spring Apps Enterprise Tier
+description: How to use Application Configuration Service for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Application Configuration Service for VMware Tanzu® with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use Application Configuration Service for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
 [Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
@@ -22,10 +22,10 @@ With Application Configuration Service for Tanzu, you have a central place to ma
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise tier instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
   > [!NOTE]
-  > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+  > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
 
 ## Manage Application Configuration Service for Tanzu settings
 
@@ -90,7 +90,7 @@ Use the following steps to refresh your application configuration after you upda
 
 1. Load the configuration to Application Configuration Service for Tanzu.
 
-   The refresh frequency is managed by Azure Spring Cloud and fixed to 60 seconds.
+   The refresh frequency is managed by Azure Spring Apps and fixed to 60 seconds.
 
 1. Load the configuration to your application.
 
@@ -203,4 +203,4 @@ az spring-cloud app deploy \
 
 ## Next steps
 
-- [Azure Spring Cloud](index.yml)
+- [Azure Spring Apps](index.yml)

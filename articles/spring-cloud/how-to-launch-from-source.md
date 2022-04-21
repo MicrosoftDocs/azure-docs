@@ -1,6 +1,6 @@
 ---
 title: "How to - Launch your Spring Cloud application from source code"
-description: In this quickstart, learn how to launch your application in Azure Spring Cloud directly from your source code
+description: In this quickstart, learn how to launch your application in Azure Spring Apps directly from your source code
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-api
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Azure Spring Cloud enables Spring Boot applications on Azure.
+Azure Spring Apps enables Spring Boot applications on Azure.
 
 You can launch applications directly from Java source code or from a pre-built JAR. This article explains the deployment procedures.
 
@@ -43,7 +43,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 
 ## Install the Azure CLI extension
 
-Install the Azure Spring Cloud extension for the Azure CLI with the following command
+Install the Azure Spring Apps extension for the Azure CLI with the following command
 
 ```azurecli
 az extension add --name spring-cloud
@@ -59,13 +59,13 @@ az account list -o table
 az account set --subscription
 ```
 
-Create a resource group to contain your service in Azure Spring Cloud. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
+Create a resource group to contain your service in Azure Spring Apps. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
 ```azurecli
 az group create --location eastus --name <resource-group-name>
 ```
 
-Run the following commands to provision an instance of Azure Spring Cloud. Prepare a name for your service in Azure Spring Cloud. The name must be between 4 and 32 characters and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+Run the following commands to provision an instance of Azure Spring Apps. Prepare a name for your service in Azure Spring Apps. The name must be between 4 and 32 characters and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
 ```azurecli
 az spring-cloud create --resource-group <resource-group-name> --name <resource-name>
@@ -73,16 +73,16 @@ az spring-cloud create --resource-group <resource-group-name> --name <resource-n
 
 The service instance will take about five minutes to deploy.
 
-Set your default resource group name and Azure Spring Cloud instance name using the following commands:
+Set your default resource group name and Azure Spring Apps instance name using the following commands:
 
 ```azurecli
 az config set defaults.group=<service-group-name>
 az config set defaults.spring-cloud=<service-instance-name>
 ```
 
-## Create the application in Azure Spring Cloud
+## Create the application in Azure Spring Apps
 
-The following command creates an application in Azure Spring Cloud in your subscription.  This creates an empty service to which you can upload your application.
+The following command creates an application in Azure Spring Apps in your subscription.  This creates an empty service to which you can upload your application.
 
 ```azurecli
 az spring-cloud app create --name <app-name>
@@ -112,7 +112,7 @@ az spring-cloud app deployment create --app <app-name> \
 
 ### Deploy from source code
 
-Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to build your project.  You can use Azure CLI to upload your source code, build your project using kpack, and deploy it to the target application.
+Azure Spring Apps uses [kpack](https://github.com/pivotal/kpack) to build your project.  You can use Azure CLI to upload your source code, build your project using kpack, and deploy it to the target application.
 
 > [!WARNING]
 > The project must produce only one JAR file with a `main-class` entry in the `MANIFEST.MF` in `target` (for Maven deployments) or `build/libs` (for Gradle deployments).  Multiple JAR files with `main-class` entries will cause the deployment to fail.
@@ -168,4 +168,4 @@ In this quickstart, you learned how to:
 > [!div class="nextstepaction"]
 > [Spring Cloud logs, metrics, tracing](./quickstart-logs-metrics-tracing.md)
 
-More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

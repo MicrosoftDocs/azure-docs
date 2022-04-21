@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Build and deploy apps to Azure Spring Cloud Enterprise tier"
-description: Describes app deployment to Azure Spring Cloud Enterprise tier.
+title: "Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier"
+description: Describes app deployment to Azure Spring Apps Enterprise tier.
 author: karlerickson
 ms.author: caiqing
 ms.service: spring-cloud
@@ -9,23 +9,23 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier
+# Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to build and deploy applications to Azure Spring Cloud using the Enterprise tier.
+This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise tier.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Apps service using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Create and configure apps
 
-To create apps on Azure Spring Cloud, follow these steps:
+To create apps on Azure Spring Apps, follow these steps:
 
 1. To set the CLI defaults, use the following commands. Be sure to replace the placeholders with your own values.
 
@@ -51,11 +51,11 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
 
-   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.":::
 
 A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
 
-![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+:::image type="content" source="media/enterprise/getting-started-enterprise/config-service-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and 'App binding' section with app list showing.":::
 
 To bind apps to VMware Tanzu® Service Registry, follow these steps.
 
@@ -63,11 +63,11 @@ To bind apps to VMware Tanzu® Service Registry, follow these steps.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing.":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing.":::
 
 A list under **App name** shows the apps bound with Tanzu Service Registry, as shown in the following screenshot:
 
-:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
+:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'App binding' section showing.":::
 
 ### [Azure CLI](#tab/azure-cli)
 

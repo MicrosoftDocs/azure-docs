@@ -1,6 +1,6 @@
 ---
 title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer
-description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Cloud.
+description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -95,7 +95,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## Locate Resilence4j Metrics from Portal
 
-1. Select the **Application Insights** Blade from Azure Spring Cloud portal, and select **Application Insights**.
+1. Select the **Application Insights** Blade from Azure Spring Apps portal, and select **Application Insights**.
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 

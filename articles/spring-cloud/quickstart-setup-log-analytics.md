@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Set up a Log Analytics workspace in Azure Spring Cloud"
+title: "Quickstart - Set up a Log Analytics workspace in Azure Spring Apps"
 description: This article describes the setup of a Log Analytics workspace for app deployment.
 author: karlerickson
 ms.author: felixsong
@@ -14,15 +14,15 @@ ms.devlang: azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart explains how to set up a Log Analytics workspace in Azure Spring Cloud for application development.
+This quickstart explains how to set up a Log Analytics workspace in Azure Spring Apps for application development.
 
 Log Analytics is a tool in the Azure portal that's used to edit and run log queries with data in Azure Monitor Logs. You can write a query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze those records. You can also write a more advanced query to do statistical analysis and visualize the results in a chart to identify particular trends. Whether you work with the results of your queries interactively or use them with other Azure Monitor features, Log Analytics is the tool that you use to write and test queries.
 
-You can set up Azure Monitor Logs for your application in Azure Spring Cloud to collect logs and run log queries via Log Analytics.
+You can set up Azure Monitor Logs for your application in Azure Spring Apps to collect logs and run log queries via Log Analytics.
 
 ## Prerequisites
 
-Complete the previous quickstart in this series: [Provision an Azure Spring Cloud service](./quickstart-provision-service-instance.md).
+Complete the previous quickstart in this series: [Provision an Azure Spring Apps service](./quickstart-provision-service-instance.md).
 
 #### [Portal](#tab/Azure-Portal)
 
@@ -32,7 +32,7 @@ To create a workspace, follow the steps in [Create a Log Analytics workspace in 
 
 ## Set up Log Analytics for a new service
 
-In the wizard for creating an Azure Spring Cloud service instance, you can configure the **Log Analytics workspace** field with an existing workspace or create one.
+In the wizard for creating an Azure Spring Apps service instance, you can configure the **Log Analytics workspace** field with an existing workspace or create one.
 
 :::image type="content" source="media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png" alt-text="Screenshot that shows where to configure diagnostic settings during provisioning." lightbox="media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png":::
 
@@ -83,7 +83,7 @@ Setting up for a new service isn't applicable when you're using the Azure CLI.
 
 ## Set up Log Analytics for an existing service
 
-1. Get the instance ID for the Azure Spring Cloud service:
+1. Get the instance ID for the Azure Spring Apps service:
 
    ```azurecli
    az spring-cloud show \
@@ -135,4 +135,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+> [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)

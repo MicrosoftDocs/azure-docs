@@ -1,7 +1,7 @@
 ---
-title: How to use API portal for VMware Tanzu with Azure Spring Cloud Enterprise Tier
-titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to use API portal for VMware Tanzu with Azure Spring Cloud Enterprise Tier.
+title: How to use API portal for VMware Tanzu with Azure Spring Apps Enterprise Tier
+titleSuffix: Azure Spring Apps Enterprise Tier
+description: How to use API portal for VMware Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -14,16 +14,16 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use API portal for VMware Tanzu® with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use API portal for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
 [API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling Single Sign-On authentication via configuration.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier instance with API portal enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise tier instance with API portal enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
   > [!NOTE]
-  > To use API portal, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+  > To use API portal, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
 
 - [Spring Cloud Gateway for Tanzu](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 
@@ -91,4 +91,4 @@ Select the `endpoint URL` to go to API portal. You'll see all the routes configu
 
 ## Next steps
 
-- [Azure Spring Cloud](index.yml)
+- [Azure Spring Apps](index.yml)

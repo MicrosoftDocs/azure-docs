@@ -1,6 +1,6 @@
 ---
-title: Enable ingress-to-app Transport Layer Security in Azure Spring Cloud
-titleSuffix: Azure Spring Cloud
+title: Enable ingress-to-app Transport Layer Security in Azure Spring Apps
+titleSuffix: Azure Spring Apps
 description: How to enable ingress-to-app Transport Layer Security for an application.
 author: karlerickson
 ms.author: wenhaozhang
@@ -16,27 +16,27 @@ ms.custom: devx-track-java
 > [!NOTE]
 > This feature is not available in Basic tier.
 
-This article describes secure communications in Azure Spring Cloud. The article also explains how to enable ingress-to-app SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS.
+This article describes secure communications in Azure Spring Apps. The article also explains how to enable ingress-to-app SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS.
 
-The following picture shows the overall secure communication support in Azure Spring Cloud.
+The following picture shows the overall secure communication support in Azure Spring Apps.
 
-:::image type="content" source="media/enable-end-to-end-tls/secured-tls.png" alt-text="Screenshot of secured T L S flow in Azure Spring Cloud.":::
+:::image type="content" source="media/enable-end-to-end-tls/secured-tls.png" alt-text="Screenshot of secured T L S flow in Azure Spring Apps.":::
 
-## Secure communication model within Azure Spring Cloud
+## Secure communication model within Azure Spring Apps
 
 This section explains the secure communication model shown in the overview diagram above.
 
-1. The client request from the client to the application in Azure Spring Cloud comes into the ingress controller. The request can be either HTTP or HTTPS. The TLS certificate returned by the ingress controller is issued by the Microsoft Azure TLS issuing CA.
+1. The client request from the client to the application in Azure Spring Apps comes into the ingress controller. The request can be either HTTP or HTTPS. The TLS certificate returned by the ingress controller is issued by the Microsoft Azure TLS issuing CA.
    
    If the app has been mapped to an existing custom domain and is configured as HTTPS only, the request to the ingress controller can only be HTTPS. The TLS certificate returned by the ingress controller is the SSL binding certificate for that custom domain. The server side SSL/TLS verification for the custom domain is done in the ingress controller.
 
-2.  The secure communication between the ingress controller and the applications in Azure Spring Cloud are controlled by the ingress-to-app TLS. You can also control the communication through the portal or CLI, which will be explained later in this article. If ingress-to-app TLS is disabled, the communication between the ingress controller and the apps in Azure Spring Cloud is HTTP. If ingress-to-app TLS is enabled, the communication will be HTTPS and has no relation to the communication between the clients and the ingress controller. The ingress controller won't verify the certificate returned from the apps because the ingress-to-app TLS encrypts the communication.
+2.  The secure communication between the ingress controller and the applications in Azure Spring Apps are controlled by the ingress-to-app TLS. You can also control the communication through the portal or CLI, which will be explained later in this article. If ingress-to-app TLS is disabled, the communication between the ingress controller and the apps in Azure Spring Apps is HTTP. If ingress-to-app TLS is enabled, the communication will be HTTPS and has no relation to the communication between the clients and the ingress controller. The ingress controller won't verify the certificate returned from the apps because the ingress-to-app TLS encrypts the communication.
 
-3. Communication between the apps and the Azure Spring Cloud services is always HTTPS and handled by Azure Spring Cloud. Such services include config server, service registry, and Eureka server.
+3. Communication between the apps and the Azure Spring Apps services is always HTTPS and handled by Azure Spring Apps. Such services include config server, service registry, and Eureka server.
 
-4. You manage the communication between the applications. You can also take advantage of Azure Spring Cloud features to load certificates into the application's trust store. For more information, see [Use TLS/SSL certificates in an application](./how-to-use-tls-certificate.md).
+4. You manage the communication between the applications. You can also take advantage of Azure Spring Apps features to load certificates into the application's trust store. For more information, see [Use TLS/SSL certificates in an application](./how-to-use-tls-certificate.md).
 
-5. You manage the communication between applications and external services. To reduce your development effort, Azure Spring Cloud helps you manage your public certificates and loads them into your application's trust store. For more information, see [Use TLS/SSL certificates in an application](./how-to-use-tls-certificate.md).
+5. You manage the communication between applications and external services. To reduce your development effort, Azure Spring Apps helps you manage your public certificates and loads them into your application's trust store. For more information, see [Use TLS/SSL certificates in an application](./how-to-use-tls-certificate.md).
 
 ## Enable ingress-to-app TLS for an application
 
@@ -44,7 +44,7 @@ The following section shows you how to enable ingress-to-app SSL/TLS to secure t
 
 ### Prerequisites
 
-- A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
+- A deployed Azure Spring Apps instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
 - If you're unfamiliar with ingress-to-app TLS, see the [end-to-end TLS sample](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl).
 - To securely load the required certificates into Spring Boot apps, you can use [spring-cloud-azure-starter-keyvault-certificates](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates).
 

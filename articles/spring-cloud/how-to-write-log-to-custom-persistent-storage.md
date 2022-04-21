@@ -1,6 +1,6 @@
 ---
-title: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud | Microsoft Docs
-description: How to use Logback to write logs to custom persistent storage in Azure Spring Cloud.
+title: How to use Logback to write logs to custom persistent storage in Azure Spring Apps | Microsoft Docs
+description: How to use Logback to write logs to custom persistent storage in Azure Spring Apps.
 author: karlerickson
 ms.author: xuycao
 ms.service: spring-cloud
@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to load Logback and write logs to custom persistent storage in Azure Spring Cloud.
+This article shows you how to load Logback and write logs to custom persistent storage in Azure Spring Apps.
 
 > [!NOTE]
 > When a file in the application's classpath has one of the following names, Spring Boot will automatically load it over the default configuration for Logback:
@@ -26,9 +26,9 @@ This article shows you how to load Logback and write logs to custom persistent s
 
 ## Prerequisites
 
-* An existing storage resource bound to an Azure Spring Cloud instance. If you need to bind a storage resource, see [How to enable your own persistent storage in Azure Spring Cloud](./how-to-custom-persistent-storage.md).
+* An existing storage resource bound to an Azure Spring Apps instance. If you need to bind a storage resource, see [How to enable your own persistent storage in Azure Spring Apps](./how-to-custom-persistent-storage.md).
 * The Logback dependency included in your application. For more information on Logback, see [A Guide To Logback](https://www.baeldung.com/logback).
-* The [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+* The [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 ## Edit the Logback configuration to write logs into a specific path
 
@@ -88,7 +88,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 
 ## Use the Azure CLI to create and deploy a new app with Logback on persistent storage
 
-1. Use the following command to create an application in Azure Spring Cloud with persistent storage enabled and the environment variable set:
+1. Use the following command to create an application in Azure Spring Apps with persistent storage enabled and the environment variable set:
 
    ```azurecli
    az spring-cloud app create \
@@ -155,5 +155,5 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 
 ## Next steps
 
-* [Structured application log for Azure Spring Cloud](./structured-app-log.md)
+* [Structured application log for Azure Spring Apps](./structured-app-log.md)
 * [Analyzing logs and metrics with diagnostic settings](./diagnostic-services.md)

@@ -1,6 +1,6 @@
 ---
-title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud
-description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Cloud.
+title: How to use Application Insights Java In-Process Agent in Azure Spring Apps
+description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -10,11 +10,11 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: spring-cloud-tier-selection
 ---
 
-# Use Application Insights Java In-Process Agent in Azure Spring Cloud
+# Use Application Insights Java In-Process Agent in Azure Spring Apps
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Cloud.
+This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 
 With this feature you can:
 
@@ -79,16 +79,16 @@ When the **Application Insights** feature is enabled, you can:
 Enable the Java In-Process Agent by using the following procedure.
 
 1. Go to the **service | Overview** page of your service instance, then select **Application Insights** in the **Monitoring** section.
-1. Select **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
+1. Select **Enable Application Insights** to enable Application Insights in Azure Spring Apps.
 1. Select an existing instance of Application Insights or create a new one.
 1. When **Application Insights** is enabled, you can configure one optional sampling rate (default 10.0%).
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent.png" alt-text="Screenshot of Azure portal Azure Spring Cloud instance with Application Insights page showing and 'Enable Application Insights' checkbox highlighted." lightbox="media/spring-cloud-application-insights/insights-process-agent.png":::
+   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and 'Enable Application Insights' checkbox highlighted." lightbox="media/spring-cloud-application-insights/insights-process-agent.png":::
 
 1. Select **Save** to save the change.
 
 > [!Note]
-> Do not use the same Application Insights instance in different Azure Spring Cloud instances, or you'll see mixed data.
+> Do not use the same Application Insights instance in different Azure Spring Apps instances, or you'll see mixed data.
 
 ::: zone-end
 
@@ -101,7 +101,7 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Cloud instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
 
 1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
 
@@ -110,13 +110,13 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Select **Unbind binding** to disable Application Insights.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Screenshot of Azure portal Azure Spring Cloud instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
 
 ### Change Application Insights Settings
 
 Select the name under the *Application Insights* column to open the Application Insights section.
 
-:::image type="content" source="media/enterprise/how-to-application-insights/application-insights-change-settings.png" alt-text="Screenshot of Azure portal Azure Spring Cloud instance with Application Insights page showing.":::
+:::image type="content" source="media/enterprise/how-to-application-insights/application-insights-change-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing.":::
 
 ### Edit Application Insights buildpack bindings in Build Service
 
@@ -140,11 +140,11 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
 ## Manage Application Insights using Azure CLI
 
-You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-instance-name>* placeholder refers to the name of your Azure Spring Cloud instance.
+You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-instance-name>* placeholder refers to the name of your Azure Spring Apps instance.
 
 ### Enable Application Insights
 
-To configure Application Insights when creating an Azure Spring Cloud instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
+To configure Application Insights when creating an Azure Spring Apps instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
 
 ::: zone pivot="sc-standard-tier"
 
@@ -200,7 +200,7 @@ az spring-cloud create \
 
 ### Disable Application Insights
 
-To disable Application Insights when creating an Azure Spring Cloud instance, use the following command:
+To disable Application Insights when creating an Azure Spring Apps instance, use the following command:
 
 ::: zone pivot="sc-standard-tier"
 
@@ -229,7 +229,7 @@ az spring-cloud create \
 
 ### Check Application Insights settings
 
-To check the Application Insights settings of an existing Azure Spring Cloud instance, use the following command:
+To check the Application Insights settings of an existing Azure Spring Apps instance, use the following command:
 
 ```azurecli
 az spring-cloud app-insights show \
@@ -261,7 +261,7 @@ az spring-cloud app-insights update \
 
 ### Disable Application Insights with the update command
 
-To disable Application Insights on an existing Azure Spring Cloud instance, use the following command:
+To disable Application Insights on an existing Azure Spring Apps instance, use the following command:
 
 ```azurecli
 az spring-cloud app-insights update \
@@ -454,7 +454,7 @@ The Java agent will be updated/upgraded when the buildpack is updated.
 
 ## Java agent configuration hot-loading
 
-Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
+Azure Spring Apps has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
 
 > [!Note]
 > The hot-loading mechanism has a delay in minutes.
@@ -465,14 +465,14 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 
 ::: zone-end
 
-## Concept matching between Azure Spring Cloud and Application Insights
+## Concept matching between Azure Spring Apps and Application Insights
 
-| Azure Spring Cloud | Application Insights                                         |
+| Azure Spring Apps | Application Insights                                         |
 | ------------------ | ------------------------------------------------------------ |
 | `App`              | * __Application Map__/Role<br />* __Live Metrics__/Role<br />* __Failures__/Roles/Cloud Role<br />* __Performance__/Roles/Could Role |
 | `App Instance`     | * __Application Map__/Role Instance<br />* __Live Metrics__/Service Name<br />* __Failures__/Roles/Cloud Instance<br />* __Performance__/Roles/Could Instance |
 
-The name `App Instance` from Azure Spring Cloud will be changed or generated in the following scenarios:
+The name `App Instance` from Azure Spring Apps will be changed or generated in the following scenarios:
 
 * You create a new application.
 * You deploy a JAR file or source code to an existing application.
@@ -480,20 +480,20 @@ The name `App Instance` from Azure Spring Cloud will be changed or generated in 
 * You restart the application.
 * You stop the deployment of an application, and then restart it.
 
-When data is stored in Application Insights, it contains the history of Azure Spring Cloud app instances created or deployed since the Java agent was enabled. For example, in the Application Insights portal, you can see application data created yesterday, but then deleted within a specific time range, like the last 24 hours. The following scenarios show how this works:
+When data is stored in Application Insights, it contains the history of Azure Spring Apps app instances created or deployed since the Java agent was enabled. For example, in the Application Insights portal, you can see application data created yesterday, but then deleted within a specific time range, like the last 24 hours. The following scenarios show how this works:
 
-* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. After some testing, you change the code and deploy a new JAR file to this application at 8:30 AM today. Then, you take a break, and when you come back around 11:00 AM, you check some data from Application Insights. You'll see:
+* You created an application around 8:00 AM today from Azure Spring Apps with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. After some testing, you change the code and deploy a new JAR file to this application at 8:30 AM today. Then, you take a break, and when you come back around 11:00 AM, you check some data from Application Insights. You'll see:
   * Three instances in Application Map with time ranges in the last 24 hours, and Failures, Performance, and Metrics.
   * One instance in Application Map with a time range in the last hour, and Failures, Performance, and Metrics.
   * One instance in Live Metrics.
-* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. Around 8:30 AM today, you try a blue/green deployment with another JAR file. Currently, you have two deployments for this application. After a break around 11:00 AM today, you want to check some data from Application Insights. You'll see:
+* You created an application around 8:00 AM today from Azure Spring Apps with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. Around 8:30 AM today, you try a blue/green deployment with another JAR file. Currently, you have two deployments for this application. After a break around 11:00 AM today, you want to check some data from Application Insights. You'll see:
   * Three instances in Application Map with time ranges in the last 24 hours, and Failures, Performance, and Metrics.
   * Two instances in Application Map with time ranges in last hour, and Failures, Performance, and Metrics.
   * Two instances in Live Metrics.
 
 ## Next steps
 
-* [Use distributed tracing with Azure Spring Cloud](./how-to-distributed-tracing.md)
+* [Use distributed tracing with Azure Spring Apps](./how-to-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
 * [Application Map](../azure-monitor/app/app-map.md)
