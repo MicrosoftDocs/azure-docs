@@ -48,7 +48,7 @@ items:
     href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
-  - name: Use Microsoft Purview Studio
+  - name: Use Microsoft Purview governance portal
     href: use-azure-purview-studio.md
   - name: Best practices and guidelines
     items:
