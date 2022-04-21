@@ -24,7 +24,7 @@ This sample script creates an app in App Service with its related resources, and
 
 ### To create the web app
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-app-only.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/configure-custom-domain/configure-custom-domain-webapp-only.sh" id="FullScript":::
 
 ### Map your prepared custom domain name to the web app
 

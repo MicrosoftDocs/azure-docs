@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/18/2022
+ms.date: 04/21/2022
 ms.author: msangapu
 ms.custom: "devx-track-dotnet, mvc, seodec18, devx-track-azurecli"
 ---
@@ -26,7 +26,7 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 ### To create the web app
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-app-only.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-linux-docker/deploy-linux-docker-webapp-only.sh" id="FullScript":::
 
 ### Configure Web App with a Custom Docker Container from Docker Hub
 
