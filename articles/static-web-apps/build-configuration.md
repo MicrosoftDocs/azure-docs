@@ -18,8 +18,8 @@ The following table lists the available configuration settings.
 
 | Property | Description | Required |
 |---|---|---|
-| `app_location` | This folder contains the source code for your front-end application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. When used with `skip_app_build: true`, this is the app's build output location. | Yes |
-| `api_location` | This folder that contains the source code for your API application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. When used with `skip_api_build: true`, this is the API's build output location. | No |
+| `app_location` | This folder contains the source code for your front-end application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. When used with `skip_app_build: true`, this value is the app's build output location. | Yes |
+| `api_location` | This folder that contains the source code for your API application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. When used with `skip_api_build: true`, this value is the API's build output location. | No |
 | `output_location` | If your web app runs a build step, the output location is the folder where the public files are generated. For most projects, the `output_location` is relative to the `app_location`. However, for .NET projects, the location is relative to the publish output folder. | No |
 | `app_build_command` | For Node.js applications, you can define a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. | No |
 | `api_build_command` | For Node.js applications, you can define a custom command to build the Azure Functions API application. | No |
