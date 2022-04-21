@@ -51,7 +51,7 @@ Microsoft Purview uses the same sensitive information types as Microsoft 365, al
 
 1. Go to the **Microsoft Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Microsoft Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Microsoft Purview Studio** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Microsoft Purview governance portal** tile.
 
 1. In Microsoft Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
 
