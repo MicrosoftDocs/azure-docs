@@ -1,5 +1,5 @@
 ---
-title: Virtual Visits
+title: Virtual visits with Azure Communication Services
 description: Learn concepts for virtual visit apps
 author: tophpalmer
 manager: chpalm
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 
-# Virtual Visits 
+# Virtual visits
 
 This tutorial describes concepts for virtual visit applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you will understand common use cases that a virtual visits application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further.
 
@@ -20,17 +20,17 @@ Virtual visits are a communication pattern where a **consumer** and a **business
 No matter the industry, there are at least three personas involved in a virtual visit and certain tasks they accomplish:
 - **Office Manager.** The office manager configures the business’ availability and booking rules for providers and consumers.
 - **Provider.** The provider gets on the call with the consumer. They must be able to view upcoming virtual visits and join the virtual visit and engage in communication.
-- **Consumer**. The consumer who schedules and motivates the visit. They must schedule a visit, enjoy reminders of the visit, typically through SMS or email, and join the virtual visit and engage in communication. 
+- **Consumer**. The consumer who schedules and motivates the visit. They must schedule a visit, enjoy reminders of the visit, typically through SMS or email, and join the virtual visit and engage in communication.
 
 Azure and Teams are interoperable. This interoperability gives organizations choice in how they deliver virtual visits using Microsoft's cloud. Three examples include:
- 
+
 1. **Microsoft 365** provides a zero-code suite for virtual visits using Microsoft [Teams](https://www.microsoft.com/microsoft-teams/group-chat-software/) and [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app). This is the easiest option but customization is limited. [Check out this video for an introduction.](https://www.youtube.com/watch?v=zqfGrwW2lEw)
 2. **Microsoft 365 + Azure hybrid.** Combine Microsoft 365 Teams and Bookings with a custom Azure application for the consumer experience. Organizations take advantage of M365's employee familiarity but customize and embed the consumer visit experience in their own application.
 3. **Azure custom.** Build the entire solution on Azure primitives: the business experience, the consumer experience, and scheduling systems.
 
 ![Diagram of virtual visit implementation options](./media/sample-builder/virtual-visit-options.svg)
 
-These three **implementation options** are columns in the table below, while each row provides a **use case** and the **enabling technologies**. 
+These three **implementation options** are columns in the table below, while each row provides a **use case** and the **enabling technologies**.
 
 |*Persona* | **Use Case** | **Microsoft 365** | **Microsoft 365 + Azure hybrid** | **Azure Custom** |
 |--------------|------------|-----------|---------------|---------------|
@@ -41,7 +41,7 @@ These three **implementation options** are columns in the table below, while eac
 | *Consumer*| Be reminded of a visit | Bookings | Bookings | ACS SMS |
 | *Consumer*| Join the visit | Teams or Virtual Visits | ACS Calling & Chat | ACS Calling & Chat |
 
-There are other ways to customize and combine Microsoft tools to deliver a virtual visits experience: 
+There are other ways to customize and combine Microsoft tools to deliver a virtual visits experience:
 1. **Replace Bookings with a custom scheduling experience with Graph.** You can build your own consumer-facing scheduling experience that controls M365 meetings with Graph APIs.
 2. **Replace Teams’ provider experience with Azure.** You can still use M365 and Bookings to manage meetings but have the business user launch a custom Azure application to join the Teams meeting. This might be useful where you want to split or customize virtual visit interactions from day-to-day employee Teams activity.
 
@@ -60,11 +60,7 @@ In this section we’re going to use a Sample Builder tool to deploy a Microsoft
 
 ### Step 1 - Configure bookings
 
-> [!IMPORTANT]
-> **Skip this Step, Bookings integration is in progress**
->
-
-This sample uses Microsoft 365 to power the consumer scheduling experience and create meetings for providers. Thus the first step is creating a Bookings calendar and getting the Booking page URL from https://outlook.office.com/bookings/calendar.
+This sample uses takes advantage of the Microsoft 365 Bookings app to power the consumer scheduling experience and create meetings for providers. Thus the first step is creating a Bookings calendar and getting the Booking page URL from https://outlook.office.com/bookings/calendar.
 
 ![Booking configuration experience](./media/sample-builder/bookings-url.png)
 
@@ -74,7 +70,7 @@ Use the Sample Builder to customize the consumer experience. Use this Booking UR
 ![Sample builder start page](./media/sample-builder/sample-builder-start.png)
 
 ### Step 3 - Deploy
-At the end of the Sample Builder wizard, you can **Deploy to Azure** or download the code as a zip. The sample builder code is publicly available on [GitHub](https://github.com/Azure-Samples/communication-services-virtual-visits-solution). 
+At the end of the Sample Builder wizard, you can **Deploy to Azure** or download the code as a zip. The sample builder code is publicly available on [GitHub](https://github.com/Azure-Samples/communication-services-virtual-visits-sample).
 
 ![sample builder landing page](./media/sample-builder/sample-builder-landing.png)
 
@@ -87,28 +83,24 @@ After walking through the ARM template you can **Go to resource group**
 ![Screenshot of a completed Azure Resource Manager Template](./media/sample-builder/azure-complete-deployment.png)
 
 ### Step 4 - Test
-The Sample Builder creates three resources in the selected Azure subscriptions. The **App Service** is the consumer front end, powered by Azure Communication Services. 
+The Sample Builder creates three resources in the selected Azure subscriptions. The **App Service** is the consumer front end, powered by Azure Communication Services.
 
-![produced azure resources in azure portal](./media/sample-builder/azure-resources.png) 
+![produced azure resources in azure portal](./media/sample-builder/azure-resources.png)
 
 Opening the App Service’s URL and navigating to `https://<YOUR URL>/VISITS` allows you to try out the consumer experience and join a Teams meeting.  `https://<YOUR URL>/BOOK` embeds the Booking experience for consumer scheduling.
 
-![final view of azure app service](./media/sample-builder/azure-resource-final.png) 
+![final view of azure app service](./media/sample-builder/azure-resource-final.png)
 
 ## Going to production
 The Sample Builder gives you the basics of a Microsoft 365 and Azure virtual visit: consumer scheduling via Bookings, consumer joins via custom app, and the provider joins via Teams. However, there are several things to consider as you take this scenario to production.
 
-### Launching Patterns
+### Launching patterns
 Consumers want to jump directly to the virtual visit from the scheduling reminders they receive from Bookings. In Bookings, you can provide a URL prefix that will be used in reminders. If your prefix is `https://<YOUR URL>/VISITS`, Bookings will point users to `https://<YOUR URL>/VISITS?=<TEAMID>.`
-
-> [!IMPORTANT]
-> **Skip this Step, Bookings integration is in progress**
->
 
 ### Integrate into your existing app
 The app service generated by the Sample Builder is a stand-alone artifact, designed for desktop and mobile browsers. However you may have a website or mobile application already and need to migrate these experiences to that existing codebase. The code generated by the Sample Builder should help, but you can also use:
 1. **UI SDKs –** [Production Ready Web and Mobile](https://azure.github.io/communication-ui-library/?path=/story/overview--page) components to build graphical applications.
 2. **Core SDKs –** The underlying [Call](../quickstarts/voice-video-calling/get-started-teams-interop.md) and [Chat](../quickstarts/chat/meeting-interop.md) services can be accessed and you can build any kind of user experience.
 
-### Identity & Security
+### Identity & security
 The Sample Builder’s consumer experience does not authenticate the end user, but provides [Azure Communication Services user access tokens](../quickstarts/access-tokens.md) to any random visitor. That isn’t realistic for most scenarios, and you will want to implement an authentication scheme.
