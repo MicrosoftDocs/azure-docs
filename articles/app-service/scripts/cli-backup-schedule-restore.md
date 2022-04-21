@@ -6,7 +6,7 @@ tags: azure-service-management
 
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/18/2022
+ms.date: 04/21/2022
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli

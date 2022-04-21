@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/18/2022
+ms.date: 04/21/2022
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 

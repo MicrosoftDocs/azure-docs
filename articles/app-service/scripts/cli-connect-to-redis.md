@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/18/2022
+ms.date: 04/21/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
