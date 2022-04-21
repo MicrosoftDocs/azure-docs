@@ -48,7 +48,7 @@ To learn how to add a key with the Azure portal, see [Set and retrieve a key fro
 
 ## Add an access policy to your Azure Key Vault
 
-When you enable customer-managed keys for a resource, you must specify a managed identity that will be used to authorize access to the key vault that contains the key. The managed identity must have permissions to access the key in the key vault. Azure Load Testing supports configuring customer-managed keys by specifying a user-assigned managed identity only. To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
+You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the Azure Load Testing resource. The user-assigned managed identity must have appropriate permissions to access the key vault.
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
