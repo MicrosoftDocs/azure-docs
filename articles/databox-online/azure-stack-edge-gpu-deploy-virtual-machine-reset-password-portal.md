@@ -47,8 +47,6 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the
 
     ![Azure portal VM change password confirmation](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/my-windows-vm-change-password-success.png)
 
-
- 
 1. Connect to the VM with the new password.
 
 ## Reset Linux VM password
