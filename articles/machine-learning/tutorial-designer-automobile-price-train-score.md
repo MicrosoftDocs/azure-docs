@@ -274,7 +274,7 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
     1. Select **Submit**.
     
-    1. You will see a submission list in the left pane to the canvas, and a notification will pop up at the top right corner of the page. You can click the job detail link to go to job detail page for debugging.
+    1. You will see a submission list in the left pane of the canvas, and a notification will pop up at the top right corner of the page. You can select the job detail link to go to job detail page for debugging.
         
         ![TODO: screenshot of submission list and notification](./media/new-pipeline-ui/.png)
     

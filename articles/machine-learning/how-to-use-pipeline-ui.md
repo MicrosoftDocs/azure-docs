@@ -20,7 +20,7 @@ Azure Machine Learning studio provides UI to build and debug your pipeline. You 
 This article will introduce how to use the studio UI to build and debug machine learning pipelines.
 
 
-## Build machien learning pipeline
+## Build machine learning pipeline
 
 <!-- *************
 Custom component
@@ -31,13 +31,13 @@ Right pane
 
 ### Drag and drop components to build pipeline
 
-In the designer homepage, you can click "New" to open a blank pipeline draft. 
+In the designer homepage, you can select "New" to open a blank pipeline draft. 
 
-In the asset library left to the canvas, there are "Component" and "Data" tab, which contains components and data registered to the workspace. Under "Component" tab, there are built-in components and custom components. For how to create custom component, you can refer to [this article](concept-component.md). 
+In the asset library left of the canvas, there are "Component" and "Data" tabs, which contains components and data registered to the workspace. Under  the"Component" tab, there are built-in components and custom components. For how to create custom component, you can refer to the [component article](concept-component.md).
 
 ![TODO: Screenshot showing new asset library](./media/new-pipeline-ui/asset-library.png)
 
-Then you can use drag and drop either built-in components or custom components to the canvas. You can always hide the right pane to construct your pipeline first, and then open the right pane to configure your component.
+Then you can drag and drop either built-in components or custom components to the canvas. You can construct your pipeline or configure your components in any order. Just hide the right pane to construct your pipeline first, and open the right pane to configure your component.
 
 > [!NOTE]
 > Currently built-in components and custom components cannot be used together.
@@ -59,7 +59,7 @@ If your pipeline contains too many components, you can multi-select some compone
 submission list
 ************* -->
 
-After you submit your pipeline job, you will see a submitted job list in the left pane, which shows all the pipeline job you create from the current pipeline draft in the same session. There is also notification popping up from the notification center. You can click throught the pipeline job link in the submission list or the notification for further debugging.
+After you submit your pipeline job, you'll see a submitted job list in the left pane, which shows all the pipeline job you create from the current pipeline draft in the same session. There's also notification popping up from the notification center. You can select through the pipeline job link in the submission list or the notification for further debugging.
 
 > [!NOTE]
 > Pipeline job status and resuls will not be filled back to the authoring page.
@@ -71,7 +71,7 @@ After you submit your pipeline job, you will see a submitted job list in the lef
 > The submission list only contains jobs submitted in the same session.
 > If you refresh current page, it will not preserve the previous submitted job list.
 
-In pipeline job detail page, you can check status of the overall job and each node inside, as well as logs of each node.
+On the pipeline job detail page, you can check the status of the overall job and each node inside, as well as logs of each node.
 
 ![TODO: Screenshot showing pipeline job detail page](./media/new-pipeline-ui/.png)
 
@@ -86,7 +86,7 @@ Profiling (Tuning pipeline performance)
 
 ### Using outline to quickly find node
 
-In pipeline job detail page, there is an outline left to the canvas, which shows the overall structure of your pipeline job. Hoverring on any row, you can click the "Locate" button to locate that node in the canvas.
+In pipeline job detail page, there's an outline left to the canvas, which shows the overall structure of your pipeline job. Hovering on any row, you can select the "Locate" button to locate that node in the canvas.
 
 ![TODO: Screenshot showing outline locate in canvas](./media/new-pipeline-ui/.png)
 
@@ -94,7 +94,7 @@ You can also quickly filter failed or completed nodes, or filter only components
 
 ![TODO: Screenshot showing quick filter](./media/new-pipeline-ui/.png)
 
-You can also sort the filted nodes.
+You can also sort the filter nodes.
 
 ![TODO: Screenshot showing sorting search result](./media/new-pipeline-ui/.png)
 
@@ -113,7 +113,7 @@ If your pipeline fails or gets stuck on some node, taking a look at logs are fir
     
     ![TODO: Screenshot showing logs of a node](./media/new-pipeline-ui/view-user-logs.png)
 
-    If you do not see those folders, this is due to the compute run time update is not released to the compute cluster yet, and you can look at **70_driver_log.txt** under **azureml-logs** folder first.
+    If you don't see those folders, this is due to the compute run time update isn't released to the compute cluster yet, and you can look at **70_driver_log.txt** under **azureml-logs** folder first.
 
     ![TODO: Screenshot showing logs of a node](./media/new-pipeline-ui/view-driver-logs.png)
 
@@ -140,7 +140,7 @@ Show lineage
 If you would like to work based on an existing pipeline job in the workspace, you can easily clone it into a new pipeline draft to continue editing.
 ![TODO: Screenshot showing clone](./media/new-pipeline-ui/job-detail-clone.png)
 
-After cloning, you can also know which pipeline job it is cloned from by clicking **Showing lineage**.
+After cloning, you can also know which pipeline job it's cloned from by clicking **Showing lineage**.
 ![TODO: Screenshot showing draft lineage](./media/new-pipeline-ui/draft-show-lineage.png)
 
 You can edit your pipeline and then submit again. After submitting, you can also easily the lineage between the job you submit and the original job by **Show lineage**.
@@ -152,14 +152,14 @@ You can edit your pipeline and then submit again. After submitting, you can also
 Compare
 ************* -->
 
-When you have multiple pipeline jobs for the same project but with different settings, you can easily compare the graph structure, piepline configurations, component configurations, and pipeline job properties in the studio portal.
+When you have multiple pipeline jobs for the same project but with different settings, you can easily compare the graph structure, pipeline configurations, component configurations, and pipeline job properties in the studio portal.
 
 1. In each detail page of pipeline jobs you would like to compare, select **Add to compare**.
 
-    Select **Show compare list** and you will see all the selected pipeline jobs. You can also remove jobs which you do not need to compare anymore.
+    Select **Show compare list** and you'll see all the selected pipeline jobs. You can also remove jobs, which you don't need to compare anymore.
     ![TODO: Screenshot showing compare list](./media/new-pipeline-ui/compare-list.png)
 
-1. In the compare list, if you want to see the piepline graph structure comparison result first, you can select the two pipeline jobs you want to compare, and then select **Compare graph** to compare graph structure and components in the graph.
+1. In the compare list, if you want to see the pipeline graph structure comparison result first, you can select the two pipeline jobs you want to compare, and then select **Compare graph** to compare graph structure and components in the graph.
     > [!NOTE]
     > Currently **Compare graph** only supports comparing **2** pipeline jobs.
     >  **Compare detail** supports multiple pipelines comparison.
@@ -167,7 +167,7 @@ When you have multiple pipeline jobs for the same project but with different set
     ![TODO: Screenshot showing compare graph](./media/new-pipeline-ui/compare-graph.png)
 
     In the screenshot above, you can see the detailed difference of each node in the two pipelines your compare.
-    - The red and green color mean those nodes only occurs in Copy of sample pipeline1 and sample pipeline 1 respectively. 
+    - The red and green colors mean those nodes only occur in Copy of sample pipeline1 and sample pipeline 1 respectively. 
     - The "Train" node shows that it has parameter changed. You can select that node to see which parameters are changed. The blue lines are different values for same parameters.
         ![Screenshot showing parameter difference](./media/new-pipeline-ui/compare-parameter.png)
 

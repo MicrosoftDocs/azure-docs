@@ -49,7 +49,7 @@ Go to the job detail page, and after the training pipeline job completes, you ca
 ![TODO: Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 
-1. In job detail page, above the canvas, select the new dropdown **Create inference pipeline**.
+1. In job detail page, above the canvas, select the dropdown **Create inference pipeline**.
 
 1. Select **Batch inference pipeline**.
 
@@ -72,7 +72,7 @@ In this section, you create a dataset parameter to specify a different dataset t
     > [!div class="mx-imgBorder"]
     > ![TODO: Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png
 
-1. Submit the batch inference pipeline and go to job detail page by clicking the job link in the left pane.
+1. Submit the batch inference pipeline and go to job detail page by selecting the job link in the left pane.
 
     ![TODO: Go to batch inference pipeline job detail page](./media/how-to-run-batch-predictions-designer/batch-inference-job-link.png)
 

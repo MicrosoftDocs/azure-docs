@@ -17,7 +17,7 @@ ms.custom: devplatv2, designer
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning stuido and Components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
+In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python-v2.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
