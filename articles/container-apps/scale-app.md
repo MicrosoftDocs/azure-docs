@@ -20,8 +20,8 @@ There are two scale properties that apply to all rules in your container app:
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 25 |
-| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 25 |
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 10 |
+| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 10 |
 
 - If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
@@ -79,6 +79,9 @@ In the following example, the container app scales out up to five replicas and c
 ```
 
 ### Add an HTTP scale trigger
+
+> [!NOTE]
+> Revisions are immutables. Changing the scale rules will automatically generate a new revision.
 
 1. In Azure portal, select **Scale** and then select your revision from the dropdown menu.
 
@@ -147,7 +150,7 @@ The container app scales according to the following behavior:
 ```
 
 > [!NOTE]
-> KEDA scalers are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep Templates and Container Apps specific YAML.  For this example, we are using ARM and therefore need to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
+> Upstream KEDA scale rules are defined using Kubernetes YAML, while Azure Container Apps supports ARM templates, Bicep Templates and Container Apps specific YAML. For this example, we are using ARM and therefore need to switch property names from [kebab](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words) case to [camel](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Letter_case-separated_words) when translating from existing KEDA manifests.
 
 ### Set up a connection string secret
 
