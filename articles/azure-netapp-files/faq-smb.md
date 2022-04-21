@@ -83,7 +83,9 @@ The Azure NetApp Files service has a policy that automatically updates the passw
 * Schedule randomization period: 120 minutes
 * Schedule: Sunday `@0100`
 
-To see  when the password was last updated on the Azure NetApp Files SMB machine account,  check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility.
+To see  when the password was last updated on the Azure NetApp Files SMB machine account, check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility:
+
+![Screenshot that shows the Active Directory Users and Computers utility](../media/azure-netapp-files/active-directory-users-computers-utility.png )
 
 >[!NOTE] 
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](
