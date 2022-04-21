@@ -46,7 +46,7 @@ The following section shows you how to enable ingress-to-app SSL/TLS to secure t
 
 - A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
 - If you're unfamiliar with ingress-to-app TLS, see the [end-to-end TLS sample](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl).
-- To securely load the required certificates into Spring Boot apps, you can use [keyvault spring boot starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-certificates).
+- To securely load the required certificates into Spring Boot apps, you can use [spring-cloud-azure-starter-keyvault-certificates](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates).
 
 ### Enable ingress-to-app TLS on an existing app
 
