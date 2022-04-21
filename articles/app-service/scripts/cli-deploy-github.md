@@ -1,6 +1,6 @@
 ---
 title: 'CLI: Deploy an app from GitHub'
-description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to deploy an app from GitHub.
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to create an app and deploy it from GitHub.
 author: msangapu-msft
 tags: azure-service-management
 
