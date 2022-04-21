@@ -62,7 +62,7 @@ To learn how create VMSS in an availability zone, see [Create a virtual machine 
 
 ### When to use Azure Resource Mover
 
-Use Azure Resource Mover for an easy way to move VMs or encrypted VMs from one region without availability zones to another with availability zones. If you want to learn more about the benefits of using Azure Resource Mover, see [Why use Azure Resource Mover?](../resource-mover/overview#why-use-resource-mover.md).
+Use Azure Resource Mover for an easy way to move VMs or encrypted VMs from one region without availability zones to another with availability zones. If you want to learn more about the benefits of using Azure Resource Mover, see [Why use Azure Resource Mover?](../resource-mover/overview.md#why-use-resource-mover.md).
 
 ### Azure Resource Mover considerations
 
@@ -97,6 +97,6 @@ The following requirements should be part of a disaster recovery strategy that h
 - The source VM must already be a zonal VM, which means that it's placed in a logical zone.  
 - You'll need to replicate your VM from one zone to another zone using Azure Site Recovery service.  
 - Once your VM is replicated to another zone, you can follow steps to run a Disaster Recovery drill, fail over, reprotect, and failback.  
-- To enable VM disaster recovery between availability zones, follow the instructions in [Enable Azure VM disaster recovery between availability zones](..site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) .  
+- To enable VM disaster recovery between availability zones, follow the instructions in [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) .  
 
 ## Next Steps
