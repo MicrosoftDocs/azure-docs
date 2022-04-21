@@ -248,7 +248,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 * **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
   > [!NOTE]
-  > IoT Hub queries used in [Message Routing](./iot-hub-devguide-routing-query-syntax.md) don't support the `/` or `@` characters as part of a key name.
+  > IoT Hub queries used in [Message Routing](./iot-hub-devguide-routing-query-syntax.md) don't support whitespace or any of the following characters as part of a key name: `()<>@,;:\"/?={}`.
 
 * **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 
