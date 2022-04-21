@@ -74,7 +74,7 @@
         href: authentication-google.md
       - name: Twitter
         href: authentication-twitter.md
-      - name: Custom OpenID Connect provider
+      - name: Custom OpenID Connect
         href: authentication-openid.md
 - name: Tutorials
   items:
