@@ -22,7 +22,7 @@ The article describes how to configure update settings from Update management ce
 To configure update settings on your machines on a single VM, follow these steps:
 
 >[!NOTE]
-> You can schedule updates from the Overview or Machines blade.
+> You can schedule updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/manage-single-overview)
 
