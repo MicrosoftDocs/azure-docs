@@ -54,7 +54,7 @@ The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the po
 * Go to the [Azure portal](https://www.portal.azure.com)
 * Find your **"Remote Rendering Account"** - it should be in the **"Recent Resources"** list. You can also search for it in the search bar at the top. In that case, make sure that the subscription you want to use is selected in the Default subscription filter (filter icon next to search bar):
 
-:::image type="content" source="./media/azure-subscription-filter.png" alt-text="Screenshot of the Azure Portal Subscription filter list.":::
+:::image type="content" source="./media/azure-subscription-filter.png" alt-text="Screenshot of the Azure portal Subscription filter list.":::
 
 Clicking on your account brings you to this screen, which shows the **Account ID** right away:
 
