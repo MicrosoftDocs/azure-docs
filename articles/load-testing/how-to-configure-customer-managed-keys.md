@@ -33,15 +33,17 @@ You can use a new or existing key vault to store customer-managed keys. Using cu
 
 To learn how to create a key vault with the Azure portal, see [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select Enable purge protection, as shown in the following image.
 
+:::image type="content" source="media/how-to-configure-customer-managed-keys/purge-protection-on-akv.png" alt-text="Screenshot that shows how to enable purge protection on a new key vault.":::
+
 To enable purge protection on an existing key vault, follow these steps:
 
 1. Navigate to your key vault in the Azure portal.
-1. Under Settings, choose Properties.
-1. In the Purge protection section, choose Enable purge protection.
+1. Under **Settings**, choose **Properties**.
+1. In the **Purge protection** section, choose **Enable purge protection**.
 
 ## Add a key
 
-Next, add a key to the key vault. Azure Load Testing encryption supports RSA keys of sizes 2048, 3072 and 4096. For more information about supported key types, see [About keys](/azure/key-vault/keys/about-keys).
+Next, add a key to the key vault. Azure Load Testing encryption supports RSA keys. For more information about supported key types, see [About keys](/azure/key-vault/keys/about-keys).
 
 To learn how to add a key with the Azure portal, see [Set and retrieve a key from Azure Key Vault using the Azure portal](/azure/key-vault/keys/quick-create-portal).
 
@@ -83,17 +85,22 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 1. Select **Review + create** to validate and create the new resource.
 
+:::image type="content" source="media/how-to-configure-customer-managed-keys/encryption-new-alt-resource.png" alt-text="Screenshot that shows how to enable customer managed key encryption while creating an Azure Load Testing resource.":::
+
 # [ARM template](#tab/arm)
 
 You can use an ARM template to automate the deployment of your Azure resources. You can create any resource of type `Microsoft.LoadTestService/loadtests` with customer managed key enabled for encryption by adding the following properties:
 
 ```json
 "encryption": {
-    "identity": {
-        "userAssignedIdentity": "[parameters('encryptionIdentity')]"
-    },
-    "keyUri": "[parameters('keyUri')]"
-}
+            "customerManagedKeyEncryption": {
+                "keyEncryptionKeyIdentity": {
+                    "identityType": "userAssignedIdentity",
+                    "userAssignedIdentity": "UA resource id"
+                },
+                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
+            }
+        }
 ```
 
 For example, an Azure Load Testing resource might look like the following:
@@ -105,11 +112,16 @@ For example, an Azure Load Testing resource might look like the following:
     "name": "[parameters('name')]",
     "location": "[parameters('location')]",
     "tags": "[parameters('tags')]",
-    "encryption": {
-        "identity": {
-            "userAssignedIdentity": "[parameters('encryptionIdentity')]"
-        },
-        "keyUri": "[parameters('keyUri')]"
+    "properties": {
+        "encryption": {
+            "customerManagedKeyEncryption": {
+                "keyEncryptionKeyIdentity": {
+                    "identityType": "userAssignedIdentity",
+                    "userAssignedIdentity": "UA resource id"
+                },
+                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
+            }
+        }
     }
 }
 ```
@@ -124,10 +136,12 @@ To change the managed identity for customer-managed keys on an existing resource
 
 1. If the selected encryption type is *Customer-managed keys*, select the type of identity to use to authenticate access to the key vault. The options include System-assigned (the default) or User-assigned. To learn more about each type of managed identity, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 
-    - If you select System-assigned, the system-assigned managed identity for the resource is created under the covers, if it does not already exist.
+    - If you select System-assigned, the system-assigned managed identity needs to be enabled on the resource and granted access to the AKV before changing the identity for customer-managed keys.
     - If you select User-assigned, then you must select an existing user-assigned identity that has permissions to access the key vault. To learn how to create a user-assigned identity, see [Use managed identities for Azure Load Testing Preview](how-to-use-a-managed-identity.md).
 
 1. Save your changes.
+
+:::image type="content" source="media/how-to-configure-customer-managed-keys/change-identity-existing-alt-resource.png" alt-text="Screenshot that shows how to change the managed identity for customer managed keys on an existing Azure Load Testing resource.":::
 
 > [!NOTE]
 > The managed identity selected should have access granted on the Azure Key Vault.
