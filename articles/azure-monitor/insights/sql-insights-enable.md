@@ -130,7 +130,7 @@ Each type of SQL offers methods for your monitoring virtual machine to securely 
 
 SQL Insights supports accessing your Azure SQL Database via its public endpoint as well as from its virtual network.
 
-For access via the public endpoint, you would add a rule under the **Firewall settings** page and the [IP firewall settings](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules) section. For specifying access from a virtual network, you can set [virtual network firewall rules](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) and set the [service tags required by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#networking). [This article](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) describes the differences between these two types of firewall rules.
+For access via the public endpoint, you would add a rule under the **Firewall settings** page and the [IP firewall settings](/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) section. For specifying access from a virtual network, you can set [virtual network firewall rules](/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) and set the [service tags required by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#networking). [This article](/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) describes the differences between these two types of firewall rules.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Set server firewall" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
@@ -138,10 +138,10 @@ For access via the public endpoint, you would add a rule under the **Firewall se
 
 ### Azure SQL Managed Instance
 
-If your monitoring virtual machine will be in the same VNet as your SQL MI resources, then see [Connect inside the same VNet](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-the-same-vnet). If your monitoring virtual machine will be in the different VNet than your SQL MI resources, then see [Connect inside a different VNet](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-a-different-vnet).
+If your monitoring virtual machine will be in the same VNet as your SQL MI resources, then see [Connect inside the same VNet](/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-the-same-vnet). If your monitoring virtual machine will be in the different VNet than your SQL MI resources, then see [Connect inside a different VNet](/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-a-different-vnet).
 
 ### SQL Server 
-If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL virtual machine resources, then see  [Connect to SQL Server over the internet](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-over-the-internet).
+If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL virtual machine resources, then see  [Connect to SQL Server over the internet](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
 
 ## Store monitoring password in Key Vault
 As a security best practice, we strongly recommend that you store your SQL user (login) passwords in a Key Vault, rather than entering them directly into your monitoring profile connection strings.

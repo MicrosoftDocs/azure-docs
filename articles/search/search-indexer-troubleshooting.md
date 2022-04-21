@@ -37,7 +37,7 @@ Details for configuring IP address range restrictions for each data source type 
 
 * [Cosmos DB](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [Azure SQL](../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)
+* [Azure SQL](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules)
 
 **Limitation**: As stated in the documentation above for Azure Storage, IP address range restrictions will only work if your search service and your storage account are in different regions.
 

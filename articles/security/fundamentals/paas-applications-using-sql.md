@@ -54,7 +54,7 @@ To learn more about Azure AD authentication, see:
 - [Token-based authentication support for Azure SQL Database using Azure AD authentication](/azure/azure-sql/database/authentication-aad-overview)
 
 > [!NOTE]
-> To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+> To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 ## Restrict access based on IP address
 

@@ -49,7 +49,7 @@ The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.â€
 
 ## Check your VNet/Service Endpoint settings
 
-If you're receiving Errors 40914 and 40615, see [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+If you're receiving Errors 40914 and 40615, see [error description and resolution here](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Check for the latest drivers
 
@@ -104,7 +104,7 @@ Check to see if you're experiencing heavy load on the server with a high number 
 
 ## Common error messages
 
-Errors 40914 and 40615, see the [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Errors 40914 and 40615, see the [error description and resolution here](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Still having connectivity issues?
 

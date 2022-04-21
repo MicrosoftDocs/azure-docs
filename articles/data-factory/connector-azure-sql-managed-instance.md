@@ -167,7 +167,7 @@ For different authentication types, refer to the following sections on prerequis
 
 To use a service principal-based Azure AD application token authentication, follow these steps:
 
-1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
 2. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) from the Azure portal. Make note of the application name and the following values that define the linked service:
 
@@ -181,7 +181,7 @@ To use a service principal-based Azure AD application token authentication, foll
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the service principal. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+4. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the service principal. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
@@ -225,7 +225,7 @@ A data factory or Synapse workspace can be associated with a [system-assigned ma
 
 To use system-assigned managed identity authentication, follow these steps.
 
-1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
 2. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the system-assigned managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
@@ -233,7 +233,7 @@ To use system-assigned managed identity authentication, follow these steps.
     CREATE LOGIN [your_factory_or_workspace_ name] FROM EXTERNAL PROVIDER
     ```
 
-3. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the system-assigned managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+3. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the system-assigned managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
     CREATE USER [your_factory_or_workspace_name] FROM EXTERNAL PROVIDER
@@ -270,7 +270,7 @@ A data factory or Synapse workspace can be associated with a [user-assigned mana
 
 To use user-assigned managed identity authentication, follow these steps.
 
-1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
 2. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the user-assigned managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
@@ -278,7 +278,7 @@ To use user-assigned managed identity authentication, follow these steps.
     CREATE LOGIN [your_factory_or_workspace_ name] FROM EXTERNAL PROVIDER
     ```
 
-3. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+3. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
     CREATE USER [your_factory_or_workspace_name] FROM EXTERNAL PROVIDER
@@ -877,7 +877,7 @@ When data is copied to and from SQL Managed Instance using copy activity, the fo
 
 When you copy data from/to SQL Managed Instance with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
-1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)
+1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
 
 2. Make sure to great access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults) for required permissions.
 

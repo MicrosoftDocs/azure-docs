@@ -17,7 +17,7 @@ Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Ass
 
 ## Auditing
 
-[Auditing for Azure SQL Database](../../azure-sql/database/auditing-overview.md#overview) and Azure Synapse tracks database events and writes them to an audit log in an Azure storage account, Log Analytics workspace, or Event Hubs. For any database, auditing is important. It produces an audit trail over time to help understand database activity and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+[Auditing for Azure SQL Database](/azure/azure-sql/database/auditing-overview#overview) and Azure Synapse tracks database events and writes them to an audit log in an Azure storage account, Log Analytics workspace, or Event Hubs. For any database, auditing is important. It produces an audit trail over time to help understand database activity and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 Used with [Data discovery and classification](/azure/azure-sql/database/data-discovery-and-classification-overview), when any sensitive columns or tables are queried by users, entries will appear in a field named **data_sensitivity_information** of the **sql_audit_information** table.
 
 > [!NOTE]

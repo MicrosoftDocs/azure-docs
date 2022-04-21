@@ -154,21 +154,21 @@ Azure SQL Database offers the following three purchasing models:
 
   It lets you choose the number of vCores, amount of memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. This model is suited for customer who value flexibility, control, and transparency.
 
-  There are three [Service Tier Options](../../../azure-sql/database/service-tiers-vcore.md#service-tiers) being offered in vCore model that include - General Purpose, Business Critical, and Hyperscale. The service tier defines the storage architecture, space, I/O limits, and business continuity options related to availability and disaster recovery. Following is high-level details on each service tier option -
+  There are three [Service Tier Options](/azure/azure-sql/database/service-tiers-vcore#service-tiers) being offered in vCore model that include - General Purpose, Business Critical, and Hyperscale. The service tier defines the storage architecture, space, I/O limits, and business continuity options related to availability and disaster recovery. Following is high-level details on each service tier option -
 
-  1. **General Purpose** service tier is best suited for Business workloads. It offers budget-oriented, balanced, and scalable compute and storage options. For more information, refer [Resource options and limits](../../../azure-sql/database/resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen5).
-  2. **Business Critical** service tier offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica. For more information, refer [Resource options and limits](../../../azure-sql/database/resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen5).
-  3. **Hyperscale** service tier is best for business workloads with highly scalable storage and read-scale requirements. It offers higher resilience to failures by allowing configuration of more than one isolated database replica. For more information, refer [Resource options and limits](../../../azure-sql/database/resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
+  1. **General Purpose** service tier is best suited for Business workloads. It offers budget-oriented, balanced, and scalable compute and storage options. For more information, refer [Resource options and limits](/azure/azure-sql/database/resource-limits-vcore-single-databases#general-purpose---provisioned-compute---gen5).
+  2. **Business Critical** service tier offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica. For more information, refer [Resource options and limits](/azure/azure-sql/database/resource-limits-vcore-single-databases#business-critical---provisioned-compute---gen5).
+  3. **Hyperscale** service tier is best for business workloads with highly scalable storage and read-scale requirements. It offers higher resilience to failures by allowing configuration of more than one isolated database replica. For more information, refer [Resource options and limits](/azure/azure-sql/database/resource-limits-vcore-single-databases#hyperscale---provisioned-compute---gen5).
 
 - DTU-based
 
   The DTU-based purchasing model offers a blend of compute, memory, and I/O resources in three service tiers, to support light and heavy database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources. It's best suited for customers who want simple, pre-configure resource options.
 
-  [Service Tiers](../../../azure-sql/database/service-tiers-dtu.md#compare-service-tiers) in the DTU-based purchasing model is differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period of backups, and fixed price.
+  [Service Tiers](/azure/azure-sql/database/service-tiers-dtu#compare-service-tiers) in the DTU-based purchasing model is differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period of backups, and fixed price.
 
 - Serverless
 
-  The serverless model automatically scales compute based on workload demand, and bills for the amount of compute used per second. The serverless compute tier automatically pauses databases during inactive periods when only storage is billed, and automatically resumes databases when activity returns. For more information, refer [Resource options and limits](../../../azure-sql/database/resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).
+  The serverless model automatically scales compute based on workload demand, and bills for the amount of compute used per second. The serverless compute tier automatically pauses databases during inactive periods when only storage is billed, and automatically resumes databases when activity returns. For more information, refer [Resource options and limits](/azure/azure-sql/database/resource-limits-vcore-single-databases#general-purpose---serverless-compute---gen5).
   
   It's more suitable for intermittent, unpredictable usage with low average compute utilization over time. So this model can be used for non-production SAP BOBI deployment.
 

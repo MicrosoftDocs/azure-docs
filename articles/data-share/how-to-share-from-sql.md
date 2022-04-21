@@ -148,7 +148,7 @@ You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to co
 - Permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
 - Permission for the Azure Data Share resource's managed identity to access the database:
     1. In the [Azure portal](https://portal.azure.com/), navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
-    1. Connect to the Azure SQL Database/Data Warehouse using the [Query Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication.
+    1. Connect to the Azure SQL Database/Data Warehouse using the [Query Editor](/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication.
     1. Execute the following script to add the Data Share resource-Managed Identity as a db_datareader. Connect using Active Directory and not SQL Server authentication.
 
         ```sql
@@ -289,7 +289,7 @@ You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or t
 - Permission to write to databases on the SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the Azure RBAC **Contributor** role.
 - Permission for the Data Share resource's managed identity to access the Azure SQL Database or Azure Synapse Analytics:
     1. In the [Azure portal](https://portal.azure.com/), navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
-    1. Connect to the Azure SQL Database/Data Warehouse using the [Query Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication.
+    1. Connect to the Azure SQL Database/Data Warehouse using the [Query Editor](/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication.
     1. Execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'.
 
         ```sql
