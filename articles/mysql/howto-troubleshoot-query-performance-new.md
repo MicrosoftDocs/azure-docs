@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 4/21/2022
+ms.date: 4/22/2022
 ---
 
 # Troubleshoot query performance in Azure Database for MySQL

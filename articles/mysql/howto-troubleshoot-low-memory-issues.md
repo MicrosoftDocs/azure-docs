@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 4/21/2022
+ms.date: 4/22/2022
 ---
 
 # Troubleshoot low memory issues in Azure Database for MySQL
@@ -29,7 +29,7 @@ The value of the **innodb_buffer_pool_size** parameter specifies the area of mem
 
 Azure Database for MySQL provides a range of metrics to gauge the performance of your database instance. To better understand the memory utilization for your database server, view the **Host Memory Percent** or **Memory Percent** metrics.
 
-![Viewing memory utilization metrics](media/howto-troubleshoot-low-memory-issues/memory-metrics.png)
+![Viewing memory utilization metrics](media/howto-troubleshoot-low-memory-issues/avg-host-memory-percentage.png)
 
 If you notice that memory utilization has suddenly increased and that available memory is dropping quickly, monitor other metrics, such as **Host CPU Percent**, **Total Connections**, and **IO Percent**, to determine if a sudden spike in the workload is the source of the issue.
 
