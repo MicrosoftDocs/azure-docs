@@ -66,7 +66,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select **Storage Blob Data Owner**.
+1. On the **Role** tab, select **Storage Blob Data Owner**.
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 

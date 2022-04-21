@@ -329,7 +329,7 @@ The final section to complete is to be able to deploy the test drives automatica
 
        :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-      1. On the **Roles** tab, select **Contributor**.
+      1. On the **Role** tab, select **Contributor**.
 
       1. On the **Members** tab, select **User, group, or service principal**, and then choose **Select members**.
 
