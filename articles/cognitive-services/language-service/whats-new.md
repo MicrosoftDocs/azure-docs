@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 03/07/2022
+ms.date: 04/20/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -16,6 +16,11 @@ ms.custom: ignite-fall-2021
 # What's new in Azure Cognitive Service for Language?
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## April 2022
+
+* Fast Healthcare Interoperability Resources (FHIR) support is available in the [Language REST API preview](text-analytics-for-health/quickstart.md?pivots=rest-api&tabs=language) for Text Analytics for health.
+
 
 ## March 2022
 
@@ -27,6 +32,10 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 ## February 2022
 
 * Model improvements for latest model-version for [text summarization](text-summarization/overview.md)
+
+* Model 2021-10-01 is Generally Available (GA) for [Sentiment Analysis and Opinion Mining](sentiment-opinion-mining/overview.md), featuring enhanced modeling for emojis and better accuracy across all supported languages.
+
+* [Question Answering](question-answering/overview.md): Active learning v2 incorporates a better clustering logic providing improved accuracy of suggestions. It considers user actions when suggestions are accepted or rejected to avoid duplicate suggestions, and improve query suggestions.
 
 ## December 2021
 

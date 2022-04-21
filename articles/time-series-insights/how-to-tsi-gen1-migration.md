@@ -14,11 +14,13 @@ ms.custom: tvilutis
 
 # Migrating Time Series Insights Gen1 to Azure Data Explorer
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 ## Overview
 
 The recommendation is to set up Azure Data Explorer cluster with a new consumer group from the Event Hub or IoT Hub and wait for retention period to pass and fill Azure Data Explorer with the same data as Time Series Insights environment.
 If telemetry data is required to be exported from Time Series Insights environment, the suggestion is to use Time Series Insights Query API to download the events in batches and serialize in required format. 
-For reference data, Time Series Insights Explorer or Reference Data API can be used to download reference data set and upload it into Azure Data Explorer as another table. Then, materialized views in Azure Data Explorer can be used to join reference data with telemetry data. Use materialized view with arg_max() aggregation function which will get the latest record per entity, as demonstrated in the following example. For more information about materialized views, read the following documentation: [Materialized views use cases] (./data-explorer/kusto/management/materialized-views/materialized-view-overview.md#materialized-views-use-cases).
+For reference data, Time Series Insights Explorer or Reference Data API can be used to download reference data set and upload it into Azure Data Explorer as another table. Then, materialized views in Azure Data Explorer can be used to join reference data with telemetry data. Use materialized view with arg_max() aggregation function which will get the latest record per entity, as demonstrated in the following example. For more information about materialized views, read the following documentation: [Materialized views use cases](/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview#materialized-views-use-cases).
 
 ```
 .create materialized-view MVName on table T

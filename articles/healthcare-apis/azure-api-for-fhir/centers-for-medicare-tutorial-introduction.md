@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 12/16/2021
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 02/15/2022
 ---
 
 # Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule introduction
@@ -45,7 +45,7 @@ The Azure API for FHIR has the following capabilities to help you configure your
 
 The Patient Access API describes adherence to four FHIR implementation guides:
 
-* [CARIN IG for Blue Button®](http://hl7.org/fhir/us/carin-bb/STU1/index.html): Payers are required to make patients' claims and encounters data available according to the CARIN IG for Blue Button Implementation Guide (C4BB IG). The C4BB IG provides a set of resources that payers can display to consumers via a FHIR API and includes the details required for claims data in the Interoperability and Patient Access API. This implementation guide uses the ExplanationOfBenefit (EOB) Resource as the main resource, pulling in other resources as they are referenced.
+* [CARIN IG for Blue Button®](http://hl7.org/fhir/us/carin-bb/STU1/index.html): Payers are required to make patients' claims and encounters data available according to the CARIN IG for Blue Button Implementation Guide (C4BB IG). The C4BB IG provides a set of resources that payers can display to consumers via a FHIR API and includes the details required for claims data in the Interoperability and Patient Access API. This implementation guide uses the ExplanationOfBenefit (EOB) Resource as the main resource, pulling in other resources as they're referenced.
 * [HL7 FHIR Da Vinci PDex IG](http://hl7.org/fhir/us/davinci-pdex/STU1/index.html): The Payer Data Exchange Implementation Guide (PDex IG) is focused on ensuring that payers provide all relevant patient clinical data to meet the requirements for the Patient Access API. This uses the US Core profiles on R4 Resources and includes (at a minimum) encounters, providers, organizations, locations, dates of service, diagnoses, procedures, and observations. While this data may be available in FHIR format, it may also come from other systems in the format of claims data, HL7 V2 messages, and C-CDA documents.
 * [HL7 US Core IG](https://www.hl7.org/fhir/us/core/toc.html): The HL7 US Core Implementation Guide (US Core IG) is the backbone for the PDex IG described above. While the PDex IG limits some resources even further than the US Core IG, many resources just follow the standards in the US Core IG.
 
@@ -59,7 +59,7 @@ The Provider Directory API describes adherence to one implementation guide:
 
 ## Touchstone
 
-To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
+To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has a great amount of documentation to help you get up and running.
 
 ## Next steps
 

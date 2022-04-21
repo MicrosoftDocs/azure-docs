@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 11/09/2021
+ms.date: 04/18/2022
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -33,7 +33,7 @@ Sometimes you encounter Authentication issues like HTTP status 401. Especially w
 
 #### Cause
 
-What we have observed is that the token was obtained from the original tenant, but the service is in guest tenant and trying to use the token to visit DevOps in guest tenant. This is not the expected behavior.
+The token was obtained from the original tenant, but the service is in guest tenant trying to use the token to visit DevOps in guest tenant. This type of token access isn't the expected behavior.
 
 #### Recommendation
 
@@ -101,7 +101,7 @@ When trying to publish changes, you get following error message:
 `
 ### Cause
 
-You have detached the Git configuration and set it up again with the "Import resources" flag selected, which sets the service as "in sync". This means no change during  publication..
+You have detached the Git configuration and set it up again with the "Import resources" flag selected, which sets the service as "in sync". This means no change during  publication.
 
 #### Resolution
 
@@ -128,7 +128,7 @@ You are unable to move a data factory from one Resource Group to another, failin
 
 #### Resolution
 
-You can delete the SSIS-IR and Shared IRs to allow the move operation. If you do not want to delete the integration runtimes, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old data factory.
+You can delete the SSIS-IR and Shared IRs to allow the move operation. If you don't  want to delete the integration runtimes, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old data factory.
 
 ###  Unable to export and import ARM template
 
@@ -156,29 +156,43 @@ Until recently, the it was only possible to publish a pipeline for deployments b
 
 CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
 
-###  Cannot publish because of 4 MB ARM template limit  
+###  Cannot publish because of 4-MB ARM template limit  
 
 #### Issue
 
-You cannot deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
+You can't  deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
+###  DevOps API limit of 20 MB causes ADF trigger twice or more instead of once 
+
+#### Issue
+
+While publishing ADF resources, the azure pipeline triggers twice or more instead of once.
+
+#### Cause
+ 
+Azure DevOps has the 20 MB Rest API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
+
+#### Resolution
+
+Use ADF **Automated publish** (preferred)  or **manual trigger** method to trigger once instead of twice or more.
+
 ### Cannot connect to GIT Enterprise  
 
 ##### Issue
 
-You cannot connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
+You can't connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
 
 #### Cause
 
-* You have not configured Oauth for the service. 
+* You haven't configured Oauth for the service. 
 * Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true)
 
 #### Resolution 
@@ -192,7 +206,7 @@ An instance of the service, or the resource group containing it, was deleted and
 
 #### Cause
 
-It is possible to recover the instance only if source control was configured for it with DevOps or Git. This action will bring all the latest published resources, but **will not** restore any unpublished pipelines, datasets, or linked services. If there is no Source control, recovering a deleted instance from the Azure backend is not possible because once the service receives the delete command, the instance is permanently deleted without any backup.
+It is possible to recover the instance only if source control was configured for it with DevOps or Git. This action will bring all the latest published resources, but **will not** restore any unpublished pipelines, datasets, or linked services. If there is no Source control, recovering a deleted instance from the Azure backend isn't  possible because once the service receives the delete command, the instance is permanently deleted without any backup.
 
 #### Resolution
 
@@ -206,7 +220,7 @@ To recover a deleted service instance that has source control configured, refer 
 
  * If there was a Self-hosted Integration Runtime in a deleted data factory or Synapse workspace, a new instance of the IR must be created in a new factory or workspace.  The on-premises or virtual machine IR instance must be uninstalled and reinstalled, and a new key obtained. After setup of the new IR is completed, the Linked Service must be updated to point to new IR and the connected tested again, or it will fail with error **invalid reference.**
 
-### Cannot deploy to different stage using automatic publish method
+### Can't  deploy to different stage using automatic publish method
 
 #### Issue
 Customer followed all necessary steps like installing NPM package and setting up a higher stage using Azure DevOps, but deployment still fails.
@@ -230,7 +244,7 @@ Following section is not valid because package.json folder is not valid.
 ```
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
 
-### Git Repository or Azure Purview Connection Disconnected
+### Git Repository or Microsoft Purview connection disconnected
 
 #### Issue
 When deploying a service instance, the git repository or purview connection is disconnected.
@@ -269,7 +283,7 @@ You can monitor the pipeline using **SDK**, **Azure Monitor** or [Monitor](./mon
 You want to perform unit testing during development and deployment of your pipelines.
 
 #### Cause
-During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically re-testing all your pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines can significantly improve quality. In long run, tested pipeline artifacts are reused saving you cost and time.  
+During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically retesting all your pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines can significantly improve quality. In long run, tested pipeline artifacts are reused saving you cost and time.  
  
 #### Resolution
 Because customers may have different unit testing requirements with different skillsets, usual practice is to follow following steps:
@@ -331,7 +345,7 @@ If you want to share integration runtimes across all stages, consider using a te
 ### GIT publish may fail because of PartialTempTemplates files
 
 #### Issue
-When you have 1000s of old temporary ARM json files in PartialTemplates folder, publish may fail.
+When you have 1000 s of old temporary ARM json files in PartialTemplates folder, publish may fail.
 
 #### Cause
 On publish, ADF fetches every file inside each folder in the collaboration branch. In the past, publishing generated two folders in the publish branch: PartialArmTemplates and LinkedTemplates. PartialArmTemplates files are no longer generated. However, because there can be many old files (thousands) in the PartialArmTemplates folder, this may result in many requests being made to GitHub on publish and the rate limit being hit. 

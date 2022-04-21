@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 03/15/2022
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes
@@ -120,3 +120,4 @@ The following information is passed to the server in the query:
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
 * [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
+* [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)

@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 03/15/2022
 ---
 
 # Configure Managed Service offer listing details
@@ -24,7 +24,7 @@ On the **Offer listing** page in Partner Center, provide the information describ
 1. The **Name** box is pre-filled with the name you entered earlier in the New offer dialog box, but you can change it at any time. This name will appear as the title of your offer listing on the online store.
 2. In the **Search results summary** box, describe the purpose or goal of your offer in 100 characters or less.
 3. In the **Short description** field, provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in the Azure portal.
-4. In the **Description** field, describe your Managed Service offer. You can enter up to 2,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
+4. In the **Description** field, describe your Managed Service offer. You can enter up to 5,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
 5. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your offer complies with privacy laws and regulations, and for providing a valid privacy policy.
 
 ## Product information links

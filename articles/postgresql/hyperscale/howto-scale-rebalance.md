@@ -1,8 +1,8 @@
 ---
 title: Rebalance shards - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Distribute shards evenly across servers for better performance
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to

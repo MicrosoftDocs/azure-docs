@@ -2,6 +2,8 @@
 title: Azure Lab Services vs. Azure DevTest Labs
 description: Compare features, scenarios, and use cases for Azure DevTest Labs and Azure Lab Services.
 ms.topic: overview
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/15/2021
 ---
 

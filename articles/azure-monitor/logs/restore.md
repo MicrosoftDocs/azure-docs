@@ -80,8 +80,7 @@ To restore data from a table, run the [az monitor log-analytics workspace table 
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table restore create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name Heartbeat_RST --restore-source-table Heartbeat --start-restore-time "2022-01-01T00:00:00.000Z" --end-restore-time "2022-01-08T00:00:00.000Z" --no-wait
+az monitor log-analytics workspace table restore create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name Heartbeat_RST --restore-source-table Heartbeat --start-restore-time "2022-01-01T00:00:00.000Z" --end-restore-time "2022-01-08T00:00:00.000Z" --no-wait
 ```
 
 ---
@@ -107,8 +106,7 @@ To delete a restore table, run the [az monitor log-analytics workspace table del
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name Heartbeat_RST
+az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Heartbeat_RST
 ```
 
 ---

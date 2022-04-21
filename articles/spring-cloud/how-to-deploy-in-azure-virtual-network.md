@@ -260,11 +260,11 @@ This table shows the maximum number of app instances Azure Spring Cloud supports
 
 | App subnet CIDR | Total IPs | Available IPs | Maximum app instances                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |
-| /28             | 16        | 8             | <p>App with one core:  96 <br/> App with two cores: 48<br/> App with three cores: 32<br/> App with four cores: 24</p> |
-| /27             | 32        | 24            | <p>App with one core:  228<br/> App with two cores: 144<br/> App with three cores: 96<br/> App with four cores: 72</p> |
-| /26             | 64        | 56            | <p>App with one core:  500<br/> App with two cores: 336<br/> App with three cores: 224<br/> App with four cores: 168</p> |
-| /25             | 128       | 120           | <p>App with one core:  500<br/> App with two cores: 500<br/> App with three cores:  480<br> App with four cores: 360</p> |
-| /24             | 256       | 248           | <p>App with one core:  500<br/> App with two cores: 500<br/> App with three cores: 500<br/> App with four cores: 500</p> |
+| /28             | 16        | 8             | <p>App with 0.5 core:  192 <br/> App with one core:  96 <br/> App with two cores: 48<br/> App with three cores: 32<br/> App with four cores: 24</p> |
+| /27             | 32        | 24            | <p>App with 0.5 core:  456 <br/> App with one core:  228<br/> App with two cores: 144<br/> App with three cores: 96<br/> App with four cores: 72</p> |
+| /26             | 64        | 56            | <p>App with 0.5 core:  500 <br/> App with one core:  500<br/> App with two cores: 336<br/> App with three cores: 224<br/> App with four cores: 168</p> |
+| /25             | 128       | 120           | <p>App with 0.5 core:  500 <br/> App with one core:  500<br/> App with two cores: 500<br/> App with three cores:  480<br> App with four cores: 360</p> |
+| /24             | 256       | 248           | <p>App with 0.5 core:  500 <br/> App with one core:  500<br/> App with two cores: 500<br/> App with three cores: 500<br/> App with four cores: 500</p> |
 
 For subnets, five IP addresses are reserved by Azure, and at least three IP addresses are required by Azure Spring Cloud. At least eight IP addresses are required, so /29 and /30 are nonoperational.
 
@@ -291,6 +291,5 @@ The route tables to which your custom vnet is associated must meet the following
 
 ## Next steps
 
-* [Deploy Application to Azure Spring Cloud in your VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
-* [Troubleshooting Azure Spring Cloud in VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
-* [Customer Responsibilities for Running Azure Spring Cloud in VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)
+* [Troubleshooting Azure Spring Cloud in VNET](troubleshooting-vnet.md)
+* [Customer Responsibilities for Running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md)
