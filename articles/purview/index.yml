@@ -24,7 +24,7 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Use Microsoft Purview governance portal
+          - text: Use the Microsoft Purview governance portal
             url: use-azure-purview-studio.md
           - text: Understand Microsoft Purview access control
             url: catalog-permissions.md
