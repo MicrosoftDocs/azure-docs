@@ -15,7 +15,7 @@ ms.date: 10/21/2021
 
 # Deploy a model to Azure Container Instances with CLI (v1)
 
-[!INCLUDE [deploy-v1](../../../../includes/machine-learning-deploy-v1.md)]
+[!INCLUDE [deploy-v1](../../../includes/machine-learning-deploy-v1.md)]
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Container Instances (ACI). Use Azure Container Instances if you:
 
@@ -65,7 +65,7 @@ To deploy a model to Azure Container Instances, create a __deployment configurat
 
 ### Using the SDK
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice

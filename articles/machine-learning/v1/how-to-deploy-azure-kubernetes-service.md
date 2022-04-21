@@ -15,7 +15,7 @@ ms.date: 10/21/2021
 
 # Deploy a model to an Azure Kubernetes Service cluster with v1
 
-[!INCLUDE [deploy-v1](../../../../includes/machine-learning-deploy-v1.md)]
+[!INCLUDE [deploy-v1](../../../includes/machine-learning-deploy-v1.md)]
 
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
@@ -166,7 +166,7 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
@@ -216,7 +216,7 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 
 ### Autoscaling
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 The component that handles autoscaling for Azure ML model deployments is azureml-fe, which is a smart request router. Since all inference requests go through it, it has the necessary data to automatically scale the deployed model(s).
 
