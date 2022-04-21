@@ -1,0 +1,1155 @@
+{        
+    "$schema": "file:///c:/Users/whhender/.vscode/extensions/teamtoolbox.docindex-0.0.6/resources/config/docindex.schema.json",                    
+    "auditRules": [                                                       
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "ToC",
+        "title": "File type is 'ToC'",
+        "ruleGroup": "Tutorial",
+        "ruleSet": "MVC",
+        "shouldWarnUser": false,
+        "dependentList": [
+          {
+            "operation": "Has_GlobalArtifact",
+            "title": "Is a non stacked ToC",
+            "ruleGroup": "Tutorial",
+            "ruleSet": "MVC",
+            "shouldWarnUser": false,
+            "scope": "AllBlocks",
+            "artifact": {
+              "artifactType": "ToC_TopNode",
+              "attributes": {
+                "label": "^(Overview|Tutorials|Concepts|Quickstarts)$",
+                "depth": "1"
+              }
+            },
+            "dependentList": [
+              {
+                "operation": "Has_Artifact",            
+                "title": "Has 'Tutorials' node",
+                "scope": "AllBlocks",
+                "artifact": {
+                  "artifactType": "ToC_TopNode",
+                  "attributes": {
+                    "label": "^Tutorials$"
+                  }
+                }            
+              },
+              {
+                "operation": "Has_Artifact",            
+                "title": "'Overview' node is first node.",
+                "scope": "AllBlocks",
+                "artifact": {
+                  "artifactType":"ToC_TopNode",
+                  "attributes": {
+                   "text": "" 
+                  }
+                },
+                "atIndex": 0,
+                "dependentList": [
+                  {
+                    "operation": "Has_Only_Artifacts",            
+                    "title": "Has only 'Overview' and 'Conceptual' in 'Overview' node",
+                    "artifacts": [
+                      {
+                        "artifactType": "ToC_Entry",
+                        "attributes": {
+                          "msTopic": "^overview$",
+                          "label": "^What (is|are)"
+                        }     
+                      },
+                      {
+                        "artifactType": "ToC_Entry",
+                        "attributes": {
+                          "msTopic": "^conceptual$"                      
+                        }
+                      }
+                    ] 
+                  }
+                ] 
+              }
+            ]
+          },
+          {
+            "operation": "Has_GlobalArtifact",
+            "title": "Is a stacked ToC",
+            "ruleGroup": "Tutorial",
+            "ruleSet": "MVC",
+            "shouldWarnUser": false,            
+            "artifact": {
+              "artifactType": "ToC_TopNode",
+              "attributes": {
+                "label": "^(Overview|Tutorials|Concepts|Quickstarts)$",
+                "depth": "2"
+              }
+            },
+            "dependentList": [
+              {
+                "operation": "Each_Artifact_Matches",
+                "title": "For each TopNode",
+                "artifact": {
+                  "artifactType": "ToC_TopNode"
+                },
+                "dependentList": [
+                  {
+                    "operation": "Has_Artifact",            
+                    "title": "Has 'Tutorials' node",
+                    "artifact": {
+                      "artifactType": "ToC_Node",
+                      "attributes": {
+                        "label": "^Tutorials$",
+                        "depth": "2"
+                      }                      
+                    }            
+                  },
+                  {
+                    "operation": "Has_Artifact",            
+                    "title": "'Overview' node is first node.",
+                    "artifact": {
+                      "artifactType":"ToC_TopNode",
+                      "attributes": {
+                       "text": "",
+                       "depth": "2" 
+                      }
+                    },
+                    "atIndex": 0,
+                    "dependentList": [
+                      {
+                        "operation": "Has_Only_Artifacts",            
+                        "title": "Has only 'Overview' and 'Conceptual' in 'Overview' node",
+                        "artifacts": [
+                          {
+                            "artifactType": "ToC_Entry",
+                            "attributes": {
+                              "msTopic": "^overview$",
+                              "label": "^What (is|are)"
+                            }     
+                          },
+                          {
+                            "artifactType": "ToC_Entry",
+                            "attributes": {
+                              "msTopic": "^conceptual$"                      
+                            }
+                          }
+                        ] 
+                      }
+                    ] 
+                  }
+                ]                
+              }
+            ]
+          }            
+        ]
+      },      
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "Metadata",
+        
+        "ruleSet": "SEO",
+        "shouldWarnUser": false,
+        "dependentList": [          
+          {
+            "operation": "Has_Artifact",
+            "title": "SEO: Title is shorter than 65 characters",
+            "reference": "Testing reference for accessibility",
+            "artifact": {
+              "artifactType":"Metadata",
+              "details": {
+                "length": {
+                  "attribute": "title",
+                  "maxLength": 65
+                }
+              }          
+            }
+          }
+        ]
+      },
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "MSDate",
+        "ruleSet": "Freshness",
+        "dependentList": [
+          {
+            "operation": "MSDate_Is_OlderThan",
+            "title": "MSDate is older than 100 days",
+            "daysOld": 99
+          }         
+        ]
+      },
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "Accessibility",
+        "ruleSet": "Inclusive",
+        "dependentList": [
+          {
+            "operation": "Each_Artifact_Matches",
+            "title": "Image alt text is between 40 and 150 characters and ends with a period.",
+            "artifact": {
+              "artifactType":"ImageLink",
+              "details": {
+                "length": {
+                  "attribute": "altText",
+                  "maxLength": 150,
+                  "minLength": 40                  
+                }
+              }
+            }
+          },      
+          {
+            "operation": "Each_Artifact_Matches",
+            "title": "Image alt text doesn't contain 'here' or 'See here'",
+            "artifact": {
+              "artifactType":"ImageLink",
+              "attributes": {
+                "altText": "^(See )?here$"
+              }          
+            },
+            "not": true
+          }
+        ]
+      },          
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "Tutorial",
+        "ruleSet": "MVC",
+        "shouldWarnUser": false,
+        "dependentList": [
+          {
+            "operation": "MetadataField_Matches",
+            "text": "^tutorial$",
+            "metadataField": "ms.topic",
+            "title": "Topic must be 'tutorial'",
+            "scope": "AllBlocks",
+            "quickFix": {
+              "query": "^ms.topic:[^\r\n]+",
+              "insert": "ms.topic: tutorial",
+              "message": "Change ms.topic to 'tutorial'",
+              "operation": "Replace"
+            },
+            "dependentList": [
+              {
+                "operation": "MetadataField_Matches",
+                "title": "Title contains 'tutorial'",
+                "text": "tutorial",
+                "metadataField": "title"             
+              },
+              {
+                "operation": "MetadataField_Matches",
+                "title": "Description contains 'tutorial'",
+                "text": "tutorial",
+                "metadataField": "title"             
+              },
+              {
+                "operation": "MetadataField_Matches",
+                "title": "Title does not start with a number",
+                "text": "^[^\\d]",
+                "metadataField": "title"             
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "H1 starts with 'Tutorial'",
+                "artifact":  {
+                  "artifactType": "H1",
+                  "attributes": {
+                    "text": "^# Tutorial:"
+                  }
+                },                
+                "quickFix": {
+                  "operation": "Replace",
+                  "query": "^#( )*((Quickstart):( )*)?",
+                  "insert": "# Tutorial: ",
+                  "message": "Insert/Replace start of H1 with 'Tutorial:'"
+                }
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "First H2 must be 'Prerequisites'",                
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^## Prerequisites"
+                  }
+                },
+                "atIndex": 0             
+              },
+              {
+                "operation": "Each_Artifact_Matches",
+                "title": "H3's must not be numbered",
+                "artifact": {
+                  "artifactType": "H3",
+                  "attributes": {
+                    "text": "^###( )*[^\\d]"        
+                  }
+                }                
+              },
+              {
+                "operation": "Each_Artifact_Matches",
+                "title": "H2's must not be numbered",
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*[^\\d]"
+                  }
+                }              
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "Has H1",
+                "artifact": {
+                  "artifactType":"H1"
+                },
+                "dependentList": [
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "Introduction paragraph must contain checklist",
+                    "artifact":{
+                      "artifactType": "Checklist"                  
+                    },                    
+                    "quickFix": {
+                      "operation": "Replace",
+                      "query": "(?:.)(?=\\Z)",
+                      "insert": "\r\n\r\n> [!div class=\"checklist\"]\r\n> - Do something.\r\n> - Do something else.\r\n> - Do even more things.\r\n> - Do the last thing.",
+                      "message": "Insert a checklist"
+                    }        
+                  }
+                ]                    
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "'Next steps' is last H2",
+                "artifact":{
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },
+                "atIndex": -1                
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "Has 'Next steps'",
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },                
+                "dependentList": [
+                  {
+                    "operation": "Condition",
+                    "title": "'Next steps' has 1 links and uses Blue Box format",
+                    "logicalOperator": "And",
+                    "conditionList":[
+                      {
+                        "operation": "Has_n_Artifacts",
+                        "title": "'Next steps' has 1 link",
+                        "artifact": {
+                          "artifactType": "Link"
+                        },
+                        "artifactCount": {
+                          "minCount": 1,
+                          "maxCount": 1
+                        }
+                      },
+                      {
+                        "operation": "Has_Artifact",
+                        "title": "'Next steps' uses Blue Box format",
+                        "artifact": {
+                          "artifactType": "BlueBox"
+                        },
+                        "quickFix": {
+                          "operation": "Replace",
+                          "query": "(?:.)(?=\\Z)",
+                          "insert": "\r\n\r\n> [!div class=\"nextstepaction\"]\r\n> [Next Step](link.md)",
+                          "message": "Insert Blue Box"
+                        }                                                                      
+                      }      
+                    ]                                
+                  }
+                ]                                
+              }
+            ]
+          }          
+        ]                                                
+      },
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "Quickstart", 
+        "ruleSet": "MVC",
+        "dependentList": [
+          {
+            "operation": "MetadataField_Matches",
+            "text": "^quickstart$",
+            "metadataField": "ms.topic",
+            "title": "Topic must be 'quickstart'",
+            "quickFix": {
+              "query": "^ms.topic:[^\r\n]+",
+              "insert": "ms.topic: quickstart",
+              "message": "Change ms.topic to 'quickstart'",
+              "operation": "Replace"
+            },
+            "dependentList": [
+              {
+                "operation": "MetadataField_Matches",
+                "title": "Title contains 'quickstart'",
+                "text": "quickstart",
+                "metadataField": "title"             
+              },
+              {
+                "operation": "MetadataField_Matches",
+                "title": "Description contains 'quickstart'",
+                "text": "quickstart",
+                "metadataField": "title"             
+              },
+              {
+                "operation": "MetadataField_Matches",
+                "title": "Title does not start with a number",
+                "text": "^[^\\d]",
+                "metadataField": "title"             
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "H1 starts with 'Quickstart'",
+                "artifact":  {
+                  "artifactType": "H1",
+                  "attributes": {
+                    "text": "^# Quickstart:"
+                  }
+                },                
+                "quickFix": {
+                  "operation": "Replace",
+                  "query": "^#( )*((Tutorial):( )*)?",
+                  "insert": "# Quickstart: ",
+                  "message": "Insert/Replace start of H1 with 'Quickstart:'"
+                }
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "First H2 must be 'Prerequisites'",                
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^## Prerequisites"
+                  }
+                },
+                "atIndex": 0             
+              },
+              {
+                "operation": "Each_Artifact_Matches",
+                "title": "H3's must not be numbered",
+                "artifact": {
+                  "artifactType": "H3",
+                  "attributes": {
+                    "text": "^###( )*[^\\d]"        
+                  }
+                }                
+              },
+              {
+                "operation": "Each_Artifact_Matches",
+                "title": "H2's must not be numbered",
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*[^\\d]"
+                  }
+                }              
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "Has H1",
+                "artifact": {
+                  "artifactType":"H1"
+                },
+                "dependentList": [
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "Introduction paragraph must NOT contain checklist",
+                    "artifact":{
+                      "artifactType": "Checklist"                  
+                    },                  
+                    "not": true,  
+                    "quickFix": {
+                      "operation": "Replace",
+                      "query": "(?mi)^>( )*\\[!div( )*class=\"( )*checklist( )*\"\\][\r\n]+(>[^\r\n]+[\r\n]+)+",
+                      "insert": "",
+                      "message": "Remove checklist"
+                    }
+                  }
+                ]                    
+              },
+              {
+                "operation": "Has_OrderedArtifacts",
+                "title": "'Clean up resources' is required and comes before 'Next steps'",
+                "artifactOrder": [
+                  {
+                    "artifact": {
+                      "artifactType": "H2",
+                      "attributes": {
+                        "text": "^## Clean up resources"
+                      }                  
+                    },
+                    "required": true
+                  },
+                  {
+                    "artifact": {
+                      "artifactType": "H2",
+                      "attributes": {
+                        "text": "^## Next steps"
+                      }
+                    },
+                    "required": true
+                  }
+                ]
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "'Next steps' is last H2",
+                "artifact":{
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },
+                "atIndex": -1                
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "Has 'Next steps'",
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },                
+                "dependentList": [
+                  {
+                    "operation": "Condition",
+                    "title": "'Next steps' has 1 links and uses Blue Box format",
+                    "logicalOperator": "And",
+                    "conditionList":[
+                      {
+                        "operation": "Has_n_Artifacts",
+                        "title": "'Next steps' has 1 link",
+                        "artifact": {
+                          "artifactType": "Link"
+                        },
+                        "artifactCount": {
+                          "minCount": 1,
+                          "maxCount": 1
+                        }
+                      },
+                      {
+                        "operation": "Has_Artifact",
+                        "title": "'Next steps' uses Blue Box format",
+                        "artifact": {
+                          "artifactType": "BlueBox"
+                        },
+                        "quickFix": {
+                          "operation": "Replace",
+                          "query": "(?:.)(?=\\Z)",
+                          "insert": "\r\n\r\n> [!div class=\"nextstepaction\"]\r\n> [Next Step](link.md)",
+                          "message": "Insert Blue Box"
+                        }                                                                      
+                      }      
+                    ]                                
+                  }
+                ]                                
+              }
+            ]
+          }                      
+        ]                                                
+      },
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "Overview",
+        "ruleSet": "MVC",
+        "dependentList": [
+          {
+            "operation": "MetadataField_Matches",
+            "text": "^overview$",
+            "metadataField": "ms.topic",
+            "title": "Topic must be 'overview'",
+            "quickFix": {
+              "query": "^ms.topic:[^\r\n]+",
+              "insert": "ms.topic: overview",
+              "message": "Change ms.topic to 'overview'",
+              "operation": "Replace"
+            },
+            "dependentList": [
+              {
+                "operation": "Has_Artifact",
+                "title": "H1 starts with 'What is/are <service>'",
+                "artifact":  {
+                  "artifactType": "H1",
+                  "attributes": {
+                    "text": "^# What (is|are)"
+                  }
+                },                
+                "quickFix": {
+                  "operation": "Replace",
+                  "query": "^#( )*((Tutorial|QuickStart):( )*)?",
+                  "insert": "# What is ",
+                  "message": "Insert/Replace start of H1 with 'What is'"
+                }
+              },          
+              {
+                "operation": "Has_Artifact",
+                "title": "'Next steps' is last H2",
+                "artifact":{
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },
+                "atIndex": -1                
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "Has 'Next steps'",
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },                
+                "dependentList": [
+                  {
+                    "operation": "Condition",
+                    "title": "'Next steps' has 3 links and does NOT use Blue Box format",
+                    "logicalOperator": "And",                    
+                    "conditionList":[
+                      {
+                        "operation": "Has_n_Artifacts",
+                        "title": "'Next steps' has 3 links",
+                        "artifact": {
+                          "artifactType": "Link"
+                        },
+                        "artifactCount": {
+                          "minCount": 3,
+                          "maxCount": 3
+                        }
+                      },
+                      {
+                        "operation": "Has_Artifact",
+                        "title": "'Next steps' does NOT use Blue Box format",
+                        "not": true,
+                        "artifact": {
+                          "artifactType": "BlueBox"
+                        },
+                        "quickFix": {
+                          "operation": "ReplaceAndSubstitute",
+                          "retrieve": "^>( )+(-( )*)?(?![\\[])(?<bullet>[^\r\n]+)",
+                          "query": "(?mi)(?<bluebox>\\[!div(\\s|\r\n)class=\"nextstepaction\"\\][\r\n]+((>( )*[^\r\n]+)[\r\n]*)+)",
+                          "insert": "- {bullet}\r\n",
+                          "message": "Replace Blue Box with Bulleted List"
+                        }                                                                      
+                      }      
+                    ]                                
+                  }
+                ]                                
+              }
+            ]
+          }          
+        ]                                                
+      },
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "Conceptual",
+        "ruleSet": "MVC",
+        "shouldWarnUser": false,
+        "dependentList": [
+          {
+            "operation": "MetadataField_Matches",
+            "text": "^conceptual$",
+            "metadataField": "ms.topic",
+            "title": "Topic must be 'conceptual'",
+            "shouldWarnUser": false,
+            "quickFix": {
+              "query": "^ms.topic:[^\r\n]+",
+              "insert": "ms.topic: conceptual",
+              "message": "Change ms.topic to 'conceptual'",
+              "operation": "Replace"
+            },
+            "dependentList": [
+              {
+                "operation": "Has_n_Artifacts",
+                "title": "Has 2 H2s not including 'Prerequisites' and 'Next steps'",
+                "artifact":  {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^## (?!(Prerequisites|Next steps))" 
+                  }
+                },                
+                "artifactCount": {
+                  "minCount": 2,
+                  "maxCount": 2
+                }
+              },          
+              {
+                "operation": "Has_Artifact",
+                "title": "'Next steps' is last H2",
+                "artifact":{
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },
+                "atIndex": -1                
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "Has 'Next steps'",
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },                
+                "dependentList": [                  
+                  {
+                    "operation": "Has_n_Artifacts",
+                    "title": "'Next steps' has 3 links",
+                    "artifact": {
+                      "artifactType": "Link"
+                    },
+                    "artifactCount": {
+                      "minCount": 1,
+                      "maxCount": 3
+                    }
+                  }                                                                      
+                ]                                
+              }
+            ]
+          }          
+        ]                                                
+      },
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "How-To",
+        "ruleSet": "MVC",
+        "shouldWarnUser": false,
+        "dependentList": [
+          {
+            "operation": "MetadataField_Matches",
+            "text": "^how-to$",
+            "metadataField": "ms.topic",
+            "title": "Topic must be 'how-to'",
+            "shouldWarnUser": false,
+            "quickFix": {
+              "query": "^ms.topic:[^\r\n]+",
+              "insert": "ms.topic: how-to",
+              "message": "Change ms.topic to 'how-to'",
+              "operation": "Replace"
+            },
+            "dependentList": [
+              {
+                "operation": "Has_n_Artifacts",
+                "title": "Has 2 H2s not including 'Prerequisites' and 'Next steps'",
+                "artifact":  {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^## (Prerequisites|Next steps)"
+                  }
+                },                
+                "artifactCount": {
+                  "minCount": 2,
+                  "maxCount": 2
+                }
+              },          
+              {
+                "operation": "Has_Artifact",
+                "title": "'Next steps' is last H2",
+                "artifact":{
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },
+                "atIndex": -1                
+              },
+              {
+                "operation": "Has_Artifact",
+                "title": "Has 'Next steps'",
+                "artifact": {
+                  "artifactType": "H2",
+                  "attributes": {
+                    "text": "^##( )*Next steps"
+                  }
+                },                
+                "dependentList": [                  
+                  {
+                    "operation": "Has_n_Artifacts",
+                    "title": "'Next steps' has 3 links",
+                    "artifact": {
+                      "artifactType": "Link"
+                    },
+                    "artifactCount": {
+                      "minCount": 1,
+                      "maxCount": 3
+                    }
+                  }                                                                      
+                ]                                
+              }
+            ]
+          }          
+        ]                                                
+      },
+      {
+        "operation": "File_FileType_Equals",
+        "fileType": "Article",
+        "title": "File type is 'Article'",
+        "ruleGroup": "Quickstart",
+        "ruleSet": "ARM",
+        "shouldWarnUser": false,
+        "dependentList": [
+          {
+            "operation": "Has_GlobalArtifact",
+            "title": "Has a ARM Resource Type in a 'json' code fence",
+            "artifact": {
+              "artifactType": "ARM_ResourceType_InCodeFence"
+            },
+            "shouldWarnUser": false,
+            "dependentList": [
+              {
+                "operation": "MetadataField_Matches",
+                "title": "ms.custom contains 'subject-armqs'",
+                "text": "subject-armqs",
+                "metadataField": "ms.custom",                    
+                "scope": "AllBlocks",
+                "shouldWarnUser": false,
+                "dependentList": [
+                  {
+                    "operation": "MetadataField_Matches",
+                    "text": "^quickstart$",
+                    "metadataField": "ms.topic",
+                    "title": "Topic must be 'quickstart'",
+                    "quickFix": {
+                      "query": "^ms.topic:[^\r\n]+",
+                      "insert": "ms.topic: quickstart",
+                      "message": "Change ms.topic to 'quickstart'",
+                      "operation": "Replace"
+                    }
+                  },
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "H1 include 'Azure Resource Manager' or 'ARM'",
+                    "artifact":  {
+                      "artifactType": "H1",
+                      "attributes": {
+                        "text": "(ARM|Azure Resource Manager)"
+                      }
+                    }                                    
+                  },
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "Introduction contains text",                
+                    "artifact": {
+                      "artifactType": "H1"                      
+                    },
+                    "dependentList": [                      
+                      {
+                        "title": "Include a sentence in the first paragraph that uses 'Azure Resource Manager template (ARM template)'",
+                        "operation": "Has_Artifact",
+                        "artifact": {
+                          "attributes": {
+                            "text": "Azure Resource Manager template \\(ARM template\\)"
+                          },
+                          "artifactType": "Paragraph"
+                        },
+                        "atIndex": 0
+                      },
+                      {
+                        "title": "Second paragraph comes from include file 'includes/resource-manager-quickstart-introduction.md'",
+                        "operation": "IncludesFile",
+                        "includesFile": "includes/resource-manager-quickstart-introduction.md",
+                        "scope": "CurrentBlocksAfterArtifact",
+                        "dependentList": [
+                          {
+                            "title": "Paragraph after include file has a 'Deploy to Azure' link",
+                            "operation": "Has_Artifact",
+                              "artifact": {
+                                "artifactType": "Link",
+                                "attributes": {
+                                  "href": "https://portal.azure.com/#create/Microsoft.Template/uri/",
+                                  "label": "!\\[Deploy to Azure\\]"
+                                }
+                              }
+                          }
+                        ]
+                      }                      
+                    ]                                 
+                  },
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "First H2 is 'Prerequisites'",
+                    "artifact": {
+                      "artifactType": "H2",
+                      "attributes": {
+                      "text": "^## Prerequisites"
+                      }
+                    },
+                    "atIndex": 0,
+                    "dependentList": [
+                      {
+                        "title": "Prerequisites contains a link to create a free acount.",
+                        "operation": "Has_Artifact",
+                        "artifact": {
+                          "artifactType": "Link",
+                          "attributes": {
+                            "label": "free account",
+                            "href": "https://azure.microsoft.com/free/"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "Second H2 must be 'Review the template'",
+                    "artifact": {
+                      "artifactType": "H2",
+                      "attributes": {
+                        "text": "^##( )*Review the template"
+                      }
+                    },
+                    "atIndex": 1,
+                    "dependentList": [
+                      {
+                        "title": "The first sentence starts wtih 'The template in this quickstart is from'",
+                        "operation": "Has_Artifact",
+                        "artifact": {
+                          "artifactType": "Paragraph",
+                          "attributes": {
+                            "text": "^The template used in this quickstart is from"
+                          }
+                        }
+                      },
+                      {
+                        "operation": "Has_Artifact",
+                        "title": "Contains a link to 'Azure Quickstart Templates'",
+                        "artifact": {
+                          "artifactType":"Link",
+                          "attributes": {
+                            "label": "Quickstart templates",
+                            "href": "https://azure.microsoft.com/resources/templates/"
+                          }
+                        },
+                        "atIndex": 0
+                      },
+                      {
+                        "operation": "Condition",
+                        "title": "Has a 'json' code fence of the azure template OR a link to view the template if the template is more than 250 lines",
+                        "logicalOperator": "Or",
+                        "conditionList": [
+                          {
+                            "title": "Has 'json' code fence containing the azure template",
+                            "operation": "Has_Artifact",
+                            "artifact": {
+                              "artifactType": "CodeFence",
+                              "attributes": {
+                                "tag": "json"                              
+                              }
+                            },
+                            "dependentList": [
+                              {
+                                "title": "After the JSON code fence, a list of each resourceType from the JSON must exist with a link to the template reference: {type}",
+                                "operation": "Has_SiblingArtifacts",
+                                "artifact": {
+                                  "artifactType": "ARM_ResourceType_InCodeFence",
+                                  "attributes": {
+                                    "artifactType": ""
+                                  }                                  
+                                },
+                                "siblingArtifact": {
+                                  "artifactType": "Link",
+                                  "attributeMappings": [
+                                    {
+                                      "attribute": "href", 
+                                      "relatedAttribute": "ARM_ResourceType_InCodeFence"
+                                    }
+                                  ]                                      
+                                },                                
+                                "siblingsIn": "SameHeader"
+                              }
+                            ]
+                          },
+                          {
+                            "operation": "Has_Artifact",
+                            "title": "Has a link to view the template",
+                            "artifact": {
+                              "artifactType": "Link",
+                              "attributes": {
+                                "href": "deploy.json"
+                              }
+                            }
+                          }
+                        ]
+                      }                  
+                    ]              
+                  },
+                  {
+                    "title": "The third H2 is 'Deploy the template'",
+                    "operation": "Has_Artifact",
+                    "artifact": {
+                      "artifactType": "H2",
+                      "attributes": {
+                        "text": "^##( )*Deploy the template"
+                      }
+                    },
+                    "atIndex": 2,
+                    "dependentList": [
+                      {
+                        "title": "Has a deployment option [PS,CLI,PORTAL]",
+                        "operation": "Condition",
+                        "logicalOperator": "Or",
+                        "conditionList": [
+                          {
+                            "title": "Has 'azurecli' code fence containing 'az deployment group create'",
+                            "operation": "Has_Artifact",
+                            "artifact": {
+                              "artifactType": "CodeFence",
+                              "attributes": {
+                                "code": "az deployment group create",
+                                "tag": "azurecli"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Has 'azurepowershell' code fence containing 'New-AzResourceGroupDeployment'",
+                            "operation":"Has_Artifact",
+                            "artifact": {
+                              "artifactType": "CodeFence",
+                              "attributes": {
+                                "code": "New-AzResourceGroupDeployment",
+                                "tag": "azurepowershell"
+                              }
+                            }
+                          },
+                          {
+                            "title": "Has 'Deploy to Azure' button",
+                            "operation": "Has_Artifact",
+                            "artifact": {
+                              "artifactType": "Link",
+                              "attributes": {
+                                "href": "https://portal.azure.com/#create/",
+                                "label": "!\\[Deploy to Azure\\]"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]                        
+                  },
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "Fourth H2 is 'Review deployed resources'",
+                    "artifact": {
+                      "artifactType": "H2",
+                      "attributes": {
+                        "text": "^##( )*Review deployed resources"
+                      }
+                    },
+                    "atIndex": 3
+                  },
+                  {
+                    "operation": "Has_OrderedArtifacts",
+                    "title": "'Clean up resources' is required and comes before 'Next steps'",
+                    "artifactOrder": [
+                      {
+                        "artifact": {
+                          "artifactType": "H2",
+                          "attributes": {
+                            "text": "^## Clean up resources"
+                          }                  
+                        },
+                        "required": true
+                      },
+                      {
+                        "artifact": {
+                          "artifactType": "H2",
+                          "attributes": {
+                            "text": "^## Next steps"
+                          }
+                        },
+                        "required": true
+                      }
+                    ]
+                  },
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "'Next steps' is last H2",
+                    "artifact":{
+                      "artifactType": "H2",
+                      "attributes": {
+                        "text": "^##( )*Next steps"
+                      }
+                    },
+                    "atIndex": -1                
+                  },
+                  {
+                    "operation": "Has_Artifact",
+                    "title": "Has 'Next steps'",
+                    "artifact": {
+                      "artifactType": "H2",
+                      "attributes": {
+                        "text": "^##( )*Next steps"
+                      }
+                    },                
+                    "dependentList": [
+                      {
+                        "operation": "Condition",
+                        "title": "'Next steps' has 1 links and uses Blue Box format",
+                        "logicalOperator": "And",
+                        "conditionList":[
+                          {
+                            "operation": "Has_n_Artifacts",
+                            "title": "'Next steps' has 1 link",
+                            "artifact": {
+                              "artifactType": "Link"
+                            },
+                            "artifactCount": {
+                              "minCount": 1,
+                              "maxCount": 1
+                            }
+                          },
+                          {
+                            "operation": "Has_Artifact",
+                            "title": "'Next steps' uses Blue Box format",
+                            "artifact": {
+                              "artifactType": "BlueBox"
+                            },
+                            "quickFix": {
+                              "operation": "Replace",
+                              "query": "(?:.)(?=\\Z)",
+                              "insert": "\r\n\r\n> [!div class=\"nextstepaction\"]\r\n> [Next Step](link.md)",
+                              "message": "Insert Blue Box"
+                            }                                                                      
+                          }      
+                        ]                                
+                      }
+                    ]                                
+                  }
+                ]
+              }                                                              
+            ]
+          }                    
+        ]                                                
+      }      
+    ]
+  }

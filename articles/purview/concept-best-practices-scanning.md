@@ -16,7 +16,7 @@ Microsoft Purview supports automated scanning of on-premises, multicloud, and so
 
 Running a *scan* invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
 
-The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Microsoft Purview account is connected to the Microsoft 365 Security and Compliance Center.
+The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Microsoft Purview account is connected to the Microsoft Purview compliance portal.
 
 ## Why do you need best practices to manage data sources?
 
