@@ -169,7 +169,7 @@ netsh interface Teredo set state type=enterpriseclient
 
 ### UPnP support
 
-To improve the chances of a direct connection, on the side of the Remote Desktop client, RDP Shortpath may use [UPnP](/windows/win32/upnp/universal-plug-and-play-start-page.md) to configure a port mapping on the NAT router. UPnP is a standard technology used by various applications, such as Xbox, Delivery Optimization, and Teredo. UPnP is generally available on the routers typically found on a home network. UPnP protocol is enabled by default on most home routers and access points. UPnP is often disabled on corporate networking.
+To improve the chances of a direct connection, on the side of the Remote Desktop client, RDP Shortpath may use [UPnP](/windows/win32/upnp/universal-plug-and-play-start-page) to configure a port mapping on the NAT router. UPnP is a standard technology used by various applications, such as Xbox, Delivery Optimization, and Teredo. UPnP is generally available on the routers typically found on a home network. UPnP protocol is enabled by default on most home routers and access points. UPnP is often disabled on corporate networking.
 
 ## General recommendations
 
