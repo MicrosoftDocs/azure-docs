@@ -21,7 +21,7 @@ Azure Event Hubs namespaces permit clients to send and receive data with the old
 
 This article describes how to set the minimum TLS version clients can use to connect to your Event Hubs namespaces.
 
-For information about how to specify a particular version of TLS when sending a request from a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version).
+For information about how to specify a particular version of TLS when sending a request from a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
 ### Important
 
@@ -90,7 +90,7 @@ resources
 
 ## Test the minimum TLS version from a client
 
-To test that the minimum required TLS version for an Event Hubs namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version).
+To test that the minimum required TLS version for an Event Hubs namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
 When a client accesses an Event Hubs namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this Event Hubs namespace.
 
@@ -99,11 +99,11 @@ When a client accesses an Event Hubs namespace using a TLS version that does not
 
 ## Use Azure Policy to audit for compliance
 
-If you have a large number of Event Hubs namespaces, you may want to perform an audit to make sure that all namespaces are configured for the minimum version of TLS that your organization requires. To audit a set of Event Hubs namespaces for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../governance/policy/overview).
+If you have a large number of Event Hubs namespaces, you may want to perform an audit to make sure that all namespaces are configured for the minimum version of TLS that your organization requires. To audit a set of Event Hubs namespaces for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../governance/policy/overview.md).
 
 ## Create a policy with an Audit effect
 
-Azure Policy supports effects that determine what happens when a policy rule is evaluated against a resource. The Audit effect creates a warning when a resource is not in compliance, but does not stop the request. For more information about effects, see [Understand Azure Policy effects](../governance/policy/concepts/effects).
+Azure Policy supports effects that determine what happens when a policy rule is evaluated against a resource. The Audit effect creates a warning when a resource is not in compliance, but does not stop the request. For more information about effects, see [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
 
 To create a policy with an Audit effect for the minimum TLS version with the Azure portal, follow these steps:
 
@@ -142,7 +142,7 @@ To create a policy with an Audit effect for the minimum TLS version with the Azu
 
 ### Assign the policy
 
-Next, assign the policy to a resource. The scope of the policy corresponds to that resource and any resources beneath it. For more information on policy assignment, see [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure).
+Next, assign the policy to a resource. The scope of the policy corresponds to that resource and any resources beneath it. For more information on policy assignment, see [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure.md).
 
 To assign the policy with the Azure portal, follow these steps:
 
@@ -157,7 +157,7 @@ To assign the policy with the Azure portal, follow these steps:
 
 ### View compliance report
 
-After you have assigned the policy, you can view the compliance report. The compliance report for an audit policy provides information on which Event Hubs namespaces are not in compliance with the policy. For more information, see [Get policy compliance data](../governance/policy/how-to/get-compliance-data).
+After you have assigned the policy, you can view the compliance report. The compliance report for an audit policy provides information on which Event Hubs namespaces are not in compliance with the policy. For more information, see [Get policy compliance data](../governance/policy/how-to/get-compliance-data.md).
 
 It may take several minutes for the compliance report to become available after the policy assignment is created.
 
@@ -172,7 +172,7 @@ To view the compliance report in the Azure portal, follow these steps:
 
 Azure Policy supports cloud governance by ensuring that Azure resources adhere to requirements and standards. To enforce a minimum TLS version requirement for the Event Hubs namespaces in your organization, you can create a policy that prevents the creation of a new Event Hubs namespace that sets the minimum TLS requirement to an older version of TLS than that which is dictated by the policy. This policy will also prevent all configuration changes to an existing namespace if the minimum TLS version setting for that namespace is not compliant with the policy.
 
-The enforcement policy uses the Deny effect to prevent a request that would create or modify an Event Hubs namespace so that the minimum TLS version no longer adheres to your organization's standards. For more information about effects, see [Understand Azure Policy effects](../governance/policy/concepts/effects).
+The enforcement policy uses the Deny effect to prevent a request that would create or modify an Event Hubs namespace so that the minimum TLS version no longer adheres to your organization's standards. For more information about effects, see [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
 
 To create a policy with a Deny effect for a minimum TLS version that is less than TLS 1.2, provide the following JSON in the  **policyRule**  section of the policy definition:
 
@@ -208,16 +208,16 @@ An error will be shown if you try to create an Event Hubs namespace with the min
 
 To set the  **MinimumTlsVersion**  property for the Event Hubs namespace, a user must have permissions to create and manage Event Hubs namespaces. Azure role-based access control (Azure RBAC) roles that provide these permissions include the  **Microsoft.EventHubs/namespaces/write**  or  **Microsoft.EventHubs/namespaces/\***  action. Built-in roles with this action include:
 
-- The Azure Resource Manager [Owner](../role-based-access-control/built-in-roles#owner) role
-- The Azure Resource Manager [Contributor](../role-based-access-control/built-in-roles#contributor) role
-- The [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles#azure-event-hubs-data-owner) role
+- The Azure Resource Manager [Owner](../role-based-access-control/built-in-roles.md#owner) role
+- The Azure Resource Manager [Contributor](../role-based-access-control/built-in-roles.md#contributor) role
+- The [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) role
 
-Role assignments must be scoped to the level of the Event Hubs namespace or higher to permit a user to require a minimum version of TLS for the Event Hubs namespace. For more information about role scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview).
+Role assignments must be scoped to the level of the Event Hubs namespace or higher to permit a user to require a minimum version of TLS for the Event Hubs namespace. For more information about role scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
 
-Be careful to restrict assignment of these roles only to those who require the ability to create an Event Hubs namespace or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../role-based-access-control/best-practices).
+Be careful to restrict assignment of these roles only to those who require the ability to create an Event Hubs namespace or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Event Hubs namespaces. For more information, see [**Classic subscription administrator roles, Azure roles, and Azure AD administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles.md#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Event Hubs namespaces. For more information, see [**Classic subscription administrator roles, Azure roles, and Azure AD administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Network considerations
 
