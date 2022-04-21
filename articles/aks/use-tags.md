@@ -174,15 +174,15 @@ $ az aks show -g myResourceGroup -n myAKSCluster --query 'agentPoolProfiles[].{n
 
 You can apply Azure tags to public IPs, disks, and files by using a Kubernetes manifest.
 
-For public IPs, use *service.beta.kubernetes.io/azure-pip-tags*. For example:
+For public IPs, use *service.beta.kubernetes.io/azure-pip-tags* under *annotations*. For example:
 
 ```yml
 apiVersion: v1
 kind: Service
-...
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-pip-tags: costcenter=3333,team=beta
 spec:
-  ...
-  service.beta.kubernetes.io/azure-pip-tags: costcenter=3333,team=beta
   ...
 ```
 
