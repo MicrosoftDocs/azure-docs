@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and NordPass](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure NordPass to support provisioning with Azure AD
-1. Login to [NordPass Admin Panel](https://panel.nordpass.com).
+1. Log in to [NordPass Admin Panel](https://panel.nordpass.com).
 1. Navigate to **Settings > User provisioning** and select **Get Credentials**.
 1. In the new window, you will see admin credentials:
 
