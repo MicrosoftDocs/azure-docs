@@ -260,7 +260,7 @@ Microsoft Purview allows you to use any of the following options to extract meta
 
   :::image type="content" source="media/concept-best-practices/security-self-hosted-runtime.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, a self-hosted runtime, and data sources."lightbox="media/concept-best-practices/security-self-hosted-runtime.png":::
 
-  1. A manual or automatic scan is triggered. Azure purview connects to Azure Key Vault to retrieve the credential to access a data source.
+  1. A manual or automatic scan is triggered. Microsft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
   2. The scan is initiated from the Microsoft Purview data map through a self-hosted integration runtime. 
    
@@ -274,7 +274,7 @@ Microsoft Purview allows you to use any of the following options to extract meta
 
   :::image type="content" source="media/concept-best-practices/security-self-hosted-runtime-on-premises.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, an on-premises self-hosted runtime, and data sources in on-premises network."lightbox="media/concept-best-practices/security-self-hosted-runtime-on-premises.png":::
 
-  1. A manual or automatic scan is triggered. Azure purview connects to Azure Key Vault to retrieve the credential to access a data source.
+  1. A manual or automatic scan is triggered. Microsft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
   2. The scan is initiated through the on-premises self-hosted integration runtime.
    
