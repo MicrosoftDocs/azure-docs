@@ -131,7 +131,9 @@ You can change the managed identity for customer-managed keys for an existing Az
 
 1. Navigate to your Azure Load Testing resource.
 
-1. On the Settings blade for the resource, click Encryption. The **Encryption type** shows the encryption selected for the resource while creation.
+1. On the **Settings** page, select **Encryption**. 
+
+    The **Encryption type** shows the encryption type you selected at resource creation time.
 
 1. If the selected encryption type is *Customer-managed keys*, select the type of identity to use to authenticate access to the key vault. The options include System-assigned (the default) or User-assigned. To learn more about each type of managed identity, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 
