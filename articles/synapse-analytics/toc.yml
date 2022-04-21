@@ -706,10 +706,12 @@ items:
       items:
         - name: Runtime overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
-          href: ./spark/apache-spark-24-runtime.md
+        - name: Azure Synapse Apache Spark 3.2 runtime
+          href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime
           href: ./spark/apache-spark-3-runtime.md
+        - name: Azure Synapse Apache Spark 2.4 runtime
+          href: ./spark/apache-spark-24-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -1464,13 +1466,13 @@ items:
   items:
   - name: Quickstarts
     items:
-    - name: Connect an Azure Purview Account
+    - name: Connect a Microsoft Purview Account
       href: ./catalog-and-governance/quickstart-connect-azure-purview.md
   - name: How-to guides
     items:
-    - name: Access a secured Azure Purview account
+    - name: Access a secured Microsoft Purview account
       href: ./catalog-and-governance/how-to-access-secured-purview-account.md
-    - name: Discover, connect and explore data in Synapse using Azure Purview
+    - name: Discover, connect and explore data in Synapse using Microsoft Purview
       href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: How-to
   items:

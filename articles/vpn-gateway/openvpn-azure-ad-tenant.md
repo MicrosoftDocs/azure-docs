@@ -7,13 +7,13 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 04/21/2022
 ms.author: cherylmc
 
 ---
 # Create an Azure AD tenant for P2S OpenVPN protocol connections
 
-When you connect to your VNet using Point-to-Site, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you want to use Azure Active Directory authentication, you can do so when using the OpenVPN protocol. This article helps you set up an Azure AD tenant. For more information about Point-to-Site protocols and authentication, see [About Point-to-Site VPN](point-to-site-about.md).
+When you connect to your VNet using Azure VPN Gateway Point-to-Site, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you want to use Azure Active Directory authentication, you can do so when using the OpenVPN protocol. This article helps you set up an Azure AD tenant. For more information about Point-to-Site protocols and authentication, see [About Point-to-Site VPN](point-to-site-about.md).
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -89,7 +89,7 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
     > [!IMPORTANT]
     > The Basic SKU is not supported for OpenVPN.
 
-1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type**, then fill in the information under the **Azure Active Directory** section.
+1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type**, then fill in the information under the **Azure Active Directory** section. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
    * **Tenant:** TenantID for the Azure AD tenant
    	   * Enter `https://login.microsoftonline.com/{AzureAD TenantID}/` for Azure Public AD 

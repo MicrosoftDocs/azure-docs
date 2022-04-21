@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 04/20/2022
 ---
 
 # Resource types that extend capabilities of other resources
@@ -23,7 +23,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.Authorization
 
 * accessReviewHistoryDefinitions
-* batchResourceCheckAccess
 * denyAssignments
 * eligibleChildResources
 * locks
@@ -61,10 +60,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * blueprintAssignments
 * blueprints
-
-## Microsoft.Capacity
-
-* listSkus
 
 ## Microsoft.ChangeAnalysis
 
@@ -110,17 +105,12 @@ An extension resource is a resource that adds to another resource's capabilities
 * BenefitRecommendations
 * BenefitUtilizationSummaries
 * Budgets
-* calculatePrice
-* CheckNameAvailability
 * Dimensions
 * Exports
 * ExternalSubscriptions
-* fetchMicrosoftPrices
 * Forecast
 * GenerateDetailedCostReport
 * Insights
-* OperationResults
-* OperationStatus
 * Pricesheets
 * Publish
 * Query
@@ -209,18 +199,9 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * networkManagerConnections
 
-## Microsoft.OperationalInsights
-
-* storageInsightConfigs
-
-## Microsoft.OperationsManagement
-
-* managementassociations
-
 ## Microsoft.PolicyInsights
 
 * attestations
-* checkPolicyRestrictions
 * eventGridFilters
 * policyEvents
 * policyStates
@@ -229,7 +210,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Quota
 
-* operationsStatus
 * quotaRequests
 * quotas
 * usages
@@ -237,7 +217,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.RecoveryServices
 
 * backupProtectedItems
-* replicationEligibilityResults
 
 ## Microsoft.ResourceHealth
 
@@ -247,7 +226,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Resources
 
-* changes
 * links
 * tags
 
@@ -278,13 +256,11 @@ An extension resource is a resource that adds to another resource's capabilities
 * bookmarks
 * cases
 * dataConnectors
-* dataConnectorsCheckRequirements
 * enrichment
 * entities
 * entityQueryTemplates
 * fileImports
 * incidents
-* listrepositories
 * metadata
 * MitreCoverageRecords
 * onboardingStates
@@ -292,7 +268,6 @@ An extension resource is a resource that adds to another resource's capabilities
 * settings
 * sourceControls
 * threatIntelligence
-* watchlists
 
 ## Microsoft.SerialConsole
 
