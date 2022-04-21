@@ -24,9 +24,6 @@ The AI models used by the API are provided by the service, you just have to send
 
 ## Features
 
-> [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
-
 The conversation summarization API uses natural language processing techniques to locate key issues and resolutions in text-based chat logs. Conversation summarization will return issues and resolutions found from the text input.
 
 Each returned summary contains:

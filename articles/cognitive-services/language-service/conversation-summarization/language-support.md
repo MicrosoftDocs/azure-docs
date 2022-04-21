@@ -21,9 +21,9 @@ Use this article to learn which natural languages are supported by the conversat
 
 Conversation summarization supports the following languages:
 
-| Language              | Language code |  Starting with v3 model version |     Notes          |
+| Language              | Language code |  Starting with model version |     Notes          |
 |:----------------------|:-------------:|:-------------------------------:|:------------------:|
-| English               | `en`          | 2021-08-01                      |                    |
+| English               | `en`          | `2022-05-15`                      |                    |
 
 ## Next steps
 
