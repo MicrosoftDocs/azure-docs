@@ -18,7 +18,7 @@ This guide will take you through the creation and management of self-service dat
 
 ## Create and enable self-service data access workflow
 
-1. Sign in to [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents.
+1. Sign in to [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-section.png" alt-text="Screenshot showing the management center left menu with the new workflow section highlighted.":::
 
