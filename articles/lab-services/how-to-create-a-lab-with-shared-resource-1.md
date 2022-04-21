@@ -18,9 +18,9 @@ When you're creating a lab, there might be some resources that need to be shared
 
 As shown in the diagram below we'll have a lab account with a lab. The lab account will have the vnet peering settings so the virtual network for the lab is connected to the network of the shared resource. In the diagram below, there are two virtual networks with non-overlapping IP ranges. These IP ranges are just example ranges. Also, the shared resource virtual network is in the same subscription as the lab account.
 
-:::image type="content" source="./media/how-to-create-a-lab-with-shared-resource-1/shared-resource-architecture.png" alt-text="Lab Services with shared resource architecture.":::
+:::image type="content" source="./media/how-to-create-a-lab-with-shared-resource-1/shared-resource-architecture.png" alt-text="Diagram showing Lab Services with shared resource architecture.":::
 
-## Setup shared resource
+## Set up shared resource
 
 The virtual network for the shared resource must be created before the lab is created. For more information on how to create a virtual network, see [create a virtual network](../virtual-network/quick-create-portal.md). Planning out virtual network ranges so they don’t overlap with the ip address of the lab machines is important. For more information about planning your network, see the [plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md) article. In the example, the shared resource is in a virtual network with the range 10.2.0.0/16. If not done already, [create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) to hold the shared resource. In the example, we use the 10.2.0.0/24 range, but your range might be different depending on the needs of your network.
 
