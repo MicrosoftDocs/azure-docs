@@ -47,15 +47,11 @@ conceptualContent:
           text: Learn how to create a repository for managing and sharing Dev Box images. 
     
     # Card
-    - title: Provide access to Project Admins
+    - title: Provide access to Dev Box
       links:
         - url: how-to-project-admin.md
           itemType: how-to-guide
           text: Learn how to provide access to Project Admins.
-        
-    # Card
-    - title: Provide access to Dev Box users
-      links:
         - url: how-to-dev-box-user.md
           itemType: how-to-guide
           text: Learn how to provide access to Dev Box users.
