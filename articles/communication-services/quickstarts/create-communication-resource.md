@@ -51,19 +51,19 @@ After navigating to your Communication Services resource, select **Keys** from t
 You can also access key information using Azure CLI, like your resource group or the keys for a specific resource. 
 
 Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your Azure account.
-```azurecli
+```azurepowershell-interactive
 az login
 ```
 
 Now you can access important information about your resources.
-```azurecli
+```azurepowershell-interactive
 az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
 
 If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
-```
+```azurepowershell-interactive
 az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionID>"
 
 az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionID>"
