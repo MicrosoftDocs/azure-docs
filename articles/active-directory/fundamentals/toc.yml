@@ -191,7 +191,7 @@
         href: 9-secure-access-teams-sharepoint.md
     - name: Secure service accounts
       items:
-      - name: Introduction to Azure service accounts
+      - name: Securing cloud-based service accounts
         href: service-accounts-introduction-azure.md
       - name: Secure managed identities
         href: service-accounts-managed-identities.md
@@ -199,7 +199,7 @@
         href: service-accounts-principal.md
       - name: Govern Azure service accounts
         href: service-accounts-governing-azure.md       
-      - name: Introduction to on-premises service accounts
+      - name: Securing on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Secure group MSAs
         href: service-accounts-group-managed.md

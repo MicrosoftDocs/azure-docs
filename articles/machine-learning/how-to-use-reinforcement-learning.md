@@ -9,13 +9,13 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q2
+ms.custom: devx-track-python, contperf-fy21q2, sdkv1
 
 ---
 
 # Reinforcement learning (preview) with Azure Machine Learning
 
-
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!NOTE]
 > Azure Machine Learning reinforcement learning is currently a preview feature. Only Ray and RLlib frameworks are supported at this time.

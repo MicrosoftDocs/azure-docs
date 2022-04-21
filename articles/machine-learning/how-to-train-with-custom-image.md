@@ -8,11 +8,13 @@ ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.date: 08/11/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+ms.custom: sdkv1
 ---
 
 # Train a model by using a custom Docker image
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 

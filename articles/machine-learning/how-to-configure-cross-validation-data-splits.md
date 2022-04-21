@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl
+ms.custom: automl, sdkv1
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
@@ -15,6 +15,8 @@ ms.date: 11/15/2021
 ---
 
 # Configure training, validation, cross-validation and test data in automated machine learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn the different options for configuring training data and validation data splits along with cross-validation settings for your automated machine learning, automated ML, experiments.
 
@@ -205,9 +207,9 @@ When either a custom validation set or an automatically selected validation set 
 
 ## Provide test data (preview)
 
-You can also provide test data to evaluate the recommended model that automated ML generates for you upon completion of the experiment. When you provide test data it's considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about training, validation and test data in automated ML.](concept-automated-ml.md#training-validation-and-test-data) 
-
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+You can also provide test data to evaluate the recommended model that automated ML generates for you upon completion of the experiment. When you provide test data it's considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about training, validation and test data in automated ML.](concept-automated-ml.md#training-validation-and-test-data)
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
