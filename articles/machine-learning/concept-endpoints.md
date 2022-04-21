@@ -114,15 +114,15 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 :::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
-### Virtual Network support (preview)
+### Private endpoint support (preview)
 
-Optionally, you can restrict inbound & outbound traffic to an online endpoint. This functionality is currently in preview.
+Optionally, you can restrict inbound & outbound traffic to an online endpoint to a virtual network by using a private endpoint. This functionality is currently in preview.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can configure the inbound and outbound communications separately. For you can have an online endpoint that accepts incoming scoring requests from public networks, but outbound requests from the endpoint to Azure resources are secured by a virtual network. Secured communications happen using a private endpoint. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use a private endpoint created per endpoint deployment.
+You can configure the inbound and outbound communications separately. For example, you can have an online endpoint that accepts incoming scoring requests from public networks, but outbound requests from the endpoint to Azure resources are secured by a virtual network. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use a private endpoint created per endpoint deployment.
 
-For more information, see TBD.
+For more information, see [Secure online endpoints](how-to-secure-online-endpoint.md).
 
 ## Managed online endpoints vs Kubernetes online endpoints
 
