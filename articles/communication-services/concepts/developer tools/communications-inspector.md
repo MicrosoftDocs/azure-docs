@@ -41,7 +41,7 @@ The tool can be accessed through an npm package `azure/communication-tools`. The
 ### Installing Communications Inspector
 
 ```bash
-INSERT SNIPPET
+npm i  @azure/communication-inspector
 ```
 
 ### Initialize Communications Inspector
