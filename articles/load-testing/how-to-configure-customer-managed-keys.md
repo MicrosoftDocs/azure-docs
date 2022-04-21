@@ -163,7 +163,9 @@ You can change the key that you are using for Azure Load Testing encryption at a
 
 ## Key rotation
 
-Azure Load Testing can automatically update the customer-managed key that is used for encryption to use the latest key version if the key version is omitted from the key URI. When the customer-managed key is rotated in Azure Key Vault, Azure Load Testing will automatically begin using the latest version of the key for encryption. To configure automatic key rotation, omit the key version from the key URI while configuring customer managed key on your Azure Load Testing resource.
+Azure Load Testing can automatically rotate the customer-managed key to use the latest version of the encryption key that is stored in Azure Key Vault.
+
+To configure automatic key rotation in Azure Load Testing, omit the key version from the key URI when you configure the customer-managed key when creating the Load Testing resource. When you create a new version of the key in Azure Key Vault, Azure Load Testing will automatically start using this version of the key for encryption.
 
 ## Frequently asked questions
 
