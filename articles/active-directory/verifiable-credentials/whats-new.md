@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 04/2/2022
+ms.date: 04/21/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -28,7 +28,7 @@ From April 25, 2022 the Azure AD Verifiable Credential service is available to A
 
 ### Administrator update steps
 
-1. Run the following PowerShell commands. These commands install and import the AZ PowerShell module. For more information, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#installation).
+1. Run the following PowerShell commands. These commands install and import the Azure PowerShell module. For more information, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps#installation).
 
     ```azurepowershell
     if((get-module -listAvailable -name "az.accounts") -eq $null){install-module -name "az.accounts" -scope currentUser}
@@ -64,7 +64,7 @@ From April 25, 2022 the Azure AD Verifiable Credential service is available to A
 Add an access policy for the Verifiable Credentials Service.
 
 1. In the Azure portal, go to the key vault you are using for the verifiable credential service.
-1. Under Settings, select Access policies.
+1. Under **Settings**, select **Access policies** 
 1. Select + Add Access Policy to For Key permissions, select **Get** and **Sign**.
 1. On the Service principal search for **bb2a64ee-5d29-4b07-a491-25806dc854d3** which is the Verifiable Credentials Service
 1. Select Add
@@ -107,7 +107,7 @@ For the Request API the new scope for your application or Postman is now:
 
 ```3db474b9-6a0c-96ac-1fceb342124f/.default```
 
-For the Admin API (private preview) the new scope for your application or Postman is now:
+For the Admin API the new scope for your application or Postman is now:
 
 ```6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access```
 
