@@ -64,7 +64,7 @@ az webapp up \
     --logs
 ```
 
-- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
+- If the `az` command isn't recognized, be sure you have <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> installed.
 
 - The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
 - The `--logs` flag configures default logging required to enable viewing the log stream immediately after launching the webapp.
