@@ -15,7 +15,7 @@ This article shows you how to apply policy definitions to your cluster and verif
 
 ## Prerequisites
 
-- An existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+- This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
 - The Azure Policy Add-on for AKS installed on an AKS cluster. Follow these [steps to install the Azure Policy Add-on][azure-policy-addon].
 
 ## Assign a built-in policy definition or initiative

@@ -24,7 +24,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-If you are unfamiliar with using the Bash environment in Azure Cloud Shell, review [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
+If you are unfamiliar with using the Bash environment in Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## Create an AKS cluster
 
@@ -51,7 +51,7 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
 
     > [!NOTE]
     > You can change the preset configuration when creating your cluster by selecting *Learn more and compare presets* and choosing a different option.
-    > :::image type="content" source="media/kubernetes-walkthrough-portal/cluster-preset-options.png" alt-text="Create AKS cluster - portal preset options":::
+    > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Create AKS cluster - portal preset options":::
 
 5. Select **Next: Node pools** when complete.
 
@@ -59,10 +59,10 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
 
 7. On the **Access** page, configure the following options:
 
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
-    By default, *Basic* networking is used, and [Container insights](../azure-monitor/containers/container-insights-overview.md) is enabled.
+    By default, *Basic* networking is used, and [Container insights](../../azure-monitor/containers/container-insights-overview.md) is enabled.
 
 8. Click **Review + create**. When you navigate to the **Review + create** tab, Azure runs validation on the settings that you have chosen. If validation passes, you can proceed to create the AKS cluster by selecting **Create**. If validation fails, then it indicates which settings need to be modified.
 
@@ -70,18 +70,19 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
     * Selecting **Go to resource**, or
     * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
-          :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-portal-dashboard.png" alt-text="Example AKS dashboard in the Azure portal":::
+      :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-portal-dashboard.png" alt-text="Example AKS dashboard in the Azure portal":::
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. If you are unfamiliar with the Cloud Shell, review [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
+To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. If you are unfamiliar with the Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 1. Open Cloud Shell using the `>_` button on the top of the Azure portal.
 
-    ![Open the Azure Cloud Shell in the portal](media/quick-kubernetes-deploy-portal/aks-cloud-shell.png)
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/ks-cloud-shell.png" alt-text="Open the Azure Cloud Shell in the portal":::
 
     > [!NOTE]
     > To perform these operations in a local shell installation:
+    >
     > 1. Verify Azure CLI is installed.
     > 2. Connect to Azure via the `az login` command.
 
@@ -275,7 +276,7 @@ In this quickstart, you deployed a Kubernetes cluster and then deployed a simple
 To learn more about AKS by walking through a complete example, including building an application, deploying from Azure Container Registry, updating a running application, and scaling and upgrading your cluster, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][aks-tutorial]
+> [AKS tutorial][../aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

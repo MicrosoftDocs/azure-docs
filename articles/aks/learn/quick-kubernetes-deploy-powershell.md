@@ -21,7 +21,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ## Prerequisites
 
-!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)
 
 - If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
 
@@ -276,7 +276,7 @@ In this quickstart, you deployed a Kubernetes cluster and then deployed a simple
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][aks-tutorial]
+> [AKS tutorial][../aks-tutorial]
 
 <!-- LINKS - external -->[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

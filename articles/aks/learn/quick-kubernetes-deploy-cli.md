@@ -289,7 +289,7 @@ In this quickstart, you deployed a Kubernetes cluster and then deployed a simple
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][aks-tutorial]
+> [AKS tutorial][../aks-tutorial]
 
 This quickstart is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
