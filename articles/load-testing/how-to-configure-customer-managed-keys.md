@@ -127,7 +127,7 @@ For example, an Azure Load Testing resource might look like the following:
 
 ## Change the customer-managed key
 
-To change the managed identity for customer-managed keys on an existing resource follow these steps:
+You can change the managed identity for customer-managed keys for an existing Azure Load Testing resource at any time.
 
 1. Navigate to your Azure Load Testing resource.
 
