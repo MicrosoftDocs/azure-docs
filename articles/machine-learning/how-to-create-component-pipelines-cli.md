@@ -86,7 +86,7 @@ You should receive a JSON dictionary with information about the pipeline job, in
 
 Open `ComponentA.yaml` to see how the first component is defined: 
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
 In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, and `display_name` is used for a display-friendly name. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
@@ -105,7 +105,7 @@ For more information on components and their specification, see [What is an Azur
 
 In the example directory, the `pipeline.yaml` file looks like the following code:
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
 
 If you open the job's URL in Studio (the value of `services.Studio.endpoint` from the `job create` command when creating a job or `job show` after the job has been created), you'll see a graph representation of your pipeline:
 
@@ -172,11 +172,11 @@ Each of these phases may have multiple components. For instance, the data prepar
 
 The `pipeline.yml` begins with the mandatory `type: pipeline` key-value pair. Then, it defines inputs and outputs as follows:
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" range="5-22":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" range="5-22":::
 
 As described previously, these entries specify the input data to the pipeline, in this case the dataset in `./data`, and the intermediate and final outputs of the pipeline, which are stored in separate paths. The names within these input and output entries become values in the `inputs` and `outputs` entries of the individual jobs: 
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" range="26-72":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" range="26-72":::
 
 Notice how `parent.jobs.train-job.outputs.model_output` is used as an input to both the prediction job and the scoring job, as shown in the following diagram: 
 
@@ -206,7 +206,7 @@ Click on a component. You'll see some basic information about the component, suc
 
 In the `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The keys and values in the `inputs` and `outputs` dictionaries are similar to those already discussed. The only significant difference is the value of the `command` values in the `jobs.<JOB_NAME>.component` entries. The `component` value is of the form `azureml:<JOB_NAME>:<COMPONENT_VERSION>`. The `train-job` definition, for instance, specifies the latest version of the registered component `Train` should be used:
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40" highlight="4":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="29-40" highlight="4":::
 
 
 ## Caching & reuse  
@@ -236,7 +236,7 @@ You can iterate quickly with command jobs and then connect them together into a 
 
 ### I'm doing distributed training in my component. The component, which is registered, specifies distributed training settings including node count. How can I change the number of nodes used during runtime? The optimal number of nodes is best determined at runtime, so I don't want to update the component and register a new version.
 
-You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world) or [this example using PyTorch](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6c_pytorch_hello_world).  
+You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world) or [this example using PyTorch](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6b_pytorch_hello_world).  
 
 ### How can I define an environment with conda dependencies inside a component?
 See [this example](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/5c_env_conda_file).

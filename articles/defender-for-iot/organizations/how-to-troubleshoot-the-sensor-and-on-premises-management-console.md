@@ -29,7 +29,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 
     :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text=" Screenshot of the recover on-premises management console password option.":::
 
-1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded. Do not extract or modify the zip file.
 
     :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of the Recover dialog box.":::
 

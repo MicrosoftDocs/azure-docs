@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 02/02/2022
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification
 ---
@@ -25,5 +25,5 @@ To start training your model:
 3. Click on the **Train** button at the bottom of the page.
 
     > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. See [how to train a model](../how-to/train-model.md#data-split) for more information.
+    > * When you [tag your data](../how-to/tag-data.md#tag-your-data) you can determine how your dataset is split into training and testing sets. You can also have your data split randomly into training and testing sets.
     > * Training can take up to a few hours.

@@ -63,7 +63,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
 
 1. Use the following command to set the name of the endpoint that will be created. In this example, a random name is created for the endpoint:
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
 
 1. Install Python requirements using the following commands:
 
@@ -78,11 +78,11 @@ This section shows how you can deploy Triton to managed online endpoint using th
 
     __create-managed-endpoint.yaml__
 
-    :::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
 
 1. To create a new endpoint using the YAML configuration, use the following command:
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
 
 1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint created in the previous step. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` in the azureml-examples repo you cloned earlier:
 
@@ -91,11 +91,11 @@ This section shows how you can deploy Triton to managed online endpoint using th
     >
     > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
-    :::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 
 1. To create the deployment using the YAML configuration, use the following command:
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
 
 ### Invoke your endpoint
 
@@ -106,15 +106,15 @@ Once your deployment completes, use the following command to make a scoring requ
 
 1. To get the endpoint scoring uri, use the following command:
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
 
 1. To get an authentication token, use the following command:
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
 
 1. To score data with the endpoint, use the following command. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
 
     The response from the script is similar to the following text:
 
@@ -129,7 +129,7 @@ Once your deployment completes, use the following command to make a scoring requ
 
 Once you're done with the endpoint, use the following command to delete it:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
 
 Use the following command to delete your model:
 

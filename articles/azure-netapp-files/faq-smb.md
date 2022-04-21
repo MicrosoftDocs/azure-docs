@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/31/2022
+ms.date: 04/06/2022
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -66,6 +66,14 @@ You can change the NTFS permissions of the root volume by using [NTFS file and f
 No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.   
 
 Alternatively, you can use [Windows Server DFS Namespace](/windows-server/storage/dfs-namespaces/dfs-overview) where a DFS Namespace with the new share name can point to the Azure NetApp Files SMB volume with the old share name.
+
+## Does Azure NetApp Files support SMB change notification and file locking?   
+
+Yes.    
+
+Azure NetApp Files supports [`CHANGE_NOTIFY` response](/openspecs/windows_protocols/ms-smb2/14f9d050-27b2-49df-b009-54e08e8bf7b5). This response is for the client’s request that comes in the form of a [`CHANGE_NOTIFY` request](/openspecs/windows_protocols/ms-smb2/598f395a-e7a2-4cc8-afb3-ccb30dd2df7c).  
+
+Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/ms-smb2/e215700a-102c-450a-a598-7ec2a99cd82c). This response is for the client’s request that comes in the form of a [`LOCK` request](/openspecs/windows_protocols/ms-smb2/6178b960-48b6-4999-b589-669f88e9017d).  
 
 ## Next steps  
 
