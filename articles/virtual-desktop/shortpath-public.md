@@ -108,7 +108,7 @@ Follow the recommendations below to increase the probability of a direct data fl
 ### Allow outbound UDP connectivity
 
 RDP Shortpath uses UDP to establish a data flow. If a firewall on your network blocks UDP traffic, RDP Shortpath will fail, and the connection will fall back to TCP-based reverse connect transport.
-Azure Virtual Desktop uses STUN servers provided by [Azure Communication Services](/azure/communication-services) and Microsoft Teams.
+Azure Virtual Desktop uses STUN servers provided by [Azure Communication Services](../communication-services/overview.md) and Microsoft Teams.
 By the nature of the feature, outbound connectivity from the session hosts to the client is required. Unfortunately, you can't predict where your users are located in most cases. Therefore, we recommend allowing outbound UDP connectivity to the Internet.
 You can [limit the port range](#limiting-port-range-used-on-the-client-side) used to listen to the incoming UDP flow.
 Use the following table for reference when configuring firewalls for RDP Shortpath.

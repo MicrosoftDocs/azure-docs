@@ -40,6 +40,10 @@
       href: resource-network-topologies.md
     - name: Custom roles 
       href: resource-custom-roles-sql-db-managed-instance.md
+  - name: Migration to Azure Database for MySQL
+    items: 
+    - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
+      href: migrate-azure-mysql-consistent-backup.md
   - name: Security
     items: 
     - name: Security baseline
