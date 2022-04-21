@@ -386,8 +386,6 @@
       items:
       - name: Akamai
         href: partner-akamai.md
-      - name: Azure WAF
-        href: partner-azure-web-application-firewall.md
       - name: Cloudflare
         href: partner-cloudflare.md
     - name: Fraud protection partners
