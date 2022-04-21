@@ -48,7 +48,7 @@
           href: built-in-container-registry.md
         - name: Use Azure Container registry
           href: howto-use-acr-with-aro.md
-    - name: Security and authentication
+    - name: Security and authentication 
       items:
         - name: Secure OpenShift with Azure Front Door
           href: howto-secure-openshift-with-front-door.md

@@ -36,6 +36,7 @@ ms.author: lajanuar
 | Azerbaijani | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
 | Bashkir | `ba` |✔|||||
+| 🆕Basque | `eu` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
 | Cantonese (Traditional) | `yue` |✔|✔||||
@@ -56,6 +57,7 @@ ms.author: lajanuar
 | Finnish | `fi` |✔|✔|✔|✔|✔|
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
+| 🆕Galician | `gl` |✔|||||
 | Georgian | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
 | Greek | `el` |✔|✔|✔|✔|✔|
@@ -112,7 +114,7 @@ ms.author: lajanuar
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
-| 🆕Somali | `so` |✔|||✔||
+| Somali | `so` |✔|||✔||
 | Spanish | `es` |✔|✔|✔|✔|✔|
 | Swahili | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
@@ -134,7 +136,7 @@ ms.author: lajanuar
 | Vietnamese | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
-| 🆕Zulu | `zu` |✔|||||
+| Zulu | `zu` |✔|||||
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).

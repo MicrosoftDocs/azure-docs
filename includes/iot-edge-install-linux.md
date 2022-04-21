@@ -140,8 +140,9 @@ Install the latest version of IoT Edge and the IoT identity service package:
 
    ```bash
    sudo apt-get update; \
-     sudo apt-get install aziot-edge
+     sudo apt-get install aziot-edge defender-iot-micro-agent-edge
    ```
+The defender-iot-micro-agent-edge package includes the Microsoft Defender for IoT security micro-agent that provides endpoint visibility into security posture management, vulnerabilities, threat detection, fleet management and more to help you secure your IoT Edge devices. It is recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../articles/defender-for-iot/device-builders/overview.md).
 
 To list other versions of IoT Edge and the IoT identity service that are available, use the following command:
 

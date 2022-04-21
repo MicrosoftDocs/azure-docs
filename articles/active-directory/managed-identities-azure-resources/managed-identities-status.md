@@ -54,10 +54,10 @@ The following Azure services support managed identities for Azure resources:
 | Azure Log Analytics cluster     | [Azure Monitor customer-managed key](../../azure-monitor/logs/customer-managed-keys.md)
 | Azure Machine Learning Services | [Use Managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md?tabs=python)                                                                                         |
 | Azure Managed Disk              | [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](../../virtual-machines/disks-enable-customer-managed-keys-portal.md)                                                                                        |
-| Azure Media services            | [Managed identities](/media-services/latest/concept-managed-identities) |
+| Azure Media services            | [Managed identities](/azure/media-services/latest/concept-managed-identities) |
 | Azure Monitor                   | [Azure Monitor customer-managed key](../../azure-monitor/logs/customer-managed-keys.md?tabs=portal)                                                                                              |
 | Azure Policy                    | [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md)      |
-| Azure Purview                   | [Credentials for source authentication in Azure Purview](../../purview/manage-credentials.md)                                                                                                                          |
+| Microsoft Purview                   | [Credentials for source authentication in Microsoft Purview](../../purview/manage-credentials.md)                                                                                                                          |
 | Azure Resource Mover            | [Move resources across regions (from resource group)](../../resource-mover/move-region-within-resource-group.md)
 | Azure Site Recovery             | [Replicate machines with private endpoints](../../site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)                                  |
 | Azure Search                    | [Set up an indexer connection to a data source using a managed identity](../../search/search-howto-managed-identities-data-sources.md)                                                                                            |

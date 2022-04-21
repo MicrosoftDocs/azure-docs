@@ -55,6 +55,8 @@
       href: how-to-use-a-managed-identity.md
     - name: Configure customer-managed keys
       href: how-to-configure-customer-managed-keys.md
+    - name: Move between regions
+      href: how-to-move-between-regions.md
 - name: Reference
   items:
       - name: Test configuration YAML
