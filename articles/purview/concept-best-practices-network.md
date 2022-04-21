@@ -43,7 +43,7 @@ By default, you can use Microsoft Purview accounts through public endpoints acce
 - No private connectivity is required when scanning or connecting to Microsoft Purview endpoints. 
 - All data sources are SaaS applications only. 
 - All data sources have a public endpoint that's accessible through the internet. 
-- Business users require access to a Microsoft Purview account and Microsoft Purview governance portal through the internet. 
+- Business users require access to a Microsoft Purview account and the Microsoft Purview governance portal through the internet. 
 
 ### Integration runtime options 
 
@@ -124,9 +124,9 @@ You must use private endpoints for your Microsoft Purview account if you have an
 
 ### Design considerations  
 
-- To connect to your Microsoft Purview account privately and securely, you need to deploy an account and a portal private endpoint. For example, this deployment is necessary if you intend to connect to Microsoft Purview through the API or use Microsoft Purview governance portal.
+- To connect to your Microsoft Purview account privately and securely, you need to deploy an account and a portal private endpoint. For example, this deployment is necessary if you intend to connect to Microsoft Purview through the API or use the Microsoft Purview governance portal.
 
-- If you need to connect to Microsoft Purview governance portal by using private endpoints, you have to deploy both account and portal private endpoints. 
+- If you need to connect to the Microsoft Purview governance portal by using private endpoints, you have to deploy both account and portal private endpoints. 
 
 - To scan data sources through private connectivity, you need to configure at least one account and one ingestion private endpoint for Microsoft Purview. You must configure scans by using a self-hosted integration runtime through an authentication method other than a Microsoft Purview managed identity. 
 
@@ -211,7 +211,7 @@ It is recommended to follow these recommendations, if your organization needs to
 
 :::image type="content" source="media/concept-best-practices/network-pe-dns.png" alt-text="Screenshot that shows how to handle private endpoints and DNS records for multiple Microsoft Purview accounts."lightbox="media/concept-best-practices/network-pe-dns.png":::
 
-This scenario also applies if multiple Microsoft Purview accounts are deployed across multiple subscriptions and multiple VNets that are connected through VNet peering. _Portal_ private endpoint mainly renders static assets related to Microsoft Purview governance portal, thus, it is independent of Microsoft Purview account, therefore, only one _portal_ private endpoint is needed to visit all Microsoft Purview accounts in the Azure environment if VNets are connected.
+This scenario also applies if multiple Microsoft Purview accounts are deployed across multiple subscriptions and multiple VNets that are connected through VNet peering. _Portal_ private endpoint mainly renders static assets related to the Microsoft Purview governance portal, thus, it is independent of Microsoft Purview account, therefore, only one _portal_ private endpoint is needed to visit all Microsoft Purview accounts in the Azure environment if VNets are connected.
 
 :::image type="content" source="media/concept-best-practices/network-pe-dns-multi-vnet.png" alt-text="Screenshot that shows how to handle private endpoints and DNS records for multiple Microsoft Purview accounts in multiple vnets."lightbox="media/concept-best-practices/network-pe-dns-multi-vnet.png":::
 
