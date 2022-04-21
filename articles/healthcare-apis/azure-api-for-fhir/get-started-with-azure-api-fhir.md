@@ -30,7 +30,7 @@ After you’ve located the Azure API for FHIR resource, select **Create**.
 
 ## Deploy Azure API for FHIR
 
-Refer to the steps in the [Quickstart guide](fhir-paas-portal-quickstart.md) for deploying an instance of Azure API for FHIR using the Azure portal. You may also deploy an instance of Azure API for FHIR using [PowerShell](fhir-pass-powershell-quickstart.md), [CLI](fhir-paas-cli-quickstart.md), or using an [ARM template](azure-api-fhir-resource-manager-template.md).
+Refer to the steps in the [Quickstart guide](fhir-paas-portal-quickstart.md) for deploying an instance of Azure API for FHIR using the Azure portal. You may also deploy an instance of Azure API for FHIR using [PowerShell](fhir-paas-powershell-quickstart.md), [CLI](fhir-paas-cli-quickstart.md), or using an [ARM template](azure-api-fhir-resource-manager-template.md).
 
 
 ## Accessing Azure API for FHIR
