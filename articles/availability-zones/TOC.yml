@@ -114,7 +114,7 @@
 - name: Migration Guidance
   items:
   - name: Virtual Machines and Virtual Machine Scale Sets
-    href: migration-guide-vm.md
+    href: how-to-migrate-vm.md
 - name: Resources
   items:
   - name: Azure Roadmap
