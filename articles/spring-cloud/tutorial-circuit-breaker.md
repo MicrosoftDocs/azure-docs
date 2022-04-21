@@ -48,7 +48,7 @@ mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 
 ## Provision your Azure Spring Apps instance
 
-Follow the procedure, [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-cloud).
+Follow the procedure, [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-apps).
 
 ## Deploy your applications to Azure Spring Apps
 
@@ -100,5 +100,5 @@ As a web app, Hystrix dashboard should be working on `test-endpoint`. If it is n
 
 ## Next steps
 
-* [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [Provision a service instance on the Azure CLI](./quickstart.md#provision-an-instance-of-azure-spring-apps)
 * [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md)
