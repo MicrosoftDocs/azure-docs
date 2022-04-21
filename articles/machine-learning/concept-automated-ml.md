@@ -18,69 +18,6 @@ Automated machine learning, also referred to as automated ML or AutoML, is the p
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
-<a name="parity"></a>
-
-## Ways to use AutoML in Azure Machine Learning
-
-Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand [feature availability in each experience](#parity).
-
-* For code-experienced customers, 
-    * [Azure Machine Learning CLI (v2)](how-to-configure-cli.md).  Get started with [Set up automated ML jobs with the CLI (v2)](tutorial-auto-train-models.md).
-    * [Azure Machine Learning Python SDK v2 (preview)](/python/api/overview/azure/ml/intro). Get started with [Set up automated ML jobs with Python](tutorial-auto-train-models.md).
-
-    > [!IMPORTANT] 
-    > The Azure Machine Learning Python SDK v2 (preview) is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). <br><br>For automated ML in the Azure Machine Learning Python SDK v1, see [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md) . 
-
-* For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
-    * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-    * [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
-
-### Experiment settings 
-
-The following settings allow you to configure your automated ML experiment. 
-
-| | Azure Machine Learning CLI v2 | Python SDK v2 (preview)|The studio UI|
-|----|:----:|:----:|:----:|
-|**Split data into train/validation sets**| ✓| ✓|✓
-|**Supports ML tasks: classification, regression, & forecasting**| ✓|✓| ✓
-|**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| ✓|
-|**Supports natural language processing (NLP) tasks (preview): text classification & named entity recognition**| ✓| ✓|
-|**Optimizes based on primary metric**|  ✓|✓| ✓
-|**Supports Azure ML compute as compute target** | ✓| ✓|✓
-|**Configure forecast horizon, target lags & rolling window**| ✓|✓|✓
-|**Set exit criteria** | ✓|✓|✓ 
-|**Set concurrent iterations**| ✓| ✓|✓
-|**Drop columns**|✓|✓|✓
-|**Block algorithms**|✓|✓|✓
-|**Cross validation**✓| |✓|✓
-|**Supports training on Azure Databricks clusters**|✓| ✓|
-|**View engineered feature names**|✓|✓|
-|**Featurization summary**| ✓|✓|
-|**Featurization for holidays**|✓|✓|
-|**Log file verbosity levels**|✓| ✓|
-
-### Model settings
-
-These settings can be applied to the best model as a result of your automated ML experiment.
-
-| |Azure Machine Learning CLI v2 |Python SDK v2 (preview)|The studio UI|
-|----|:----:|:----:|:----:|
-|**Best model registration, deployment, explainability**|✓|✓|✓|
-|**Enable voting ensemble & stack ensemble models**| ✓| ✓|✓|
-|**Show best model based on non-primary metric**|✓|✓||
-|**Enable/disable ONNX model compatibility**|✓|✓||
-|**Test the model (preview)** |✓|✓| ✓|
-
-### Run control settings
-
-These settings allow you to review and control your experiment runs and its child runs. 
-
-| |Azure Machine Learning CLI v2 |Python SDK v2 (preview)|The studio UI|
-|----|:----:|:----:|:----:|
-|**Run summary table**|✓| ✓|✓|
-|**Cancel runs & child runs**|✓| ✓|✓|
-|**Get guardrails**|✓|✓|✓|
-|**Pause & resume runs**|| ✓| |
 
 ## When to use AutoML: classification, regression, forecasting, computer vision & NLP
 
@@ -190,7 +127,7 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
     
 1. **Specify the source and format of the labeled training data**: Numpy arrays or Pandas dataframe
 
-1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).
+1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, or remote VMs](how-to-set-up-training-targets.md).
 
 1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  
 1. **Submit the training run.**
@@ -206,50 +143,6 @@ While model building is automated, you can also [learn how important or relevant
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
-<a name="local-remote"></a>
-
-## Guidance on local vs. remote managed ML compute targets
-
-The web interface for automated ML always uses a remote [compute target](concept-compute-target.md).  But when you use the Python SDK, you will choose either a local compute or a remote compute target for automated ML training.
-
-* **Local compute**: Training occurs on your local laptop or VM compute. 
-* **Remote compute**: Training occurs on Machine Learning compute clusters.  
-
-### Choose compute target
-Consider these factors when choosing your compute target:
-
- * **Choose a local compute**: If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.  There is no setup time, the infrastructure resources (your PC or VM) are directly available.
- * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
-
-### Pros and cons
-Consider these pros and cons when choosing to use local vs. remote.
-
-|  | Pros (Advantages)  |Cons (Handicaps)  |
-|---------|---------|---------|---------|
-|**Local compute target** |  <li> No environment start-up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
-|**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start-up time for cluster nodes <li> Start-up time for each child run    |
-
-### Feature availability 
-
-More features are available when you use the remote compute, as shown in the table below. 
-
-| Feature                                                    | Remote | Local | 
-|------------------------------------------------------------|--------|-------|
-| Data streaming (Large data support, up to 100 GB)          | ✓      |       | 
-| DNN-BERT-based text featurization and training             | ✓      |       |
-| Out-of-the-box GPU support (training and inference)        | ✓      |       |
-| Image Classification and Labeling support                  | ✓      |       |
-| Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | 
-| Multiple runs/iterations in parallel                       | ✓      |       |
-| Create models with interpretability in AutoML studio web experience UI      | ✓      |       |
-| Feature engineering customization in studio web experience UI| ✓      |       |
-| Azure ML hyperparameter tuning                             | ✓      |       |
-| Azure ML Pipeline workflow support                         | ✓      |       |
-| Continue a run                                             | ✓      |       |
-| Forecasting                                                | ✓      | ✓     |
-| Create and run experiments in notebooks                    | ✓      | ✓     |
-| Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
-| Data guardrails                                            | ✓      | ✓     |
 
 ## Training, validation and test data 
 
@@ -288,6 +181,68 @@ The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
 
+<a name="parity"></a>
+
+## Ways to use AutoML in Azure Machine Learning
+
+Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand [feature availability in each experience](#parity).
+
+* For code-experienced customers, 
+    * [Azure Machine Learning CLI (v2)](how-to-configure-cli.md).  Get started with [Set up automated ML jobs with the CLI (v2)](tutorial-auto-train-models.md).
+    * [Azure Machine Learning Python SDK v2 (preview)](/python/api/overview/azure/ml/intro). Get started with [Set up automated ML jobs with Python](tutorial-auto-train-models.md).
+
+    > [!IMPORTANT] 
+    > The Azure Machine Learning Python SDK v2 (preview) is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). <br><br>For automated ML in the Azure Machine Learning Python SDK v1, see [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md) . 
+
+* For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
+    * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+    * [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
+
+### Experiment settings 
+
+The following settings allow you to configure your automated ML experiment. 
+
+| | Azure Machine Learning CLI v2 | Python SDK v2 (preview)|The studio UI|
+|----|:----:|:----:|:----:|
+|**Split data into train/validation/test sets**| ✓| ✓|✓
+|**Supports ML tasks: classification, regression, & forecasting**| ✓|✓| ✓
+|**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| ✓|
+|**Supports natural language processing (NLP) tasks (preview): text classification & named entity recognition**| ✓| ✓|
+|**Optimizes based on primary metric**|  ✓|✓| ✓
+|**Supports Azure ML compute as compute target** | ✓| ✓|✓
+|**Configure forecast horizon, target lags & rolling window**| ✓|✓|✓
+|**Set exit criteria** | ✓|✓|✓ 
+|**Set concurrent iterations**| ✓| ✓|✓
+|**Block algorithms**|✓|✓|✓
+|**Add algorithms**|✓|✓|
+|**Cross validation**|✓|✓|✓
+|**View engineered feature names**|✓|✓|
+|**Featurization summary**| ✓|✓|
+|**Featurization for holidays**|✓|✓|
+|**Log file verbosity levels**|✓| ✓|
+
+### Model settings
+
+These settings can be applied to the best model as a result of your automated ML experiment.
+
+| |Azure Machine Learning CLI v2 |Python SDK v2 (preview)|The studio UI|
+|----|:----:|:----:|:----:|
+|**Best model registration, deployment, explainability**|✓|✓|✓|
+|**Enable voting ensemble & stack ensemble models**| ✓| ✓|✓|
+|**Show best model based on non-primary metric**|✓|✓||
+|**Enable/disable ONNX model compatibility**|✓|✓||
+|**Test the model (preview)** |✓|✓| ✓|
+
+### Run control settings
+
+These settings allow you to review and control your experiment runs and its child runs. 
+
+| |Azure Machine Learning CLI v2 |Python SDK v2 (preview)|The studio UI|
+|----|:----:|:----:|:----:|
+|**Run summary table**|✓| ✓|✓|
+|**Cancel runs & child runs**|✓| ✓|✓|
+|**Get guardrails**|✓|✓|✓|
+|**Pause & resume runs**|| ✓| |
 <a name="use-with-onnx"></a>
 
 ## AutoML & ONNX
@@ -326,11 +281,3 @@ How-to articles provide additional detail into what functionality automated ML o
 
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml).
 
-### Python SDK reference
-
-Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
-
-> [!Note]
-> Automated machine learning capabilities are also available in other Microsoft solutions such as, 
-[ML.NET](/dotnet/machine-learning/automl-overview), 
-[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
