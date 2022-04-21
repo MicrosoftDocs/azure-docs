@@ -12,7 +12,7 @@ ms.date: 04/20/2022
 
 Distributed Application Runtime ([Dapr][dapr-concepts]) is a programming model that simplifies microservice implementation by addressing complexities you often encounter when authoring a distributed microservice app. For example, how your application intercommunicates, whether through messaging via pubsub or reliable, direct service-to-service calls. 
 
-In Container Apps, Dapr offers a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container Apps to help with implementing types of patterns. Once you enable Dapr on the container, Dapr's programming model and sidecars are automatically available to you.
+In Container Apps, Dapr offers a fully managed, incrementally adoptable set of HTTP or gRPC APIs that you can plug into your Container Apps to help with implementing types of cloud-native patterns. Once you enable Dapr on the container, Dapr's programming model and sidecars are automatically available to you.
 
 Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
 
@@ -42,15 +42,66 @@ Dapr's portable building blocks are built on best practice industry standards, t
 
 :::image type="content" source="media/dapr-overview/aca_dapr_architecture.png" alt-text="diagram demonstrating Dapr pub/sub":::
 
-| # | Core concepts | Description |
-| - | ------------- | ----------- |
-| 1 | Container App environment |  |
-| 2 | Container App with Dapr enabled |  |
-| 3 | Dapr sidecar |  |
-| 4 | Dapr component scoped to each Container App |  |
-| 5 | Azure Service Bus |  |
+| # | Core concepts 
+| - | ------------- 
+| 1 | Container App environment | 
+| 2 | [Container App with Dapr enabled]() | 
+| 3 | Dapr sidecar | 
+| 4 | [Dapr component scoped to each Container App](#dapr-components) | 
+| 5 | External Azure service integrated with your Container App | 
 
-**Dapr components**
+#### Container App with Dapr enabled
+
+Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With the following settings, you enable Dapr on your app:
+
+| Field | Description |
+| ----- | ----------- |
+| `enabled` | Enables Dapr on the container app. |
+| `appPort` | Identifies on which port your application is listening. |
+| `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
+| `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
+
+# [Dapr OSS](#tab/oss)
+
+# [YAML](#tab/yaml)
+
+When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI.
+
+```azurecli
+--enable-dapr \
+--dapr-app-port 3000 \
+--dapr-app-protocol http \
+--dapr-app-id nodeapp \
+--dapr-components ./components.yaml
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+dapr: {
+      enabled: true
+      appPort: 3000
+      appProtocol: 'http'
+      appId: 'nodeapp'
+    }
+```
+
+# [ARM](#tab/arm)
+
+```json
+"dapr": {
+    "enabled": true,
+    "appPort": 3000,
+    "appProtocol": "http",
+    "appId": "nodeapp",
+}
+```
+
+---
+
+Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
+
+#### Dapr components
 
 Dapr components are scoped to a Container App environment and are pluggable modules that:
 
@@ -270,7 +321,6 @@ resource nodeapp 'Microsoft.Web/containerapps@2021-03-01' = {
 }
 ```
 
-
 ---
 
 > [!NOTE]
@@ -280,54 +330,6 @@ By default, every Container App will load the Dapr component. Limit which Contai
 
 Scope the Dapr component to particular Container Apps by adding the `scopes` property and providing the necessary app ids. 
 
-**Dapr settings**
-
-Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With the following settings, you enable Dapr on your app:
-
-| Field | Description |
-| ----- | ----------- |
-| `enabled` | Enables Dapr on the container app. |
-| `appPort` | Identifies on which port your application is listening. |
-| `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
-| `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
-
-# [YAML](#tab/yaml)
-
-When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI.
-
-```azurecli
---enable-dapr \
---dapr-app-port 3000 \
---dapr-app-protocol http \
---dapr-app-id nodeapp \
---dapr-components ./components.yaml
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-dapr: {
-      enabled: true
-      appPort: 3000
-      appProtocol: 'http'
-      appId: 'nodeapp'
-    }
-```
-
-# [ARM](#tab/arm)
-
-```json
-"dapr": {
-    "enabled": true,
-    "appPort": 3000,
-    "appProtocol": "http",
-    "appId": "nodeapp",
-}
-```
-
----
-
-Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
 
 ### Current supported Dapr version
 
