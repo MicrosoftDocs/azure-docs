@@ -502,7 +502,7 @@ items:
         - name: Collect events and performance
           displayName: data collection rule,Azure Monitor agent
           href: agents/data-collection-rule-azure-monitor-agent.md
-        - name: Collect text Logs
+        - name: Collect text and IIS Logs
           displayName: data collection rule,Azure Monitor agent
           href: agents/data-collection-text-log.md
       - name: Use data collection endpoints
@@ -785,10 +785,6 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
-    - name: Troubleshooting
-      items:
-      - name: Error retrieving data in Portal
-        href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items:
       - name: Overview

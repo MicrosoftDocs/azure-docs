@@ -7,7 +7,7 @@ ms.author: nibaccam
 author: nibaccam
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 10/21/2021
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
 ---
@@ -237,6 +237,17 @@ In this example, note that the better model has a predicted vs. true line that i
 
 ### Predicted vs. true chart for a bad model
 ![Predicted vs. true chart for a bad model](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## Forecast horizon (preview)
+
+For forecasting experiments, the forecast horizon chart plots the relationship between the models predicted value and the actual values mapped over time per cross validation fold, up to 5 folds. The x axis maps time based on the frequency you provided during training setup. The vertical line in the chart marks the forecast horizon point alo referred to as the horizon line, which is the time period at which you would want to start generating predictions. To the left of the forecast horizon line, you can view historic training data to better visualize past trends. To the right of the forecast horizon, you can visualize the predictions (the red line) against the actuals (the blue line) for the different cross validation folds and time series identifiers. The shaded red area indicates the confidence intervals or variance of predictions around that mean. 
+
+You can choose which cross validation fold and time series identifier combinations to display by clicking the edit pencil icon on the top right corner of the chart. Select from the first 5 cross validation folds and up to 5 different time series identifiers to visualize the chart for your various time series.  
+
+> [!IMPORTANT]
+> This chart is only available for models generated from training and validation data.  Visuals for models based on test data are not supported at this time. 
+
+![Forecast horizon chart](./media/how-to-understand-automated-ml/forecast-horizon.png)
 
 ## Metrics for image models (preview)
 

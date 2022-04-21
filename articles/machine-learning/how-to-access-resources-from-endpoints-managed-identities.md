@@ -366,7 +366,7 @@ If you don't plan to continue using the deployed online endpoint and storage, de
 
 * [Deploy and score a machine learning model by using a online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 * For more on deployment, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
-* For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](how-to-configure-cli.md).
 * To see which compute resources you can use, see [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).
 * For information on monitoring endpoints, see [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md).

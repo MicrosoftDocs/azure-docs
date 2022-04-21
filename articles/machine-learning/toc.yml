@@ -1,5 +1,7 @@
 - name: Azure Machine Learning Documentation
   href: index.yml
+- name: Switch to CLI v1 documentation
+  href: v1/introduction.md
 - name: Overview
   items:
     - name: What is Azure Machine Learning?
@@ -610,12 +612,6 @@
         items:
         - name: Local
           href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Kubernetes Service
-          displayName: aks, aad, authentication, azure active directory
-          href: how-to-deploy-azure-kubernetes-service.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
         - name: GPU inference
           href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search
@@ -653,9 +649,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: Profile models
-        displayName: profile resource requirement
-        href: how-to-deploy-profile-model.md
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
@@ -806,9 +799,6 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
-    - name: CLI (v1)
-      displayName: extension, command line, command-line, az, ci/cd, automate, automated
-      href: reference-azure-machine-learning-cli.md
     - name: Image data schemas for AutoML
       displayName: automl, schema, data, computer vision, image model
       href: reference-automl-images-schema.md
@@ -820,8 +810,6 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
-    - name: Machine learning CLI (v1) pipeline YAML reference
-      href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

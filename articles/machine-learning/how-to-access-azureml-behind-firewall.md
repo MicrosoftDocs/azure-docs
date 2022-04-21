@@ -110,7 +110,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
     For more information on configuring application rules, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
-1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
+1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
 
 ### Azure Kubernetes Services
 
@@ -118,7 +118,7 @@ When using Azure Kubernetes Service with Azure Machine Learning, the following t
 
 * General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
-* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
+* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#connectivity) article.
 
 ## Other firewalls
 

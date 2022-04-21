@@ -99,7 +99,7 @@ After downloading the necessary files, you're ready to deploy the model.
 1. In the configuration menu, enter the following information:
 
     - Input a name for the endpoint.
-    - Select to deploy the model to [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](how-to-deploy-azure-container-instance.md).
+    - Select to deploy the model to [Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](v1/how-to-deploy-azure-container-instance.md).
     - Upload the `score.py` for the **Entry script file**.
     - Upload the `conda_env.yml` for the **Conda dependencies file**. 
 
@@ -297,6 +297,6 @@ score_params = dict(
 * [Train a model in the designer](tutorial-designer-automobile-price-train-score.md)
 * [Deploy models with Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
+* [Deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)

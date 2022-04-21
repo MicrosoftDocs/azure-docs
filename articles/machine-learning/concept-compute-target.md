@@ -53,7 +53,6 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
-* A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 

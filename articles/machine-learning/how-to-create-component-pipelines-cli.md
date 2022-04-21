@@ -38,7 +38,7 @@ In this article, you learn how to create and run [machine learning pipelines](co
     cd azureml-examples/cli/jobs/pipelines-with-components/
     ```
 
-## Suggested pre-reading
+### Suggested pre-reading
 - [What is Azure Machine Learning pipeline](./concept-ml-pipelines.md)
 - [What is Azure Machine Learning component](./concept-component.md)
 
@@ -47,20 +47,16 @@ In this article, you learn how to create and run [machine learning pipelines](co
 1. Create your first pipeline with component. -> get familiar with pipeline and component YAML definition. 
 
 2. Understand pipeline YAML
-    - data input--reference to Sam's article
-        - local
-        - datastore
-        - web url. how to create the URL AzureML expecting? 
-        - data asset. why mltable? 
+    - go through pipeline YAML with example
+    - data input -- reference to Sam's article
+        
         
 3. Understand component YAML
+    - go through component YAML with example
     - data input
     - Other input - component specific. spend some time here
-        - default
-        - enum
-        - mentioning UI? 
     - environment
-    - distributed training
+    - distributed training? 
 
 4. Register component for resue and sharing
 

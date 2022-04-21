@@ -18,9 +18,11 @@ ms.reviewer: nibaccam
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json.
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](v1/reference-pipeline-yaml.md)
+> * [v2 (current version)](reference-yaml-job-pipeline.md)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json.
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 

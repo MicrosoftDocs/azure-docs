@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions, cliv1
+ms.custom: devx-track-azurecli, references_regions, cliv1, sdkv1
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -32,7 +32,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service (v1)](v1/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Create
 
@@ -50,6 +50,8 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 <a name="create-instance"></a> The following example demonstrates how to create a compute instance:
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import datetime
@@ -421,6 +423,9 @@ You can [create a schedule](#schedule) for the compute instance to automatically
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 
 In the examples below, the name of the compute instance is **instance**
 

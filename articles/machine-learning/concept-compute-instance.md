@@ -20,8 +20,6 @@ Compute instances make it easy to get started with Azure Machine Learning develo
 
 Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. They can also be used as a compute target for training and inferencing for development and testing purposes.
 
-For production grade model training, use an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) with multi-node scaling capabilities. For production grade model deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
-
 For compute instance Jupyter functionality to work, ensure that web socket communication is not disabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms.
 
 > [!IMPORTANT]
@@ -114,7 +112,7 @@ You can also create an instance
 * In Azure portal
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 * With [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
-* From the [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
+* From the [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md#computeinstance)
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. Please do not stop the compute instance through the OS terminal by doing a sudo shutdown.
 

@@ -9,10 +9,12 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.date: 11/20/2020
 ms.topic: how-to
-ms.custom: deploy
+ms.custom: deploy, sdkv1
 ---
 
 # Deploy models trained with Azure Machine Learning on your local machines 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article describes how to use your local computer as a target for training or deploying models created in Azure Machine Learning. Azure Machine Learning is flexible enough to work with most Python machine learning frameworks. Machine learning solutions generally have complex dependencies that can be difficult to duplicate. This article will show you how to balance total control with ease of use.
 
@@ -212,7 +214,7 @@ After you download the model and resolve its dependencies, there are no Azure-de
 
 ## Upload a retrained model to Azure Machine Learning
 
-If you have a locally trained or retrained model, you can register it with Azure. After it's registered, you can continue tuning it by using Azure compute or deploy it by using Azure facilities like [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](how-to-deploy-with-triton.md).
+If you have a locally trained or retrained model, you can register it with Azure. After it's registered, you can continue tuning it by using Azure compute or deploy it by using Azure facilities like [Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md) or [Triton Inference Server (Preview)](how-to-deploy-with-triton.md).
 
 To be used with the Azure Machine Learning Python SDK, a model must be stored as a serialized Python object in pickle format (a .pkl file). It must also implement a `predict(data)` method that returns a JSON-serializable object. For example, you might store a locally trained scikit-learn diabetes model with: 
 
