@@ -52,7 +52,7 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> For more examples to get you started with diagnosing slow query logs via Diagnostic logs, see [Analyze logs in Azure Monitor Logs](./concepts-server-logs#analyze-logs-in-azure-monitor-logs).
+> For more examples to get you started with diagnosing slow query logs via Diagnostic logs, see [Analyze logs in Azure Monitor Logs](./concepts-server-logs.md#analyze-logs-in-azure-monitor-logs).
 >
 
 The following snapshot depicts a sample slow query.
