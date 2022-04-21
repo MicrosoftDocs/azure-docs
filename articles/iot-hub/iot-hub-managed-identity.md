@@ -241,7 +241,7 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select **Azure Event Hubs Data Sender**.
+1. On the **Role** tab, select **Azure Event Hubs Data Sender**.
 
     > [!NOTE]
     > For a storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/blobs/assign-azure-role-data-access.md)) as the role. For a service bus, select **Azure Service Bus Data Sender**.
@@ -287,7 +287,7 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
+1. On the **Role** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
@@ -323,7 +323,7 @@ IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-ident
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
+1. On the **Role** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
