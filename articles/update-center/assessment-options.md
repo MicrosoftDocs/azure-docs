@@ -42,7 +42,7 @@ In the **History** section, you can view:
 - **Failed deployments**—the number out of the total deployments that failed.
 - **Successful deployments**—the number out of the total deployments that were successful.
 
-A list of the deployments created are show in the update deployment gride and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Activity ID**, which is listed along with **Status**, **Updates Installed** and **Time details**. You can filter the results listed in the grid in the following ways:
+A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Activity ID**, which is listed along with **Status**, **Updates Installed**, and **Time details**. You can filter the results listed in the grid in the following ways:
 
 - Select one of the tile visualizations
 - Select a specific time period. Options are: **Last 30 Days**, **Last 15 Days**, **Last 7 Days**, and **Last 24 hrs**. By default, deployments from the last 30 days are shown.
