@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, sdk-v1
+ms.custom: how-to, devx-track-python, sdkv1
 ---
 
 # MLflow and Azure Machine Learning (v1)
