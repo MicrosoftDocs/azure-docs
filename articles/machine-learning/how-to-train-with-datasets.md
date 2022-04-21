@@ -4,12 +4,11 @@ titleSuffix: Azure Machine Learning
 description:  Learn how to make your data available to your local or remote compute for model training with Azure Machine Learning datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
-manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 
@@ -20,6 +19,10 @@ ms.custom: devx-track-python, data4ml
 # Train models with Azure Machine Learning datasets 
 
 In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
+
+* For structured data, see [Consume datasets in machine learning training scripts](#consume-datasets-in-machine-learning-training-scripts).
+
+* For unstructured data, see [Mount files to remote compute targets](#mount-files-to-remote-compute-targets).
 
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive), and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
@@ -34,6 +37,7 @@ To create and train with datasets, you need:
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install) (>= 1.13.0), which includes the `azureml-datasets` package.
+
 
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
@@ -124,7 +128,7 @@ The following example,
 * Mounts the input dataset to the compute target.
 
 > [!Note]
-> If you are using a custom Docker base image, you will need to install fuse via `apt-get install -y fuse` as a dependency for dataset mount to work. Learn how to [build a custom build image](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
+> If you are using a custom Docker base image, you will need to install fuse via `apt-get install -y fuse` as a dependency for dataset mount to work. Learn how to [build a custom build image](./how-to-deploy-custom-container.md).
 
 For the notebook example , see [How to configure a training run with data input and output](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
@@ -226,17 +230,14 @@ with open(mounted_input_path, 'r') as f:
 
 Mounting or downloading files of any format are supported for datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. 
 
-When you **mount** a dataset, you attach the files referenced by the dataset to a directory (mount point) and make it available on the compute target. Mounting is supported for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. 
+When you **mount** a dataset, you attach the files referenced by the dataset to a directory (mount point) and make it available on the compute target. Mounting is supported for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. If your data size exceeds the compute disk size,  downloading is not possible. For this scenario, we recommend mounting since only the data files used by your script are loaded at the time of processing.
 
-When you **download** a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. 
+When you **download** a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. If your script processes all files referenced by the dataset, and your compute disk can fit your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services. For multi-node downloads see [how to avoid throttling](#troubleshooting). 
 
 > [!NOTE]
 > The download path name should not be longer than 255 alpha-numeric characters for Windows OS. For Linux OS, the download path name should not be longer than 4,096 alpha-numeric characters. Also, for Linux OS the file name (which is the last segment of the download path `/path/to/file/{filename}`) should not be longer than 255 alpha-numeric characters.
 
-If your script processes all files referenced by the dataset, and your compute disk can fit your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services. If your data size exceeds the compute disk size,  downloading is not possible. For this scenario, we recommend mounting since only the data files used by your script are loaded at the time of processing.
-
 The following code mounts `dataset` to the temp directory at `mounted_path`
-
 
 ```python
 import tempfile
@@ -296,6 +297,18 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
   * If you are using `azureml-sdk<1.12.0`, upgrade to the latest version.
   * If you have outbound NSG rules, make sure there is an outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
 
+**Dataset initialization failed: StreamAccessException was caused by ThrottlingException**
+
+For multi-node file downloads, all nodes may attempt to download all files in the file dataset from the Azure Storage service, which results in a throttling error. To avoid throttling, initially set the environment variable `AZUREML_DOWNLOAD_CONCURRENCY` to a value of 8 times the number of CPU cores divided by the number of nodes. Setting up a value for this environment variable may require some experimentation, so the aforementioned guidance is a starting point.
+
+The following example assumes 32 cores and 4 nodes.
+
+```python
+from azureml.core.environment import Environment 
+myenv = Environment(name="myenv")
+myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
+```
+
 ### AzureFile storage
 
 **Unable to upload project files to working directory in AzureFile because the storage is overloaded**:
@@ -308,7 +321,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 To ensure your storage access credentials are linked to the workspace and the associated file datastore, complete the following steps:
 
-1. Navigate to your workspace in the [Azure Portal](https://ms.portal.azure.com).
+1. Navigate to your workspace in the [Azure Portal](https://portal.azure.com).
 1. Select the storage link on the workspace **Overview** page.
 1. On the storage page, select **Access keys** on the left side menu. 
 1. Copy the key.

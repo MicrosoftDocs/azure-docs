@@ -1,13 +1,12 @@
 ---
 title: View Azure Maps API usage metrics | Microsoft Azure Maps
 description: Learn how to view Azure Maps API usage metrics, such as total requests, total errors, and availability. See how to filter data and split results.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 08/06/2018
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ---
 
 # View Azure Maps API usage metrics

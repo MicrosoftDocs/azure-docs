@@ -63,7 +63,7 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
 
    - [Network security groups](../virtual-network/manage-network-security-group.md)
    - [Load balancers](../load-balancer/index.yml)
-   - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+   - [Public IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
    For any other networking components, see the [Azure networking documentation](../index.yml?pivot=products&panel=network). 
 

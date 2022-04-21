@@ -5,9 +5,9 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 08/26/2021
 ms.author: victorh
-customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+#Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 
 # Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal
@@ -41,7 +41,7 @@ If you want to use Azure PowerShell instead to complete this procedure, see [Dep
 
 ## Prerequisites
 
-A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premise networks. The hub-and-spoke architecture has the following requirements:
+A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premises networks. The hub-and-spoke architecture has the following requirements:
 
 - Set **Use this virtual network's gateway or Route Server** when peering VNet-Hub to VNet-Spoke. In a hub-and-spoke network architecture, a gateway transit allows the spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. 
 
@@ -461,7 +461,5 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
-Next, you can monitor the Azure Firewall logs.
-
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Deploy and configure Azure Firewall Premium](premium-deploy.md)

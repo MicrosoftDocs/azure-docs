@@ -7,18 +7,16 @@ ms.author: cshoe
 ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
-ms.custom:
-  - mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Building your first static site in the Azure portal
 
 Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
-If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
-
 ## Prerequisites
 
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
 
@@ -62,9 +60,9 @@ After you sign in with GitHub, enter the repository information.
     # [No Framework](#tab/vanilla-javascript)
 
     1. Select **Custom** from the _Build Presets_ dropdown.
-    1. Keep the default value in the _App location_ box.
+    1. Type **./src** in the _App location_ box.
     1. Leave the _Api location_ box empty.
-    1. Leave the _App artifact location_ box empty.
+    1. Type **./src** _App artifact location_ box.
 
     # [Angular](#tab/angular)
 
@@ -72,6 +70,13 @@ After you sign in with GitHub, enter the repository information.
     1. Keep the default value in the _App location_ box.
     1. Leave the _Api location_ box empty.
     1. Type **dist/angular-basic** in the _App artifact location_ box.
+
+    # [Blazor](#tab/blazor)
+
+    1. Select **Blazor** from the _Build Presets_ dropdown.
+    1. Keep the default value of **Client** in the _App location_ box.
+    1. Leave the _Api location_ box empty.
+    1. Keep the default value of **wwwroot** in the _App artifact location_ box.
 
     # [React](#tab/react)
 
@@ -94,7 +99,7 @@ After you sign in with GitHub, enter the repository information.
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
     > [!NOTE]
-    > You can edit the [workflow file](github-actions-workflow.md) to change these values after you create the app.
+    > You can edit the [workflow file](build-configuration.md) to change these values after you create the app.
 
 1. Select **Create**.
 

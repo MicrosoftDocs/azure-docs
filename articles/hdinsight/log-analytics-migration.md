@@ -30,6 +30,12 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 - Faster log delivery
 - Resource-based table grouping and default queries
 
+
+
+> [!NOTE]  
+> New Azure Montitor integration is in Public Preview. It is only available in East US and West Europe regions.
+
+
 ## Benefits of the new Azure Monitor integration
 
 This document outlines the changes to the Azure Monitor integration and provides best-practices for using the new tables.

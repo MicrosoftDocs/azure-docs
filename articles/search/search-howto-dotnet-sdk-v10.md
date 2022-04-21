@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Search
 description: Learn how to create and manage search objects in a .NET application using C# and Microsoft.Azure.Search (version 10) of the .NET SDK. Code snippets demonstrate connecting to the service, creating indexes, and queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
-ms.devlang: dotnet
+author: bevloh
+ms.author: beloh
+ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
@@ -38,7 +38,7 @@ The various client libraries define classes like `Index`, `Field`, and `Document
 * [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](/dotnet/api/microsoft.azure.search.models)
 
-If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/) or create an issue on [GitHub](https://github.com/azure/azure-sdk-for-net/issues) and mention "Azure Cognitive Search" in the issue title.
+If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8) or create an issue on [GitHub](https://github.com/azure/azure-sdk-for-net/issues) and mention "Azure Cognitive Search" in the issue title.
 
 The .NET SDK targets version [`2019-05-06` of the Azure Cognitive Search REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/data-plane/Microsoft.Azure.Search.Data/stable/2019-05-06). This version includes support for [complex types](search-howto-complex-data-types.md), [AI enrichment](cognitive-search-concept-intro.md), [autocomplete](/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](search-howto-index-json-blobs.md) when indexing Azure Blobs. 
 

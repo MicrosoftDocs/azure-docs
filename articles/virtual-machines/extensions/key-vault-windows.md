@@ -10,8 +10,7 @@ ms.collection: windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Key Vault virtual machine extension for Windows
 
@@ -26,6 +25,10 @@ The Key Vault VM extension supports below versions of Windows:
 - Windows Server 2012
 
 The Key Vault VM extension is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
+
+> [!NOTE]
+> The Key Vault VM extension downloads all the certificates in the windows certificate store or to the location provided by "certificateStoreLocation" property in the VM extension settings. Currently, the KV VM extension grants access to the private key of the certificate only to the local system admin account. Additionally, it is currently not possible to define certificate store location per certificate. The VM extension team is working on a solution to close this feature gap.
+
 
 ### Supported certificate content types
 
@@ -102,6 +105,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > The 'authenticationSettings' property is **required** only for VMs with **user assigned identities**.
 > It specifies identity to use for authentication to Key Vault.
 
+> [!IMPORTANT]
+> If you specify the 'msiClientId', then the 'msiEndpoint' property is **required**. Usually the value should be set to `http://169.254.169.254/metadata/identity/oauth2/token`.
 
 ### Property values
 
@@ -250,9 +255,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -name "KeyVaultForWindows" `
+        az vmss extension set --name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -resource-group "<resourcegroup>" `
+         --resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
@@ -284,10 +289,16 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
 #### Logs and configuration
+The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting
 
-```
-%windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
-```
+|Location|Description|
+|--|--|
+| C:\WindowsAzure\Logs\WaAppAgent.log | Shows when an update to the extension occurred. |
+| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\ | Shows the status of certificate download. The download location will always be the Windows computer's MY store (certlm.msc). |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\RuntimeSettings\ |	The Key Vault VM Extension service logs show the status of the akvvm_service service. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\Status\	| The configuration and binaries for Key Vault VM Extension service. |
+|||  
+
 
 ### Support
 

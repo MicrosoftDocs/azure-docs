@@ -3,7 +3,7 @@ title: Control network traffic in Azure HDInsight
 description: Learn techniques for controlling inbound and outbound traffic to Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 04/11/2022
 ---
 
 # Control network traffic in Azure HDInsight
@@ -26,7 +26,7 @@ If you plan on using **network security groups** to control network traffic, per
 
 2. Identify the service tags required by HDInsight for your region. There are multiple ways to obtain these service tags:
     1. Consult the list of published service tags in [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md). 
-    2. If your region is not present in the list, use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find a service tag for your region.
+    2. If your region is not present in the list, use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to find a service tag for your region.
     3. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
 
 

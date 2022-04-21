@@ -4,6 +4,7 @@ description: Tutorial:Containerize & migrate ASP.NET applications to Azure Kuber
 services:
 author: rahugup
 manager: bsiva
+ms.custom: subject-rbac-steps
 ms.topic: tutorial
 ms.date: 6/30/2021
 ms.author: rahugup
@@ -73,24 +74,31 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Search box to search for the Azure subscription.](./media/tutorial-discover-vmware/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
-3. In the subscription, select **Access control (IAM)** > **Check access**.
-4. In **Check access**, search for the relevant user account.
-5. In **Add a role assignment**, click **Add**.
+1. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
 
-    ![Search for a user account to check access and assign a role.](./media/tutorial-discover-vmware/azure-account-access.png)
+1. Select **Access control (IAM)**.
 
-6. In **Add role assignment**, select the Owner role, and select the account (azmigrateuser in our example). Then click **Save**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-    ![Opens the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-vmware/assign-role.png)
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-7. Your Azure account also needs **permissions to register Azure Active Directory apps.**
-8. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
-9. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+    | Setting | Value |
+    | --- | --- |
+    | Role | Owner |
+    | Assign access to | User |
+    | Members | azmigrateuser (in this example) |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. Your Azure account also needs **permissions to register Azure Active Directory apps.**
+
+1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+
+1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
       ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
-10. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install Azure Migrate: App Containerization tool
 
@@ -219,7 +227,7 @@ Once the container image is built, the next step is to deploy the application as
      - If you don’t have an AKS cluster or would like to create a new AKS cluster to deploy the application to, you can choose to create on from the tool by clicking **Create new AKS cluster**.      
           - The AKS cluster created using the tool will be created with a Windows node pool. The cluster will be configured to allow it to pull images from the Azure Container Registry that was created earlier (if create new registry option was chosen).
      - Click **Continue** after selecting the AKS cluster.
-2. **Specify secret store**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](/azure/app-service/configure-common#configure-connection-strings)
+2. **Specify secret store**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](../app-service/configure-common.md#configure-connection-strings)
 
      - If you've selected App Service application settings for managing secrets, then click **Continue**.
      - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     

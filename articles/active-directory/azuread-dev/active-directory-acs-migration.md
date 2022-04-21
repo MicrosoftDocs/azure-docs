@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
-ms.reviewer: jlu, annaba, hirsin
+ms.reviewer: marsma, ludwignick
 ROBOTS: NOINDEX
 ---
 
@@ -108,9 +108,9 @@ As of November 2017, all Access Control components are fully supported and opera
 
 Here's the schedule for deprecating Access Control components:
 
-- **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `https://manage.windowsazure.com?restoreClassic=true`. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
+- **November 2017**: The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `https://manage.windowsazure.com?restoreClassic=true`. Use this URL to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
 - **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://<namespace>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
-- **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
+- **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at `<namespace>.accesscontrol.windows.net`) fail. You should have migrated all existing apps and services to other technologies well before this time.
 
 > [!NOTE]
 > A policy disables namespaces that have not requested a token for a period of time. As of early September 2018, this period of time is currently at 14 days of inactivity, but this will be shortened to 7 days of inactivity in the coming weeks. If you have Access Control namespaces that are currently disabled, you can [download and install ACS PowerShell](#download-and-install-acs-powershell) to re-enable the namespace(s).

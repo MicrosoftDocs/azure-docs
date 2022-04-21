@@ -2,11 +2,11 @@
 title: Authentication - Data Lake Storage Gen1 with Azure AD
 description: Learn how to authenticate with Azure Data Lake Storage Gen1 using Azure Active Directory.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory

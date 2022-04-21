@@ -33,11 +33,6 @@ $startEmulatorCmd = "Start-CosmosDbEmulator -NoFirewall -NoUI"
 Write-Host $startEmulatorCmd
 Invoke-Expression -Command $startEmulatorCmd
 
-$command = "curl `"https://localhost:8081/_explorer/index.html`""
-Write-Host $command
-$resultCommand = Invoke-Expression $command
-Write-Host $resultCommand
-
 # Pipe an emulator info object to the output stream
 
 $Emulator = Get-Item "$env:ProgramFiles\Azure Cosmos DB Emulator\Microsoft.Azure.Cosmos.Emulator.exe"

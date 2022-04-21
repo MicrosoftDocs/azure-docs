@@ -15,6 +15,7 @@ In this section, we will describe how to use the API for authentication and sess
 > [!CAUTION]
 > The functions described in this chapter issue REST calls on the server internally. As for all REST calls, sending these commands too frequently will cause the server to throttle and return failure eventually. The value of the `SessionGeneralContext.HttpResponseCode` member in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
+Some functions also return information when it is save to retry. For example `RenderingSessionPropertiesResult.MinimumRetryDelay` specifies how many seconds to wait before attempting another check. When available, using such a returned value is best, as it allows you to do checks as often as possible, without getting throttled.
 
 ## SessionConfiguration
 

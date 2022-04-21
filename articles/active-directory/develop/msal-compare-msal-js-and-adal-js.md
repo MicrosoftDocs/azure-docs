@@ -3,7 +3,7 @@ title: "Migrate your JavaScript application from ADAL.js to MSAL.js | Azure"
 titleSuffix: Microsoft identity platform
 description: How to update your existing JavaScript application to use the Microsoft Authentication Library (MSAL) for authentication and authorization instead of the Active Directory Authentication Library (ADAL).
 services: active-directory
-author: derisen
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,8 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
-ms.author: v-doeris
+ms.author: marsma
+ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my JavaScript application from using ADAL.js as its authentication library to MSAL.js.
 ---
 
@@ -94,7 +95,7 @@ In both ADAL.js and MSAL.js, the authority URI defaults to `https://login.micros
 
 Some of the [configuration options in ADAL.js](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context) that are used when initializing [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) are deprecated in MSAL.js, while some new ones are introduced. See the [full list of available options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md). Importantly, many of these options, except for `clientId`, can be overridden during token acquisition, allowing you to set them on a *per-request* basis. For instance, you can use a different **authority URI** or **redirect URI** than the one you set during initialization when acquiring tokens.
 
-Additionally, you no longer need to specify the login experience (i.e. whether using popup windows or redirecting the page) via the configuration options. Instead, MSAL.js exposes `loginPopup` and `loginRedirect` methods through the `PublicClientApplication` instance.
+Additionally, you no longer need to specify the login experience (that is, whether using pop-up windows or redirecting the page) via the configuration options. Instead, `MSAL.js` exposes `loginPopup` and `loginRedirect` methods through the `PublicClientApplication` instance.
 
 ## Enable logging
 
@@ -320,7 +321,7 @@ The snippets below demonstrates the minimal code required for a single-page appl
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script 
+  <script
     type="text/javascript"
     src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js">
   </script>
@@ -373,8 +374,8 @@ The snippets below demonstrates the minimal code required for a single-page appl
 
     tokenButton.addEventListener('click', () => {
         authContext.acquireTokenPopup(
-            "https://graph.microsoft.com", 
-            null, null, 
+            "https://graph.microsoft.com",
+            null, null,
             function (error, token) {
                 console.log(error, token);
             }
@@ -397,8 +398,8 @@ The snippets below demonstrates the minimal code required for a single-page appl
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script 
-    type="text/javascript" 
+  <script
+    type="text/javascript"
     src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js">
   </script>
 </head>

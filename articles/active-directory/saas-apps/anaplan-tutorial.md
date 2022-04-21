@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Anaplan | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Anaplan'
 description: Learn how to configure single sign-on between Azure Active Directory and Anaplan.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 11/16/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Anaplan
+# Tutorial: Azure AD SSO integration with Anaplan
 
 In this tutorial, you'll learn how to integrate Anaplan with Azure Active Directory (Azure AD). When you integrate Anaplan with Azure AD, you can:
 
@@ -112,7 +112,43 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Anaplan SSO
 
-To configure single sign-on on **Anaplan** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Anaplan support team](mailto:support@anaplan.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Login to Anaplan website as an administrator.
+
+1. In Administration page, navigate to **Security > Single Sign-On**.
+
+1. Click **New**.
+
+1. Perform the following steps in the **Metadata** tab:
+
+    ![Screenshot for the security page](./media/anaplan-tutorial/security.png)
+
+    a. Enter a **Connection Name**, should match the name of your connection in the identity provider interface.
+
+    b. Select **Load from XML file** and enter the URL of the metadata XML file with your configuration information in the **Metadata URL** textbox.
+
+    C. Enabled the **Signed** toggle.
+
+    d. Click **Save** to create the connection.
+
+1. When you upload a **metadata XML** file in the **Metadata** tab, the values in **Config** tab pre-populate with the information from that upload. You can skip this tab in your connection setup and click **Save**.
+
+    ![Screenshot for the configuration page](./media/anaplan-tutorial/configuration.png)
+
+1. Perform the following steps in the **Advanced** tab:
+
+    ![Screenshot for the Advanced page](./media/anaplan-tutorial/advanced.png)
+
+    a. Select **Name ID Format** as Email Address from the dropdown and keep the remaining values as default.
+
+    b. Click **Save**.
+
+1. In the **Workspaces** tab, specify the workspaces that will use the identity provider from the dropdown and Click **Save**. 
+
+    ![Screenshot for the Workspaces page](./media/anaplan-tutorial/Workspaces.png)
+
+    > [!NOTE]
+    > Workspace connections are unique. If you have another connection already configured with a workspace, you cannot associate that workspace with a new connection.
+To access the original connection and update it, remove the workspace from the connection and then reassociate it with the new connection.
 
 ### Create Anaplan test user
 
@@ -126,8 +162,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Anaplan Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Anaplan tile in the My Apps, this will redirect to Anaplan Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Anaplan tile in the My Apps, this will redirect to Anaplan Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Anaplan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Anaplan you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

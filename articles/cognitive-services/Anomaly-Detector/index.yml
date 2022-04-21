@@ -29,14 +29,14 @@ landingContent:
           url: whats-new.md
     - linkListType: get-started
       links:
-        - text: Demo web application (univariate)
+        - text: Demo web application (univariate & multivariate)
           url: https://aka.ms/adDemo
     - linkListType: video
       links:
         - text: Introducing the Anomaly Detector API (univariate) 
-          url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
+          url: /shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
         - text: Introducing the new multivariate capabilities
-          url: https://channel9.msdn.com/Shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities
+          url: /shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities
         - text: More videos ...
           url: whats-new.md#videos
     - linkListType: reference
@@ -89,7 +89,7 @@ landingContent:
     - linkListType: video
       links:
         - text: Anomaly Detector best practices (univariate)
-          url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices 
+          url: /shows/AI-Show/Anomaly-Detector-v10-Best-Practices
 
 - title: Use Docker containers
   linkLists:
@@ -106,7 +106,7 @@ landingContent:
     - linkListType: video
       links:
         - text: Bring Anomaly Detector on-premises with containers support (univariate)
-          url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
+          url: /shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
   
 - title: Help and feedback
   linkLists:
@@ -127,7 +127,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: REST API (univariate)
-          url: https://aka.ms/anomaly-detector-rest-api-ref
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect
         - text: .NET SDK (univariate)
           url: https://aka.ms/anomaly-detector-dotnet-ref
         - text: .Python SDK (univariate)
@@ -145,10 +145,10 @@ landingContent:
         - text: REST API (multivariate)
           url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
         - text: .NET SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165601&clcid=0x409
+          url: /dotnet/api/azure.ai.anomalydetector
         - text: Python SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165298&clcid=0x409
+          url: /python/api/azure-ai-anomalydetector/azure.ai.anomalydetector
         - text: Java SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165600&clcid=0x409
+          url: /java/api/com.azure.ai.anomalydetector
         - text: Node.js SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165523&clcid=0x409
+          url: /javascript/api/overview/azure/ai-anomaly-detector-readme

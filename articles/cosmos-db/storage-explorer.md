@@ -1,22 +1,22 @@
 ---
 title: Manage Azure Cosmos DB resources by using Azure Storage Explorer
 description: Learn how to connect to Azure Cosmos DB and manage its resources by using Azure Storage Explorer.
-author: deborahc
+author: StefArroyo
+ms.author: esarroyo 
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/23/2020
-ms.author: dech
-ms.custom: seodec18, has-adal-ref
+ms.custom: seodec18
 ---
 # Manage Azure Cosmos DB resources by using Azure Storage Explorer
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 You can use Azure Storage explorer to connect to Azure Cosmos DB. It lets you connect to Azure Cosmos DB accounts hosted on Azure and sovereign clouds from Windows, macOS, or Linux.
 
-Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like storage blobs and queues. Azure Storage Explorer supports Cosmos accounts configured for SQL, MongoDB, Graph, and Table APIs.
+Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like storage blobs and queues. Azure Storage Explorer supports Cosmos accounts configured for SQL, MongoDB, Gremlin, and Table APIs.
 
 > [!NOTE]
-> The Azure Cosmos DB integration with Storage Explorer has been deprecated. Any existing functionality will not be removed for a minimum of one year from this release. You should use the [Azure Portal](https://portal.azure.com/), [Azure Portal desktop app](https://portal.azure.com/App/Download) or the standalone [Azure Cosmos DB Explorer](data-explorer.md) instead. The alternative options contain many new features that aren’t currently supported in Storage Explorer.
+> The Azure Cosmos DB integration with Storage Explorer has been deprecated. Any existing functionality will not be removed for a minimum of one year from this release. You should use the [Azure Portal](https://portal.azure.com/), [Azure Portal desktop app](https://portal.azure.com/App/Download) or the standalone [Azure Cosmos DB Explorer](data-explorer.md) instead. The alternative options contain many new features that aren't currently supported in Storage Explorer.
 
 ## Prerequisites
 

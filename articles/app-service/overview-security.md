@@ -50,7 +50,7 @@ App Service authentication and authorization support multiple authentication pro
 
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
-- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](../key-vault/index.yml). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](app-service-web-tutorial-connect-msi.md).
+- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](../key-vault/index.yml). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
 - **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
@@ -71,7 +71,7 @@ If your app is hosted in an [App Service environment](environment/intro.md), you
 
 ### Resources inside an Azure Virtual Network
 
-Your app can access resources in an [Azure Virtual Network](../virtual-network/index.yml) through [Virtual Network integration](web-sites-integrate-with-vnet.md). The integration is established with a Virtual Network using a point-to-site VPN. The app can then access the resources in the Virtual Network using their private IP addresses. The point-to-site connection, however, still traverses the shared networks in Azure. 
+Your app can access resources in an [Azure Virtual Network](../virtual-network/index.yml) through [Virtual Network integration](./overview-vnet-integration.md). The integration is established with a Virtual Network using a point-to-site VPN. The app can then access the resources in the Virtual Network using their private IP addresses. The point-to-site connection, however, still traverses the shared networks in Azure. 
 
 To isolate your resource connectivity completely from the shared networks in Azure, create your app in an [App Service environment](environment/intro.md). Since an App Service environment is always deployed to a dedicated Virtual Network, connectivity between your app and resources within the Virtual Network is fully isolated. For other aspects of network security in an App Service environment, see [Network isolation](#network-isolation).
 
@@ -80,7 +80,7 @@ To isolate your resource connectivity completely from the shared networks in Azu
 You can securely access on-premises resources, such as databases, in three ways: 
 
 - [Hybrid connections](app-service-hybrid-connections.md) - Establishes a point-to-point connection to your remote resource through a TCP tunnel. The TCP tunnel is established using TLS 1.2 with shared access signature (SAS) keys.
-- [Virtual Network integration](web-sites-integrate-with-vnet.md) with site-to-site VPN - As described in [Resources inside an Azure Virtual Network](#resources-inside-an-azure-virtual-network), but the Virtual Network can be connected to your on-premises network through a [site-to-site VPN](../vpn-gateway/tutorial-site-to-site-portal.md). In this network topology, your app can connect to on-premises resources like other resources in the Virtual Network.
+- [Virtual Network integration](./overview-vnet-integration.md) with site-to-site VPN - As described in [Resources inside an Azure Virtual Network](#resources-inside-an-azure-virtual-network), but the Virtual Network can be connected to your on-premises network through a [site-to-site VPN](../vpn-gateway/tutorial-site-to-site-portal.md). In this network topology, your app can connect to on-premises resources like other resources in the Virtual Network.
 - [App Service environment](environment/intro.md) with site-to-site VPN - As described in [Resources inside an Azure Virtual Network](#resources-inside-an-azure-virtual-network), but the Virtual Network can be connected to your on-premises network through a [site-to-site VPN](../vpn-gateway/tutorial-site-to-site-portal.md). In this network topology, your app can connect to on-premises resources like other resources in the Virtual Network.
 
 ## Application secrets

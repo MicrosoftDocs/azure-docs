@@ -9,8 +9,8 @@ metadata:
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
-  author: rayne-wiselman
-  ms.author: raynew
+  author: v-ksreedevan
+  ms.author: v-ksreedevan
   ms.date: 07/08/2020
   ms.custom: seo-azure-migrate
   keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
@@ -98,7 +98,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Request a service feature
-            url: https://feedback.azure.com/forums/907195-azure-migrate
+            url: https://feedback.azure.com/d365community/forum/cd45915f-0f25-ec11-b6e6-000d3a4f09d0
           - text: Ask a forum question
             url: /answers/topics/azure-migrate.html
           - text: Azure Tech Community

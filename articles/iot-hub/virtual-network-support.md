@@ -2,11 +2,11 @@
  title: Azure IoT Hub support for virtual networks
  description: How to use virtual networks connectivity pattern with IoT Hub
  services: iot-hub
- author: jlian
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 12/18/2020
- ms.author: jlian
+ ms.date: 10/20/2021
+ ms.author: kgremban
 ---
 
 # IoT Hub support for virtual networks with Private Link and Managed Identity
@@ -46,9 +46,9 @@ Before proceeding ensure that the following prerequisites are met:
 
 Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) as well as service APIs (like creating and updating devices).
 
-1. In Azure portal, select **Networking**, **Private endpoint connections**, and click the **+ Private endpoint**.
+1. In Azure portal, select **Networking**, **Private access**, and click the **+ Create a private endpoint** option.
 
-    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub" border="true":::
 
 1. Provide the subscription, resource group, name, and region to create the new private endpoint in. Ideally, private endpoint should be created in the same region as your hub.
 

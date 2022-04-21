@@ -2,10 +2,10 @@
 title: Tutorial - Develop C# module for Linux using Azure IoT Edge
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to a Linux IoT Edge device.
 services: iot-edge
-author: kgremban
-manager: philmea
+author: PatAltimore
 
-ms.author: kgremban
+
+ms.author: patricka
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -41,10 +41,8 @@ Use the following table to understand your options for developing and deploying 
 | C# | Visual Studio Code | Visual Studio |
 | -- | ------------------ | ------------- |
 | **Linux AMD64** | ![C# modules for LinuxAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![C# modules for LinuxARM32 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-
->[!NOTE]
->Support for Linux ARM64 devices is available in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+| **Linux ARM32** | ![C# modules for LinuxARM32 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxARM32 in Visual Studio](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM64** | ![C# modules for LinuxARM64 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module using Linux containers](tutorial-develop-for-linux.md). After completing that tutorial, you already should have the following prerequisites:
 
@@ -108,7 +106,7 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
 
 1. In the VS Code explorer, open **modules** > **CSharpModule** > **Program.cs**.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+1. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -116,13 +114,13 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-3. Add the **temperatureThreshold** variable to the **Program** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub.
+1. Add the **temperatureThreshold** variable to the **Program** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub.
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-4. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+1. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
@@ -143,24 +141,26 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
     }
     ```
 
-5. Find the **Init** function. This function creates and configures a **ModuleClient** object, which allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via the **input1** endpoint. Replace the **SetInputMessageHandlerAsync** method with a new one, and add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
+1. Find the **Init** function. This function creates and configures a **ModuleClient** object, which allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via an endpoint called **input1**.
 
-    ```csharp
-    // Register a callback for messages that are received by the module.
-    // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+   Replace the **SetInputMessageHandlerAsync** method with a new one that updates the name of the endpoint and the method that is called when input arrives. Also, add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
 
-    // Read the TemperatureThreshold value from the module twin's desired properties
-    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-    await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
+   ```csharp
+   // Register a callback for messages that are received by the module.
+   // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
-    // Attach a callback for updates to the module twin's desired properties.
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
+   // Read the TemperatureThreshold value from the module twin's desired properties
+   var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+   await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
 
-    // Register a callback for messages that are received by the module.
-    await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
-    ```
+   // Attach a callback for updates to the module twin's desired properties.
+   await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
 
-6. Add the **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
+   // Register a callback for messages that are received by the module. Messages received on the inputFromSensor endpoint are sent to the FilterMessages method.
+   await ioTHubModuleClient.SetInputMessageHandlerAsync("inputFromSensor", FilterMessages, ioTHubModuleClient);
+   ```
+
+1. Add the **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
     ```csharp
     static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -191,7 +191,7 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
     }
     ```
 
-7. Replace the **PipeMessage** method with the **FilterMessages** method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**.
+1. Replace the **PipeMessage** method with the **FilterMessages** method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**.
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -248,11 +248,19 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
     }
     ```
 
-8. Save the Program.cs file.
+1. Save the Program.cs file.
 
-9. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+1. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin:
+1. Since we changed the name of the endpoint that the module listens on, we also need to update the routes in the deployment manifest so that the edgeHub sends messages to the new endpoint.
+
+    Find the **routes** section in the **$edgeHub** module twin. Update the **sensorToCSharpModule** route to replace `input1` with `inputFromSensor`:
+
+    ```json
+    "sensorToCSharpModule": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/CSharpModule/inputs/inputFromSensor\")"
+    ```
+
+1. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin:
 
     ```json
        "CSharpModule": {
@@ -264,7 +272,7 @@ Currently, Visual Studio Code can develop C# modules for Linux AMD64 and Linux A
 
     ![Add module twin to deployment template](./media/tutorial-csharp-module/module-twin.png)
 
-11. Save the deployment.template.json file.
+1. Save the deployment.template.json file.
 
 ## Build and push your module
 

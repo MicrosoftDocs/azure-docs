@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for PHP with Azure DevOps Starter' 
+title: 'Quickstart: Create a CI/CD pipeline for PHP with Azure DevOps Starter'
 description: DevOps Starter makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
+author: georgewallace
 manager: gwallace
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc
+ms.author: gwallace
+ms.custom: mvc, mode-other
 ---
 
 # Create a CI/CD pipeline for PHP with Azure DevOps Starter

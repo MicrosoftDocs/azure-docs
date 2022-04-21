@@ -17,18 +17,18 @@ ms.custom: devx-track-csharp
 # Create a stored access policy with .NET
 
 A stored access policy provides an additional level of control over service-level shared access signatures (SAS) on the server side. Defining a stored access policy serves to group shared access signatures and to provide additional restrictions for shared access signatures that are bound by the policy. You can use a stored access policy to change the start time, expiry time, or permissions for a SAS, or to revoke it after it has been issued.
-  
-The following Azure Storage resources support stored access policies:  
-  
-- Blob containers  
-- File shares  
-- Queues  
-- Tables  
-  
+
+The following Azure Storage resources support stored access policies:
+
+- Blob containers
+- File shares
+- Queues
+- Tables
+
 > [!NOTE]
 > A stored access policy on a container can be associated with a shared access signature granting permissions to the container itself or to the blobs it contains. Similarly, a stored access policy on a file share can be associated with a shared access signature granting permissions to the share itself or to the files it contains.  
 >
-> Stored access policies are supported for a service SAS only. Stored access policies are not supported for account SAS or user delegation SAS.  
+> Stored access policies are supported for a service SAS only. Stored access policies are not supported for account SAS or user delegation SAS.
 
 For more information about stored access policies, see [Define a stored access policy](/rest/api/storageservices/define-stored-access-policy).
 

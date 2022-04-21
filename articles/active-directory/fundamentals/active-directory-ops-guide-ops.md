@@ -3,7 +3,7 @@ title: Azure Active Directory general operations guide reference
 description: This operations reference guide describes the checks and actions you should take to secure general operations
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: karenhoran
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual

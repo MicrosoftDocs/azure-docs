@@ -1,9 +1,10 @@
 ---
 title: Export Azure Policy resources
 description: Learn to export Azure Policy resources to GitHub, such as policy definitions and policy assignments.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Export Azure Policy resources
 
@@ -15,6 +16,9 @@ Policy resources can be exported through [Azure portal](#export-with-azure-porta
 the supported SDKs.
 
 ## Export with Azure portal
+
+> [!NOTE]
+> Exporting Azure Policy resources from the Azure portal isn't available for Azure sovereign clouds.
 
 To export a policy definition from Azure portal, follow these steps:
 
@@ -36,7 +40,7 @@ To export a policy definition from Azure portal, follow these steps:
    Policies** button at the bottom of the page.
 
    - **Repository filter**: Set to _My repositories_ to see only repositories you own or _All
-     repositories_ to see all you granted the GitHub Action access to.
+     repositories_ to see all you granted the GitHub Actions access to.
    - **Repository**: Set to the repository that you want to export the Azure Policy resources to.
    - **Branch**: Set the branch in the repository. Using a branch other than the default is a good
      way to validate your updates before merging further into your source code.
@@ -85,9 +89,9 @@ Azure Policy definitions, initiatives, and assignments can each be exported as J
 specify which object to get the JSON for. The **name** property is often a _GUID_ and isn't the
 **displayName** of the object.
 
-- Definition - [az policy definition show](/cli/azure/policy/definition#az_policy_definition_show)
-- Initiative - [az policy set-definition show](/cli/azure/policy/set-definition#az_policy_set_definition_show)
-- Assignment - [az policy assignment show](/cli/azure/policy/assignment#az_policy_assignment_show)
+- Definition - [az policy definition show](/cli/azure/policy/definition#az-policy-definition-show)
+- Initiative - [az policy set-definition show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
+- Assignment - [az policy assignment show](/cli/azure/policy/assignment#az-policy-assignment-show)
 
 Here is an example of getting the JSON for a policy definition with **name** of
 _VirtualMachineStorage_:

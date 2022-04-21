@@ -1,12 +1,13 @@
 ---
 title: Create an Azure HPC Cache
 description: How to create an Azure HPC Cache instance
-author: ekpgh
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2021
-ms.author: v-erkel 
-ms.custom: devx-track-azurepowershell
+ms.date: 01/26/2022
+ms.author: rohogue 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create an Azure HPC Cache
@@ -14,10 +15,10 @@ ms.custom: devx-track-azurepowershell
 Use the Azure portal or the Azure CLI to create your cache.
 
 ![screenshot of cache overview in Azure portal, with create button at the bottom](media/hpc-cache-home-page.png)
-
+<!--
 Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target.
 
-[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) -->
 
 ## [Portal](#tab/azure-portal)
 
@@ -30,6 +31,9 @@ In **Project Details**, select the subscription and resource group that will hos
 In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
+
+  If that region supports [availability zones](../availability-zones/az-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
+
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
 
@@ -101,13 +105,7 @@ If you want to manage the encryption keys used for your cache storage, supply yo
 You can skip this section if you do not need customer-managed keys. Azure encrypts data with Microsoft-managed keys by default. Read [Azure storage encryption](../storage/common/storage-service-encryption.md) to learn more.
 
 > [!NOTE]
->
-> * You cannot change between Microsoft-managed keys and customer-managed keys after creating the cache.
-> * If you use a system-assigned managed identity, an extra step is needed:
->   * After the cache is created, you must authorize it to access the key vault. Click the **Enable encryption** button in the cache's **Overview** page to turn on encryption. Take this step within 90 minutes of creating the cache.
->   * Cache disks are created after this authorization. This means that the initial cache creation time is short, but the cache will not be ready to use for ten minutes or more after you authorize access.
->
->   With a user-assigned managed identity, the authorization happens automatically.
+> You cannot change between Microsoft-managed keys and customer-managed keys after creating the cache.
 
 For a complete explanation of the customer-managed key encryption process, read [Use customer-managed encryption keys for Azure HPC Cache](customer-keys.md).
 
@@ -115,16 +113,17 @@ For a complete explanation of the customer-managed key encryption process, read 
 
 Select **Customer managed** to choose customer-managed key encryption. The key vault specification fields appear. Select the Azure Key Vault to use, then select the key and version to use for this cache. The key must be a 2048-bit RSA key. You can create a new key vault, key, or key version from this page.
 
-Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
+Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
 
-If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
+If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) to learn more.
 
 > [!NOTE]
 > You cannot change the assigned identity after you create the cache.
 
- If you supply a user-assigned managed identity instead of using a system-assigned identity, you don't need to do any extra authorization step after the cache is created.
+If you use a system-assigned managed identity or a user-assigned identity that doesn't already have access to your key vault, there is an extra step you must do after you create the cache. This manual step authorizes the cache's managed identity to use the key vault.
 
-If you use a system-assigned managed identity, there is an extra step to do after you create the cache. You must authorize the cache to use the key vault service. Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) for details.
+* Read [Choose a managed identity option for the cache](customer-keys.md#choose-a-managed-identity-option-for-the-cache) to understand the differences in the managed identity settings.
+* Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) to learn about the manual step.
 
 ## Add resource tags (optional)
 
@@ -143,7 +142,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 ![screenshot of Azure HPC Cache instance in Azure portal](media/hpc-cache-new-overview.png)
 
 > [!NOTE]
-> If your cache uses customer-managed encryption keys, the cache might appear in the resources list before the deployment status changes to complete. As soon as the cache's status is **Waiting for key** you can [authorize it](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) to use the key vault.
+> If your cache uses customer-managed encryption keys and requires a manual authorization step after creation, the cache might appear in the resources list before its deployment status changes to complete. As soon as the cache's status is **Waiting for key** you can [authorize it](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) to use the key vault.
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -154,7 +153,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.
 
-Use the [az hpc-cache create](/cli/azure/hpc-cache#az_hpc_cache_create) command to create a new Azure HPC Cache.
+Use the [az hpc-cache create](/cli/azure/hpc-cache#az-hpc-cache-create) command to create a new Azure HPC Cache.
 
 Supply these values:
 
@@ -163,7 +162,7 @@ Supply these values:
 * Azure region
 * Cache subnet, in this format:
 
-  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"``
+  `--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"`
 
   The cache subnet needs at least 64 IP addresses (/24), and it can't house any other resources.
 
@@ -354,4 +353,4 @@ The message includes some useful information, including these items:
 After your cache appears in the **Resources** list, you can move to the next step.
 
 * [Define storage targets](hpc-cache-add-storage.md) to give your cache access to your data sources.
-* If you use customer-managed encryption keys, you need to [authorize Azure Key Vault encryption](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) from the cache's overview page to complete your cache setup. You must do this step before you can add storage. Read [Use customer-managed encryption keys](customer-keys.md) for details.
+* If you use customer-managed encryption keys and need to [authorize Azure Key Vault encryption](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) from the cache's overview page to complete your cache setup, follow the guidance in [Use customer-managed encryption keys](customer-keys.md). You must do this step before you can add storage.

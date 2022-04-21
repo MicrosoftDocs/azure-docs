@@ -1,10 +1,11 @@
 ---
 title: Logs - Azure Database for PostgreSQL - Single Server
 description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: sunila
+author: sunilagarwal
 ms.date: 06/25/2020
 ---
 
@@ -41,6 +42,8 @@ You can set the retention period for this short-term log storage using the `log_
 For longer-term retention of logs and log analysis, you can download the .log files and move them to a third-party service. You can download the files using the [Azure portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md). Alternatively, you can configure Azure Monitor diagnostic settings which automatically emits your logs (in JSON format) to longer-term locations. Learn more about this option in the section below. 
 
 You can stop generating .log files by setting the parameter `logging_collector` to OFF. Turning off .log file generation is recommended if you are using Azure Monitor diagnostic settings. This configuration will reduce the performance impact of additional logging.
+> [!NOTE]
+> Restart the server to apply this change.
 
 ## Resource logs
 
@@ -52,7 +55,7 @@ Azure Database for PostgreSQL is integrated with Azure Monitor diagnostic settin
 
 ### Configure diagnostic settings
 
-You can enable diagnostic settings for your Postgres server using the Azure portal, CLI, REST API, and Powershell. The log category to select is **PostgreSQLLogs**. (There are other logs you can configure if you are using [Query Store](concepts-query-store.md).)
+You can enable diagnostic settings for your Postgres server using the Azure portal, CLI, REST API, and PowerShell. The log category to select is **PostgreSQLLogs**. (There are other logs you can configure if you are using [Query Store](concepts-query-store.md).)
 
 To enable resource logs using the Azure portal:
 
@@ -63,7 +66,7 @@ To enable resource logs using the Azure portal:
    5. Select the log type **PostgreSQLLogs**.
    7. Save your setting.
 
-To enable resource logs using Powershell, CLI, or REST API, visit the [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) article.
+To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) article.
 
 ### Access resource logs
 

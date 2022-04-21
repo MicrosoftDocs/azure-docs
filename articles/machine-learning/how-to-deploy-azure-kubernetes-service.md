@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
-ms.custom: contperf-fy21q1, deploy
+ms.custom: contperf-fy21q1, deploy, cliv1
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
+ms.date: 10/21/2021
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -32,13 +32,15 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+- The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -65,7 +67,7 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
     1. The system calculates a hash of: 
         - The base image 
-        - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-docker-image.md))
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-container.md))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](./how-to-use-environments.md))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
     1. If it is not found, it looks for a match in the global ACR
@@ -81,32 +83,46 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md). There is one azureml-fe service per cluster, which may be running on multiple pods.
 
 > [!IMPORTANT]
-> When using a cluster configured as __dev-test__, the self-scaler is **disabled**.
+> When using a cluster configured as __dev-test__, the self-scaler is **disabled**. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
 
 Azureml-fe scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale up, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-up occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
+When scale-up or scale-down, azureml-fe pods will be restarted to apply the cpu/memory changes. Inferencing requests are not affected by the restarts.
+
+<a id="connectivity"></a>
+
 ## Understand connectivity requirements for AKS inferencing cluster
 
 When Azure Machine Learning creates or attaches an AKS cluster, AKS cluster is deployed with one of the following two network models:
 * Kubenet networking - The network resources are typically created and configured as the AKS cluster is deployed.
-* Azure Container Networking Interface (CNI) networking - The AKS cluster is connected to existing virtual network resources and configurations.
+* Azure Container Networking Interface (CNI) networking - The AKS cluster is connected to an existing virtual network resource and configurations.
 
-For the first network mode, networking is created and configured properly for Azure Machine Learning service. For the second networking mode, since the cluster is connected to existing virtual network, especially when custom DNS is used for existing virtual network, customer needs to pay extra attention to connectivity requirements for AKS inferencing cluster and ensure DNS resolution and outbound connectivity for AKS inferencing.
+For Kubenet networking, the network is created and configured properly for Azure Machine Learning service. For the CNI networking, you need to understand the connectivity requirements and ensure DNS resolution and outbound connectivity for AKS inferencing. For example, you may be using a firewall to block network traffic.
 
-Following diagram captures all connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names, that customer-controlled DNS should resolve.
+The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
  ![Connectivity Requirements for AKS Inferencing](./media/how-to-deploy-aks/aks-network.png)
 
+For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+
+For accessing Azure ML services behind a firewall, see [How to access azureml behind firewall](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/machine-learning/how-to-access-azureml-behind-firewall.md).
+
 ### Overall DNS resolution requirements
-DNS resolution within existing VNET is under customer's control. The following DNS entries should be resolvable:
-* AKS API server in the form of \<cluster\>.hcp.\<region\>.azmk8s.io
-* Microsoft Container Registry (MCR): mcr.microsoft.com
-* Customer's Azure Container Registry (ARC) in the form of \<ACR name\>.azurecr.io
-* Azure Storage Account in the form of \<account\>.table.core.windows.net and \<account\>.blob.core.windows.net
-* (Optional) For AAD authentication: api.azureml.ms
-* Scoring endpoint domain name, either auto-generated by Azure ML or custom domain name. The auto-generated domain name would look like: \<leaf-domain-label \+ auto-generated suffix\>.\<region\>.cloudapp.azure.com
+
+DNS resolution within an existing VNet is under your control. For example, a firewall or custom DNS server. The following hosts must be reachable:
+
+| Host name | Used by |
+| ----- | ----- |
+| `<cluster>.hcp.<region>.azmk8s.io` | AKS API server |
+| `mcr.microsoft.com` | Microsoft Container Registry (MCR) |
+| `<ACR name>.azurecr.io` | Your Azure Container Registry (ACR) |
+| `<account>.table.core.windows.net` | Azure Storage Account (table storage) |
+| `<account>.blob.core.windows.net` | Azure Storage Account (blob storage) |
+| `api.azureml.ms` | Azure Active Directory (Azure AD) authentication |
+| `ingest-vienna<region>.kusto.windows.net` | Kusto endpoint for uploading telemetry |
+| `<leaf-domain-label + auto-generated suffix>.<region>.cloudapp.azure.com` | Endpoint domain name, if you autogenerated by Azure Machine Learning. If you used a custom domain name, you do not need this entry. |
 
 ### Connectivity requirements in chronological order: from cluster creation to model deployment
 
@@ -120,9 +136,9 @@ Right after azureml-fe is deployed, it will attempt to start and this requires t
 * Query AKS API server to discover other instances of itself (it is a multi-pod service)
 * Connect to other instances of itself
 
-Once azureml-fe is started, it requires additional connectivity to function properly:
+Once azureml-fe is started, it requires the following connectivity to function properly:
 * Connect to Azure Storage to download dynamic configuration
-* Resolve DNS for AAD authentication server api.azureml.ms and communicate with it when the deployed service uses AAD authentication.
+* Resolve DNS for Azure AD authentication server api.azureml.ms and communicate with it when the deployed service uses Azure AD authentication.
 * Query AKS API server to discover deployed models
 * Communicate to deployed model PODs
 
@@ -150,6 +166,7 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
 from azureml.core.model import Model
+from azureml.core.compute import AksCompute
 
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
@@ -171,6 +188,8 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
 ```azurecli-interactive
@@ -179,7 +198,7 @@ az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.jso
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) reference.
+For more information, see the [az ml model deploy](/cli/azure/ml/model#az-ml-model-deploy) reference.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -233,96 +252,6 @@ replicas = ceil(concurrentRequests / maxReqPerContainer)
 
 For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) module reference.
 
-## Deploy models to AKS using controlled rollout (preview)
-
-Analyze and promote model versions in a controlled fashion using endpoints. You can deploy up to six versions behind a single endpoint. Endpoints provide the following capabilities:
-
-* Configure the __percentage of scoring traffic sent to each endpoint__. For example, route 20% of the traffic to endpoint 'test' and 80% to 'production'.
-
-    > [!NOTE]
-    > If you do not account for 100% of the traffic, any remaining percentage is routed to the __default__ endpoint version. For example, if you configure endpoint version 'test' to get 10% of the traffic, and 'prod' for 30%, the remaining 60% is sent to the default endpoint version.
-    >
-    > The first endpoint version created is automatically configured as the default. You can change this by setting `is_default=True` when creating or updating an endpoint version.
-     
-* Tag an endpoint version as either __control__ or __treatment__. For example, the current production endpoint version might be the control, while potential new models are deployed as treatment versions. After evaluating performance of the treatment versions, if one outperforms the current control, it might be promoted to the new production/control.
-
-    > [!NOTE]
-    > You can only have __one__ control. You can have multiple treatments.
-
-You can enable app insights to view operational metrics of endpoints and deployed versions.
-
-### Create an endpoint
-Once you are ready to deploy your models, create a scoring endpoint and deploy your first version. The following example shows how to deploy and create the endpoint using the SDK. The first deployment will be defined as the default version, which means that unspecified traffic percentile across all versions will go to the default version.  
-
-> [!TIP]
-> In the following example, the configuration sets the initial endpoint version to handle 20% of the traffic. Since this is the first endpoint, it's also the default version. And since we don't have any other versions for the other 80% of traffic, it is routed to the default as well. Until other versions that take a percentage of traffic are deployed, this one effectively receives 100% of the traffic.
-
-```python
-import azureml.core,
-from azureml.core.webservice import AksEndpoint
-from azureml.core.compute import AksCompute
-from azureml.core.compute import ComputeTarget
-# select a created compute
-compute = ComputeTarget(ws, 'myaks')
-
-# define the endpoint and version name
-endpoint_name = "mynewendpoint"
-version_name= "versiona"
-# create the deployment config and define the scoring traffic percentile for the first deployment
-endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
-                                                              enable_app_insights = True,
-                                                              tags = {'sckitlearn':'demo'},
-                                                              description = "testing versions",
-                                                              version_name = version_name,
-                                                              traffic_percentile = 20)
- # deploy the model and endpoint
- endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
- # Wait for he process to complete
- endpoint.wait_for_deployment(True)
- ```
-
-### Update and add versions to an endpoint
-
-Add another version to your endpoint and configure the scoring traffic percentile going to the version. There are two types of versions, a control and a treatment version. There can be multiple treatment versions to help compare against a single control version.
-
-> [!TIP]
-> The second version, created by the following code snippet, accepts 10% of traffic. The first version is configured for 20%, so only 30% of the traffic is configured for specific versions. The remaining 70% is sent to the first endpoint version, because it is also the default version.
-
- ```python
-from azureml.core.webservice import AksEndpoint
-
-# add another model deployment to the same endpoint as above
-version_name_add = "versionb"
-endpoint.create_version(version_name = version_name_add,
-                        inference_config=inference_config,
-                        models=[model],
-                        tags = {'modelVersion':'b'},
-                        description = "my second version",
-                        traffic_percentile = 10)
-endpoint.wait_for_deployment(True)
-```
-
-Update existing versions or delete them in an endpoint. You can change the version's default type, control type, and the traffic percentile. In the following example, the second version increases its traffic to 40% and is now the default.
-
-> [!TIP]
-> After the following code snippet, the second version is now default. It is now configured for 40%, while the original version is still configured for 20%. This means that 40% of traffic is not accounted for by version configurations. The leftover traffic will be routed to the second version, because it is now default. It effectively receives 80% of the traffic.
-
- ```python
-from azureml.core.webservice import AksEndpoint
-
-# update the version's scoring traffic percentage and if it is a default or control type
-endpoint.update_version(version_name=endpoint.versions["versionb"].name,
-                        description="my second version update",
-                        traffic_percentile=40,
-                        is_default=True,
-                        is_control_version_type=True)
-# Wait for the process to complete before deleting
-endpoint.wait_for_deployment(true)
-# delete a version in an endpoint
-endpoint.delete_version(version_name="versionb")
-
-```
-
 ## Web service authentication
 
 When deploying to Azure Kubernetes Service, __key-based__ authentication is enabled by default. You can also enable __token-based__ authentication. Token-based authentication requires clients to use an Azure Active Directory account to request an authentication token, which is used to make requests to the deployed service.
@@ -367,18 +296,18 @@ print(token)
 >
 > Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in Token-based Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
 >
-> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](/cli/azure/ml(v1)/computetarget/create#az_ml_service_get_access_token) command.
+> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](/cli/azure/ml(v1)/computetarget/create#az-ml-service-get-access-token) command.
 
 
 ### Vulnerability scanning
 
-Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Azure Security Center to scan your resources and follow its recommendations. For more, see [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Microsoft Defender for Cloud to scan your resources and follow its recommendations. For more, see [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Next steps
 
 * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [Secure inferencing environment with Azure Virtual Network](how-to-secure-inferencing-vnet.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Update web service](how-to-deploy-update-web-service.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

@@ -5,6 +5,7 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, python
 ---
 
 # Eternal orchestrations in Durable Functions (Azure Functions)

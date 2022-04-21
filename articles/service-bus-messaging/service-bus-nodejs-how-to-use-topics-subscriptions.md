@@ -1,18 +1,27 @@
 ---
-title: Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (JavaScript)
-description: Learn how to write a JavaScript program that uses the latest version of @azure/service-bus package to send messages to a Service Bus topic and receive messages from a subscription to the topic.
+title: Get started with Azure Service Bus topics (JavaScript)
+description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the JavaScript programming language.
 author: spelluru
 ms.author: spelluru
-ms.date: 11/09/2020
+ms.date: 02/16/2022
 ms.topic: quickstart
-ms.devlang: nodejs
-ms.custom:
-  - devx-track-js
-  - mode-api
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (JavaScript)
+
+> [!div class="op_single_selector" title1="Select the programming language:"]
+> * [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> * [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+
+
 In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package in a JavaScript program to send messages to a Service Bus topic and receive messages from a Service Bus subscription to that topic.
+
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for JavaScript repository on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus/samples/v7). 
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -188,17 +197,17 @@ The following sample code shows you how to send a batch of messages to a Service
     Received message: Nikolaus Kopernikus
     ```
 
-In the Azure portal, navigate to your Service Bus namespace, and select the topic in the bottom pane to see the **Service Bus Topic** page for your topic. On this page, you should see three incoming and three outgoing messages in the **Messages** chart. 
+In the Azure portal, navigate to your Service Bus namespace, switch to **Topics** in the bottom pane, and select your topic to see the **Service Bus Topic** page for your topic. On this page, you should see 10 incoming and 10 outgoing messages in the **Messages** chart. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages":::
+:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages":::
 
-If you run the only the send app next time, on the **Service Bus Topic** page, you see six incoming messages (3 new) but three outgoing messages. 
+If you run only the send app next time, on the **Service Bus Topic** page, you see 20 incoming messages (10 new) but 10 outgoing messages. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page":::
+:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page":::
 
-On this page, if you select a subscription, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are three active messages that haven't been received by a receiver yet. 
+On this page, if you select a subscription in the bottom pane, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are 10 active messages that haven't been received by a receiver yet. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count":::
+:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count":::
 
 ## Next steps
 See the following documentation and samples: 

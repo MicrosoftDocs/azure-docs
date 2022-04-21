@@ -1,7 +1,7 @@
 ---
-title: Azure Lab Services - Administrator guide | Microsoft Docs
+title: Administrator guide | Microsoft Docs
 description: This guide helps administrators who create and manage lab accounts by using Azure Lab Services. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/20/2020
 ---
 
@@ -286,7 +286,7 @@ In this example, the cost is:
 * 1 custom image (32 GB) &times; 2 versions &times; 8 US regions &times; $1.54 = $24.64 per month
 
 > [!NOTE]
-> The preceding calculation is for example purposes only. It covers storage costs associated with using Shared Image Gallery and does *not* include egress costs. For actual pricing for storage, see [Managed Disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+> The preceding calculation is for example purposes only. It covers storage costs associated with using Shared Image Gallery and does *not* include egress costs. For actual pricing for storage, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### Cost management
 

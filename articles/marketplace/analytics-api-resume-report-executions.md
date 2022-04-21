@@ -4,9 +4,10 @@ description: Use this API to resume the scheduled execution of a paused commerci
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 03/14/2022
 ---
 
 # Resume report executions API
@@ -28,11 +29,11 @@ This API, on execution, resumes the scheduled execution of a paused commercial m
 | Content-Type | string | `Application/JSON` |
 ||||
 
-**Path Parameter**
+**Path parameter**
 
 None
 
-**Query Parameter**
+**Query parameter**
 
 | Parameter name | Required | Type | Description |
 | ------------ | ------------- | ------------- | ------------- |

@@ -34,14 +34,6 @@
         href: service-bus-python-how-to-use-queues.md
       - name: JavaScript (@azure/service-bus)
         href: service-bus-nodejs-how-to-use-queues.md
-    - name: Send and receive messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-get-started-with-queues-legacy.md
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-queues-legacy.md 
-      - name: PHP
-        href: service-bus-php-how-to-use-queues.md
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions
@@ -62,14 +54,6 @@
         href: service-bus-python-how-to-use-topics-subscriptions.md
       - name: JavaScript (@azure/service-bus)
         href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-    - name: Publish and subscribe for messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md        
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-topics-subscriptions-legacy.md        
-      - name: PHP
-        href: service-bus-php-how-to-use-topics-subscriptions.md
 - name: Tutorials
   items:
   - name: Update inventory
@@ -80,6 +64,8 @@
       href: service-bus-to-event-grid-integration-example.md      
     - name: Azure Functions
       href: service-bus-to-event-grid-integration-function.md
+  - name: Build message-driven business applications with NServiceBus
+    href: build-message-driven-apps-nservicebus.md
 - name: Samples
   items:
   - name: Service Bus samples
@@ -172,6 +158,10 @@
     items:
     - name: Create a namespace
       href: service-bus-create-namespace-portal.md
+    - name: Send and receive messages using PHP
+      href: service-bus-php-how-to-use-queues.md
+    - name: Publish and subscribe for messages using PHP
+      href: service-bus-php-how-to-use-topics-subscriptions.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md    
     - name: Message handling
@@ -216,10 +206,10 @@
     items:
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
-    - name: Diagnostic logs
-      href: service-bus-diagnostic-logs.md
     - name: Monitoring Azure Service Bus
       href: monitor-service-bus.md
+    - name: Azure Monitor - Service Bus insights
+      href: service-bus-insights.md
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ
@@ -267,8 +257,10 @@
       href: service-bus-service-endpoints.md
     - name: Allow access via private endpoints
       href: private-link-service.md
-    - name: Configure customer-managed keys
+    - name: Encrypt data using customer-managed keys
       href: configure-customer-managed-key.md
+    - name: Disable local or SAS authentication
+      href: disable-local-authentication.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -296,31 +288,27 @@
     - name: Migrate from azure-servicebus to azure-messaging-servicebus
       href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md
     - name: azure-messaging-servicebus (latest)
-      href: /java/api/com.azure.messaging.servicebus?view=azure-java-stable
+      href: /java/api/com.azure.messaging.servicebus
     - name: azure-servicebus  
-      href: /java/api/com.microsoft.azure.servicebus?view=azure-java-stable
+      href: /java/api/com.microsoft.azure.servicebus
   - name: Python
     items: 
+    - name: azure-servicebus version 7
+      href: /python/api/overview/azure/servicebus
     - name: Migrate from azure-servicebus version 0.50 to version 7
       href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md
-    - name: azure-servicebus version 7
-      href: /python/api/overview/azure/servicebus?view=azure-python-preview
-    - name: azure-servicebus version 0.50
-      href: /python/api/overview/azure/servicebus
   - name: JavaScript
     items:
+    - name: azure/service-bus version 7 
+      href: /javascript/api/overview/azure/service-bus
     - name: Migrate from version 1 to version 7
       href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md
-    - name: azure/service-bus version 7 
-      href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
-    - name: azure/service-bus version 1 
-      href: /javascript/api/overview/azure/service-bus
+  - name: Go
+    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus      
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby
     href: https://github.com/Azure/azure-sdk-for-ruby
-  - name: Go
-    href: https://github.com/Azure/azure-service-bus-go
   - name: Azure CLI
     href: /cli/azure/servicebus
   - name: Azure PowerShell

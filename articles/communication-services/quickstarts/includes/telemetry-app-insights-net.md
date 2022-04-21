@@ -18,7 +18,7 @@ ms.author: peiliu
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
-- Create an [Application Insights Resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) in Azure portal.
+- Create an [Application Insights Resources](../../../azure-monitor/app/create-new-resource.md) in Azure portal.
 
 ## Setting Up
 

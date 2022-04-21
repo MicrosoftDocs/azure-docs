@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/21/2021
+ms.date: 03/28/2022
 ---
 
 # Create an Azure Container offer
@@ -22,27 +22,36 @@ Review [Plan an Azure Container offer](marketplace-containers.md). It will expla
 ## Create a new offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Azure Container**.
 
-    :::image type="content" source="media/azure-container/new-offer-azure-container.png" alt-text="The left pane menu options and the 'New offer' button.":::
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select **+ New offer** > **Azure Container**.
+
+    [ ![The left pane menu options and the 'New offer' button.](./media/azure-container/new-offer-azure-container-workspaces.png) ](./media/azure-container/new-offer-azure-container-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after changing it.
 
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
+    - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+    - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used on Azure Marketplace. It is different from the offer name and other values shown to customers.
+    - This name isn't used on Azure Marketplace. It is different from the offer name and other values shown to customers.
 
-Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
 
 ## Alias
 
@@ -58,5 +67,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure offer properties](azure-container-properties.md)
+- [Configure offer properties](azure-container-properties.md) 
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

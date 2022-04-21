@@ -1,0 +1,17 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure Arc
+    tocHref: /azure/azure-arc/
+    topicHref: /azure/azure-arc/index
+    items:
+  - name: Azure Arc
+    tocHref: /azure-arc/data/
+    topicHref: /azure/azure-arc/index
+  - name: Azure Arc
+    tocHref: /azure-arc/kubernetes/
+    topicHref: /azure/azure-arc/index
+  - name: Azure Arc
+    tocHref: /azure-arc/vmware-vsphere/
+    topicHref: /azure/azure-arc/index

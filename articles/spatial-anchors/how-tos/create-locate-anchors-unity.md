@@ -1,11 +1,11 @@
 ---
 title: Create & locate anchors in Unity
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
@@ -194,7 +194,7 @@ Learn more about the [CloudSpatialAnchor](/dotnet/api/microsoft.azure.spatialanc
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
     CloudNativeAnchor cloudNativeAnchor = this.localAnchor.GetComponent<CloudNativeAnchor>();
-    if (cloudNativeAnchor.CloudAnchor == null) { cloudNativeAnchor.NativeToCloud(); }  
+    if (cloudNativeAnchor.CloudAnchor == null) { await cloudNativeAnchor.NativeToCloud(); }  
     CloudSpatialAnchor cloudAnchor = cloudNativeAnchor.CloudAnchor;
     await this.cloudSession.CreateAnchorAsync(cloudAnchor);
     this.feedback = $"Created a cloud anchor with ID={cloudAnchor.Identifier}");

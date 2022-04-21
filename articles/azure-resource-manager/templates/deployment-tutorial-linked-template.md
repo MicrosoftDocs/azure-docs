@@ -43,7 +43,7 @@ The following PowerShell script creates a storage account, creates a container, 
 Select **Try-it** to open the Cloud Shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
 > [!IMPORTANT]
-> Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with **store** appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
+> Storage account names must be unique, between 3 and 24 characters in length, and use **numbers** and **lowercase** letters only. The sample template's `storageAccountName` variable combines the `projectName` parameter's maximum of 11 characters with a [uniqueString](./template-functions-string.md#uniquestring) value of 13 characters.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.

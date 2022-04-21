@@ -5,19 +5,22 @@ description: In this quick start we'll create an application and service princip
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
-ms.topic: how-to
+ms.subservice: identity
+ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
-# Authorize access with Azure Active Directory to your communication resource in your development environment
+# Quickstart: Authenticate using Azure Active Directory (Azure CLI)
 
 The Azure Identity SDK provides Azure Active Directory (Azure AD) token authentication support for Azure SDK packages. The latest versions of the Azure Communication Services SDKs for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
 
 An advantage of the Azure Identity SDK is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. 
 
-The Azure Identity SDK can authenticate with many methods. In Development we'll be using a service principal tied to a registered application, with credentials stored in Environnement Variables this is suitable for testing and development.
+The Azure Identity SDK can authenticate with many methods. In Development we'll be using a service principal tied to a registered application, with credentials stored in Environnment Variables this is suitable for testing and development.
 
 ## Prerequisites
 
@@ -46,7 +49,7 @@ To create a registered application from the Azure CLI, you need to be logged in 
 The following examples uses the Azure CLI to create a new registered application
 
 ```azurecli
-az ad sp create-for-rbac --name <application-name> 
+az ad sp create-for-rbac --name <application-name> --role Contributor --scopes /subscriptions/<subscription-id>
 ```
 
 The `az ad sp create-for-rbac` command will return a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.

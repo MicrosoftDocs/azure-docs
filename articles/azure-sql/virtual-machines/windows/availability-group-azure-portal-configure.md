@@ -3,7 +3,7 @@ title: Configure an availability group (Azure portal)
 description: "Use the Azure portal to create the Windows failover cluster, the availability group listener, and the internal load balancer on a SQL Server VM in Azure."
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -11,22 +11,25 @@ ms.subservice: hadr
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell"
 
 ---
 # Use Azure portal to configure an availability group (Preview) for SQL Server on Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs. 
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs within a single subnet. 
 
 Use the Azure portal to create a new cluster or onboard an existing cluster, and then create the availability group, listener, and internal load balancer. 
 
 This feature is currently in preview. 
 
-While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial-single-subnet.md) as well. 
 
 > [!NOTE]
 > It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
@@ -70,7 +73,7 @@ If you do not already have an existing cluster, create it by using the Azure por
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Provide name, storage account, and credentials for the cluster":::
 
-1. Expand **Windows Server Failover Cluster credentials** to provide [credentials](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) for the SQL Server service account, as well as the cluster operator and bootstrap accounts if they're different than the account used for the SQL Server service. 
+1. Expand **Windows Server Failover Cluster credentials** to provide [credentials](/rest/api/sqlvm/2021-11-01-preview/sql-virtual-machine-groups/create-or-update#wsfcdomainprofile) for the SQL Server service account, as well as the cluster operator and bootstrap accounts if they're different than the account used for the SQL Server service. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Provide credentials for the SQL Service account, cluster operator account and cluster bootstrap account":::
 

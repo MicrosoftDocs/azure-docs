@@ -3,11 +3,11 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/22/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
 ---
 
@@ -117,7 +117,7 @@ The structure of accounts and subscriptions impact how they're administered and 
 
 To add an account:
 
-1. In the Azure Enterprise portal, select **Manage** in the left navigation area.
+1. In the Azure Enterprise portal, select **Manage** in the left navigation area and then select an enrollment.
 1. Select the **Account** tab. On the **Account** page, select **+Add Account**.
 1. Select a department, or leave it as unassigned, and then select the desired authentication type.
 1. Enter a friendly name to identify the account in reporting.
@@ -136,11 +136,26 @@ To confirm account ownership:
    The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
 1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
+## Add an account from another Azure AD tenant
+
+By default, an enrollment is associated with a specific Azure AD tenant. Only accounts from that tenant are allowed to be used to establish an Azure enrollment account. However, you change the behavior to allow an account to get linked from any Azure AD tenant.
+
+To add an account from any tenant:
+
+1.	In the Azure Enterprise portal, select **Manage** in the left navigation area.
+1. Select the appropriate enrollment. Note the current setting for **Auth level**, if you want to restore the setting later.
+1.	If not already configured, change the Auth level to **Work and School Account Cross Tenant**.
+1. Add the account using the Azure AD sign in information, as described in the previous section.
+1.	Return the **Auth level** to its previous setting, or set it as **Work and School Account**.
+1.	Sign in to the EA portal to verify that you can view the appropriate subscription offers so that you can then add subscriptions in the Azure portal.
+
 ## Change Azure subscription or account ownership
 
-This section only applies when a subscription owner is being changed. Changing a subscription ownership does not require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
+This section only applies when a subscription owner is being changed. Changing a subscription ownership doesn't require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
 
 However, an EA admin can't transfer an account from one enrollment to another enrollment. To transfer an account from one enrollment to another, a support request is required. For information about transferring an account from one enrollment to another enrollment, see [Transfer an enterprise account to a new enrollment](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment).
+
+Pay-as-you-go subscription administrators can also transfer account ownership of their subscriptions to an EA enrollment using this same process.
 
 When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
@@ -191,7 +206,7 @@ Enterprise Administrators can associate existing accounts to Departments under t
 
 1. Sign in to the Azure EA Portal as an enterprise administrator.
 1. Select **Manage** on the left navigation.
-1. Select **Department**.
+1. Select **Account**.
 1. Hover over the row with the account and select the pencil icon on the right.
 1. Select the department from the drop-down menu.
 1. Select **Save**.
@@ -402,7 +417,7 @@ You can suppress _approaching coverage period end date_ and _disable and de-prov
 
 The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It's available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure sponsorship offer, you'll receive an e-mail invitation to your account ID.
 
-For more information, create a [support request for sponsorship activation](https://aka.ms/azrsponsorship).
+If you need assistance, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
 ## Conversion to work or school account authentication
 

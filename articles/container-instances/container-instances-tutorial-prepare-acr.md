@@ -127,7 +127,6 @@ az acr repository show-tags --name <acrName> --repository aci-tutorial-app --out
 You should see output similar to the following:
 
 ```console
-az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1

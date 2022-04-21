@@ -5,7 +5,7 @@ services: storage
 ms.service: storage
 author: tamram
 ms.author: tamram
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: overview
 ms.date: 05/27/2021
 ms.subservice: tables

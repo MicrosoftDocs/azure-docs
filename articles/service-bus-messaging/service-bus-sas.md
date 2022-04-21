@@ -2,7 +2,8 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 01/06/2022
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -18,6 +19,8 @@ SAS guards access to Service Bus based on authorization rules. Those are configu
 > Microsoft recommends using Azure AD with your Azure Service Bus applications when possible. For more information, see the following articles:
 > - [Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities](authenticate-application.md).
 > - [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md)
+> 
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure AD authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
 ## Overview of SAS
 
@@ -58,7 +61,7 @@ The following recommendations for using shared access signatures can help mitiga
 - **Have clients automatically renew the SAS if necessary**: Clients should renew the SAS well before expiration, to allow time for retries if the service providing the SAS is unavailable. If your SAS is meant to be used for a small number of immediate, short-lived operations that are expected to be completed within the expiration period, then it may be unnecessary as the SAS is not expected to be renewed. However, if you have client that is routinely making requests via SAS, then the possibility of expiration comes into play. The key consideration is to balance the need for the SAS to be short-lived (as previously stated) with the need to ensure that client is requesting renewal early enough (to avoid disruption due to the SAS expiring prior to a successful renewal).
 - **Be careful with the SAS start time**: If you set the start time for SAS to **now**, then due to clock skew (differences in current time according to different machines), failures may be observed intermittently for the first few minutes. In general, set the start time to be at least 15 minutes in the past. Or, don’t set it at all, which will make it valid immediately in all cases. The same generally applies to the expiry time as well. Remember that you may observer up to 15 minutes of clock skew in either direction on any request. 
 - **Be specific with the resource to be accessed**: A security best practice is to provide user with the minimum required privileges. If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities. It also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
-- **Don’t always use SAS**: Sometimes the risks associated with a particular operation against your Event Hubs outweigh the benefits of SAS. For such operations, create a middle-tier service that writes to your Event Hubs after business rule validation, authentication, and auditing.
+- **Don’t always use SAS**: Sometimes the risks associated with a particular operation against your Service Bus outweigh the benefits of SAS. For such operations, create a middle-tier service that writes to your Service Bus after business rule validation, authentication, and auditing.
 - **Always use HTTPs**: Always use Https to create or distribute a SAS. If a SAS is passed over HTTP and intercepted, an attacker performing a man-in-the-middle attach is able to read the SAS and then use it just as the intended user could have, potentially compromising sensitive data or allowing for data corruption by the malicious user.
 
 ## Configuration for Shared Access Signature authentication
@@ -256,9 +259,9 @@ The following table shows the access rights required for various operations on S
 | Get the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | Set the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | **Rules** | | |
-| Create a rule |Manage |../myTopic/Subscriptions/mySubscription |
-| Delete a rule |Manage |../myTopic/Subscriptions/mySubscription |
-| Enumerate rules |Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules
+| Create a rule | Listen |../myTopic/Subscriptions/mySubscription |
+| Delete a rule | Listen |../myTopic/Subscriptions/mySubscription |
+| Enumerate rules | Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## Next steps
 

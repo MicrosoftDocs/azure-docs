@@ -6,8 +6,9 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: sample
-ms.date: 07/06/2020
+ms.date: 10/28/2021
 ms.author: marhamil
+ms.devlang: python
 ---
 
 # Python Samples for Cognitive Services for Big Data
@@ -16,7 +17,7 @@ The following snippets are ready to run and will help get you started with using
 
 The samples in this article use these Cognitive Services:
 
-- Text Analytics - get the sentiment (or mood) of a set of sentences.
+- Language service - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
 - Bing Image Search - search the web for images related to a natural language query.
 - Speech-to-text - transcribe audio files to extract text-based transcripts.
@@ -38,7 +39,7 @@ To get started, we'll need to add this code to the project:
 ```python
 from mmlspark.cognitive import *
 
-# A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
+# A general Cognitive Services key for the Language service and Computer Vision (or use separate keys that belong to each service)
 service_key = "ADD_YOUR_SUBSCRIPION_KEY"
 # A Bing Search v7 subscription key
 bing_search_key = "ADD_YOUR_SUBSCRIPION_KEY"
@@ -49,9 +50,9 @@ anomaly_key = "ADD_YOUR_SUBSCRIPION_KEY"
 assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 ```    
 
-## Text Analytics sample
+## Language service sample
 
-The [Text Analytics](../text-analytics/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment.  This sample uses three simple sentences and returns the sentiment for each.
+The [Language service](../language-service/index.yml) provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment.  This sample uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -63,7 +64,7 @@ df = spark.createDataFrame([
   ("The cognitive services on spark aint bad", "en-US"),
 ], ["text", "language"])
 
-# Run the Text Analytics service with options
+# Run the Language service with options
 sentiment = (TextSentiment()
     .setTextCol("text")
     .setLocation("eastus")
@@ -267,7 +268,7 @@ from requests import Request
 from mmlspark.io.http import HTTPTransformer, http_udf
 from pyspark.sql.functions import udf, col
 
-# Use any requests from the python requests library
+# Use any requests from the Python requests library
 def world_bank_request(country):
   return Request("GET", "http://api.worldbank.org/v2/country/{}?format=json".format(country))
 

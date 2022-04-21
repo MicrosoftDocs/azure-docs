@@ -1,3 +1,4 @@
+items:  
   - name: Application and HR provisioning documentation
     href: index.yml
   - name: Overview
@@ -5,6 +6,8 @@
     items:
      - name: What is application provisioning?
        href: user-provisioning.md
+     - name: What is HR-driven provisioning?
+       href: what-is-hr-driven-provisioning.md
      - name: What's new in docs?
        href: whats-new-docs.md
   - name: Tutorials
@@ -17,9 +20,15 @@
     - name: Customize attribute mappings
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
-      href: /azure/active-directory/saas-apps
-    - name: Azure AD ECMA Connector Host Generic SQL Connector
-      href: tutorial-ecma-sql-connector.md
+      href: ../saas-apps/tutorial-list.md
+    - name: On-prem app provisioning tutorials
+      items:
+      - name: Provisioning to On-premises SCIM-enabled apps
+        href: on-premises-scim-provisioning.md
+      - name: Provisioning to SQL based apps
+        href: on-premises-sql-connector-configure.md
+      - name: Provisioning to LDAP based apps
+        href: on-premises-ldap-connector-configure.md
   - name: Concepts
     expanded: true
     items: 
@@ -35,6 +44,10 @@
        href: on-premises-application-provisioning-architecture.md 
      - name: Understand expression builder
        href: expression-builder.md
+     - name: Understand SuccessFactors integration 
+       href: sap-successfactors-integration-reference.md
+     - name: Understand Workday integration 
+       href: workday-integration-reference.md
   - name: How-to guides
     expanded: true
     items:
@@ -58,8 +71,6 @@
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Automate configuration using MS Graph
-      href: application-provisioning-configuration-api.md
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -72,54 +83,54 @@
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Missing source attribute
         href: user-provisioning-sync-attributes-for-mapping.md
-      - name: Troubleshooting ECMA Connector Host
+      - name: Troubleshooting on-premises provisioning
         href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: On-premises app provisioning
+    - name: Troubleshoot HR provisioning
       items:
-      - name: ECMA Connector Host pre-requisites
-        href: on-premises-ecma-prerequisites.md
-      - name: ECMA Connector Host installation
-        href: on-premises-ecma-install.md
-      - name: ECMA Connector Host configuration
-        href: on-premises-ecma-configure.md
-      - name: Generic SQL connector configuration
-        href: on-premises-sql-connector-configure.md
-      - name: On-premises application provisioning to SCIM-enabled apps
-        href: on-premises-scim-provisioning.md
-      - name: Migrate connector from MIM Sync
-        href: on-premises-migrate-microsoft-identity-manager.md
+      - name: Attribute retrieval issues
+        href: hr-attribute-retrieval-issues.md
+      - name: User creation issues
+        href: hr-user-creation-issues.md
+      - name: User update issues
+        href: hr-user-update-issues.md
+      - name: Manager update issues
+        href: hr-manager-update-issues.md
+      - name: HR writeback issues
+        href: hr-writeback-issues.md
+    - name: Enable accidental deletions prevention
+      href: accidental-deletions.md
+    - name: Automate configuration using MS Graph
+      href: application-provisioning-configuration-api.md
   - name: Reference
     items:
+    - name: Function reference for writing expressions for attribute mappings
+      href: functions-for-customizing-application-data.md
     - name: SCIM 2.0 protocol compliance
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM and Graph scenarios
       href: scim-graph-scenarios.md
-    - name: Function reference for writing expressions for attribute mappings
-      href: functions-for-customizing-application-data.md
     - name: Cloud HR provisioning
       items:
-      - name: SuccessFactors integration 
-        href: sap-successfactors-integration-reference.md
       - name: SuccessFactors attribute reference
         href: sap-successfactors-attribute-reference.md
-      - name: Workday integration 
-        href: workday-integration-reference.md
       - name: Workday attribute reference
         href: workday-attribute-reference.md
       - name: Provisioning Agent version history
         href: provisioning-agent-release-version-history.md
+      - name: Migrate connector from MIM Sync
+        href: on-premises-migrate-microsoft-identity-manager.md
   - name: Resources
     items:
     - name: Support and help options for developers
       href: ../develop/developer-support-help-options.md
     - name: Azure feedback forum
-      href: https://feedback.azure.com/forums/169401-azure-active-directory
+      href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-active-directory.html
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/active-directory
+      href: https://azure.microsoft.com/pricing/details/active-directory/
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory
     - name: Stack Overflow

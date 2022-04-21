@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Create a serverless Apache Spark pool using web tools'
 description: This quickstart shows how to use the web tools to create a serverless Apache Spark pool in Azure Synapse Analytics and how to run a Spark SQL query.
-services: synapse-analytics
-author: euangMS
-ms.author: euang 
-ms.reviewer: jrasnick 
+author: juluczni
+ms.author: juluczni
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 10/16/2020
+ms.date: 02/15/2022
+ms.custom: mode-other
 ---
 
 # Quickstart: Create a serverless Apache Spark pool in Azure Synapse Analytics using web tools
@@ -144,6 +144,3 @@ In this quickstart, you learned how to create a serverless Apache Spark pool and
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [.NET for Apache Spark documentation](/dotnet/spark)
-
-
-

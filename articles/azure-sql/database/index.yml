@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer:
+  ms.reviewer: kendralittle, mathoma
   ms.date: 01/25/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -27,7 +27,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new? 
-            url: doc-changes-updates-release-notes.md?tabs=single-database        
+            url: doc-changes-updates-release-notes-whats-new.md
       - linkListType: quickstart
         links:
           - text: Create SQL Database
@@ -37,15 +37,13 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Database overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
       - linkListType: concept
         links:
           - text: What is SQL Database?
             url: sql-database-paas-overview.md
           - text: Purchasing options
             url: purchasing-models.md
-          - text: Service tiers
-            url: service-tiers-general-purpose-business-critical.md
           - text: Serverless compute
             url: serverless-tier-overview.md
           - text: Hyperscale service tier

@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/22/2021
+ ms.date: 04/07/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?
 
@@ -27,7 +23,7 @@ NAT is applied to the connections with NAT rules. If a connection does not have 
 
 ### What types of NAT is supported on Azure VPN gateways?
 
-Only static 1:1 NAT. Dynamic NAT or NAT64 is NOT supported.
+Only static 1:1 NAT and Dynamic NAT are supported. NAT64 is NOT supported.
 
 ### Does NAT work on active-active VPN gateways?
 
@@ -62,6 +58,10 @@ The two rules must match the prefix lengths of the corresponding address prefixe
 
 > [!IMPORTANT]
 > If you link only one rule to the connection above, the other address space will **NOT** be translated.
+
+### What IP ranges can I use for External Mapping?
+
+You can use any suitable IP range that you want for External Mapping, including public and private IPs.
 
 ### Can I use different EgressSNAT rules to translate my VNet address space to different prefixes to different on-premises networks?
 

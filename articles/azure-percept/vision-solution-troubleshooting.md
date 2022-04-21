@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot issues with Azure Percept Vision and vision modules
+title: Troubleshoot Azure Percept Vision and vision modules
 description: Get troubleshooting tips for some of the more common issues found in the vision AI prototyping experiences.
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/29/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Vision solution troubleshooting
+# Troubleshoot Azure Percept Vision and vision modules
 
 This article provides information on troubleshooting no-code vision solutions in Azure Percept Studio.
 
@@ -82,7 +82,7 @@ Using the azureeyemodule module twin, it's possible change the interval rate for
 
 Follow these steps to update the message interval:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
+1. Sign in to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
 
 1. On the **All resources** page, select the name of the IoT hub that was provisioned to your development kit during setup.
 
@@ -108,6 +108,8 @@ Follow these steps to update the message interval:
 View your device's RTSP video stream in [Azure Percept Studio](./how-to-view-video-stream.md) or [VLC media player](https://www.videolan.org/vlc/index.html).
 
 To open the RTSP stream in VLC media player, go to **Media** > **Open network stream** > **rtsp://[device IP address]:8554/result**.
+
+If your RTSP stream is partially blocked by a gray box, you may be trying to view it over a poor network connection. Check that your connection has sufficient bandwidth for video streams.
 
 ## Next steps
 

@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
 
 ---
@@ -73,7 +73,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 
 ## <a name="connect-spoke"></a>Connect the spoke VNet
 
-In this section, you attach the spoke virtual network to the virtual WAN hub.
+In this section, you create a connection between your hub and the spoke VNet.
 
 [!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

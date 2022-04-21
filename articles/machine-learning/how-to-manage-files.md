@@ -54,7 +54,7 @@ To create a new file in a different folder:
 
 Your workspace contains a **Sample notebooks** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.   Clone these notebooks into your own folder to run and edit them.  
 
-For an example, see [Tutorial: Create your first ML experiment](tutorial-train-models-with-aml.md#azure).
+For an example, see [Tutorial: Create your first ML experiment](tutorial-train-deploy-notebook.md#azure).
 
 ## Share files
 

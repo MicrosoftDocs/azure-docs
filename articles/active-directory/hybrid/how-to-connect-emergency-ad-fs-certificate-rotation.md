@@ -1,14 +1,12 @@
 ---
 title: Emergency Rotation of the AD FS certificates | Microsoft Docs
 description: This article explains how to revoke and update AD FS certificates immediately.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 ---
@@ -21,16 +19,16 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 
 > [!NOTE]
 > Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
-> For more information see [Hardware Security Module](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
+> For more information, see [Hardware Security Module](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
 ## Determine your Token Signing Certificate thumbprint
-In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-sigining certificate.  To do this, use the following steps below:
+In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-signing certificate.  To do this, use the following steps below:
 
- 1.	Connect to the Microsoft Online Service
+ 1.    Connect to the Microsoft Online Service
 `PS C:\>Connect-MsolService`
- 2.	Document both your on-premise and cloud Token Signing Certificate thumbprint and expiration dates.
+ 2.    Document both your on-premise and cloud Token Signing Certificate thumbprint and expiration dates.
 `PS C:\>Get-MsolFederationProperty -DomainName <domain>` 
- 3.  Copy down the the thumbprint.  It will be used later to remove the existing certificates.
+ 3.  Copy down the thumbprint.  It will be used later to remove the existing certificates.
 
 You can also get the thumbprint by using AD FS Management, navigating to Service/Certificates, right-clicking on the certificate, select View certificate and then selecting Details. 
 
@@ -39,7 +37,7 @@ By default, AD FS is configured to generate token signing and token decryption c
 
 You can run the following Windows PowerShell command: `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`.
 
-The AutoCertificateRollover property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically.  If AutoCertificateRollover is set to TRUE, follow the instructions outlined below in [Generating new self-signed certificate if AutoCertificateRollover is set to TRUE].  If If AutoCertificateRollover is set to FALSE, follow the instructions outlined below in [Generating new certificates manually if AutoCertificateRollover is set to FALSE]
+The AutoCertificateRollover property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically.  If AutoCertificateRollover is set to TRUE, follow the instructions outlined below in [Generating new self-signed certificate if AutoCertificateRollover is set to TRUE](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true).  If AutoCertificateRollover is set to FALSE, follow the instructions outlined below in [Generating new certificates manually if AutoCertificateRollover is set to FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false).
 
 
 ## Generating new self-signed certificate if AutoCertificateRollover is set to TRUE
@@ -99,10 +97,10 @@ Now that you have added the first certificate and made it primary and removed th
 ## Update Azure AD with the new token-signing certificate
 Open the Microsoft Azure Active Directory Module for Windows PowerShell. Alternatively, open Windows PowerShell and then run the command `Import-Module msonline`
 
-Connect to Azure AD by run the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
+Connect to Azure AD by running the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
 
 >[!Note]
-> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace <servername> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
+> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace \<servername\> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
 
 Optionally, verify whether an update is required by checking the current certificate information in Azure AD. To do so, run the following command: `Get-MsolFederationProperty`. Enter the name of the Federated domain when prompted.
 
@@ -114,13 +112,12 @@ To update the certificate information in Azure AD, run the following command: `U
 ## Replace SSL certificates
 In the event that you need to replace your token-signing certificate because of a compromise, you should also revoke and replace the SSL certificates for AD FS and your WAP servers.  
 
-Revoking your SSL certificates must be done at the certificate authority (CA) that issued the certificate.  These certificates are often issued by 3rd party providers such as GoDaddy.  For an example, see (Revoke a certificate | SSL Certificates - GoDaddy Help US).  For more information see [How Certificate Revocation Works](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)).
+Revoking your SSL certificates must be done at the certificate authority (CA) that issued the certificate.  These certificates are often issued by 3rd party providers such as GoDaddy.  For an example, see (Revoke a certificate | SSL Certificates - GoDaddy Help US).  For more information, see [How Certificate Revocation Works](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)).
 
-Once the old SSL certificate has been revoked and a new one issued, you can replacing the SSL certificates. For more information see [Replacing the SSL certificate for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
-
+Once the old SSL certificate has been revoked and a new one issued, you can replace the SSL certificates. For more information, see [Replacing the SSL certificate for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
 
 ## Remove your old certificates
-Once you have replaced your old certificates, you should remove the old certificate because it can still be used. . To do this, follow the steps below:.  To do this, follow the steps below:
+Once you have replaced your old certificates, you should remove the old certificate because it can still be used. To do this, follow the steps below:
 
 1. Ensure that you are logged on to the primary AD FS server.
 2. Open Windows PowerShell as an administrator. 

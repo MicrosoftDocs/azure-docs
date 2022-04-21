@@ -35,7 +35,7 @@ West US 2: 'https://datasetencode.blob.core.windows.net/dataset'
 
 West Central US: 'https://datasetencode-secondary.blob.core.windows.net/dataset'
 
-[SAS Token](/azure/storage/common/storage-sas-overview): ?sv=2019-10-10&si=prod&sr=c&sig=9qSQZo4ggrCNpybBExU8SypuUZV33igI11xw0P7rB3c%3D
+[SAS Token](../storage/common/storage-sas-overview.md): ?sv=2019-10-10&si=prod&sr=c&sig=9qSQZo4ggrCNpybBExU8SypuUZV33igI11xw0P7rB3c%3D
 
 ## Use Terms
 

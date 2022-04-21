@@ -3,7 +3,7 @@ title: Configure storage for SQL Server VMs | Microsoft Docs
 description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Azure Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
@@ -13,9 +13,9 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/26/2019
-ms.author: mathoma
-
+ms.date: 12/21/2021
+ms.author: pamela
+ms.reviewer: mathoma
 ---
 # Configure storage for SQL Server VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,19 +39,21 @@ The following sections describe how to configure storage for new SQL Server virt
 
 ### Azure portal
 
-When provisioning an Azure VM using a SQL Server gallery image, select **Change configuration** on the **SQL Server Settings** tab to open the Performance Optimized Storage Configuration page. You can either leave the values at default, or modify the type of disk configuration that best suits your needs based on your workload.
+When provisioning an Azure VM using a SQL Server gallery image, select **Change configuration** under **Storage** on the **SQL Server Settings** tab to open the **Configure storage** page. You can either leave the values at default, or modify the type of disk configuration that best suits your needs based on your workload.
 
 ![Screenshot that highlights the SQL Server settings tab and the Change configuration option.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage.
-
-Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *ReadOnly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](./performance-guidelines-best-practices-checklist.md).
+Choose the drive location for your data files and log files, specifying the disk type, and number of disks. Use the IOPS values to determine the best storage configuration to meet your business needs. Choosing premium storage  sets the caching to *ReadOnly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](./performance-guidelines-best-practices-checklist.md).
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/storage-configuration/sql-vm-storage-configuration.png)
 
 The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](../../../virtual-machines/disks-enable-ultra-ssd.md).
 
-Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) when used with [Premium Disks](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching.
+Configure your tempdb database settings under **Tempdb storage**, such as the location of the database files, as well as the number of files, initial size, and autogrowth size in MB. Currently, during deployment, the max number of tempdb files is 8, but more files can be added after the SQL Server VM is deployed.
+
+![Screenshot that shows where you can configure the tempdb storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-tempdb-storage.png)
+
+Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) when used with [Premium Disks](../../../virtual-machines/disks-types.md#premium-ssds). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching.
 
 Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*.
 
@@ -74,6 +76,8 @@ Based on your choices, Azure performs the following storage configuration tasks 
 
 For a full walkthrough of how to create a SQL Server VM in the Azure portal, see [the provisioning tutorial](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
+
+
 ### Resource Manager templates
 
 If you use the following Resource Manager templates, two premium data disks are attached by default, with no storage pool configuration. However, you can customize these templates to change the number of premium data disks that are attached to the virtual machine.
@@ -91,20 +95,25 @@ You can use the following quickstart template to deploy a SQL Server VM using st
 
 ## Existing VMs
 
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource), and select **Overview**. The SQL Server **Overview** page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
 
 * SQL data
 * SQL log
 * Other (non-SQL storage)
 * Available
 
-To modify the storage settings, select **Configure** under **Settings**.
+To modify the storage settings, select **Storage configuration** under **Settings**.
 
 ![Screenshot that highlights the Configure option and the Storage Usage section.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
-You can modify the disk settings for the drives that were configured during the SQL Server VM creation process. Selecting **Extend drive** opens the drive modification page, allowing you to change the disk type, as well as add additional disks.
+You can modify the disk settings for the drives that were configured during the SQL Server VM creation process. Selecting **Configure** opens the drive modification page, allowing you to change the disk type, as well as add additional disks.
 
 ![Configure Storage for Existing SQL Server VM](./media/storage-configuration/sql-vm-storage-extend-drive.png)
+
+You can also configure the settings for tempdb directly from the portal. Select **Configure** to open the tempdb settings page, where you can add more data files: 
+
+![Configure tempdb settings for Existing SQL Server VM](./media/storage-configuration/tempdb-customization.png)
+
 
 
 ## Automated changes
@@ -206,9 +215,9 @@ For example, the following PowerShell creates a new storage pool with the interl
   $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
   
   New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Windows Storage on <VM Name>" `
-      -PhysicalDisks $PhysicalDisks | New- VirtualDisk -FriendlyName "DataFiles" `
-      -Interleave 65536 -NumberOfColumns $PhysicalDisks .Count -ResiliencySettingName simple `
-      –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
+      -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" `
+      -Interleave 65536 -NumberOfColumns $PhysicalDisks.Count -ResiliencySettingName simple `
+      -UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
       -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" `
       -AllocationUnitSize 65536 -Confirm:$false
   ```
@@ -225,9 +234,9 @@ In Windows Server 2016 and later, the default value for `-StorageSubsystemFriend
   $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
   
   New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces on <VMName>" `
-      -PhysicalDisks $PhysicalDisks | New- VirtualDisk -FriendlyName "DataFiles" `
-      -Interleave 65536 -NumberOfColumns $PhysicalDisks .Count -ResiliencySettingName simple `
-      –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
+      -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" `
+      -Interleave 65536 -NumberOfColumns $PhysicalDisks.Count -ResiliencySettingName simple `
+      -UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
       -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" `
       -AllocationUnitSize 65536 -Confirm:$false 
   ```

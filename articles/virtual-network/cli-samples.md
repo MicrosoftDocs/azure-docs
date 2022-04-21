@@ -3,18 +3,17 @@ title: Azure CLI samples for virtual network
 description: Learn about various sample scripts you can use for completing tasks in the Azure CLI, including creating a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: mtillman
 editor: ''
 tags:
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/15/2019
-ms.author: kumud 
+ms.author: mbender 
 ms.custom: devx-track-azurecli
 
 ---

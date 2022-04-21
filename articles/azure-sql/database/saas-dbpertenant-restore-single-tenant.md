@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: 
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 12/04/2018
 ---
 # Restore a single tenant with a database-per-tenant SaaS application
@@ -27,7 +27,7 @@ In this tutorial, you learn two data recovery patterns:
 |:--|:--|
 | Restore into a parallel database | This pattern can be used for tasks such as review, auditing, and compliance to allow a tenant to inspect their data from an earlier point. The tenant's current database remains online and unchanged. |
 | Restore in place | This pattern is typically used to recover a tenant to an earlier point, after a tenant accidentally deletes or corrupts data. The original database is taken off line and replaced with the restored database. |
-|||
+
 
 To complete this tutorial, make sure the following prerequisites are completed:
 

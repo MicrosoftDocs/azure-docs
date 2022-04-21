@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # Verify a VPN Gateway connection
 
-This article shows you how to verify a VPN gateway connection for both the classic and Resource Manager deployment models.
+This article shows you how to verify a VPN gateway connection for both the classic and the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 ## Azure portal
 

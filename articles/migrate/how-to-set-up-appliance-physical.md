@@ -1,11 +1,11 @@
 ---
 title: Set up an Azure Migrate appliance for physical servers
 description: Learn how to set up an Azure Migrate appliance for physical server discovery and assessment.
-author: vineetvikram 
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 03/13/2021
+ms.date: 11/02/2021
 ---
 
 
@@ -20,16 +20,20 @@ The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate: D
 
 [Learn more](migrate-appliance.md) about the Azure Migrate appliance.
 
+After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
+
+> [!NOTE]
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
 
 ## Appliance deployment steps
 
 To set up the appliance you:
 
-- Provide an appliance name and generate a project key in the portal.
-- Download a zipped file with Azure Migrate installer script from the Azure portal.
-- Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
-- Execute the PowerShell script to launch the appliance web application.
-- Configure the appliance for the first time, and register it with the project using the project key.
+1. Provide an appliance name and generate a project key in the portal.
+2. Download a zipped file with Azure Migrate installer script from the Azure portal.
+3. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
+4. Execute the PowerShell script to launch the appliance configuration manager.
+5. Configure the appliance for the first time, and register it with the project using the project key.
 
 ### Generate the project key
 
@@ -40,57 +44,56 @@ To set up the appliance you:
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
+    :::image type="content" source="./media/tutorial-assess-physical/generate-key-physical-1-inline.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-physical/generate-key-physical-1-expanded.png":::
+
 ### Download the installer script
 
 In **2: Download Azure Migrate appliance**, click on **Download**.
-
-   ![Selections for Discover machines](./media/tutorial-assess-physical/servers-discover.png)
-
-
-   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical.png)
 
 ### Verify security
 
 Check that the zipped file is secure, before you deploy it.
 
-1. On the servers to which you downloaded the file, open an administrator command window.
+1. On the server to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verify the latest version of the appliance, and [hash values](tutorial-discover-physical.md#verify-security) settings.
- 
+    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+3.  Verify the latest appliance version and hash value:
 
-## Run the Azure Migrate installer script
-The installer script does the following:
+    **Download** | **Hash value**
+    --- | ---
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
-- Installs agents and a web application for physical server discovery and assessment.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module.
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+> [!NOTE]
+> The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud.
 
-Run the script as follows:
+### Run the Azure Migrate installer script
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server having an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    - For the public cloud: 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - For Azure Government: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
-    The script will launch the appliance web application when it finishes successfully.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-1.png" alt-text="Screenshot that shows how to set up appliance with desired configuration.":::
 
+6. The installer script does the following:
 
+    - Installs agents and a web application.
+    - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+    - Download and installs an IIS rewritable module.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Creates the following files under the path:
+        - **Config Files**: %Programdata%\Microsoft Azure\Config
+        - **Log Files**: %Programdata%\Microsoft Azure\Logs
+
+After the script has executed successfully, the appliance configuration manager will be launched automatically.
+
+> [!NOTE]
+> If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 ### Verify appliance access to Azure
 
@@ -118,7 +121,7 @@ Set up the appliance for the first time.
 1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
 
-    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+    ![Modal showing the device code.](./media/tutorial-discover-vmware/device-code.png)
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, paste the device code and sign-in by using your Azure username and password.
@@ -144,12 +147,12 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - Currently Azure Migrate does not support SSH private key file generated by PuTTY.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
-    ![SSH private key supported format](./media/tutorial-discover-physical/key-format.png)
+    ![Screenshot of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)
 1. If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
 1. In **Step 2:Provide physical or virtual server details​**, click on **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide server details through **Import CSV**.
 
-    ![Selections for adding discovery source](./media/tutorial-assess-physical/add-discovery-source-physical.png)
+    ![Screenshot of selections for adding discovery source.](./media/tutorial-assess-physical/add-discovery-source-physical.png)
 
     - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN** and click on **Save**.
     - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and click on **Save**.
@@ -159,10 +162,20 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, click on **Delete**.
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
-1. Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers.You can change this option at any time.
 
+:::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
 
-This starts discovery. It takes approximately 2 minutes per server for metadata of discovered server to appear in the Azure portal.
+### Start discovery
+
+Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+
+## How discovery works
+
+* It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
+* [Software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers is finished.
+* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
+* During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 
 ## Verify servers in the portal
 

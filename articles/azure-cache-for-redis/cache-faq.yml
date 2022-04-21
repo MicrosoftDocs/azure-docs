@@ -2,12 +2,11 @@
 metadata:
   title: Azure Cache for Redis FAQ
   description: Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis
-  author: yegu-ms
-  ms.author: yegu
+  author: flang-msft
+  ms.author: franlanglois
   ms.service: cache
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 04/29/2019
-    
 title: Azure Cache for Redis FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
@@ -15,7 +14,7 @@ summary: |
   * [Planning FAQs](cache-planning-faq.yml)
   * [Development FAQs](cache-development-faq.yml)
   * [Management FAQs](cache-management-faq.yml)
-  * [Monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.yml)
+  * [Common monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.yml)
 
 sections:
   - name: Ignored
@@ -41,5 +40,5 @@ sections:
           If your question isn't listed here, let us know and we'll help you find an answer.
           
           * To reach a wider audience, you can post a question on the [Microsoft Q&A question page for Azure Cache](/answers/topics/azure-cache-redis.html) and engage with the Azure Cache team and other members of the community.
-          * If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/forums/169382-cache).
+          * If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8).
           * You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).

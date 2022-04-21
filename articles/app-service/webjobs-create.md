@@ -193,7 +193,7 @@ To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#s
 
 You can manage the running state individual WebJobs running in your site in the [Azure portal](https://portal.azure.com). Just go to **Settings** > **WebJobs**, choose the WebJob, and you can start and stop the WebJob. You can also view and modify the password of the webhook that runs the WebJob.  
 
-You can also [add an application setting](configure-common.md#configure-app-settings) named `WEBJOB_STOPPED` with a value of `1` to stop all WebJobs running on your site. This can be handy as a way to prevent conflicting WebJobs from running both in staging and production slots. You can similarly use a value of `1` for the `WEBJOBS_DISABLE_SCHEDULE` setting to disable triggered WebJobs in the site or a staging slot. For slots, remember to enable the **Deployment slot setting** option so that the setting itself doesn't get swapped.    
+You can also [add an application setting](configure-common.md#configure-app-settings) named `WEBJOBS_STOPPED` with a value of `1` to stop all WebJobs running on your site. This can be handy as a way to prevent conflicting WebJobs from running both in staging and production slots. You can similarly use a value of `1` for the `WEBJOBS_DISABLE_SCHEDULE` setting to disable triggered WebJobs in the site or a staging slot. For slots, remember to enable the **Deployment slot setting** option so that the setting itself doesn't get swapped.    
 
 ## <a name="ViewJobHistory"></a> View the job history
 

@@ -10,11 +10,11 @@ ms.date: 03/30/2021
 ---
 # How to get lineage from Power BI into Azure Purview
 
-This article elaborates on the data lineage aspects of Power BI source in Azure Purview. The prerequisite to see data lineage in Purview for Power BI is to [scan your Power BI.](../purview/register-scan-power-bi-tenant.md) 
+This article elaborates on the data lineage aspects of Power BI source in Azure Purview. The prerequisite to see data lineage in Azure Purview for Power BI is to [scan your Power BI.](../purview/register-scan-power-bi-tenant.md) 
 
 ## Common scenarios
 
-1. After the Power BI source is scanned, data consumers can perform root cause analysis of a report or dashboard from Purview. For any data discrepancy in a report, users can easily identify the upstream datasets and contact their owners if necessary.
+1. After the Power BI source is scanned, data consumers can perform root cause analysis of a report or dashboard from Azure Purview. For any data discrepancy in a report, users can easily identify the upstream datasets and contact their owners if necessary.
 
 2. Data producers can see the downstream reports or dashboards consuming their dataset. Before making any changes to their datasets, the data owners can make informed decisions.
 
@@ -22,7 +22,7 @@ This article elaborates on the data lineage aspects of Power BI source in Azure 
 
 ## Power BI artifacts in Azure Purview
 
-Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is complete, following Power BI artifacts will be inventoried in Purview
+Once the [scan of your Power BI](../purview/register-scan-power-bi-tenant.md) is complete, following Power BI artifacts will be inventoried in Azure Purview
 
 * Capacity
 * Workspaces

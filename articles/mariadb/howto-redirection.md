@@ -17,6 +17,9 @@ Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Databas
 
 For details, refer to how to create an Azure Database for MariaDB server using the [Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
+> [!IMPORTANT]
+> Redirection is currently not supported with [Private Link for Azure Database for MariaDB](concepts-data-access-security-private-link.md).
+
 ## Enable redirection
 
 On your Azure Database for MariaDB server, configure the `redirect_enabled` parameter to `ON` to allow connections with redirection mode. To update this server parameter, use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-cli.md).

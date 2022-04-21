@@ -32,7 +32,7 @@ This article will not cover how to create data or [upload it to an Azure Blob St
 
 1. A process will detect that new data has been uploaded.  Our example uses an [Azure Logic App](../../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
 
-2. A processor reads this new data and converts it to JSON, the format required by Azure Monitor  In this example, we use an [Azure Function](../../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect a the new data.
+2. A processor reads this new data and converts it to JSON, the format required by Azure Monitor  In this example, we use an [Azure Function](../../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect the new data.
 
 3. Finally, once the JSON object is available, it is sent to Azure Monitor. The same Logic App sends the data to Azure Monitor using the built in Log Analytics Data Collector activity.
 

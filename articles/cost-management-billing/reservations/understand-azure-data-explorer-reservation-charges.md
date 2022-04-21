@@ -6,7 +6,7 @@ ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 09/15/2021
 ---
 
 # Understand how the reservation discount is applied to Azure Data Explorer

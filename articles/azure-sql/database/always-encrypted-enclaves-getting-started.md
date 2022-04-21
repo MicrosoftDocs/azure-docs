@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 07/14/2021
+ms.date: 04/06/2022
 ---
 # Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
 
@@ -34,19 +34,11 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 Make sure the following PowerShell modules are installed on your machine.
 
-1. Az version 5.6 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
+1. Az version 6.5.0 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
 
     ```powershell
     Get-InstalledModule -Name Az
     ```
-
-1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](../../attestation/quickstart-powershell.md#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
-
-    ```powershell
-    Get-InstalledModule -Name Az.Attestation
-    ```
-
-If the versions aren't matching with the minimum requirements, run the `Update-Module` command.
 
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. You may receive the following errors if you are using a TLS version lower than 1.2:
 
@@ -61,7 +53,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 ## Step 1: Create and configure a server and a DC-series database
 
-In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
+In this step, you will create a new Azure SQL Database logical server and a new database using DC-series hardware, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
 
 # [Portal](#tab/azure-portal)
 
@@ -80,7 +72,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
    - **Location**: Select a location from the dropdown list.
       > [!IMPORTANT]
-      > You need to select a location (an Azure region) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+      > You need to select a location (an Azure region) that supports both the DC-series hardware and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
    Select **OK**.
 1. Leave **Want to use SQL elastic pool** set to **No**.
@@ -119,13 +111,13 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    ```PowerShell
    Connect-AzAccount
    $subscriptionId = "<your subscription ID>"
-   Set-AzContext -Subscription $subscriptionId
+   $context = Set-AzContext -Subscription $subscriptionId
    ```
 
 1. Create a new resource group.
 
    > [!IMPORTANT]
-   > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+   > You need to create your resource group in a region (location) that supports both the DC-series hardware and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
    ```powershell
    $resourceGroupName = "<your new resource group name>"
@@ -173,7 +165,7 @@ In this step, you'll create and configure an attestation provider in Microsoft A
 
 # [Portal](#tab/azure-portal)
 
-1. Browse to the [Create attestation provider](https://ms.portal.azure.com/#create/Microsoft.Attestation) page.
+1. Browse to the [Create attestation provider](https://portal.azure.com/#create/Microsoft.Attestation) page.
 1. On the **Create attestation provider** page, provide the following inputs:
 
    - **Subscription**: Choose the same subscription you created the Azure SQL logical server in.
@@ -247,8 +239,17 @@ In this step, you'll create and configure an attestation provider in Microsoft A
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
+1. Assign yourself to the Attestation Contributor role for the attestation provider, to ensure you have permissions to configure an attestation policy.
 
-1. Configure your attestation policy.
+   ```powershell
+   New-AzRoleAssignment -SignInName $context.Account.Id `
+    -RoleDefinitionName "Attestation Contributor" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName
+   ```
+   
+3. Configure your attestation policy.
   
    ```powershell
    $policyFile = "<the pathname of the file from step 1 in this section>"

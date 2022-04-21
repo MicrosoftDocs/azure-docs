@@ -1,18 +1,21 @@
 ---
-title: Copy data from and to IBM Informix using Azure Data Factory 
-description: Learn how to copy data from and to IBM Informix by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from and to IBM Informix
+description: Learn how to copy data from and to IBM Informix using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 11/09/2021
 ms.author: jianleishen
 ---
 
-# Copy data from and to IBM Informix using Azure Data Factory
+# Copy data from and to IBM Informix using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an IBM Informix data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from an IBM Informix data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -29,11 +32,36 @@ You can copy data from Informix source to any supported sink data store, or copy
 To use this Informix connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the Informix ODBC driver for the data store on the Integration Runtime machine. For driver installation and setup, refer [Informix ODBC Driver Guide](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) article in IBM Knowledge Center for details, or contact IBM support team for driver installation guidance.
+- Download the 64-bit Client SDK for Informix to create an ODBC connection for the data store on the Integration Runtime machine. For SDK download and setup, refer this [article](https://www.ibm.com/support/pages/informix-client-software-development-kit-client-sdk-and-informix-connect-system-requirements) for details, or contact IBM support team for driver installation guidance.
 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Informix using UI
+
+Use the following steps to create a linked service to Informix in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Informix and select the Informix connector.
+
+   :::image type="content" source="media/connector-informix/informix-connector.png" alt-text="Screenshot of the Informix connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-informix/configure-informix-linked-service.png" alt-text="Screenshot of linked service configuration for Informix.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Informix connector.
 
@@ -47,7 +75,7 @@ The following properties are supported for Informix linked service:
 | connectionString | The ODBC connection string excluding the credential portion. You can specify the connection string or use the system DSN (Data Source Name) you set up on the Integration Runtime machine (you need still specify the credential portion in linked service accordingly). <br> You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
 | authenticationType | Type of authentication used to connect to the Informix data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
 | userName | Specify user name if you are using Basic authentication. | No |
-| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credential | The access credential portion of the connection string specified in driver-specific property-value format. Mark this field as a SecureString. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
@@ -198,4 +226,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

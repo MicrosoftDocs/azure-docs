@@ -2,7 +2,7 @@
 title: Perform actions using Backup center
 description: This article explains how to perform actions using Backup center
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/22/2021
 ---
 # Perform actions using Backup center
 
@@ -70,7 +70,7 @@ Depending on the type of datasource you wish to restore, follow the appropriate 
 
     ![Select datasource for Azure Database for PostgreSQL Server restore](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
-3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Database for PostgreSQL Server with a Backup vault](backup-azure-database-postgresql.md#restore).
+3. Choose a backup instance and select **Proceed**. This leads you to the restore settings experience that is identical to the one reachable from a Recovery Services vault. [Learn more about how to restore an Azure Database for PostgreSQL Server with a Backup vault](restore-azure-database-postgresql.md).
 
 ## Create a new vault
 
@@ -110,25 +110,32 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 Backup center allows you to search for backup instances across your backup estate and execute backup operations on demand.
 
-To trigger an on-demand backup, navigate to Backup center and select the **Backup Instances** menu item. Selecting this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Backup Now** option to execute an on-demand backup.
+To stop protection, navigate to Backup center and select the **Backup Instances** menu item. Selecting this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Backup Now** option to execute an on-demand backup.
 
 ![On-demand backup](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
 [Learn more about performing on-demand backups for Azure Virtual Machines](backup-azure-manage-vms.md#run-an-on-demand-backup).
 
-[Learn more about performing on-demand backups for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md#on-demand-backup).
+[Learn more about performing on-demand backups for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md).
 
 ## Stop backup for a backup instance
 
 There are scenarios when you might want to stop backup for a backup instance, such as when the underlying resource being backed up doesn’t exist anymore.
 
-To trigger an on-demand backup, navigate to Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
+To stop protection, navigate to Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
 
 ![Stop protection](./media/backup-center-actions/backup-center-stop-protection.png)
 
-[Learn more about stopping backup for Azure Virtual Machines](backup-azure-manage-vms.md#stop-protecting-a-vm).
+- [Learn more](backup-azure-manage-vms.md#stop-protecting-a-vm) about stopping backup for Azure Virtual Machines.
+- [Learn more](manage-azure-managed-disks.md#stop-protection-preview) about stopping backup for a disk.
+- [Learn more](manage-azure-database-postgresql.md#stop-protection) about stopping backup for Azure Database for PostgreSQL Server.
 
-[Learn more about stopping backup for Azure Database for PostgreSQL Server](backup-azure-database-postgresql.md#stop-protection)
+## Resume backup
+
+You can resume backup for your workloads if you have retained data during **Stop Protection**.
+
+- [Learn more](manage-azure-managed-disks.md#resume-protection) about resuming protection for your disk.
+- [Learn more](manage-azure-database-postgresql.md#resume-protection) about resuming protection for Azure Database for PostgreSQL server.
 
 ## Next steps
 

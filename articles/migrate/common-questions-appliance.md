@@ -1,11 +1,11 @@
 ---
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 11/01/2021
 ---
 
 # Azure Migrate appliance: Common questions
@@ -46,14 +46,13 @@ The appliance can connect via the internet or by using Azure ExpressRoute.
 - You can use ExpressRoute with Microsoft peering. Public peering is deprecated, and isn't available for new ExpressRoute circuits.
 - Private peering only isn't supported.
 
-
 ## Does appliance analysis affect performance?
 
 The Azure Migrate appliance profiles on-premises servers continuously to measure performance data. This profiling has almost no performance impact on profiled servers.
 
 ## Can I harden the appliance?
 
-When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template if you leave in place the communication and firewall rules that are required for the Azure Migrate appliance.
+When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template. Ensure that you have allowed access to the correct [URLs](migrate-appliance.md#public-cloud-urls) through Azure Firewall and that the *%ProgramData%\MicrosoftAzure* folder is excluded from antivirus scanning.
 
 ## What network connectivity is required?
 
@@ -63,9 +62,9 @@ The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-acce
 
 See the following articles for information about data that the Azure Migrate appliance collects on servers:
 
-- **Servers in VMware environment**: [Review](migrate-appliance.md#collected-data---vmware) collected data.
-- **Servers in Hyper-V environment**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
-- **Physical or virtual servers**:[Review](migrate-appliance.md#collected-data---physical) collected data.
+- **Servers in VMware environment**: [Review](discovered-metadata.md#collected-metadata-for-vmware-servers) collected data.
+- **Servers in Hyper-V environment**: [Review](discovered-metadata.md#collected-metadata-for-hyper-v-servers) collected data.
+- **Physical or virtual servers**: [Review](discovered-metadata.md#collected-data-for-physical-servers) collected data.
 
 ## How is data stored?
 
@@ -99,11 +98,17 @@ These steps describe how the appliance connects to VMware vCenter Server:
 
 ## Can the Azure Migrate appliance connect to multiple vCenter Servers?
 
-No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-appliance.md) and vCenter Server. To discover servers on multiple vCenter Server instances, you must deploy multiple appliances.
+Yes. If the version of appliance configuration manager is  6.1.265.1 or above, you can connect to up to 10 vCenter Servers and perform discovery, assessment, and migration of servers running across multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 
 ## Can a project have multiple appliances?
 
 A project can have multiple appliances registered to it. However, one appliance can only be registered with one project.
+
+## How do I find the Azure Migrate appliances registered to the project?
+1. From the Azure portal, navigate to [Azure Migrate homepage](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) and from the left menu, select **Servers, databases and web apps**.
+1. Select **Change** in the upper-right corner to choose your project.
+1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
+1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
 
@@ -137,7 +142,7 @@ No. To discover servers in VMware environment, you must have vCenter Server.
 
 ## How do I update the appliance?
 
-By default, the appliance and its installed agents are updated automatically. The appliance checks for updates every 24 hours. Updates that fail are retried. 
+By default, the appliance and its installed agents are updated automatically. The appliance checks for updates every 24 hours. Updates that fail are retried.
 
 Only the appliance and the appliance agents are updated by these automatic updates. The operating system is not updated by Azure Migrate automatic updates. Use Windows Updates to keep the operating system up to date.
 
@@ -150,13 +155,14 @@ Yes. In the portal, go the **Agent health** page for the Azure Migrate: Discover
 Yes, we now support multiple server credentials to perform software inventory (discovery of installed applications), agentless dependency analysis, and discovery of SQL Server instances and databases. [Learn more](tutorial-discover-vmware.md#provide-server-credentials) on how to provide credentials on the appliance configuration manager.
 
 ## What type of server credentials can I add on the VMware appliance?
+
 You can provide domain/ Windows(non-domain)/ Linux(non-domain)/ SQL Server authentication credentials on the appliance configuration manager. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 
 ## What type of SQL Server connection properties are supported by Azure Migrate for SQL discovery?
+
 Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [trust the certificate's root authority](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate that is used to encrypt login packets. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
-
 
 ## Next steps
 

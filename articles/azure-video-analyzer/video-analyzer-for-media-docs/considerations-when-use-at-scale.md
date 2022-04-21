@@ -1,20 +1,14 @@
 ---
 title: Things to consider when using Azure Video Analyzer for Media (formerly Video Indexer) at scale - Azure
-titleSuffix: Azure Video Analyzer for Media
 description: This topic explains what things to consider when using Azure Video Analyzer for Media (formerly Video Indexer) at scale.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-
 ms.topic: how-to
-ms.subservice: azure-video-analyzer-media
 ms.date: 11/13/2020
-ms.author: juliako 
+ms.author: juliako
 ---
 
 # Things to consider when using Video Analyzer for Media at scale
 
-When using Azure Video Analyzer for Media (formerly Video Indexer) to index videos and your archive of videos is growing, consider scaling. 
+When using Azure Video Analyzer for Media (formerly Video Indexer) to index videos and your archive of videos is growing, consider scaling.
 
 This article answers questions like:
 
@@ -32,10 +26,10 @@ First, it has file size limitations. The size of the byte array file is limited 
 
 Second, consider just some of the issues that can affect your performance and hence your ability to scale:
 
-* Sending files using multi-part means high dependency on your network, 
-* service reliability, 
-* connectivity, 
-* upload speed, 
+* Sending files using multi-part means high dependency on your network,
+* service reliability,
+* connectivity,
+* upload speed,
 * lost packets somewhere in the world wide web.
 
 :::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="First consideration for using Video Analyzer for Media at scale":::
@@ -47,19 +41,9 @@ When you upload videos using URL, you just need to provide a path to the locatio
 
 To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Analyzer for Media using [SAS URL](../../storage/common/storage-sas-overview.md). Video Analyzer for Media recommends using *readonly* SAS URLs.
 
-## Increase media reserved units if needed
+## Automatic Scaling of Media Reserved Units
 
-Usually in the proof of concept stage when you just start using Video Analyzer for Media, you don’t need a lot of computing power. When you start having a larger archive of videos you need to index and you want the process to be at a pace that fits your use case, you need to scale up your usage of Video Analyzer for Media. Therefore, you should think about increasing the number of compute resources you use if the current amount of computing power is just not enough.
-
-In Azure Media Services, when you want to increase computing power and parallelization, you need to pay attention to media [reserved units](../../media-services/latest/concept-media-reserved-units.md)(RUs). The RUs are the compute units that determine the parameters for your media processing tasks. The number of RUs affects the number of media tasks that can be processed concurrently in each account and their type determines the speed of processing and one video might require more than one RU if its indexing is complex. When your RUs are busy, new tasks will be held in a queue until another resource is available.
-
-To operate efficiently and to avoid having resources that stay idle part of the time, Video Indexer offers an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#autoscale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services).
-
-:::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Second consideration for using Video Analyzer for Media at scale":::
-
-:::image type="content" source="./media/considerations-when-use-at-scale/reserved-units.jpg" alt-text="AMS reserved units":::
-
-To minimize indexing duration and low throughput we recommend, you start with 10 RUs of type S3. Later if you scale up to support more content or higher concurrency, and you need more resources to do so, you can [contact us using the support system](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (on paid accounts only) to ask for more RUs allocation.
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Reserved Units](/azure/media-services/latest/concept-media-reserved-units)(MRUs) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## Respect throttling
 
@@ -71,7 +55,7 @@ Video Analyzer for Media is built to deal with indexing at scale, and when you w
 
 We recommend that instead of polling the status of your request constantly from the second you sent the upload request, you can add a [callback URL](upload-index-videos.md#callbackurl), and wait for Video Analyzer for Media to update you. As soon as there is any status change in your upload request, you get a POST notification to the URL you specified.
 
-You can add a callback URL as one of the parameters of the [upload video API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). Check out the code samples in [GitHub repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
+You can add a callback URL as one of the parameters of the [upload video API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). Check out the code samples in [GitHub repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/).
 
 For callback URL you can also use Azure Functions, a serverless event-driven platform that can be triggered by HTTP and implement a following flow.
 
@@ -89,7 +73,7 @@ For example, don’t set the preset to streaming if you don't plan to watch the 
 
 ## Index in optimal resolution, not highest resolution
 
-You might be asking, what video quality do you need for indexing your videos? 
+You might be asking, what video quality do you need for indexing your videos?
 
 In many cases, indexing performance has almost no difference between HD (720P) videos and 4K videos. Eventually, you’ll get almost the same insights with the same confidence. The higher the quality of the movie you upload means the higher the file size, and this leads to higher computing power and time needed to upload the video.
 

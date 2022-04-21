@@ -3,7 +3,7 @@ title: Linux filesystem cache best practices for Azure NetApp Files | Microsoft 
 description: Describes Linux filesystem cache best practices to follow for Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Linux filesystem cache best practices for Azure NetApp Files
 
@@ -57,7 +56,7 @@ The kernel flusher thread is responsible for asynchronously flushing dirty buffe
 
 Considering the default virtual memory tunables and the amount of RAM in modern systems, write-back potentially slows down other storage-bound operations from the perspective of the specific client driving this mixed workload.  The following symptoms may be expected from an untuned, write-heavy, cache-laden Linux machine.  
 
-* Directory lists `ls` take long enough as to appear hung.
+* Directory lists `ls` take long enough as to appear unresponsive.
 * Read throughput against the filesystem decreases significantly in comparison to write throughput.
 * `nfsiostat` reports write latencies **in seconds or higher**.
 

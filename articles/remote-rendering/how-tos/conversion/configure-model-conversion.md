@@ -23,31 +23,53 @@ The contents of the file should satisfy the following json schema:
     "$schema" : "http://json-schema.org/schema#",
     "description" : "ARR ConversionSettings Schema",
     "type" : "object",
-    "properties" :
+    "definitions" : 
+    {
+        "position_attribute" : {"type" : "string", "description" : "Destination format of the position attribute", "enum" : [ "32_32_32_FLOAT", "16_16_16_16_FLOAT" ]},
+        "color_attribute" : {"type" : "string", "description" : "Destination format of the color attribute", "enum" : [ "NONE", "8_8_8_8_UNSIGNED_NORMALIZED" ]},
+        "vector_attribute" : {"type" : "string", "description" : "Destination format of the normals, tangents and binormals attributes", "enum" : [ "NONE", "8_8_8_8_SIGNED_NORMALIZED", "16_16_16_16_FLOAT" ]},
+        "texcoord_attribute" : {"type" : "string", "description" : "Destination format of the texture coordinates attribute", "enum" : [ "NONE", "32_32_FLOAT", "16_16_FLOAT" ]}
+    },
+    "properties" : 
     {
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
-        "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
+        "opaqueMaterialDefaultSidedness" : {" type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
+        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
-        "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
+        "sceneGraphMode" : { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
         "generateCollisionMesh" : { "type" : "boolean", "default" : true },
         "unlitMaterials" : { "type" : "boolean", "default" : false },
-        "fbxAssumeMetallic" : { "type" : "boolean", "default" : true },
-        "deduplicateMaterials" : { "type" : "boolean", "default" : true },
+        "deduplicateMaterials" : {"type" : "boolean", "default" : true },
+        "fbxAssumeMetallic" : {"type" : "boolean", "default" : true },
         "axis" : {
             "type" : "array",
             "items" : {
                 "type" : "string",
-                "enum" : ["default", "+x", "-x", "+y", "-y", "+z", "-z"]
+                "enum" : [ "default", "+x", "-x", "+y", "-y", "+z", "-z" ]
             },
-            "minItems": 3,
-            "maxItems": 3
+            "minItems" : 3,
+            "maxItems" : 3
         },
-        "metadataKeys": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        "vertex" : {
+            "type" : "object",
+            "properties" : {
+                "position" : { "$ref" : "#/definitions/position_attribute" },
+                "color0" : { "$ref" : "#/definitions/color_attribute" },
+                "color1" : { "$ref" : "#/definitions/color_attribute" },
+                "normal" : { "$ref" : "#/definitions/vector_attribute" },
+                "tangent" : { "$ref" : "#/definitions/vector_attribute" },
+                "binormal" : { "$ref" : "#/definitions/vector_attribute" },
+                "texcoord0" : { "$ref" : "#/definitions/texcoord_attribute" },
+                "texcoord1" : { "$ref" : "#/definitions/texcoord_attribute" }
+            },
+            "additionalProperties" : false
+        },
+        "metadataKeys" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
             }
         }
     },
@@ -104,13 +126,13 @@ If a model is defined using gamma space, then these options should be set to tru
 ### Scene parameters
 
 * `sceneGraphMode` - Defines how the scene graph in the source file is converted:
-  * `dynamic` (default): All objects in the file are exposed as [entities](../../concepts/entities.md) in the API and can be transformed independently. The node hierarchy at runtime is identical to the structure in the source file.
-  * `static`: All objects are exposed in the API but they cannot be transformed independently.
+  * `dynamic` (default): All objects in the file are exposed as [entities](../../concepts/entities.md) in the API and can be transformed and re-parented arbitrarily. The node hierarchy at runtime is identical to the structure in the source file.
+  * `static`: Similar to `dynamic`, but objects in the scene graph cannot be re-parented to other objects dynamically at runtime. For dynamic models with many moving parts (e.g. 'explosion view'), the `dynamic` option generates a model that is more efficient to render, but `static` mode still allows for individual part transforms. In case dynamic re-parenting is not required, the `static` option is the most suitable for models with many individual parts.
   * `none`: The scene graph is collapsed into one object.
 
-Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. Use `dynamic` mode only when it is necessary to move parts individually, for example for an 'explosion view' animation.
+Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. Use `dynamic` mode only when it is necessary to move many parts or large sub-graphs simultaneously, for example for an 'explosion view' animation.
 
-The `static` mode exports the full scene graph, but parts inside this graph have a constant transform relative to its root part. The root node of the object, however, can still be moved, rotated, or scaled at no significant performance cost. Furthermore, [spatial queries](../../overview/features/spatial-queries.md) will return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It is ideal for large scenes where you still need per-object inspection but no per-object transform changes.
+The `static` mode also exports the full scene graph. [Spatial queries](../../overview/features/spatial-queries.md) will return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It is ideal for large scenes where you need per-object inspection, occasional transform changes on individual parts, but no object re-parenting.
 
 The `none` mode has the least runtime overhead and also slightly better loading times. Inspection or transform of single objects is not possible in this mode. Use cases are, for example, photogrammetry models that do not have a meaningful scene graph in the first place.
 

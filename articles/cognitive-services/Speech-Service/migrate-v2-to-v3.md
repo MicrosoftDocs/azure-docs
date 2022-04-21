@@ -7,8 +7,8 @@ author: bexxx
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 02/12/2022
 ms.author: rbeckers
 ms.custom: devx-track-csharp
 ---
@@ -17,9 +17,12 @@ ms.custom: devx-track-csharp
 
 Compared to v2, the v3 version of the Speech services REST API for speech-to-text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
 
+> [!IMPORTANT]
+> The Speech-to-text REST API v2.0 is deprecated. Please migrate your applications to the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+
 ## Forward compatibility
 
-All entities from v2 can also be found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 are **not** available in responses from v2 APIs. 
+All entities from v2 can also be found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 aren't available in responses from v2 APIs. 
 
 ## Migration steps
 
@@ -67,7 +70,7 @@ General changes:
 
 ### Host name changes
 
-Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) lists valid regions and paths.
+Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
 >[!IMPORTANT]
 >Change the hostname from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com` where region is the region of your speech subscription. Also remove `api/`from any path in your client code.
 
@@ -138,7 +141,7 @@ This change requires calling the `GET` for the collection in a loop until all el
 A detailed description on how to create batches of transcriptions can be found in [Batch transcription How-to](./batch-transcription.md).
 
 The v3 transcription API lets you set specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
-Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) for sentiment analysis options.
+Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for sentiment analysis options.
 
 The new property `timeToLive` under `properties` can help prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity will be deleted automatically. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours have passed.
 
@@ -515,8 +518,5 @@ Accuracy tests have been renamed to evaluations because the new name describes b
 
 ## Next steps
 
-Examine all features of these commonly used REST APIs provided by Speech services:
-
-* [Speech-to-text REST API](rest-speech-to-text.md)
-* [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) for v3 of the REST API
-* For sample code to perform batch transcriptions, view the the [GitHub sample repository](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
+* [Speech-to-text REST API v3.0](rest-speech-to-text.md)
+* [Speech-to-text REST API v3.0 reference](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)

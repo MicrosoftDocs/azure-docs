@@ -3,30 +3,27 @@ title: "Record custom voice samples - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: erhopf
+ms.date: 02/18/2022
+ms.author: eur
 ---
 
-# Record voice samples to create a custom voice
+# Record voice samples to create a professional custom neural voice
+
+This article provides you instructions on preparing high-quality voice samples for creating a professional voice model using the Custom Neural Voice Pro project.
+
+> [!NOTE]
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
 
 Creating a high-quality production custom neural voice from scratch isn't a casual undertaking. The central component of a custom neural voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose a voice talent who has experience making these kinds of recordings, and have them recorded by a recording engineer using professional equipment.
 
 Before you can make these recordings, though, you need a script: the words that will be spoken by your voice talent to create the audio samples.
 
 Many small but important details go into creating a professional voice recording. This guide is a roadmap for a process that will help you get good, consistent results.
-
-> [!NOTE]
-> To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom neural voice model. When preparing your recording script, make sure you include the below sentence. 
-
-> "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice."
-This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
-
-> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
 
 ## Voice recording roles
 
@@ -56,7 +53,7 @@ A persona might have, for example, a naturally upbeat personality. So "their" vo
 
 ## Create a script
 
-The starting point of any custom neural voice recording session is the script, which contains the utterances to be spoken by your voice talent. (The term "utterances" encompasses both full sentences and shorter phrases.)
+The starting point of any custom neural voice recording session is the script, which contains the utterances to be spoken by your voice talent. The term "utterances" encompasses both full sentences and shorter phrases. Building a custom neural voice requires at least 300 recorded utterances as training data.
 
 The utterances in your script can come from anywhere: fiction, non-fiction, transcripts of speeches, news reports, and anything else available in printed form. If you want to make sure your voice does well on specific kinds of words (such as medical terminology or programming jargon), you might want to include sentences from scholarly papers or technical documents. For a brief discussion of potential legal issues, see the ["Legalities"](#legalities) section. You can also write your own text.
 
@@ -64,43 +61,67 @@ Your utterances don't need to come from the same source, or the same kind of sou
 
 We recommend the recording scripts include both general sentences and your domain-specific sentences. For example, if you plan to record 2,000 sentences, 1,000 of them could be general sentences, another 1,000 of them could be sentences from your target domain or the use case of your application.  
 
-We provide [sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) to help you prepare your recording scripts. You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
+We provide [sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) to help you prepare your recording scripts. You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. 
 
-You can select your domain-specific scripts from the sentences that your custom voice will be used to read.
+You can select your domain-specific scripts from the sentences that your custom neural voice will be used to read.
 
 ### Script selection criteria
 
-Below are some general guidelines that you can follow to create a good corpus (recorded audio samples) for Custom Neural Voice training.
+Below are some general guidelines that you can follow to create a good corpus (recorded audio samples) for custom neural voice training.
 
--  Balance your script to cover different sentence types in your domain including statements, questions, exclamations long sentences, and short sentences.
+-  Balance your script to cover different sentence types in your domain including statements, questions, exclamations, long sentences, and short sentences.
 
    In general, each sentence should contain 4 words to 30 words. It's required that no duplicate sentences are included in your script.<br>
-   Statement sentences are the major part of the script, taking about 70-80% of all.
-   Question sentences should take about 10%-20% of your domain script with rising and falling tones covered.<br>
-   If exclamations normally result in a different tone in your target language, consider to include 10%-20% of scripts for exclamations in your samples.<br>
-   Short word/phrase scripts should also take about 10% cases of the total utterances, with 5 to 7 words per case.
+   For how to balance the different sentence types, refer to the following table.
+   
+   | Sentence types | Coverage |
+   | :--------- | :--------------------------- |
+   | Statement sentences | Statement sentences are the major part of the script, taking about 70-80% of all. |
+   | Question sentences | Question sentences should take about 10%-20% of your domain script, including 5%-10% of rising and 5%-10% of falling tones. |
+   | Exclamation sentences| Exclamation sentences should take about 10%-20% of your scripts.|
+   | Short word/phrase| Short word/phrase scripts should also take about 10% cases of the total utterances, with 5 to 7 words per case. |
+
+   > [!NOTE]
+   > Regarding short word/phrase, actually it means that single words or phrases should be included and separated with a comma. It helps a voice talent pause briefly at the comma when reading the scripts.
 
    Best practices include:
     - Balanced coverage for Part of Speech, like verb, noun, adjective, and so on.  
-    - Balanced coverage for pronunciations. Include all letters from A to Z so the TTS engine learns how to pronounce each letter in your defined style.
+    - Balanced coverage for pronunciations. Include all letters from A to Z so the Text-to-Speech engine learns how to pronounce each letter in your defined style.
     - Readable, understandable, common-sense for speaker to read out.
     - Avoid too much similar pattern for word/phrase, like "easy" and "easier".
-    - Include different format of numbers: address, unit, phone, quantity, date, and so on in all sentence types.  
-    - Include spelling sentences if it's something your TTS voice will be used to read. For example, "Spell of Apple is A P P L E".
+    - Include different format of numbers: address, unit, phone, quantity, date, and so on, in all sentence types.  
+    - Include spelling sentences if it's something your custom neural voice will be used to read. For example, "Spell of Apple is A P P L E".
 
 - Don't put multiple sentences into one line/one utterance. Separate each line per utterances.
 
-- Make sure the sentence is mostly clean. In general, don't include too many non-standard words like numbers or abbreviations as they are usually hard to read. Some application may need to read many numbers or acronyms. In this case, you can include these words, but normalize them in their spoken form.  
+- Make sure the sentence is mostly clean. In general, don't include too many non-standard words like numbers or abbreviations as they're usually hard to read. Some application may need to read many numbers or acronyms. In this case, you can include these words, but normalize them in their spoken form.  
 
    Below are some best practices for example:
     - For lines with abbreviations, instead of "BTW", you have "by the way".
     - For lines with digits, instead of "911", you have "nine one one".
-    - For lines with acronyms, instead of "ABC",  you have "A B C"
-      With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
+    - For lines with acronyms, instead of "ABC",  you have "A B C".
+   
+   With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
 - Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
 
 - Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
+
+### Difference between voice talent script and training script
+
+The training script can differ from the voice talent script, especially for scripts that contain digits, symbols, abbreviations, date, and time. Scripts prepared for the voice talent must follow the native reading conventions, such as 50% and $45. The scripts used for training must be normalized to match the audio recording, such as *fifty percent* and *forty-five dollars*. 
+
+> [!NOTE] 
+> We provide some example scripts for the voice talent on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). To use the example scripts for training, you must normalize them according to the recordings of your voice talent before uploading the file.
+
+The following table shows the difference between scripts for voice talent and the normalized script for training.
+
+| Category |Voice talent script example | Training script example (normalized) |
+| --------- | --------- | --------------------------- |
+| Digits |123| one hundred and twenty-three |
+| Symbols |50%| fifty percent|
+| Abbreviation |ASAP| as soon as possible|
+| Date and time |March 3rd at 5:00 PM| March third at five PM|
 
 ### Typical defects of a script
 
@@ -111,7 +132,7 @@ The script defects generally fall into the following categories:
 | Category | Example |
 | :--------- | :--------------------------- |
 | Have a meaningless content in a common way. | |
-| Incomplete sentences. |- "This was my last eve" (no subject, no specific meaning) <br>- "He's obviously already funny" (no quote mark in the end, it is not a complete sentence) |
+| Incomplete sentences. |- "This was my last eve" (no subject, no specific meaning) <br>- "He's obviously already funny (no quote mark in the end, it's not a complete sentence) |
 | Typo in the sentences. | - Start with a lower case<br>- No ending punctuation if needed<br> - Misspelling <br>- Lack of punctuation: no period in the end (except news title)<br>- End with symbols, except comma, question, exclamation <br>- Wrong format, such as:<br>    &emsp;- 45$ (should be $45)<br>    	&emsp;- No space or excess space between word/punctuation |
 |Duplication in similar format, one per each pattern is enough. |- "Now is 1pm in New York"<br>- "Now is 2pm in New York"<br>- "Now is 3pm in New York"<br>- "Now is 1pm in Seattle"<br>- "Now is 1pm in Washington D.C." |
 |Uncommon foreign words: only the commonly used foreign word is acceptable in our script. |  |
@@ -136,6 +157,16 @@ Leave enough space after each row to write notes. Be sure that no utterance is s
 
 Print three copies of the script: one for the talent, one for the engineer, and one for the director (you). Use a paper clip instead of staples: an experienced voice artist will separate the pages to avoid making noise as the pages are turned.
 
+### Voice talent statement
+
+To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. 
+
+You can find the statement in multiple languages on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. 
+
+:::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Upload voice talent statement":::
+
+Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
+
 ### Legalities
 
 Under copyright law, an actor's reading of copyrighted text might be a performance for which the author of the work should be compensated. This performance won't be recognizable in the final product, the custom neural voice. Even so, the legality of using a copyrighted work for this purpose isn't well established. Microsoft can't provide legal advice on this issue; consult your own counsel.
@@ -144,7 +175,7 @@ Fortunately, it's possible to avoid these issues entirely. There are many source
 
 |Text source|Description|
 |-|-|
-|[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
+|[CMU Arctic corpus](https://pyroomacoustics.readthedocs.io/en/pypi-release/pyroomacoustics.datasets.cmu_arctic.html)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
 |Works no longer<br>under copyright|Typically works published prior to 1923. For English, [Project Gutenberg](https://www.gutenberg.org/) offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
 |Government&nbsp;works|Works created by the United States government are not copyrighted in the United States, though the government may claim copyright in other countries/regions.|
 |Public domain|Works for which copyright has been explicitly disclaimed or that have been dedicated to the public domain. It may not be possible to waive copyright entirely in some jurisdictions.|
@@ -158,7 +189,7 @@ Discuss your project with the studio's recording engineer and listen to their ad
 
 ### Recording requirements
 
-To achieve high-quality training results, you need to comply with the following requirements during recording or data preparation:
+To achieve high-quality training results, follow the following requirements during recording or data preparation:
 
 - Clear and well pronounced
 
@@ -187,15 +218,15 @@ You can refer to below specification to prepare for the audio samples as best pr
 | Environment noise, echo |   - The level of noise at start of the wave before speaking < -70 dB |
 
 > [!Note]
-> You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
+> You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom neural voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
 
 ### Typical audio errors
 
 For high-quality training results, avoiding audio errors is highly recommended. The errors of audio normally involve the following categories:
 
 - Audio file name doesn't match the script ID.
-- War file has an invalid format and cannot be read.
-- Audio sampling rate is lower than 16 KHz. Also, it is recommended that wav file sampling rate should be equal or higher than 24 KHz for high-quality neural voice.
+- WAR file has an invalid format and can't be read.
+- Audio sampling rate is lower than 16 KHz. Also, it's recommended that wav file sampling rate should be equal or higher than 24 KHz for high-quality neural voice.
 - Volume peak isn't within the range of -3 dB (70% of max volume) to -6 dB (50%).  
 - Waveform overflow. That is, the waveform at its peak value is cut and thus not complete.
 
@@ -215,7 +246,7 @@ For high-quality training results, avoiding audio errors is highly recommended. 
 
   ![overall volume](media/custom-voice/overall-volume.png)
 
-- No silence before the first word or after the last word. Also, the start or end silence should not be longer than 200 ms or shorter than 100 ms.
+- No silence before the first word or after the last word. Also, the start or end silence shouldn't be longer than 200 ms or shorter than 100 ms.
 
   ![No silence](media/custom-voice/no-silence.png)
 
@@ -248,11 +279,11 @@ Set levels so that most of the available dynamic range of digital recording is u
 
 ![A good recording waveform](media/custom-voice/good-recording.png)
 
-Here, most of the range (height) is used, but the highest peaks of the signal do not reach the top or bottom of the window. You can also see that the silence in the recording approximates a thin horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
+Here, most of the range (height) is used, but the highest peaks of the signal don't reach the top or bottom of the window. You can also see that the silence in the recording approximates a thin horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
 
 Record directly into the computer via a high-quality audio interface or a USB port, depending on the mic you're using. For analog, keep the audio chain simple: mic, preamp, audio interface, computer. You can license both [Avid Pro Tools](https://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) monthly at a reasonable cost. If your budget is extremely tight, try the free [Audacity](https://www.audacityteam.org/).
 
-Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24 bit, if your equipment supports it. You will down-sample your audio to 24 KHz 16-bit before you submit it to Speech Studio. Still, it pays to have a high-quality original recording in the event edits are needed.
+Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24 bit, if your equipment supports it. You'll down-sample your audio to 24 KHz 16-bit before you submit it to Speech Studio. Still, it pays to have a high-quality original recording in the event edits are needed.
 
 Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself. In a pinch, one person can be both the director and the engineer.
 
@@ -263,9 +294,9 @@ To avoid wasting studio time, run through the script with your voice talent befo
 > [!NOTE]
 > Most recording studios offer electronic display of scripts in the recording booth. In this case, type your run-through notes directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hard copy, too. And you'll still want a third printed copy as a backup for the talent in case the computer is down.
 
-Your voice talent might ask which word you want emphasized in an utterance (the "operative word"). Tell them that you want a natural reading with no particular emphasis. Emphasis can be added when speech is synthesized; it should not be a part of the original recording.
+Your voice talent might ask which word you want emphasized in an utterance (the "operative word"). Tell them that you want a natural reading with no particular emphasis. Emphasis can be added when speech is synthesized; it shouldn't be a part of the original recording.
 
-Direct the talent to pronounce words distinctly. Every word of the script should be pronounced as written. Sounds should not be omitted or slurred together, as is common in casual speech, *unless they have been written that way in the script*.
+Direct the talent to pronounce words distinctly. Every word of the script should be pronounced as written. Sounds shouldn't be omitted or slurred together, as is common in casual speech, *unless they have been written that way in the script*.
 
 |Written text|Unwanted casual pronunciation|
 |-|-|
@@ -280,11 +311,11 @@ The talent should *not* add distinct pauses between words. The sentence should s
 
 Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or so. Each time, compare the new recording to the reference. This practice helps the talent remain consistent in volume, tempo, pitch, and intonation. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound.
 
-The match file is especially important when you resume recording after a break or on another day. You'll want to play it a few times for the talent and have them repeat it each time until they are matching well.
+The match file is especially important when you resume recording after a break or on another day. Play it a few times for the talent and have them repeat it each time until they're matching well.
 
 Coach your talent to take a deep breath and pause for a moment before each utterance. Record a couple of seconds of silence between utterances. Words should be pronounced the same way each time they appear, considering context. For example, "record" as a verb is pronounced differently from "record" as a noun.
 
-Record approximately five seconds of silence before the first recording to capture the "room tone." This practice helps Speech Studio compensate for any remaining noise in the recordings.
+Record approximately five seconds of silence before the first recording to capture the "room tone". This practice helps Speech Studio compensate for noise in the recordings.
 
 > [!TIP]
 > All you really need to capture is the voice talent, so you can make a monophonic (single-channel) recording of just their lines. However, if you record in stereo, you can use the second channel to record the chatter in the control room to capture discussion of particular lines or takes. Remove this track from the version that's uploaded to Speech Studio.
@@ -308,11 +339,11 @@ Use your notes to find the exact takes you want, and then use a sound editing ut
 
 Leave only about 0.2 second of silence at the beginning and end of each clip, except for the first. That file should start with a full five seconds of silence. Do not use an audio editor to "zero out" silent parts of the file. Including the "room tone" will help the algorithms compensate for any residual background noise.
 
-Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording, like a slight lip smack before a line, but be careful not to remove any actual speech. If you can't fix a file, remove it from your dataset and note that you have done so.
+Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording, like a slight lip smack before a line, but be careful not to remove any actual speech. If you can't fix a file, remove it from your dataset and note that you've done so.
 
 Convert each file to 16 bits and a sample rate of 24 KHz before saving and if you recorded the studio chatter, remove the second channel. Save each file in WAV format, naming the files with the utterance number from your script.
 
-Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Create and use your voice model](./how-to-custom-voice-create-voice.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
+Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Train your voice model](./how-to-custom-voice-create-voice.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
 
 Archive the original recordings in a safe place in case you need them later. Preserve your script and notes, too.
 
@@ -321,4 +352,4 @@ Archive the original recordings in a safe place in case you need them later. Pre
 You're ready to upload your recordings and create your custom neural voice.
 
 > [!div class="nextstepaction"]
-> [Create and use your voice model](./how-to-custom-voice-create-voice.md)
+> [Train your voice model](./how-to-custom-voice-create-voice.md)

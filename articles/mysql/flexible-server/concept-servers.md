@@ -8,12 +8,9 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-# Server concepts in Azure Database for MySQL Flexible Server (Preview)
+# Server concepts in Azure Database for MySQL Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT] 
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article provides considerations and guidelines for working with Azure Database for MySQL Flexible Servers.
 
@@ -46,9 +43,12 @@ Azure Database for MySQL Flexible Server gives you the ability to **Stop** the s
 When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again.
 
 > [!IMPORTANT]
-> When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
+> When you **Stop** the server it remains in that state for the next 30 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 30 days. You can chose to **Stop** it again if you are not using the server.
 
 During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [start the server](how-to-stop-start-server-portal.md). Refer to the [stop/start limitations](./concepts-limitations.md#stopstart-operation).
+
+> [!NOTE]
+> Operations on servers that are in a [Stop](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server) state are disabled and show as inactive in the Azure portal. Operations that are not supported on stopped servers include changing the pricing tier, number of vCores, storage size or IOPS, backup retention day, server tag, the server password, server parameters, storage auto-grow, GEO backup, HA, and user identity.
 
 ## How do I manage a server?
 

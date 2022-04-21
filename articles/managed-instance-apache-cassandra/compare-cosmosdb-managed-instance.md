@@ -5,17 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 12/10/2021
+ms.custom: ignite-fall-2021, mode-api
 ---
 
-# Differences between Azure Managed Instance for Apache Cassandra (Preview) and Azure Cosmos DB Cassandra API 
+# Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB Cassandra API 
 
 In this article, you will learn the differences between Azure Managed Instance for Apache Cassandra and the Cassandra API in Azure Cosmos DB. This article provides recommendations on how to choose between the two services, or when to host your own Apache Cassandra environment.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Key differences
 
@@ -35,7 +31,7 @@ The following table shows the common scenarios, workload requirements, and aspir
 | **Pricing model**| You want to use management software such as Datastax tooling and are happy with licensing costs. | You prefer pure open-source licensing and VM instance-based pricing. | You want to use cloud-native pricing, which includes [autoscale](../cosmos-db/manage-scale-cassandra.md#use-autoscale) and [serverless](../cosmos-db/serverless.md) offers. |
 | **Analytics**| You want full control over the provisioning of analytical pipelines regardless of the overhead to build and maintain them. | You want to use cloud-based analytical services like Azure Databricks. | You want near real-time hybrid transactional analytics built into the platform with [Azure Synapse Link for Cosmos DB](../cosmos-db/synapse-link.md). |
 | **Workload pattern**| Your workload is fairly steady-state and you don't require scaling nodes in the cluster frequently. | Your workload is volatile and you need to be able to scale up or scale down nodes in a data center or add/remove data centers easily. | Your workload is often volatile and you need to be able to scale up or scale down quickly and at a significant volume. |
-| **SLAs**| You are happy with your processes for maintaining SLAs on consistency, throughput, availability, and disaster recovery. | You are happy with your processes for maintaining SLAs on consistency, throughput, and availability, but need help with backups. | You want fully comprehensive SLAs on consistency, throughput, availability, and disaster recovery. |
+| **SLAs**| You are happy with your processes for maintaining SLAs on consistency, throughput, availability, and disaster recovery. | You are happy with your processes for maintaining SLAs on consistency and throughput, but want an [SLA for availability](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/), and need [help with backups](management-operations.md#backup-and-restore). | You want [fully comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_4/) on consistency, throughput, availability, and disaster recovery. |
 
 ## Next steps
 

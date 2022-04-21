@@ -5,9 +5,9 @@ description: Ensure that your organization's administrative access and administr
 services: active-directory 
 keywords: 
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.author: rolyon
-ms.date: 11/05/2020
+ms.date: 11/04/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
@@ -174,7 +174,7 @@ Azure AD Identity Protection is an algorithm-based monitoring and reporting tool
 
 #### Obtain your Microsoft 365 Secure Score (if using Microsoft 365)
 
-Secure Score looks at your settings and activities for the Microsoft 365 services you're using and compares them to a baseline established by Microsoft. You'll get a score based on how aligned you are with security practices. Anyone who has the administrator permissions for a Microsoft 365 Business Standard or Enterprise subscription can access the Secure Score at [https://securescore.office.com](https://securescore.office.com/).
+Secure Score looks at your settings and activities for the Microsoft 365 services you're using and compares them to a baseline established by Microsoft. You'll get a score based on how aligned you are with security practices. Anyone who has the administrator permissions for a Microsoft 365 Business Standard or Enterprise subscription can access the Secure Score at `https://security.microsoft.com/securescore`.
 
 #### Review the Microsoft 365 security and compliance guidance (if using Microsoft 365)
 
@@ -299,7 +299,7 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 
 #### Establish integrated monitoring
 
-The [Azure Security Center](../../security-center/security-center-introduction.md):
+The [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md):
 
 * Provides integrated security monitoring and policy management across your Azure subscriptions
 * Helps detect threats that may otherwise go unnoticed
@@ -318,7 +318,7 @@ Use Privileged identity Management with Azure AD administrator roles to manage, 
 Azure log integration enables you to integrate raw logs from your Azure resources to your organization's existing Security Information and Event Management (SIEM) systems. [Azure log integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview) collects Windows events from Windows Event Viewer logs and Azure resources from:
 
 * Azure activity Logs
-* Azure Security Center alerts
+* Microsoft Defender for Cloud alerts
 * Azure resource logs
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD
@@ -329,7 +329,7 @@ Azure AD allows you to automate creating and maintaining user identities in clou
 
 #### Integrate information protection
 
-Microsoft Cloud App Security allows you to investigate files and set policies based on Azure Information Protection classification labels, enabling greater visibility and control of your cloud data. Scan and classify files in the cloud and apply Azure information protection labels. For more information, see [Azure Information Protection integration](/cloud-app-security/azip-integration).
+Microsoft Defender for Cloud Apps allows you to investigate files and set policies based on Azure Information Protection classification labels, enabling greater visibility and control of your cloud data. Scan and classify files in the cloud and apply Azure information protection labels. For more information, see [Azure Information Protection integration](/cloud-app-security/azip-integration).
 
 #### Configure Conditional Access
 
@@ -337,7 +337,7 @@ Configure Conditional Access based on a group, location, and application sensiti
 
 #### Monitor activity in connected cloud apps
 
-We recommend using [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) to ensure that user access is also protected in connected applications. This feature secures the enterprise access to cloud apps and secures your administrator accounts, allowing you to:
+We recommend using [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) to ensure that user access is also protected in connected applications. This feature secures the enterprise access to cloud apps and secures your administrator accounts, allowing you to:
 
 * Extend visibility and control to cloud apps
 * Create policies for access, activities, and data sharing
@@ -345,7 +345,7 @@ We recommend using [Microsoft Cloud App Security](/cloud-app-security/what-is-cl
 * Prevent data leakage
 * Minimize risk and automated threat prevention and policy enforcement
 
-The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Microsoft 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](/cloud-app-security/siem).
+The Defender for Cloud Apps SIEM agent integrates Defender for Cloud Apps with your SIEM server to enable centralized monitoring of Microsoft 365 alerts and activities. It runs on your server and pulls alerts and activities from Defender for Cloud Apps and streams them into the SIEM server. For more information, see [SIEM integration](/cloud-app-security/siem).
 
 ## Stage 4: Continue building defenses
 
@@ -421,7 +421,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 8. Make sure you save backups of relevant logs for potential forensic and legal investigation.
 
-For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
+For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](/compliance/assurance/assurance-security-incident-management).
 
 ## FAQ: Answers for securing privileged access  
 

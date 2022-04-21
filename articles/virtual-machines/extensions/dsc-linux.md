@@ -7,8 +7,9 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: linux
-ms.date: 06/12/2018 
-ms.custom: devx-track-azurepowershell
+ms.date: 06/12/2018
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 
@@ -19,6 +20,8 @@ Desired State Configuration (DSC) is a management platform that you can use to m
 > [!NOTE]
 > The DSC extension for Linux and the [Log Analytics virtual machine extension for Linux](./oms-linux.md) currently present a conflict
 > and aren't supported in a side-by-side configuration. Don't use the two solutions together on the same VM.
+>
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../../governance/policy/concepts/guest-configuration.md). The guest configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 The DSCForLinux extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. The DSC extension can also do the following actions:
 
@@ -32,7 +35,7 @@ The DSCForLinux extension is published and supported by Microsoft. The extension
 
 ### Operating system
 
-For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/dsc/getting-started/lnxgettingstarted).
 
 ### Internet connectivity
 

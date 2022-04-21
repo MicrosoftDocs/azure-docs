@@ -4,7 +4,7 @@ description: Learn how to troubleshoot errors that occur when creating Azure HDI
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 08/24/2020
+ms.date: 04/14/2022
 ---
 
 
@@ -144,7 +144,7 @@ If you plan to use network security groups to control network traffic, take 
 
 ### Error
 
-"The Managed Identity does not have permissions on the storage account. Please verify that 'Storage Blob Data Owner' role is assigned to the Managed Identity for the storage account. Storage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
+"The Managed Identity does not have permissions on the storage account. Please verify that 'Storage Blob Data Owner' role is assigned to the Managed Identity for the storage account. Storage: /subscriptions/ \<Subscription ID\> /resourceGroups/\<Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /\<Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
 
 ### Cause
 
@@ -165,7 +165,7 @@ For more information, see [Set up permissions for the managed identity on the Da
 
 ### Error
 
-"The security rules in the Network Security Group /subscriptions/\<SubscriptionID\>/resourceGroups/<Resource Group name\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configured with subnet /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> does not allow required inbound and/or outbound connectivity. For more information, please visit [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md), or contact support."
+"The security rules in the Network Security Group /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configured with subnet /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> does not allow required inbound and/or outbound connectivity. For more information, please visit [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md), or contact support."
 
 ### Cause
 
@@ -213,7 +213,7 @@ If you are using custom VNet network security group (NSGs) and user-defined rout
 
 ---
 
-## Error Code: Deployments failed due to policy violation: 'Resource '<Resource URI>' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"<Policy Name> ","id":"/providers/Microsoft.Management/managementGroups/<Management Group Name> providers/Microsoft.Authorization/policyAssignments/<Policy Name>"},"policyDefinition": <Policy Definition>
+## Error Code: Deployments failed due to policy violation: 'Resource '\<Resource URI\>' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"\<Policy Name\> ","id":"/providers/Microsoft.Management/managementGroups/\<Management Group Name\> providers/Microsoft.Authorization/policyAssignments/\<Policy Name\>"},"policyDefinition": \<Policy Definition\>
 
 ### Cause
 
@@ -231,6 +231,23 @@ Delete or Disable the subscription-based Azure Policy assignment while creating 
 
 ---
 
+## Error Code: FailedToValidateStorageAccountErrorCode
+
+### Error
+
+[{'code':'FailedToValidateStorageAccountErrorCode','message':'Failed to validate the storage account.'}]}
+
+### Cause
+
+* You can enable RA-GRS or RA-ZRS on the Azure Blob storage account that HDInsight uses. However, creating a cluster against the RA-GRS or RA-ZRS secondary endpoint isn't supported.
+* HDInsight does not support setting Data Lake Storage Gen2 as read-access geo-zone-redundant storage (RA-GZRS) or geo-zone-redundant storage (GZRS).
+
+### Resolution
+
+* For Azure Blob storage accounts, don't create an HDInsight cluster using the [RA-GRS or RA-ZRS secondary endpoint](../storage/common/storage-redundancy.md#design-your-applications-for-read-access-to-the-secondary). Only use the primary endpoint.
+* For Data Lake Storage Gen2, use [GRS or RA-GRS redundancy](../storage/common/storage-redundancy.md#geo-redundant-storage).
+
+---
 ## Next steps
 
 For more information about troubleshooting errors in cluster creation, see [Troubleshoot cluster creation failures with Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md).

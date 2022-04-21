@@ -22,11 +22,11 @@ ms.custom: aaddev
 
 ## Configure logging in MSAL.NET
 
-In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
+In MSAL logging is set at application creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
 - `Level` enables you to decide which level of logging you want. Setting it to Errors will only get errors
-- `PiiLoggingEnabled` enables you to log personal and organizational data if set to true. By default this is set to false, so that your application does not log personal data.
-- `LogCallback` is set to a delegate that does the logging. If `PiiLoggingEnabled` is true, this method will receive the messages twice: once with the `containsPii` parameter equals false and the message without personal data, and a second time with the `containsPii` parameter equals to true and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
+- `PiiLoggingEnabled` enables you to log personal and organizational data (PII) if set to true. By default this is set to false, so that your application does not log personal data.
+- `LogCallback` is set to a delegate that does the logging. If `PiiLoggingEnabled` is true, this method will receive messages that can have PII, in which case the `containsPii` flag will be set to true.
 - `DefaultLoggingEnabled` enables the default logging for the platform. By default it's false. If you set it to true it uses Event Tracing in Desktop/UWP applications, NSLog on iOS and logcat on Android.
 
 ```csharp

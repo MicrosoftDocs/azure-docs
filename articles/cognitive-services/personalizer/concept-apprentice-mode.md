@@ -1,6 +1,9 @@
 ---
 title: Apprentice mode - Personalizer
 description: Learn how to use apprentice mode to gain confidence in a model without changing any code.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual

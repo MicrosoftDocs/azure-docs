@@ -3,13 +3,13 @@ title: Monitor Azure Machine Learning data reference | Microsoft Docs
 description: Reference documentation for monitoring Azure Machine Learning. Learn about the data & resources collected and available in Azure Monitor. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 04/07/2021
+ms.date: 10/21/2021
 ---
 
 # Monitoring Azure machine learning data reference
@@ -130,10 +130,32 @@ Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azu
 | Category | Display Name |
 | ----- | ----- |
 | AmlComputeClusterEvent | AmlComputeClusterEvent |
-| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeClusterNodeEvent (deprecated) | AmlComputeClusterNodeEvent |
 | AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
 | AmlComputeJobEvent | AmlComputeJobEvent |
 | AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+| ModelsChangeEvent | ModelsChangeEvent |
+| ModelsReadEvent | ModelsReadEvent |
+| ModelsActionEvent | ModelsActionEvent |
+| DeploymentReadEvent | DeploymentReadEvent |
+| DeploymentEventACI | DeploymentEventACI |
+| DeploymentEventAKS | DeploymentEventAKS |
+| InferencingOperationAKS | InferencingOperationAKS |
+| InferencingOperationACI | InferencingOperationACI |
+| EnvironmentChangeEvent | EnvironmentChangeEvent |
+| EnvironmentReadEvent | EnvironmentReadEvent |
+| DataLabelChangeEvent | DataLabelChangeEvent |
+| DataLabelReadEvent | DataLabelReadEvent |
+| ComputeInstanceEvent | ComputeInstanceEvent |
+| DataStoreChangeEvent | DataStoreChangeEvent |
+| DataStoreReadEvent | DataStoreReadEvent |
+| DataSetChangeEvent | DataSetChangeEvent |
+| DataSetReadEvent | DataSetReadEvent |
+| PipelineChangeEvent | PipelineChangeEvent |
+| PipelineReadEvent | PipelineReadEvent |
+| RunEvent | RunEvent |
+| RunReadEvent | RunReadEvent |
+
 
 ## Schemas
 
@@ -145,7 +167,7 @@ The following schemas are in use by Azure Machine Learning
 |:--- |:---|
 | TimeGenerated | Time when the log entry was generated |
 | OperationName | Name of the operation associated with the log event |
-| Category | Name of the log event, AmlComputeClusterNodeEvent |
+| Category | Name of the log event |
 | JobId | ID of the Job submitted |
 | ExperimentId | ID of the Experiment |
 | ExperimentName | Name of the Experiment |
@@ -174,7 +196,7 @@ The following schemas are in use by Azure Machine Learning
 |:--- |:--- |
 | TimeGenerated | Time when the log entry was generated |
 | OperationName | Name of the operation associated with the log event |
-| Category | Name of the log event, AmlComputeClusterNodeEvent |
+| Category | Name of the log event |
 | ProvisioningState | Provisioning state of the cluster |
 | ClusterName | Name of the cluster |
 | ClusterType | Type of the cluster |
@@ -217,7 +239,7 @@ The following schemas are in use by Azure Machine Learning
 |:--- |:--- |
 | TimeGenerated | Time when the log entry was generated |
 | OperationName | Name of the operation associated with the log event |
-| Category | Name of the log event, AmlComputeClusterNodeEvent |
+| Category | Name of the log event |
 | ClusterName | Name of the cluster |
 | NodeId | ID of the cluster node created |
 | VmSize | Vm size of the node |
@@ -235,6 +257,159 @@ The following schemas are in use by Azure Machine Learning
 | StartTaskStartTime | Time when task was assigned to a node and started |
 | StartTaskEndTime | Time when task assigned to a node ended |
 | TotalE2ETimeInSeconds | Total time node was active |
+
+> [!NOTE]
+> Effective February 2022, the AmlComputeClusterNodeEvent table will be deprecated. We recommend that you instead use the AmlComputeClusterEvent table.
+
+### AmlComputeInstanceEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlComputeInstanceEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| CorrelationId | A GUID used to group together a set of related events, when applicable. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlComputeInstanceName | "The name of the compute instance associated with the log entry. |
+
+### AmlDataLabelEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDataLabelEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| CorrelationId | A GUID used to group together a set of related events, when applicable. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlProjectId | The unique identifier of the AML project. |
+| AmlProjectName | The name of the AML project. |
+| AmlLabelNames | The label class names which are created for the project. |
+| AmlDataStoreName | The name of the data store where the project's data is stored. |
+
+### AmlDataSetEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDataSetEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlDatasetId | The ID of the AML Data Set. |
+| AmlDatasetName | The name of the AML Data Set. |
+
+### AmlDataStoreEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDataStoreEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlDatastoreName | The name of the AML Data Store. |
+
+### AmlDeploymentEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDeploymentEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlServiceName | The name of the AML Service. |
+
+### AmlInferencingEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlInferencingEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlServiceName | The name of the AML Service. |
+
+### AmlModelsEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlModelsEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| ResultSignature | The HTTP status code of the event. Typical values include 200, 201, 202 etc. |
+| AmlModelName | The name of the AML Model. |
+
+### AmlPipelineEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlPipelineEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| AmlWorkspaceId | The name of the AML workspace. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlModuleId | A GUID and unique ID of the module.|
+| AmlModelName | The name of the AML Model. |
+| AmlPipelineId | The ID of the AML pipeline. |
+| AmlParentPipelineId | The ID of the parent AML pipeline (in the case of cloning). |
+| AmlPipelineDraftId | The ID of the AML pipeline draft. |
+| AmlPipelineDraftName | The name of the AML pipeline draft. |
+| AmlPipelineEndpointId | The ID of the AML pipeline endpoint. |
+| AmlPipelineEndpointName | The name of the AML pipeline endpoint. |
+
+
+### AmlRunEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlRunEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| RunId | The unique ID of the run. |
+
+### AmlEnvironmentEvent  table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlEnvironmentEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlEnvironmentName | The name of the AML environment configuration. |
+| AmlEnvironmentVersion | The name of the AML environment configuration version. |
 
 
 ## See also

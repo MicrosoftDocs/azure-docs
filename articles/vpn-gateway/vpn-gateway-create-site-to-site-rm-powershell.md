@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Create a VNet with a Site-to-Site VPN connection using PowerShell
 
-This article shows you how to use PowerShell to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to use PowerShell to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](./tutorial-site-to-site-portal.md)
@@ -191,7 +191,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-After running this command, it can take up to 45 minutes for the gateway configuration to complete.
+Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 ## <a name="ConfigureVPNDevice"></a>6. Configure your VPN device
 
@@ -221,7 +221,7 @@ Next, create the Site-to-Site VPN connection between your virtual network gatewa
    ```azurepowershell-interactive
    New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
    -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   -ConnectionType IPsec -SharedKey 'abc123'
    ```
 
 After a short while, the connection will be established.

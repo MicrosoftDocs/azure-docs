@@ -23,6 +23,8 @@
   items:
   - name: Deploy Workbench
     href: deploy.md
+  - name: Migrate to another ledger
+    href: https://github.com/Azure-Samples/blockchain/blob/caleteet-migration/migration/abw-migration.md
   - name: Manage Workbench users
     href: manage-users.md
   - name: Versioning apps
@@ -52,7 +54,7 @@
   - name: Messaging API
     href: messages-overview.md
   - name: REST API
-    href: /rest/api/azure-blockchain-workbench
+    href: /rest/api/azure-blockchain-workbench/
 - name: Resources
   items:
   - name: Code samples
@@ -67,9 +69,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-blockchain-workbench
   - name: Product feedback
     href: https://aka.ms/blockchainuservoice
-- name: Solution templates
-  items:
-  - name: Ethereum Proof-of-Authority consortium
-    href: ../templates/ethereum-poa-deployment.md
-  - name: Hyperledger Fabric consortium Azure Kubernetes Service
-    href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

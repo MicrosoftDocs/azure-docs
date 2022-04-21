@@ -1,19 +1,18 @@
 ---
-title: Create an Microsoft Azure Confidential Ledger by using Azure Resource Manager template
-description: Learn how to create an Microsoft Azure Confidential Ledger by using Azure Resource Manager template.
+title: Create an Microsoft Azure confidential ledger by using Azure Resource Manager template
+description: Learn how to create an Microsoft Azure confidential ledger by using Azure Resource Manager template.
 services: azure-resource-manager
 author: msmbaldwin
-ms.service: azure-resource-manager
+ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: mbaldwin
 ms.date: 04/15/2021
-
 ---
 
-# Quickstart: Create an Microsoft Azure Confidential Ledger with an ARM template
+# Quickstart: Create an Microsoft Azure confidential ledger with an ARM template
 
-[Microsoft Azure Confidential Ledger](overview.md) is a new and highly secure service for managing sensitive data records. This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a new ledger.
+[Microsoft Azure confidential ledger](overview.md) is a new and highly secure service for managing sensitive data records. This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a new ledger.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -33,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Obtain your principal ID
 
-The template requires a principal ID. You can obtain your principal ID my running the Azure CLI [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) command, with the `--show-mine` flag:
+The template requires a principal ID. You can obtain your principal ID my running the Azure CLI [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) command, with the `--show-mine` flag:
 
 ```azurecli-interactive
 az ad sp list --show-mine -o table
@@ -59,13 +58,13 @@ Azure resources defined in the template:
 
 1. Select or enter the following values.
 
-    Unless it's specified, use the default value to create the Confidential Ledger.
+    Unless it's specified, use the default value to create the confidential ledger.
 
     - **Ledger name**: Select a name for your ledger. Ledger names must be globally unique.
     - **Location**: Select a location. For example, **East US**.
     - **PrincipalId**: Provide the Principal ID you noted in the [Prerequisites](#obtain-your-principal-id) section above.
 
-1. Select **Purchase**. After the Confidential Ledger resource has been deployed successfully, you will receive a notification.
+1. Select **Purchase**. After the confidential ledger resource has been deployed successfully, you will receive a notification.
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -75,7 +74,7 @@ You can use the Azure portal to check the ledger resource.
 
 ## Clean up resources
 
-Other Microsoft Azure Confidential Ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+Other Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
 When no longer needed, delete the resource group, which deletes the ledger resource. To delete the resource group by using Azure CLI or Azure PowerShell:
 
@@ -100,4 +99,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Confidential Ledger resource using an ARM template and validated the deployment. To learn more about the service, see [Overview of Microsoft Azure Confidential Ledger](overview.md).
+In this quickstart, you created an confidential ledger resource using an ARM template and validated the deployment. To learn more about the service, see [Overview of Microsoft Azure confidential ledger](overview.md).

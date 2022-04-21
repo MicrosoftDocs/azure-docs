@@ -17,17 +17,17 @@ Get started with facial recognition using the Face client library for JavaScript
 
 Use the Face client library for JavaScript to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create a PersonGroup](#create-a-persongroup)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
+* [Find similar faces](#find-similar-faces)
 
-[Reference documentation](/javascript/api/@azure/cognitiveservices-face/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
+[Reference documentation](/javascript/api/overview/azure/cognitiveservices/face) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face) | [Samples](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The latest version of [Node.js](https://nodejs.org/en/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -73,7 +73,8 @@ Create variables for your resource's Azure endpoint and key.
 
 > [!IMPORTANT]
 > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
+
+> [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ```javascript
@@ -99,10 +100,9 @@ The following classes and interfaces handle some of the major features of the Fa
 The code snippets below show you how to do the following tasks with the Face client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create a PersonGroup](#create-a-persongroup)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
+* [Find similar faces](#find-similar-faces)
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js), which contains the code examples in this quickstart.
@@ -125,7 +125,10 @@ You'll use the following function to wait for the training of the PersonGroup to
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="helpers":::
 
-## Detect faces in an image
+## Detect and analyze faces
+
+Face detection is required as a first step in  Face Analysis and Identity Verification. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or verification, skip to the later sections.
+
 
 ### Get detected face objects
 
@@ -133,30 +136,24 @@ Create a new method to detect faces. The `DetectFaceExtract` method processes th
 
 The `DetectFaceExtract` method then parses and prints the attribute data for each detected face. Each attribute must be specified separately in the original face detection API call (in the **[FaceAttributeType](/javascript/api/@azure/cognitiveservices-face/faceattributetype)** list). The following code processes every attribute, but you will likely only need to use one or a few.
 
+The "QualityForRecognition" attribute is an indicator of the overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. To leverage the quality attribute, users need to assign the model version by setting the detectionModel parameter to detection_01 or detection_03, recognitionModel parameter to recognition_03 or recognition_04, and include the QualityForRecognition attribute in the request as shown in the example above.    
+
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="detect":::
+
+The above code processes the following remote images:
+
+![Photo of a woman smiling](../../media/quickstarts/detection-1.jpg)
+![Photo of a man, woman, and baby](../../media/quickstarts/detection-5.jpg)
+![Photo of an older man and woman](../../media/quickstarts/detection-6.jpg)
 
 > [!TIP]
 > You can also detect faces in a local image. See the [Face](/javascript/api/@azure/cognitiveservices-face/face) methods such as [DetectWithStreamAsync](/javascript/api/@azure/cognitiveservices-face/face#detectWithStream_msRest_HttpRequestBody__FaceDetectWithStreamOptionalParams__ServiceCallback_DetectedFace____).
 
-## Find similar faces
 
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Detect faces for comparison
-
-First, define a second face detection method. You need to detect faces in images before you can compare them, and this detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="recognize":::
-
-### Find matches
-
-The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image. Finally, it prints the match details to the console.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="find_similar":::
 
 ## Identify a face
 
-The [Identify](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup), a database of different [Person](/javascript/api/@azure/cognitiveservices-face/person) objects whose facial features are known. In order to do the Identify operation, you first need to create and train a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
+The [Identify](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) operation takes an image of a person (or multiple people) and looks to find the stored person object associated with each face in the image (facial recognition search). It compares each detected face to a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup), a database of different [Person](/javascript/api/@azure/cognitiveservices-face/person) objects whose facial features are known. In order to do the Identify operation, you first need to create and train a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 ### Add faces to PersonGroup
 
@@ -184,6 +181,30 @@ This **PersonGroup** and its associated **Person** objects are now ready to be u
 
 > [!TIP]
 > You can also create a **PersonGroup** from local images. See the [PersonGroupPerson](/javascript/api/@azure/cognitiveservices-face/persongroupperson) methods such as [AddFaceFromStream](/javascript/api/@azure/cognitiveservices-face/persongroupperson#addFaceFromStream_string__string__msRest_HttpRequestBody__Models_PersonGroupPersonAddFaceFromStreamOptionalParams_).
+
+## Find similar faces
+
+The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
+
+### Detect faces for comparison
+
+First, define a second face detection method. You need to detect faces in images before you can compare them, and this detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
+
+:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="recognize":::
+
+### Find matches
+
+The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image. Finally, it prints the match details to the console.
+
+:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="find_similar":::
+
+In this program, the following remote image will be used as the source:
+
+![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
+
+The face detected in this image should be returned as the face that's similar to the source image face.
+
+![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Main
 

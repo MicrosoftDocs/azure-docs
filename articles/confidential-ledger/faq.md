@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Azure Confidential Ledger
-description: Frequently asked questions for Azure Confidential Ledger
+title: Frequently asked questions for Azure confidential ledger
+description: Frequently asked questions for Azure confidential ledger
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
@@ -11,11 +11,11 @@ ms.author: mbaldwin
 
 ---
 
-# Frequently asked questions for Azure Confidential Ledger
+# Frequently asked questions for Azure confidential ledger
 
 ## How can I tell if the ACC Ledger service would be useful to my organization?
 
-Confidential Ledger is ideal for organizations with records valuable enough for a motivated attacker to try to compromise the underlying logging/storage system, including "insider" scenarios where a rogue employee might attempt to forge, modify, or remove previous records.
+Azure confidential ledger is ideal for organizations with records valuable enough for a motivated attacker to try to compromise the underlying logging/storage system, including "insider" scenarios where a rogue employee might attempt to forge, modify, or remove previous records.
 
 ## What makes ACC Ledger much more secure?
 
@@ -27,10 +27,10 @@ Not necessarily. Some solutions today require users to maintain write receipts f
 
 ## How do I verify Ledger's authenticity?
 
-You can verify that the Ledger server nodes that your client is communicating with are authentic. For details, see [Authenticating Confidential Ledger Nodes](authenticate-ledger-nodes.md).
+You can verify that the Ledger server nodes that your client is communicating with are authentic. For details, see [Authenticating confidential ledger Nodes](authenticate-ledger-nodes.md).
 
 
 
 ## Next steps
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)

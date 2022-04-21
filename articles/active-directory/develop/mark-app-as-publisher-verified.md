@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jesakowi
+ms.reviewer: ardhanap, jesakowi
 ---
 
 # Mark your app as publisher verified
@@ -37,13 +37,13 @@ Make sure you have met the [pre-requisites](publisher-verification-overview.md#r
 
 1. Ensure you are signed in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Azure AD) account that is authorized to make changes to the app(s) you want to mark as Publisher Verified and on the MPN Account in Partner Center.
 
-    - In Azure AD this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, Global Admin. 
+    - In Azure AD this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Admin. 
 
     - In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
 
-1. Navigate to the App Registration portal:  
+1. Navigate to the **App registrations** blade:  
 
-1. Click on an app you would like to mark as Publisher Verified and open the Branding blade. 
+1. Click on an app you would like to mark as Publisher Verified and open the **Branding** blade. 
 
 1. Ensure the app’s [publisher domain](howto-configure-publisher-domain.md) is set. 
 

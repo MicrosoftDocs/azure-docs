@@ -42,7 +42,7 @@ For image deployment to other services, check the regions where the registry and
 Related links:
 
 * [Azure Container Registry service tiers](container-registry-skus.md)    
-* [Container registry FAQ](container-registry-faq.md)
+* [Container registry FAQ](container-registry-faq.yml)
 * [Performance and scalability targets for Azure Blob Storage](../storage/blobs/scalability-targets.md)
 
 ### Check client hardware
@@ -99,8 +99,8 @@ If [collection of resource logs](monitor-service.md) is enabled in the registry,
 
 Related links:
 
-* [Monitor Azure Container Registry](monitor-service.md)
-* [Container registry FAQ](container-registry-faq.md)
+* [Logs for diagnostic evaluation and auditing](./monitor-service.md)
+* [Container registry FAQ](container-registry-faq.yml)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 
 ## Next steps

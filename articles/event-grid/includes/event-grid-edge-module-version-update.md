@@ -2,11 +2,9 @@
  title: include file
  description: include file
  services: event-grid
- author: femila
  ms.service: event-grid
  ms.topic: include
- ms.date: 01/16/2020
- ms.author: femila
+ ms.date: 09/15/2021
  ms.custom: include file
 ---
 

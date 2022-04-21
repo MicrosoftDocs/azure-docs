@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Cognitive Search service REST API version.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 09/16/2021
 ---
 
 # Upgrade to the latest REST API in Azure Cognitive Search
@@ -81,7 +81,7 @@ From API versions 2019-05-06 and 2019-05-06-Preview onwards, the data source API
 
 #### Named Entity Recognition cognitive skill is now discontinued
 
-If you called the [Name Entity Recognition](cognitive-search-skill-named-entity-recognition.md) skill in your code, the call will fail. Replacement functionality is [Entity Recognition](cognitive-search-skill-entity-recognition.md). You should be able to replace the skill reference with no other changes. The API signature is the same for both versions. 
+If you called the [Name Entity Recognition](cognitive-search-skill-named-entity-recognition.md) skill in your code, the call will fail. Replacement functionality is [Entity Recognition Skill (V3)](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 ### Upgrading complex types
 

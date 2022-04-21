@@ -48,7 +48,7 @@ The sample application on GitHub contains the following folders:
 
 - **NotificationHub.Sample.API**: A Visual Studio 2019 ASP.NET web API solution that acts as a back end.
 - **app**: A cross-platform React Native application that enables dispatching notifications with a manager login, and to then receive notifications with a survey user login.
-- **azure-template**: Azure Resource Manager templates (`parameters.json` and `template.json`) that you can use to deploy all the necessary resources to configure this deployment in your Azure subscription. For more information about Resource Manager template deployment, see [Create and deploy ARM templates using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+- **azure-template**: Azure Resource Manager templates (`parameters.json` and `template.json`) that you can use to deploy all the necessary resources to configure this deployment in your Azure subscription. For more information about Resource Manager template deployment, see [Create and deploy ARM templates using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## Sample overview
 
@@ -350,9 +350,9 @@ To run the sample, the following prerequisites are required:
 
 - **[Azure Notification Hub instance](#create-resource-notification-hub):** a notification hub configured on Azure.
 - **[SQL Server database instance](#create-resource-sql-database):** A SQL Server database hosted on Azure.
-- **ASP.NET app backend:** Web API backend built over .NET 5.0, which connects with Azure Notification Hub hosted as Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore?tabs=net50&pivots=development-environment-vs).
+- **ASP.NET app backend:** Web API backend built over .NET 5.0, which connects with Azure Notification Hub hosted as Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=net50).
 
-If you don't want to deploy all the resources manually, you can use the Azure Resource Manager template.json file provided in the GitHub repository to deploy all the necessary instances in one step. The template file is available in the repo in /azure-template. For more information about how to use Resource Manager templates, see [Tutorial: Use Azure Quickstart templates](/azure/azure-resource-manager/templates/template-tutorial-quickstart-template?tabs=azure-powershell).
+If you don't want to deploy all the resources manually, you can use the Azure Resource Manager template.json file provided in the GitHub repository to deploy all the necessary instances in one step. The template file is available in the repo in /azure-template. For more information about how to use Resource Manager templates, see [Tutorial: Use Azure Quickstart templates](../azure-resource-manager/templates/template-tutorial-quickstart-template.md?tabs=azure-powershell).
 
 ### Set up notifications for Android and iOS
 
@@ -365,7 +365,7 @@ To build the sample, follow these steps.
 
 ### Create resource: SQL database
 
-[Create a SQL Server database instance](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal) in the Azure portal. For example:
+[Create a SQL Server database instance](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) in the Azure portal. For example:
 
 :::image type="content" source="media/uwp-react/resources-sql.png" alt-text="SQL instance resources":::
 

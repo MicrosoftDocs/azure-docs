@@ -128,4 +128,4 @@ The following table is a performance comparison between VHD and CimFS. These num
 
 ## Next steps
 
-If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).
+If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [FAQ](app-attach-faq.yml). Otherwise, get started with [Set up app attach](app-attach.md).

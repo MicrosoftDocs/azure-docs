@@ -1,8 +1,8 @@
 ---
 title: Understand the Azure IoT Hub identity registry | Microsoft Docs
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -80,7 +80,7 @@ The IoT Hub identity registry contains a field called **connectionState**. Only 
 If your IoT solution needs to know if a device is connected, you can implement the *heartbeat pattern*.
 In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). Therefore, even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution maintains a map with the last heartbeat received for each device. If the solution does not receive a heartbeat message within the expected time from the device, it assumes that there is a problem with the device.
 
-A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles](iot-hub-devguide-quotas-throttling.md).
+A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. To learn more about using these services with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). For more specific information about using Azure Monitor or Event Grid to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity](iot-hub-troubleshoot-connectivity.md). When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > If an IoT solution uses the connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, consider using the simpler *short expiry time* pattern. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. If you request message acknowledgements, IoT Hub can notify you about which devices are able to receive messages and which are not.
@@ -176,8 +176,8 @@ Device identities are represented as JSON documents with the following propertie
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | authentication |optional |A composite object containing authentication information and security materials. For more information, see [Authentication Mechanism](/rest/api/iothub/service/devices/get-identity#authenticationmechanism) in the REST API documentation. |
 | capabilities | optional | The set of capabilities of the device. For example, whether the device is an edge device or not. For more information, see [Device Capabilities](/rest/api/iothub/service/devices/get-identity#devicecapabilities) in the REST API documentation. |
-| deviceScope | optional | The scope of the device. In edge devices, auto generated and immutable. Deprecated in non-edge devices. However, in child (leaf) devices, set this property to the same value as the **parentScopes** property (the **deviceScope** of the parent device) for backward compatibility with previous versions of the API. For more information, see [IoT Edge as a gateway: Parent and child relationships](/azure/iot-edge/iot-edge-as-gateway#parent-and-child-relationships).|
-| parentScopes | optional | The scope of a child device's direct parent (the value of the **deviceScope** property of the parent device). In edge devices, the value is empty if the device has no parent. In non-edge devices, the property is not present if the device has no parent. For more information, see [IoT Edge as a gateway: Parent and child relationships](/azure/iot-edge/iot-edge-as-gateway#parent-and-child-relationships). |
+| deviceScope | optional | The scope of the device. In edge devices, auto generated and immutable. Deprecated in non-edge devices. However, in child (leaf) devices, set this property to the same value as the **parentScopes** property (the **deviceScope** of the parent device) for backward compatibility with previous versions of the API. For more information, see [IoT Edge as a gateway: Parent and child relationships](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships).|
+| parentScopes | optional | The scope of a child device's direct parent (the value of the **deviceScope** property of the parent device). In edge devices, the value is empty if the device has no parent. In non-edge devices, the property is not present if the device has no parent. For more information, see [IoT Edge as a gateway: Parent and child relationships](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships). |
 | status |required |An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
 | statusReason |optional |A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime |read-only |A temporal indicator, showing the date and time of the last status update. |
@@ -239,7 +239,7 @@ Now that you have learned how to use the IoT Hub identity registry, you may be i
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorial:
 
-* [Get started with Azure IoT Hub](quickstart-send-telemetry-dotnet.md)
+* [Get started with Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 

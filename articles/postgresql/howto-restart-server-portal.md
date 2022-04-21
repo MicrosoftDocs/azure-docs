@@ -1,10 +1,11 @@
 ---
 title: Restart server - Azure portal - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can restart an Azure Database for PostgreSQL - Single Server using the Azure portal.
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: sunila
+author: sunilagarwal
 ms.date: 12/20/2020
 ---
 
@@ -14,7 +15,7 @@ This topic describes how you can restart an Azure Database for PostgreSQL server
 The server restart will be blocked if the service is busy. For example, the service may be processing a previously requested operation such as scaling vCores.
  
 > [!NOTE] 
-> The time required to complete a restart depends on the PostgreSQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart. You may also want to increase the checkpoint frequency. You can also tune checkpoint related parameter values including `max_wal_size`. It is also recommended to run `CHECKPOINT` command prior to restarting the server.
+> The time required to complete a restart depends on the PostgreSQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart. You may also want to increase the checkpoint frequency. You can also tune checkpoint related parameter values including `max_wal_size`. It is also recommended to run `CHECKPOINT` command prior to restarting the server to enable faster recovery time. If the `CHECKPOINT` command is not performed prior to restarting the server then it may lead to longer recovery time. 
 
 ## Prerequisites
 To complete this how-to guide, you need:

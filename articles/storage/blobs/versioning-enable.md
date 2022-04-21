@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 06/07/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable and manage blob versioning
@@ -18,8 +18,6 @@ ms.custom: devx-track-csharp, devx-track-azurepowershell
 You can enable Blob storage versioning to automatically maintain previous versions of a blob when it is modified or deleted. When blob versioning is enabled, then you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
 This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template. To learn more about blob versioning, see [Blob versioning](versioning-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Enable blob versioning
 
@@ -50,7 +48,7 @@ Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
+To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account blob-service-properties update \

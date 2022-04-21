@@ -2,11 +2,11 @@
 title: Stream data from Stream Analytics to Data Lake Storage Gen1 - Azure
 description: Learn how to use Azure Data Lake Storage Gen1 as an output for an Azure Stream Analytics job, with a simple scenario that reads data from an Azure Storage blob.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Stream data from Azure Storage Blob into Azure Data Lake Storage Gen1 using Azure Stream Analytics

@@ -8,17 +8,21 @@ ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto, mathoma
-ms.date: 07/01/2019
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 04/13/2022
+
 ---
 # Azure SQL Database traffic migration to newer Gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add gateways built on newer hardware generations, migrate traffic to them, and eventually decommission gateways built on older hardware in some regions.  
+Microsoft periodically refreshes hardware to optimize the customer experience. During these refreshes, Azure adds gateways built on newer hardware, migrates traffic to them, and eventually decommissions gateways built on older hardware in some regions.
 
-Customers will be notified via service health notifications well in advance of any change to gateways available in each region. Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
-The most up-to-date information will be maintained in the [Azure SQL Database gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) table.
+To avoid service disruptions during refreshes, allow the communication with SQL Gateway IP subnet ranges for the region. Review [SQL Gateway IP subnet ranges](connectivity-architecture.md#gateway-ip-addresses) and include the ranges for your region.
+
+
+Customers can [use the Azure portal to set up activity log alerts](../../service-health/alerts-activity-log-service-notifications-portal.md).
+
 
 ## Status updates
 
@@ -185,7 +189,7 @@ You may be impacted if you:
 
 - Hard coded the IP address for any particular gateway in your on-premises firewall
 - Have any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the gateway IP addresses
-- Use the [zone redundant configuration for general purpose tier](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Use the [zone redundant configuration for general purpose tier](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability)
 - Use the [zone redundant configuration for premium & business critical tiers](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 You will not be impacted if you have:
@@ -196,7 +200,7 @@ You will not be impacted if you have:
 
 ## What to do you do if you're affected
 
-We recommend that you allow outbound traffic to IP addresses for all the [gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) in the region on TCP port 1433, and port range 11000-11999. This recommendation is applicable to clients connecting from on-premises and also those connecting via Service Endpoints. For more information on port ranges, see [Connection policy](connectivity-architecture.md#connection-policy).
+We recommend that you allow outbound traffic to IP addresses for all the [gateway IP addresses](connectivity-architecture.md#gateway-ip-addresses) in the region on TCP port 1433. Also, allow port range 11000 thru 11999 when connecting from a client located within Azure (for example, an Azure VM) or when your Connection Policy is set to Redirection. This recommendation is applicable to clients connecting from on-premises and also those connecting via Service Endpoints. For more information on port ranges, see [Connection policy](connectivity-architecture.md#connection-policy).
 
 Connections made from applications using Microsoft JDBC Driver below version 4.0 might fail certificate validation. Lower versions of Microsoft JDBC rely on Common Name (CN) in the Subject field of the certificate. The mitigation is to ensure that the hostNameInCertificate property is set to *.database.windows.net. For more information on how to set the hostNameInCertificate property, see [Connecting with Encryption](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

@@ -5,10 +5,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: how-to
-author: DavidTrigano
-ms.author: datrigan
-ms.reviewer: vanto
-ms.date: 06/17/2020
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/23/2022"
+ms.reviewer: kendralittle, vanto, mathoma
 ms.custom: azure-synapse
 ---
 # Write audit to a storage account behind VNet and firewall
@@ -34,7 +34,7 @@ For audit to write to a storage account behind a VNet or firewall, the following
 > [!div class="checklist"]
 >
 > * A general-purpose v2 storage account. If you have a general-purpose v1 or blob storage account, [upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md). For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
-> * The storage account must be on the same subscription and at the same location as the [logical SQL Server](logical-servers.md).
+> * The storage account must be on the same tenant and at the same location as the [logical SQL server](logical-servers.md) (it's OK to be on different subscriptions).
 > * The Azure Storage account requires `Allow trusted Microsoft services to access this storage account`. Set this on the Storage Account **Firewalls and Virtual networks**.
 > * You must have `Microsoft.Authorization/roleAssignments/write` permission on the selected storage account. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 

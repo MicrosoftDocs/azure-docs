@@ -6,6 +6,7 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 3/1/2021
 ms.author: cachai
+ms.devlang: csharp, java, python
 ---
 
 # Azure Function Event Grid Blob Trigger

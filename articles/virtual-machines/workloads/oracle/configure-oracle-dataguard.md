@@ -13,6 +13,8 @@ ms.author: kegorman
 
 # Implement Oracle Data Guard on an Azure Linux virtual machine 
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 Azure CLI is used to create and manage Azure resources from the command line or in scripts. This article describes how to use Azure CLI to deploy an Oracle Database 12c database from the Azure Marketplace image. This article then shows you, step by step, how to install and configure Data Guard on an Azure virtual machine (VM).
 
 Before you start, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).

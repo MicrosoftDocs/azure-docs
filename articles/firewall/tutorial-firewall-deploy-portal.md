@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 11/10/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -152,6 +152,10 @@ Deploy the firewall into the VNet.
 8. Note the firewall private and public IP addresses. You'll use these addresses later.
 
 ## Create a default route
+
+When creating a route for outbound and inbound connectivity through the firewall, a default route to 0.0.0.0/0 with the virtual appliance private IP as a next hop is sufficient. This will take care of any outgoing and incoming connections to go through the firewall. As an example, if the firewall is fulfilling a TCP-handshake and responding to an incoming request, then the response is directed to the IP address who sent the traffic. This is by design. 
+
+As a result, there is no need create an additional UDR to include the AzureFirewallSubnet IP range. This may result in dropped connections. The original default route is sufficient.
 
 For the **Workload-SN** subnet, configure the outbound default route to go through the firewall.
 

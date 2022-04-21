@@ -6,9 +6,8 @@ metadata:
   ms.author: rymend	
   ms.service: azure-education
   ms.subservice: education-hub
-  ms.topic: overview	
-  ms.date:  06/30/2020	
-    
+  ms.topic: faq
+  ms.date:  08/31/2021	
 title: Frequently asked questions about the Education Hub
 summary: This article addresses frequent questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
 
@@ -19,17 +18,35 @@ sections:
       - question: |
           What happens after I use my $100 credit or I'm at the end of 12 months?
         answer: |
-          After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes disabled. To continue using Azure, you may upgrade to a pay-as-you-go subscription in the Azure portal. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
+          If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a pay-as-you-go subscription in the Azure portal.  If you do not upgrade, your Azure subscription becomes disabled. If you’re at the end of 12 months, you can renew your subscription by signing up again for the offer. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
+      
+      - question: |
+          Who is eligible for Azure for Students?
+        answer: |
+          Azure for Students is available only to students who meet the following requirements:
           
+          - You must affirm that you are age 18 or older and attend an accredited, degree-granting, two-year or four-year educational institution where you’re a full-time student. 
+          - You must verify your academic status through your organization's email address.
+          - See the [Azure for Students Offer](https://azure.microsoft.com/offers/ms-azr-0170p/) for detailed terms of use.
+          
+          This offer isn't available for use in a massive open online course (MOOC) or in other professional trainings from for-profit organizations.
+          
+          This offer is limited to one Azure for Student subscription per eligible customer. It's non-transferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
+              
       - question: |
           Can I get Azure for Students again next year?
         answer: |
-          Thank you for your interest in Azure for Students! We're glad that you've enjoyed using it. At this time, we are not announcing renewals. Check back here for updates.
+          Yes!  You can renew your Azure for Students subscription after 1 year.  We will send you emails reminding you to renew just before your anniversary.  To renew, simply re-signup for the offer from the Azure for Students [website](https://aka.ms/azure4students)
 
+      - question: |
+          Why did I receive an invoice from Microsoft?
+        answer: |
+          You may receive an invoice from Microsoft detailing the usage you incurred in the previous month while on Azure for Students.  Don’t worry, you do not have to pay for that usage – it’s all covered by the credit provided by Azure for Students.  To learn more about invoices and how they work, check out the [article](../../cost-management-billing/understand/mca-overview.md) on docs.microsoft.com 
+      
       - question: |
           What are subscriptions, and how do they relate to Azure for Students?
         answer: |
-          Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months. It includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services at the end of 12 months or after you've exhausted your $100 credit, whichever occurs first, you must upgrade to a pay-as-you-go subscription.
+          Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months and includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services after you've exhausted your $100 credit, you must either renew (if you are 12 months in) or upgrade to a pay-as-you-go subscription.
 
       - question: |
           What happens with my Azure services if I don't upgrade?
@@ -44,7 +61,7 @@ sections:
       - question: |
           How do I download the software developer tools?
         answer: |
-          Your Azure for Students subscription provides you with access to certain software developer tools. You must have a current, active Azure for Students subscription in order to access and download the software developer tools. Go to the  [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) to download the software developer tools by using your Azure for Students subscription.
+          Your Azure for Students subscription provides you with access to certain software developer tools. You must have a current, active Azure for Students subscription to access and download the software developer tools. Go to the  [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) to download the software developer tools by using your Azure for Students subscription.
           
       - question: |
           What is Microsoft Learn?
@@ -102,7 +119,7 @@ sections:
           
           You must have a current, active Azure for Students subscription in order to access the software developer tools.
           
-          You can download this software in the [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
+          You can download this software in the [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
           
       - question: |
           What is Microsoft Learn?
@@ -121,7 +138,7 @@ sections:
       - question: |
           Can I associate my course credits with an existing subscription?
         answer: |
-          You can associate your course credits with an existing subscription on the account that is entitled to the offer. Contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to associate your course credits.
+          You can associate your course credits with an existing subscription on the account that is entitled to the offer. Contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to associate your course credits.
           
       - question: |
           Why do I see a $0 balance in the Azure portal?
@@ -150,7 +167,7 @@ sections:
       - question: |
           Can I move my course credits to another account?
         answer: |
-          Yes, you can move a course credits entitlement to another account. To do so, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+          Yes, you can move a course credits entitlement to another account. To do so, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
           
       - question: |
           Are Azure Marketplace applications covered by course credits?
@@ -218,7 +235,7 @@ sections:
         answer: |
           Your Microsoft Azure Dev Tools for Teaching subscription provides you with access to certain software developer tools. These tools are available to download for free.
           
-          You can download this software in the [Education Hub Software section](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
+          You can download this software in the [Education Hub Software section](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
           
       - question: |
           How do we distribute software to our students?

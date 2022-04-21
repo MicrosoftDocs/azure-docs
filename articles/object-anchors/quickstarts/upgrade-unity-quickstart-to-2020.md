@@ -3,11 +3,11 @@ title: 'Quickstart: Upgrade Quickstart app to Unity 2020'
 description: In this quickstart, you learn how to upgrade Quickstart app to Unity 2020 build a HoloLens Unity app using Object Anchors.
 author: RamonArguelles
 manager: virivera
-
 ms.author: rgarcia
 ms.date: 06/23/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
+ms.custom: mode-other
 ---
 # Quickstart: Upgrade Quickstart app to Unity 2020
 
@@ -46,7 +46,7 @@ You'll see a dialog asking for confirmation to upgrade your project. Select the 
 
 Once the upgrade process completes, **Unity Editor** will open up.
 
-Follow the <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
+Follow the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
 
 Under the **Platform Support** section, install the **Mixed Reality OpenXR Plugin** feature package, version 1.0.0 or newer, into the Unity project folder. If you're working with the `quickstarts/apps/unity/mrtk` project, also open the **Mixed Reality Toolkit** section, locate the **Mixed Reality Toolkit Foundation** and **Mixed Reality Toolkit Tools** feature packages, and upgrade them to version 2.7.0 or newer.
 

@@ -3,7 +3,6 @@ title: 'C# tutorial optimize indexing with the push API'
 titleSuffix: Azure Cognitive Search
 description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
 
-manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
@@ -35,7 +34,7 @@ The following services and tools are required for this tutorial.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription.
 
 <a name="get-service-info"></a>
 

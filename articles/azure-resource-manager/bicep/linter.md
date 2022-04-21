@@ -2,138 +2,48 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/12/2021
 ---
 
 # Use Bicep linter
 
-The Bicep linter can be used to analyze Bicep files. It checks syntax errors, and catches a customizable set of authoring best practices before you build or deploy your Bicep files. The linter makes it easier to enforce coding standards by providing guidance during development.
+The Bicep linter checks Bicep files for syntax errors and best practice violations. The linter helps enforce coding standards by providing guidance during development. You can customize the best practices to use for checking the file.
 
-## Install linter
+## Linter requirements
 
-The linter can be used with Visual Studio code and Bicep CLI. It requires:
+The linter is integrated into the Bicep CLI and the Bicep extension for Visual Studio Code. To use it, you must have version **0.4 or later**.
 
-- Bicep CLI version 0.4 or later.
-- Bicep extension for Visual Studio Code version 0.4 or later.
+## Default rules
 
-## Customize linter
+The default set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md). The extension and Bicep CLI check the following rules, which are set to the warning level.
 
-Using bicepconfig.json, you can enable or disable linter, supply rule-specific values, and set the level of rules as well. The following is the default bicepconfig.json:
+- [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
+- [max-outputs](./linter-rule-max-outputs.md)
+- [max-params](./linter-rule-max-parameters.md)
+- [max-resources](./linter-rule-max-resources.md)
+- [max-variables](./linter-rule-max-variables.md)
+- [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+- [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
+- [no-unused-params](./linter-rule-no-unused-parameters.md)
+- [no-unused-vars](./linter-rule-no-unused-variables.md)
+- [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
+- [prefer-interpolation](./linter-rule-prefer-interpolation.md)
+- [secure-parameter-default](./linter-rule-secure-parameter-default.md)
+- [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+- [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
+- [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 
-```json
-{
-  "analyzers": {
-    "core": {
-      "verbose": false,
-      "enabled": true,
-      "rules": {
-        "no-hardcoded-env-urls": {
-          "level": "warning",
-          "disallowedhosts": [
-            "management.core.windows.net",
-            "gallery.azure.com",
-            "management.core.windows.net",
-            "management.azure.com",
-            "database.windows.net",
-            "core.windows.net",
-            "login.microsoftonline.com",
-            "graph.windows.net",
-            "trafficmanager.net",
-            "vault.azure.net",
-            "datalake.azure.net",
-            "azuredatalakestore.net",
-            "azuredatalakeanalytics.net",
-            "vault.azure.net",
-            "api.loganalytics.io",
-            "api.loganalytics.iov1",
-            "asazure.windows.net",
-            "region.asazure.windows.net",
-            "api.loganalytics.iov1",
-            "api.loganalytics.io",
-            "asazure.windows.net",
-            "region.asazure.windows.net",
-            "batch.core.windows.net"
-          ],
-          "excludedhosts": [
-            "schema.management.azure.com"
-          ]
-        }
-      }
-    }
-  }
-}
-```
+You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
-Customized bicepconfig.json can be placed alongside your templates in the same directory. The closest configuration file found up the folder tree is used.
+## Use in Visual Studio Code
 
-The following json is a sample bicepconfig.json:
-
-```json
-{
-  "analyzers": {
-    "core": {
-      "enabled": true,
-      "verbose": true,
-      "rules": {
-        "no-hardcoded-env-urls": {
-          "level": "warning"
-        },
-        "no-unused-params": {
-          "level": "error"
-        },
-        "no-unused-vars": {
-          "level": "error"
-        },
-        "prefer-interpolation": {
-          "level": "warning"
-        },
-        "secure-parameter-default": {
-          "level": "error"
-        },
-        "simplify-interpolation": {
-          "level": "warning"
-        }
-      }
-    }
-  }
-}
-```
-
-- **enabled**: enter **true** for enabling linter, enter **false** for disabling linter.
-- **verbose**: enter **true** to show the bicepconfig.json file used by Visual Studio Code..
-- **rules**: enter rule-specific values. Each rule has at least one property, and level. This property commands the behavior of Bicep if the case if found in the Bicep file.
-
-You can use several values for rule level:
-
-| **level**  | **Build-time behavior** | **Editor behavior** |
-|--|--|--|
-| `Error` | Violations appear as Errors in command-line build output, and cause builds to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
-| `Warning` | Violations appear as Warnings in command-line build output, but do not cause builds to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
-| `Info` | Violations do not appear in command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
-| `Off` | Suppressed completely. | Suppressed completely. |
-
-The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md). Both Visual Studio Code extension and Bicep CLI check for all available rules by default and all rules are set at warning level. Based on the level of a rule, you see errors or warnings or informational messages within the editor.
-
-- [no-hardcoded-env-urls](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-hardcoded-env-urls.md)
-- [no-unused-params](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-params.md)
-- [no-unused-vars](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-vars.md)
-- [prefer-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/prefer-interpolation.md)
-- [secure-parameter-default](https://github.com/Azure/bicep/blob/main/docs/linter-rules/secure-parameter-default.md)
-- [simplify-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/simplify-interpolation.md)
-
-The Bicep extension of Visual Studio Code provides intellisense for editing Bicep configuration files:
-
-:::image type="content" source="./media/linter/bicep-linter-configure-intellisense.png" alt-text="The intellisense support in configuring bicepconfig.json.":::
-
-## Use in Visual Studio code
-
-Install the Bicep extension 0.4 or later to use linter.  The following screenshot shows linter in action:
+The following screenshot shows the linter in Visual Studio Code:
 
 :::image type="content" source="./media/linter/bicep-linter-show-errors.png" alt-text="Bicep linter usage in Visual Studio Code.":::
 
-In the **PROBLEMS** pane, there are four errors, one warning, and one info message shown in the screenshot.  The info message shows the bicep configuration file that is used. It only shows this piece of information when you set **verbose** to **true** in the configuration file.
+In the **PROBLEMS** pane, there are four errors, one warning, and one info message shown in the screenshot.  The info message shows the Bicep configuration file that is used. It only shows this piece of information when you set **verbose** to **true** in the configuration file.
 
-Hover your mouse cursor to one of the problem areas. Linter gives the details about the error or warning. Click the area, it also shows a blue light bulb:
+Hover your mouse cursor to one of the problem areas. Linter gives the details about the error or warning. Select the area, it also shows a blue light bulb:
 
 :::image type="content" source="./media/linter/bicep-linter-show-quickfix.png" alt-text="Bicep linter usage in Visual Studio Code - show quickfix.":::
 
@@ -145,7 +55,7 @@ Select the solution to fix the issue automatically.
 
 ## Use in Bicep CLI
 
-Install the Bicep CLI 0.4 or later to use linter.  The following screenshot shows linter in action. The Bicep file is the same as used in [Use in Visual Studio code](#use-in-visual-studio-code).
+The following screenshot shows the linter in the command line. The output from the build command shows any rule violations.
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 
@@ -153,4 +63,5 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Next steps
 
-For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+- For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
+- For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

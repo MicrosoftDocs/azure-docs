@@ -2,10 +2,15 @@
 title: Install & deploy Linux C# agent
 description: Learn how to install and deploy the Defender for IoT C#-based security agent on Linux
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy Defender for IoT C# based security agent for Linux
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
+>
+
 
 This guide explains how to install and deploy the Defender for IoT C#-based security agent on Linux.
 
@@ -48,7 +53,7 @@ This script performs the following actions:
 
 - Adds a service user (with interactive sign in disabled).
 
-- Installs the agent as a **Daemon** - assumes the device uses **systemd** for classic deployment model.
+- Installs the agent as a **Daemon** - assumes the device uses **systemd** for legacy deployment model.
 
 - Configures **sudoers** to allow the agent to do certain tasks as root.
 
@@ -69,8 +74,7 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 
     `systemctl status ASCIoTAgent.service`
 
-1. Enable logging.
-   If the agent fails to start, turn on logging to get more information.
+1. Enable logging. If the agent fails to start, turn on logging to get more information.
 
    Turn on the logging by:
 
@@ -107,5 +111,5 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 - Read the Defender for IoT service [Overview](overview.md)
 - Learn more about Defender for IoT [What is agent-based solution for device builders](architecture-agent-based.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
-- Read the [Azure Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
+- Read the [Microsoft Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
 - Understand [alerts](concept-security-alerts.md)

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 11/12/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
@@ -26,14 +26,14 @@ This document focuses on enabling security key based passwordless authentication
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Enable [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN requires Windows 10 version 1903 or higher**
+- WebAuthN requires Windows 10 version 1903 or higher
 
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
 These include Microsoft Edge, Chrome, Firefox, and Safari.
 
 ## Prepare devices
 
-For Azure AD joined devices the best experience is on Windows 10 version 1903 or higher.
+For Azure AD joined devices, the best experience is on Windows 10 version 1903 or higher.
 
 Hybrid Azure AD joined devices must run Windows 10 version 2004 or higher.
 
@@ -51,6 +51,9 @@ Registration features for passwordless authentication methods rely on the combin
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
 1. **Save** the configuration.
+
+   >[!NOTE]
+   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
 
 
 ### FIDO Security Key optional settings 
@@ -96,6 +99,7 @@ There are two ways to get your AAGUID. You can either ask your security key prov
 1. Click **Security Info**.
    1. If the user already has at least one Azure AD Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
    1. If they don't have at least one Azure AD Multi-Factor Authentication method registered, they must add one.
+   1. An Administrator can issue a [Temporary Access Pass](howto-authentication-temporary-access-pass.md) to allow the user to register a Passwordless authentication method.
 1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
 1. Choose **USB device** or **NFC device**.
 1. Have your key ready and choose **Next**.

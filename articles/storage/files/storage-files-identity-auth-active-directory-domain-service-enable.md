@@ -1,19 +1,19 @@
 ---
 title: Use Azure AD Domain Services to authorize access to file data over SMB
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials.
-author: roygara
+author: khdownie
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/23/2021
-ms.author: rogarana
+ms.date: 01/14/2022
+ms.author: kendownie
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS).We strongly recommend you to review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right domain service for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: on-premises Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS). We strongly recommend you to review the [How it works section](./storage-files-active-directory-overview.md#how-it-works) to select the right domain service for authentication. The setup is different depending on the domain service you choose. This article focuses on enabling and configuring Azure AD DS for authentication with Azure file shares.
 
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
@@ -80,6 +80,35 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 
 ![Diagram showing Azure AD over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
+## (Optional) Use AES 256 encryption
+
+By default, Azure AD DS authentication uses Kerberos RC4 encryption. To use Kerberos AES256 instead, follow these steps:
+
+As an Azure AD DS user with the required permissions (typically, members of the **AAD DC Administrators** group will have the necessary permissions), open the Azure cloud shell.
+
+Execute the following commands:
+
+```azurepowershell
+# 1. Find the service account in your managed domain that represents the storage account.
+
+$storageAccountName= “<InsertStorageAccountNameHere>”
+$searchFilter = "Name -like '*{0}*'" -f $storageAccountName
+$userObject = Get-ADUser -filter $searchFilter
+
+if ($userObject -eq $null)
+{
+   Write-Error "Cannot find AD object for storage account:$storageAccountName" -ErrorAction Stop
+}
+
+# 2. Set the KerberosEncryptionType of the object
+
+Set-ADUser $userObject -KerberosEncryptionType AES256
+
+# 3. Validate that the object now has the expected (AES256) encryption type.
+
+Get-ADUser $userObject -properties KerberosEncryptionType
+```
+
 ## Enable Azure AD DS authentication for your account
 
 To enable Azure AD DS authentication over SMB for Azure Files, you can set a property on storage accounts by using the Azure portal, Azure PowerShell, or Azure CLI. Setting this property implicitly "domain joins" the storage account with the associated Azure AD DS deployment. Azure AD DS authentication over SMB is then enabled for all new and existing file shares in the storage account.
@@ -91,13 +120,14 @@ Keep in mind that you can enable Azure AD DS authentication over SMB only after 
 To enable Azure AD DS authentication over SMB with the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, go to your existing storage account, or [create a storage account](../common/storage-account-create.md).
-1. In the **Settings** section, select **Configuration**.
-1. Under **Identity-based access for file shares** switch the toggle for **Azure Active Directory Domain Service (AAD DS)** to **Enabled**.
+1. In the **File shares** section, select **Active directory: Not Configured**.
+
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png" alt-text="Screenshot of the File shares pane in your storage account, Active directory is highlighted." lightbox="media/storage-files-active-directory-enable/files-azure-ad-enable-storage-account-identity.png":::
+
+1. Select **Azure Active Directory Domain Services** then switch the toggle to **Enabled**.
 1. Select **Save**.
 
-The following image shows how to enable Azure AD DS authentication over SMB for your storage account.
-
-:::image type="content" source="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png" alt-text="Screenshot of the configuration blade in your storage account, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png":::
+    :::image type="content" source="media/storage-files-active-directory-enable/files-azure-ad-highlight.png" alt-text="Screenshot of the Active Directory pane, Azure Active Directory Domain Services is enabled." lightbox="media/storage-files-active-directory-enable/files-azure-ad-highlight.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -129,18 +159,18 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To create a new storage account, call [az storage account create](/cli/azure/storage/account#az_storage_account_create), and set the `--enable-files-aadds` property to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
+To create a new storage account, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), and set the `--enable-files-aadds` argument. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account
-az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds
 ```
 
 To enable this feature on existing storage accounts, use the following command:
 
 ```azurecli-interactive
 # Update a new storage account
-az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds
 ```
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files | Microsoft Docs
 description: How to configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/19/2019
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -36,7 +36,8 @@ The Azure virtual network gateway can provide VPN connections using several VPN 
 > Verified with Ubuntu 18.10.
 
 ```bash
-sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils
+sudo apt update
+sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libxml2-utils cifs-utils unzip
 
 installDir="/etc/"
 ```

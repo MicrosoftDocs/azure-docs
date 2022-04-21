@@ -18,8 +18,6 @@ This script deploys a managed application definition from the service catalog.
 
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
-
 [!code-powershell[main](../../../../powershell_scripts/managed-applications/create-application/create-application.ps1 "Create application")]
 
 

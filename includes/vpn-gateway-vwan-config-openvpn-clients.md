@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/26/2021
+ ms.date: 1/3/2021
  ms.author: cherylmc
  ms.custom: include file
 
@@ -14,9 +14,9 @@
 ## <a name="windows"></a>Windows clients
 
 1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
-2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzVpnClientConfiguration' in PowerShell.
+2. Download the VPN client profile package from the Azure portal, or use the 'New-AzVpnClientConfiguration' cmdlet in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
-4. Export the point-to-site client certificate you created and uploaded to your P2S configuration on the gateway. Use the following article links:
+4. Export the point-to-site client certificate you created and uploaded. Use the following article links:
 
    * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions
    
@@ -26,18 +26,23 @@
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. Open *profileinfo.txt* in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between)"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between "cert" and "/cert".
+6. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Fill in the section between `<cert>` and `</cert>`, getting the values for `$CLIENT_CERTIFICATE`, `$INTERMEDIATE_CERTIFICATE`, and `$ROOT_CERTIFICATE` as shown below.
 
    ```
-   # P2S client certificate
-   # please fill this field with a PEM formatted cert
-   <cert>
-   $CLIENTCERTIFICATE
-   </cert>
-   ```
-8. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
-9. Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and "key" and "/key".
+      # P2S client certificate
+      # please fill this field with a PEM formatted cert
+      <cert>
+      $CLIENT_CERTIFICATE
+      $INTERMEDIATE_CERTIFICATE (optional)
+      $ROOT_CERTIFICATE
+      </cert>
+      ```
+
+   - Open *profileinfo.txt* from the previous step in Notepad. You can identify each certificate by looking at the `subject=` line. For example, if your child certificate is called P2SChildCert, your client certificate will be after the `subject=CN = P2SChildCert` attribute. 
+   - For each certificate in the chain, copy the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". 
+   - Only include an  `$INTERMEDIATE_CERTIFICATE` value if you have an intermediate certificate in your *profileinfo.txt* file. 
+7. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
+8. Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and `<key>` and `</key>`.
 
    ```
    # P2S client root certificate private key
@@ -46,14 +51,14 @@
    $PRIVATEKEY
    </key>
    ```
-10. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-11. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
-12. Right-click the OpenVPN icon in the system tray and click connect.
+9. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
+10. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
+11. Right-click the OpenVPN icon in the system tray and click connect.
 
 ## <a name="mac"></a>Mac clients
 
 1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html). 
-2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
+2. Download the VPN client profile package from the Azure portal, or use the 'New-AzVpnClientConfiguration' cmdlet in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can open the .cer file and copy over the base64 key between the certificate headers. Use the following article links for information about how to export a certificate to get the encoded public key:
 
@@ -72,7 +77,7 @@
 ## <a name="iOS"></a>iOS clients
 
 1. Install the OpenVPN client (version 2.4 or higher) from the App store.
-2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
+2. Download the VPN client profile package from the Azure portal, or use the 'New-AzVpnClientConfiguration' cmdlet in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can open the .cer file and copy over the base64 key between the certificate headers. Use the following article links for information about how to export a certificate to get the encoded public key:
 

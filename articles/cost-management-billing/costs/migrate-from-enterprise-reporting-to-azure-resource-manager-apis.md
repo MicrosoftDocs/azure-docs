@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/10/2021
+ms.date: 12/17/2021
 ms.author: banders
 ---
 
@@ -60,7 +60,7 @@ Use the table below to identify the EA APIs that you currently use and the repla
 | --- | --- | --- |
 | Balance Summary | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) |[Microsoft.Consumption/balances](/rest/api/consumption/balances/getbybillingaccount) |
 | Price Sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) – use for negotiated prices <p> [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) – use for retail prices |
-| Reserved Instance Details | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](/rest/api/cost-management/generatereservationdetailsreport) |
+| Reserved Instance Details | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](../reservations/reservation-utilization.md) |
 | Reserved Instance Summary | [/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries/list#reservationsummariesdailywithbillingaccountid) |
 | Reserved Instance Recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)<p>[/SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Reserved Instance Charges | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | [Microsoft.Consumption/reservationTransactions](/rest/api/consumption/reservationtransactions/list) |
@@ -353,7 +353,7 @@ https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?
 [_Get Reservation Summary Monthly_](/rest/api/consumption/reservationssummaries/list#reservationsummariesmonthlywithbillingaccountid)
 
 ```json
-https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?grain=daily&$filter=properties/usageDate ge 2017-10-01 AND properties/usageDate le 2017-11-20&api-version=2019-10-01
+https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?grain=monthly&$filter=properties/usageDate ge 2017-10-01 AND properties/usageDate le 2017-11-20&api-version=2019-10-01
 ```
 
 #### Response body changes

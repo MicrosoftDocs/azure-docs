@@ -5,11 +5,11 @@ author: TobyTu
 ms.author: kaushika
 manager: dcscontentpm
 audience: ITPro
-ms.topic: troubleshooting  
+ms.topic: troubleshooting
 ms.service: virtual-network
 localization_priority: Normal
 ms.date: 08/29/2019
---- 
+---
 
 # Troubleshoot Azure VM connectivity problems
 

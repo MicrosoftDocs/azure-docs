@@ -2,7 +2,7 @@
 title: createUiDefinition.json test cases for Azure Resource Manager test toolkit
 description: Describes the createUiDefinition.json tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: conceptual
-ms.date: 07/09/2021
+ms.date: 07/16/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -11,7 +11,7 @@ author: tfitzmac
 
 This article describes the tests that are run with the [template test toolkit](test-toolkit.md) for [createUiDefinition.json](../managed-applications/create-uidefinition-overview.md) files. The examples include the test names and code samples that **pass** or **fail** the tests.
 
-The toolkit includes [test cases](template-test-cases.md) for Azure Resource Manager templates (ARM templates) and the main template files named _azuredeploy.json_ or _maintemplate.json_. When the directory contains a _createUiDefinition.json_ file, specific tests are run for UI controls. For more information about how to run tests, see [Test parameters](test-toolkit.md#test-parameters).
+The toolkit includes [test cases](template-test-cases.md) for Azure Resource Manager templates (ARM templates) and the main template files named _azuredeploy.json_ or _maintemplate.json_. When the directory contains a _createUiDefinition.json_ file, specific tests are run for UI controls. For more information about how to run tests or how to run a specific test, see [Test parameters](test-toolkit.md#test-parameters).
 
 The _createUiDefinition.json_ file creates custom user-interface (UI) controls using [elements](../managed-applications/create-uidefinition-elements.md) and [functions](../managed-applications/create-uidefinition-functions.md).
 
@@ -144,7 +144,7 @@ Test name: **Controls In Outputs Must Exist**
 
 Controls that are used in the `outputs` section must exist in an element elsewhere in _createUiDefinition.json_. The name referenced in `outputs` must match a name used in `basics[]` or `steps[]`.
 
-The following example **fails**:
+The following example **fails**.
 
 ```json
 {
@@ -168,7 +168,7 @@ The following example **fails**:
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -198,7 +198,7 @@ Test name: **CreateUIDefinition Must Not Have Blanks**
 
 Properties must include values. Required properties must use valid values. Optional properties that are blank should be removed. The test allows blank `"basics": []`, `"steps": []`, or `defaultValue`.
 
-The following example **fails** because `label`, `placeholder`, and `toolTip` are blank:
+The following example **fails** because `label`, `placeholder`, and `toolTip` are blank.
 
 ```json
 {
@@ -224,7 +224,7 @@ The following example **fails** because `label`, `placeholder`, and `toolTip` ar
 }
 ```
 
-The following example **passes** because `label` and `toolTip` have values, and `placeholder` was removed:
+The following example **passes** because `label` and `toolTip` have values, and `placeholder` was removed.
 
 ```json
 {
@@ -255,7 +255,7 @@ Test name: **CreateUIDefinition Should Have Schema**
 
 The _createUiDefinition.json_ file must include a `$schema` property and use a valid `$schema` and `version`. The version numbers in `$schema` and `version` must match.
 
-The following example **fails**:
+The following example **fails**.
 
 ```json
 {
@@ -265,7 +265,7 @@ The following example **fails**:
 }
 ```
 
-The following example **passes** because it uses the latest `$schema` and `version`:
+The following example **passes** because it uses the latest `$schema` and `version`.
 
 ```json
 {
@@ -281,7 +281,7 @@ Test name: **Credential Confirmation Should Not Be Hidden**
 
 This test checks that credentials are confirmed for [Microsoft.Common.PasswordBox](../managed-applications/microsoft-common-passwordbox.md) or [Microsoft.Compute.CredentialsCombo](../managed-applications/microsoft-compute-credentialscombo.md). The `hideConfirmation` property should be set to `false` so that the confirmation is visible.
 
-The following example **fails** because `hideConfirmation` is `true`:
+The following example **fails** because `hideConfirmation` is `true`.
 
 ```json
 {
@@ -321,7 +321,7 @@ The following example **fails** because `hideConfirmation` is `true`:
 }
 ```
 
-The following example **passes** because `hideConfirmation` is `false`:
+The following example **passes** because `hideConfirmation` is `false`.
 
 ```json
 {
@@ -367,7 +367,7 @@ Test name: **Handler Must Be Correct**
 
 Use `Microsoft.Azure.CreateUIDef` or `Microsoft.Compute.MultiVm` in the _createUiDefinition.json_ file.
 
-The following example **fails**:
+The following example **fails**.
 
 ```json
 {
@@ -377,7 +377,7 @@ The following example **fails**:
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -395,7 +395,7 @@ If `hideExisting` is set to `false` or omitted, `outputs` must contain `resource
 
 Examples of control types that include `hideExisting` are [Microsoft.Storage.StorageAccountSelector](../managed-applications/microsoft-storage-storageaccountselector.md), [Microsoft.Network.PublicIpAddressCombo](../managed-applications/microsoft-network-publicipaddresscombo.md), or [Microsoft.Network.VirtualNetworkCombo](../managed-applications/microsoft-network-virtualnetworkcombo.md).
 
-The following example **fails**:
+The following example **fails**.
 
 ```json
 {
@@ -427,7 +427,7 @@ The following example **fails**:
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -467,7 +467,7 @@ Test name: **Location Should Be In Outputs**
 
 The `outputs` section should contain a location using the [location](../managed-applications/create-ui-definition-referencing-functions.md#location) function.
 
-The following example **fails** because `outputs` doesn't include a location:
+The following example **fails** because `outputs` doesn't include a location.
 
 ```json
 {
@@ -491,7 +491,7 @@ The following example **fails** because `outputs` doesn't include a location:
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -524,7 +524,7 @@ The test checks that _createUiDefinition.json_ includes an `outputs` section. Th
 
 This test checks the main template and _createUiDefinition.json_ file. An example of the _createUiDefinition.json_ file is shown after the main template examples.
 
-The following example **fails** because the main template doesn't include the `comboBox` parameter from the  _createUiDefinition.json_ file's `outputs` section:
+The following example **fails** because the main template doesn't include the `comboBox` parameter from the  _createUiDefinition.json_ file's `outputs` section.
 
 ```json
 {
@@ -546,7 +546,7 @@ The following example **fails** because the main template doesn't include the `c
 }
 ```
 
-The following example **passes** because the main template includes the `comboBox` parameter:
+The following example **passes** because the main template includes the `comboBox` parameter.
 
 ```json
 {
@@ -609,7 +609,7 @@ Parameters in the main template without a default value must exist in the _creat
 
 This test checks the main template and _createUiDefinition.json_ file. An example of the _azuredeploy.json_ file is shown after the control's examples.
 
-The following example **fails** because the _createUiDefinition.json_ file's `outputs` doesn't include the main template's parameter `comboBox`:
+The following example **fails** because the _createUiDefinition.json_ file's `outputs` doesn't include the main template's parameter `comboBox`.
 
 ```json
 {
@@ -633,7 +633,7 @@ The following example **fails** because the _createUiDefinition.json_ file's `ou
 }
 ```
 
-The following example **passes** because _createUiDefinition.json_ includes the `comboBox` in `outputs`:
+The following example **passes** because _createUiDefinition.json_ includes the `comboBox` in `outputs`.
 
 ```json
 {
@@ -776,7 +776,7 @@ Test name: **PasswordBoxes Must Have Min Length**
 
 The test checks that the [Microsoft.Common.PasswordBox](../managed-applications/microsoft-common-passwordbox.md) element uses `constraints` with a `regex` that requires at least 12 characters.
 
-The following example **fails** because there are no `constraints`:
+The following example **fails** because there are no `constraints`.
 
 ```json
 {
@@ -804,7 +804,7 @@ The following example **fails** because there are no `constraints`:
 }
 ```
 
-The following example **passes** because the `regex` requires at least 12 characters:
+The following example **passes** because the `regex` requires at least 12 characters.
 
 ```json
 {
@@ -843,7 +843,7 @@ Test name: **Textboxes Are Well Formed**
 
 Use validation with text boxes to check for `constraints` that contain a `regex` and `message`.
 
-The following example **fails**:
+The following example **fails**.
 
 ```json
 {
@@ -870,7 +870,7 @@ The following example **fails**:
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -912,7 +912,7 @@ Test name: **Tooltips Should Be Present**
 
 This test checks that the `toolTip` property exists and contains a value.
 
-The following example **fails**:
+The following example **fails**.
 
 ```json
 {
@@ -937,7 +937,7 @@ The following example **fails**:
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -968,7 +968,7 @@ Test name: **Usernames Should Not Have A Default**
 
 The test checks if there's a `defaultValue` set for [Microsoft.Compute.UserNameTextBox](../managed-applications/microsoft-compute-usernametextbox.md).
 
-The following example **fails** because a `defaultValue` is provided:
+The following example **fails** because a `defaultValue` is provided.
 
 ```json
 {
@@ -995,7 +995,7 @@ The following example **fails** because a `defaultValue` is provided:
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -1027,7 +1027,7 @@ Test name: **Validations Must Have Message**
 
 This test checks that any `validations` in _createUiDefinition.json_ include a `message`.
 
-The following example **fails** because the `regex` validation doesn't have a `message`:
+The following example **fails** because the `regex` validation doesn't have a `message`.
 
 ```json
 {
@@ -1062,7 +1062,7 @@ The following example **fails** because the `regex` validation doesn't have a `m
 }
 ```
 
-The following example **passes**:
+The following example **passes**.
 
 ```json
 {
@@ -1106,7 +1106,7 @@ This test checks that the [Microsoft.Compute.SizeSelector](../managed-applicatio
 
 This test checks the main template and _createUiDefinition.json_ file. An example of the _createUiDefinition.json_ file is shown after the main template examples.
 
-The following example **fails** because the main template's `defaultValue` doesn't match a value in `allowedSizes`:
+The following example **fails** because the main template's `defaultValue` doesn't match a value in `allowedSizes`.
 
 ```json
 {
@@ -1135,7 +1135,7 @@ The following example **fails** because the main template's `defaultValue` doesn
 }
 ```
 
-The following example **passes** because the main template's `defaultValue` matches a value in `allowedSizes`:
+The following example **passes** because the main template's `defaultValue` matches a value in `allowedSizes`.
 
 ```json
 {
@@ -1206,4 +1206,4 @@ The _createUiDefinition.json_ file for this example:
 - To create an Azure portal user interface, see [CreateUiDefinition.json for Azure managed application's create experience](../managed-applications/create-uidefinition-overview.md).
 - To use the Create UI Definition Sandbox, see [Test your portal interface for Azure Managed Applications](../managed-applications/test-createuidefinition.md).
 - For more information about UI controls, see [CreateUiDefinition elements](../managed-applications/create-uidefinition-elements.md) and [CreateUiDefinition functions](../managed-applications/create-uidefinition-functions.md).
-- To learn more about ARM template tests, see [Default test cases for ARM template test toolkit](template-test-cases.md).
+- To learn more about ARM template tests, see [Test cases for ARM templates](template-test-cases.md).

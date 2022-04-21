@@ -3,14 +3,13 @@ title: Analyze videos in near real time - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Learn how to perform near real-time analysis on frames that are taken from a live video stream by using the Computer Vision API.
 services: cognitive-services
-author: KellyDF
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: sample
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.author: kefre
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
@@ -244,5 +243,5 @@ The image-, voice-, video-, and text-understanding capabilities of VideoFrameAna
 
 In this article, you learned how to run near real-time analysis on live video streams by using the Face and Computer Vision services. You also learned how you can use our sample code to get started.
 
-Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). To provide broader API feedback, go to our [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) site.
+Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). To provide broader API feedback, go to our [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) site.
 

@@ -2,10 +2,10 @@
 title: Azure Application Gateway URL-based content routing overview
 description: This article provides an overview of the Azure Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.date: 09/10/2019
-ms.author: victorh
+ms.date: 01/14/2022
+ms.author: greglin
 ms.topic: conceptual
 ---
 
@@ -22,7 +22,9 @@ In the following example, Application Gateway is serving traffic for contoso.com
 Requests for http\://contoso.com/video/* are routed to VideoServerPool, and http\://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
 
 > [!IMPORTANT]
-> For both the v1 and v2 SKUs, rules are processed in the order they are listed in the portal. If a basic listener is listed first and matches an incoming request, it gets processed by that listener. However, it is highly recommended to configure multi-site listeners first prior to configuring a basic listener. This ensures that traffic gets routed to the right back end.
+> For both the v1 and v2 SKUs, rules are processed in the order they are listed in the portal. The best practice when you create path rules is to have the least specific path (the ones with wildcards) at the end. If wildcards are on the top, then they take priority even if there's a more specific match in subsequent path rules.
+>
+> If a basic listener is listed first and matches an incoming request, it gets processed by that listener. However, it's highly recommended to configure multi-site listeners first prior to configuring a basic listener. This ensures that traffic gets routed to the right back end.
 
 ## UrlPathMap configuration element
 
@@ -37,7 +39,7 @@ The urlPathMap element is used to specify Path patterns to back-end server pool 
             "id": "/subscriptions/    {subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName1}"
         },
         "defaultBackendHttpSettings": {
-            "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsList/{settingname1}"
+            "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsCollection/{settingname1}"
         },
         "pathRules": [{
             "name": "{pathRuleName}",
@@ -49,7 +51,7 @@ The urlPathMap element is used to specify Path patterns to back-end server pool 
                     "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName2}"
                 },
                 "backendHttpsettings": {
-                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpsettingsList/{settingName2}"
+                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsCollection/{settingName2}"
                 }
             }
         }]
@@ -59,15 +61,11 @@ The urlPathMap element is used to specify Path patterns to back-end server pool 
 
 ### PathPattern
 
-PathPattern is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/." The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
-
-The supported patterns depend on whether you deploy Application Gateway v1 or v2:
-
-#### v1
+PathPattern is a list of path patterns to match. Each path must start with / and may use \* as a wildcard character. The string fed to the path matcher doesn't include any text after the first `?` or `#`, and those chars aren't allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
 
 Path rules are case insensitive.
 
-|v1 path pattern  |Is supported?  |
+|Path pattern  |Is supported?  |
 |---------|---------|
 |`/images/*`     |yes|
 |`/images*`     |yes|
@@ -76,20 +74,33 @@ Path rules are case insensitive.
 |`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |yes|
 
-#### v2
+#### Examples
 
-Path rules are case insensitive.
+Path-based rule processing when wildcard (*) is used:
 
-|v2 path pattern  |Is supported?  |
-|---------|---------|
-|`/images/*`     |yes|
-|`/images*`     |yes|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
-|`/CurrentUser/Comments/*`     |yes|
+**Example 1:**
 
-You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) for more information.
+`/master-dev* to contoso.com`
+
+`/master-dev/api-core/ to fabrikam.com`
+
+`/master-dev/* to microsoft.com`
+
+Because the wildcard path `/master-dev*` is present above more granular paths, all client requests containing `/master-dev` are routed to contoso.com, including the specific `/master-dev/api-core/`. To ensure that the client requests are routed to the appropriate paths, it's critical to have the granular paths above wildcard paths.
+
+**Example 2:**
+
+`/ (default) to contoso.com`
+
+`/master-dev/api-core/ to fabrikam.com`
+
+`/master-dev/api to bing.com`
+
+`/master-dev/* to microsoft.com`
+
+All client requests with the path pattern `/master-dev/*` are processed in the order as listed. If there's no match within the path rules, the request is routed to the default target.
+
+For more information, see [Resource Manager template using URL-based routing](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing).
 
 ## PathBasedRouting rule
 

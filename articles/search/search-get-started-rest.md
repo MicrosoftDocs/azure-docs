@@ -1,8 +1,7 @@
 ---
 title: 'Quickstart: Create a search index using REST APIs'
 titleSuffix: Azure Cognitive Search
-description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using either Postman or Visual Studio Code. 
-
+description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using either Postman or Visual Studio Code.
 zone_pivot_groups: URL-test-interface-rest-apis
 manager: nitinme
 author: HeidiSteen
@@ -10,12 +9,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/17/2020
+ms.date: 12/07/2021
+ms.custom: mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using REST APIs
 
-This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
+This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -27,7 +27,7 @@ The following services and tools are required for this quickstart.
 
 + [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Cognitive Search.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 
@@ -37,7 +37,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
+   ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 

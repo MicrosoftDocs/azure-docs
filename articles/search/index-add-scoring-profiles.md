@@ -22,7 +22,7 @@ Unfamiliar with relevance concepts? The following video segment fast-forwards to
 
 ## What is a scoring profile?
 
-A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. The purpose a scoring profile is to boost or amplify matching documents based on criteria you provide. 
+A scoring profile is part of the index definition and is composed of weighted fields, functions and parameters. The purpose of a scoring profile is to boost or amplify matching documents based on criteria you provide. 
 
 The following definition shows a simple profile named 'geo'. This one boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
@@ -70,7 +70,7 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 ## How scores are computed
 
-Scores are computed for full text search queries, for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
+Scores are computed for full text search queries for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
 > [!Tip]
 > You can use the [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
@@ -201,7 +201,7 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 
 | Function | Description |
 |-|-|
-| "freshness" | Boosts by values in a datetime field (Edm.DataTimeOffset). This function has a `boostingDuration` attribute so that you can specify a value representing a timespan over which boosting occurs. | 
+| "freshness" | Boosts by values in a datetime field (Edm.DateTimeOffset). This function has a `boostingDuration` attribute so that you can specify a value representing a timespan over which boosting occurs. | 
 | "magnitude" | Boosts based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with Edm.Double and Edm.Int fields. For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set "boostingRangeStart" at 100 and "boostingRangeEnd" at 1 to boost the lower-priced items. | 
 | "distance"  | Boosts by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields. | 
 | "tag"  | Boosts by tags that are common to both search documents and query strings. Tags are provided in a `tagsParameter`. This function can only be used with Edm.String and Collection(Edm.String) fields. | 

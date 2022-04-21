@@ -2,18 +2,16 @@
 metadata:
   title: Application and service availability issues FAQ
   description: This article lists the frequently asked questions about application and service availability for Microsoft Azure Cloud Services.
-  ms.topic: article
+  ms.topic: faq
   ms.service: cloud-services
   ms.date: 10/14/2020
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-    
 title: 'Application and service availability issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
-  > [!IMPORTANT]
-  > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
   
   This article includes frequently asked questions about application and service availability issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
   
@@ -46,4 +44,3 @@ sections:
           If you want to change the default behavior of IIS, you will need to use startup tasks, because if you manually apply changes to the Web Role instances, the changes will eventually be lost.
           
           For more information, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).
-

@@ -2,10 +2,14 @@
 title: Security agent local configuration (C)
 description: Learn about Defender  for agent local configurations for C.
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 03/28/2022
 ---
 
 # Understanding the LocalConfiguration.json file - C agent
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Defender for IoT micro agent troubleshooting (Preview)](troubleshoot-defender-micro-agent.md).
+>
 
 The Defender  for IoT security agent uses configurations from a local configuration file.
 The security agent reads the configuration once,  at agent start-up.
@@ -27,7 +31,7 @@ Changes to the configuration file take place when the agent is restarted.
 | Identity | "DPS", "SecurityModule", "Device" | Authentication identity - DPS if authentication is made through DPS, SecurityModule if authentication is made via Defender-IoT-micro-agentcredentials or device if authentication is made with Device credentials |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | the user secret for authentication - Choose SasToken if the use secret is a Symmetric key, choose self-signed certificate if the secret is a self-signed certificate  |
 | FilePath | Path to file (string) | Path to the file that contains the authentication secret |
-| HostName | string | The host name of the Azure IoT hub. usually <my-hub>.azure-devices.net |
+| HostName | string | The host name of the Azure IoT hub. usually \<my-hub\>.azure-devices.net |
 | DeviceId | string | The ID of the device (as registered in Azure IoT Hub) |
 | DPS | JsonObject | DPS related configurations |
 | IDScope | string | ID scope of DPS |

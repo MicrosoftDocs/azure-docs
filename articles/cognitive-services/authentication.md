@@ -1,14 +1,14 @@
 ---
-title: Authentication
+title: Authentication in Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: "There are three ways to authenticate a request to an Azure Cognitive Services resource: a subscription key, a bearer token, or a multi-service subscription. In this article, you'll learn about each method, and how to make a request."
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
-ms.date: 11/22/2019
-ms.author: erhopf
+ms.topic: how-to
+ms.date: 07/22/2021
+ms.author: pafarley
 ---
 
 # Authenticate requests to Azure Cognitive Services
@@ -59,8 +59,8 @@ The following video demonstrates using a Cognitive Services key.
 
 ## Authenticate with a multi-service subscription key
 
->[!WARNING]
-> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
+> [!WARNING]
+> At this time, the multi-service key doesn't support: QnA Maker, Immersive Reader, Personalizer, and Anomaly Detector.
 
 This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Cognitive Services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
@@ -91,6 +91,13 @@ Multi-service authentication is supported in these regions:
 - `westeurope`
 - `westus`
 - `westus2`
+- `francecentral`
+- `koreacentral`
+- `northcentralus`
+- `southafricanorth`
+- `uaenorth`
+- `switzerlandnorth`
+
 
 ### Sample requests
 

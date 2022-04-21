@@ -1,9 +1,9 @@
 ---
 title: Schedule jobs with Azure IoT Hub (Java) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method and set a desired property on multiple devices. You use the Azure IoT device SDK for Java to implement the simulated device apps and the Azure IoT service SDK for Java to implement a service app to run the job.
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -28,7 +28,7 @@ To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](quickstart-control-device-java.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](./quickstart-control-device.md?pivots=programming-language-java)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -38,7 +38,7 @@ This tutorial shows you how to:
 
 * Create a back-end app that creates a job to call the **lockDoor** direct method on multiple devices. Another job sends desired property updates to multiple devices.
 
-At the end of this tutorial, you have a java console device app and a java console back-end app:
+At the end of this tutorial, you have a Java console device app and a Java console back-end app:
 
 **simulated-device** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.
 
@@ -322,7 +322,7 @@ In this section, you create a Java console app that handles the desired properti
     > [!NOTE]
     > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)in the *Samples for the Azure IoT device SDK for Java* readme file.
+4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md#logging)in the *Samples for the Azure IoT device SDK for Java* readme file.
 
     ```xml
     <dependency>
@@ -515,6 +515,6 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
 
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.s
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.

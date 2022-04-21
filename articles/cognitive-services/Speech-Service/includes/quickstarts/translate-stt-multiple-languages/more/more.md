@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/30/2020
-ms.author: trbye
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 

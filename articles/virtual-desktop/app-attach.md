@@ -194,6 +194,9 @@ Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
+>[!NOTE]
+>You can shut down the device even while the **$volumeGuid** point remains after executing the destage script.
+
 ## Set up simulation scripts for the MSIX app attach agent
 
 After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
@@ -204,6 +207,9 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logon script runs the register script.
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
+
+>[!NOTE]
+>You can run the task scheduler with the stage script. To run the script, set the task trigger to **When the computer starts**, then enable **Run with highest privileges**.
 
 ## Use packages offline
 

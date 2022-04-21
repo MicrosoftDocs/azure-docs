@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Apache Ambari email notifications in Azure HDInsight
 description: This article describes how to use SendGrid with Apache Ambari for email notifications.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 04/11/2022
 
 #Customer intent: As a HDInsight user, I want to configure Apache Ambari to send email notifications.
 ---
@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A SendGrid email account. See [How to Send Email Using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md) for instructions.
+* A SendGrid email account. See [How to Send Email Using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) for instructions.
 
 * An HDInsight cluster. See [Create Apache Hadoop clusters using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 

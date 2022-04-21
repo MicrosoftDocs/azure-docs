@@ -1,13 +1,8 @@
 ---
 title: Embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps
-titleSuffix: Azure Video Analyzer for Media
 description: Learn how to embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
-ms.date: 01/25/2021
+ms.topic: how-to
+ms.date: 03/29/2022
 ms.author: juliako
 ms.custom: devx-track-js
 ---
@@ -26,12 +21,13 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: people, animatedCharacters ,keywords, labels, sentiments, emotions, topics, keyframes, transcript, ocr, speakers, scenes, and namedEntities.|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: people, animatedCharacters, keywords, labels, sentiments, emotions, topics, keyframes, transcript, ocr, speakers, scenes, and namedEntities.|
 |`controls`|Strings separated by comma|Allows you to control the controls that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renders only search option and download button.<br/>Available options: search, download, presets, language.|
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
+|`search`|A free text for search |Allows you to control the initial search term. Example - `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?search=vi` renders the insights filtered by the word "vi".|
 
 ### Player widget
 
@@ -222,8 +218,8 @@ If you use a video player other than Azure Media Player, you must manually manip
         function jumpTo(evt) {
           var origin = evt.origin || evt.originalEvent.origin;
         
-          // Validate that the event comes from the videobreakdown domain.
-          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videoindexer domain.
+          if ((origin === "https://www.videoindexer.ai") && evt.data.time !== undefined){
                 
             // Call your player's "jumpTo" implementation.
             playerInstance.currentTime = evt.data.time;

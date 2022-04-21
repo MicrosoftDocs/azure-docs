@@ -1,10 +1,9 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Capacity of an Azure API Management instance | Microsoft Docs
 description: This article explains what the capacity metric is and how to make informed decisions whether to scale an Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: anneta
 editor: ''
 
@@ -12,7 +11,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
-ms.author: apimpm
+ms.author: danlep
 ms.custom: fasttrack-edit
 ---
 

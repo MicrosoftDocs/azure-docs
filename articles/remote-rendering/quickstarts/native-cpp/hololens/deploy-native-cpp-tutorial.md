@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
+ms.custom: mode-api
 ---
 
 # Quickstart: Deploy native C++ WMR sample to HoloLens

@@ -1,13 +1,13 @@
 ---
-title: Defender IoT micro agent troubleshooting (Preview)
+title: Defender for IoT micro agent troubleshooting (Preview)
 description: Learn how to handle unexpected or unexplained errors.
-ms.date: 4/5/2021
+ms.date: 11/09/2021
 ms.topic: reference
 ---
 
-# Defender IoT micro agent troubleshooting (Preview)
+# Defender for IoT micro agent troubleshooting (Preview)
 
-If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. You can also reach out to the Azure Defender for IoT product team for assistance as needed.   
+If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. 
 
 ## Service status 
 
@@ -33,7 +33,7 @@ You will know that the service is crashing if, the process uptime is less than 2
 
 ## Validate micro agent root privileges
 
-Use the following command to verify that the Defender IoT micro agent service is running with root privileges.
+Use the following command to verify that the Defender for IoT micro agent service is running with root privileges.
 
 ```bash
 ps -aux | grep " defender-iot-micro-agent"
@@ -54,7 +54,7 @@ If an issue occurs when the micro agent is run, you can run the micro agent in a
 
 ```bash
 sudo systectl stop defender-iot-micro-agent
-cd /var/defender_iot_micro_agent/
+cd /etc/defender_iot_micro_agent/
 sudo ./defender_iot_micro_agent
 ```
 

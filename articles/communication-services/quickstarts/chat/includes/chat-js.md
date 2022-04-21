@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: rifox
 ---
 
 ## Sample Code
@@ -20,8 +20,8 @@ Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create *three* ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
+- Create *three* Azure Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
 
 ## Setting up
 
@@ -124,7 +124,7 @@ let userAccessToken = '<USER_ACCESS_TOKEN>';
 let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Resource](../../create-communication-resource.md) if you have not already done so.
+- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Services resource](../../create-communication-resource.md) if you have not already done so.
 - Replace **userAccessToken** with the token that you issued.
 
 
@@ -140,6 +140,7 @@ In the developer tools console within your browser you should see following:
 ```console
 Azure Communication Chat client created!
 ```
+
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
@@ -238,18 +239,23 @@ Use `sendMessage` method to sends a message to a thread identified by threadId.
 
 - Use `senderDisplayName` to specify the display name of the sender;
 - Use `type` to specify the message type, such as 'text' or 'html' ;
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 `SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
 ```JavaScript
 const sendMessageRequest =
 {
-  content: 'Hello Geeta! Can you share the deck for the conference?'
+  content: 'Please take a look at the attachment'
 };
 let sendMessageOptions =
 {
   senderDisplayName : 'Jack',
-  type: 'text'
+  type: 'text',
+  metadata: {
+    'hasAttachment': 'true',
+    'attachmentUrl': 'https://contoso.com/files/attachment.docx'
+  }
 };
 const sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 const messageId = sendChatMessageResult.id;
@@ -345,4 +351,20 @@ await chatThreadClient.removeParticipant({ communicationUserId: <PARTICIPANT_ID>
 await listParticipants();
 ```
 Replace **PARTICIPANT_ID** with a User ID used in the previous step (<NEW_PARTICIPANT_USER_ID>).
-Add this code in place of the `<REMOVE PARTICIPANT FROM THREAD>` comment in **client.js**,
+Add this code in place of the `<REMOVE PARTICIPANT FROM THREAD>` comment in **client.js**.
+
+### Subscribe to connection status of real time notifications
+Subscription to events `realTimeNotificationConnected` and `realTimeNotificationDisconnected` allows you to know when the connection to the call server is active.
+
+```JavaScript
+// subscribe to realTimeNotificationConnected event
+chatClient.on('realTimeNotificationConnected', () => {
+  console.log("Real time notification is now connected!");
+  // your code here
+});
+// subscribe to realTimeNotificationDisconnected event
+chatClient.on('realTimeNotificationDisconnected', () => {
+  console.log("Real time notification is now disconnected!");
+  // your code here
+});
+```

@@ -5,13 +5,12 @@ documentationcenter: na
 services: networking
 author: rambk
 manager: tracsman
-
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-
+ms.custom: ignite-fall-2021
 ---
 
 # Interoperability in Azure : Control plane analysis
@@ -91,11 +90,11 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubView.png "Hub and spoke VNet perspective of the topology"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "Location 1 and remote VNet perspective of the topology via ExpressRoute 1"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "Location 1 and branch VNet perspective of the topology via a site-to-site VPN"
-[4]: ./media/backend-interoperability/Loc2View.png "Location 2 perspective of the topology"
-[5]: ./media/backend-interoperability/ExR1-RouteTable.png "ExpressRoute 1 route table"
+[1]: ./media/backend-interoperability/hubview.png "Hub and spoke VNet perspective of the topology"
+[2]: ./media/backend-interoperability/loc1exrview.png "Location 1 and remote VNet perspective of the topology via ExpressRoute 1"
+[3]: ./media/backend-interoperability/loc1vpnview.png "Location 1 and branch VNet perspective of the topology via a site-to-site VPN"
+[4]: ./media/backend-interoperability/loc2view.png "Location 2 perspective of the topology"
+[5]: ./media/backend-interoperability/exr1-routetable.png "ExpressRoute 1 route table"
 
 <!--Link References-->
 [Setup]: ./connectivty-interoperability-preface.md
@@ -104,7 +103,7 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
 [Configuration]: ./connectivty-interoperability-configuration.md
-[Control-Analysis]:https://docs.microsoft.com/azure/networking/connectivty-interoperability-control-plane
+[Control-Analysis]: 
 [Data-Analysis]: ./connectivty-interoperability-data-plane.md
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
 [S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md

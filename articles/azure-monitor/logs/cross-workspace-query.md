@@ -12,7 +12,7 @@ ms.date: 06/30/2021
 
 Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.
 
-If you manage subscriptions in other Azure Active Directory (Azure AD) tenants through [Azure Lighthouse](/azure/lighthouse/overview), you can include [Log Analytics workspaces created in those customer tenants](/azure/lighthouse/how-to/monitor-at-scale) in your queries.
+If you manage subscriptions in other Azure Active Directory (Azure AD) tenants through [Azure Lighthouse](../../lighthouse/overview.md), you can include [Log Analytics workspaces created in those customer tenants](../../lighthouse/how-to/monitor-at-scale.md) in your queries.
 
 There are two methods to query data that is stored in multiple workspace and apps:
 
@@ -26,7 +26,7 @@ There are two methods to query data that is stored in multiple workspace and app
 
 * The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
 * Cross-resource query is not supported in View Designer. You can Author a query in Log Analytics and pin it to Azure dashboard to [visualize a log query](../visualize/tutorial-logs-dashboards.md) or include in [Workbooks](../visualize/workbooks-overview.md).
-* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
+* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 
 
 ## Querying across Log Analytics workspaces and from Application Insights

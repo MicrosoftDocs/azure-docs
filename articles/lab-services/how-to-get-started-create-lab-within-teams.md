@@ -1,7 +1,7 @@
 ---
 title: Get started and create an Azure Lab Services lab within Teams
 description: Learn how to get started and create an Azure Lab Services lab within Teams. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2020
 ---
 

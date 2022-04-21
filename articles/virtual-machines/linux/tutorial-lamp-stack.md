@@ -5,7 +5,6 @@ author: cynthn
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/20/2021
@@ -15,6 +14,8 @@ ms.author: cynthn
 ---
 
 # Tutorial: Install a LAMP stack on an Azure Linux VM
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. To see the LAMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
 

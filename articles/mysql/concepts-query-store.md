@@ -104,7 +104,7 @@ Use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-confi
 
 ## Views and functions
 
-View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
+View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
 
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 
@@ -167,7 +167,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 
 ## Limitations and known issues
 
-- If a MySQL server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
+- If a MySQL server has the parameter `read_only` on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
 - The retention period for wait statistics is 24 hours.
 - Wait statistics uses sample to capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.

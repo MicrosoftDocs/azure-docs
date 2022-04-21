@@ -9,11 +9,14 @@ ms.author: glenga
 
 Before you begin, you must have the following:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [functions-cli-dotnet-prerequisites](functions-cli-dotnet-prerequisites.md)]
+::: zone-end  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other" 
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
 
 + [Azure CLI](/cli/azure/install-azure-cli), version 2.4 or later. 
+:::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 ::: zone-end
@@ -33,3 +36,5 @@ Before you begin, you must have the following:
 ::: zone pivot="programming-language-other"
 + Development tools for the language you are using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end
+
+You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

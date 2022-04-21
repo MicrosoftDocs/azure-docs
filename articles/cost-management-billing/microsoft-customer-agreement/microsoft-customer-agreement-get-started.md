@@ -4,9 +4,9 @@ description: This article helps you get started as you begin to manage Azure bil
 author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
-ms.subservice: billing
+ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 03/22/2022
 ms.author: banders
 ms.reviewer: baolcsva
 ---

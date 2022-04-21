@@ -1,11 +1,11 @@
 ---
 title: Find Tenant ID, Object ID, and partner association details in Azure Marketplace
-description: How to Find the Tenant ID, Object ID, and partner association details of a subscription ID in the Azure Marketplace.
+description: Find the Tenant ID, Object ID, and partner association details of a subscription ID in Azure Marketplace.
 ms.service: marketplace
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 10/09/2020
+ms.date: 12/08/2021
 ---
 
 # Find Tenant ID, Object ID, and partner association details
@@ -19,25 +19,25 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
 ## Find Tenant ID
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory**.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="The Azure Active Directory icon in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="The Azure Active Directory icon in the Azure portal.":::
 
 3. Select **Overview**. Your Tenant ID should appear under **Basic information**.
 
-    :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Select Groups in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Select Groups in the Azure portal.":::
 
 ## Find subscriptions and roles
 
 1. Go to the Azure portal and select **Azure Active Directory** as noted in steps 1 and 2 above.
 2. Select **Subscriptions**.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions-1.png" alt-text="The Subscriptions icon in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions-1.png" alt-text="The Subscriptions icon in the Azure portal.":::
 
 3. View subscriptions and roles.
 
-    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen-1.png" alt-text="The Subscriptions screen in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen-1.png" alt-text="The Subscriptions screen in the Azure portal.":::
 
 ## Find Partner ID
 
@@ -52,20 +52,21 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 1. Sign in to the [Office 365 Admin Portal](https://portal.office.com/adminportal/home) with an account in the desired tenant with the appropriate administrative rights.
 2. In the left-side menu, expand the **Admin Centers** section at the bottom and then select the Azure Active Directory option to launch the admin console in a new browser window.
 3. Select **Users**.
-4. Browse to or search for the desired user, then select the account name to view the user account’s profile information.
+4. Browse to or search for the desired user, then select the account name to view the user account's profile information.
 5. The Object ID is located in the Identity section on the right.
 
     :::image type="content" source="media/tenant-and-object-id/azure-ad-admin-center.png" alt-text="Azure Active Directory admin center.":::
 
 6. Find **role assignments** by selecting **Access control (IAM)** in the left menu, then **Role assignments**.
 
-    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Role assignments for Azure resources.":::
+    :::image type="content" source="../role-based-access-control/media/role-assignments-portal/rg-role-assignments.png" alt-text="Role assignments for Azure resources.":::
+
 
 ## Find IDs for debugging
 
 This section describes how to find tenant, object, and partner ID association for debugging purposes.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 2. Open Azure Cloud Shell by selecting the PowerShell icon at the top-right.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell-1.png" alt-text="PowerShell icon at the top right of the screen.":::

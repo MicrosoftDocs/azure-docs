@@ -323,7 +323,7 @@ rattle()
 > [!NOTE]
 > You don't need to install Rattle on the DSVM. However, you might be prompted to install additional packages when Rattle opens.
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](../team-data-science-process/index.yml), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](/azure/architecture/data-science-process/overview), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
 
 To load and configure the dataset:
 

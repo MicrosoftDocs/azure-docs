@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 08/19/2021
 ms.author: jeedes
 
 ---
@@ -70,33 +70,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
-    a. In the **Identifier** box, type a URL using one of the following patterns:
-
-    | Identifier URL |
-    |---|
-    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
-    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
-    |
-
-    b. In the **Reply URL** text box, type a URL using one of the following patterns:
-
-    | Reply URL |
-    |---|
-    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
-    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
-    |
-
-    c. In the **Sign-on URL** text box, type a URL using one of the following patterns:
-
-    | Sign-on URL |
-    |---|
-    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
-    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
-    |
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign-On URL. Contact [Draup, Inc Client support team](mailto:support@draup.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    In the **Sign-on URL** text box, type the URL:
+    `https://platform.draup.com/saml2/login/`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -146,8 +123,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Draup, Inc Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Draup, Inc tile in the My Apps, this will redirect to Draup, Inc Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Draup, Inc tile in the My Apps, this will redirect to Draup, Inc Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Draup, Inc you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Draup, Inc you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

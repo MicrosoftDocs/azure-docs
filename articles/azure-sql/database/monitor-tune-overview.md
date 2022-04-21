@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: AlainDormehlMSFT
 ms.author: aldorme
-ms.reviewer: mathoma, urmilano, wiassaf
+ms.reviewer: kendralittle, mathoma, urmilano, wiassaf
 ms.date: 03/17/2021
 ---
 # Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance

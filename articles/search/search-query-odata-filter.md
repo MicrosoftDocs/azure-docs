@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: OData language reference and full syntax used for creating filter expressions in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: reference
+ms.date: 09/16/2021
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -201,7 +201,7 @@ Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' sep
 Find all hotels where all rooms have the tag 'wifi' or 'tub':
 
 ```odata-filter-expr
-    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
 ```
 
 Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags.
@@ -238,6 +238,12 @@ Find hotels where the terms "hotel" and "airport" are no more than five words ap
 
 ```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
+
+Find documents that have a word that starts with the letters "lux" in the Description field. This query uses [prefix search](query-simple-syntax.md#prefix-queries) in combination with `search.ismatch`.
+
+```odata-filter-expr
+    $filter=search.ismatch('lux*', 'Description')
 ```
 
 ## Next steps  

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IamIP Patent Platform | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and IamIP Patent Platform.
+title: 'Tutorial: Azure AD SSO integration with IamIP Platform'
+description: Learn how to configure single sign-on between Azure Active Directory and IamIP Platform.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,101 +9,98 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 10/21/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with IamIP Patent Platform
+# Tutorial: Azure AD SSO integration with IamIP Platform
 
-In this tutorial, you'll learn how to integrate IamIP Patent Platform with Azure Active Directory (Azure AD). When you integrate IamIP Patent Platform with Azure AD, you can:
+In this tutorial, you'll learn how to integrate IamIP Platform with Azure Active Directory (Azure AD). When you integrate IamIP Platform with Azure AD, you can:
 
-* Use Azure AD to control who can access IamIP Patent Platform.
-* Enable your users to be automatically signed-in to IamIP Patent Platform with their Azure AD accounts.
-* Manage your accounts in one central location: the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to IamIP Platform.
+* Enable your users to be automatically signed-in to IamIP Platform with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* An IamIP Patent Platform subscription with single sign-on (SSO) enabled.
+* An IamIP Platform subscription with single sign-on (SSO) enabled.
 
-## Tutorial description
+## Scenario description
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
-IamIP Patent Platform supports SP-initiated and IDP-initiated SSO.
+* IamIP Platform supports SP-initiated and IDP-initiated SSO.
+* IamIP Platform supports **Just In Time** user provisioning.
 
-After you configure the IamIP Patent Platform, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
+## Add IamIP Platform from the gallery
 
-## Add IamIP Patent Platform from the gallery
+To configure the integration of IamIP Platform into Azure AD, you need to add IamIP Platform from the gallery to your list of managed SaaS apps.
 
-To configure the integration of IamIP Patent Platform into Azure AD, you need to add IamIP Patent Platform from the gallery to your list of managed SaaS apps.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) with a work or school account or with a personal Microsoft account.
+1. Sign in to the Azure portal with a work or school account or with a personal Microsoft account.
 1. In the left pane, select **Azure Active Directory**.
 1. Go to **Enterprise applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **IamIP Patent Platform** in the search box.
-1. Select **IamIP Patent Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **IamIP Platform** in the search box.
+1. Select **IamIP Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for IamIP Patent Platform
+## Configure and test Azure AD SSO for IamIP Platform
 
-You'll configure and test Azure AD SSO with IamIP Patent Platform by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in IamIP Patent Platform.
+Configure and test Azure AD SSO with IamIP Platform using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in IamIP Platform.
 
-To configure and test Azure AD SSO with IamIP Patent Platform, you'll take these high-level steps:
+To configure and test Azure AD SSO with IamIP Platform, perform the following steps:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-    * **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
-
-1. **[Configure IamIP Patent Platform SSO](#configure-iamip-patent-platform-sso)** on the application side.
-    * **[Create an IamIP Patent Platform test user](#create-iamip-patent-platform-test-user)** as a counterpart to the Azure AD representation of the user.
-
-1. **[Test SSO](#test-sso)** to verify that the configuration works.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure IamIP Platform SSO](#configure-iamip-platform-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create IamIP Platform test user](#create-iamip-platform-test-user)** - to have a counterpart of B.Simon in IamIP Platform that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal:
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **IamIP Patent Platform** application integration page, in the **Manage** section, select **single sign-on**.
+1. In the Azure portal, on the **IamIP Platform** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, select the pencil button for **Basic SAML Configuration** to edit the settings:
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Pencil button for Basic SAML Configuration](common/edit-urls.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, if you have a Service Provider metadata file and want to configure SSO in IDP-initiated mode, take these steps:
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-	a. Select **Upload metadata file**:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **SP** initiated mode, perform the following steps:
 
-    ![Upload metadata file](common/upload-metadata.png)
+    a. In the **Identifier** textbox, type the URL:
+    `https://accounts.iamip.com/`
+    
+    b. In the **Reply URL** text box, type one of the following URLs:
 
-	b. Select the folder button, select the metadata file, and then select **Upload**:
+    | **Reply URL** |
+    |---------|
+    | `https://accounts.iamip.com/sso-callback` |
+    | `https://accounts.iamip.com/sso-login` |
+    | `https://accounts.iamip.com/sso-logout` |
 
-	![Folder and Upload buttons](common/browse-upload-metadata.png)
+    c. In the **Sign-on URL** text box, type one of the following URLs:
 
-	c. After the metadata file uploads, the **Identifier** and **Reply URL** values automatically populate in the **Basic SAML Configuration** section:
+    | **Sign-on URL** |
+    |------|
+    | `https://accounts.iamip.com/login` |
+    | `https://patents.iamip.com/login-user` |
 
-	![Identifier and Reply URL values](common/idp-intiated.png)
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values aren't automatically populated, supply the values manually according to your requirements.
+	![The Certificate download link](common/certificatebase64.png)
 
-1. Select **Set additional URLs** and complete the following step if you want to configure the application in SP-initiated mode:
+1. On the **Set up IamIP Platform** section, copy the appropriate URL(s) based on your requirement.
 
-	In the **Sign-on URL** box, enter
-    **https:\//patents.iamip.com/login-user**.
-
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link for **Certificate (Raw)** to download the certificate and save it on your computer:
-
-	![Certificate download link](common/certificateraw.png)
-
-1. In the **Set up IamIP Patent Platform** section, copy the appropriate URL or URLs, based on your requirements:
-
-	![Copy configuration URLs](common/idp-intiated.png))
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -117,46 +114,42 @@ In this section, you'll create a test user named B.Simon in the Azure portal.
    1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
 
-### Grant access to the test user
+### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting that user access to IamIP Patent Platform.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to IamIP Platform.
 
-1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
-1. In the applications list, select **IamIP Patent Platform**.
-1. On the app's overview page, in the **Manage** section, select **Users and groups**:
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **IamIP Platform**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-   ![Select Users and groups](common/users-groups-blade.png)
+## Configure IamIP Platform SSO
 
-1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box:
+To configure single sign-on on **IamIP Platform** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [IamIP Platform support team](mailto:info@iamip.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-	![Select Add user](common/add-assign-user.png)
+### Create IamIP Platform test user
 
-1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog box, select the **Assign** button.
+In this section, a user called Britta Simon is created in IamIP Platform. IamIP Platform supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in IamIP Platform, a new one is created after authentication.
 
-## Configure IamIP Patent Platform SSO
+## Test SSO 
 
-To configure single sign-on on the IamIP Patent Platform side, you need to send the downloaded raw certificate and the appropriate URLs that you copied from Azure portal to the [IamIP Patent Platform support team](mailto:info@iamip.com). They configure the SAML SSO connection to be correct on both sides.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-### Create IamIP Patent Platform test user
+#### SP initiated:
 
-Work with the [IamIP Patent Platform support team](mailto:info@iamip.com) to add a user named B.Simon in IamIP Patent Platform. Users must be created and activated before you use single sign-on.
+* Click on **Test this application** in Azure portal. This will redirect to IamIP Platform Sign on URL where you can initiate the login flow.  
 
-## Test SSO
+* Go to IamIP Platform Sign-on URL directly and initiate the login flow from there.
 
-In this section, you'll test your Azure AD SSO configuration by using Access Panel.
+#### IDP initiated:
 
-When you select the IamIP Patent Platform tile in Access Panel, you should be automatically signed in to the IamIP Patent Platform instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the IamIP Platform for which you set up the SSO. 
 
-## Additional resources
+You can also use Microsoft My Apps to test the application in any mode. When you click the IamIP Platform tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the IamIP Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [Tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try IamIP Patent Platform with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Once you configure IamIP Platform you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

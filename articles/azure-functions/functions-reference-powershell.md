@@ -3,6 +3,7 @@ title: PowerShell developer reference for Azure Functions
 description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.devlang: powershell
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 
@@ -333,7 +334,8 @@ Use an `HttpResponseContext` object to return a response, as shown in the follow
     },
     {
       "type": "http",
-      "direction": "out"
+      "direction": "out",
+      "name": "Response"
     }
   ]
 }
@@ -346,7 +348,7 @@ param($req, $TriggerMetadata)
 
 $name = $req.Query.Name
 
-Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     StatusCode = [System.Net.HttpStatusCode]::OK
     Body = "Hello $name!"
 })
@@ -393,6 +395,8 @@ The following table shows the PowerShell versions available to each major versio
 
 You can see the current version by printing `$PSVersionTable` from any function.
 
+To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
+
 ### Running local on a specific version
 
 When running locally the Azure Functions runtime defaults to using PowerShell Core 6. To instead use PowerShell 7 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7, your local.settings.json file looks like the following example: 
@@ -411,6 +415,7 @@ When running locally the Azure Functions runtime defaults to using PowerShell Co
 ### Changing the PowerShell version
 
 Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
 
 Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
 
@@ -568,7 +573,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-When running locally, app settings are read from the [local.settings.json](functions-run-local.md#local-settings-file) project file.
+When running locally, app settings are read from the [local.settings.json](functions-develop-local.md#local-settings-file) project file.
 
 ## Concurrency
 
@@ -592,7 +597,7 @@ Depending on your use case, Durable Functions may significantly improve scalabil
 
 ### Considerations for using concurrency
 
-PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the ```PSWorkerInProcConcurrencyUpperBound``` application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
+PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created, and therefore the number of concurrent threads per worker, is limited by the ```PSWorkerInProcConcurrencyUpperBound``` application setting. By default, the number of runspaces is set to 1,000 in version 4.x of the Functions runtime. In versions 3.x and below, the maximum number of runspaces is set to 1. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
 
 Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 

@@ -55,7 +55,7 @@ The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Fir
 
 [![Online portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
+Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](tutorial-train-deploy-notebook.md).
 
 ## Will projects persist?
 
@@ -79,22 +79,22 @@ The images that you created in your old image registry cannot be directly migrat
 
 Now that support for the old CLI has ended, you can no longer redeploy models or manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
 
-In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to Azure IoT Edge.
+In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs.
 
 Learn more in these articles:
 + [Where and how to deploy models](how-to-deploy-and-where.md)
-+ [Tutorial: Deploy models with Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 
 ## Next steps
 
 Learn about the [latest architecture for Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 
-For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
+For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md).
 
 Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
   + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
-  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-deploy-notebook.md)
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
   + [Use the ML extension to the CLI](how-to-train-cli.md)

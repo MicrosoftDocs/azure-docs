@@ -8,6 +8,8 @@ ms.date: 05/05/2021
 # Introducing StartupServices.xml in Service Fabric Application
 This feature introduces StartupServices.xml file in a Service Fabric Application design. This file hosts DefaultServices section of ApplicationManifest.xml. With this implementation, DefaultServices and Service definition-related parameters are moved from existing ApplicationManifest.xml to this new file called StartupServices.xml. This file is used in each functionalities (Build/Rebuild/F5/Ctrl+F5/Publish) in Visual Studio.
 
+Note - StartupServices.xml is only meant for Visual Studio deployments, this arrangement is to ensure that packages deployed with Visual Studio (with StartupServices.xml) do not have conflicts with ARM deployed services. StartupServices.xml is not packaged as part of application package. It is not supported in DevOps pipeline and customer should deploy individual services in Application either via ARM or through cmdlets with desired configuration.
+
 ## Existing Service Fabric Application Design
 For each service fabric application, ApplicationManifest.xml is the source of all service-related information for the application. ApplicationManifest.xml consists of all Parameters, ServiceManifestImport, and DefaultServices. Configuration parameters are mentioned in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
 
@@ -122,7 +124,7 @@ Sample StartupServices.xml file
 </StartupServicesManifest>
 ```
 
-The startupServices.xml feature is enabled for all new project in SDK version 5.0.516.9590 and above. For actor services, this is enabled in Microsoft.ServiceFabric.Actors NuGet version 5.0.516 and above. Projects created with older version of SDK are are fully backward compatible with latest SDK. Migration of old projects into new design is not supported. If user wants to create an Service Fabric Application without StartupServices.xml in newer version of SDK, user should click on "Help me choose a project template" link as shown in picture below.
+The startupServices.xml feature is enabled for all new project in SF SDK version 5.0.516.9590 and above. Projects created with older version of SDK are are fully backward compatible with latest SDK. Migration of old projects into new design is not supported. If user wants to create an Service Fabric Application without StartupServices.xml in newer version of SDK, user should click on "Help me choose a project template" link as shown in picture below.
 
 ![Create New Application option in New Design][create-new-project]
 

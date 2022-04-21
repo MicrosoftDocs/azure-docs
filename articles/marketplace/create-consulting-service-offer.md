@@ -1,39 +1,48 @@
 ---
-title: How to create a consulting service offer in the Microsoft commercial marketplace 
-description: Learn how to create a new consulting service offer for Microsoft AppSource or Azure Marketplace using the commercial marketplace program in Microsoft Partner Center. 
+title: Create a consulting service offer for the commercial marketplace
+description: Create a consulting service offer for Microsoft AppSource or Azure Marketplace using Partner Center. 
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 03/28/2022
 ---
 
-# How to create a consulting service offer in the commercial marketplace
+# Create a consulting service offer
 
-This article explains how to create a consulting service offer for the Microsoft commercial marketplace using Partner Center. 
+This article explains how to create a consulting service offer for the commercial marketplace using Partner Center.
 
 ## Before you begin
 
-To publish a consulting service offer, you must meet certain eligibility requirements to demonstrate expertise in your field. If you haven’t already done so, read [Plan a consulting service offer for the commercial marketplace](./plan-consulting-service-offer.md). It describes the prerequisites for a consulting service, and the assets you’ll need when you create the offer with Partner Center.
+To publish a consulting service offer, you must meet certain eligibility requirements to demonstrate expertise in your field. If you haven’t already done so, read [Plan a consulting service offer](./plan-consulting-service-offer.md). It describes the prerequisites and  assets you’ll need on hand to create a consulting service offer in Partner Center.
 
-## Create a new consulting service offer
+## Create a consulting service offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2.	In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-3.	On the Overview tab, select **+ New offer** > **Consulting service**.
+1. On the Home page, select the **Marketplace offers** tile.
 
-    ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-4. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. On the Marketplace offers page, select **+ New offer** > **Consulting service**.
+
+    [ ![Illustrates the New offer list on the Marketplace offers page.](./media/new-offer-consulting-service-workspaces.png) ](./media/new-offer-consulting-service-workspaces.png#lightbox)
+
+1. In the **New Consulting service** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     * Each offer in your account must have a unique offer ID.
     * Use only lowercase letters and numbers. The offer ID can include hyphens and underscores, but no spaces, and is limited to 50 characters.
     * The offer ID can't be changed after you select **Create**.
 
-5. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
-6. To generate the offer and continue, select **Create**.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
+
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. To generate the offer and continue, select **Create**.
 
 ## Configure lead management
 

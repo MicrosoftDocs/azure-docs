@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to integrate GitHub Enterprise Cloud - Enterp
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A [GitHub Enterprise Account](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts).
+* A [GitHub Enterprise Account](https://docs.github.com/en/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).
 * A GitHub user account that is an Enterprise Account owner. 
 
 ## Scenario description
@@ -72,15 +72,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<ENTERPRISE-SLUG>`
+    `https://github.com/enterprises/<ENTERPRISE-SLUG>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<ENTERPRISE-SLUG>/saml/consume`
+    `https://github.com/enterprises/<ENTERPRISE-SLUG>/saml/consume`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
      In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<ENTERPRISE-SLUG>/sso`
+    `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso`
 
 	> [!NOTE]
 	> Replace `<ENTERPRISE-SLUG>` with the actual name of your GitHub Enterprise Account.
@@ -121,8 +121,8 @@ In this section, you'll enable `B.Simon` and your user account to use Azure sing
 
 ## Enable and Test SAML for the Enterprise Account and its organizations
 
-To configure single sign-on on the **GitHub Enterprise Cloud - Enterprise Account** side, follow the steps listed in [this GitHub documentation](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account). 
-1. Sign in to GitHub.com with a user account that is an [enterprise account owner](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-owner). 
+To configure single sign-on on the **GitHub Enterprise Cloud - Enterprise Account** side, follow the steps listed in [this GitHub documentation](https://docs.github.com/en/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account). 
+1. Sign in to GitHub.com with a user account that is an [enterprise account owner](https://docs.github.com/en/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner). 
 1. Copy the value from the `Login URL` field in the app from the Azure portal and paste it in the `Sign on URL` field in the GitHub Enterprise Account SAML settings. 
 1. Copy the value from the `Azure AD Identifier` field in the app from the Azure portal and paste it in the `Issuer` field in the GitHub Enterprise Account SAML settings. 
 1. Copy the contents of the **Certificate (Base64)** file you downloaded in the steps above from Azure portal and paste them in the appropriate field in the GitHub Enterprise Account SAML settings. 
@@ -136,7 +136,7 @@ After you enable SAML SSO for your GitHub Enterprise Account, SAML SSO is enable
 
 ## Test SSO with another enterprise account owner or organization member account
 
-After the SAML integration is set up for the GitHub enterprise account (which also applies to the GitHub organizations in the enterprise account), other enterprise account owners who are assigned to the app in Azure AD should be able to navigate to the GitHub enterprise account URL (`https://github.com/orgs/<enterprise account>`), authenticate via SAML, and access the policies and settings under the GitHub enterprise account. 
+After the SAML integration is set up for the GitHub enterprise account (which also applies to the GitHub organizations in the enterprise account), other enterprise account owners who are assigned to the app in Azure AD should be able to navigate to the GitHub enterprise account URL (`https://github.com/enterprises/<enterprise account>`), authenticate via SAML, and access the policies and settings under the GitHub enterprise account. 
 
 An organization owner for an organization in an enterprise account should be able to [invite a user to join their GitHub organization](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization). Sign in to GitHub.com with an organization owner account and follow the steps in the article to invite `B.Simon` to the organization. A GitHub user account will need to be created for `B.Simon` if one does not already exist. 
 
@@ -148,4 +148,4 @@ To test GitHub organization access under the Enterprise Account with the `B.Simo
 
 ## Next steps
 
-Once you configure GitHub Enterprise Cloud - Enterprise Account you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure GitHub Enterprise Cloud - Enterprise Account you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

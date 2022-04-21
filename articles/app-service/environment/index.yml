@@ -1,0 +1,61 @@
+### YamlMime:Landing
+
+title: App Service Environment documentation
+summary: Azure App Service Environments enables you to host web apps in a fully isolated and dedicated environment for securely running App Service apps at high scale.
+
+metadata:
+  title: Azure App Service Environment documentation
+  description: Host fully isolated websites in a secure and scalable environment. Find quickstarts, tutorials, and read about concepts to help you succeed with App Service Environment.
+  ms.topic: landing-page
+  ms.service: app-service
+  ms.date: 11/15/2021
+
+landingContent:
+  - title: About App Service Environment
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is App Service Environment?
+            url: overview.md
+          - text: What is App Service?
+            url: ../overview.md
+      - linkListType: whats-new
+        links:
+          - text: Service updates
+            url: https://azure.microsoft.com/updates/?product=app-service
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an App Service Environment
+            url: creation.md
+      - linkListType: concept
+        links:
+          - text: Networking overview
+            url: networking.md
+          - text: Zone redundancy
+            url: overview-zone-redundancy.md
+          - text: Certificates
+            url: overview-certificates.md
+
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Integrate with Application Gateway
+            url: integrate-with-application-gateway.md
+      - linkListType: how-to-guide
+        links:
+          - text: App Service Environment common tasks
+            url: using.md
+          - text: Provision an ASE from an ARM template
+            url: create-from-template.md
+          - text: Configure ASE custom settings
+            url: app-service-app-service-environment-custom-settings.md
+      - linkListType: reference
+        links:
+          - text: Azure CLI reference
+            url: /cli/azure/appservice/ase
+          - text: Resource Manager
+            url: /azure/templates/microsoft.web/2021-02-01/hostingenvironments?tabs=json

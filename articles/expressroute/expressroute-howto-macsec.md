@@ -42,7 +42,7 @@ To start the configuration, sign in to your Azure account and select the subscri
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name "your_resource_group" -Location "resource_location"
-    $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
+    $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -SoftDeleteRetentionInDays 90
     ```
 
     If you already have a key vault or a resource group, you can reuse them. However, it is critical that you enable the [**soft-delete** feature](../key-vault/general/soft-delete-overview.md) on your existing key vault. If soft-delete is not enabled, you can use the following commands to enable it:
@@ -51,6 +51,11 @@ To start the configuration, sign in to your Azure account and select the subscri
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
+    
+    > [!NOTE]
+    > The Key Vault shouldn't be behind a private endpoint because communicate to the ExpressRoute management plane is required.
+    >
+    
 2. Create a user identity.
 
     ```azurepowershell-interactive
@@ -70,6 +75,16 @@ To start the configuration, sign in to your Azure account and select the subscri
     $MACsecCAKSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CAK_name" -SecretValue $CAK
     $MACsecCKNSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CKN_name" -SecretValue $CKN
     ```
+   > [!NOTE]
+   > CKN must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+   >
+   > CAK length depends on cipher suite specified:
+   >
+   > * For GcmAes128, the CAK must be an even-length string up to 32 hexadecimal digits (0-9, A-F).
+   >
+   > * For GcmAes256, the CAK must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+   >
+
 4. Assign the GET permission to the user identity.
 
     ```azurepowershell-interactive
@@ -88,6 +103,15 @@ To start the configuration, sign in to your Azure account and select the subscri
 ### To enable MACsec
 
 Each ExpressRoute Direct instance has two physical ports. You can choose to enable MACsec on both ports at the same time or enable MACsec on one port at a time. Doing it one port at time (by switching traffic to an active port while servicing the other port) can help minimize the interruption if your ExpressRoute Direct is already in service.
+
+   > [!NOTE]
+   > You can configure both XPN and Non-XPN ciphers:
+   > * GcmAes128
+   > * GcmAes256
+   > * GcmAesXpn128
+   > * GcmAesXpn256
+   >
+   > 
 
 1. Set MACsec secrets and cipher and associate the user identity with the port so that the ExpressRoute management code can access the MACsec secrets if needed.
 
@@ -113,6 +137,17 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
 
     At this point, MACsec is enabled on the ExpressRoute Direct ports on Microsoft side. If you haven't configured it on your edge devices, you can proceed to configure them with the same MACsec secrets and cipher.
 
+3. (Optional) You can enable Secure Channel Identifier (SCI) on the ports.
+
+    ```azurepowershell-interactive
+    $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
+    $erDirect.Links[0].MacSecConfig.SciState = "Enabled"
+    $erDirect.Links[1].MacSecConfig.SciState = "Enabled"
+    Set-AzExpressRoutePort -ExpressRoutePort $erDirect
+    ```
+    
+    At this point, SCI is enabled on the ExpressRoute Direct ports.
+    
 ### To disable MACsec
 
 If MACsec is no longer desired on your ExpressRoute Direct instance, you can run the following commands to disable it.

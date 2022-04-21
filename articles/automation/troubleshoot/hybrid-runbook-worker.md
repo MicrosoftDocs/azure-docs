@@ -1,18 +1,15 @@
 ---
-title: Troubleshoot Azure Automation Hybrid Runbook Worker issues
-description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation Hybrid Runbook Workers.
+title: Troubleshoot agent-based Hybrid Runbook Worker issues in Azure Automation
+description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation agent-based Hybrid Runbook Workers.
 services: automation
-ms.subservice:
-author: mgoedtel
-ms.author: magoedte
-ms.date: 02/11/2021
+ms.date: 10/18/2021
 ms.topic: troubleshooting 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Troubleshoot Hybrid Runbook Worker issues
+# Troubleshoot agent-based Hybrid Runbook Worker issues in Automation
 
-This article provides information on troubleshooting and resolving issues with Azure Automation Hybrid Runbook Workers. For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
+This article provides information on troubleshooting and resolving issues with Azure Automation agent-based Hybrid Runbook Workers. For troubleshooting extension-based workers, see [Troubleshoot extension-based Hybrid Runbook Worker issues in Automation](./extension-based-hybrid-runbook-worker.md). For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 
 ## General
 
@@ -42,9 +39,19 @@ Verify that the computer has outbound access to **\*.azure-automation.net** on p
 
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use might cause the system to be overused and cause runbook job delays or timeouts.
 
-Confirm that the computer to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure can indicate the need to upgrade resources. You can also select a different compute resource that supports the minimum requirements and scale when workload demands indicate that an increase is necessary.
+Confirm the computer to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure can indicate the need to upgrade resources. You can also select a different compute resource that supports the minimum requirements and scale when workload demands indicate an increase is necessary.
 
 Check the **Microsoft-SMA** event log for a corresponding event with the description `Win32 Process Exited with code [4294967295]`. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Runbook Worker group. Review runbook permissions in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) to confirm that you've correctly configured authentication for your runbooks.
+
+### Scenario: Runbooks fail with gateway error
+
+#### Issue
+
+The Hybrid Runbook Worker jobs failed to refresh when communicating through a Log Analytics Gateway server and the error returned is similar to: `Spool operation id does not exist (spool ID): see attachment for job details and exact exception messages.`
+
+#### Resolution
+
+Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](../../azure-monitor/agents/gateway.md#troubleshooting).
 
 ### <a name="cannot-connect-signalr"></a>Scenario: Event 15011 in the Hybrid Runbook Worker
 
@@ -120,6 +127,7 @@ The following issues are possible causes:
 
 * There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
 * The Hybrid Runbook Worker can't download the configuration, which causes an account linking error. When Azure enables features on machines, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date or time is set on the computer. If the time is +/- 15 minutes from the current time, feature deployment fails.
+* Log Analytics Gateway is not configured to support Hybrid Runbook Worker.
 
 #### Resolution
 
@@ -128,9 +136,14 @@ To verify if the agent's workspace ID or workspace key was mistyped, see [Adding
 
 ##### Configuration not downloaded
 
-Your Log Analytics workspace and Automation account must be in a linked region. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
+Your Log Analytics workspace and Automation account must be in a linked region. This is the suggested solution for System Hybrid Runbook Worker used by Update Management. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
 
 You might also need to update the date or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
+
+##### Log Analytics gateway not configured
+
+Follow the steps mentioned [here](../../azure-monitor/agents/gateway.md#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
+
 
 ### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
 
@@ -142,7 +155,7 @@ Runbook fails when it tries to execute `Set-AzStorageBlobContent`, and you recei
 
 #### Cause
 
- This error is caused by the long file name behavior of calls to `[System.IO.Path]::GetFullPath()` which adds UNC paths.
+ This error is caused by the long file name behavior of calls to `[System.IO.Path]::GetFullPath()`, which adds UNC paths.
 
 #### Resolution
 
@@ -175,7 +188,7 @@ Running the `sudo` command for a Linux Hybrid Runbook Worker retrieves an unexpe
 
 #### Cause
 
-The **nxautomationuser** account for the Log Analytics agent for Linux is not correctly configured in the **sudoers** file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
+The **nxautomationuser** account for the Log Analytics agent for Linux isn't correctly configured in the **sudoers** file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
 
 #### Resolution
 
@@ -249,7 +262,7 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/agents/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For more help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
@@ -259,7 +272,7 @@ Hybrid workers send [Runbook output and messages](../automation-runbook-output-a
 
 A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice) for connection. 
 
-If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
+If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information about proxy.​
 
 #### Cause
 
@@ -333,11 +346,11 @@ To resolve this issue, remove the following registry key, restart `HealthService
 
 #### Issue
 
-You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script:
 
 `Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
-Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python script:
 
 `Failed to deregister worker. [response_status=404]`
 
@@ -367,7 +380,7 @@ To resolve this issue:
 
 ## Next steps
 
-If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
+If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.

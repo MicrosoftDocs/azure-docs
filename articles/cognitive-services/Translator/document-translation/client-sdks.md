@@ -12,10 +12,10 @@ ms.date: 07/06/2021
 ms.author: lajanuar
 ---
 
-# Document Translation client libraries and SDKs
+# Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
+[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files will be stored (required).
@@ -106,11 +106,11 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
-private static readonly string subscriptionKey = "<your subscription key>";
+private static readonly string key = "<your key>";
 ```
 
 ### Translate a document or batch files
@@ -129,7 +129,7 @@ public void StartTranslation() {
   Uri sourceUri = new Uri("<sourceUrl>");
   Uri targetUri = new Uri("<targetUrl>");
 
-  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(subscriptionKey));
+  DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
   DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, "es")
 
@@ -172,7 +172,7 @@ That's it! You've created a program to translate documents in a blob container u
 <!-- LINKS -->
 
 [documenttranslation_nuget_package]: https://www.nuget.org/packages/Azure.AI.Translation.Document/1.0.0-beta.2
-[documenttranslation_client_library_docs]: https://aka.ms/azsdk/net/documenttranslation/docs
+[documenttranslation_client_library_docs]: /dotnet/api/azure.ai.translation.document
 [documenttranslation_docs]: overview.md
 [documenttranslation_rest_api]: reference/rest-api-guide.md
 [documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Document/samples
@@ -204,11 +204,11 @@ Create a new Python application in your preferred editor or IDE. Then import the
     from azure.ai.translation.document import DocumentTranslationClient
 ```
 
-Create variables for your resource subscription key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For
+more information, *see*  [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
 
 ```python
- subscriptionKey = "<your-subscription-key>"
+ key = "<your-key>"
  endpoint = "<your-custom-endpoint>"
  sourceUrl = "<your-container-sourceUrl>"
  targetUrl = "<your-container-targetUrl>"
@@ -217,7 +217,7 @@ more information, *see*  [Get your custom domain name and subscription key](get-
 ### Translate a document or batch files
 
 ```python
-client = DocumentTranslationClient(endpoint, AzureKeyCredential(subscriptionKey))
+client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
     poller = client.begin_translation(sourceUrl, targetUrl, "fr")
     result = poller.result()

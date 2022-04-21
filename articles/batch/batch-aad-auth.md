@@ -76,10 +76,8 @@ Once you've registered your application, follow these steps in the Azure portal 
 1. Search for the name of your application in the list of app registrations.
 1. Select the application and select **API permissions**.
 1. In the **API permissions** section, select **Add a permission**.
-1. In **Select an API**, search for the Batch API. Search for each of these strings until you find the API:
-    1. **Microsoft Azure Batch**
-    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API.
-1. Once you find the Batch API, select it and then choose **Select**.
+1. In **Select an API**, search for "Microsoft Azure Batch" to find the Batch API. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the Application ID for the Batch API.
+1. Select the Batch API, then choose **Select**.
 1. In **Select permissions**, select the check box next to **Access Azure Batch Service** and then select **Add permissions**.
 
 The **API permissions** section now shows that your Azure AD application has access to both Microsoft Graph and the Batch service API. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.

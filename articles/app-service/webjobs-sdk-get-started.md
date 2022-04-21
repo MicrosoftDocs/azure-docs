@@ -2,7 +2,7 @@
 title: Tutorial for event-driven background processing with the WebJobs SDK
 description: Learn how to enable your web apps to run background tasks. Use this tutorial to get started with the WebJobs SDK.
 author: ggailey777
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 06/25/2021
 ms.author: glenga
@@ -163,6 +163,9 @@ In this section, you create a function triggered by messages in an Azure Storage
 
 Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services you must install a separate Storage binding extension package. 
 
+>[!NOTE]
+> Beginning with 5.x, Microsoft.Azure.WebJobs.Extensions.Storage has been [split by storage service](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage/CHANGELOG.md#major-changes-and-features) and has migrated the `AddAzureStorage()` extension method by service type.
+
 1. Get the latest stable version of the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x.
 
 1. In the following command, replace `<3_X_VERSION>` with the current version  number you found in step 1. Each type of NuGet Package has a unique version number. 
@@ -196,10 +199,6 @@ Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
-        builder.ConfigureWebJobs(b =>
-        {
-            b.AddAzureStorageCoreServices();
-        });
         builder.ConfigureLogging((context, b) =>
         {
             b.AddConsole();
@@ -243,9 +242,9 @@ The `QueueTrigger` attribute tells the runtime to call this function when a new 
     }
     ```
 
-    When a message is added to a queue named `queue`, the function executes and the `message` string is written to the logs. The queue being monitored is in the default Azure Storage account, which you create next.
+    You should mark the *Functions* class as `public static` in order for the runtime to access and execute the method. In the above code sample, when a message is added to a queue named `queue`, the function executes and the `message` string is written to the logs. The queue being monitored is in the default Azure Storage account, which you create next.
    
-The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
+The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
 ### Create an Azure storage account
 

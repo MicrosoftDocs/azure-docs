@@ -6,8 +6,8 @@ ms.subservice: security
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.date: 05/10/2021 
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 03/29/2022 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -58,6 +58,10 @@ In this tutorial, you learn how to:
 
     > [!IMPORTANT]
     > If an Azure AD Identity is set up for the Azure SQL logical server, the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission must be granted to the identity. We will walk through this step in following section. **Do not** skip this step as Azure AD authentication will stop working.
+    >
+    > With [Microsoft Graph](/graph/overview) support for Azure SQL, the Directory Readers role can be replaced with using lower level permissions. For more information, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md).
+    > 
+    > If a system-assigned or user-assigned managed identity is used as the server or instance identity, deleting the identity will result in the server or instance inability to access Microsoft Graph. Azure AD authentication and other functions will fail. To restore Azure AD functionality, a new SMI or UMI must be assigned to the server with appropriate permissions.
 
     - If you used the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you'll need to execute the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
 
@@ -87,7 +91,7 @@ To grant this required permission, run the following script.
 > [!NOTE] 
 > This script must be executed by an Azure AD `Global Administrator` or a `Privileged Roles Administrator`.
 >
-> In **public preview**, you can assign the `Directory Readers` role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a `Global Administrator` or `Privileged Roles Administrator` to grant the `Directory Readers` role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
+> You can assign the `Directory Readers` role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a `Global Administrator` or `Privileged Roles Administrator` to grant the `Directory Readers` role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Replace `<TenantId>` with your `TenantId` gathered earlier.
 - Replace `<server name>` with your SQL logical server name. If your server name is `myserver.database.windows.net`, replace `<server name>` with `myserver`.
@@ -111,7 +115,7 @@ if ($role -eq $null) {
     $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
 }
  
-# Get service principal for managed instance
+# Get service principal for server
 $roleMember = Get-AzureADServicePrincipal -SearchString $AssignIdentityName
 $roleMember.Count
 if ($roleMember -eq $null) {
@@ -151,11 +155,23 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
 ## Create a service principal (an Azure AD application) in Azure AD
 
-1. Follow the guide here to [register your app](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions).
+Register your application if you have not already done so. To register an app, you need to either be an Azure AD admin or a user assigned the Azure AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-2. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+Completing an app registration generates and displays an **Application ID**.
 
-3. Record the following from your application registration. It should be available from your **Overview** pane:
+To register your application:
+
+1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New registration**.
+
+    ![App registration](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+
+    After the app registration is created, the **Application ID** value is generated and displayed.
+
+    ![App ID displayed](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
+
+1. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+
+1. Record the following from your application registration. It should be available from your **Overview** pane:
     - **Application ID**
     - **Tenant ID** - This should be the same as before
 

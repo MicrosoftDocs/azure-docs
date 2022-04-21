@@ -16,7 +16,7 @@ The Azure Communication Services **Group Calling Hero Sample for iOS** demonstra
 
 ## Download code
 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-ios-calling-hero/).
 
 ## Overview
 
@@ -47,7 +47,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
-- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 - An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
 ## Running sample locally
@@ -96,7 +96,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
 
 ### Additional reading

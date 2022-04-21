@@ -33,7 +33,7 @@ An AKS cluster is deployed into a single region. To protect your system from reg
 * [**AKS region availability**](./quotas-skus-regions.md#region-availability)
     * Choose regions close to your users. 
     * AKS continually expands into new regions.
-* [**Azure paired regions**](../best-practices-availability-paired-regions.md)
+* [**Azure paired regions**](../availability-zones/cross-region-replication-azure.md)
     * For your geographic area, choose two regions paired together.
     * AKS platform updates (planned maintenance) are serialized with a delay of at least 24 hours between paired regions. 
     * Recovery efforts for paired regions are prioritized where needed. 

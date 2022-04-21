@@ -11,6 +11,7 @@ ms.author: joelpell
 ---
 
 # Optimize performance on the Lsv2-series Windows virtual machines
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Lsv2-series virtual machines support a variety of workloads that need high I/O and throughput on local storage across a wide range of applications and industries.  The Lsv2-series is ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases, including Cassandra, MongoDB, Cloudera, and Redis.
 
@@ -69,8 +70,6 @@ Scenarios that securely erase data to protect the customer include:
 - The VM is redeployed, stopped (de-allocated), or deleted (by you).
 - The VM becomes unhealthy and has to service heal to another node due to a hardware issue.
 - A small number of the planned maintenance servicing operations that requires the VM to be reallocated to another host for servicing.
-
-To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## Frequently asked questions
 

@@ -8,9 +8,9 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/18/2021
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
@@ -29,9 +29,9 @@ The account types that your mobile applications support depend on the experience
 
 Most mobile applications use interactive authentication. If your app uses this form of authentication, you can sign in users from any [account type](quickstart-register-app.md).
 
-### Audience for Integrated Windows authentication, username-password, and B2C
+### Audience for integrated Windows authentication, username-password, and B2C
 
-If you have a Universal Windows Platform (UWP) app, you can use Integrated Windows authentication to sign in users. To use Integrated Windows authentication or username-password authentication, your application needs to sign in users in your own line-of-business (LOB) developer tenant. In an independent software vendor (ISV) scenario, your application can sign in users in Azure Active Directory organizations. These authentication flows aren't supported for Microsoft personal accounts.
+If you have a Universal Windows Platform (UWP) app, you can use integrated Windows authentication (IWA) to sign in users. To use IWA or username-password authentication, your application needs to sign in users in your own line-of-business (LOB) developer tenant. In an independent software vendor (ISV) scenario, your application can sign in users in Azure Active Directory organizations. These authentication flows aren't supported for Microsoft personal accounts.
 
 You can also sign in users by using social identities that pass a B2C authority and policy. To use this method, you can use only interactive authentication and username-password authentication. Username-password authentication is currently supported only on Xamarin.iOS, Xamarin.Android, and UWP.
 
@@ -87,7 +87,7 @@ However, identify your application as a public client application. To do so:
 
 ## API permissions
 
-Mobile applications call APIs on behalf of the signed-in user. Your app needs to request delegated permissions. These permissions are also called scopes. Depending on the experience that you want, you can request delegated permissions statically through the Azure portal. Or you can request them dynamically at runtime.
+Mobile applications call APIs for the signed-in user. Your app needs to request delegated permissions. These permissions are also called scopes. Depending on the experience that you want, you can request delegated permissions statically through the Azure portal. Or you can request them dynamically at runtime.
 
 By statically registering permissions, you allow administrators to easily approve your app. Static registration is recommended.
 

@@ -1,17 +1,19 @@
 ---
 title: Troubleshooting Azure Spring Cloud in virtual network
 description: Troubleshooting guide for Azure Spring Cloud virtual network.
-author: brendm
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/19/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
 # Troubleshooting Azure Spring Cloud in virtual networks
 
-This document will help you solve various problems that can arise when using Azure Spring Cloud in virtual networks.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article will help you solve various problems that can arise when using Azure Spring Cloud in virtual networks.
 
 ## I encountered a problem with creating an Azure Spring Cloud service instance
 
@@ -41,4 +43,4 @@ This problem occurs if your virtual network is configured with custom DNS settin
 
 ## Other issues
 
-[Troubleshoot common Azure Spring Cloud issues](./troubleshoot.md).
+[Troubleshoot common Azure Spring Cloud issues](./troubleshoot.md)

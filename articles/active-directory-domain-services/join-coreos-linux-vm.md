@@ -3,7 +3,7 @@ title: Join a CoreOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CoreOS virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -31,6 +31,7 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A user account that's a part of the managed domain.
+* Unique Linux VM names that are a maximum of 15 characters to avoid truncated names that might cause conflicts in Active Directory.
 
 ## Create and connect to a CoreOS Linux VM
 

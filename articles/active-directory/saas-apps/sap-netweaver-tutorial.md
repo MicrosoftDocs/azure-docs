@@ -335,7 +335,7 @@ If you are expecting a role to be assigned to the users, you can select it from 
 	![Configure OAuth](./media/sapnetweaver-tutorial/oauth03.png)
 
 	> [!NOTE]
-	> Message `soft state status is not supported` – can be ignored, as no problem. For more details, refer [here](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true).
+	> Message `soft state status is not supported` – can be ignored, as no problem.
 
 ### Create a service user for the OAuth 2.0 Client
 
@@ -376,4 +376,4 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 ## Next Steps
 
-Once you configure Azure AD SAP NetWeaver you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure Azure AD SAP NetWeaver you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

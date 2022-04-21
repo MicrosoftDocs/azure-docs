@@ -5,7 +5,6 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: zivr 
@@ -14,6 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Deploy VMs to proximity placement groups using Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
 To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](../co-location.md#proximity-placement-groups).
 
@@ -55,7 +55,6 @@ New-AzVm `
   -ResourceGroupName $resourceGroup `
   -Name $vmName `
   -Location $location `
-  -OpenPorts 3389 `
   -ProximityPlacementGroup $ppg.Id
 ```
 

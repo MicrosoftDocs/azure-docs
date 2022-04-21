@@ -99,14 +99,21 @@ Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the n
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
-To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU. These resource requests and limits are defined as shown in the following example snippet:
+To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU.
+
+These resource requests and limits are defined for each container as shown in the following example snippet:
 
 ```yaml
-resources:
-  requests:
-     cpu: 250m
-  limits:
-     cpu: 500m
+  containers:
+  - name: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+    ports:
+    - containerPort: 80
+    resources:
+      requests:
+        cpu: 250m
+      limits:
+        cpu: 500m
 ```
 
 The following example uses the [kubectl autoscale][kubectl-autoscale] command to autoscale the number of pods in the *azure-vote-front* deployment. If average CPU utilization across all pods exceeds 50% of their requested usage, the autoscaler increases the pods up to a maximum of *10* instances. A minimum of *3* instances is then defined for the deployment:
@@ -163,6 +170,9 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 ```
 
 After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to three. You can use `kubectl get pods` again to see the unneeded pods being removed.
+
+> [!NOTE]
+> For additional examples on using the horizontal pod autoscaler, see [HorizontalPodAutoscaler Walkthrough][kubernetes-hpa-walkthrough].
 
 ## Manually scale AKS nodes
 
@@ -250,6 +260,7 @@ Advance to the next tutorial to learn how to update application in Kubernetes.
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+[kubernetes-hpa-walkthrough]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 [metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
 [metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 

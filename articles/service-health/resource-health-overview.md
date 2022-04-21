@@ -71,7 +71,7 @@ You can access up to 30 days of history in the **Health history** section of Res
 
 ## Root cause information
 
-If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. This information is only available for virtual machinse at this time. 
+If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. This information is only available for virtual machines at this time. 
 
 ## Get started
 
@@ -83,7 +83,7 @@ To open Resource Health for one resource:
 
 ![Opening Resource Health from the resource view](./media/resource-health-overview/from-resource-blade.png)
 
-You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
+You can also access Resource Health by selecting **All services** and typing **resource health** in the filter text box. In the **Help + support** pane, select [Resource health](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
 ![Opening Resource Health from "All services"](./media/resource-health-overview/FromOtherServices.png)
 
@@ -91,4 +91,4 @@ You can also access Resource Health by selecting **All services** and typing **r
 
 Check out these references to learn more about Resource Health:
 -  [Resource types and health checks in Azure Resource Health](resource-health-checks-resource-types.md)
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)

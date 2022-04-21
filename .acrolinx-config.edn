@@ -1,2 +1,2 @@
-{:allowed-branchname-matches ["^master$" "^release..*"]
- :allowed-filename-matches ["articles" "includes"]}
+{:allowed-branchname-matches ["main" "release-.*"]
+ :allowed-filename-matches ["(?i)articles/(?:(?!active-directory/saas-apps/toc.yml|role-based-access-control/resource-provider-operations.md))" "includes/"]}

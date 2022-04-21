@@ -7,7 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.custom: references_regions
+ms.date: 03/31/2022
 ms.author: alkohli
 ---
 
@@ -15,20 +16,14 @@ ms.author: alkohli
 
 This article describes self-managed shipping tasks to order, pick up, and drop-off of an Azure Data Box device. You can manage the Data Box device using the Azure portal.
 
+> [!NOTE]
+> To get answers to frequently asked questions about Data Box orders and shipments, see [Data Box FAQ](data-box-faq.yml).
+
 ## Prerequisites
 
-Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-deploy-ordered.md). Self-managed shipping is only available in the following regions:
+Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-deploy-ordered.md). 
 
-* US Government
-* United Kingdom
-* Western Europe
-* Japan
-* Singapore
-* South Korea
-* India
-* South Africa
-* Australia
-* Brazil
+[!INCLUDE [data-box-shipping-regions](../../includes/data-box-shipping-regions.md)]
 
 ## Use self-managed shipping
 

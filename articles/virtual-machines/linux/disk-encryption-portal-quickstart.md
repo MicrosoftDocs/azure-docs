@@ -7,9 +7,12 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: quickstart
 ms.date: 10/02/2019
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create and encrypt a virtual machine with the Azure portal
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. In this quickstart you will use the Azure portal to deploy a Linux virtual machine (VM) running Ubuntu 18.04 LTS, create a key vault for the storage of encryption keys, and encrypt the VM.
 

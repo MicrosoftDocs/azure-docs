@@ -20,7 +20,7 @@ Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use
 Azure Database for MySQL has two deployment options:
 
 - Single Sever
-- Flexible Server (Preview)
+- Flexible Server
 
 Single Server supports  Single availability zone and Flexible Server supports multiple availability zones. AKS on the other hand also supports enabling single or multiple availability zones.  Creating the database server first to see the availability zone the server is in and then create the AKS clusters in the same availability zone. This can improve performance for the application by reducing networking latency.
 
@@ -54,7 +54,7 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## Use Azure premium fileshare
 
- Use [Azure premium fileshare](../storage/files/storage-how-to-create-premium-fileshare.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more , see [how to enable Azure Files](../aks/azure-files-dynamic-pv.md).
+ Use [Azure premium fileshare](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more , see [how to enable Azure Files](../aks/azure-files-dynamic-pv.md).
 
 ## Next steps
 

@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -120,4 +119,4 @@ Related links:
 
 ## Miscellaneous
 
-* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)
+* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml)

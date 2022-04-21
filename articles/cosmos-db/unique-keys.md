@@ -6,7 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/26/2021
 ms.reviewer: sngun
 ---
 
@@ -42,7 +42,7 @@ You can define unique keys only when you create an Azure Cosmos container. A uni
 
 * To set a unique key for an existing container, create a new container with the unique key constraint. Use the appropriate data migration tool to move the data from the existing container to the new container. For SQL containers, use the [Data Migration tool](import-data.md) to move data. For MongoDB containers, use [mongoimport.exe or mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) to move data.
 
-* A unique key policy can have a maximum of 16 path values. For example, the values can be `/firstName`, `/lastName`, and `/address/zipCode`. Each unique key policy can have a maximum of 10 unique key constraints or combinations. The combined paths for each unique index constraint must not exceed 60 bytes. In the previous example, first name, last name, and email address together are one constraint. This constraint uses 3 out of the 16 possible paths.
+* A unique key policy can have a maximum of 16 path values. For example, the values can be `/firstName`, `/lastName`, and `/address/zipCode`. Each unique key policy can have a maximum of 10 unique key constraints or combinations. In the previous example, first name, last name, and email address together are one constraint. This constraint uses 3 out of the 16 possible paths.
 
 * When a container has a unique key policy, [Request Unit (RU)](request-units.md) charges to create, update, and delete an item are slightly higher.
 
@@ -54,3 +54,6 @@ You can define unique keys only when you create an Azure Cosmos container. A uni
 
 * Learn more about [logical partitions](partitioning-overview.md)
 * Explore [how to define unique keys](how-to-define-unique-keys.md) when creating a container
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

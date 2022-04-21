@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 03/10/2022
 ---
 # Azure HDInsight release notes
 
@@ -13,65 +13,76 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
+## Release date: 03/10/2022
 
-## Release date: 06/02/2021
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+The OS versions for this release are: 
+- 	HDInsight 4.0: Ubuntu 18.04.5 
 
-The OS versions for this release are:
-- HDInsight 3.6: Ubuntu 16.04.7 LTS
-- HDInsight 4.0: Ubuntu 18.04.5 LTS
+## Spark 3.1 is now generally available
 
-## New features
-### OS version upgrade
-As referenced in [Ubuntu's release cycle](https://ubuntu.com/about/release-cycle), the Ubuntu 16.04 kernel will reach End of Life (EOL) in April 2021. We started rolling out the new HDInsight 4.0 cluster image running on Ubuntu 18.04 with this release. Newly created HDInsight 4.0 clusters will run on Ubuntu 18.04 by default once available. Existing clusters on Ubuntu 16.04 will run as is with full support.
+Spark 3.1 is now Generally Available on HDInsight 4.0 release.  This release includes 
 
-HDInsight 3.6 will continue to run on Ubuntu 16.04. It will change to Basic support (from Standard support) beginning 1 July 2021. For more information about dates and support options, see [Azure HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions). Ubuntu 18.04 will not be supported for HDInsight 3.6. If you'd like to use Ubuntu 18.04, you'll need to migrate your clusters to HDInsight 4.0. 
+* Adaptive Query Execution, 
+* Convert Sort Merge Join to Broadcast Hash Join, 
+* Spark Catalyst Optimizer,
+* Dynamic Partition Pruning, 
+* Customers will be able to create new Spark 3.1 clusters and not Spark 3.0 (preview) clusters.
 
-You need to drop and recreate your clusters if you'd like to move existing HDInsight 4.0 clusters to Ubuntu 18.04. Plan to create or recreate your clusters after Ubuntu 18.04 support becomes available.
+For more details, see the [Apache Spark 3.1](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/spark-3-1-is-now-generally-available-on-hdinsight/ba-p/3253679) is now Generally Available on HDInsight - Microsoft Tech Community.
 
-After creating the new cluster, you can SSH to your cluster and run `sudo lsb_release -a` to verify that it runs on Ubuntu 18.04. We recommend that you test your applications in your test subscriptions first before moving to production. [Learn more about the HDInsight Ubuntu 18.04 update](./hdinsight-ubuntu-1804-qa.md).
+For a complete list of improvements, see the [Apache Spark 3.1 release notes.](https://spark.apache.org/releases/spark-release-3-1-2.html)
 
-### Scaling optimizations on HBase accelerated writes clusters
-HDInsight made some improvements and optimizations on scaling for HBase accelerated write enabled clusters. [Learn more about HBase accelerated write](./hbase/apache-hbase-accelerated-writes.md).
+For more details on migration, see the [migration guide.](https://spark.apache.org/docs/latest/migration-guide.html)
 
-## Deprecation
-No deprecation in this release.
+## Kafka 2.4 is now generally available
 
-## Behavior changes
-### Disable Stardard_A5 VM size as Head Node for HDInsight 4.0
-HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from this release, customers will not be able to create new clusters with Standard_A5 VM size as Head Node. You can use other two-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A four-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
+Kafka 2.4.1 is now Generally Available.  For more information, please see [Kafka 2.4.1 Release Notes.](http://kafka.apache.org/24/documentation.html) 
+Other features include MirrorMaker 2 availability, new metric category AtMinIsr topic partition, Improved broker start-up time by lazy on demand mmap of index files, More consumer metrics to observe user poll behavior.
 
-### Network interface resource not visible for clusters running on Azure virtual machine scale sets
-HDInsight is gradually migrating to Azure virtual machine scale sets. Network interfaces for virtual machines are no longer visible to customers for clusters that use Azure virtual machine scale sets.
+## Map Datatype in HWC is now supported in HDInsight 4.0 
 
-## Upcoming changes
-The following changes will happen in upcoming releases.
+This release includes Map Datatype Support for HWC 1.0 (Spark 2.4) Via the spark-shell  application, and all other all spark clients that HWC supports. Following improvements are included like any other data types:
 
-### HDInsight Interactive Query only supports schedule-based Autoscale
+A user can 
+*	Create a Hive table with any column(s) containing Map datatype, insert data into it and read the results from it.
+*	Create an Apache Spark dataframe with Map Type and do batch/stream reads and writes.
 
-As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The affect on performance can outweigh the cost benefits of Autoscale.
+### New regions
 
-Starting from July  2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable Autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
+HDInsight has now expanded its geographical presence to two new regions: China East 3 and China North 3.
 
-Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
+### OSS backport changes
 
-### Basic support for HDInsight 3.6 starting July 1, 2021
-Starting July 1, 2021, Microsoft will offer [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You'll automatically be enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
+OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supports Map data type.
 
-We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
+### Here are the OSS backported Apache JIRAs for this release:
 
-### VM host naming will be changed on July 1, 2021
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). This migration will change the cluster host name FQDN name format, and the numbers in the host name will not be guarantee in sequence. If you want to get the FQDN names for each node, refer to [Find the Host names of Cluster Nodes](./find-host-name.md).
+| Impacted Feature    |   Apache JIRA                                                      |
+|---------------------|--------------------------------------------------------------------|
+| Metastore direct sql queries with IN/(NOT IN) should be split based on max parameters allowed by SQL DB   | [HIVE-25659](https://issues.apache.org/jira/browse/HIVE-25659)     |
+| Upgrade log4j 2.16.0 to 2.17.0                    | [HIVE-25825](https://issues.apache.org/jira/browse/HIVE-25825)     |
+| Update Flatbuffer version                    | [HIVE-22827](https://issues.apache.org/jira/browse/HIVE-22827)     |
+| Support Map data-type natively in Arrow format                    | [HIVE-25553](https://issues.apache.org/jira/browse/HIVE-25553)     |
+| LLAP external client - Handle nested values when the parent struct is null                    | [HIVE-25243](https://issues.apache.org/jira/browse/HIVE-25243)     |
+| Upgrade arrow version to 0.11.0                    | [HIVE-23987](https://issues.apache.org/jira/browse/HIVE-23987)     |
 
-### Move to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+## Deprecation notices
+### Azure Virtual Machine Scale Sets on HDInsight  
 
-## Bug fixes
-HDInsight continues to make cluster reliability and performance improvements. 
+HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
 
-## Component version change
-You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
+### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
+
+Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters.  New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
+
+## HDInsight 3.6 end of support extension 
+
+HDInsight 3.6 end of support is extended until September 30, 2022.
+
+Starting from September 30, 2022, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+
+Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](./hdinsight-component-versioning.md#support-options-for-hdinsight-versions) until September 30, 2022. After September 30, 2022 customers won't be able to create new HDInsight 3.6 clusters.

@@ -1,11 +1,8 @@
 ---
 title: Manage a Confluent Cloud - Azure partner solutions
 description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
-ms.service: partner-services
 ms.topic: conceptual
 ms.date: 06/07/2021
-author: tfitzmac
-ms.author: tomfitz
 ---
 
 # Manage the Confluent Cloud resource
@@ -59,7 +56,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az_confluent_organization_delete) command to delete the organization resource by name:
+After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az-confluent-organization-delete) command to delete the organization resource by name:
 
 ```azurecli
 az confluent organization delete --name "myOrganization" --resource-group "myResourceGroup"

@@ -3,7 +3,7 @@ title: Configure availability group (Azure quickstart template)
 description: "Use Azure quickstart templates to create the Windows Failover Cluster, join SQL Server VMs to the cluster, create the listener, and configure the internal load balancer in Azure."
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -12,26 +12,29 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 
 ---
 # Use Azure quickstart templates to configure an availability group for SQL Server on Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines (VMs) in Azure. Two Azure quickstart templates are used in this process: 
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines (VMs) within a single subnet in Azure. Two Azure quickstart templates are used in this process: 
 
    | Template | Description |
    | --- | --- |
    | [sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-ag-setup) | Creates the Windows failover cluster and joins the SQL Server VMs to it. |
    | [sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-aglistener-setup) | Creates the availability group listener and configures the internal load balancer. This template can be used only if the Windows failover cluster was created with the **101-sql-vm-ag-setup** template. |
-   | &nbsp; | &nbsp; |
+
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group and creating the internal load balancer. This article provides the sequence of automated and manual steps.
 
-While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial-single-subnet.md) as well. 
 
 > [!NOTE]
 > It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
@@ -42,7 +45,8 @@ To automate the setup of an Always On availability group by using quickstart tem
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) that are in the same availability set or availability zone and that have been [registered with the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).  
-- Two available (not used by any entity) IP addresses: one for the internal load balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, you need only one available IP address.  
+- An internal Azure Load Balancer and an available (not used by any entity) IP address for the availability group listener within the same subnet as the SQL Server VM. 
+
 
 ## Permissions
 The following permissions are necessary to configure the Always On availability group by using Azure quickstart templates: 
@@ -76,7 +80,7 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
    | **Cloud Witness Name** | A new Azure storage account that will be created and used for the cloud witness. You can modify this name. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
    | **\_artifacts Location SaS Token** | This field is intentionally left blank. |
-   | &nbsp; | &nbsp; |
+
 
 1. If you agree to the terms and conditions, select the **I Agree to the terms and conditions stated above** check box. Then select **Purchase** to finish deployment of the quickstart template. 
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in the top navigation banner or go to **Resource Group** in the Azure portal. Select **Deployments** under **Settings**, and choose the **Microsoft.Template** deployment. 
@@ -135,7 +139,7 @@ You just need to create the internal load balancer. In step 4, the **101-sql-vm-
    | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It's normally the same subscription as all the resources for the availability group. |
    | **Resource group** |Select the resource group that the SQL Server instances are in. |
    | **Location** |Select the Azure location that the SQL Server instances are in. |
-   | &nbsp; | &nbsp; |
+
 
 6. Select **Create**. 
 
@@ -174,7 +178,7 @@ To configure the internal load balancer and create the availability group listen
    | **Existing Subnet** | The name of the internal subnet of your SQL Server VMs (for example: *default*). You can determine this value by going to **Resource Group**, selecting your virtual network, selecting **Subnets** in the **Settings** pane, and copying the value under **Name**. |
    | **Existing Internal Load Balancer** | The name of the internal load balancer that you created in step 3. |
    | **Probe Port** | The probe port that you want the internal load balancer to use. The template uses 59999 by default, but you can change this value. |
-   | &nbsp; | &nbsp; |
+
 
 1. If you agree to the terms and conditions, select the **I Agree to the terms and conditions stated above** check box. Select **Purchase** to finish deployment of the quickstart template. 
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in the top navigation banner or go to **Resource Group** in the Azure portal. Select **Deployments** under **Settings**, and choose the **Microsoft.Template** deployment. 
@@ -232,5 +236,5 @@ To learn more, see:
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server VMs](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server VMs](pricing-guidance.md)
-* [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
+* [What's new in SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)
 * [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)

@@ -4,14 +4,13 @@ description: Learn how to upgrade from DirSync to Azure AD Connect. This article
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
@@ -156,7 +155,7 @@ When you install Azure AD Connect on a new server, the assumption is that you wa
 5. Select the settings file that exported from your DirSync installation.
 6. Configure any advanced options including:
    * A custom installation location for Azure AD Connect.
-   * An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2012 Express). Do not use the same database instance as your DirSync server.
+   * An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2019 Express). Do not use the same database instance as your DirSync server.
    * A service account used to connect to SQL Server (If your SQL Server database is remote then this account must be a domain service account).
      These options can be seen on this screen:  
      ![Screenshot that shows the advance configuration options for upgrading from DirSync.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)

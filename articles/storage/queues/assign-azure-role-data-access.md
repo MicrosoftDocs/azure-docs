@@ -11,7 +11,8 @@ ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Assign an Azure role for access to queue data
@@ -22,9 +23,12 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 
 To learn more about using Azure AD to authorize access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
 
+> [!NOTE]
+> This article shows how to assign an Azure role for access to queue data in a storage account. To learn about assigning roles for management operations in Azure Storage, see [Use the Azure Storage resource provider to access management resources](../common/authorization-resource-provider.md).
+
 ## Assign an Azure role
 
-You can use the Azure portal, PowerShell, or Azure CLI to assign a role for data access.
+You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to assign a role for data access.
 
 # [Azure portal](#tab/portal)
 
@@ -45,8 +49,6 @@ You can also assign an Azure Resource Manager role that provides additional perm
 
 > [!NOTE]
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md).
->
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify queue data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 # [PowerShell](#tab/powershell)
 
@@ -70,7 +72,7 @@ For information about assigning roles with PowerShell at the subscription, resou
 
 # [Azure CLI](#tab/azure-cli)
 
-To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command. The format of the command can differ based on the scope of the assignment. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
+To assign an Azure role to a security principal, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. The format of the command can differ based on the scope of the assignment. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
 
 To assign a role scoped to a queue, specify a string containing the scope of the queue for the `--scope` parameter. The scope for a queue is in the form:
 
@@ -88,6 +90,10 @@ az role assignment create \
 ```
 
 For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
+# [Template](#tab/template)
+
+To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 ---
 

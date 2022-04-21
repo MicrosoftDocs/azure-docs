@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 10/7/2020 
+ms.date: 4/4/2022
 ms.custom: devx-track-azurepowershell
 ---
 # Create a metric alert with a Resource Manager template
@@ -32,7 +32,7 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -89,7 +89,6 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -206,7 +205,7 @@ Save the json below as simplestaticmetricalert.parameters.json and modify it as 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -281,7 +280,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -479,7 +478,7 @@ Save the json below as simpledynamicmetricalert.parameters.json and modify it as
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -569,7 +568,7 @@ Save the json below as advancedstaticmetricalert.json for the purpose of this wa
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -704,7 +703,7 @@ Save and modify the json below as advancedstaticmetricalert.parameters.json for 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -813,7 +812,7 @@ Save the json below as multidimensionalstaticmetricalert.json for the purpose of
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -940,7 +939,7 @@ Save and modify the json below as multidimensionalstaticmetricalert.parameters.j
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1012,6 +1011,10 @@ az deployment group create \
     --parameters @multidimensionalstaticmetricalert.parameters.json
 ```
 
+> [!NOTE]
+>
+> Using "All" as a dimension value is equivalent to selecting "\*" (all current and future values).
+
 
 ## Template for a Dynamic Thresholds metric alert that monitors multiple dimensions
 
@@ -1033,7 +1036,7 @@ Save the json below as advanceddynamicmetricalert.json for the purpose of this w
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1155,7 +1158,7 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1249,7 +1252,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1313,7 +1316,6 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1429,7 +1431,7 @@ Save and modify the json below as customstaticmetricalert.parameters.json for th
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1526,7 +1528,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1644,7 +1646,6 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1759,7 +1760,7 @@ Save and modify the json below as all-vms-in-resource-group-static.parameters.js
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1838,7 +1839,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2088,7 +2089,7 @@ Save and modify the json below as all-vms-in-resource-group-dynamic.parameters.j
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2173,7 +2174,7 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2291,7 +2292,6 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -2407,7 +2407,7 @@ Save and modify the json below as all-vms-in-subscription-static.parameters.json
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2483,7 +2483,7 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2733,7 +2733,7 @@ Save and modify the json below as all-vms-in-subscription-dynamic.parameters.jso
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2815,7 +2815,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2933,7 +2933,6 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -3049,7 +3048,7 @@ Save and modify the json below as list-of-vms-static.parameters.json for the pur
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -3128,7 +3127,7 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -3378,7 +3377,7 @@ Save and modify the json below as list-of-vms-dynamic.parameters.json for the pu
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -3464,7 +3463,7 @@ Save the json below as availabilityalert.json for the purpose of this walkthroug
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appName": {
@@ -3572,7 +3571,7 @@ Save the json below as availabilityalert.parameters.json and modify it as requir
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {

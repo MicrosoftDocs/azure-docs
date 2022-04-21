@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/26/2021
+ms.date: 07/29/2021
 ms.author: jeedes
 ---
 
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://login.hrworks.de/?companyId=<COMPANY_ID>&directssologin=true`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [HRworks Single Sign-On Client support team](mailto:nadja.sommerfeld@hrworks.de) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [HRworks Single Sign-On Client support team](https://www.hrworks.de/dienstleistungen/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -165,8 +165,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to HRworks Single Sign-On Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the HRworks Single Sign-On tile in the My Apps, this will redirect to HRworks Single Sign-On Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the HRworks Single Sign-On tile in the My Apps, this will redirect to HRworks Single Sign-On Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure HRworks Single Sign-On you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure HRworks Single Sign-On you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

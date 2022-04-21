@@ -2,15 +2,11 @@
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 07/24/2020
+ms.date: 03/31/2022
 
 ---
 
 # Connect Operations Manager to Azure Monitor
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 To maintain your existing investment in [System Center Operations Manager](/system-center/scom/key-concepts) and use extended capabilities with Azure Monitor, you can integrate Operations Manager with your Log Analytics workspace. This allows you to leverage the opportunities of logs in Azure Monitor while continuing to use Operations Manager to:
 
@@ -104,7 +100,7 @@ During initial registration of your Operations Manager management group with a L
 
 1. Open an elevated command-prompt.
    a. Go to **Start** and type **cmd**.
-   b. Right-click **Command prompt** and select Run as administrator**.
+   b. Right-click **Command prompt** and select **Run as administrator**.
 1. Enter the following command and press **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`

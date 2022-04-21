@@ -1,12 +1,12 @@
 ---
 title: Develop for Azure Files with .NET | Microsoft Docs
 description: Learn how to develop .NET applications and services that use Azure Files to store data.
-author: roygara
+author: khdownie
 ms.service: storage
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ms.custom: devx-track-csharp
 ---
@@ -237,16 +237,16 @@ if (share.Exists())
     // Check current usage stats for the share.
     // Note that the ShareStats object is part of the protocol layer for the File service.
     Microsoft.Azure.Storage.File.Protocol.ShareStats stats = share.GetStats();
-    Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
+    Console.WriteLine("Current share usage: {0} GiB", stats.Usage.ToString());
 
-    // Specify the maximum size of the share, in GB.
-    // This line sets the quota to be 10 GB greater than the current usage of the share.
+    // Specify the maximum size of the share, in GiB.
+    // This line sets the quota to be 10 GiB greater than the current usage of the share.
     share.Properties.Quota = 10 + stats.Usage;
     share.SetProperties();
 
     // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
     share.FetchAttributes();
-    Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    Console.WriteLine("Current share quota: {0} GiB", share.Properties.Quota);
 }
 ```
 

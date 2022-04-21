@@ -159,11 +159,6 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
-> [!IMPORTANT]
-> IPv6 support for private peering is currently in **Public Preview**. 
-> 
-> 
-
 ### To create Azure private peering
 
 1. Import the PowerShell module for ExpressRoute.

@@ -4,7 +4,7 @@ description: Learn about test drives. Test drives allow new customers to test dr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/03/2021
 author: trkeya
 ms.author: trkeya
 ---
@@ -15,13 +15,16 @@ The test drive option in the Microsoft commercial marketplace lets you configure
 
 If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and clear the **Enable test drive** check box. Not all offer types have a test drive available.
 
+> [!TIP]
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
+
 ## Azure Resource Manager test drive
 
 This is the only test drive option for virtual machine or Azure app offers and requires fairly detailed setup. Read the sections below for [Deployment subscription details](#deployment-subscription-details) and [Test drive listings](#test-drive-listings), then continue with the separate topic for [Azure Resource Manager test drive configuration](azure-resource-manager-test-drive.md).
 
 ## Hosted test drive
 
-Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deprovisioning. The configuration for this type of test drive is the same regardless of whether the test drive is targeting a Dynamics 365 Customer Engagement or Dynamics 365 Operations audience.
+Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deprovisioning. The configuration for this type of test drive is the same regardless of whether the test drive is targeting a Dynamics 365 apps on Dataverse and Power Apps or Dynamics 365 Operations Apps audience.
 
 - **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so ensure you have enough licenses available to support the maximum limit set. The recommended value is 3-5.
 

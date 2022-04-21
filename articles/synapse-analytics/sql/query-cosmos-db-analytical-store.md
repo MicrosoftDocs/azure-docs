@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 03/02/2021
 ms.author: jovanpop
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: cosmos-db
 ---
 
@@ -102,7 +102,7 @@ Database account master key is placed in server-level credential or database sco
 
 ## Sample dataset
 
-The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
+The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](../../open-datasets/dataset-ecdc-covid-cases.md) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
 You can see the license and the structure of data on these pages. You can also download sample data for the [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [CORD-19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) datasets.
 
@@ -172,7 +172,7 @@ While automatic schema inference capability in `OPENROWSET` provides a simple, e
 
 The `OPENROWSET` function enables you to explicitly specify what properties you want to read from the data in the container and to specify their data types.
 
-Let's imagine that we've imported some data from the [ECDC COVID dataset](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) with the following structure into Azure Cosmos DB:
+Let's imagine that we've imported some data from the [ECDC COVID dataset](../../open-datasets/dataset-ecdc-covid-cases.md) with the following structure into Azure Cosmos DB:
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
@@ -243,7 +243,7 @@ FROM OPENROWSET(
 
 Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when yu filter data using some string columns.
 
-## Query nested objects and arrays
+## Query nested objects
 
 With Azure Cosmos DB, you can represent more complex data models by composing them as nested objects or arrays. The autosync capability of Azure Synapse Link for Azure Cosmos DB manages the schema representation in the analytical store out of the box, which includes handling nested data types that allow for rich querying from the serverless SQL pool.
 

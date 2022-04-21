@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna

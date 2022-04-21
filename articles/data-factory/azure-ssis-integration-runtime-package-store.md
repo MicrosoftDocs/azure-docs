@@ -2,11 +2,12 @@
 title: Manage packages with Azure-SSIS Integration Runtime package store
 description: Learn how to manage packages with Azure-SSIS Integration Runtime package store. 
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
+ms.date: 10/22/2021
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store
@@ -24,23 +25,23 @@ When you use Package Deployment Model, you can choose whether you want to provis
 
 Once your Azure-SSIS IR is provisioned, you can connect to it to browse its package stores on SSMS.
 
-![Connect to Azure-SSIS IR](media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect.png" alt-text="Connect to Azure-SSIS IR":::
 
 On the **Object Explorer** window of SSMS, select **Azure-SSIS Integration Runtime** in the **Connect** drop-down menu. Next, sign in to Azure and select the relevant subscription, ADF, and Azure-SSIS IR that you've provisioned with package stores. Your Azure-SSIS IR will appear with **Running Packages** and **Stored Packages** nodes underneath. Expand the **Stored Packages** node to see your package stores underneath. Expand your package stores to see folders and packages underneath. You may be asked to enter the access credentials for your package stores, if SSMS fails to connect to them automatically. For example, if you expand a package store on top of MSDB, you may be asked to connect to your Azure SQL Managed Instance first.
 
-![Connect to Azure SQL Managed Instance](media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect2.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect2.png" alt-text="Connect to Azure SQL Managed Instance":::
 
 ## Manage folders and packages
 
 After you connect to your Azure-SSIS IR on SSMS, you can right-click on any package stores, folders, or packages to pop up a menu and select **New Folder**, **Import Package**, **Export Package**, **Delete**, or **Refresh**.
 
-   ![Manage folders and packages](media/azure-ssis-integration-runtime-package-store/ssms-package-store-manage.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-manage.png" alt-text="Manage folders and packages":::
 
    *  Select **New Folder** to create a new folder for imported packages.
 
    *  Select **Import Package** to import packages from **File System**, **SQL Server** (MSDB), or the legacy **SSIS Package Store** into your package store.
 
-      ![Import Package](media/azure-ssis-integration-runtime-package-store/ssms-package-store-import.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-import.png" alt-text="Import Package":::
 
       Depending on the **Package location** to import from, select the relevant **Server**/**Authentication type**, enter the access credentials if necessary, select the **Package path**, and enter the new **Package name**. When importing packages, their protection level can't be changed. To change it, use SQL Server Data Tools (SSDT) or `dtutil` command-line utility.
 
@@ -55,7 +56,7 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on any pack
 
    *  Select **Export Package** to export packages from your package store into **File System**, **SQL Server** (MSDB), or the legacy **SSIS Package Store**.
 
-      ![Export Package](media/azure-ssis-integration-runtime-package-store/ssms-package-store-export.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-export.png" alt-text="Export Package":::
 
       Depending on the **Package location** to export into, select the relevant **Server**/**Authentication type**, enter the access credentials if necessary, and select the **Package path**. When exporting packages, if they're encrypted, enter the passwords to decrypt them first and then you can change their protection level, for example to avoid storing any sensitive data or to encrypt it or all data with user key or password.
 
@@ -74,23 +75,23 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on any pack
 
 After you connect to your Azure-SSIS IR on SSMS, you can right-click on any stored packages to pop up a menu and select **Run Package**.  This will open the **Execute Package Utility** dialog, where you can configure your package executions on Azure-SSIS IR as Execute SSIS Package activities in ADF pipelines.
 
-![Execute Package Utility pages 1 & 2](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute.png" alt-text="Execute Package Utility pages 1 & 2":::
 
-![Execute Package Utility pages 3 & 4](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png" alt-text="Execute Package Utility pages 3 & 4":::
 
 The **General**, **Configurations**, **Execution Options**, and **Logging** pages of **Execute Package Utility** dialog correspond to the  **Settings** tab of Execute SSIS Package activity. On these pages, you can enter the encryption password for your package and access information for your package configuration file. You can also enter your package execution credentials and properties, as well as the access information for your log folder.  The **Set Values** page of **Execute Package Utility** dialog corresponds to the **Property Overrides** tab of Execute SSIS Package activity, where you can enter your existing package properties to override. For more information, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md).
 
 When you select the **Execute** button, a new ADF pipeline with Execute SSIS Package activity will be automatically generated and triggered. If an ADF pipeline with the same settings already exists, it will be rerun and a new pipeline won't be generated. The ADF pipeline and Execute SSIS Package activity will be named `Pipeline_SSMS_YourPackageName_HashString` and `Activity_SSMS_YourPackageName`, respectively.
 
-![Execute Package Utility button](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute3.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute3.png" alt-text="Execute Package Utility button":::
 
-![Execute SSIS Package activity](media/azure-ssis-integration-runtime-package-store/ssis-activity-package-store.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssis-activity-package-store.png" alt-text="Execute SSIS Package activity":::
 
 ## Monitor and stop running packages
 
 After you connect to your Azure-SSIS IR on SSMS, you can expand the **Running Packages** node to see your currently running packages underneath.  Right-click on any of them to pop up a menu and select **Stop** or **Refresh**.
 
-   ![Monitor and stop running packages](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor.png" alt-text="Monitor and stop running packages":::
 
    *  Select **Stop** to cancel the currently running ADF pipeline that runs the package as Execute SSIS Package activity.
 
@@ -100,11 +101,11 @@ After you connect to your Azure-SSIS IR on SSMS, you can expand the **Running Pa
 
 After you connect to your Azure-SSIS IR on SSMS, you can right-click on it to pop up a menu and select **Go to Azure Data Factory portal** or **Refresh**.
 
-   ![Go to ADF portal](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor2.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor2.png" alt-text="Go to ADF portal":::
 
    *  Select **Go to Azure Data Factory portal** to open the **Integration runtimes** page of ADF monitoring hub, where you can monitor your Azure-SSIS IR. On the **PACKAGE STORES** tile, you can see the number of package stores that are attached to your Azure-SSIS IR.  Selecting that number will pop up a window where you can edit ADF linked services that store the access information for your package stores.
 
-      ![Edit package stores](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor3.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor3.png" alt-text="Edit package stores":::
 
    *  Select **Refresh** to show newly added folders/packages in your package stores and running packages from your package stores.
 
@@ -159,7 +160,7 @@ To use the private/public endpoint of your Azure SQL Managed Instance, replace `
 
 The script will generate dtutil command lines for all packages in MSDB that you can multiselect, copy & paste, and run at a command prompt.
 
-![Generate dtutil command lines](media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png" alt-text="Generate dtutil command lines":::
 
 ```dos
 dtutil /SQL YourFolder\YourPackage1 /ENCRYPT SQL;YourFolder\YourPackage1;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword

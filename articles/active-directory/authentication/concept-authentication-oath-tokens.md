@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 03/16/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 
@@ -30,7 +30,7 @@ Some OATH TOTP hardware tokens are programmable, meaning they don't come with a 
 
 ## OATH hardware tokens (Preview)
 
-Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice.
+Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice. 
 
 OATH TOTP hardware tokens typically come with a secret key, or seed, pre-programmed in the token. These keys must be input into Azure AD as described in the following steps. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *2-7*, and must be encoded in *Base32*.
 
@@ -48,7 +48,7 @@ Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
-> Make sure you include the header row in your CSV file. If a UPN has a single quote, escape it with another single quote. For example, if the UPN is my’user@domain.com, change it to my’’user@domain.com when uploading the file.
+> Make sure you include the header row in your CSV file. 
 
 Once properly formatted as a CSV file, a Global Administrator can then sign in to the Azure portal, navigate to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the resulting CSV file.
 
@@ -58,6 +58,10 @@ Once any errors have been addressed, the administrator then can activate each ke
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant.
 
+>[!IMPORTANT]
+>The preview is not supported in Azure Government or sovereign clouds.
+
 ## Next steps
 
 Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
+Learn about [FIDO2 security key providers](concept-authentication-passwordless.md#fido2-security-key-providers) that are compatible with passwordless authentication.

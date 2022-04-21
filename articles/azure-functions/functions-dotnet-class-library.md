@@ -3,8 +3,9 @@ title: Develop C# class library functions using Azure Functions
 description: Understand how to use C# to develop and publish code as class libraries that runs in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 07/24/2020
+ms.date: 02/08/2022
 
 ---
 # Develop C# class library functions using Azure Functions
@@ -44,7 +45,7 @@ When running on Linux in a Premium or dedicated (App Service) plan, you pin your
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
 
 * [host.json](functions-host-json.md) - stores configuration settings that affect all functions in the project when running locally or in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-develop-local.md#local-settings-file) - stores app settings and connection strings that are used when running locally. This file contains secrets and isn't published to your function app in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
 
 When you build the project, a folder structure that looks like the following example is generated in the build output directory:
 
@@ -294,25 +295,42 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-The following example shows how to check for impending function termination.
+Consider the case when you have a function that processes messages in batches. The following Azure Service Bus-triggered function processes an array of [Message](/dotnet/api/microsoft.azure.servicebus.message) objects, which represents a batch of incoming messages to be processed by a specific function invocation:
 
 ```csharp
-public static class CancellationTokenExample
+using Microsoft.Azure.ServiceBus;
+using System.Threading;
+
+namespace ServiceBusCancellationToken
 {
-    public static void Run(
-        [QueueTrigger("inputqueue")] string inputText,
-        TextWriter logger,
-        CancellationToken token)
+    public static class servicebus
     {
-        for (int i = 0; i < 100; i++)
+        [FunctionName("servicebus")]
+        public static void Run([ServiceBusTrigger("csharpguitar", Connection = "SB_CONN")]
+               Message[] messages, CancellationToken cancellationToken, ILogger log)
         {
-            if (token.IsCancellationRequested)
-            {
-                logger.WriteLine("Function was cancelled at iteration {0}", i);
-                break;
+            try
+            { 
+                foreach (var message in messages)
+                {
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        log.LogInformation("A cancellation token was received. Taking precautionary actions.");
+                        //Take precautions like noting how far along you are with processing the batch
+                        log.LogInformation("Precautionary activities --complete--.");
+                        break;
+                    }
+                    else
+                    {
+                        //business logic as usual
+                        log.LogInformation($"Message: {message} was processed.");
+                    }
+                }
             }
-            Thread.Sleep(5000);
-            logger.WriteLine("Normal processing for queue message={0}", inputText);
+            catch (Exception ex)
+            {
+                log.LogInformation($"Something unexpected happened: {ex.Message}");
+            }
         }
     }
 }
@@ -461,7 +479,7 @@ namespace functionapp0915
 
 In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
 
-When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-run-local.md#local-settings-file) file.
+When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 
 # [v1.x](#tab/v1)
@@ -550,6 +568,13 @@ Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll s
 
 Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
+## Testing functions
+
+The following articles show how to run an in-process C# class library function locally for testing purposes:
+
++ [Visual Studio](functions-develop-vs.md#testing-functions)
++ [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp#debugging-functions-locally)
++ [Command line](functions-run-local.md?tabs=v4%2Ccsharp%2Cazurecli%2Cbash#start)
 
 ## Environment variables
 

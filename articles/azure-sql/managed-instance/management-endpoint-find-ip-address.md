@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/04/2018
 ---
 # Determine the management endpoint IP address - Azure SQL Managed Instance 

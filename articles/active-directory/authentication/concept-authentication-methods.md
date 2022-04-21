@@ -10,7 +10,7 @@ ms.date: 07/01/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
@@ -65,8 +65,8 @@ The following table outlines when an authentication method can be used during a 
 | Windows Hello for Business     | Yes                    | MFA                       |
 | Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
 | FIDO2 security key             | Yes                    | MFA                       |
-| OATH hardware tokens (preview) | No                     | MFA                       |
-| OATH software tokens           | No                     | MFA                       |
+| OATH hardware tokens (preview) | No                     | MFA and SSPR              |
+| OATH software tokens           | No                     | MFA and SSPR              |
 | SMS                            | Yes                    | MFA and SSPR              |
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
