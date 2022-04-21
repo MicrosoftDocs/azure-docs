@@ -120,7 +120,7 @@
           href: deploy-blazor.md
         - name: Statically generated Next.js
           href: deploy-nextjs-ssg.md
-        - name: Zero-config Next.js (preview)
+        - name: Hybrid Next.js application (preview)
           href: deploy-nextjs-zero-config.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md

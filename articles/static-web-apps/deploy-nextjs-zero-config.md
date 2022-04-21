@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Deploy zero-config Next.js websites on Azure Static Web Apps"
+title: "Tutorial: Deploy hybrid Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js dynamic sites with Azure Static Web Apps."
 services: static-web-apps
 author: aaronpowell
