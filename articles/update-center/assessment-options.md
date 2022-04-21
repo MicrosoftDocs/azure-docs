@@ -26,8 +26,7 @@ Update management center (preview) provides you the flexibility to assess the st
 
 Update management center (preview) allows you to check for latest updates on your machines at any time, on-demand. You can view the latest update status and act accordingly. Go to **Updates** blade on any VM and select **Check for updates** or select multiple machines from update management center (preview) and check for updates for all machines at once. For more information, see [check and install on-demand updates](view-updates.md).
 
-## Update assessment scan for single VM
-
+## Update assessment scan
  You can initiate a software updates compliance scan on a machine to get a current list of operating system updates available. 
 
  - **On Windows** - the software update scan is actually performed by the Windows Update Agent. 
