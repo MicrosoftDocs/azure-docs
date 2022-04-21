@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2021
+ms.date: 03/03/2022
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
@@ -21,11 +21,12 @@ ms.custom: aaddev, has-adal-ref
 
 If any of your applications use the Azure Active Directory Authentication Library (ADAL)  for authentication and authorization functionality, it's time to migrate them to the [Microsoft Authentication Library (MSAL)](msal-overview.md#languages-and-frameworks).
 
-- All Microsoft support and development for ADAL, including security fixes, ends on June 30, 2022.
+- All Microsoft support and development for ADAL, including security fixes, ends in December, 2022.
+- There are no ADAL feature releases or new platform version releases planned prior to December, 2022.
 - No new features have been added to ADAL since June 30, 2020.
 
 > [!WARNING]
-> If you choose not to migrate to MSAL before ADAL support ends on June 30, 2022, you put your app's security at risk. Existing apps that use ADAL will continue to work after the end-of-support date, but Microsoft will no longer release security fixes on ADAL.
+> If you choose not to migrate to MSAL before ADAL support ends in December, 2022, you put your app's security at risk. Existing apps that use ADAL will continue to work after the end-of-support date, but Microsoft will no longer release security fixes on ADAL.
 
 ## Why switch to MSAL?
 
@@ -34,7 +35,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |Features|MSAL|ADAL|
 |---------|---------|---------|
 |**Security**|||
-|Security fixes beyond June 30, 2022|![Security fixes beyond June 30, 2022 - MSAL provides the feature][y]|![Security fixes beyond June 30, 2022 - ADAL doesn't provide the feature][n]|
+|Security fixes beyond December, 2022|![Security fixes beyond December, 2022 - MSAL provides the feature][y]|![Security fixes beyond December, 2022 - ADAL doesn't provide the feature][n]|
 | Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - MSAL provides the feature][y]|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - ADAL doesn't provide the feature][n]|
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - MSAL provides the feature][y]|![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - ADAL doesn't provide the feature][n]|
 |**User accounts and experiences**|||

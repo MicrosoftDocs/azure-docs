@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/16/2022
+ms.date: 03/04/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
@@ -17,11 +17,11 @@ ms.reviewer: ylunagaria
 Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management.  
 
 > [!IMPORTANT]
-> SFTP support currently is in PREVIEW and is available in only [these regions](secure-file-transfer-protocol-support.md#regional-availability).
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
 >
+> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
+> 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
 Azure allows secure data transfer to Blob Storage accounts using Azure Blob service REST API, Azure SDKs, and tools such as AzCopy. However, legacy workloads often use traditional file transfer protocols such as SFTP. You could update custom applications to use the REST API and Azure SDKs, but only by making significant code changes.
 
@@ -73,13 +73,16 @@ If you choose to authenticate with private-public key pair, you can either gener
 
 In the current release, you can specify only container-level permissions. Directory-level permissions are not supported. You can choose which containers you want to grant access to and what level of access you want to provide (Read, Write, List, Delete, and Create). Those permissions apply to all directories and subdirectories in the container. You can grant each local user access to as many as 100 containers. Container permissions can also be updated after creating a local user. The following table describes each permission in more detail.
 
-| Permission | Permission code | Description |
+| Permission | Symbol | Description |
 |---|---|---|
 | Read | r | <li>Read file contents</li> |
 | Write | w | <li>Upload file</li><li>Create directory</li><li>Upload directories</li> |
 | List | l | <li>List contents within container</li><li>List contents within directories</li> |
 | Delete | d | <li>Delete files/directories</li> |
-| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if it doesn't exist</li><li>Create directories</li>|
+| Create | c | <li>Upload file if file doesn't exist</li><li>Create directory if it doesn't exist</li> |
+
+> [!IMPORTANT]
+> When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
 
 ## Home directory
 
@@ -109,31 +112,42 @@ You can use many different SFTP clients to securely connect and then transfer fi
 |----------|--------------|--------------------|---------------|------------|
 | rsa-sha2-256 | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa |
 | rsa-sha2-512 | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
-| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
-| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
+| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| hmac-sha2-256-etm@openssh.com | ecdsa-sha2-nistp384 |
+| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc | hmac-sha2-512-etm@openssh.com | 
 ||| aes192-cbc ||
 
-SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize Microsoft Security Development Lifecycle (SDL) approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
+SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize Microsoft Security Development Lifecycle (SDL) approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations).
 
-## Known issues and limitations
+### Known supported clients
 
-See the [Known issues](secure-file-transfer-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of SFTP support.
+The following clients have compatible algorithm support with SFTP for Azure Blob Storage (preview). See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you are having trouble connecting.
 
-## Regional availability
+- AsyncSSH 2.1.0+
+- Cyberduck 7.8.2+
+- edtFTPjPRO 7.0.0+
+- FileZilla 3.53.0+
+- libssh 0.9.5+
+- Maverick Legacy 1.7.15+
+- OpenSSH 7.4+
+- paramiko 2.8.1+
+- PuTTY 0.74+
+- QualysML 12.3.41.1+
+- RebexSSH 5.0.7119.0+
+- ssh2js 0.1.20+
+- sshj 0.27.0+
+- SSH.NET 2020.0.0+
+- WinSCP 5.10+
 
-SFTP support is available in the following regions: 
+> [!NOTE]
+> The supported client list above is not exhaustive and may change over time.
 
-- North Central US
-- East US 2
-- Canada East
-- Canada Central
-- North Europe
-- Australia East
-- Switzerland North
-- Germany West Central
-- East Asia
-- France Central
-- West Europe
+## Connecting with SFTP
+
+To get started, enable SFTP support, create a local user, and assign permissions for that local user. Then, you can use any SFTP client to securely connect and then transfer files. For step-by-step guidance, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
+
+## Limitations and known issues
+
+See the [limitations and known issues article](secure-file-transfer-protocol-known-issues.md) for a complete list of limitations and issues with SFTP support for Azure Blob Storage.
 
 ## Pricing and billing
 
@@ -144,5 +158,7 @@ Transaction and storage costs are based on factors such as storage account type 
 
 ## See also
 
-- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)
-- [Known issues with SSH File Transfer Protocol (SFTP) in Azure Blob Storage (preview)](secure-file-transfer-protocol-known-issues.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
+- [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md)
+- [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP Easy Button for SSO to Oracle EBS
 description: Learn to implement SHA with header-based SSO to Oracle EBS using F5’s BIG-IP Easy Button guided configuration
 services: active-directory
-author: NishthaBabith-V
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 1/31/2022
-ms.author: v-nisba
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -19,13 +19,13 @@ In this article, learn to secure Oracle Enterprise Business Suite (EBS) using Az
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 
 * Full SSO between Azure AD and BIG-IP published services
 
 * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -99,9 +99,9 @@ There are many methods to configure BIG-IP for this scenario, including two temp
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform](../develop/quickstart-register-app.md). 
+Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 
-A BIG-IP must also be registered as a client in Azure AD, before it is allowed to establish a trust in between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
+This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
 1. Sign in to the [Azure AD portal](https://portal.azure.com/) with Application Administrative rights
 
@@ -115,7 +115,7 @@ A BIG-IP must also be registered as a client in Azure AD, before it is allowed t
 
 6. Select **Register** to complete the initial app registration
 
-7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
+7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
 
    * Application.Read.All
    * Application.ReadWrite.All
@@ -136,7 +136,7 @@ A BIG-IP must also be registered as a client in Azure AD, before it is allowed t
 
 ## Configure Easy Button
 
-Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+Initiate the APM's **Guided Configuration** to launch the **Easy Button** Template.
 
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
@@ -152,7 +152,7 @@ Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP
 
 ### Configuration Properties
 
-The **Configuration Properties** tab creates up a new application config and SSO object. Consider **Azure Service Account Details** section to be the client application you registered in your Azure AD tenant earlier. These settings allow a BIG-IP to programmatically register a SAML application directly in your tenant, along with the properties you would normally configure manually. Easy Button does this for every BIG-IP APM service being enabled for SHA.
+The **Configuration Properties** tab creates a BIG-IP application config and SSO object. Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
 
 Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
 
@@ -168,9 +168,9 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 ### Service Provider
 
-The **Service Provider** settings define the SAML SP properties for the APM instance representing the application protected through SHA.
+The Service Provider settings define the properties for the SAML SP instance of the application protected through SHA.
 
-1. Enter **Host**. This is usually the FQDN that will be used for the applications external URL
+1. Enter **Host**. This is the public FQDN of the application being secured
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
@@ -198,7 +198,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 ### Azure Active Directory
 
-This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. In this example, select **Oracle E-Business Suite > Add**. This adds the template for the Oracle E-business Suite
+This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **Oracle E-Business Suite > Add**.
 
 ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-oracle/azure-configuration-add-big-ip-application.png)
 
@@ -218,7 +218,7 @@ This section defines all properties that you would normally use to manually conf
 
     ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
-6. **User and User Groups** are used to authorize access to the application. They are dynamically added from the tenant. **Add** a user or group that you can use later for testing, otherwise all access will be denied
+6. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied
 
     ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
@@ -291,7 +291,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
 
-4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
+4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
 
    ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
@@ -326,15 +326,19 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
    ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
 >[!NOTE] 
->APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
+>APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure
 
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation](https://support.f5.com/csp/article/K18390492) for details on these settings.
+The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Refer to [F5's docs](https://support.f5.com/csp/article/K18390492) for details on these settings.
 
-What isn’t covered however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
+What isn’t covered here however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
 
-During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign outs terminate the session between a client and Azure AD. 
+Along with this the SAML federation metadata for the published application is also imported from your tenant, providing the APM with the SAML logout endpoint for Azure AD. This ensures SP initiated sign outs terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out of the application.
+
+If the BIG-IP webtop portal is used to access published applications then a sign-out from there would be processed by the APM to also call the Azure AD sign-out endpoint. But consider a scenario where the BIG-IP webtop portal isn’t used, then the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this. So for this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to either the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
+
+If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
 
 ## Summary
 

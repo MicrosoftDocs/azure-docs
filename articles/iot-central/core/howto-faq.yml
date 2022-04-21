@@ -32,7 +32,7 @@ sections:
           
           1. The **About your app** page shows information about your application:  
           
-              :::image type="content" source="media/howto-faq/about-your-app2.png" alt-text="About your app screenshot":::
+              :::image type="content" source="media/howto-faq/about-your-app-2.png" alt-text="About your app screenshot":::
           
               Use the **Copy info** button to copy the information to the clipboard.
           
@@ -62,7 +62,7 @@ sections:
       - question: |
           Where can I learn more about the Device Provisioning Service (DPS)?
         answer: |
-          Azure IoT Central uses DPS to enable devices to connect to your application. To learn more about the role DPS plays in connecting devices to IoT Central, see [Get connected to Azure IoT Central](concepts-get-connected.md). To learn more about DPS, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../../iot-dps/about-iot-dps.md).
+          Azure IoT Central uses DPS to enable devices to connect to your application. To learn more about the role DPS plays in connecting devices to IoT Central, see [How devices connect](overview-iot-central-developer.md#how-devices-connect). To learn more about DPS, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../../iot-dps/about-iot-dps.md).
 
   - name: Pricing
     questions:
@@ -78,7 +78,7 @@ sections:
           
           To complete this self-service process, follow these steps:
           
-          1. Go to the **Pricing** page in the **Administration** section.
+          1. Go to the **Pricing** page in the **Application** section.
           
           1. Select the **Plan**
           
@@ -98,7 +98,7 @@ sections:
           
           In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan at any time.
           
-          1. Go to the **Pricing** page in the **Administration** section.
+          1. Go to the **Pricing** page in the **Application** section.
           
               :::image type="content" source="media/howto-faq/pricing.png" alt-text="Upgrade pricing plan":::
           
@@ -116,7 +116,7 @@ sections:
           - The Scope ID of the IoT Central application.
           - A key derived from the application's group SAS key or X.509 certificate.
           
-          To learn more, see [Get connected to Azure IoT Central](concepts-get-connected.md)
+          To learn more, see [How devices connect](overview-iot-central-developer.md#how-devices-connect)
           
           To interact with IoT Central, there must be a device template that models the device capabilities. To learn more, see [What are device templates?](concepts-device-templates.md).
           
@@ -146,14 +146,14 @@ sections:
           :::image type="content" source="media/howto-faq/approve-device.png" alt-text="Screenshot showing how to approve a device":::
           
       - question: |
-          How do I associate a device with a device template?
+          How do I assign a device to a device template?
         answer: |
-          If the device status is **Unassociated**, it means the device connecting to IoT Central doesn't have an associated device template. This situation typically happens in the following scenarios:
+          If the device status is **Unassigned**, it means the device connecting to IoT Central doesn't have an assigned device template. This situation typically happens in the following scenarios:
           
           - A set of devices is added using **Import** on the **Devices** page without specifying the device template.
           - A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
           
-          The operator can associate a device to a device template from the **Devices** page using the **Migrate** button. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
+          The operator can assign a device to a device template from the **Devices** page using the **Migrate** button. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
   - name: Users
     questions:

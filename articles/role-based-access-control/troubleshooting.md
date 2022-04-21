@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/28/2022
+ms.date: 02/18/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -22,7 +22,7 @@ This article answers some common questions about Azure role-based access control
 Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
-> Starting November 2021, the role assignments limit for a subscription is being increased from **2000** to **4000** over the next several months. Subscriptions that are near the limit will be prioritized first. The limit for the remaining subscriptions will be increased over time. Once the limit increase process is started for a subscription, it still takes multiple weeks to increase the limit.
+> Starting November 2021, the role assignments limit for all Azure subscriptions is being automatically increased from **2000** to **4000**. There is no action that you need to take for your subscription. The limit increase will take several months.
 
 If you are getting close to this limit, here are some ways that you can reduce the number of role assignments:
 
@@ -140,7 +140,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) returns a role assignment that is similar to the following output:
+Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following output:
 
 ```
 {

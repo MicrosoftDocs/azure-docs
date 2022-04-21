@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Cosmos DB using the Gremlin API
@@ -17,13 +17,11 @@ ms.date: 02/15/2022
 > [!IMPORTANT]
 > The Gremlin API indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-This article shows you how to configure an Azure Cosmos DB indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Cosmos DB using the [Gremlin API](../cosmos-db/choose-api.md#gremlin-api).
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. 
 
-Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [Gremlin API](../cosmos-db/choose-api.md#gremlin-api). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. Alternatively, you could set the query to only index the edges.
-
-Although Cosmos DB indexing is easiest with the [Import data wizard](search-import-data-portal.md), this article uses the REST APIs to explain concepts and steps. 
+Because terminology can be confusing, it's worth noting that [Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
 
 ## Prerequisites
 
@@ -35,7 +33,7 @@ Although Cosmos DB indexing is easiest with the [Import data wizard](search-impo
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
 
-Unfamiliar with indexers? See [**Create an indexer**](search-howto-create-indexers.md) before you get started.
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
 
 ## Define the data source
 
@@ -74,7 +72,9 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
 
 1. Set "credentials" to a connection string.  The next section describes the supported formats.
 
-1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. The "query" property is optional. The query default is `g.V()`. To index the edges, set the query to `g.E()`.
+1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. 
+
+   The "query" property is optional. By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. The query default is `g.V()`. Alternatively, you could set the query to only index the edges. To index the edges, set the query to `g.E()`.
 
 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column.
 
@@ -145,9 +145,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
 
-### Mapping between JSON Data Types and Azure Cognitive Search Data Types
+### Mapping data types
 
-| JSON data type | Compatible target index field types |
+| JSON data type | Cognitive Search field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |
@@ -160,9 +160,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 ## Configure and run the Cosmos DB indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -175,12 +175,12 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "disabled": null,
         "schedule": null,
         "parameters": {
-        "batchSize": null,
-        "maxFailedItems": 0,
-        "maxFailedItemsPerBatch": 0,
-        "base64EncodeKeys": false,
-        "configuration": {}
-        },
+            "batchSize": null,
+            "maxFailedItems": 0,
+            "maxFailedItemsPerBatch": 0,
+            "base64EncodeKeys": false,
+            "configuration": {}
+            },
         "fieldMappings": [],
         "encryptionKey": null
     }
@@ -190,11 +190,65 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
+
+## Check indexer status
+
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+
+```http
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
+```
+
+The response includes status and the number of items processed. It should look similar to the following example:
+
+```json
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        },
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null
+            },
+            ... earlier history items
+        ]
+    }
+```
+
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
+
 <a name="DataChangeDetectionPolicy"></a>
 
-## Indexing changed documents
+## Indexing new and changed documents
 
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified in the data source definition as follows:
+Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed documents in your database.
+
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
+
+For Cosmos DB indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+
+The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
 ```http
 "dataChangeDetectionPolicy": {
@@ -202,8 +256,6 @@ The purpose of a data change detection policy is to efficiently identify changed
 "  highWaterMarkColumnName": "_ts"
 },
 ```
-
-Using this policy is highly recommended to ensure good indexer performance. 
 
 <a name="DataDeletionDetectionPolicy"></a>
 
@@ -247,7 +299,7 @@ api-key: [Search service admin key]
 
 <a name="MappingGraphData"></a>
 
-## Mapping graph data to a search index
+## Mapping graph data to fields in a search index
 
 The Cosmos DB Gremlin API indexer will automatically map a couple pieces of graph data for you:
 
@@ -321,3 +373,5 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 + To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API](../cosmos-db/graph-introduction.md).
 
 + For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
+
++ To learn about network configuration for indexers, see the [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).

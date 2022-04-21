@@ -140,7 +140,7 @@ The following types of workloads benefit most from ADR:
 
    - Many DDLs are executed in one transaction. For example, in one transaction, rapidly creating and dropping temp tables. 
 
-   - A table has very large number of partitions/indexes that are modified. For example, a DROP TABLE operation on such table would require a large reservation of SLOG memory, which would delay truncation of the transaction log and delay undo/redo operations. The workaround can be drop the indexes individually and gradually, then drop the table. For more information on the SLOG, see [ADR recovery components](/sql/relational-databases/accelerated-database-recovery-conceptsadr-recovery-components).
+   - A table has very large number of partitions/indexes that are modified. For example, a DROP TABLE operation on such table would require a large reservation of SLOG memory, which would delay truncation of the transaction log and delay undo/redo operations. The workaround can be drop the indexes individually and gradually, then drop the table. For more information on the SLOG, see [ADR recovery components](/sql/relational-databases/accelerated-database-recovery-concepts).
 
 - Prevent or reduce unnecessary aborted situations. A high abort rate will put pressure on the PVS cleaner and lower ADR performance. The aborts may come from a high rate of deadlocks, duplicate keys, or other constraint violations.  
 
@@ -148,9 +148,9 @@ The following types of workloads benefit most from ADR:
     
     - To activate the PVS cleanup process manually between workloads or during maintenance windows, use `sys.sp_persistent_version_cleanup`. For more information, see [sys.sp_persistent_version_cleanup](/sql/relational-databases/system-stored-procedures/sys-sp-persistent-version-cleanup-transact-sql). 
 
-- If you observe issues either with storage usage, high abort transaction and other factors, see [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshooting).
+- If you observe issues either with storage usage, high abort transaction and other factors, see [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshoot).
 
 ## Next steps
 
 - [Accelerated database recovery](/sql/relational-databases/accelerated-database-recovery-concepts)
-- [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshooting).
+- [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshoot).

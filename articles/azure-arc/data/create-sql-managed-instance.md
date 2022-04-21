@@ -25,28 +25,34 @@ az sql mi-arc create --help
 
 To create a SQL Managed Instance, use `az sql mi-arc create`. See the following examples for different connectivity modes:
 
+> [!NOTE]
+>  Starting with the February release, a ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
+If no storage class is specified for backups, the default storage class in Kubernetes is used and if this is not RWX capable, the Arc SQL Managed Instance installation may not succeed.
+
+
+
 ### [Indirectly connected mode](#tab/indirectly)
 
 ```azurecli
-az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s
+az sql mi-arc create -n <instanceName> --storage-class-backups <RWX capable storageclass>  --k8s-namespace <namespace> --use-k8s
 ```
 
 Example:
 
 ```azurecli
-az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s
+az sql mi-arc create -n sqldemo --storage-class-backups mybackups --k8s-namespace my-namespace --use-k8s
 ```
 
 ### [Directly connected mode](#tab/directly)
 
 ```azurecli
-az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> -–subscription <subscription>  --custom-location <custom-location>
+az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> -–subscription <subscription>  --custom-location <custom-location> --storage-class-backups <RWX capable storageclass>
 ```
 
 Example:
 
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 -–subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 -–subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --storage-class-backups mybackups
 ```
 
 ---

@@ -1,12 +1,11 @@
 ---
 title: Azure API Management validation policy for GraphQL requests | Microsoft Docs
-description: Learn about a new policy you can use in Azure API Management to validate and authorize GraphQL requests.
+description: Reference for an Azure API Management policy to validate and authorize GraphQL requests. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
-ms.topic: article
-ms.date: 01/21/2022
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ms.custom: ignite-fall-2021
 ---
@@ -15,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 This article provides a reference for an API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
-For more information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ## Validation policy
 
@@ -27,6 +26,9 @@ For more information on adding and configuring policies, see [Policies in API Ma
 ## Validate GraphQL request
 
 The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 
 **Permissions**  
 Because GraphQL queries use a flattened schema:
@@ -131,12 +133,4 @@ Failure to validate against the GraphQL schema, or a failure for the request's s
 
 Similar to the [`Context.LastError`](api-management-error-handling-policies.md#lasterror) property, all GraphQL validation errors are automatically propagated in the `GraphQLErrors` variable. If the errors need to be propagated separately, you can specify an error variable name. Errors are pushed onto the `error` variable and the `GraphQLErrors` variable. 
 
-## Next steps
-
-For more information about working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Transform APIs](transform-api.md)
--   [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
--   [Error handling](./api-management-error-handling-policies.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

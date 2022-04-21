@@ -47,9 +47,9 @@ To deploy the Microsoft Sentinel SAP data connector and security content as desc
 | Area | Description |
 | --- | --- |
 |**Azure prerequisites** | **Access to Microsoft Sentinel**. Make a note of your Microsoft Sentinel workspace ID and key to use in this tutorial when you [deploy your SAP data connector](#deploy-your-sap-data-connector). <br><br>To view these details from Microsoft Sentinel, go to **Settings** > **Workspace settings** > **Agents management**. <br><br>**Ability to create Azure resources**. For more information, see the [Azure Resource Manager documentation](../azure-resource-manager/management/manage-resources-portal.md). <br><br>**Access to your Azure key vault**. This tutorial describes the recommended steps for using your Azure key vault to store your credentials. For more information, see the [Azure Key Vault documentation](../key-vault/index.yml). |
-|**System prerequisites** | **Software**. The SAP data connector deployment script automatically installs software prerequisites. For more information, see [Automatically installed software](#automatically-installed-software). <br><br> **System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Microsoft Sentinel <br>- Your Azure key vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx*, where *xx* is the SAP instance number. <br><br>Make sure that you also have an SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. For sizing recommendations, see [Recommended virtual machine sizing](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing). <br>Your VM and the Microsoft Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.|
+|**System prerequisites** | **Software**. The SAP data connector deployment script automatically installs software prerequisites. For more information, see [Automatically installed software](#automatically-installed-software). <br><br> **System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Microsoft Sentinel <br>- Your Azure key vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx*, *48xx* (in case SNC is used) where *xx* is the SAP instance number. <br><br>Make sure that you also have an SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. For sizing recommendations, see [Recommended virtual machine sizing](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing). <br>Your VM and the Microsoft Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.|
 |**SAP prerequisites** | **Supported SAP versions**. We recommend using [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or later. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on older SAP version [SAP_BASIS 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows).<br><br> **SAP system details**. Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as`001`<br><br>**SAP NetWeaver instance access**. Access to your SAP instances must use one of the following options: <br>- [SAP ABAP user/password](#configure-your-sap-system). <br>- A user with an X509 certificate, using SAP CRYPTOLIB PSE. This option might require expert manual steps.<br><br>**Support from your SAP team**.  You'll need the support of your SAP team to help ensure that your SAP system is [configured correctly](#configure-your-sap-system) for the solution deployment. |
-| | |
+
 
 ### Automatically installed software
 
@@ -78,7 +78,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
     | - 750 SP01 to SP12<br>- 751 SP01 to SP06<br>- 752 SP01 to SP03 | 2641084: Standardized read access for the Security Audit log data |
     | - 700 to 702<br>- 710 to 711, 730, 731, 740, and 750 | 2173545: CD: CHANGEDOCUMENT_READ_ALL |
     | - 700 to 702<br>- 710 to 711, 730, 731, and 740<br>- 750 to 752 | 2502336: CD (Change Document): RSSCD100 - read only from archive, not from database |
-    | | |
+
 
    Later versions don't require the extra notes. For more information, see the [SAP support Launchpad site](https://support.sap.com/en/index.html). Log in with an SAP user account.
 
@@ -275,17 +275,17 @@ To deploy SAP solution security content, do the following:
     a. Download SAP watchlists from the Microsoft Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.  
     b. In the Microsoft Sentinel **Watchlists** area, add the watchlists to your Microsoft Sentinel workspace. Use the downloaded CSV files as the sources, and then customize them as needed for your environment.  
 
-    [ ![SAP-related watchlists added to Microsoft Sentinel.](media/sap/sap-watchlists.png) ](media/sap/sap-watchlists.png#lightbox)
+    [![SAP-related watchlists added to Microsoft Sentinel.](media/sap/sap-watchlists.png)](media/sap/sap-watchlists.png#lightbox)
 
     For more information, see [Use Microsoft Sentinel watchlists](watchlists.md) and [Available SAP watchlists](sap-solution-security-content.md#available-watchlists).
 
 1. In Microsoft Sentinel, go to the **Microsoft Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:
 
-    [ ![Screenshot of the Microsoft Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png) ](media/sap/sap-data-connector.png#lightbox)
+    [![Screenshot of the Microsoft Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png)](media/sap/sap-data-connector.png#lightbox)
 
     SAP ABAP logs are displayed on the Microsoft Sentinel **Logs** page, under **Custom logs**:
 
-    [ ![Screenshot of the SAP ABAP logs in the 'Custom Logs' area in Microsoft Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
+    [![Screenshot of the SAP ABAP logs in the 'Custom Logs' area in Microsoft Sentinel.](media/sap/sap-logs-in-sentinel.png)](media/sap/sap-logs-in-sentinel.png#lightbox)
 
     For more information, see [Microsoft Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
 

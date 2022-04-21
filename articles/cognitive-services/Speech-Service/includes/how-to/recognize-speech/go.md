@@ -57,6 +57,7 @@ func recognizedHandler(event speech.SpeechRecognitionEventArgs) {
 func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 	defer event.Close()
 	fmt.Println("Received a cancellation: ", event.ErrorDetails)
+	fmt.Println("Did you set the speech resource key and region values?")
 }
 
 func main() {

@@ -10,15 +10,6 @@ ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-<!-- 
-   
-[X] Make sure you have internet on your Hl2
-[X] User Debug - ARM64 - Device, Debug -> Start Debugging to see logs 
-[X] "After closing session you could have a different device on a different day (depending on your anchor expiration), as long as you still have the IDs"
-[X] Tapping will be middle of the hand, not your fingers
-[X] Using Legacy shader since it's included in a default Unity build. Default shaders are only included if part of the scene.
--->
-
 # Tutorial: Step-by-step instructions to create a new HoloLens Unity app using Azure Spatial Anchors
 
 This tutorial will show you how to create a new HoloLens Unity app with Azure Spatial Anchors.
@@ -60,7 +51,7 @@ To complete this tutorial, make sure you have:
 
 5. Press **Get Features** --> **Import** --> **Approve** --> **Exit**
 6. When refocussing your Unity window, Unity will start importing the modules
-7. If you get a message about using the new input system, click **Yes** to restart Unity and enable the backends.
+7. If you get a message about using the new input system, select **Yes** to restart Unity and enable the backends.
 
 
 ### Set up the project settings
@@ -72,14 +63,14 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 1. Select **Player Settings...**
 1. Select **XR Plug-in Management**
 1. Make sure the **Universal Windows Platform Settings** tab is selected and check the box next to **OpenXR** and next to **Microsoft HoloLens feature group**
-1. Click on the yellow warning sign next to **OpenXR** to display all OpenXR issues.
+1. Select the yellow warning sign next to **OpenXR** to display all OpenXR issues.
 1. Select **Fix all**
-1. To fix the issue "_At least one interaction profile must be added_", click on *Edit* to open the OpenXR Project settings. Then under **Interaction Profiles** select the **+** symbol and select **Microsoft Hand Interaction Profile**
+1. To fix the issue "_At least one interaction profile must be added_", select *Edit* to open the OpenXR Project settings. Then under **Interaction Profiles** select the **+** symbol and select **Microsoft Hand Interaction Profile**
 ![Unity - OpenXR Setup](../../../includes/media/spatial-anchors-unity/unity-hl2-openxr-setup.png)
 
 #### Change Quality Settings
 1. Select **Edit** > **Project Settings** > **Quality**
-2. In the column under the **Universal Windows Platform** logo, click on the arrow at the **Default** row and select **Very Low**. You'll know the setting is applied correctly when the box in the **Universal Windows Platform**  column and **Very Low** row is green.
+2. In the column under the **Universal Windows Platform** logo, select the arrow in the **Default** row and select **Very Low**. You'll know the setting is applied correctly when the box in the **Universal Windows Platform**  column and **Very Low** row is green.
 
 #### Set capabilities
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have it open from the previous step).
@@ -94,13 +85,15 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 1. In the **Hierarchy Panel**, select **Main Camera**.
 2. In the **Inspector**, set its transform position to **0,0,0**.
 3. Find the **Clear Flags** property, and change the dropdown from **Skybox** to **Solid Color**.
-4. Click on the **Background** field to open a color picker.
+4. Select the **Background** field to open a color picker.
 5. Set **R, G, B, and A** to **0**.
-6. Click **Add Component** and add the **Tracked Pose Driver** Component to the camera
+6. Select **Add Component** at the bottom and add the **Tracked Pose Driver** Component to the camera
 ![Unity - Camera Setup](../../../includes/media/spatial-anchors-unity/unity-camera-setup.png)
 
 ## Try it out #1
 You should now have an empty scene that is ready to be deployed to your HoloLens device. To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow [**Using Visual Studio to deploy and debug**](/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2) to do so. You should see the Unity start screen, and then a clear display.
+
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
