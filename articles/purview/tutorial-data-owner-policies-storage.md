@@ -74,7 +74,7 @@ To register your resource and enable data use governance, follow these steps:
 
 1. Select **Register**.
 
-    :::image type="content" source="media/tutorial-data-owner-policies-storage/select-register.png" alt-text="Screenshot that shows Microsoft Purview governance portal Data Map sources, with the register button highlighted at the top.":::
+    :::image type="content" source="media/tutorial-data-owner-policies-storage/select-register.png" alt-text="Screenshot that shows the Microsoft Purview governance portal Data Map sources, with the register button highlighted at the top.":::
 
 1. On **Register sources**, select **Azure Blob Storage**.
 
