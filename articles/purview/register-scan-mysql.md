@@ -77,11 +77,6 @@ On the **Register sources (MySQL)** screen, do the following:
 1. Enter the **Server** name to connect to a MySQL source. This can either be:
     * A host name used to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
-    * Its fully qualified JDBC connection string. For example:
-
-        ```
-        jdbc:mysql://COMPUTER_NAME_OR_IP/DATABASE_NAME
-        ```
 
 1. Enter the **Port** used to connect to the database server (3306 by default for MySQL).
 

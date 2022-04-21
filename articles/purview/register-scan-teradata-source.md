@@ -81,7 +81,7 @@ On the **Register sources (Teradata)** screen, do the following:
 
 1.  Enter a **Name** that the data source will be listed with in the Catalog.
 
-1.  Enter the **Host** name to connect to a Teradata source. It can also be an IP address or a fully qualified connection string to the     server.
+1.  Enter the **Host** name to connect to a Teradata source. It can also be an IP address of the server.
 
 1.  Select a collection or create a new one (Optional)
 
