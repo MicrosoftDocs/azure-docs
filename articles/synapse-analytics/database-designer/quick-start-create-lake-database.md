@@ -17,7 +17,7 @@ This quick start gives you a run through of an end-2-end scenario on how you can
 ## Prerequisites
 - At least Synapse User role permissions are required for exploring a lake database template from Gallery.
 - Synapse Administrator, or Synapse Contributor permissions are required on the Synapse workspace for creating a lake database.
-- Storage Blob Data Contributor permissions are required on data lake.
+- Storage Blob Data Contributor permissions are required on data lake when using create table **From data lake** option.
 
 ## Create a lake database from database templates
 
@@ -31,7 +31,6 @@ A transaction consists of one or more discrete events.
  - **Party** - A party is an individual, organization, legal entity, social organization, or business unit of interest to the business.
  - **Customer** - A customer is an individual or legal entity that has or has purchased a product or service.
  - **Channel** - A channel is a means by which products or services are sold and/or distributed.
- - 
 The easiest way to find them is by using the search box above the different business areas that contain the tables. 
  
 ![Database Template example](./media/quick-start-create-lake-database/model-example.png)
