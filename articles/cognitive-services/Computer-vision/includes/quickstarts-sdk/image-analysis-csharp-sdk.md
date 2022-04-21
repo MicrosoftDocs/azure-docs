@@ -31,57 +31,55 @@ Use the Image Analysis client library for C# to analyze an image for content tag
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Create a new C# application
-
-#### [Visual Studio IDE](#tab/visual-studio)
-
-Using Visual Studio, create a new .NET Core application. 
-
-### Install the client library 
-
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `7.0.0`, and then **Install**. 
-
-#### [CLI](#tab/cli)
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
-
-```console
-dotnet new console -n computer-vision-quickstart
-```
-
-Change your directory to the newly created app folder. You can build the application with:
-
-```console
-dotnet build
-```
-
-The build output should contain no warnings or errors. 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-### Install the client library
-
-Within the application directory, install the Computer Vision client library for .NET with the following command:
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
-```
-
----
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
 ## Analyze image
+
+1. Create a new C# application.
+
+    #### [Visual Studio IDE](#tab/visual-studio)
+
+    Using Visual Studio, create a new .NET Core application. 
+
+    ### Install the client library 
+
+    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `7.0.0`, and then **Install**. 
+
+    #### [CLI](#tab/cli)
+
+    In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+
+    ```console
+    dotnet new console -n computer-vision-quickstart
+    ```
+
+    Change your directory to the newly created app folder. You can build the application with:
+
+    ```console
+    dotnet build
+    ```
+
+    The build output should contain no warnings or errors. 
+
+    ```console
+    ...
+    Build succeeded.
+     0 Warning(s)
+     0 Error(s)
+    ...
+    ```
+
+    ### Install the client library
+
+    Within the application directory, install the Computer Vision client library for .NET with the following command:
+
+    ```console
+    dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
+    ```
+
+    ---
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Paste in the following code:
 
@@ -107,6 +105,33 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
    ```
 
    ---
+
+## Output
+
+```console
+----------------------------------------------------------
+ANALYZE IMAGE - URL
+
+Analyzing the image sample16.png...
+
+Tags:
+grass 0.9957543611526489
+dog 0.9939157962799072
+mammal 0.9928356409072876
+animal 0.9918001890182495
+dog breed 0.9890419244766235
+pet 0.974603533744812
+outdoor 0.969241738319397
+companion dog 0.906731367111206
+small greek domestic dog 0.8965123891830444
+golden retriever 0.8877675533294678
+labrador retriever 0.8746421337127686
+puppy 0.872604250907898
+ancient dog breeds 0.8508287668228149
+field 0.8017748594284058
+retriever 0.6837497353553772
+brown 0.6581960916519165
+```
 
 ## Clean up resources
 

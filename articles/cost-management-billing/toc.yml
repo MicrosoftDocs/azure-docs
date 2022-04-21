@@ -194,8 +194,6 @@
         href: manage/create-subscription.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
-      - name: Export subscription information
-        href: manage/export-subscriptions.md
       - name: Change administrator
         displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
