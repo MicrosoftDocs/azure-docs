@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 04/18/2022
 ms.author: alkohli
 ---
 
@@ -19,21 +19,13 @@ This article explains the data resiliency behavior for Azure Stack Edge service 
 
 ## About Azure Stack Edge 
 
-Azure Stack Edge service is used to deploy compute workloads on purpose-built hardware devices, right at the edge where the data is created. The purpose-built Azure Stack Edge devices are available in various form factors and can be ordered, configured, and monitored via the Azure portal.
-
-### Cloud environments for Azure Stack Edge
-
-Azure Stack Edge solution can also be deployed in the following distinct Azure cloud environments that are available to the customers: 
-
-- Azure public cloud, which is available globally.
-- Azure Government which is available in four regions in the United States to US government agencies and their partners.
-- Azure Government for Department of Defense (DoD) is available in two regions in the United States to the US Department of Defense.
+Azure Stack Edge service is used to deploy compute workloads on purpose-built hardware devices, right at the edge where the data is created. The purpose-built Azure Stack Edge devices are available in various form factors and can be ordered, configured, and monitored via the Azure portal. Azure Stack Edge solution can also be deployed in Azure public as well as Azure Government cloud environments.
 
 ### Regions for Azure Stack Edge
 
 Region information is used for Azure Stack Edge service in the following ways:
 
-- You specify an Azure region when creating an Azure Stack Edge Hardware Center order for the Azure Stack Edge device. This region is used to provide a list of regions or countries to which the device can be shipped.
+- You specify an Azure region when creating an Azure Stack Edge Hardware Center order for the Azure Stack Edge device. Data residency norms apply to Edge Hardware Center orders. For more information, see [Data residency for Edge Hardware Center](azure-edge-hardware-center-overview.md#data-residency).
 
 - You specify an Azure region when creating a management resource for the Azure Stack Edge device. This region is used to store the metadata associated with the resource. The metadata can be stored in a location different than the physical device. 
 
@@ -42,7 +34,7 @@ Region information is used for Azure Stack Edge service in the following ways:
     Depending on the Azure Storage account configured for the share, your data is automatically and transparently replicated. For example, Azure Geo-Redundant Storage account (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see [Azure Storage redundancy options](../storage/common/storage-redundancy.md).
 
 
-### Single region vs. regional pairs
+### Non-paired region vs. regional pairs
 
 Azure Stack Edge service is a non-regional, always-available service and has no dependency on a specific Azure region. Azure Stack Edge service is also resilient to zone-wide outages and region-wide outages.
 
@@ -51,7 +43,7 @@ Azure Stack Edge service is a non-regional, always-available service and has no 
 
     For all the Azure Regional Pairs, by default, Microsoft is responsible for the disaster recovery (DR) setup, execution, and testing. In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration. 
 
-- **Single region** - In Singapore, customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region, Hong Kong. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. 
+- **Non-paired region** - In Singapore, customer can choose that the customer data for Azure Stack Edge reside only in Singapore and not get replicated to the paired region, Hong Kong. With this option enabled, the service is resilient to zone-wide outages, but not to region-wide outages. 
 
     In Singapore (South East Asia) region, if the customer has chosen single data residency option that won’t allow replication in the paired region, the customer will be responsible for the DR setup, execution, and testing. 
 
@@ -64,7 +56,7 @@ In the event of region outage, when the service instance fails over to from the 
 
 For cross-region DR, Microsoft is responsible. The Recovery Time Objective (RTO) for DR is 8 hours, and Recovery Point Objective (RPO) is 15 minutes. For more information, see [Resiliency and continuity overview](/compliance/assurance/assurance-resiliency-and-continuity). <!--Azure Global - Bcdr Service Details, (Go to Business Impact Analysis)-->
 
-Cross region disaster recovery for single region geography only pertains to Singapore. If there is a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong, you have two options:
+Cross region disaster recovery for non-paired region geography only pertains to Singapore. If there is a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong, you have two options:
 
 - Wait for the Singapore region to be restored.
 - Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md).
@@ -72,13 +64,13 @@ Cross region disaster recovery for single region geography only pertains to Sing
 In this case, the customer is responsible for DR and must set up a new device and then deploy all the workloads. 
 
 
-## Single region disaster recovery
+## Non-paired region disaster recovery
 
-The disaster recovery is not identical for single-region and multi-region geographies for this service. 
+The disaster recovery is not identical for non-paired region and multi-region geographies for this service. 
 
-For Azure Stack Edge service, all regions use regional pairs except for Singapore where you can configure the service for single region data residency. 
+For Azure Stack Edge service, all regions use regional pairs except for Singapore where you can configure the service for non-paired region data residency. 
 
-- In Singapore, you can configure the service for single region data residency. The single-region geography disaster recovery support applies only to Singapore when the customer has chosen to not enable the regional pair Hong Kong. The customer is responsible for the Singapore customer enabled disaster recovery (CEDR).
+- In Singapore, you can configure the service for non-paired region data residency. The single-region geography disaster recovery support applies only to Singapore when the customer has chosen to not enable the regional pair Hong Kong. The customer is responsible for the Singapore customer enabled disaster recovery (CEDR).
 - Except for Singapore, all other regions use regional pairs and Microsoft owns the regional pair disaster recovery.
 
 For the single-region disaster recovery for which the customer is responsible: 
@@ -99,7 +91,7 @@ For detailed instructions, see [Reset and reactivate your Azure Stack Edge devic
 
 Microsoft and its customers operate under the [Shared responsibility model](../availability-zones/business-continuity-management-program.md#shared-responsibility-model). This means that for customer-enabled (responsible services DR), the customer must address disaster recovery for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated. 
 
-When using Azure Stack Edge service, the customer can create a resource proactively, ahead of time, in a different region. In the event of a disaster, this resource can then be deployed. <!--Engg to confirm if this is a feasible scenario or resource creation can be blocked-->
+When using Azure Stack Edge service, the customer can create a resource proactively, ahead of time, in a another supported region. In the event of a disaster, this resource can then be deployed. <!--Engg to confirm if this is a feasible scenario or resource creation can be blocked-->
 
 ## Testing disaster recovery
 
