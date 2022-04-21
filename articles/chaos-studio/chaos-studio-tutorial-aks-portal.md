@@ -3,7 +3,7 @@ title: Create an experiment that uses an AKS Chaos Mesh fault using Azure Chaos 
 description: Create an experiment that uses an AKS Chaos Mesh fault with the Azure portal
 author: johnkemnetz
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 04/21/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
@@ -37,7 +37,7 @@ az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
 helm repo add chaos-mesh https://charts.chaos-mesh.org
 helm repo update
 kubectl create ns chaos-testing
-helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --version 2.0.3 --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
+helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
 ```
 
 2. Verify that the Chaos Mesh pods are installed by running the following command:
