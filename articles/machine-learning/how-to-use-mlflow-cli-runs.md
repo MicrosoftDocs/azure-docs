@@ -17,7 +17,7 @@ ms.devlang: azurecli
 # Track ML experiments and models with MLflow or the Azure Machine Learning CLI (v2)
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
-> * [v1](v1/how-to-use-mlflow.md.md)
+> * [v1](./v1/how-to-use-mlflow.md)
 > * [v2 (current version)](how-to-use-mlflow-cli-runs.md)
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect Azure Machine Learning as the backend of your MLflow experiments. You can accomplish this connection with either the MLflow Python API or the [Azure Machine Learning CLI v2](how-to-train-cli.md) in your terminal. You also learn how to use [MLflow's Model Registry](https://mlflow.org/docs/latest/model-registry.html) capabilities with Azure Machine Learning.

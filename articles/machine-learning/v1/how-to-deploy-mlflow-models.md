@@ -17,7 +17,7 @@ ms.custom: devx-track-python, sdk-v1
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning developer platform you are using:"]
 > * [v1](how-to-deploy-mlflow-models.md)
-> * [v2 (current version)](../how-to-deploy-mlflow-models-online-endpoint.md)
+> * [v2 (current version)](../how-to-deploy-mlflow-models-online-endpoints.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models. See [MLflow and Azure Machine Learning](concept-mlflow-v1.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
@@ -73,7 +73,7 @@ client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
 
 If you prefer not to use the defaults, you can set up your deployment configuration with a deployment config json file that uses parameters from the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method as reference. 
 
-For your deployment config json file, each of the deployment config parameters need to be defined in the form of a dictionary. The following is an example. [Learn more about what your deployment configuration json file can contain](v1/reference-azure-machine-learning-cli.md#azure-container-instance-deployment-configuration-schema).
+For your deployment config json file, each of the deployment config parameters need to be defined in the form of a dictionary. The following is an example. [Learn more about what your deployment configuration json file can contain](./v1/reference-azure-machine-learning-cli.md#azure-container-instance-deployment-configuration-schema).
 
 ```json
 {"computeType": "aci",
