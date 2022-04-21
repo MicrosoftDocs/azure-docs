@@ -1,3 +1,31 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@BarbaraSelden 
+MicrosoftDocs
+/
+azure-docs-pr
+Private
+Code
+Pull requests
+1.1k
+Actions
+Security
+Insights
+azure-docs-pr/articles/active-directory/fundamentals/toc.yml
+This commit does not belong to any branch on this repository, and may belong to a fork outside of the repository.
+@andyruth
+andyruth fixed TOC
+Latest commit 31de209 yesterday
+ History
+ 23 contributors
+@eross-msft@MicrosoftGuyJFlo@knicholasa@rolyon@msmbaldwin@martincoetzer@Gargi-Sinha@andyruth@itechedit@Chrispine-Chiedo@CelesteDG@SHERMANOUKO
+309 lines (309 sloc)  12.3 KB
+   
 - name: Fundamentals documentation
   href: index.yml
 - name: Overview
@@ -77,6 +105,14 @@
         href: sync-ldap.md                
       - name: SCIM synchronization
         href: sync-scim.md
+    - name: Recoverability
+      items:
+      - name: Recoverability best practices overview
+        href: recoverability-overview.md
+      - name: Recover from deletions
+        href: recover-from-deletions.md
+      - name: Recover from misconfigurations
+        href: recover-from-misconfigurations.md
     - name: Build for resilience
       items:
       - name: Overview
@@ -191,7 +227,7 @@
         href: 9-secure-access-teams-sharepoint.md
     - name: Secure service accounts
       items:
-      - name: Securing cloud-based service accounts
+      - name: Introduction to Azure service accounts
         href: service-accounts-introduction-azure.md
       - name: Secure managed identities
         href: service-accounts-managed-identities.md
@@ -199,7 +235,7 @@
         href: service-accounts-principal.md
       - name: Govern Azure service accounts
         href: service-accounts-governing-azure.md       
-      - name: Securing on-premises service accounts
+      - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Secure group MSAs
         href: service-accounts-group-managed.md
@@ -299,5 +335,16 @@
       href: active-directory-data-storage-eu.md
     - name: Identity data storage for Australia and New Zealand
       href: active-directory-data-storage-australia-newzealand.md
-    - name: Identity data storage for Japan
-      href: active-directory-data-storage-japan.md      
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
