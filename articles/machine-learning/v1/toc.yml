@@ -9,6 +9,8 @@
     - name: MLOps capabilities
       displayName: deploy, deployment, publish, production, operationalize, operationalization
       href: concept-model-management-and-deployment.md
+    - name: MLflow
+      href: concept-mlflow-v1.md
 - name: How-to guides
   items:
   - name: Install and set up the CLI (v1)
