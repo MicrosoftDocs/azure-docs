@@ -34,6 +34,7 @@ This article details how to check the status of available updates on a single VM
     
     The **Update status of machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
 
+
 # [From Machines blade](#tab/singlevm-machines)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -45,14 +46,10 @@ This article details how to check the status of available updates on a single VM
     An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful* else, you will see the notification *Assessment Failed*. For more information, see [update assessment scan](assessment-options.md#update-assessment-scan).
 
 
-# [From Home page](#tab/singlevm-home)
+# [From a selected VM](#tab/singlevm-home)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In **Home** page, select your machine from **Recent Resources** and the **virtual machines | Updates** page opens.
-
-1. In **Operations**, select **Updates**.
-
+1. Select your virtual machine and the **virtual machines | Updates** page opens.
+1. Under **Operations**, select **Updates**.
 1. In **Updates**, select **Go to Updates using Update Center**. 
 
       :::image type="content" source="./media/view-updates/resources-check-updates.png" alt-text="Screenshot showing selection of updates from Home page.":::
@@ -64,7 +61,8 @@ This article details how to check the status of available updates on a single VM
     :::image type="content" source="./media/view-updates/check-updates-home-inline.png" alt-text="Screenshot of status after checking updates." lightbox="./media/view-updates/check-updates-home-expanded.png":::
 
   For more information, see [update assessment scan](assessment-options.md#update-assessment-scan).
- ---  
+ 
+---  
 
 ## Check updates at scale
 
@@ -84,6 +82,7 @@ To check the updates on your machines at scale, follow these steps:
     An assessment is performed and a notification appears as a confirmation. 
     
     The **Update status of machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
+
 
 # [From Machines blade](#tab/at-scale-machines)
 
