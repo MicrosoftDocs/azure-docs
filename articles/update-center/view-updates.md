@@ -18,7 +18,7 @@ This article details how to check the status of available updates on a single VM
 ## Check updates on single VM
 
 >[!NOTE]
-> You can check the updates from the Overview or Machines blade in update management center (preview) page or from the Azure home page.
+> You can check the updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/singlevm-overview)
 

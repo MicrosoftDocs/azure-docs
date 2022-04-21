@@ -30,7 +30,7 @@ Update management center (preview) uses maintenance control schedule instead of 
 ## Schedule recurring updates on single VM
 
 >[!NOTE]
-> You can schedule updates from the Overview or Machines blade in update management center (preview) page or from the Azure home page.
+> You can schedule updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/schedule-updates-single-overview)
 

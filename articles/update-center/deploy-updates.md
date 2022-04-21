@@ -27,7 +27,7 @@ Update management center (preview) is available in all [Azure public regions](su
 ## Install updates on single VM
 
 >[!NOTE]
-> You can install the updates from the Overview or Machines blade in update management center (preview) page or from the Azure home page.
+> You can install the updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/install-single-overview) 
 
