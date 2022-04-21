@@ -28,6 +28,8 @@
           href: get-started-existing-container-image.md
         - name: Visual Studio
           href: deploy-visual-studio.md
+        - name: Visual Studio Code
+          href: deploy-visual-studio-code.md
 - name: Concepts
   items:
     - name: Environment
@@ -40,6 +42,8 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Observability
+      href: observability.md
     - name: Health probes
       href: health-probes.md
 - name: How-to guides
@@ -48,6 +52,8 @@
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Use managed identities
+      href: managed-identity.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
@@ -80,7 +86,8 @@
       href: billing.md
     - name: Quotas
       href: quotas.md
-    - name: Frequently asked questions
-      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
     - name: "Video: Build and deliver apps with Container Apps"
       href: https://www.youtube.com/watch?v=b3dopSTnSRg
+    - name: Frequently asked questions
+      href: faq.yml
+      displayName: faq

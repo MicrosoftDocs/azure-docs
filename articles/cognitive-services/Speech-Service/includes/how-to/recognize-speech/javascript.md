@@ -125,13 +125,13 @@ switch (result.reason) {
         console.log("NOMATCH: Speech could not be recognized.");
         break;
     case sdk.ResultReason.Canceled:
-        const cancellation = CancellationDetails.fromResult(result);
+        const cancellation = sdk.CancellationDetails.fromResult(result);
         console.log(`CANCELED: Reason=${cancellation.reason}`);
 
         if (cancellation.reason == sdk.CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
             console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
-            console.log("CANCELED: Did you update the key and location/region info?");
+            console.log("CANCELED: Did you set the speech resource key and region values?");
         }
         break;
     }
@@ -176,7 +176,7 @@ recognizer.canceled = (s, e) => {
     if (e.reason == sdk.CancellationReason.Error) {
         console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
-        console.log("CANCELED: Did you update the key and location/region info?");
+        console.log("CANCELED: Did you set the speech resource key and region values?");
     }
 
     recognizer.stopContinuousRecognitionAsync();

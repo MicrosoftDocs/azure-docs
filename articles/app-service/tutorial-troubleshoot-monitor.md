@@ -95,7 +95,7 @@ Browse to `http://<app-name>.azurewebsites.net`.
 
 The sample app, ImageConverter, converts included images from `JPG` to `PNG`. A bug has been deliberately placed in the code for this tutorial. If you select enough images, the the app produces a HTTP 500 error during image conversion. Imagine this scenario wasn't considered during the development phase. You'll use Azure Monitor to troubleshoot the error.
 
-### Verify the app is works
+### Verify the app works
 
 To convert images, click `Tools` and select `Convert to PNG`.
 

@@ -44,7 +44,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * A TPM 2.0 hardware security module on your Windows-based machine.
 
-* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET Core SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
