@@ -43,7 +43,7 @@ When setting up scan, you can choose to scan an entire MySQL server, or scope th
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 **If your data store is not publicly accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
 
@@ -59,13 +59,13 @@ The MySQL user must have the SELECT, SHOW VIEW and EXECUTE permissions for each 
 
 ## Register
 
-This section describes how to register MySQL in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register MySQL in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new MySQL source in your data catalog, do the following:
 
-1. Navigate to your Microsoft Purview account in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **MySQL**. Select **Continue**.
