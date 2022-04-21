@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 03/04/2022
+ms.custom: fasttrack-edit
 ---
 
 # Microsoft Purview network architecture and best practices
@@ -68,7 +69,7 @@ Here are some best practices:
 
   :::image type="content" source="media/concept-best-practices/network-self-hosted-runtime.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, a self-hosted runtime, and data sources."lightbox="media/concept-best-practices/network-self-hosted-runtime.png":::
 
-  1. A manual or automatic scan is triggered. Azure purview connects to Azure Key Vault to retrieve the credential to access a data source.
+  1. A manual or automatic scan is triggered. Microsoft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
   2. The scan is initiated from the Microsoft Purview data map through a self-hosted integration runtime. 
    
