@@ -57,7 +57,7 @@ The binlog keeps a record of all the CRUD operations in the source server. The D
 
 :::image type="content" source="media/migrate-azure-mysql-consistent-backup/dms-binlog-status-display.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Migration complete display binlog status" lightbox="media/migrate-azure-mysql-consistent-backup/dms-binlog-status-display.png":::
 
-This binlog position can be used in conjunction with [Data-in replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication) or third-party tools (such as Striim or Attunity) that provide for replaying binlog changes to a different server, if required.
+This binlog position can be used in conjunction with [Data-in replication](../mysql/concepts-data-in-replication.md) or third-party tools (such as Striim or Attunity) that provide for replaying binlog changes to a different server, if required.
 
 The binary log is deleted periodically, so the user must take necessary precautions if Change Data Capture (CDC) is used later to migrate the post-migration updates at the source. Configure the **binlog_expire_logs_seconds** parameter on the source server to ensure that binlogs are not purged before the replica commits the changes. If non-zero, binary logs will be purged after **binlog_expire_logs_seconds** seconds. Post successful cut-over, you can reset the value. Users will need to leverage the changes in the binlog to carry out the online migration. Users can take advantage of DMS to provide the initial seeding of the data and then stitch that together with the CDC solution of their choice to implement a minimal downtime migration.
 
@@ -97,6 +97,6 @@ The migration handles transient connection issues and additional connections are
 
 ## Next steps
 
-- Learn more about [Data-in Replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)
+- Learn more about [Data-in Replication](../mysql/concepts-data-in-replication.md)
 
-- [Tutorial: Migrate MySQL to Azure Database for MySQL offline using DMS](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-offline-portal)
+- [Tutorial: Migrate MySQL to Azure Database for MySQL offline using DMS](tutorial-mysql-azure-mysql-offline-portal.md)
