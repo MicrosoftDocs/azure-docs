@@ -227,7 +227,7 @@ $twin.tags.deploymentLocation.floor = 1
 
 ## Limitations
 
-Routing queries don't support using the `/` or `@` characters in property names, the message body path, or the device/module twin path.
+Routing queries don't support using whitespace or any of the following characters in property names, the message body path, or the device/module twin path: `()<>@,;:\"/?={}`.
 
 
 ## Next steps
