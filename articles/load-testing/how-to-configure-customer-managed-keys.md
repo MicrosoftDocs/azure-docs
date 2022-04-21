@@ -23,9 +23,6 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 - Secrets
 - Environment variables
 
-> [!NOTE]
-> Currently, customer-managed keys are available only for new Azure Load Testing resources. You should configure them during resource creation.
-
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
