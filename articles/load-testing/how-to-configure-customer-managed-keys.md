@@ -80,7 +80,7 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 1. In the **Key URI** field, paste the URI/key identifier of the Azure Key Vault key. Omit the key version from the URI to enable automatic updating of the key version.
 
-1. For the **User-assigned identity**field, select an existing user-assigned managed identity.
+1. For the **User-assigned identity** field, select an existing user-assigned managed identity.
 
 1. Select **Review + create** to validate and create the new resource.
 
