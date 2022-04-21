@@ -3142,7 +3142,7 @@ Azure service: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | microsoft.web/sites/networktrace/action | Network Trace Web Apps. |
 > | microsoft.web/sites/newpassword/action | Newpassword Web Apps. |
 > | microsoft.web/sites/sync/action | Sync Web Apps. |
-> | microsoft.web/sites/migratemysql/action | Migrate MySql Web Apps. |
+> | microsoft.web/sites/migratemysql/action | Migrate MySQL Web Apps. |
 > | microsoft.web/sites/recover/action | Recover Web Apps. |
 > | microsoft.web/sites/restoresnapshot/action | Restore Web Apps Snapshots. |
 > | microsoft.web/sites/restorefromdeletedapp/action | Restore Web Apps From Deleted App. |
@@ -3259,7 +3259,7 @@ Azure service: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | microsoft.web/sites/metricdefinitions/read | Get Web Apps Metric Definitions. |
 > | microsoft.web/sites/metrics/read | Get Web Apps Metrics. |
 > | microsoft.web/sites/metricsdefinitions/read | Get Web Apps Metrics Definitions. |
-> | microsoft.web/sites/migratemysql/read | Get Web Apps Migrate MySql. |
+> | microsoft.web/sites/migratemysql/read | Get Web Apps Migrate MySQL. |
 > | microsoft.web/sites/networkConfig/read | Get App Service Network Configuration. |
 > | microsoft.web/sites/networkConfig/write | Update App Service Network Configuration. |
 > | microsoft.web/sites/networkConfig/delete | Delete App Service Network Configuration. |
@@ -3402,7 +3402,7 @@ Azure service: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | microsoft.web/sites/slots/instances/processes/delete | Delete Web Apps Slots Instances Processes. |
 > | microsoft.web/sites/slots/metricdefinitions/read | Get Web Apps Slots Metric Definitions. |
 > | microsoft.web/sites/slots/metrics/read | Get Web Apps Slots Metrics. |
-> | microsoft.web/sites/slots/migratemysql/read | Get Web Apps Slots Migrate MySql. |
+> | microsoft.web/sites/slots/migratemysql/read | Get Web Apps Slots Migrate MySQL. |
 > | microsoft.web/sites/slots/networkConfig/read | Get App Service Slots Network Configuration. |
 > | microsoft.web/sites/slots/networkConfig/write | Update App Service Slots Network Configuration. |
 > | microsoft.web/sites/slots/networkConfig/delete | Delete App Service Slots Network Configuration. |
