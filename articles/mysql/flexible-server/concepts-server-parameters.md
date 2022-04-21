@@ -55,13 +55,13 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |General Purpose|32|128|103079215104|134217728|103079215104|
 |General Purpose|48|192|154618822656|134217728|154618822656|
 |General Purpose|64|256|206158430208|134217728|206158430208|
-|Memory Optimized|2|16|12884901888|134217728|12884901888|
-|Memory Optimized|4|32|25769803776|134217728|25769803776|
-|Memory Optimized|8|64|51539607552|134217728|51539607552|
-|Memory Optimized|16|128|103079215104|134217728|103079215104|
-|Memory Optimized|32|256|206158430208|134217728|206158430208|
-|Memory Optimized|48|384|309237645312|134217728|309237645312|
-|Memory Optimized|64|504|405874409472|134217728|405874409472|
+|Business Critical|2|16|12884901888|134217728|12884901888|
+|Business Critical|4|32|25769803776|134217728|25769803776|
+|Business Critical|8|64|51539607552|134217728|51539607552|
+|Business Critical|16|128|103079215104|134217728|103079215104|
+|Business Critical|32|256|206158430208|134217728|206158430208|
+|Business Critical|48|384|309237645312|134217728|309237645312|
+|Business Critical|64|504|405874409472|134217728|405874409472|
 
 ### innodb_file_per_table
 
@@ -94,13 +94,13 @@ The value of max_connection is determined by the memory size of the server.
 |General Purpose|32|128|10923|10|21845|
 |General Purpose|48|192|16384|10|32768|
 |General Purpose|64|256|21845|10|43691|
-|Memory Optimized|2|16|1365|10|2731|
-|Memory Optimized|4|32|2731|10|5461|
-|Memory Optimized|8|64|5461|10|10923|
-|Memory Optimized|16|128|10923|10|21845|
-|Memory Optimized|32|256|21845|10|43691|
-|Memory Optimized|48|384|32768|10|65536|
-|Memory Optimized|64|504|43008|10|86016|
+|Business Critical|2|16|1365|10|2731|
+|Business Critical|4|32|2731|10|5461|
+|Business Critical|8|64|5461|10|10923|
+|Business Critical|16|128|10923|10|21845|
+|Business Critical|32|256|21845|10|43691|
+|Business Critical|48|384|32768|10|65536|
+|Business Critical|64|504|43008|10|86016|
 
 When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections

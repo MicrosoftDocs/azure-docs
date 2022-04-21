@@ -36,10 +36,10 @@ This section provides details specifically for HA-related fields. You can follow
 3. If you want to change the default compute and storage, Select  **Configure server**.
 
 4. If high availability option is checked, the burstable tier will not be available to choose. You can choose either
-    **General purpose** or **Memory Optimized** compute tiers.
+    **General purpose** or **Business Critical** compute tiers.
 
     > [!IMPORTANT]
-    > We only support zone redundant high availability for the ***General purpose*** and ***Memory optimized*** pricing tier.
+    > We only support zone redundant high availability for the ***General purpose*** and ***Business Critical*** pricing tier.
 
 5. Select the **Compute size** for your choice from the dropdown.
 

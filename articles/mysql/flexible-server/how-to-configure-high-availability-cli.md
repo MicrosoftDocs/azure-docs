@@ -41,7 +41,7 @@ High availability feature provisions physically separate primary and standby rep
 
 ## Enable high availability during server creation
 
-You can only create server using  General purpose or Memory optimized pricing tiers with high availability. You can enable Zone redundant high availability for a server only during create time.
+You can only create server using  General purpose or Business Critical pricing tiers with high availability. You can enable Zone redundant high availability for a server only during create time.
 
 **Usage:**
 
