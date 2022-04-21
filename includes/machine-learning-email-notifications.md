@@ -2,11 +2,11 @@
 author: lgayhardt 
 ms.service: machine-learning
 ms.topic: include
-ms.date: 04/15/2022
+ms.date: 04/22/2022
 ms.author: lagayhar
 ---
 
-## How to configure emails in the studio
+## How to configure emails in the studio (preview)
 
 To start receiving emails when your job or endpoint is complete or if there's an issue (failed, canceled), follow the preceding instructions.
 
@@ -15,5 +15,3 @@ To start receiving emails when your job or endpoint is complete or if there's an
 1. Toggle to enable or disable email notifications for a specific event.
 
 :::image type="content" source="media/machine-learning-email-notifications/machine-learning-email-notifications.png" alt-text="Screenshot of Azure ML Studio's settings on the email notifications tab.":::
-
-
