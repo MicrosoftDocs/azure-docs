@@ -147,7 +147,7 @@ You can change the managed identity for customer-managed keys for an existing Az
 :::image type="content" source="media/how-to-configure-customer-managed-keys/change-identity-existing-alt-resource.png" alt-text="Screenshot that shows how to change the managed identity for customer managed keys on an existing Azure Load Testing resource.":::
 
 > [!NOTE]
-> The managed identity selected should have access granted on the Azure Key Vault.
+> The selected managed identity should have access granted on the Azure Key Vault.
 
 ## Change the key
 
