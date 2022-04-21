@@ -33,7 +33,7 @@ Before you start the setup, we recommend you do the following actions:
 - **Verify your access to complete the setup**
   - Only users with certain administrative permissions can complete the setup. Check if you have the [access required to complete the setup](#access-required-to-complete-the-setup).
 - **Understand changes to your billing hierarchy**
-  - You new billing account is organized differently than your Enterprise Agreement enrollment. [Understand changes to your billing hierarchy in the new account](#understand-changes-to-your-billing-hierarchy).
+  - Your new billing account is organized differently than your Enterprise Agreement enrollment. [Understand changes to your billing hierarchy in the new account](#understand-changes-to-your-billing-hierarchy).
 - **Understand changes to your billing administrators' access**
   - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account.[Understand changes to their access](#changes-to-billing-administrator-access).
 - **View Enterprise Agreement features that are replaced by the new account**
@@ -110,7 +110,7 @@ Next, select the source enrollment to transition. Then select the billing accoun
 
 **Error conditions**
 
-If you have the Enterprise Administrator (read-only) role, you'll see the following error that prevents the transition. You must have the Enterprise Administrator role before before you can transition your enrollment.
+If you have the Enterprise Administrator (read-only) role, you'll see the following error that prevents the transition. You must have the Enterprise Administrator role before you can transition your enrollment.
 
 `Select another enrollment. You do not hve Enterprise Administrator write permission to the enrollment.`
 
