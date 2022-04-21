@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, cliv1, sdkv1
 ms.author: ssambare
 author:  shivanissambare
 ms.reviewer: larryfr
-ms.date: 11/05/2021
+ms.date: 04/21/2022
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
@@ -35,7 +35,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
     
     The AML control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
 
-- To attach an AKS cluster, the service principal/user performing the operation must be assigned the __Owner or contributor__ Azure role-based access control (Azure RBAC) role on the Azure resource group that contains the cluster. The service principal/user must also be assigned [Azure Kubernetes Service Cluster Admin Role](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) on the cluster.
+- To attach an AKS cluster, the service principal/user performing the operation must be assigned the __Owner or contributor__ Azure role-based access control (Azure RBAC) role on the Azure resource group that contains the cluster. The service principal/user must also be assigned [Azure Kubernetes Service Cluster Admin Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
 
 - If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](../aks/api-server-authorized-ip-ranges.md), enable the AML control plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
 
@@ -524,4 +524,3 @@ To resolve this problem, create/attach the cluster by using the `load_balancer_t
 
 * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [How and where to deploy a model](how-to-deploy-and-where.md)
-
