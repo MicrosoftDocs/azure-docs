@@ -11,7 +11,7 @@ ms.date: 04/12/2022
 ms.author: egrootenboer
 ---
 
-# Configure Transport Layer Security (TLS) for a client application
+# Configure Transport Layer Security (TLS) for a Service Bus client application
 
 For security purposes, an Azure Azure Service Bus namespace may require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Service Bus will fail if the client is using a version of TLS that is lower than the minimum required version. For example, if a namespace requires TLS 1.2, then a request sent by a client who is using TLS 1.1 will fail.
 
