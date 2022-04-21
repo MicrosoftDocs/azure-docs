@@ -14,7 +14,9 @@ ms.topic: how-to
 
 Azure Load Testing Preview automatically encrypts all data stored in your load testing resource with keys that Microsoft provides (service-managed keys). Optionally, you can add a second layer of security by also providing your own (customer-managed) keys. Customer-managed keys offer greater flexibility for controlling access and using key-rotation policies.
 
-You must store customer-managed keys in [Azure Key Vault](/azure/key-vault/general/overview) and provide a key for each Azure Load Testing resource that is enabled with customer-managed keys. This key is used to encrypt the following data stored in that resource:
+The keys you provide are stored securely using [Azure Key Vault](/azure/key-vault/general/overview). You create a separate key for each Azure Load Testing resource you enable with customer-managed keys.
+
+Azure Load Testing uses the customer-managed key to encrypt the following data in the load testing resource:
 
 - Test details, such as the test description
 - Test script and configuration files
