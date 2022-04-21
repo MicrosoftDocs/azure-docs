@@ -27,6 +27,8 @@ You can create a Synapse notebook activity directly from the Synapse pipeline ca
 
 Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipeline canvas. Select on the Synapse notebook activity box and config the notebook content for current activity in the **settings**. You can select an existing notebook from the current workspace or add a new one. 
 
+You can also select an Apache Spark pool in the settings. It should be noted that the Apache spark pool set here will replace the Apache spark pool used in the notebook. If Apache spark pool is not selected in the settings of notebook content for current activity, the Apache spark pool selected in that notebook will be used to run.
+
 ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
 
 > [!NOTE]
