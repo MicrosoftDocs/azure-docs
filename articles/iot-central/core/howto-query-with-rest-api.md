@@ -40,11 +40,11 @@ The query is in the request body and looks like the following example:
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
-The `urn:modelDefinition:fupmoiu28b:ymju9efv9` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
+The `dtmi:azurertos:devkit:hlby5jgib2o` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
 
 :::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
 
@@ -109,7 +109,7 @@ If your device template uses components such as the **Device information** compo
 
 ```json
 {
-  "query": "SELECT deviceInformation.model, deviceInformation.swVersion FROM urn:modelDefinition:fupmoiu28b:ymju9efv9"
+  "query": "SELECT deviceInformation.model, deviceInformation.swVersion FROM dtmi:azurertos:devkit:hlby5jgib2o"
 }
 ```
 
@@ -129,7 +129,7 @@ Use the `AS` keyword to define an alias for an item in the `SELECT` clause. The 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
 }
 ```
 
@@ -163,7 +163,7 @@ Use the `TOP` to limit the number of results the query returns. For example, the
 
 ```json
 {
-    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9"
+    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o"
 }
 ```
 
@@ -191,7 +191,7 @@ To get telemetry received by your application within a specified time window, us
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
@@ -215,7 +215,7 @@ You can get telemetry or property values based on specific values. For example, 
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
+  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
 }
 ```
 
@@ -239,7 +239,7 @@ Aggregation functions let you calculate values such as average, maximum, and min
 
 ```json
 {
-  "query": "SELECT AVG(temperature), AVG(pressure) FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
+  "query": "SELECT AVG(temperature), AVG(pressure) FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
 }
 ```
 
@@ -280,7 +280,7 @@ The `ORDER BY` clause lets you sort the query results by a telemetry value, the 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM urn:modelDefinition:fupmoiu28b:ymju9efv9 ORDER BY timestamp DESC"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o ORDER BY timestamp DESC"
 }
 ```
 
