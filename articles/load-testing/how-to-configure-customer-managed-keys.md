@@ -125,6 +125,7 @@ For example, an Azure Load Testing resource might look like the following:
 }
 ```
 ----
+----
 
 ## Change the customer-managed key
 
