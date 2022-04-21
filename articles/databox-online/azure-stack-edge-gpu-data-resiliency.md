@@ -25,7 +25,7 @@ Azure Stack Edge service is used to deploy compute workloads on purpose-built ha
 
 Region information is used for Azure Stack Edge service in the following ways:
 
-- You specify an Azure region when creating an Azure Stack Edge Hardware Center order for the Azure Stack Edge device. Data residency norms apply to Edge Hardware Center orders. For more information, see [Data residency for Edge Hardware Center](azure-edge-hardware-center-overview.md#data-residency).
+- You specify an Azure region when creating an Azure Stack Edge Hardware Center order for the Azure Stack Edge device. Data residency norms apply to Edge Hardware Center orders. For more information, see [Data residency for Edge Hardware Center](../azure-edge-hardware-center/azure-edge-hardware-center-overview.md#data-residency).
 
 - You specify an Azure region when creating a management resource for the Azure Stack Edge device. This region is used to store the metadata associated with the resource. The metadata can be stored in a location different than the physical device. 
 
