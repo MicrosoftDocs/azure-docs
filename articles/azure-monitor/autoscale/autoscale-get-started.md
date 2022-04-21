@@ -18,14 +18,14 @@ You can discover all the resources for which Autoscale is applicable in Azure Mo
 
 1. Open the [Azure portal.][1]
 1. Click the Azure Monitor icon on the top of the page.
-  ![Open Azure Monitor][2]
+  ![Screenshot on how to open Azure Monitor.][2]
 1. Click **Autoscale** to view all the resources for which Autoscale is applicable, along with their current Autoscale status.
-  ![Discover Autoscale in Azure Monitor][3]
+  ![Screenshot of Autoscale in Azure Monitor.][3]
   
   
 You can use the filter pane at the top to scope down the list to select resources in a specific resource group, specific resource types, or a specific resource.
 
-![View resource status][4]
+![Screenshot of View resource status.][4]
 
 For each resource, you will find the current instance count and the Autoscale status. The Autoscale status can be:
 
@@ -36,12 +36,12 @@ For each resource, you will find the current instance count and the Autoscale st
 
 Additionally, you can reach the scaling page by clicking on **All Resources** on the home page and filter to the resource you're interested in scaling.
 
-![Click on all resources][16]
+![Screenshot of all resources.][16]
 
 
 Once you've selected the resource that you're interested in, select the **Scaling** tab to configure autoscaling rules.
 
-![Click on Scaling][17]
+![Screenshot of scaling button.][17]
 
 ## Create your first Autoscale setting
 
@@ -49,9 +49,9 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
 
 1. Open the **Autoscale** blade in Azure Monitor and select a resource that you want to scale. (The following steps use an App Service plan associated with a web app. You can [create your first ASP.NET web app in Azure in 5 minutes.][5])
 1. Note that the current instance count is 1. Click **Custom autoscale**.
-  ![Scale setting for new web app][6]
+  ![Scale setting for new web app.][6]
 1. Provide a name for the scale setting, and then click **Add a rule**. This opens as a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
-  ![Create scale setting for a web app][7]
+  ![Create scale setting for a web app.][7]
 1. You've now created your first scale rule. Note that the UX recommends best practices and states that "It is recommended to have at least one scale in rule." To do so:
 
     a. Click **Add a rule**.
@@ -69,7 +69,7 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
 Congratulations! You've now successfully created your first scale setting to autoscale your web app based on CPU usage.
 
 > [!NOTE]
-> The same steps are applicable to get started with a virtual machine scale set or cloud service role.
+> The same steps are applicable to get started with a Virtual Machine Scale Set or cloud service role.
 
 ## Other considerations
 ### Scale based on a schedule
