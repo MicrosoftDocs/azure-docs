@@ -18,9 +18,9 @@ You can discover all the resources for which Autoscale is applicable in Azure Mo
 
 1. Open the [Azure portal.][1]
 1. Click the Azure Monitor icon on the top of the page.
-  ![Screenshot on how to open Azure Monitor.][2]
+  [![Screenshot on how to open Azure Monitor.](2)](2#lightbox)
 1. Click **Autoscale** to view all the resources for which Autoscale is applicable, along with their current Autoscale status.
-  ![Screenshot of Autoscale in Azure Monitor.][3]
+  [![Screenshot of Autoscale in Azure Monitor.](3)](3#lightbox)
   
   
 You can use the filter pane at the top to scope down the list to select resources in a specific resource group, specific resource types, or a specific resource.
