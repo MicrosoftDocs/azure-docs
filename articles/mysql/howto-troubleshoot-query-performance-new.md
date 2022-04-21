@@ -28,7 +28,7 @@ With Azure Database for MySQL, it’s recommended to use the slow query log feat
 
 Before you can begin to trace long running queries, you need enable the `slow_query_log` parameter by using the Azure portal or Azure CLI. With this parameter enabled, you should also configure the value of the `long_query_time` parameter to specify the number of seconds that queries can run before being identified as “slow running” queries. The default value of the parameter is 10 seconds, but you can adjust the value to address the needs of your application’s SLA.
 
-![Flexible Server slow query log interface](media/howto-troubleshoot-query-performance-new/slow-query-log.png)
+[ ![Flexible Server slow query log interface](media/howto-troubleshoot-query-performance-new/slow-query-log.png) ](media/howto-troubleshoot-query-performance-new/slow-query-log.png#lightbox)
 
 While the slow query log is a great tool for tracing long running queries, there are certain scenarios in which it might not be effective. For example, the slow query log:
 
@@ -39,7 +39,7 @@ While the slow query log is a great tool for tracing long running queries, there
 
 Logs are available for up to seven days from their creation. You can list and download slow query logs via the Azure portal or Azure CLI. In the Azure portal, navigate to your server, under **Monitoring**, select **Server logs**, and then select the downward arrow next to an entry to download the logs associated with the date and time you’re investigating.
 
-![Flexible Server retrieving data from the logs](media/howto-troubleshoot-query-performance-new/retrieving-information-logs.png)
+[ ![Flexible Server retrieving data from the logs](media/howto-troubleshoot-query-performance-new/retrieving-information-logs.png) ](media/howto-troubleshoot-query-performance-new/retrieving-information-logs.png#lightbox)
   
 In addition, if your slow query logs are integrated with Azure Monitor logs through Diagnostic logs, you can run queries in an editor to analyze them further:
 
