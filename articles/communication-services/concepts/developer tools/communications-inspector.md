@@ -1,5 +1,5 @@
 ---
-title: Developer Tools - Communications Inspector
+title: Developer Tools - Communications Inspector 
 description: Conceptual documentation outlining the capabilities provided by the communications inspector.
 author: ddematheu2
 manager: chpalm
