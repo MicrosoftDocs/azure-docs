@@ -175,7 +175,7 @@ No, there's no charge to enable this feature.
 
 ### Are customer-managed keys supported for existing Azure Load Testing resources?
 
-This feature is currently available only for new resources.
+This feature is currently only available for new Azure Load Testing resources.
 
 ### How can I tell if customer-managed keys are enabled on my Azure Load Testing account?
 
