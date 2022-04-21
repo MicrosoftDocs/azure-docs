@@ -75,9 +75,9 @@ The following extensions are available for the VMs on your device.
 
 |Extension|Description|Learn more|
 |---------|---------|---------|
-|Custom script extensions|Custom script extensions are available for the VMs on your device that help configure workloads by running your script when the VM is provisioned.|[Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)|
-|GPU extensions |Use GPU extensions for your VM if you want to install GPU drivers when the GPU VMs are provisioned.|[Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md)|
-|Reset VM password extensions|Reset a VM password using PowerShell and Azure Resource Manager templates|[Install the VM password reset extension](azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension.md)|
+|Custom script extensions|Use custom script extensions to configure workloads.|[Deploy Custom Script Extension on VMs running on your device](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)|
+|GPU extensions |Use GPU extensions to install GPU drivers.|[Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) and [Install GPU extensions](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md)|
+|Reset VM password extensions|Reset a VM password using PowerShell.|[Install the VM password reset extension](azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension.md)|
 
 ## Create a VM
 
