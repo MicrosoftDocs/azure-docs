@@ -32,7 +32,7 @@ In addition to the data they contain, blobs support system properties and user-d
 
 The following code example sets blob HTTP  system properties on a blob.
 
-To set the HTTP properties for a blob, call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient?view=azure-node-latest#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders?view=azure-node-latest) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
+To set the HTTP properties for a blob, call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
 
 ```javascript
 /*

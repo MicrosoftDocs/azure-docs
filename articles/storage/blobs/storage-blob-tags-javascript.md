@@ -27,7 +27,7 @@ You can set and get index tags if your code has authorized access by using an ac
 
 You can set tags at blob upload time or by using the following method:
 
-- [BlobClient.setTags](/javascript/api/@azure/storage-blob/blobclient?view=azure-node-latest#@azure-storage-blob-blobclient-settags)
+- [BlobClient.setTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-settags)
 
 The following example performs this task.
 
@@ -67,7 +67,7 @@ You can delete all tags by passing an empty JSON object into the setTags method.
 
 You can get tags by using either of the following methods: 
 
-- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient?view=azure-node-latest#@azure-storage-blob-blobclient-gettags
+- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags
 )
 
 The following example performs this task.
