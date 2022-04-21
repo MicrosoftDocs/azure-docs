@@ -19,7 +19,7 @@ You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in me
 
 > [!VIDEO https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
 
-<a href="https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
+<a href="/_themes/docs.theme/master/_themes/global/video-embed.html?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
 
 ## Architecture
 
