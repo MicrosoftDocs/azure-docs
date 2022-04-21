@@ -56,13 +56,21 @@
     href: concepts-x509-attestation.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
+  - name: Control access to DPS
+    items: 
+    - name: Overview
+      href: concepts-control-access-dps.md
+    - name: Control access to DPS with SAS
+      href: how-to-control-access.md
+    - name: Control access to DPS with Azure AD (preview)
+      href: concepts-control-access-dps-azure-ad.md
   - name: Roles and operations
     href: concepts-roles-operations.md  
   - name: Virtual networks support
     href: virtual-network-support.md
   - name: Reprovisioning
     href: concepts-device-reprovision.md  
-  - name: High availabilty and disaster recovery
+  - name: High availability and disaster recovery
     href: iot-dps-ha-dr.md
   - name: Understanding DPS IP addresses
     href: iot-dps-understand-ip-address.md
@@ -94,8 +102,6 @@
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
       href: how-to-unprovision-devices.md      
-    - name: Control access to Provisioning Service APIs
-      href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
     - name: Managing public network access

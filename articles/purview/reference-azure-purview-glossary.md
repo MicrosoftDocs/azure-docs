@@ -64,7 +64,7 @@ An operation within a specific Microsoft Purview instance, such as editing an as
 ## Data reader
 A role that provides read-only access to data assets, classifications, classification rules, collections, glossary terms, and insights.
 ## Data source admin
-A role that can manage data sources and scans. A user in the Data source admin role doesn't have access to Microsoft Purview studio. Combining this role with the Data reader or Data curator roles at any collection scope provides Microsoft Purview studio access.
+A role that can manage data sources and scans. A user in the Data source admin role doesn't have access to Microsoft Purview governance portal. Combining this role with the Data reader or Data curator roles at any collection scope provides Microsoft Purview governance portal access.
 ## Data steward
 An individual or group responsible for maintaining nomenclature, data quality standards, security controls, compliance requirements, and rules for the associated object.
 ## Data dictionary
