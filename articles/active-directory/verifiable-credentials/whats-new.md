@@ -20,7 +20,7 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 ## April
 
-From April 25, 2022 the Azure AD Verifiable Credential service is available to Azure Active Directory [Free subscriptions](https://azure.microsoft.com/free/). With this update, any Azure AD tenant can issue and verify verifiable credentials independent of the subscription tier.  Prior to this change, the service was only available to tenants in Azure AD P2. Existing Verifiable Credentials deployments require administrators to take steps to ensure ongoing service operation.
+From April 25, 2022 the Azure AD Verifiable Credential service is available to Azure Active Directory [free subscriptions](https://azure.microsoft.com/free/). With this update, all Azure AD tenants may be configured to issue and verify verifiable credentials. Prior to this change, the service was only available to tenants in Azure AD P2. Existing Verifiable Credentials deployments require administrators to take steps to ensure ongoing service operation.
 
 >[!IMPORTANT]
 > Tenants currently using the Azure AD Verifiable Credentials service must follow the steps below before April 25th, 2022 to avoid service disruptions.
@@ -48,7 +48,7 @@ From April 25, 2022 the Azure AD Verifiable Credential service is available to A
     get-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
    ```
   
-   If you get an error on one of them, follow step 4 to create a new service principal. Run the following commands in the same PowerShell session.
+   If you get an error on one of them, run the commands below to create new service principals.
 
    ```azurepowershell
    new-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
@@ -59,26 +59,31 @@ From April 25, 2022 the Azure AD Verifiable Credential service is available to A
    >The AppId ```bb2a64ee-5d29-4b07-a491-25806dc854d3``` and ```3db474b9-6a0c-4840-96ac-1fceb342124f``` refer to the new Verifiable Credentials service principals.
 
 
-#### Azure Key Vault policies
+#### Azure Key Vault policy updates
 
-Add an access policy for the Verifiable Credentials Service.
+Add an access policy for the **Verifiable Credentials Service**. 
 
-1. In the Azure portal, go to the key vault you are using for the verifiable credential service.
+>[!IMPORTANT]
+> At this time, do not remove any permissions!
+
+1. In the Azure portal, navigate to your key vault.
 1. Under **Settings**, select **Access policies** 
-1. Select + Add Access Policy to For Key permissions, select **Get** and **Sign**.
-1. On the Service principal search for **bb2a64ee-5d29-4b07-a491-25806dc854d3** which is the Verifiable Credentials Service
-1. Select Add
+1. Select **+ Add Access Policy**
+1. Under **Key permissions**, select **Get** and **Sign**.
+1. In the **Select Service principal** section, search for Verifiable Credentials service by entering **bb2a64ee-5d29-4b07-a491-25806dc854d3**.
+1. Select **Add**.
 
 Add an access policy for the Verifiable Credentials Service Request.
 
-1. Select + Add Access Policy to For Key permissions, select Get and Sign.
-1. On the Service principal search for **3db474b9-6a0c-4840-96ac-1fceb342124f** which is the Verifiable Credentials Service Request part of Azure AD Free
+1. Select **+ Add Access Policy**
+1. Under **Key permissions**, select **Get** and **Sign**.
+1. In the **Select Service principal** section search for **3db474b9-6a0c-4840-96ac-1fceb342124f** which is the Verifiable Credentials Service Request part of Azure AD Free
 1. Select **Add**.
 1. Select **Save** to save your changes
 
 #### Grant the new Service Principal Access to the container
 
-We need to do this for all storage accounts being used to store rules and display files for your credentials.
+We need to do this for all storage accounts used to store verifiable credentials rules and display files.
 
 1. Find the correct storage account and open it.
 1. From the list of containers, open select the container that you are using for the Verifiable Credentials service.
@@ -94,12 +99,12 @@ We need to do this for all storage accounts being used to store rules and displa
 
 #### Grant the new service principal permissions to get access tokens
 
-1. In your application. Select API permissions > Add a permission.
-1. Select APIs my organization uses.
-1. Search for **Verifiable Credentials Service Request** (make sure you are selecting the exact name and not the Verifiable Credential Request Service) and select it. Make sure the Application Client ID is ```3db474b9-6a0c-4840-96ac-1fceb342124f```
-1. Choose Application Permission, and expand VerifiableCredential.Create.All.
-1. Select Add permissions.
-1. Select Grant admin consent for ```<your tenant name>```.
+1. In your application. Select **API permissions** > **Add a permission**.
+1. Select **APIs my organization uses**.
+1. Search for **Verifiable Credentials Service Request** and select it. Make sure you are not selecting the **Verifiable Credential Request Service**. Before proceeding, confirm that the **Application Client ID** is ```3db474b9-6a0c-4840-96ac-1fceb342124f```
+1. Choose **Application Permission**, and expand **VerifiableCredential.Create.All**.
+1. Select **Add permissions**.
+1. Select **Grant admin consent for** ```<your tenant name>```.
 
 #### Adjust the API scopes used in your application
 
