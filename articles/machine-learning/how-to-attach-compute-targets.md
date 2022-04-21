@@ -10,9 +10,11 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021
+ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 ---
 # Set up compute targets for model training and deployment
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to attach Azure compute resources to your Azure Machine Learning workspace.  Then you can use these resources as training and inference [compute targets](concept-compute-target.md) in your machine learning tasks.
 
@@ -38,7 +40,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Limitations
 
@@ -72,7 +74,6 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
     > Azure Machine Learning also requires the virtual machine to have a __public IP address__.
 
 1. **Attach**: To attach an existing virtual machine as a compute target, you must provide the resource ID, user name, and password for the virtual machine. The resource ID of the VM can be constructed using the subscription ID, resource group name, and VM name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
-
  
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
@@ -337,7 +338,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 ## <a id="aci"></a>Azure Container Instance
 
-Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
+Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md).
 
 ## <a id="kubernetes"></a>Kubernetes (preview)
 

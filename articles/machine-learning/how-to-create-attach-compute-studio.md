@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q1
+ms.custom: contperf-fy21q1, sdkv1
 ---
 # Create compute targets for model training and deployment in Azure Machine Learning studio
 
@@ -205,6 +205,8 @@ If you created your compute instance or compute cluster with SSH access enabled,
 ## Next steps
 
 After a target is created and attached to your workspace, you use it in your [run configuration](how-to-set-up-training-targets.md) with a `ComputeTarget` object:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget

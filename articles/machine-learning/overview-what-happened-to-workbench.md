@@ -15,7 +15,7 @@ ms.date: 03/05/2020
 
 The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the **September 2018** release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md).
 
-To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>, and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
+To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>, and the [Azure CLI](v1/reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
 
 Most of the artifacts that were created in the earlier version of Azure Machine Learning are stored in your own local or cloud storage. These artifacts won't ever disappear.
 
@@ -31,7 +31,7 @@ The latest release of Azure Machine Learning includes the following features:
 + A [simplified Azure resources model](concept-azure-machine-learning-architecture.md).
 + A [new portal UI](how-to-log-view-metrics.md) to manage your experiments and compute targets.
 + A new, more comprehensive Python <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>.
-+ The new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning.
++ The new expanded [Azure CLI extension](v1/reference-azure-machine-learning-cli.md) for machine learning.
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](how-to-manage-workspace.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
@@ -43,7 +43,7 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI ended.
 
-All the latest capabilities are available by using this <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
+All the latest capabilities are available by using this <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, the [CLI](v1/reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
 
 ## What about run histories?
 

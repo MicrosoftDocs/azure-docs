@@ -27,6 +27,8 @@ Deploying Network Virtual Appliances into the Virtual WAN Hub allows customers t
 * **Platform-provided lifecycle management**: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
 * **Integrated with platform features**: Transit connectivity with Microsoft gateways and Virtual Networks, Encrypted ExpressRoute (SD-WAN overlay running over an ExpressRoute circuit) and Virtual Hub route tables interact seamlessly.
 
+> [!IMPORTANT]
+> To ensure you get the best support for this integrated solution, please make sure you have similar levels of support entitlement with both Microsoft and your Network Virtual Appliance provider.
 
 ## <a name ="partner"></a> Partners
 

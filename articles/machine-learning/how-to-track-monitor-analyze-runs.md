@@ -10,12 +10,12 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1
+ms.custom: devx-track-python, devx-track-azurecli, cliv1, sdkv1
 ---
 
 # Start, monitor, and track run history
 
-The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
+The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](v1/reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
 
 This article shows how to do the following tasks:
 
@@ -50,140 +50,144 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
-* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md).
 
 
 ## Monitor run performance
 
-* Start a run and its logging process
+### Start a run and its logging process
 
-    # [Python](#tab/python)
-    
-    1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment), [Run](/python/api/azureml-core/azureml.core.run%28class%29), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) classes from the [azureml.core](/python/api/azureml-core/azureml.core) package.
-    
-        ```python
-        import azureml.core
-        from azureml.core import Workspace, Experiment, Run
-        from azureml.core import ScriptRunConfig
-        
-        ws = Workspace.from_config()
-        exp = Experiment(workspace=ws, name="explore-runs")
-        ```
-    
-    1. Start a run and its logging process with the [`start_logging()`](/python/api/azureml-core/azureml.core.experiment%28class%29#start-logging--args----kwargs-) method.
-    
-        ```python
-        notebook_run = exp.start_logging()
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment), [Run](/python/api/azureml-core/azureml.core.run%28class%29), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) classes from the [azureml.core](/python/api/azureml-core/azureml.core) package.
+
+    ```python
+    import azureml.core
+    from azureml.core import Workspace, Experiment, Run
+    from azureml.core import ScriptRunConfig
+
+    ws = Workspace.from_config()
+    exp = Experiment(workspace=ws, name="explore-runs")
+    ```
+
+1. Start a run and its logging process with the [`start_logging()`](/python/api/azureml-core/azureml.core.experiment%28class%29#start-logging--args----kwargs-) method.
+
+    ```python
+    notebook_run = exp.start_logging()
+    notebook_run.log(name="message", value="Hello from run!")
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]   
+
+To start a run of your experiment, use the following steps:
+
+1. From a shell or command prompt, use the Azure CLI to authenticate to your Azure subscription:
+
+    ```azurecli-interactive
+    az login
+    ```
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]     
+
+1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
+
+
+
+    ```azurecli-interactive
+    az ml folder attach -w myworkspace -g myresourcegroup
+    ```
+
+    This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
+
+    For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml-folder-attach).
+
+2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
+
+    ```azurecli-interactive
+    az ml run submit-script -c sklearn -e testexperiment train.py
+    ```
+
+    > [!TIP]
+    > The `az ml folder attach` command created a `.azureml` subdirectory, which contains two example runconfig files.
+    >
+    > If you have a Python script that creates a run configuration object programmatically, you can use [RunConfig.save()](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) to save it as a runconfig file.
+    >
+    > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
+
+    For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az-ml-run-submit-script).
+
+# [Studio](#tab/azure-studio)
+
+For an example of training a model in the Azure Machine Learning designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+
+---
+
+### Monitor the status of a run
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+* Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
+
+    ```python
+    print(notebook_run.get_status())
+    ```
+
+* To get the run ID, execution time, and other details about the run, use the [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) method.
+
+    ```python
+    print(notebook_run.get_details())
+    ```
+
+* When your run finishes successfully, use the [`complete()`](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) method to mark it as completed.
+
+    ```python
+    notebook_run.complete()
+    print(notebook_run.get_status())
+    ```
+
+* If you use Python's `with...as` design pattern, the run will automatically mark itself as completed when the run is out of scope. You don't need to manually mark the run as completed.
+
+    ```python
+    with exp.start_logging() as notebook_run:
         notebook_run.log(name="message", value="Hello from run!")
-        ```
-        
-    # [Azure CLI](#tab/azure-cli)
-    
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]   
-    
-    To start a run of your experiment, use the following steps:
-    
-    1. From a shell or command prompt, use the Azure CLI to authenticate to your Azure subscription:
-    
-        ```azurecli-interactive
-        az login
-        ```
-        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]     
-    
-    1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
-        
-
-
-        ```azurecli-interactive
-        az ml folder attach -w myworkspace -g myresourcegroup
-        ```
-    
-        This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
-    
-        For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml-folder-attach).
-    
-    2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
-    
-        ```azurecli-interactive
-        az ml run submit-script -c sklearn -e testexperiment train.py
-        ```
-    
-        > [!TIP]
-        > The `az ml folder attach` command created a `.azureml` subdirectory, which contains two example runconfig files.
-        >
-        > If you have a Python script that creates a run configuration object programmatically, you can use [RunConfig.save()](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) to save it as a runconfig file.
-        >
-        > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
-    
-        For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az-ml-run-submit-script).
-
-    # [Studio](#tab/azure-studio)
-
-    For an example of training a model in the Azure Machine Learning designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
-
-    ---
-
-* Monitor the status of a run
-
-    # [Python](#tab/python)
-    
-    * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
-    
-        ```python
         print(notebook_run.get_status())
-        ```
-    
-    * To get the run ID, execution time, and other details about the run, use the [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) method.
-    
-        ```python
-        print(notebook_run.get_details())
-        ```
-    
-    * When your run finishes successfully, use the [`complete()`](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) method to mark it as completed.
-    
-        ```python
-        notebook_run.complete()
-        print(notebook_run.get_status())
-        ```
-    
-    * If you use Python's `with...as` design pattern, the run will automatically mark itself as completed when the run is out of scope. You don't need to manually mark the run as completed.
-        
-        ```python
-        with exp.start_logging() as notebook_run:
-            notebook_run.log(name="message", value="Hello from run!")
-            print(notebook_run.get_status())
-        
-        print(notebook_run.get_status())
-        ```
-    
-    # [Azure CLI](#tab/azure-cli)
-    
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-    
-    * To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
-    
-        ```azurecli-interactive
-        az ml run list --experiment-name experiment
-        ```
-    
-        This command returns a JSON document that lists information about runs for this experiment.
-    
-        For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az-ml-experiment-list).
-    
-    * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
-    
-        ```azurecli-interactive
-        az ml run show -r runid
-        ```
-    
-        This command returns a JSON document that lists information about the run.
-    
-        For more information, see [az ml run show](/cli/azure/ml(v1)/run#az-ml-run-show).
-    
-    
-    # [Studio](#tab/azure-studio)
-    
-    ---    
+
+    print(notebook_run.get_status())
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
+* To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
+
+    ```azurecli-interactive
+    az ml run list --experiment-name experiment
+    ```
+
+    This command returns a JSON document that lists information about runs for this experiment.
+
+    For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az-ml-experiment-list).
+
+* To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
+
+    ```azurecli-interactive
+    az ml run show -r runid
+    ```
+
+    This command returns a JSON document that lists information about the run.
+
+    For more information, see [az ml run show](/cli/azure/ml(v1)/run#az-ml-run-show).
+
+
+# [Studio](#tab/azure-studio)
+
+---    
    
 ## Run Display Name 
 The run display name is an optional and customizable name that you can provide for your run. To edit the run display name:
@@ -228,7 +232,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 * Add properties and tags
 
     # [Python](#tab/python)
-    
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     To add searchable metadata to your runs, use the [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
     
     ```Python
@@ -291,6 +297,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     # [Python](#tab/python)
     
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     ```Python
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
     list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
@@ -328,6 +336,8 @@ If you notice a mistake or if your run is taking too long to finish, you can can
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
 ```python
@@ -340,6 +350,8 @@ print(local_run.get_status())
 ```
 
 If your run finishes, but it contains an error (for example, the incorrect training script was used), you can use the [`fail()`](/python/api/azureml-core/azureml.core.run%28class%29#fail-error-details-none--error-code-none---set-status-true-) method to mark it as failed.
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 local_run = exp.submit(src)
@@ -380,6 +392,8 @@ Create child runs to group together related runs, such as for different hyperpar
 
 This code example uses the `hello_with_children.py` script to create a batch of five child runs from within a submitted run by using the [`child_run()`](/python/api/azureml-core/azureml.core.run%28class%29#child-run-name-none--run-id-none--outputs-none-) method:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 !more hello_with_children.py
 src = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
@@ -416,6 +430,8 @@ The below code:
 - Creates and submits a new child run, using the custom compute resource and argument
 - Blocks until all of the child runs complete
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 # parent.py
 # This script controls the launching of child scripts
@@ -442,6 +458,8 @@ for child in run.get_children():
 To create many child runs with identical configurations, arguments, and inputs efficiently, use the [`create_children()`](/python/api/azureml-core/azureml.core.run.run#create-children-count-none--tag-key-none--tag-values-none-) method. Because each creation results in a network call, creating a batch of runs is more efficient than creating them one by one.
 
 Within a child run, you can view the parent run ID:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 ## In child run script
