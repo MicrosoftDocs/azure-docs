@@ -827,10 +827,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | diskEncryptionSets | Yes | Yes |
 > | disks | Yes | Yes |
 > | galleries | Yes | Yes |
-> | galleries / applications | Yes | Yes |
-> | galleries / applications / versions | Yes | Yes |
-> | galleries / images | Yes | Yes |
-> | galleries / images / versions | Yes | Yes |
+> | galleries / applications | Yes | No |
+> | galleries / applications / versions | Yes | No |
+> | galleries / images | Yes | No |
+> | galleries / images / versions | Yes | No |
 > | hostGroups | Yes | Yes |
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
@@ -1461,6 +1461,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | ------------- | ----------- | ----------- |
 > | domains | Yes | Yes |
 > | domains / topics | No | No |
+> | eventSubscriptions | No | No |
+> | extensionTopics | No | No |
 > | partnerConfigurations | Yes | Yes |
 > | partnerDestinations | Yes | Yes |
 > | partnerNamespaces | Yes | Yes |
@@ -1983,8 +1985,11 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | applyUpdates | No | No |
+> | configurationAssignments | No | No |
 > | maintenanceConfigurations | Yes | Yes |
 > | publicMaintenanceConfigurations | No | No |
+> | updates | No | No |
 
 ## Microsoft.ManagedIdentity
 
@@ -2219,7 +2224,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | expressRoutePorts | Yes | Yes |
 > | expressRouteProviderPorts | No | No |
 > | expressRouteServiceProviders | No | No |
-> | firewallPolicies | Yes | Yes |
+> | firewallPolicies | Yes, see [note below](#network-limitations) | Yes |
 > | frontdoors | Yes, but limited (see [note below](#network-limitations)) | Yes |
 > | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#network-limitations)) | No |
 > | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#network-limitations)) | No |
@@ -2234,6 +2239,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkExperimentProfiles | Yes | Yes |
 > | networkIntentPolicies | Yes | Yes |
 > | networkInterfaces | Yes | Yes |
+> | networkManagerConnections | No | No |
 > | networkManagers | Yes | Yes |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
@@ -2268,7 +2274,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | securityPartnerProviders | Yes | Yes |
 > | serviceEndpointPolicies | Yes | Yes |
 > | trafficManagerGeographicHierarchies | No | No |
-> | trafficmanagerprofiles | Yes | Yes |
+> | trafficmanagerprofiles | Yes, see [note below](#network-limitations) | Yes |
 > | trafficmanagerprofiles / heatMaps | No | No |
 > | trafficManagerUserMetricsKeys | No | No |
 > | virtualHubs | Yes | Yes |

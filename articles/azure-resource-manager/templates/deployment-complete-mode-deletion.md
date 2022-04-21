@@ -1455,6 +1455,8 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | ------------- | ----------- |
 > | domains | Yes |
 > | domains / topics | No |
+> | eventSubscriptions | No |
+> | extensionTopics | No |
 > | partnerConfigurations | Yes |
 > | partnerDestinations | Yes |
 > | partnerNamespaces | Yes |
@@ -1974,8 +1976,11 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | applyUpdates | No |
+> | configurationAssignments | No |
 > | maintenanceConfigurations | Yes |
 > | publicMaintenanceConfigurations | No |
+> | updates | No |
 
 ## Microsoft.ManagedIdentity
 
@@ -2225,6 +2230,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | networkExperimentProfiles | Yes |
 > | networkIntentPolicies | Yes |
 > | networkInterfaces | Yes |
+> | networkManagerConnections | No |
 > | networkManagers | Yes |
 > | networkProfiles | Yes |
 > | networkSecurityGroups | Yes |
