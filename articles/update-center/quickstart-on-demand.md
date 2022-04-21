@@ -36,7 +36,7 @@ This quickstart details you how to perform manual assessment and apply updates o
 
 ## Configure settings
 
-For the assessed machines that are reporting updates, you can initiate an update deployment that can start immediately or you can schedule the updates by defining the maintenance window. To update manually, follow these steps:
+For the assessed machines that are reporting updates, you can configure the update deployment to start immediately or you can schedule the updates by defining the maintenance window. To update manually, follow these steps:
 
 1. In **Update management center (Preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
 
