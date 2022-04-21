@@ -163,7 +163,7 @@ If you have a sparsely populated blob, you may want to just download the valid p
 
 # [.NET v12 SDK](#tab/dotnet)
 
-To determine which pages are backed by data, use [PageBlobClient.GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). You can then enumerate the returned ranges and download the data in each range.
+To determine which pages are backed by data, use PageBlobClient.GetPageRanges. You can then enumerate the returned ranges and download the data in each range.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
