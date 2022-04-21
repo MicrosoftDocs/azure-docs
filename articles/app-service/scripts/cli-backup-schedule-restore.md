@@ -26,7 +26,7 @@ This sample script creates a web app in App Service with its related resources. 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/app-service\backup-one-time-schedule-restore\backup-restore.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/backup-one-time-schedule-restore/backup-restore.sh" id="FullScript":::
 
 ## Clean up resources
 

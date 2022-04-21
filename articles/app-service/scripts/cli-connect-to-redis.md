@@ -26,7 +26,7 @@ This sample script creates an Azure Cache for Redis and an App Service app. It t
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/app-service/connect-to-redis/connect-to-redis.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/connect-to-redis/connect-to-redis.sh" id="FullScript":::
 
 ## Clean up resources
 

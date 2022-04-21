@@ -26,7 +26,7 @@ This sample script creates an Azure Cosmos DB account using the Azure Cosmos DB'
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/app-service/connect-to-documentdb/connect-to-documentdb.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh" id="FullScript":::
 
 ## Clean up resources
 
