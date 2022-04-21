@@ -65,7 +65,7 @@ Labeling in Microsoft Purview and labeling in SSMS are separate processes that d
 
 For more information, see the [SQL data discovery and classification documentation](/sql/relational-databases/security/sql-data-discovery-and-classification). </br></br>
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [How to automatically label your content](./how-to-automatically-label-your-content.md)
