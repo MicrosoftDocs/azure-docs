@@ -24,8 +24,6 @@ This documentation contains the following article types:
 
 ## Conversation summarization feature
 
-Conversation summarization is a broad topic, encompassing ... 
-
 Conversation summarization uses abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
 
 :::image type="content" source="media/feature-diagram.svg" alt-text="A diagram showing an example of sending data to conversation summarization.":::
@@ -71,12 +69,11 @@ To use this feature, you submit raw unstructured text for analysis and handle th
 
 |Development option  |Description  | Links | 
 |---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try conversation summarization without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/summarization) <br> • [Quickstart: Use the Language studio](../language-studio.md) |
 | REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md) |
 
 ## Input requirements and service limits
 
-* Conversation summarization takes raw unstructured text for analysis. See the [data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
+* Conversation summarization takes structured text for analysis. See the [data and service limits](../concepts/data-limits.md) for more information.
 * See [language support](language-support.md) for more information.
 
 ## Reference documentation and code samples
