@@ -39,11 +39,11 @@ The Bicep file used in this article is from [Azure Quickstart Templates](https:/
 
 The Bicep file defines three Azure resources:
 
-- [Microsoft.HealthcareApis/workspaces]: create a Microsoft.HealthcareApis workspace resource.
+* [Microsoft.HealthcareApis/workspaces](/azure/templates/microsoft.healthcareapis/workspaces): create a Microsoft.HealthcareApis/workspaces resource.
 
-- [Microsoft.HealthcareApis/workspaces/fhirservices]: create a Microsoft.HealthcareApis workspace fhirservices resource.
+* [Microsoft.HealthcareApis/workspaces/fhirservices](/azure/templates/microsoft.healthcareapis/workspaces/fhirservices): create a Microsoft.HealthcareApis/workspaces/fhirservices resource.
 
-- [Microsoft.Storage/storageAccounts]: create a Microsoft.Storage storage account resource.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): create a Microsoft.Storage/storageAccounts resource.
 
 ## Deploy the Bicep file
 
@@ -66,26 +66,24 @@ The Bicep file defines three Azure resources:
 
     ---
 
-    > [!NOTE]
-    > Replace **\<service-name\>** with the name of the service. Replace **\<location\>** with the location of the Azure API for FHIR.
-    >
-    > Location options include:
-    >
-    > * australiaeast
-    > * eastus
-    > * eastus2
-    > * japaneast
-    > * northcentralus
-    > * northeurope
-    > * southcentralus
-    > * southeastasia
-    > * uksouth
-    > * ukwest
-    > * westcentralus
-    > * westeurope
-    > * westus2
+    You'll need to replace **\<service-name\>** with the name of the service. You'll also need to replace **\<location\>** with the location of the Azure API for FHIR. Location options include:
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    * australiaeast
+    * eastus
+    * eastus2
+    * japaneast
+    * northcentralus
+    * northeurope
+    * southcentralus
+    * southeastasia
+    * uksouth
+    * ukwest
+    * westcentralus
+    * westeurope
+    * westus2
+
+    > [!NOTE]
+    > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review the deployed resources
 
