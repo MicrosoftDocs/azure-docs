@@ -228,13 +228,13 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
 
     ```toml
     # ==============================================================================
-    # Local Gateway Hostname
+    # Parent hostname
     # ==============================================================================
     #
-    # If this device is running in a nested deployment, uncomment the next line to
-    # set the local gateway hostname of this device.
+    # If this is a Nested Edge device, uncomment the next line to set the
+    # parent hostname of this device.
     #
-    local_gateway_hostname = "parent-vm.westus.cloudapp.azure.com"
+    parent_hostname = "parent-vm.westus.cloudapp.azure.com"
     ```
 
 01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device. IoT Edge requires the certificate and private key to be in text-based PEM format.
@@ -263,11 +263,11 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     image: "mcr.microsoft.com/azureiotedge-agent:1.2"
     ```
 
-01. Your configuration file structure should look similar to this example.
+01. The beginning of your configuration file should look similar to this example.
 
     ```toml
     hostname = "edge-device-vm.westus.cloudapp.azure.com"
-    local_gateway_hostname = "parent-vm.westus.cloudapp.azure.com"
+    parent_hostname = "parent-vm.westus.cloudapp.azure.com"
     trust_bundle_cert = "file:///etc/ssl/certs/root.ca.cert.pem"
     
     [edge_ca]
@@ -276,26 +276,7 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     
     [provisioning]
     source = "manual"
-    connection_string = "HostName=my-iot-hub.azure-devices.net;DeviceId=edge-device;SharedAccessKey=<edge-device SharedAccessKey>>
-    
-    [agent]
-    name = "edgeAgent"
-    type = "docker"
-    
-    [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.2"
-    
-    [connect]
-    workload_uri = "unix:///var/run/iotedge/workload.sock"
-    management_uri = "unix:///var/run/iotedge/mgmt.sock"
-    
-    [listen]
-    workload_uri = "fd://aziot-edged.workload.socket"
-    management_uri = "fd://aziot-edged.mgmt.socket"
-    
-    [moby_runtime]
-    uri = "unix:///var/run/docker.sock"
-    network = "azure-iot-edge"
+    connection_string = "HostName=my-iot-hub.azure-devices.net;DeviceId=edge-device;SharedAccessKey=<edge-device SharedAccessKey>>"
     ```
 
 1. Save and close the `config.toml` config file. For example if you are using the `nano` editor, select `Ctrl+O` - *Write Out*, **Enter**, and `Ctrl+X` - *Exit*.
