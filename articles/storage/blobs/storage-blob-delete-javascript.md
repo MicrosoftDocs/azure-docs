@@ -48,6 +48,27 @@ async function deleteBlob(containerClient, blobName){
 }
 ```
 
+The following example deletes a blob if it exists.
+
+```javascript
+async function deleteBlobIfItExists(containerClient, blobName){
+
+  // include: Delete the base blob and all of its snapshots.
+  // only: Delete only the blob's snapshots and not the blob itself.
+  const options = {
+    deleteSnapshots: 'include' // or 'only'
+  }
+
+  // Create blob client from container client
+  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
+
+  await blockBlobClient.deleteIfExists(options);
+
+  console.log(`deleted blob ${blobName}`);
+
+}
+```
+
 ## Restore a deleted blob
 
 Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
