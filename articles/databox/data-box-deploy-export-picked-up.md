@@ -94,11 +94,11 @@ Follow the guidelines for the region you're shipping from if you're using Micros
 ## [Norway](#tab/in-norway)
 [!INCLUDE [data-box-shipping-in-norway](../../includes/data-box-shipping-in-norway.md)]
 
+---
+
 ### Self-managed shipping
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
-
----
 
 ## Erasure of data from Data Box
 
