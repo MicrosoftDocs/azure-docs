@@ -24,7 +24,7 @@ When a node is rebooting, the cluster might become unhealthy, and jobs might slo
 - The process table on the VM has many entries where the process has completed, but it's listed with "Terminated state."
 
 > [!NOTE]
-> If you must reboot a worker node or zookeeper node in HBase or Kafka cluster, please be cautious as it may cause stability issues for some time depending on cluster sizing and workload pressure. Rebooting   wn can cause unnecessary region/ topic partition movements.  Even ZooKeeper node reboot can cause instability in ZooKeper cluster and so may cause Region Server/ Kafka broker to go down.   
+> If you must reboot a worker node or zookeeper node in HBase or Kafka cluster, please be cautious as it may cause stability issues for some time depending on cluster sizing and workload pressure. Rebooting worker node can cause unnecessary region/ topic partition movements.  Even ZooKeeper node reboot can cause instability in ZooKeper cluster and so may cause Region Server/ Kafka broker to go down.   
 Ideally, whenever possible, please stop HBase / Kafka service before the reboot to minimize the impact for new data written in the cluster.
 
 ## Use PowerShell to reboot VMs
