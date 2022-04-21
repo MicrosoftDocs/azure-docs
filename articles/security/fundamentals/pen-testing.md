@@ -27,7 +27,7 @@ We don’t perform penetration testing of your application for you, but we do un
 As of June 15, 2017, Microsoft no longer requires pre-approval to conduct a penetration test against Azure resources. This process is only related to Microsoft Azure, and not applicable to any other Microsoft Cloud Service.
 
 > [!IMPORTANT]
-> While notifying Microsoft of pen testing activities is no longer required customers must still comply with the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/mt784683).
+> While notifying Microsoft of pen testing activities is no longer required customers must still comply with the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 
 Standard tests you can perform include:
 
@@ -40,7 +40,7 @@ One type of pen test that you can’t perform is any kind of [Denial of Service 
 > [!Note]
 > You may only simulate attacks using Microsoft approved testing partners:
 > - [Red Button](https://www.red-button.net/): Work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
-> - [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): A self-service traffic generator where you customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
+> - [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): A self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
 > 
 > To learn more about the BreakingPoint Cloud simulation, see [testing with simulation partners](../../ddos-protection/test-through-simulations.md).
 

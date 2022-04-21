@@ -26,7 +26,7 @@ Simulations help you:
 ## Azure DDoS simulation testing policy
 You may only simulate attacks using our approved testing partners:
 - [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
-- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where you customers can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
+- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
 
 Our testing partners' simulation environments are built within Azure. You can only simulate against Azure-hosted public IP addresses that belong to an Azure subscription of your own, which will be validated by Azure Active Directory (Azure AD) before testing. Additionally, these target public IP addresses must be protected under Azure DDoS Protection.
 
@@ -79,7 +79,7 @@ Red Button’s [DDoS Testing](https://www.red-button.net/ddos-testing/) service 
 2. **Controlled DDoS attack**: Based on the defined goals, the Red Button team launches a combination of multi-vector DDoS attacks. The test typically lasts between three to six hours. Attacks are securely executed using dedicated servers and are controlled and monitored using Red Button’s management console.
 3. **Summary and recommendations**: The Red Button team provides you with a written DDoS Test Report outlining the effectiveness of DDoS mitigation. The report includes an executive summary of the test results, a complete log of the simulation, a list of vulnerabilities within your infrastructure, and recommendations on how to correct them.
 
-Here is an example of a [DDoS Test Report](https://www.red-button.net/wp-content/uploads/2021/06/DDoS-Test-Report-Example-with-Analysis.pdf) from Red Button:
+Here's an example of a [DDoS Test Report](https://www.red-button.net/wp-content/uploads/2021/06/DDoS-Test-Report-Example-with-Analysis.pdf) from Red Button:
 
 ![DDoS Test Report Example](./media/ddos-attack-simulation/red-button-test-report-example.png)
 
