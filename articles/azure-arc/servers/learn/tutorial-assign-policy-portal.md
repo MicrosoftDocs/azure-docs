@@ -26,7 +26,7 @@ before you begin.
 
 ## Create a policy assignment
 
-Create a policy assignment and assign the policy definition _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ to it by following these steps:
+Follow the steps below to create a policy assignment and assign the policy definition _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ to it:
 
 1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
