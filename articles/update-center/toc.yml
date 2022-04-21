@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Update management center
+  - name: About Update management center
     href: overview.md
   - name: Support matrix
     href: support-matrix.md

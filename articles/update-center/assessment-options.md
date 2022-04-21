@@ -26,16 +26,18 @@ Update management center (preview) provides you the flexibility to assess the st
 
 Update management center (preview) allows you to check for latest updates on your machines at any time, on-demand. You can view the latest update status and act accordingly. Go to **Updates** blade on any VM and select **Check for updates** or select multiple machines from update management center (preview) and check for updates for all machines at once. For more information, see [check and install on-demand updates](view-updates.md).
 
-## Update assessment scan for single VM
-
+## Update assessment scan
  You can initiate a software updates compliance scan on a machine to get a current list of operating system updates available. 
 
  - **On Windows** - the software update scan is actually performed by the Windows Update Agent. 
  - **On Linux** -  the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository.
 
- After you initiate an operation, a notification is generated to inform you the activity has started and another is created when it is finished.
+ In the **Updates (preview)** page, after you initiate an assessment, a notification is generated to inform you the activity has started and another is displayed when it is finished.
 
-In the **Recommended updates** section updates to reflect the OS updates applicable. You can also select **Refresh** to update the information on the page and review the assessment details of the selected machine.
+ :::image type="content" source="media/assessment-options/updates-preview-page.png" alt-text="Screenshot of the Updates (preview) page.":::
+
+
+The **Recommended updates** section is updated to reflect the OS updates applicable. You can also select **Refresh** to update the information on the page and review the assessment details of the selected machine.
 
 In the **History** section, you can view:
 - **Total deployments**—the total number of deployments.
@@ -49,9 +51,7 @@ A list of the deployments created are shown in the update deployment grid and in
 - Select a specific deployment status. Options are: **Succeeded**, **Failed**, **CompletedWithWarnings**, **InProgress**, and **NotStarted**. By default, all status types are selected.
 Selecting any one of the update deployments from the list will open the **Assessment run** page. Here, it shows a detailed breakdown of the updates and the installation results for the Azure VM or Arc-enabled server.
 
-In the **Scheduling** section, you can either **create a maintenance configuration** or **attach existing maintenance configuration**. 
-
-See the section for more information on [how to create a maintenance configuration](scheduled-patching.md#create-a-new-maintenance-configuration) and [how to attach existing maintenance configuration](scheduled-patching.md#attach-a-maintenance-configuration).
+In the **Scheduling** section, you can either **create a maintenance configuration** or **attach existing maintenance configuration**. See the section for more information on [how to create a maintenance configuration](scheduled-patching.md#create-a-new-maintenance-configuration) and [how to attach existing maintenance configuration](scheduled-patching.md#attach-a-maintenance-configuration).
 
 
 ## Next steps

@@ -42,7 +42,7 @@ This article details how to check the status of available updates on a single VM
 
 1. Select your machine from the checkbox and select **Check for updates**, **Assess now** or alternatively, you can select your machine, in **Updates Preview**, select **Assess updates**, and in **Trigger assess now**, select **OK**.
 
-    An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful* else, you will see the notification *Assessment Failed*.
+    An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful* else, you will see the notification *Assessment Failed*. For more information, see [update assessment scan](assessment-options.md#update-assessment-scan).
 
 
 # [From Home page](#tab/singlevm-home)
@@ -63,6 +63,7 @@ This article details how to check the status of available updates on a single VM
 
     :::image type="content" source="./media/view-updates/check-updates-home-inline.png" alt-text="Screenshot of status after checking updates." lightbox="./media/view-updates/check-updates-home-expanded.png":::
 
+  For more information, see [update assessment scan](assessment-options.md#update-assessment-scan).
  ---  
 
 ## Check updates at scale

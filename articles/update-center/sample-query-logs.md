@@ -80,5 +80,5 @@ maintenanceresources
 ```
 
 ## Next steps
-Review logs and search results from update management center (preview) in Azure using [Azure Resource Graph](query-logs.md).
-Troubleshoot issues in update management center (preview), see the [Troubleshoot](troubleshoot.md).
+- Review logs and search results from update management center (preview) in Azure using [Azure Resource Graph](query-logs.md).
+- Troubleshoot issues in update management center (preview), see the [Troubleshoot](troubleshoot.md).

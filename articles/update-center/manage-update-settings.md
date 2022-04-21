@@ -59,7 +59,7 @@ To configure update settings on your machines on a single VM, follow these steps
 
 # [From Home page](#tab/singlevm-schedule-home)
 
->[NOTE]
+>[!NOTE]
 > **For Azure machines**, your subscription needs to be allowlisted for preview feature. For more information, see 
 [On-boarding preview features](enable-machines.md)
 
