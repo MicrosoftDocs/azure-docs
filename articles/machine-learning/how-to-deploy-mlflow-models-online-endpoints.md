@@ -10,13 +10,16 @@ author: shivanissambare
 ms.date: 03/31/2022
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cli-v2
 ms.devlang: azurecli
 ---
 
 # Deploy MLflow models to online endpoints (preview)
 
 [!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](v1/how-to-deploy-mlflow-models.md.md)
+> * [v2 (current version)](how-to-use-deploy-mlflow-models-online-endpoints.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) (preview). When you deploy your MLflow model to an online endpoint, it's a no-code-deployment so you don't have to provide a scoring script or an environment. 
 

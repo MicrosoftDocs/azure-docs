@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/25/2021
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1
+ms.custom: devx-track-python, sdk-v1
 ---
 
 # Deploy MLflow models as Azure web services

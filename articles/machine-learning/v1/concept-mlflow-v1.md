@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, sdk-v1
 ---
 
 # MLflow and Azure Machine Learning (v1)
@@ -64,9 +64,9 @@ Learn more at [Train ML models with MLflow projects and Azure Machine Learning (
 You can [deploy your MLflow model as an Azure web service](../how-to-deploy-mlflow-models.md), so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
 
 ## Next steps
-* [Track ML models with MLflow and Azure Machine Learning](../how-to-use-mlflow.md). 
+* [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
 * [Train ML models with MLflow projects and Azure Machine Learning (preview)](../how-to-train-mlflow-projects.md).
 * [Track Azure Databricks runs with MLflow](../how-to-use-mlflow-azure-databricks.md).
-* [Deploy models with MLflow](../how-to-deploy-mlflow-models.md).
+* [Deploy models with MLflow](how-to-deploy-mlflow-models.md).
 
 
