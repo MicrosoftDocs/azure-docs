@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 04/21/2022
 ---
 
 # App settings reference for Azure Functions
@@ -81,6 +81,18 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 ## AzureFunctionsJobHost__\*
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
+
+## AzureFunctionsWebHost__hostid
+
+Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
+
+A host ID must be between 1 and 32 characters, contain only lowercase letters, numbers, and dashes, not start or end with a dash, and not contain consecutive dashes. An easy way to generate an ID is to take a GUID, remove the dashes, and make it lower case, such as by converting the GUID `1835D7B5-5C98-4790-815D-072CC94C6F71` to the value `1835d7b55c984790815d072cc94c6f71`.
+
+|Key|Sample value|
+|---|------------|
+|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
+
+For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
 
 ## AzureWebJobsDashboard
 

@@ -249,7 +249,7 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 ## Manually install extensions
 
-C# class library functions can install NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, the recommended way to install extensions is either by [using extension bundles](functions-bindings-register.md#extension-bundles) or by [using Azure Functions Core Tools](functions-run-local.md#install-extensions) locally.  If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
+C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, the recommended way to install extensions is either by [using extension bundles](functions-bindings-register.md#extension-bundles) or by [using Azure Functions Core Tools](functions-run-local.md#install-extensions) locally.  If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
 
 This same process works for any other file you need to add to your app. 
 
