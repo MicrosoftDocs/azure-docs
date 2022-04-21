@@ -483,9 +483,6 @@
               - name: Track Azure Databricks runs with MLflow
                 displayName: log, monitor, deploy, metrics, databricks
                 href: how-to-use-mlflow-azure-databricks.md
-              - name: Track experiments with MLflow 
-                displayName: log, monitor, metrics, model registry, register
-                href: how-to-use-mlflow.md  
               - name: Log & view metrics and log files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
@@ -561,9 +558,6 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
-      - name: Deploy MLflow models
-        displayName: log, monitor, deploy, metrics, databricks, aci, aks
-        href: how-to-deploy-mlflow-models.md
       - name: Deploy with endpoints
         items:
           - name: Real-time
