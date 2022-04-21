@@ -25,7 +25,7 @@ The Microsoft Purview account private endpoint is used to add another layer of s
 
 ### What's the purpose of deploying the Microsoft Purview portal private endpoint?
 
-The Microsoft Purview portal private endpoint provides private connectivity to Microsoft Purview Studio.
+The Microsoft Purview portal private endpoint provides private connectivity to Microsoft Purview governance portal.
 
 ### What's the purpose of deploying the Microsoft Purview ingestion private endpoints?
 
@@ -45,13 +45,13 @@ Yes. Data sources that aren't connected through a private endpoint can be scanne
 
 Make sure you enable **Allow trusted Microsoft services** to access the resources inside the service endpoint configuration of the data source resource in Azure. For example, if you're going to scan Azure Blob Storage in which the firewalls and virtual networks settings are set to **selected networks**, make sure the **Allow trusted Microsoft services to access this storage account** checkbox is selected as an exception.
 
-### Can I access Microsoft Purview Studio from a public network if Public network access is set to Deny in Microsoft Purview account networking?
+### Can I access Microsoft Purview governance portal from a public network if Public network access is set to Deny in Microsoft Purview account networking?
 
 No. Connecting to Microsoft Purview from a public endpoint where **Public network access** is set to **Deny** results in the following error message:
 
 "Not authorized to access this Microsoft Purview account. This Microsoft Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Microsoft Purview account's private endpoint."
 
-In this case, to open Microsoft Purview Studio, either use a machine that's deployed in the same virtual network as the Microsoft Purview portal private endpoint or use a VM that's connected to your CorpNet in which hybrid connectivity is allowed.
+In this case, to open Microsoft Purview governance portal, either use a machine that's deployed in the same virtual network as the Microsoft Purview portal private endpoint or use a VM that's connected to your CorpNet in which hybrid connectivity is allowed.
 
 ### Is it possible to restrict access to the Microsoft Purview managed storage account and event hub namespace (for private endpoint ingestion only) but keep portal access enabled for users across the web?
 
@@ -103,11 +103,11 @@ The VMs in which self-hosted integration runtime is deployed must have outbound 
 
 No. However, it's expected that the virtual machine running self-hosted integration runtime can connect to your instance of Microsoft Purview through an internal IP address by using port 443. Use common troubleshooting tools for name resolution and connectivity testing, such as nslookup.exe and Test-NetConnection.
 
-### Why do I receive the following error message when I try to launch Microsoft Purview Studio from my machine?
+### Why do I receive the following error message when I try to launch Microsoft Purview governance portal from my machine?
 
 "This Microsoft Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Microsoft Purview account's private endpoint."
 
-It's likely your Microsoft Purview account is deployed by using Private Link and public access is disabled on your Microsoft Purview account. As a result, you have to browse Microsoft Purview Studio from a virtual machine that has internal network connectivity to Microsoft Purview.
+It's likely your Microsoft Purview account is deployed by using Private Link and public access is disabled on your Microsoft Purview account. As a result, you have to browse Microsoft Purview governance portal from a virtual machine that has internal network connectivity to Microsoft Purview.
 
 If you're connecting from a VM behind a hybrid network or using a jump machine connected to your virtual network, use common troubleshooting tools for name resolution and connectivity testing, such as nslookup.exe and Test-NetConnection.
 
