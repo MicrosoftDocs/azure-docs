@@ -28,7 +28,7 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md)
 
@@ -38,7 +38,7 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
 ## Register
 
-This section describes how to register an Azure SQL Database Managed Instance in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register an Azure SQL Database Managed Instance in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -123,7 +123,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 ### Steps to register
 
-1. Navigate to your [Microsoft Purview Studio](https://web.purview.azure.com/resource/)
+1. Navigate to your [Microsoft Purview governance portal](https://web.purview.azure.com/resource/)
 
 1. Select **Data Map** on the left navigation.
 
@@ -149,7 +149,7 @@ Follow the steps below to scan an Azure SQL Database Managed Instance to automat
 
 To create and run a new scan, complete the following steps:
 
-1. Select the **Data Map** tab on the left pane in the Microsoft Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
 
 1. Select the Azure SQL Database Managed Instance source that you registered.
 
