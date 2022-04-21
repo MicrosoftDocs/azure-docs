@@ -25,8 +25,6 @@ In this article you'll know how to deploy AutoML trained machine learning model 
 - Azure Machine Learning studio
 - Azure Machine Learning CLI (v2))
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
 An AutoML-trained machine learning model. For more, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).

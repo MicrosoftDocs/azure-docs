@@ -38,8 +38,6 @@ Provides a MLflow base image/curated environment that contains,
 * `pandas`
 * The scoring script baked into the image
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
 [!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
