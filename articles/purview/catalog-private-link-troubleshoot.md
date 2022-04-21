@@ -39,7 +39,7 @@ This guide summarizes known limitations related to using private endpoints for M
 
 2. If portal private endpoint is deployed, make sure you also deploy account private endpoint.
 
-3. If portal private endpoint is deployed, and public network access is set to deny in your Microsoft Purview account, make sure you launch [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) from internal network.
+3. If portal private endpoint is deployed, and public network access is set to deny in your Microsoft Purview account, make sure you launch [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) from internal network.
   <br>
     - To verify the correct name resolution, you can use a **NSlookup.exe** command line tool to query `web.purview.azure.com`. The result must return a private IP address that belongs to portal private endpoint. 
     - To verify network connectivity, you can use any network test tools to test outbound connectivity to `web.purview.azure.com` endpoint to port **443**. The connection must be successful.    
@@ -188,7 +188,7 @@ Not authorized to access this Microsoft Purview account. This Microsoft Purview 
 User is trying to connect to Microsoft Purview from a public endpoint or using Microsoft Purview public endpoints where **Public network access** is set to **Deny**.
 
 ### Resolution
-In this case, to open Microsoft Purview governance portal, either use a machine that is deployed in the same virtual network as the Microsoft Purview portal private endpoint or use a VM that is connected to your CorpNet in which hybrid connectivity is allowed.
+In this case, to open the Microsoft Purview governance portal, either use a machine that is deployed in the same virtual network as the Microsoft Purview portal private endpoint or use a VM that is connected to your CorpNet in which hybrid connectivity is allowed.
 
 ### Issue
 You may receive the following error message when scanning a SQL server, using a self-hosted integration runtime:
