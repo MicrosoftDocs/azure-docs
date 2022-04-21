@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Monitor Azure Spring Cloud resources using alerts and action groups | Microsoft Docs"
+title: "Tutorial: Monitor Azure Spring Apps resources using alerts and action groups | Microsoft Docs"
 description: Learn how to use Spring Cloud alerts.
 author: karlerickson
 ms.author: karler
@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Azure Spring Cloud alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
+Azure Spring Apps alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
 
 There are two steps to set up an alert pipeline:
 
@@ -24,7 +24,7 @@ There are two steps to set up an alert pipeline:
 
 ## Prerequisites
 
-In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Cloud instance.  Follow a [quickstart](./quickstart.md) to get started.
+In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Apps instance.  Follow a [quickstart](./quickstart.md) to get started.
 
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.)
 
@@ -108,7 +108,7 @@ A rule can also be created using the **Metrics** page:
 
 ## Next steps
 
-In this tutorial you learned how to set up alerts and action groups for an application in Azure Spring Cloud. To learn more about action groups, see:
+In this tutorial you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
 > [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md)

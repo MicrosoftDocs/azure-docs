@@ -1,6 +1,6 @@
 ---
-title: "Scale an application in Azure Spring Cloud | Microsoft Docs"
-description: Learn how to scale an application with Azure Spring Cloud in the Azure portal
+title: "Scale an application in Azure Spring Apps | Microsoft Docs"
+description: Learn how to scale an application with Azure Spring Apps in the Azure portal
 ms.service: spring-cloud
 ms.topic: how-to
 ms.author: karler
@@ -9,13 +9,13 @@ ms.date: 10/06/2019
 ms.custom: devx-track-java
 ---
 
-# Scale an application in Azure Spring Cloud
+# Scale an application in Azure Spring Apps
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article demonstrates how to scale any Spring application using the Azure Spring Cloud dashboard in the Azure portal.
+This article demonstrates how to scale any Spring application using the Azure Spring Apps dashboard in the Azure portal.
 
 Scale your application up and down by modifying its number of virtual CPUs (vCPUs) and amount of memory. Scale your application in and out by modifying the number of application instances.
 
@@ -26,14 +26,14 @@ After you finish, you'll know how to make quick manual changes to each applicati
 To follow these procedures, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Cloud service instance.  Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
+* A deployed Azure Spring Apps service instance.  Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the Scale page in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to your Azure Spring Cloud **Overview** page.
+1. Go to your Azure Spring Apps **Overview** page.
 
 1. Select the resource group that contains your service.
 
@@ -65,7 +65,7 @@ If you are on the Basic tier and constrained by one or more of these [limits](./
 
 ## Next steps
 
-This example explained how to manually scale an application in Azure Spring Cloud. To learn how to monitor an application by setting up alerts, see [Set-up autoscale](./how-to-setup-autoscale.md).
+This example explained how to manually scale an application in Azure Spring Apps. To learn how to monitor an application by setting up alerts, see [Set-up autoscale](./how-to-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Learn how to set up alerts](./tutorial-alerts-action-groups.md)

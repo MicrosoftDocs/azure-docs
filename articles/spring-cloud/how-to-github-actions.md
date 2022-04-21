@@ -1,6 +1,6 @@
 ---
-title: Use Azure Spring Cloud CI/CD with GitHub Actions
-description: How to build up a CI/CD workflow for Azure Spring Cloud with GitHub Actions
+title: Use Azure Spring Apps CI/CD with GitHub Actions
+description: How to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -10,13 +10,13 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Use Azure Spring Cloud CI/CD with GitHub Actions
+# Use Azure Spring Apps CI/CD with GitHub Actions
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to build up a CI/CD workflow for Azure Spring Cloud with GitHub Actions.
+This article shows you how to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions.
 
-GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure.
+GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Apps you can create workflows in your repository to build, test, package, release, and deploy to Azure.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ You can also get the Azure login credential from Key Vault in GitHub actions as 
 
 ## Provision service instance
 
-To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
+To provision your Azure Spring Apps service instance, run the following commands using the Azure CLI.
 
 ```azurecli
 az extension add --name spring-cloud
@@ -77,7 +77,7 @@ The workflow is defined using the following options.
 
 ### Prepare for deployment with Azure CLI
 
-The command `az spring-cloud app create` is currently not idempotent. After you run it once, you'll get an error if you run the same command again. We recommend this workflow on existing Azure Spring Cloud apps and instances.
+The command `az spring-cloud app create` is currently not idempotent. After you run it once, you'll get an error if you run the same command again. We recommend this workflow on existing Azure Spring Apps apps and instances.
 
 Use the following Azure CLI commands for preparation:
 
@@ -191,7 +191,7 @@ You can also get the Azure login credential from Key Vault in GitHub actions as 
 
 ## Provision service instance
 
-To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
+To provision your Azure Spring Apps service instance, run the following commands using the Azure CLI.
 
 ```azurecli
 az extension add --name spring-cloud
@@ -210,8 +210,8 @@ The following sections show you various options for deploying your app.
 
 #### To production
 
-Azure Spring Cloud supports deploying to deployments with built artifacts (e.g., JAR or .NET Core ZIP) or source code archive.
-The following example deploys to the default production deployment in Azure Spring Cloud using JAR file built by Maven. This is the only possible deployment scenario when using the Basic SKU:
+Azure Spring Apps supports deploying to deployments with built artifacts (e.g., JAR or .NET Core ZIP) or source code archive.
+The following example deploys to the default production deployment in Azure Spring Apps using JAR file built by Maven. This is the only possible deployment scenario when using the Basic SKU:
 
 ```yml
 name: AzureSpringCloud
@@ -253,7 +253,7 @@ jobs:
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
 ```
 
-The following example deploys to the default production deployment in Azure Spring Cloud using source code.
+The following example deploys to the default production deployment in Azure Spring Apps using source code.
 
 ```yml
 name: AzureSpringCloud
@@ -383,7 +383,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     # Maven deploy, make sure you have correct configurations in your pom.xml
-    - name: deploy to Azure Spring Cloud using Maven
+    - name: deploy to Azure Spring Apps using Maven
       run: |
         mvn azure-spring-cloud:deploy
 ```

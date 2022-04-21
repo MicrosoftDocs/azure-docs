@@ -1,6 +1,6 @@
 ---
-title: Use TLS/SSL certificates in your application in Azure Spring Cloud
-titleSuffix: Azure Spring Cloud
+title: Use TLS/SSL certificates in your application in Azure Spring Apps
+titleSuffix: Azure Spring Apps
 description: Use TLS/SSL certificates in an application.
 author: KarlErickson
 ms.author: karler
@@ -10,29 +10,29 @@ ms.date: 10/08/2021
 ms.custom: devx-track-java
 ---
 
-# Use TLS/SSL certificates in your application in Azure Spring Cloud
+# Use TLS/SSL certificates in your application in Azure Spring Apps
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use public certificates in Azure Spring Cloud for your application. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
+This article shows you how to use public certificates in Azure Spring Apps for your application. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
 
-When you let Azure Spring Cloud manage your TLS/SSL certificates, you can maintain the certificates and your application code separately to safeguard your sensitive data. Your app code can access the public certificates you add to your Azure Spring Cloud instance.
+When you let Azure Spring Apps manage your TLS/SSL certificates, you can maintain the certificates and your application code separately to safeguard your sensitive data. Your app code can access the public certificates you add to your Azure Spring Apps instance.
 
 > [!NOTE]
 > Azure CLI and Terraform support and samples will be coming soon to this article.
 
 ## Prerequisites
 
-- An application deployed to Azure Spring Cloud. See [Quickstart: Deploy your first application in Azure Spring Cloud](./quickstart.md), or use an existing app.
+- An application deployed to Azure Spring Apps. See [Quickstart: Deploy your first application in Azure Spring Apps](./quickstart.md), or use an existing app.
 - Either a certificate file with *.crt*, *.cer*, *.pem*, or *.der* extension, or a deployed instance of Azure Key Vault with a private certificate.
 
 ## Import a certificate
 
-You can choose to import your certificate into your Azure Spring Cloud instance from either Key Vault or use a local certificate file.
+You can choose to import your certificate into your Azure Spring Apps instance from either Key Vault or use a local certificate file.
 
 ### Import a certificate from Key Vault
 
-You need to grant Azure Spring Cloud access to your key vault before you import your certificate using these steps:
+You need to grant Azure Spring Apps access to your key vault before you import your certificate using these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Key vaults**, then select the Key Vault you'll import your certificate from.
@@ -66,7 +66,7 @@ You can import a certificate file stored locally using these steps:
 
 ## Load a certificate
 
-To load a certificate into your application in Azure Spring Cloud, start with these steps:
+To load a certificate into your application in Azure Spring Apps, start with these steps:
 
 1. Go to your application instance.
 1. From the left navigation pane of your app, select **Certificate management**.
@@ -76,7 +76,7 @@ To load a certificate into your application in Azure Spring Cloud, start with th
 
 ### Load a certificate from code
 
-Your loaded certificates are available in the */etc/azure-spring-cloud/certs/public* folder. Use the following Java code to load a public certificate in an application in Azure Spring Cloud.
+Your loaded certificates are available in the */etc/azure-spring-cloud/certs/public* folder. Use the following Java code to load a public certificate in an application in Azure Spring Apps.
 
 ```java
 CertificateFactory factory = CertificateFactory.getInstance("X509");

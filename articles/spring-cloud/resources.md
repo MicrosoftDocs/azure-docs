@@ -1,6 +1,6 @@
 ---
-title: Resources for Azure Spring Cloud | Microsoft Docs
-description: Azure Spring Cloud resource list
+title: Resources for Azure Spring Apps | Microsoft Docs
+description: Azure Spring Apps resource list
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: reference
@@ -9,13 +9,13 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Azure Spring Cloud developer resources
+# Azure Spring Apps developer resources
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-As a developer, you might find the following Azure Spring Cloud resources useful:
+As a developer, you might find the following Azure Spring Apps resources useful:
 
 * [Azure roadmap](https://azure.microsoft.com/updates)
 * [Frequently asked questions](./faq.md)

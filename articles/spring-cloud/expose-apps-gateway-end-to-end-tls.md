@@ -1,6 +1,6 @@
 ---
 title: Expose applications with end-to-end TLS in a virtual network using Application Gateway
-titleSuffix: Azure Spring Cloud
+titleSuffix: Azure Spring Apps
 description: How to expose applications to the internet using Application Gateway
 author: karlerickson
 ms.author: karler
@@ -15,34 +15,34 @@ ms.devlang: java, azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway.
+This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Apps service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway.
 
 ## Prerequisites
 
 - [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli).
-- An Azure Spring Cloud service instance deployed in a virtual network with an application accessible over the private network using the default `.private.azuremicroservices.io` domain suffix. For more information, see [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
+- An Azure Spring Apps service instance deployed in a virtual network with an application accessible over the private network using the default `.private.azuremicroservices.io` domain suffix. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
 - A custom domain to be used to access the application.
 - A certificate, stored in Key Vault, which matches the custom domain to be used to establish the HTTPS listener. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
 
-## Configure Application Gateway for Azure Spring Cloud
+## Configure Application Gateway for Azure Spring Apps
 
-We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Cloud and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect URLs (for example) can be broken.
+We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Apps back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Apps and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Apps, cookies and generated redirect URLs (for example) can be broken.
 
-To configure Application Gateway in front of Azure Spring Cloud, use the following steps.
+To configure Application Gateway in front of Azure Spring Apps, use the following steps.
 
-1. Follow the instructions in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+1. Follow the instructions in [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 1. Follow the instructions in [Access your application in a private network](./access-app-virtual-network.md).
 1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
-1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Cloud. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Cloud](./tutorial-custom-domain.md).
+1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md).
 1. Deploy Application Gateway in a virtual network configured according to the following list:
-   - Use Azure Spring Cloud in the backend pool, referenced by the domain suffixed with `private.azuremicroservices.io`.
+   - Use Azure Spring Apps in the backend pool, referenced by the domain suffixed with `private.azuremicroservices.io`.
    - Include an HTTPS listener using the same certificate from Key Vault.
-   - Configure the virtual network with HTTP settings that use the custom domain name configured on Azure Spring Cloud instead of the domain suffixed with `private.azuremicroservices.io`.
+   - Configure the virtual network with HTTP settings that use the custom domain name configured on Azure Spring Apps instead of the domain suffixed with `private.azuremicroservices.io`.
 1. Configure your public DNS to point to Application Gateway.
 
 ## Define variables
 
-Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
+Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
 
 ```bash
 SUBSCRIPTION='subscription-id'
@@ -115,9 +115,9 @@ az keyvault certificate create \
 
 ---
 
-## Configure the public domain name on Azure Spring Cloud
+## Configure the public domain name on Azure Spring Apps
 
-Traffic will enter the application deployed on Azure Spring Cloud using the public domain name. To configure your application to listen to this host name and do so over HTTPS, use the following commands to add a custom domain to your app:
+Traffic will enter the application deployed on Azure Spring Apps using the public domain name. To configure your application to listen to this host name and do so over HTTPS, use the following commands to add a custom domain to your app:
 
 ```azurecli
 KV_NAME='name-of-key-vault'
@@ -129,7 +129,7 @@ DOMAIN_NAME=myapp.mydomain.com
 # provide permissions to ASC to read the certificate from Key Vault:
 VAULTURI=$(az keyvault show -n $KV_NAME -g $KV_RG --query properties.vaultUri -o tsv)
 
-# get the object id for the Azure Spring Cloud Domain-Management Service Principal:
+# get the object id for the Azure Spring Apps Domain-Management Service Principal:
 ASCDM_OID=$(az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId --output tsv)
 
 # allow this Service Principal to read and list certificates and secrets from Key Vault:
@@ -151,7 +151,7 @@ az spring-cloud app custom-domain bind \
 ```
 ## Create network resources
 
-The Azure Application Gateway to be created will join the same virtual network as--or peered virtual network to--the Azure Spring Cloud service instance. First create a new subnet for the Application Gateway in the virtual network using `az network vnet subnet create`, and also create a Public IP address as the Frontend of the Application Gateway using `az network public-ip create`.
+The Azure Application Gateway to be created will join the same virtual network as--or peered virtual network to--the Azure Spring Apps service instance. First create a new subnet for the Application Gateway in the virtual network using `az network vnet subnet create`, and also create a Public IP address as the Frontend of the Application Gateway using `az network public-ip create`.
 
 ```azurecli
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
@@ -232,7 +232,7 @@ It can take up to 30 minutes for Azure to create the application gateway.
 
 #### [Use a publicly signed certificate](#tab/public-cert-2)
 
-Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with.
+Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Apps with.
 
 ```azurecli
 az network application-gateway http-settings update \
@@ -245,7 +245,7 @@ az network application-gateway http-settings update \
 
 #### [Use a self-signed certificate](#tab/self-signed-cert-2)
 
-Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with. Given that a self-signed certificate is used, it will need to be allow-listed on the HTTP Settings of Application Gateway.
+Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Apps with. Given that a self-signed certificate is used, it will need to be allow-listed on the HTTP Settings of Application Gateway.
 
 To allowlist the certificate, first fetch the public portion of it from Key Vault by using the following command:
 
@@ -330,5 +330,5 @@ You can now access the application using the public domain name.
 
 ## Next steps
 
-- [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
-- [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)
+- [Troubleshooting Azure Spring Apps in VNET](./troubleshooting-vnet.md)
+- [Customer Responsibilities for Running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md)

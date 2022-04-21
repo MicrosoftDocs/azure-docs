@@ -1,5 +1,5 @@
 ---
-title:  Stream Azure Spring Cloud app logs in real-time
+title:  Stream Azure Spring Apps app logs in real-time
 description: How to use log streaming to view application logs instantly
 author: karlerickson
 ms.author: karler
@@ -9,21 +9,21 @@ ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Stream Azure Spring Cloud app logs in real-time
+# Stream Azure Spring Apps app logs in real-time
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Azure Spring Cloud enables log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
+Azure Spring Apps enables log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 ## Prerequisites
 
 * Install [Azure CLI extension](/cli/azure/install-azure-cli) for Spring Cloud, minimum version 0.2.0 .
-* An instance of **Azure Spring Cloud** with a running application, for example [Spring Cloud app](./quickstart.md).
+* An instance of **Azure Spring Apps** with a running application, for example [Spring Cloud app](./quickstart.md).
 
 > [!NOTE]
-> The Azure Spring Cloud CLI extension is updated from version 0.2.0 to 0.2.1. This change affects the syntax of the command for log streaming: `az spring-cloud app log tail` is replaced by `az spring-cloud app logs`. The command: `az spring-cloud app log tail` will be deprecated in a future release. If you have been using version 0.2.0, you can upgrade to 0.2.1. First, remove the old version with the command: `az extension remove --name spring-cloud`.  Then, install 0.2.1 by the command: `az extension add --name spring-cloud`.
+> The Azure Spring Apps CLI extension is updated from version 0.2.0 to 0.2.1. This change affects the syntax of the command for log streaming: `az spring-cloud app log tail` is replaced by `az spring-cloud app logs`. The command: `az spring-cloud app log tail` will be deprecated in a future release. If you have been using version 0.2.0, you can upgrade to 0.2.1. First, remove the old version with the command: `az extension remove --name spring-cloud`.  Then, install 0.2.1 by the command: `az extension add --name spring-cloud`.
 
 ## Use CLI to tail logs
 
@@ -82,7 +82,7 @@ Then, you can stream logs of an app instance with the option `-i/--instance` opt
 az spring-cloud app logs --name auth-service --instance auth-service-default-12-75cc4577fc-pw7hb
 ```
 
-You can also get details of app instances from the Azure portal.  After selecting **Apps** in the left navigation pane of your Azure Spring Cloud service, select **App Instances**.
+You can also get details of app instances from the Azure portal.  After selecting **Apps** in the left navigation pane of your Azure Spring Apps service, select **App Instances**.
 
 ### Continuously stream new logs
 
@@ -92,7 +92,7 @@ By default, `az spring-cloud app logs` prints only existing logs streamed to the
 az spring-cloud app logs --name auth-service --follow
 ```
 
-When you use `--follow` to tail instant logs, the Azure Spring Cloud log streaming service will send heartbeat logs to the client every minute unless your application is writing logs constantly. These heartbeat log messages look like `2020-01-15 04:27:13.473: No log from server`.
+When you use `--follow` to tail instant logs, the Azure Spring Apps log streaming service will send heartbeat logs to the client every minute unless your application is writing logs constantly. These heartbeat log messages look like `2020-01-15 04:27:13.473: No log from server`.
 
 To check all the logging options supported:
 
@@ -136,5 +136,5 @@ Single vip registry refresh property : null
 
 ## Next steps
 
-* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+* [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)

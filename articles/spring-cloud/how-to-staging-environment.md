@@ -1,6 +1,6 @@
 ---
-title: Set up a staging environment in Azure Spring Cloud | Microsoft Docs
-description: Learn how to use blue-green deployment with Azure Spring Cloud
+title: Set up a staging environment in Azure Spring Apps | Microsoft Docs
+description: Learn how to use blue-green deployment with Azure Spring Apps
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,29 +9,29 @@ ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Set up a staging environment in Azure Spring Cloud
+# Set up a staging environment in Azure Spring Apps
 
 **This article applies to:** ✔️ Java ❌ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article explains how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Cloud. Blue-green deployment is an Azure DevOps continuous delivery pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. This article shows you how to put that staging deployment into production without changing the production deployment.
+This article explains how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Apps. Blue-green deployment is an Azure DevOps continuous delivery pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. This article shows you how to put that staging deployment into production without changing the production deployment.
 
 ## Prerequisites
 
-* Azure Spring Cloud instance on a Standard pricing tier
-* [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+* Azure Spring Apps instance on a Standard pricing tier
+* [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 This article uses an application built from Spring Initializr. If you want to use a different application for this example, you'll need to make a simple change in a public-facing portion of the application to differentiate your staging deployment from production.
 
 > [!TIP]
 > [Azure Cloud Shell](https://shell.azure.com) is a free interactive shell that you can use to run the instructions in this article.  It has common, preinstalled Azure tools, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you're signed in to your Azure subscription, start your Cloud Shell instance. To learn more, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
 
-To set up blue-green deployment in Azure Spring Cloud, follow the instructions in the next sections.
+To set up blue-green deployment in Azure Spring Apps, follow the instructions in the next sections.
 
 ## Install the Azure CLI extension
 
-Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
+Install the Azure Spring Apps extension for the Azure CLI by using the following command:
 
 ```azurecli
 az extension add --name spring-cloud
@@ -58,7 +58,7 @@ To build the application, follow these steps:
    @RequestMapping("/")
 
      public String index() {
-         return "Greetings from Azure Spring Cloud!";
+         return "Greetings from Azure Spring Apps!";
      }
 
    }
@@ -70,16 +70,16 @@ To build the application, follow these steps:
    mvn clean package -DskipTests
    ```
 
-5. Create the app in your Azure Spring Cloud instance:
+5. Create the app in your Azure Spring Apps instance:
 
    ```azurecli
-   az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --assign-endpoint
+   az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --assign-endpoint
    ```
 
-6. Deploy the app to Azure Spring Cloud:
+6. Deploy the app to Azure Spring Apps:
 
    ```azurecli
-   az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 7. Modify the code for your staging deployment:
@@ -96,7 +96,7 @@ To build the application, follow these steps:
    @RequestMapping("/")
 
      public String index() {
-         return "Greetings from Azure Spring Cloud! THIS IS THE GREEN DEPLOYMENT";
+         return "Greetings from Azure Spring Apps! THIS IS THE GREEN DEPLOYMENT";
      }
 
    }
@@ -111,14 +111,14 @@ To build the application, follow these steps:
 9. Create the green deployment:
 
    ```azurecli
-   az spring-cloud app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring-cloud app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 ## View apps and deployments
 
 View deployed apps by using the following procedure:
 
-1. Go to your Azure Spring Cloud instance in the Azure portal.
+1. Go to your Azure Spring Apps instance in the Azure portal.
 
 1. From the left pane, open the **Apps** pane to view apps for your service instance.
 
@@ -188,4 +188,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## Next steps
 
-* [CI/CD for Azure Spring Cloud](./how-to-cicd.md?pivots=programming-language-java)
+* [CI/CD for Azure Spring Apps](./how-to-cicd.md?pivots=programming-language-java)

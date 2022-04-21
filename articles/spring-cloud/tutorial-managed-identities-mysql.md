@@ -1,6 +1,6 @@
 ---
-title:  "Tutorial: Managed identity to connect an Azure Database for MySQL to apps in Azure Spring Cloud"
-description: Set up managed identity to connect an Azure Database for MySQL to apps in Azure Spring Cloud
+title:  "Tutorial: Managed identity to connect an Azure Database for MySQL to apps in Azure Spring Apps"
+description: Set up managed identity to connect an Azure Database for MySQL to apps in Azure Spring Apps
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -9,11 +9,11 @@ ms.date: 03/30/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Tutorial: Use a managed identity to connect an Azure Database for MySQL to an app in Azure Spring Cloud
+# Tutorial: Use a managed identity to connect an Azure Database for MySQL to an app in Azure Spring Apps
 
 **This article applies to:** ✔️ Java
 
-This article shows you how to create a managed identity for an app in Azure Spring Cloud. This article also shows you how to use the managed identity to access an Azure Database for MySQL with the  MySQL password stored in Key Vault.
+This article shows you how to create a managed identity for an app in Azure Spring Apps. This article also shows you how to use the managed identity to access an Azure Database for MySQL with the  MySQL password stored in Key Vault.
 
 The following video describes how to manage secrets using Azure Key Vault.
 
@@ -71,9 +71,9 @@ az mysql db create \
     --server-name <mysqlName>
 ```
 
-## Create an app and service in Azure Spring Cloud
+## Create an app and service in Azure Spring Apps
 
-After installing the corresponding extension, create an Azure Spring Cloud instance with the Azure CLI command [az spring-cloud create](/cli/azure/spring-cloud#az-spring-cloud-create).
+After installing the corresponding extension, create an Azure Spring Apps instance with the Azure CLI command [az spring-cloud create](/cli/azure/spring-cloud#az-spring-cloud-create).
 
 ```azurecli
 az extension add --name spring-cloud
