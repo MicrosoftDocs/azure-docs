@@ -12,6 +12,9 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Use Tanzu Build Service
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
 This article describes the extra configuration and functionality included in VMware Tanzu® Build Service™ with Azure Spring Apps Enterprise Tier.

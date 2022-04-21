@@ -11,6 +11,9 @@ ms.custom: devx-track-java
 
 # How to monitor Spring Boot apps with Elastic APM Java Agent
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Apps.

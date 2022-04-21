@@ -12,6 +12,9 @@ ms.custom: devx-track-java
 
 # Expose applications to the internet with TLS Termination at Application Gateway
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 This article explains how to expose applications to the internet using Application Gateway.
 
 When an Azure Spring Apps service instance is deployed in your virtual network (VNET), applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway. The incoming encrypted traffic can be decrypted at the application gateway or it can be passed to Azure Spring Apps encrypted to achieve end-to-end TLS/SSL. For dev and test purposes, you can start with SSL termination at the application gateway, which is covered in this guide. For production, we recommend end-to-end TLS/SSL with private certificate, as described in [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).

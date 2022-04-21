@@ -11,6 +11,9 @@ zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Use distributed tracing with Azure Spring Apps (deprecated)
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 > [!NOTE]
 > Distributed Tracing is deprecated. For more information, see [Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 

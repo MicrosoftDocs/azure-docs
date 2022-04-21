@@ -11,6 +11,9 @@ ms.custom: devx-track-java
 
 # How to identify outbound public IP addresses in Azure Spring Apps
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article explains how to view static outbound public IP addresses of applications in Azure Spring Apps. Public IPs are used to communicate with external resources, such as databases, storage, and key vaults.

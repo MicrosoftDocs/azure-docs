@@ -11,6 +11,9 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Tutorial: Use a managed identity to connect an Azure Database for MySQL to an app in Azure Spring Apps
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Java
 
 This article shows you how to create a managed identity for an app in Azure Spring Apps. This article also shows you how to use the managed identity to access an Azure Database for MySQL with the  MySQL password stored in Key Vault.
