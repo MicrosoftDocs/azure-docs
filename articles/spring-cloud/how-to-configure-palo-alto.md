@@ -53,7 +53,7 @@ The rest of this article assumes you have the following two pre-configured netwo
 
 Next, create three CSV files.
 
-Name the first file *AzureSpringCloudServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Apps network requirements](./vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements) section of [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
+Name the first file *AzureSpringCloudServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Apps network requirements](./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements) section of [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,protocol,port,tag
@@ -64,7 +64,7 @@ ASC_445,tcp,445,AzureSpringCloud
 ASC_123,udp,123,AzureSpringCloud
 ```
 
-Name the second file *AzureSpringCloudUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Apps. The values in the following example are for demonstration purposes only. For up-to-date values, see [Azure Spring Apps FQDN requirements/application rules](./vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirementsapplication-rules).
+Name the second file *AzureSpringCloudUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Apps. The values in the following example are for demonstration purposes only. For up-to-date values, see [Azure Spring Apps FQDN requirements/application rules](./vnet-customer-responsibilities.md#azure-spring-apps-fqdn-requirementsapplication-rules).
 
 ```CSV
 name,description
