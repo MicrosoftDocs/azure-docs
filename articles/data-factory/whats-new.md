@@ -6,6 +6,7 @@ ms.author: xupzhou
 ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
+ms.custom: references_regions
 ms.date: 01/21/2022
 ---
 
