@@ -7,9 +7,9 @@ ms.topic: conceptual
 
 # Get subscription and tenant IDs in the Azure portal
 
-A tenant is an [Azure Active Directory (Azure AD)](../azure/active-directory/fundamentals/active-directory-whatis.md) entity that typically encompasses an organization. Tenants can have one or more subscriptions, which are agreements with Microsoft to use cloud services, including Azure. Every Azure resource is associated with a subscription.
+A tenant is an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) entity that typically encompasses an organization. Tenants can have one or more subscriptions, which are agreements with Microsoft to use cloud services, including Azure. Every Azure resource is associated with a subscription.
 
-Each subscription has an ID associated with it, as does the tenant to which a subscription belongs. As you perform different tasks in the Azure portal, you may need the ID for a subscription or tenant. You can find these values in the Azure portal.
+Each subscription has an ID associated with it, as does the tenant to which a subscription belongs. As you perform different tasks, you may need the ID for a subscription or tenant. You can find these values in the Azure portal.
 
 ## Find your Azure subscription
 
