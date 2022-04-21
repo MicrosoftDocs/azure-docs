@@ -3,15 +3,13 @@ title: include file
 description: include file
 services: batch
 documentationcenter:
-author: JnHs
-manager: evansma
-editor: ''
+author: prkannap
 ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.date: 04/20/2022
-ms.author: jenhayes
+ms.author: prkannap
 ms.custom: include file
 ---
 
