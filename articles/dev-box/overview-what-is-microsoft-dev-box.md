@@ -22,22 +22,26 @@ Several roles within an organization collaborate to successfully deploy, manage,
 
 Dev Box uses a hierarchical structure to assign permissions for management tasks at the appropriate level and provide access to resources where they are required. The key objects in this structure are as follows: 
 
-- *DevCenter* - A DevCenter is a top-level resource that serves as an organizational construct, reflecting the units of organization within an enterprise. 
-- *Dev Box Definition* - A Dev Box Definition details the configuration of the source image and VM size. DevCenter Owners can use Dev Box Definitions across Projects in a DevCenter. 
-- *Project* - A Project is a resource associated with a DevCenter. Projects serve as an organizational construct, reflecting the workgroups within an organization. 
-- *Dev Box Pool* - A Dev Box Pool is a resource associated with a Project. It consists of the configuration and network information for a given group of dev boxes.  
-- *Dev Box* - A dev box is an instance of a virtual machine configured for developer use. 
+- *DevCenter* - A DevCenter is a top-level resource that reflects the units of organization within an enterprise. 
+- *Dev box definition* - A dev box definition details the configuration of the source image and virtual machine size.  
+- *Project* - A project is a resource associated with a DevCenter. Projects reflect the workgroups within an organization. 
+- *Dev box pool* - A dev box pool is a resource associated with a project. It consists of the configuration and network information for a given group of dev boxes.  
+- *Dev box* - A dev box is an instance of a virtual machine configured for developer use. 
 
-### DevCenters and DevCenter Owners
-Dev Box uses DevCenters to align resources with the needs of business or functional units. DevCenter Owners set up the environment to support Dev Box services, by configuring network connections, security and access policies, update policies, and audit policies. In large complex enterprises, DevCenter Owners might work closely with the enterprise IT team to configure appropriate virtual networks. Once the initial configuration is done, a DevCenter Owner can define one or more DevCenters for the enterprise. DevCenter Owners create and manage DevCenters. 
+### DevCenter owner
+A DevCenter owner is responsible for creating and managing DevCenters for the organization.  As a DevCenter owner, you set up the environment to support Dev Box services by configuring network connections, security and access policies, update policies, and audit policies. In large complex enterprises you might work closely with the enterprise IT team to configure appropriate virtual networks. When the initial configuration is complete you define one or more DevCenters for the enterprise. 
 
-### Projects and Project Admins
-The DevCenter Owner creates Projects within the DevCenter and assigns permissions for a Project Admin to manage each Project. The Project Admin is usually a lead or senior developer who has a detailed understanding of the virtual machine requirements for the workloads in their project. The DevCenter Owner gathers requirements from the Project Admins to create Dev Box Definitions that are centrally managed and can be used across Projects. The Project Admins use the definitions to create pools of dev boxes.
+Next, you create projects within the DevCenter and assign permissions for a project admin to manage each project.
 
-### Dev Boxes and Dev Box Users
-Dev Box Users, who might be developers, testers, or QA professionals, select a pool in a project they have access to, and create a dev box from that pool.
+### Project admin
+A project admin manages one or more projects within a DevCenter. A project admin is usually a lead or senior developer who has a detailed understanding of the virtual machine requirements for the workloads in their project. As a project admin, you assist the DevCenter owner by gathering requirements for the dev boxes in your project. The DevCenter owner creates dev box definitions based on those requirements. 
 
-Microsoft Dev Box enables you to be productive on a project very quickly. Dev Box Users can do the following:
+To create a dev box pool, you select the definitions of dev boxes suitable for your project.
+
+### Dev box user
+A dev box user might be a developer, a tester, or a QA professional, selects a pool in a project they have access to, and creates a dev box from that pool.
+
+Microsoft Dev Box enables you to be productive on a project very quickly. As a dev box user, you can do the following:
 
 - Create and manage dev boxes.
 - Delete dev boxes when they are no longer required. 
