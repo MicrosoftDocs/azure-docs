@@ -10,7 +10,11 @@ ms.author: dacoelho
 ms.custom: has-adal-ref
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.2 (Public Preview)
+# Azure Synapse Runtime for Apache Spark 3.2 (Preview)
+
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark 3.2 is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2. 
 

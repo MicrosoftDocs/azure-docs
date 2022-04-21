@@ -19,6 +19,10 @@ When you create a serverless Apache Spark pool, you will have the option to sele
 - Tested compatibility with specific Apache Spark versions
 - Access to popular, compatible connectors and open-source packages
 
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark 3.2 is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 > [!NOTE]
 > - Maintenance updates will be automatically applied to new sessions for a given serverless Apache Spark pool. 
 > - You should test and validate that your applications run properly when using new runtime versions.
@@ -48,7 +52,7 @@ The following table lists the runtime name, Apache Spark version, and release da
 | ----- | ----- | ----- |
 | [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | GA|
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | GA |
-| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | April 20, 2022 | Public Preview |
+| [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | April 20, 2022 | Preview |
 
 ## Runtime release stages
 
