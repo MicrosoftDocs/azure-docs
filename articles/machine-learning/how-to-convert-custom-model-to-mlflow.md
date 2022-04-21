@@ -14,20 +14,21 @@ ms.custom: devx-track-python, mlflow
 
 # Convert custom ML models to MLflow formatted models
 
-In this article, learn how to convert your custom ML model into MLflow format. [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. 
+In this article, learn how to convert your custom ML model into MLflow format. [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. In some cases, you might use a machine learning framework without its built-in MLflow model flavor support. Due to this lack of built-in MLflow model flavor, you cannot log or register the model with MLflow model fluent APIs. To resolve this, you can convert your model to an MLflow format where you can leverage the following benefits of Azure Machine Learning and MLflow models.
 
 With Azure Machine Learning, MLflow models get the added benefits of, 
 
-* no code deployment
-* easy of use
-* Automatic tracking
+* No code deployment
+* Portability as an open source standard format
+* Ability to deploy both locally and on cloud
 
-MLflow provides convenient functions for creating models with the `pyfunc` flavor in a variety of machine learning frameworks (scikit-learn, Keras, Pytorch, and more); however, they do not cover every use case. For example, you may want to create an MLflow model with the `pyfunc` flavor with a framework that MLflow does not natively support or you may want to change a pre-trained model trained out of MLFlow into an MLFlow formatted model.
+MLflow provides support for a variety of machine learning frameworks (scikit-learn, Keras, Pytorch, and more); however, it might not cover every use case. For example, you may want to create an MLflow model with a framework that MLflow does not natively support or you may want to change the way your model does pre-processing or post-processing when running jobs.
 
 If you didn't train your model with MLFlow and want to use Azure Machine Learning's MLflow no-code deployment offering, you need to convert your custom model to MLFLow. Learn more about [custom python models and MLflow](https://mlflow.org/docs/latest/models.html#custom-python-models).
 
 ## Prerequisites
-
+ 
+Only the mlflow package installed is needed to convert your custom models to an MLflow format. 
 
 ## Create a Python wrapper for your model
 
@@ -70,7 +71,7 @@ class SKLearnWrapper(mlflow.pyfunc.PythonModel):
 
 ## Create a Conda environment 
 
-Next, you need to create Conda environment for the new MLflow Model that contains all necessary dependencies. 
+Next, you need to create Conda environment for the new MLflow Model that contains all necessary dependencies. If not indicated, the environment is inferred from the current installation. If not, it can be specified.
 
 ```python
 
@@ -92,17 +93,15 @@ conda_env = {
 }
 ```
 
-### Save the MLflow model to disk
+## Load the MLFlow formatted model and test predictions
 
-Once your environment is ready, you can pass the SKlearnWrapper, the conda environment and your newly created artifacts dictionary to the mlflow.pyfunc.save_model() method. Doing so saves the model to your disk.
+Once your environment is ready, you can pass the SKlearnWrapper, the Conda environment, and your newly created artifacts dictionary to the mlflow.pyfunc.save_model() method. Doing so saves the model to your disk.
 
 ```python
 mlflow_pyfunc_model_path = "sklearn_mlflow_pyfunc7"
 mlflow.pyfunc.save_model(path=mlflow_pyfunc_model_path, python_model=SKLearnWrapper(), conda_env=conda_env, artifacts=artifacts)
 
 ```
-
-## Load the MLFlow formatted model and test predictions
 
 To ensure your newly saved MLflow formatted model didn't change during the save, you can load your model and print out a test prediction to compare your original model.
 
@@ -128,9 +127,17 @@ print(result)
 Once you've confirmed that your model saved correctly, you can create a test run, so you can register and save your MLflow formatted model to your model registry.
 
 ```python
-mlflow.pyfunc.log_model(artifact_path=mlflow_pyfunc_model_path, loader_module=None, data_path=None, code_path=None,
-                              python_model=SKLearnWrapper(),
-                              registered_model_name="Custom_mlflow_model", conda_env=conda_env, artifacts=artifacts)
+
+mlflow.start_run()
+
+mlflow.pyfunc.log_model(artifact_path=mlflow_pyfunc_model_path, 
+                        loader_module=None, 
+                        data_path=None, 
+                        code_path=None,
+                        python_model=SKLearnWrapper(),
+                        registered_model_name="Custom_mlflow_model", 
+                        conda_env=conda_env,
+                        artifacts=artifacts)
  mlflow.end_run()
 ```
 
