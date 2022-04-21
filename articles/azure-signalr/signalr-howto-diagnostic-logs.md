@@ -45,7 +45,7 @@ Resource logs are disabled by default. To enable resource logs, follow these ste
    1. Set the archive target that you want. Currently, SignalR service supports **Archive to a storage account** and **Send to Log Analytics**.
    1. Select the logs you want to archive. Only `AllLogs` is available for resource log. It only controls whether you want to archive the logs. To configure which log types need to be generated in SignalR service, configure in **Log Source Settings** section.
     ![Diagnostics settings pane](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
-   1. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs will be sent to configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
+   2. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs will be sent to configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview).
 
 ### Resource logs categories
 
@@ -189,7 +189,7 @@ Application server closed the connection | App server triggers the abortion. It 
 Connection ping timeout | Usually it's caused by network issue. Consider checking your app server's availability from the internet
 Service reloading, please reconnect | Azure SignalR Service is reloading. Azure SignalR support auto-reconnecting, you can wait until reconnected or manually reconnect to Azure SignalR Service
 Internal server transient error | Transient error occurs in Azure SignalR Service, should be auto-recovered
-Server connection dropped | Server connection drops with unknown error, consider self-troubleshooting with service/server/client side log first. Try to exclude basic issues (e.g Network issue, app server side issue, etc.). If the issue isn't resolved, contact us for further help. For more information, see [Get help](get-help) section.
+Server connection dropped | Server connection drops with unknown error, consider self-troubleshooting with service/server/client side log first. Try to exclude basic issues (e.g Network issue, app server side issue, etc.). If the issue isn't resolved, contact us for further help. For more information, see [Get help](#get-help) section.
 
 ###### Unexpected connection growing
 
@@ -205,11 +205,11 @@ If you find that you can't establish SignalR client connections to Azure SignalR
 
 #### Message related issues
 
-When encountering message related problem, you can take advantage of messaging logs to troubleshoot. Firstly, [enable resource logs](#enable-diagnostic-logs) in service, logs for server and client.
+When encountering message related problem, you can take advantage of messaging logs to troubleshoot. Firstly, [enable resource logs](#enable-resource-logs) in service, logs for server and client.
 
 > For ASP.NET Core, see [here](https://docs.microsoft.com/aspnet/core/signalr/diagnostics) to enable logging in server and client.
-> 
-> For ASP.NET, see [here](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing) to enable logging in server and client.  
+>
+> For ASP.NET, see [here](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing) to enable logging in server and client.
 
 If you don't mind potential performance impact and no client-to-server direction message, check the `Messaging` in `Log Source Settings/Types` to enable *collect-all* log collecting behavior. For more information about this behavior, see [collect all section](#collect-all).
 
