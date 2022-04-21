@@ -21,7 +21,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ## Prerequisites
 
-!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)
+!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 - If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
 

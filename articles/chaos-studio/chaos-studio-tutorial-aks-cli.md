@@ -19,7 +19,7 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An AKS cluster with Linux node pools. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+- An AKS cluster with Linux node pools. If you do not have an AKS cluster, see the AKS quickstart [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
 
 > [!WARNING]
 > AKS Chaos Mesh faults are only supported on Linux node pools.

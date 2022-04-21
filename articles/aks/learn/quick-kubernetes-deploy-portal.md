@@ -78,7 +78,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 1. Open Cloud Shell using the `>_` button on the top of the Azure portal.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/ks-cloud-shell.png" alt-text="Open the Azure Cloud Shell in the portal":::
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png" alt-text="Open the Azure Cloud Shell in the portal":::
 
     > [!NOTE]
     > To perform these operations in a local shell installation:
