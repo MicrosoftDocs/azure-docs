@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/07/2022
+ms.date: 04/21/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -25,13 +25,13 @@ CRS 3.2 offers a new engine and new rule sets defending against Java infections,
 
 The WAF protects against the following web vulnerabilities:
 
-- SQL-injection attacks
-- Cross-site scripting attacks
-- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
-- HTTP protocol violations
-- HTTP protocol anomalies, such as missing host user-agent and accept headers
-- Bots, crawlers, and scanners
-- Common application misconfigurations (for example, Apache and IIS)
+- SQL-injection attacks
+- Cross-site scripting attacks
+- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
+- HTTP protocol violations
+- HTTP protocol anomalies, such as missing host user-agent and accept headers
+- Bots, crawlers, and scanners
+- Common application misconfigurations (for example, Apache and IIS)
 
 ### OWASP CRS 3.2
 
