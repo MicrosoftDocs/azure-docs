@@ -27,6 +27,7 @@ Azure Machine Learning environments define the execution environments for your j
 
 In this article, learn how to create and manage Azure ML environments using the CLI (v2).
 
+
 ## Prerequisites
 
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.

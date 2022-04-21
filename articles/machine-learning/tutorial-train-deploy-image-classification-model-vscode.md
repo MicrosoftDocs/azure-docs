@@ -33,7 +33,7 @@ In this tutorial, you learn the following tasks:
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/). If you're using the free subscription, only CPU clusters are supported.
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
 - Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
-- CLI (v2) (preview). For installation instructions, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md)
+- CLI (v2). For installation instructions, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md)
 -  Clone the community driven repository
     ```bash
         git clone https://github.com/Azure/azureml-examples.git

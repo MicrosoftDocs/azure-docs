@@ -55,7 +55,7 @@ Learn more about [Batch account - OldPool (Recreate your pool to get the latest 
 
 Your pool is using a deprecated internal component. Please delete and recreate your pool for improved stability and performance.
 
-Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](/azure/batch/best-practices#pool-lifetime-and-billing).
+Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](/azure/batch/best-practices#pool-lifetime-and-billing)
 
 ### Upgrade to the latest API version to ensure your Batch account remains operational.
 
