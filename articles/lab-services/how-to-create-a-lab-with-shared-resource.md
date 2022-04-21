@@ -33,7 +33,7 @@ The diagram also shows a network security group (NSG) which can be used to restr
 
 If your shared resource is an Azure virtual machine running necessary software, you might have to modify the default firewall rules for the virtual machine.
 
-## Lab Plan
+## Lab plan
 
 To use a shared resource, the lab plan must be set up to use advanced networking. For more information, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md). In this case, Lab Services will inject lab VM networking resources into the virtual network that holds the shared resource.  
 
@@ -55,6 +55,6 @@ One of the most common shared resources is a license server.  The following list
     - [Setting up a Network Security Group to restrict access.](../virtual-network/network-security-groups-overview.md)
     - [Setup Bastion to allow secure access to the server.](https://azure.microsoft.com/services/azure-bastion/)
 
-## Next Steps
+## Next steps
 
 As an administrator, [create a lab plan with advanced networking](how-to-connect-vnet-injection.md).

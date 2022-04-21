@@ -61,6 +61,6 @@ To use a shared resource, the lab account must be set up to use a [peered virtua
 
 When your lab plan/lab account is set to use advanced networking, the template machine should now have access to the shared resource.  You might have to update the firewall rules, depending on the shared resource being accessed.
 
-## Next Steps
+## Next steps
 
 As an administrator, [configure virtual network peering on your lab account](how-to-connect-peer-virtual-network.md).
