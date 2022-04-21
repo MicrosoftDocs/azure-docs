@@ -1,6 +1,6 @@
 ---
-title: Protect SPA backend in Azure API Management with Active Directory B2C
-description: Protect an API with OAuth 2.0 by using Azure Active Directory B2C, Azure API Management and Easy Auth to be called from a JavaScript SPA using the PKCE enabled SPA Auth Flow.
+title: Protect APIs in Azure API Management with Active Directory B2C
+description: Protect a serverless API with OAuth 2.0 by using Azure Active Directory B2C, Azure API Management, and Easy Auth to be called from a JavaScript SPA using the PKCE enabled SPA Auth Flow.
 
 services: api-management, azure-ad-b2c, app-service
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 ---
 
-# Protect SPA backend with OAuth 2.0, Azure Active Directory B2C and Azure API Management
+# Protect serverless APIs with Azure API Management and Azure AD B2C for consumption from a SPA
 
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.

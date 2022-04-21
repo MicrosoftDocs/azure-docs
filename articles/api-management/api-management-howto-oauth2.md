@@ -57,6 +57,97 @@ When configuring OAuth 2.0 user authorization in the test console of the develop
   Depending on your scenarios, you may configure more or less restrictive token scopes for other client applications that you create to access backend APIs.
 * **Take extra care if you enable the Client Credentials flow**. The test console in the developer portal, when working with the Client Credentials flow, doesn't ask for credentials. An access token could be inadvertently exposed to developers or anonymous users of the developer console. 
 
+## Register applications with the OAuth server
+
+You'll need to register two applications with your OAuth 2.0provider: one to represent the backend API to be protected, and a second to represent the client application that calls the API - in this case, the developer portal.
+
+The following are example steps using Azure AD as the OAuth provider.
+
+### 1. Register an application in Azure AD to represent the API
+
+Using the Azure portal, protect an API with Azure AD by registering an application that represents the API in Azure AD. 
+
+For details about app registration, see [Quickstart: Configure an application to expose a web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
+
+1. Select **New registration**. 
+
+1. When the **Register an application page** appears, enter your application's registration information:
+
+   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *backend-app*. 
+   - In the **Supported account types** section, select an option that suits your scenario. 
+
+1. Leave the [**Redirect URI**](../active-directory/develop/reply-url.md) section empty.
+
+1. Select **Register** to create the application. 
+
+1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
+
+1. Under the **Manage** section of the side menu, select **Expose an API** and set the **Application ID URI** with the default value. Record this value for later.
+
+1. Select the **Add a scope** button to display the **Add a scope** page:
+    1. Enter a new **Scope name**, **Admin consent display name**, and **Admin consent description**.
+    1. Make sure the **Enabled** scope state is selected.
+
+1. Select the **Add scope** button to create the scope. 
+
+1. Repeat steps 8 and 9 to add all scopes supported by your API.
+
+1. Once the scopes are created, make a note of them for use in a subsequent step. 
+
+### 2. Register another application in Azure AD to represent a client application
+
+Register every client application that calls the API as an application in Azure AD. In this example, the client application is the **thst console** in the API Management developer portal. 
+
+To register another application in Azure AD to represent the client application:
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
+
+1. Select **New registration**.
+
+1. When the **Register an application page** appears, enter your application's registration information:
+
+   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *client-app*. 
+   - In the **Supported account types** section, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
+
+1. In the **Redirect URI** section, select `Web` and leave the URL field empty for now.
+
+1. Select **Register** to create the application. 
+
+1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
+
+1. Create a client secret for this application to use in a subsequent step.
+
+   1. Under the **Manage** section of the side menu, select **Certificates & secrets**.
+   1. Under **Client secrets**, select **New client secret**.
+   1. Under **Add a client secret**, provide a **Description** and choose when the key should expire.
+   1. Select **Add**.
+
+When the secret is created, note the key value for use in a subsequent step. 
+
+### 3. Grant permissions in Azure AD
+
+Now that you have registered two applications to represent the API and the test console, grant permissions to allow the client-app to call the backend-app.  
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
+
+1. Choose your client app. Then in the list of pages for the app, select **API permissions**.
+
+1. Select **Add a Permission**.
+
+1. Under **Select an API**, select **My APIs**, and then find and select your backend-app.
+
+1. Select **Delegated Permissions**, then select the appropriate permissions to your backend-app.
+
+1. Select **Add permissions**.
+
+Optionally:
+1. Navigate to your client app's **API permissions** page.
+
+1. Select **Grant admin consent for \<your-tenant-name>** to grant consent on behalf of all users in this directory. 
+
+
 ## Configure an OAuth 2.0 authorization server in API Management
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
@@ -74,7 +165,7 @@ When configuring OAuth 2.0 user authorization in the test console of the develop
 
 1. Enter the **Client registration page URL** - for example, `https://contoso.com/login`. This page is where users can create and manage their accounts, if your OAuth 2.0 provider supports user management of accounts. The page varies depending on the OAuth 2.0 provider used. 
 
-   If your OAuth 2.0 provider does not have user management of accounts configured, enter a placeholder URL here such as the URL of your company, or a URL such as `https://placeholder.contoso.com`.
+   If your OAuth 2.0 provider does not have user management of accounts configured, enter a placeholder URL here such as the URL of your company, or a URL such as `http://localhost`.
 
     :::image type="content" source="media/api-management-howto-oauth2/oauth-02.png" alt-text="OAuth 2.0 new server":::
 
