@@ -36,7 +36,7 @@ For more information on how managed identities work in Azure HDInsight, see [Man
 
 ## Create a storage account to use with Data Lake Storage Gen2
 
-Create an storage account to use with Azure Data Lake Storage Gen2.
+Create a storage account to use with Azure Data Lake Storage Gen2.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the upper-left click **Create a resource**.

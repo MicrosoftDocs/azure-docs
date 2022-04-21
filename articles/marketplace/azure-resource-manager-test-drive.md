@@ -195,7 +195,7 @@ restrictions in [this article](/azure/cloud-adoption-framework/ready/azure-best-
 
 ### Deployment Location
 
-You can make you test drive available in different Azure regions.
+You can make your test drive available in different Azure regions.
 
 When test drive creates an instance of the Lab, it always creates a resource group in one of the selected regions, and then executes your deployment template in this group context. So, your template should pick the deployment location from resource group:
 
@@ -333,7 +333,7 @@ The final section to complete is to be able to deploy the test drives automatica
 
       1. On the **Members** tab, select **User, group, or service principal**, and then choose **Select members**.
 
-      1. Select the the **Microsoft TestDrive** service principal that you created previously.
+      1. Select the **Microsoft TestDrive** service principal that you created previously.
 
       1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
