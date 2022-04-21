@@ -50,7 +50,7 @@ For more information about how to encode and decode messages sent using differen
 
 To use your message body in an IoT Hub routing query you must provide a valid JSON object for the message and set the content type property of the message to `application/json;charset=utf-8`.
 
-A valid, routablem message body may look like the following:
+A valid, routable message body may look like the following:
 
 ```json
 {
