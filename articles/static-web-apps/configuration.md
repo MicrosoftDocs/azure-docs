@@ -440,15 +440,15 @@ For example, the following configuration shows how you can add a unique identifi
 - Keys are case insensitive
 - Values are case-sensitive
 
-## Trailing slashes
+## Trailing slash
 
-A trailing slash is the `/` at the end of a URL. Conventionally, a non-trailing slash URL - `www.example.com/about` - indicates a file and the presence of a trailing slash - `www.example.com/about/` -  signals a directory. Search engines treat the two URLs separately, regardless of wether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content which can negatively impact search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
+A trailing slash is the `/` at the end of a URL. Conventionally, a non-trailing slash URL - `www.example.com/about` - indicates a file and the presence of a trailing slash - `www.example.com/about/` -  signals a directory. Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content which can negatively impact search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
 
 The following normalization and redirect rules will apply for each of the available configurations:
 
 ### Always 
 
-When setting trailingSlash to `always`, all requests that don't include a trailing slash will be redirected to a trailing slash URL. For example, `/contact` will be redirected to `/contact/`.
+When setting `trailingSlash` to `always`, all requests that don't include a trailing slash will be redirected to a trailing slash URL. For example, `/contact` will be redirected to `/contact/`.
 
 ```json
 "trailingSlash": "always"
@@ -465,7 +465,7 @@ When setting trailingSlash to `always`, all requests that don't include a traili
 
 ### Never
 
-When setting trailingSlash to `never`, all requests ending in a trailing slash will be redirected to a non-trailing slash URL. For example, `/contact/` will be redirected to `/contact`.
+When setting `trailingSlash` to `never`, all requests ending in a trailing slash will be redirected to a non-trailing slash URL. For example, `/contact/` will be redirected to `/contact`.
 
 ```json
 "trailingSlash": "never"
@@ -482,7 +482,7 @@ When setting trailingSlash to `never`, all requests ending in a trailing slash w
 
 ### Auto
 
-When setting trailingSlash to `auto`, all requests to folders will be redirected to a URL with a trailing slash. All requests to files will be redirected to a non-trailing slash URL.
+When setting `trailingSlash` to `auto`, all requests to folders will be redirected to a URL with a trailing slash. All requests to files will be redirected to a non-trailing slash URL.
 
 ```json
 "trailingSlash": "auto"
@@ -497,9 +497,9 @@ When setting trailingSlash to `auto`, all requests to folders will be redirected
 | _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
 | _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
 
-For optimal website performance, it is recommended to configure a trailing slash strategy using one of the `always`, `none` or `auto` modes.
+For optimal website performance, it is recommended to configure a trailing slash strategy using one of the `always`, `never` or `auto` modes.
 
-By default, when the trailingSlash configuration is omitted, Azure Static Web Apps will apply the following rules: 
+By default, when the `trailingSlash` configuration is omitted, Static Web Apps will apply the following rules: 
 
 | Requests to... | returns... | with the status... | and path... |
 |--|--|--|--|
