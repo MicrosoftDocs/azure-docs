@@ -44,11 +44,14 @@ Dapr's portable building blocks are built on best practice industry standards, t
 
 | # | Core concepts 
 | - | ------------- 
-| 1 | Container App environment | 
+| 1 | [Container App environment](#container-app-environment) | 
 | 2 | [Container App with Dapr enabled]() | 
-| 3 | Dapr sidecar | 
+| 3 | [Dapr sidecar](#dapr-sidecar) | 
 | 4 | [Dapr component scoped to each Container App](#dapr-components) | 
-| 5 | External Azure service integrated with your Container App | 
+| 5 | [External Azure service integrated with your Container App](#external-azure-service-integrated-with-your-container-app) | 
+
+
+#### Container App environment
 
 #### Container App with Dapr enabled
 
@@ -330,6 +333,10 @@ By default, every Container App will load the Dapr component. Limit which Contai
 
 Scope the Dapr component to particular Container Apps by adding the `scopes` property and providing the necessary app ids. 
 
+
+#### Dapr sidecar
+
+#### External Azure service integrated with your Container App
 
 ### Current supported Dapr version
 
