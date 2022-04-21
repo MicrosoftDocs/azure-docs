@@ -34,8 +34,6 @@ landingContent:
         links:
            - text: Language support
              url: language-support.md
-           - text: Data privacy, compliance, and security
-             url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
            - text: Help and support
              url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
       - linkListType: concept
