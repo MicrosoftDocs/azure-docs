@@ -150,6 +150,7 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 
 * **Important**
   * Use tags to manage versions
+  * Manage Volumes
 * **Helpful**
   * Store runtime containers in your private registry
 
@@ -166,6 +167,9 @@ The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version 
 * **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there's a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
 
 * **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
+
+### Manage Volumes
+When Edgelet removes modules, it does it by calling the Docker API and passing in a flag to ensure the container volumes are not removed. This behavior not to remove the volumes is by design as the purpose of using the volumes is to persist the data across container instances. However, these unused volumes may lead to exhausting the disk space and system failures. Docker offers various tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to manage your unused volumes. We highly recommend that you leverage these tools to clean up your system and avoid from potential disk exhaustion and system failures. 
 
 ### Store runtime containers in your private registry
 
