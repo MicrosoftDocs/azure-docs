@@ -139,7 +139,7 @@ Use the following platform-specific command steps to configure the **root CA cer
     **IoT Edge for Linux on Windows (EFLOW):**
 
     ```bash
-    sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.pem.crt
+    sudo cp <path>/<root ca certificate>.pem /etc/pki/ca-trust/source/anchors/<root ca certificate>.crt
     ```
     
 01. Update the certificate store on each device.
