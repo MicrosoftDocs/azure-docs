@@ -91,7 +91,7 @@ async function deleteContainersWithPrefix(blobServiceClient, prefix){
 
 When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container by calling.
 
-- BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-undeletecontainer)
+- BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-undeletecontainer)
 
 The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the [undeleteContainer]() method to restore the container.
 

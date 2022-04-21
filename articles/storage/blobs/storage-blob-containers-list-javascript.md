@@ -21,13 +21,13 @@ When you list the containers in an Azure Storage account from your code, you can
 
 To list containers in your storage account, call the following method:
 
-- BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-listcontainers)
+- BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers)
 
 ### List containers with optional prefix
 
 By default, a listing operation returns up to 5000 results at a time. 
 
-The BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest#@azure-storage-blob-blobserviceclient-listcontainers) returns a list of [ContainerItem](/javascript/api/@azure/storage-blob/containeritem?view=azure-node-latest) objects. Use the containerItem.name to create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest) in order to get a more complete [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties?view=azure-node-latest) object.
+The BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers) returns a list of [ContainerItem](/javascript/api/@azure/storage-blob/containeritem) objects. Use the containerItem.name to create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) in order to get a more complete [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties) object.
 
 ```javascript
 async function listContainers(blobServiceClient, containerNamePrefix){

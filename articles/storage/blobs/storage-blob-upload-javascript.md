@@ -18,12 +18,12 @@ ms.custom: "devx-track-js"
 You can upload a blob, open a blob stream and write to that, or upload large blobs in blocks.
 
 > [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient?view=azure-node-latest) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
+> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
 
 
 ## Upload by using a file path
 
-The following example uploads a local file to blob storage with the[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object.The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions?view=azure-node-latest) allow you to pass in your own metadata and [tags](storage-manage-find-blobs.md##blob-index-tags-and-data-management), used for indexing, at upload time:
+The following example uploads a local file to blob storage with the[BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object.The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) allow you to pass in your own metadata and [tags](storage-manage-find-blobs.md#blob-index-tags-and-data-management), used for indexing, at upload time:
 
 ```javascript
 // containerName: string
@@ -47,7 +47,7 @@ async function createBlobFromLocalPath(containerClient, blobName, localFileWithP
 
 ## Upload by using a Stream
 
-The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions?view=azure-node-latest) to affect the upload:
+The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions) to affect the upload:
 
 ```javascript
 // containerName: string
@@ -90,7 +90,7 @@ async function createBlobFromLocalPath(containerClient, blobName, readableStream
 
 ## Upload by using a BinaryData object
 
-The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions?view=azure-node-latest) to affect the upload:
+The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 
 ```javascript
 // containerName: string
@@ -126,7 +126,7 @@ async function createBlobFromBuffer(containerClient, blobName, buffer, uploadOpt
 
 ## Upload a string
 
-The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadOptions [options](/javascript/api/@azure/storage-blob/blockblobuploadoptions?view=azure-node-latest) to affect the upload:
+The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadOptions [options](/javascript/api/@azure/storage-blob/blockblobuploadoptions) to affect the upload:
 
 ```javascript
 // containerName: string

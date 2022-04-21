@@ -590,8 +590,6 @@ items:
             items:
             - name: Upload blobs
               href: storage-blob-upload.md
-            - name: Append to blobs
-              href: storage-blob-append.md
             - name: Download blobs
               href: storage-blob-download.md
             - name: Copy blobs
@@ -604,8 +602,6 @@ items:
               href: storage-blob-tags.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata.md
-            - name: Create and manage leases
-              href: storage-blob-container-lease.md
         - name: JavaScript
           items:
           - name: Get started

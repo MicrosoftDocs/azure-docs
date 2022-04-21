@@ -21,7 +21,7 @@ Blob containers support system properties and user-defined metadata, in addition
 
 | Type|Description|
 |--|--|
-|[System properties](/javascript/api/@azure/storage-blob/containerproperties?view=azure-node-latest#@azure-storage-blob-containerproperties-lastmodified)|System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you. <br><br>Examples:<br>* lastModified<br>* leaseStatus|
+|[System properties](/javascript/api/@azure/storage-blob/containerproperties#@azure-storage-blob-containerproperties-lastmodified)|System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you. <br><br>Examples:<br>* lastModified<br>* leaseStatus|
 |**User-defined metadata**|User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.<br><br>Examples:<br>`project`:`metrics-reporting`<br>`manager`:`johnh`|
 
 Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
@@ -30,7 +30,7 @@ Metadata name/value pairs are valid HTTP headers, and so should adhere to all re
 
 To retrieve container properties, use:
 
-- [ContainerClient.getProperties()](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-getproperties) which returns [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties?view=azure-node-latest)
+- [ContainerClient.getProperties()](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties) which returns [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties)
 
 The following code example fetches a container's properties and writes the property values to a console window:
 
@@ -48,7 +48,7 @@ async function getContainerProperties(containerClient) {
 
 You can specify metadata as one or more name-value pairs container resource. To set metadata, use:
 
-- [ContainerClient.setMetadata](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-setmetadata)
+- [ContainerClient.setMetadata](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-setmetadata)
 
 The name of your metadata must conform to the naming conventions for JavaScript identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage comma-separates and concatenates the two values and return HTTP response code 200 (OK).
 
@@ -75,7 +75,7 @@ async function setMetadataOfContainer(containerClient) {
 
 To retrieve metadata, use:
 
-- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-latest#@azure-storage-blob-containerclient-getproperties) which returns metadata inside the ContainerProperties object.
+- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties) which returns metadata inside the ContainerProperties object.
 
 > [!WARNING]
 > The metadata object returned in the response will have its keys in lowercase, even if they originally contained uppercase characters. This differs from the metadata keys returned by the listContainers method of BlobServiceClient using the includeMetadata option, which will retain their original casing.

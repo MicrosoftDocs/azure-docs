@@ -263,8 +263,6 @@ The following guides show you how to use each of these clients to build your app
 | [Delete and restore containers](storage-blob-container-delete-javascript.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
 | [List containers](storage-blob-containers-list-javascript.md) | List containers in an account and the various options available to customize a listing. |
 | [Manage properties and metadata](storage-blob-container-properties-metadata-javascript.md) | Get and set properties and metadata for containers. |
-| [Create and manage leases](storage-blob-container-lease-javascript.md) | Establish and manage a lock on a container or the blobs in a container. |
-| [Append data to blobs](storage-blob-append-javascript.md) | Learn how to create an append blob and then append data to that blob. |
 | [Upload blobs](storage-blob-upload-javascript.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
 | [Download blobs](storage-blob-download-javascript.md) | Download blobs by using strings, streams, and file paths. |
 | [Copy blobs](storage-blob-copy-javascript.md) | Copy a blob from one account to another account. |
