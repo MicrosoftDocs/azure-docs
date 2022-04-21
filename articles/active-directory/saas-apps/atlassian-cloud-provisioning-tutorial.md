@@ -158,6 +158,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Change log
 
 * 06/15/2020 - Added support for batch PATCH for groups.
+* 04/21/2021 - Added support for **Schema Discovery**.
 
 ## Additional resources
 
