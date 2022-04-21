@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/12/2022
+ms.date: 04/21/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -114,17 +114,7 @@ $wafPolicy | Set-AzApplicationGatewayFirewallPolicy
 
 # [Azure CLI](#tab/cli)
 
-> [!NOTE]
-> Currently, there's a known issue with configuring per-rule exclusions by using the Azure CLI. You need to create a global exclusion before you can create a rule group exclusion.
-
 ```azurecli
-az network application-gateway waf-policy managed-rule exclusion add \
-  --resource-group $resourceGroupName \
-  --policy-name $wafPolicyName \
-  --match-variable 'RequestHeaderValues' \
-  --match-operator 'Equals'\
-  --selector 'User-Agent'
-
 az network application-gateway waf-policy managed-rule exclusion rule-set add \
   --resource-group $resourceGroupName \
   --policy-name $wafPolicyName \
