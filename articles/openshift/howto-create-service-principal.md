@@ -12,7 +12,7 @@ keywords: azure, openshift, aro, red hat, azure CLI, azure portal
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ---
 
-# Create and use a service principal with an Azure Red Hat OpenShift cluster 
+# Create and use a service principal with an Azure Red Hat OpenShift cluster  
 
 To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires an Azure Active Directory (AD) service principal. This service principal is used to dynamically create and manage other Azure resources, such as an Azure load balancer or an Azure Container Registry (ACR). For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -40,7 +40,7 @@ az role assignment create \
 
 If you don't have the required permissions, you can ask your Azure AD or subscription administrator to assign them. Alternatively, your Azure AD or subscription administrator can create a service principal in advance for you to use with the Azure Red Hat OpenShift cluster. 
 
-If you're using a service principal from a different Azure AD tenant, there are additional considerations regarding the permissions available when you deploy the cluster. For example, you may not have the appropriate permissions to read and write directory information. 
+If you're using a service principal from a different Azure AD tenant, there are more considerations regarding the permissions available when you deploy the cluster. For example, you may not have the appropriate permissions to read and write directory information. 
 
 For more information on user roles and permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
