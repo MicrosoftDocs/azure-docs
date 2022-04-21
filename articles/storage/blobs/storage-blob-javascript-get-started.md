@@ -167,11 +167,8 @@ To generate and manage SAS tokens, see any of these articles:
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 
-- [Create an account SAS with JavaScript](../common/storage-account-sas-create-javascript.md)
-
 - [Create a service SAS for a container or blob](sas-service-create.md)
 
-- [Create a user delegation SAS for a container, directory, or blob with JavaScript](storage-blob-user-delegation-sas-create-javascript.md)
 
 ## Object authorization with Azure AD
 
