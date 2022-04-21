@@ -179,5 +179,5 @@ If the `PROPERTIES` property for the resource type is `configurationassignments`
 
 
 ## Next steps
-For details of sample queries, see [Sample query logs](sample-query-logs.md).
-To troubleshoot issues, see [Troubleshoot](troubleshoot.md) update management center (preview).
+- For details of sample queries, see [Sample query logs](sample-query-logs.md).
+- To troubleshoot issues, see [Troubleshoot](troubleshoot.md) update management center (preview).
