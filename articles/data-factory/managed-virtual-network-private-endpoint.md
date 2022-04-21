@@ -146,7 +146,7 @@ The following data sources and services have native private endpoint support and
 - Azure Key Vault
 - Azure Machine Learning
 - Azure Private Link Service
-- Azure Purview
+- Microsoft Purview
 - Azure SQL Database 
 - Azure SQL Managed Instance - (public preview)
 - Azure Synapse Analytics

@@ -119,7 +119,7 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
     ```azurecli-interactive
     az snapshot list \
        -g myResourceGroup \
-       - table
+       -o table
     ```
 
 ---
