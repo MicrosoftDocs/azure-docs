@@ -32,12 +32,19 @@ IOT/telemetry, finance, logistics, and search.
 > [!div class="nextstepaction"]
 > [Try the quickstart >](quickstart-create-portal.md)
 
-## Resilient managed service
+## Fully managed, resilient database
 
 As Hyperscale (Citus) is a fully managed service, it has all the features for
-worry-free operation in production. Features include automatic high
-availability, backups, built-in pgBouncer, read-replicas, easy monitoring,
-private endpoints, and encryption.
+worry-free operation in production. Features include:
+
+* automatic high availability
+* backups
+* built-in pgBouncer
+* read-replicas
+* easy monitoring
+* private endpoints
+* encryption
+* and more
 
 ## Always the latest PostgreSQL features
 
