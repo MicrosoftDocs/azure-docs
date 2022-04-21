@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/29/2021
+ms.date: 04/21/2021
 ms.author: anfdocs
 ---
 # Manage disaster recovery using cross-region replication 
