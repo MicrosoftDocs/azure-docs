@@ -90,10 +90,13 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-  - name: Bulk import data into the FHIR service
-    href: bulk-importing-fhir-data.md 
-  - name: Convert data
-    href: convert-data.md
+  - name: Bulk-import data
+    expanded: true
+    items:
+    - name: Configure bulk-import settings 
+      href: configure-import-data.md
+    - name: Use bulk-import
+      href: import-data.md   
   - name: Copy data to Synapse
     href: copy-to-synapse.md
 - name: Concepts

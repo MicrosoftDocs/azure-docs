@@ -57,7 +57,7 @@ Expired (30 days) | Data accessible to all| Users have normal access to Microsof
 Disabled (30 days) | Data accessible to admin only | Users can’t access Microsoft 365 files, or apps<br>Admins can access the Microsoft 365 admin center but can’t assign licenses to or update users
 Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | Users can’t access Microsoft 365 files, or apps<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions
 
-## Delete a subscription
+## Delete a Office/Microsoft 365 subscription
 
 You can put a subscription into the **Deprovisioned** state to be deleted in three days using the Microsoft 365 admin center.
 
@@ -88,6 +88,16 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 1. Once you have deleted a subscription in your organization and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
   
    ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
+   
+## Delete an Azure subscription
+
+If you have an Active or Cancelled Azure Subscription associated to your Azure AD Tenant then you would not be able to delete Azure AD Tenant. After you cancel, billing is stopped immediately. However, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. 
+
+- If you have a free trial or pay-as-you-go subscription, you don't have to wait 90 days for the subscription to automatically delete. You can delete your subscription three days after you cancel it. The Delete subscription option isn't available until three days after you cancel your subscription. For more details please read through [Delete free trial or pay-as-you-go subscriptions](../../cost-management-billing/manage/cancel-azure-subscription.md#delete-free-trial-or-pay-as-you-go-subscriptions).
+- All other subscription types are deleted only through the [subscription cancellation](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask to have the subscription deleted immediately.
+- Alternatively, you can also move/transfer the Azure subscription to another Azure AD tenant account. When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. Additionally, perfoming Switch Directory on the subscription would not help as the billing would still be aligned with Azure AD Tenant which was used to sign up for the subscription. For more information review [Transfer a subscription to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account)
+
+Once you have all the Azure and Office/Microsoft 365 Subscriptions cancelled and deleted you can proceed with cleaning up rest of the things within Azure AD Tenant before actually delete it.
 
 ## Enterprise apps with no way to delete
 
