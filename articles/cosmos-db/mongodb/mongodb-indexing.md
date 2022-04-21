@@ -241,6 +241,10 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 `cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }`
 
+#### Note
+
+Support for unique index on existing collections with data is available in preview. You can sign up for the feature “Azure Cosmos DB API for MongoDB New Unique Indexes in existing collection” through the [Preview Features blade in the portal](./../access-previews.md).
+
 #### Limitations
 
 On accounts that have continuous backup or synapse link enabled, unique indexes will need to be created while the collection is empty.
@@ -271,7 +275,7 @@ db.books.createIndex(
 ) 
 ```
 
-To delete a partial unique index using om Mongo Shell, use the command `getIndexes()` to list the indexes in the collection.
+To delete a partial unique index using from Mongo Shell, use the command `getIndexes()` to list the indexes in the collection.
 Then drop the index with the following command:
 
 ```shell
