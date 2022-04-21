@@ -14,7 +14,7 @@ ms.custom:
 
 ---
 
-# Secure online endpoints with private endpoints
+# Secure online endpoints with private endpoints (preview)
 
 With a private endpoint, you can configure your Azure Machine Learning online endpoints to securely communicate with resources in an Azure Virtual Network (VNet). Using a private endpoint with online endpoints is currently a preview feature.
 
