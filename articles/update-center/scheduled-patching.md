@@ -81,16 +81,11 @@ To schedule recurring updates on a single VM, follow these steps:
 1. In **Create new maintenance configuration**, you can create a schedule for a single VM, assign machine and tags. Follow the procedure from step 3 listed in **From Overview blade** of [Schedule recurring updates on single VM](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
 
 
-# [From Home page](#tab/singlevm-schedule-home)
+# [From a selected VM](#tab/singlevm-schedule-home)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In **Home** page, select your machine from **Recent Resources** and the **virtual machines | Updates** page opens.
-
-1. In **Operations**, select **Updates**.
-
+1. Select your virtual machine and the **virtual machines | Updates** page opens.
+1. Under **Operations**, select **Updates**.
 1. In **Updates**, select **Go to Updates using Update Center**.
-
 1. In **Updates preview**, select **Schedule updates** and in **Create new maintenance configuration**, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From Overview blade** of [Schedule recurring updates on single VM](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration and assign a schedule.
 
 ---
