@@ -67,14 +67,14 @@ To register your resource and enable data use governance, follow these steps:
 
        :::image type="content" source="media/tutorial-data-owner-policies-storage/register-blob-permission.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account.":::
 
-1. Once you have set up authentication for your storage account, go to the [Microsoft Purview Studio](https://web.purview.azure.com/).
+1. Once you have set up authentication for your storage account, go to the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 1. Select **Data Map** on the left menu.
 
-    :::image type="content" source="media/tutorial-data-owner-policies-storage/select-data-map.png" alt-text="Screenshot that shows the far left menu in the Microsoft Purview Studio open with Data Map highlighted.":::
+    :::image type="content" source="media/tutorial-data-owner-policies-storage/select-data-map.png" alt-text="Screenshot that shows the far left menu in the Microsoft Purview governance portal open with Data Map highlighted.":::
 
 1. Select **Register**.
 
-    :::image type="content" source="media/tutorial-data-owner-policies-storage/select-register.png" alt-text="Screenshot that shows Microsoft Purview Studio Data Map sources, with the register button highlighted at the top.":::
+    :::image type="content" source="media/tutorial-data-owner-policies-storage/select-register.png" alt-text="Screenshot that shows Microsoft Purview governance portal Data Map sources, with the register button highlighted at the top.":::
 
 1. On **Register sources**, select **Azure Blob Storage**.
 
@@ -105,7 +105,7 @@ To register your resource and enable data use governance, follow these steps:
 
 ## Create a data owner policy
 
-1. Sign in to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
@@ -147,11 +147,11 @@ To register your resource and enable data use governance, follow these steps:
 
 ## Publish a data owner policy
 
-1. Sign in to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Screenshot showing the Microsoft Purview studio with the leftmost menu open, Policy Management highlighted, and Data Policies selected on the next page.":::
+    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Screenshot showing the Microsoft Purview governance portal with the leftmost menu open, Policy Management highlighted, and Data Policies selected on the next page.":::
 
 1. The Policy portal will present the list of existing policies in Microsoft Purview. Locate the policy that needs to be published. Select the **Publish** button on the right top corner of the page.
 
@@ -168,7 +168,7 @@ To register your resource and enable data use governance, follow these steps:
 
 To delete a policy in Microsoft Purview, follow these steps:
 
-1. Sign in to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
