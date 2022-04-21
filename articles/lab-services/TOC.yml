@@ -239,6 +239,8 @@
         href: how-to-configure-lab-accounts.md
       - name: Allow lab creator to pick lab location
         href: allow-lab-creator-pick-lab-location.md
+      - name: Create a lab with a shared resource (deprecated)
+        href: how-to-create-a-lab-with-shared-resource-1.md
       - name: Connect to a peer virtual network 
         href: how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
