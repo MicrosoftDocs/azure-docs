@@ -41,13 +41,13 @@ As the work breakdown is defined and assigned, we also want to make sure we have
 
 The list of items in the above Check Lists provides high-level artifacts to ensure that this important information is well documented, defined, and approved by all parties. Once you have gathered these documents, the next step is to drill down into each component of the project plan.
 
-Identify the project plan components that address each detailed aspect of Azure Synapse as it's designed for use in your solution. Also validate that the project plan accounts for all of the effort and resources required to implement your design. Perform this detailed evaluation of the project plan with respect to these specific Azure Synapse areas:
+Identify the project plan components that address each aspect of Azure Synapse as it's designed for use in your solution. Also validate that the project plan accounts for all of the effort and resources required to develop, test, deploy, and operate your solution by evaluating:
 
-- [Evaluate Project Plan for Workspace implementation](implementation-success-evaluate-workspace-design.md)
-- [Evaluate Project Plan for Data Integration implementation](implementation-success-evaluate-data-integration-design.md)
-- [Evaluate Project Plan for dedicated SQL pool implementation](implementation-success-evaluate-dedicated-sql-pool-design.md)
-- [Evaluate Project Plan for serverless SQL pool implementation](implementation-success-evaluate-serverless-sql-pool-design.md)
-- [Evaluate Project Plan for Spark Pool implementation](implementation-success-evaluate-spark-pool-design.md)
+- The workspace project plan
+- The data integration project plan
+- The dedicated SQL pool project plan
+- The serverless SQL pool project plan
+- The Spark Pool project plan
 
 ## Conclusion
 
