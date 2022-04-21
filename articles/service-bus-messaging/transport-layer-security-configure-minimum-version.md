@@ -34,7 +34,7 @@ To configure the minimum TLS version for a Service Bus namespace, set the  **Min
 When you create a Service Bus namespace with an Azure Resource Manager template, the **MinimumTlsVersion** property is set to 1.2 by default, unless explicitly set to another version.
 
 > [!NOTE]
-Existing namespaces using an older api-version, from before 2022-01-01-preview, will be treated with a default setting of 1.0. 
+> Existing namespaces using an older api-version, from before 2022-01-01-preview, will be treated with a default setting of 1.0. 
 
 To configure the minimum TLS version for a Service Bus namespace with a template, create a template with the  **MinimumTLSVersion**  property set to 1.0, 1.1, or 1.2. The following steps describe how to create a template in the Azure portal.
 
@@ -71,7 +71,7 @@ To configure the minimum TLS version for a Service Bus namespace with a template
 2. Specify resource group parameter, then choose the  **Review + create**  button to deploy the template and create a namespace with the  **MinimumTLSVersion**  property configured.
 
 > [!NOTE]
-After you update the minimum TLS version for the Service Bus namespace, it may take up to 30 seconds before the change is fully propagated.
+> After you update the minimum TLS version for the Service Bus namespace, it may take up to 30 seconds before the change is fully propagated.
 
 Configuring the minimum TLS version requires version 2022-01-01-preview or later of the Azure Service Bus resource provider.
 
@@ -95,7 +95,7 @@ To test that the minimum required TLS version for a Service Bus namespace forbid
 When a client accesses a Service Bus namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Service Bus returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this Service Bus namespace.
 
 > [!NOTE]
-When you configure a minimum TLS version for a Service Bus namespace, that minimum version is enforced at the application layer. Tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the Service Bus namespace endpoint.
+> When you configure a minimum TLS version for a Service Bus namespace, that minimum version is enforced at the application layer. Tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the Service Bus namespace endpoint.
 
 ## Use Azure Policy to audit for compliance
 
@@ -217,11 +217,11 @@ Role assignments must be scoped to the level of the Service Bus namespace or hig
 Be careful to restrict assignment of these roles only to those who require the ability to create a Service Bus namespace or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../role-based-access-control/best-practices).
 
 > [!NOTE]
-The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Service Bus namespaces. For more information, see [**Classic subscription administrator roles, Azure roles, and Azure AD administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Service Bus namespaces. For more information, see [**Classic subscription administrator roles, Azure roles, and Azure AD administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
 
 ### Network considerations
 
 When a client sends a request to Service Bus namespace, the client establishes a connection with the public endpoint of the Service Bus namespace first, before processing any requests. The minimum TLS version setting is checked after the connection is established. If the request uses an earlier version of TLS than that specified by the setting, the connection will continue to succeed, but the request will eventually fail.
 
 > [!NOTE]
-Due to backwards compatibility, namespaces that do not have the **MinimumTlsVersion** setting specified or have specified this as 1.0, we do not do any TLS checks when connecting via the SBMP protocol.
+> Due to backwards compatibility, namespaces that do not have the **MinimumTlsVersion** setting specified or have specified this as 1.0, we do not do any TLS checks when connecting via the SBMP protocol.
