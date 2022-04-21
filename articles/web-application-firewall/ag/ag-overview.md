@@ -5,7 +5,7 @@ description: This article provides an overview of Web Application Firewall (WAF)
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/02/2021
+ms.date: 04/21/2022
 ms.author: victorh
 ms.topic: conceptual
 ---

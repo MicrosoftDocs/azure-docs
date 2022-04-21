@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure WAF engine.
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
-ms.date: 04/12/2022
+ms.date: 04/21/2022
 ms.author: jodowns
 ms.topic: conceptual
 ---

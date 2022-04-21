@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/07/2022
+ms.date: 04/21/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
