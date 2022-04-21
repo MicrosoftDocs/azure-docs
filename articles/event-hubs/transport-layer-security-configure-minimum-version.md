@@ -53,7 +53,7 @@ To configure the minimum TLS version for an Event Hubs namespace with a template
     },
     "resources": [
         {
-        "name": "[variables(eventHubNamespaceName)]",
+        "name": "[variables('eventHubNamespaceName')]",
         "type": "Microsoft.EventHubs/namespaces",
         "apiVersion": "2022-01-01-preview",
         "location": "<location>",

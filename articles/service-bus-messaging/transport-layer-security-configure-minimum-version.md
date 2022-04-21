@@ -53,7 +53,7 @@ To configure the minimum TLS version for a Service Bus namespace with a template
     },
     "resources": [
         {
-        "name": "[variables(serviceBusNamespaceName)]",
+        "name": "[variables('serviceBusNamespaceName')]",
         "type": "Microsoft.ServiceBus/namespaces",
         "apiVersion": "2022-01-01-preview",
         "location": "<location>",
