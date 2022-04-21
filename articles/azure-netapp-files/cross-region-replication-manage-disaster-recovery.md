@@ -48,33 +48,33 @@ When you need to activate the destination volume (for example, when you want to 
 5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     This step enables a client to access the destination volume.
 
-## <a name="resync-replication"></a>Resync volumes after disaster recovery
+## <a name="resync-replication"></a>Reverse Resync volumes after disaster recovery
 
-After disaster recovery, you can reactivate the source volume by performing a resync operation.  The resync operation reverses the replication process and synchronizes data from the destination volume to the source volume.  
+After disaster recovery, you can reactivate the source volume by performing a reverse resync operation.  The reverse resync operation reverses the replication process and synchronizes data from the destination volume to the source volume.  
 
 > [!IMPORTANT] 
-> The resync operation synchronizes the source and destination volumes by incrementally updating the source volume with the latest updates from the destination volume, based on the last available common snapshots. This operation avoids the need to synchronize the entire volume in most cases because only changes to the destination volume *after* the most recent common snapshot will have to be replicated to the source volume.  
+> The reverse resync operation synchronizes the source and destination volumes by incrementally updating the source volume with the latest updates from the destination volume, based on the last available common snapshots. This operation avoids the need to synchronize the entire volume in most cases because only changes to the destination volume *after* the most recent common snapshot will have to be replicated to the source volume.  
 > 
-> The resync operation overwrites any newer data (than the most common snapshot) in the source volume with the updated destination volume data. The UI warns you about the potential for data loss. You will be prompted to confirm the resync action before the operation starts.  
+> The reverse resync operation overwrites any newer data (than the most common snapshot) in the source volume with the updated destination volume data. The UI warns you about the potential for data loss. You will be prompted to confirm the reverse resync action before the operation starts.  
 > 
 > In case the source volume did not survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
 
 
-1. To resync replication, select the *source* volume. Click **Replication** under Storage Service. Then click **Resync**.  
+1. To reverse resync replication, select the *source* volume. Click **Replication** under Storage Service. Then click **Reverse Resync**.  
 
-2. Type **Yes** when prompted and click **Resync**. 
+2. Type **Yes** when prompted and click **OK**. 
  
     ![Resync replication](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
 
 3. Monitor the source volume health status by following steps in [Display health status of replication relationship](cross-region-replication-display-health-status.md).   
-    When the source volume health status shows the following values, the resync operation is complete, and changes made at the destination volume are now captured on the source volume:   
+    When the source volume health status shows the following values, the reverse resync operation is complete, and changes made at the destination volume are now captured on the source volume:   
 
     * Mirrored State: *Mirrored*  
     * Transfer State: *Idle*  
 
 ## Reestablish source-to-destination replication
 
-After the resync operation from destination to source is complete, you need to break replication peering again to reestablish source-to-destination replication. You should also remount the source volume so that the client can access it.  
+After the reverse resync operation from destination to source is complete, you need to break replication peering again to reestablish source-to-destination replication. You should also remount the source volume so that the client can access it.  
 
 1. Break the replication peering:  
     a. Select the *destination* volume. Click **Replication** under Storage Service.  
@@ -89,9 +89,9 @@ After the resync operation from destination to source is complete, you need to b
     c. Click **Break Peering**.   
     d. Type **Yes** when prompted and click the **Break** button.  
 
-2. Resync the source volume with the destination volume:  
-    a. Select the *destination* volume. Click **Replication** under Storage Service. Then click **Resync**.   
-    b. Type **Yes** when prompted and click the **Resync** button.
+2. Reverse Resync the source volume with the destination volume:  
+    a. Select the *destination* volume. Click **Replication** under Storage Service. Then click **Reverse Resync**.   
+    b. Type **Yes** when prompted and click the **OK** button.
 
 3. Remount the source volume by following the steps in [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
     This step enables a client to access the source volume.
