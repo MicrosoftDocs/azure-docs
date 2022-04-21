@@ -42,7 +42,7 @@ When setting up scan, you can choose to scan an entire SAP HANA database, or sco
 
 * You must have an active [Microsoft Purview account](create-catalog-portal.md).
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.13.8013.1.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON SCHEMA _SYS_BIC TO <user>;
 
 ## Register
 
-This section describes how to register a SAP HANA in Microsoft Purview by using [Microsoft Purview governance portal](https://web.purview.azure.com/).
+This section describes how to register a SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 1. Go to your Microsoft Purview account.
 

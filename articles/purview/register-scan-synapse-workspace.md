@@ -226,7 +226,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, we do not support setting up scans for an Azure Synapse workspace from Microsoft Purview governance portal, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. In this case:
+> Currently, we do not support setting up scans for an Azure Synapse workspace from the Microsoft Purview governance portal, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. In this case:
 >  - You can use [Microsoft Purview Rest API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
 >  - You must use **SQL Auth** as authentication mechanism.
 
@@ -234,7 +234,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the data source that you registered.
 
