@@ -16,6 +16,7 @@ Microsoft Purview is a unified data governance service that helps you manage and
 
 Microsoft Purview automates data discovery by providing data scanning and classification as a service for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Atop this map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
 
+
 |App  |Description  |
 |----------|-----------|
 |[Data Map](#data-map) | Makes your data meaningful by graphing your data assets, and their relationships, across your data estate. The data map used to discover data and manage access to that data. |
@@ -26,6 +27,7 @@ Microsoft Purview automates data discovery by providing data scanning and classi
 
 Microsoft Purview Data Map provides the foundation for data discovery and effective data governance. Microsoft Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Microsoft Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Microsoft Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
 Microsoft Purview Data Map powers the Microsoft Purview Data Catalog and Microsoft Purview data insights as unified experiences within the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+
 For more information, see our [introduction to Data Map](concept-elastic-data-map.md).
 
 ## Data Catalog
