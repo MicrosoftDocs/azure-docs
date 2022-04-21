@@ -231,7 +231,7 @@ Save the variables.
 >
 > You can use the clone functionality to create the next environment variable group.
 
-## Create an service connection
+## Create a service connection
 
 To remove the Azure resources, you need an Azure Resource Manager service connection. For more information, see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&preserve-view=true)
 
@@ -314,7 +314,7 @@ cd sap-automation/deploy/scripts
 ./configure_deployer.sh
 ```
 
-Reboot the deployer and reconnect and run the following script to setup the Azure DevOps agent.
+Reboot the deployer and reconnect and run the following script to set up the Azure DevOps agent.
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
