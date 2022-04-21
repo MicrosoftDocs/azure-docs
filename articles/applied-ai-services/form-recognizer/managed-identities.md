@@ -60,7 +60,7 @@ To get started, you'll need:
 
 ## Managed identity assignments
 
-There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer supports system-assigned managed identity:
+There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer only supports system-assigned managed identity:
 
 * A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
 
@@ -124,4 +124,4 @@ You need to grant Form Recognizer access to your storage account before it can c
 ## Learn more about  managed identity
 
 > [!div class="nextstepaction"]
-> [Access Azure Storage form a web app using managed identities](/azure/app-service/scenario-secure-app-access-storage?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json )
+> [Access Azure Storage form a web app using managed identities](../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json)

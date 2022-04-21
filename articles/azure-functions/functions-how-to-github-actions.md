@@ -95,7 +95,7 @@ The following example shows the part of the workflow that sets up the environmen
 
 ```yaml
 
-    - name: Setup Node 12.x Environment
+    - name: Setup Node 14.x Environment
       uses: actions/setup-node@v2
       with:
         node-version: 14.x
@@ -330,7 +330,7 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
+  JAVA_VERSION: '1.8.x'                      # set this to the Java version to use
 
 jobs:
   build-and-deploy:
@@ -373,7 +373,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '12.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+  NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x, 14.x)
 
 jobs:
   build-and-deploy:
@@ -415,7 +415,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '10.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+  NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x, 14.x)
 
 jobs:
   build-and-deploy:
@@ -459,7 +459,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.7'                 # set this to the python version to use (supports 3.6, 3.7, 3.8)
+  PYTHON_VERSION: '3.7'                 # set this to the Python version to use (supports 3.6, 3.7, 3.8)
 
 jobs:
   build-and-deploy:

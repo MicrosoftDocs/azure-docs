@@ -21,6 +21,9 @@ This guide shows you how to move face data, such as a saved PersonGroup object w
 
 This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concepts/face-recognition.md) guide. This guide uses the Face .NET client library with C#.
 
+> [!WARNING]
+> The Snapshot feature might move your data outside the geographic region you originally selected. Data might move to West US, West Europe, and Southeast Asia regions.
+
 ## Prerequisites
 
 You need the following items:

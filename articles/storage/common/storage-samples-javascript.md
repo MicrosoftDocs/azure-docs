@@ -335,7 +335,7 @@ The following tables provide an overview of our samples repository and the scena
       [Receive messages](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/samples/v12/javascript/queueClient.js#L73)
    :::column-end:::
    :::column span="":::
-      [Delete messages](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/samp#L5)
+      [Delete messages](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/samples/v12/javascript/queueClient.js#L5)
    :::column-end:::
 :::row-end:::
 

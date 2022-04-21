@@ -191,7 +191,7 @@ switch (result.Reason)
         {
             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-            Console.WriteLine($"CANCELED: Did you update the speech key and location/region info?");
+            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
         }
         break;
 }
@@ -199,7 +199,7 @@ switch (result.Reason)
 
 ## Use continuous recognition
 
-The previous examples use at-start recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
 In contrast, you use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`StopContinuousRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
 
@@ -249,7 +249,7 @@ recognizer.Canceled += (s, e) =>
     {
         Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
         Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you update the speech key and location/region info?");
+        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
     }
 
     stopRecognition.TrySetResult(0);

@@ -104,6 +104,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Azure Active Directory SLA performance
+    href: reference-azure-ad-sla-performance.md
   - name: Basic info in the sign-in logs
     href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
@@ -130,11 +132,21 @@
       href: workbook-conditional-access-gap-analyzer.md
     - name: Cross-tenant access activity 
       href: workbook-cross-tenant-access-activity.md
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
+    - name: Risk analysis
+      href: workbook-risk-analysis.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
 - name: Recommendations
   items:
+    - name: Convert to conditional access MFA
+      href: recommendation-turn-off-per-user-mfa.md
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
     - name: Migrate to Microsoft authenticator
       href: recommendation-migrate-to-authenticator.md
+    - name: Migrate apps from AD FS to Azure AD
+      href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+    - name: Minimize MFA prompts from known devices
+      href: recommendation-mfa-from-known-devices.md

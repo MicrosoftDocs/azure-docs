@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: SudhirRaparla 
 ms.author: nvraparl 
 ms.reviewer: kendralittle, mathoma, danil
-ms.date: 01/10/2022
+ms.date: 04/18/2022
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -21,7 +21,7 @@ The following options are available for database recovery by using [automated da
 - Create a new database on the same server, recovered to a specified point in time within the retention period.
 - Create a database on the same server, recovered to the deletion time for a deleted database.
 - Create a new database on any server in the same region, recovered to the point of the most recent backups.
-- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups. Cross-region and cross-subscription restore for SQL Managed Instance isn't currently supported
+- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups. Cross-region and cross-subscription point-in-time restore for SQL Managed Instance isn't currently supported. 
 
 If you configured [backup long-term retention](long-term-retention-overview.md), you can also create a new database from any long-term retention backup on any server.
 
@@ -45,8 +45,8 @@ For a large or very active database, the restore might take several hours. If th
 
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
 
-> [!NOTE]
-> Very large restores on Managed Instance lasting for more than 36 hours will be prolonged in case of pending critical system update. In such case current restore operation will be paused, critical system update will be applied, and restore resumed after the update has completed.
+> [!TIP]
+> For Azure SQL Managed Instance system updates will take precedence over database restores in progress. All pending restores in case of a system update on Managed Instance will be suspended and resumed once the update has been applied. This system behavior might prolong the time of restores and might be especially impactful to long-running restores. To achieve a predictable time of database restores, consider configuring [maintenance window](maintenance-window.md) allowing scheduling of system updates at a specific day/time, and consider running database restores outside of the scheduled maintenance window day/time.
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |

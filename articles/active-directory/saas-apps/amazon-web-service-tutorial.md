@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single-Account Access | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with AWS Single-Account Access'
 description: Learn how to configure single sign-on between Azure Active Directory and AWS Single-Account Access.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 03/24/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single-Account Access
+# Tutorial: Azure AD SSO integration with AWS Single-Account Access
 
 In this tutorial, you'll learn how to integrate AWS Single-Account Access with Azure Active Directory (Azure AD). When you integrate AWS Single-Account Access with Azure AD, you can:
 
@@ -67,7 +67,9 @@ We recommend this approach for the following reasons:
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* An AWS single sign-on (SSO) enabled subscription.
+* An AWS IAM IdP enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 > [!Note]
 > Roles should not be manually edited in Azure AD when doing role imports.
@@ -112,7 +114,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **AWS Single-Account Access** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -341,6 +343,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. Select **Close**.
 
+> [!NOTE]
+> AWS has a set of permissions/limts are required to configure AWS SSO. To know more information on AWS limits, please refer [this](https://docs.aws.amazon.com/singlesignon/latest/userguide/limits.html) page.
+
 ### How to configure role provisioning in AWS Single-Account Access
 
 1. In the Azure AD management portal, in the AWS app, go to **Provisioning**.
@@ -385,14 +390,13 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the AWS Single-Account Access for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the AWS Single-Account Access for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the AWS Single-Account Access tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AWS Single-Account Access for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## Known issues
 
-* AWS Single-Account Access provisioning integration can be used only to connect to AWS public cloud endpoints. AWS Single-Account Access provisioning integration can't be used to access AWS Government environments.
+* AWS Single-Account Access provisioning integration can be used only to connect to AWS public cloud endpoints. AWS Single-Account Access provisioning integration can't be used to access AWS Government environments, or the AWS China regions.
  
 * In the **Provisioning** section, the **Mappings** subsection shows a "Loading..." message, and never displays the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during a user or group assignment. The attribute mappings for this are predetermined, and aren't configurable.
 

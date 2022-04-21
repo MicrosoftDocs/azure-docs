@@ -17,9 +17,12 @@ ms.custom: devx-track-csharp
 
 Compared to v2, the v3 version of the Speech services REST API for speech-to-text is more reliable, easier to use, and more consistent with APIs for similar services. Most teams can migrate from v2 to v3 in a day or two.
 
+> [!IMPORTANT]
+> The Speech-to-text REST API v2.0 is deprecated. Please migrate your applications to the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+
 ## Forward compatibility
 
-All entities from v2 can also be found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 are **not** available in responses from v2 APIs. 
+All entities from v2 can also be found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 aren't available in responses from v2 APIs. 
 
 ## Migration steps
 
@@ -67,7 +70,7 @@ General changes:
 
 ### Host name changes
 
-Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) lists valid regions and paths.
+Endpoint host names have changed from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com`. Paths to the new endpoints no longer contain `api/` because it's part of the hostname. The [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation lists valid regions and paths.
 >[!IMPORTANT]
 >Change the hostname from `{region}.cris.ai` to `{region}.api.cognitive.microsoft.com` where region is the region of your speech subscription. Also remove `api/`from any path in your client code.
 
@@ -515,8 +518,5 @@ Accuracy tests have been renamed to evaluations because the new name describes b
 
 ## Next steps
 
-Examine all features of these commonly used REST APIs provided by Speech services:
-
-* [Speech-to-text REST API](rest-speech-to-text.md)
-* [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) for v3 of the REST API
-* For sample code to perform batch transcriptions, view the the [GitHub sample repository](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
+* [Speech-to-text REST API v3.0](rest-speech-to-text.md)
+* [Speech-to-text REST API v3.0 reference](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)

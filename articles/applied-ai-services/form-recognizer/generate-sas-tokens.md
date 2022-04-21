@@ -108,7 +108,7 @@ To get started, you'll need:
 
 1. To create a user delegation SAS for a container by using the Azure CLI, make sure that you've installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
 
-1. Call the [az storage container generate-sas](/cli/azure/storage/container#az_storage_container_generate_sas) command.
+1. Call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command.
 
 1. The following parameters are required:
 

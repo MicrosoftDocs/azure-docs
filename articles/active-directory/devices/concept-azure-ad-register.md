@@ -60,3 +60,4 @@ Another user wants to access their organizational email on their personal Androi
 
 - [Manage device identities using the Azure portal](device-management-azure-portal.md)
 - [Manage stale devices in Azure AD](manage-stale-devices.md)
+- [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)

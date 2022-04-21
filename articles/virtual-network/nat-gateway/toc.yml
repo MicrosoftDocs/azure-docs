@@ -13,6 +13,9 @@ items:
     href: tutorial-create-nat-gateway-powershell.md
   - name: Create and validate NAT gateway - Azure CLI
     href: tutorial-create-nat-gateway-cli.md
+  - name: Create NAT gateway - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-nat-gateway-bicep.md
   - name: Create NAT gateway - ARM template
     displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md

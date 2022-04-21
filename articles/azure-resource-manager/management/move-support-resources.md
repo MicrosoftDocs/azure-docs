@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 04/18/2022
 ---
 
 # Move operation support for resources
@@ -1398,7 +1398,6 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | holographicsbroadcastaccounts | No | No | No |
 > | objectunderstandingaccounts | No | No | No |
 > | remoterenderingaccounts | Yes | Yes | No |
 > | spatialanchorsaccounts | Yes | Yes | No |
@@ -1456,7 +1455,7 @@ Jump to a resource provider namespace:
 > | privatednszones / virtualnetworklinks | Yes | Yes | No |
 > | privatednszonesinternal | No | No | No |
 > | privateendpointredirectmaps | No | No | No |
-> | privateendpoints | No | No | No |
+> | privateendpoints | Yes | Yes | Yes |
 > | privatelinkservices | No | No | No |
 > | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |

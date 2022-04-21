@@ -13,7 +13,7 @@ ms.reviewer: vanto
 ms.date: 01/26/2022 
 ---
 
-# Use CLI to configure SQL Database auditing and Advanced Threat Protection
+# Configure SQL Database auditing and Advanced Threat Protection using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
@@ -29,7 +29,7 @@ This Azure CLI script example configures SQL Database auditing and Advanced Thre
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.sh" range="4-37":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.sh" id="FullScript":::
 
 ## Clean up resources
 

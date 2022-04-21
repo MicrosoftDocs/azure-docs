@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 03/23/2022
 ms.author: allensu
 ms.custom: fasttrack-edit
 
@@ -25,6 +25,9 @@ You can use the following options to configure your DNS settings for private end
 
 > [!IMPORTANT]
 > It is not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
+
+> [!IMPORTANT]
+> Existing Private DNS Zones tied to a single service should not be associated with two different Private Endpoints as it will not be possible to properly resolve two different A-Records that point to the same service. However, Private DNS Zones tied to multiple services would not face this resolution constraint.
 
 ## Azure services DNS zone configuration
 Azure creates a canonical name DNS record (CNAME) on the public DNS. The CNAME record redirects the resolution to the private domain name. You can override the resolution with the private IP address of your private endpoints. 
@@ -84,8 +87,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) / redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
-| Azure Purview (Microsoft.Purview) / portal | privatelink.purview.azure.com | purview.azure.com |
-| Azure Purview (Microsoft.Purview) / portal| privatelink.purviewstudio.azure.com | purview.azure.com |
+| Microsoft Purview (Microsoft.Purview) / account | privatelink.purview.azure.com | purview.azure.com |
+| Microsoft Purview (Microsoft.Purview) / portal| privatelink.purviewstudio.azure.com | purview.azure.com |
 | Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
 | Azure Arc (Microsoft.HybridCompute) / hybridcompute | privatelink.his.arc.azure.com<br />privatelink.guestconfiguration.azure.com | his.arc.azure.com<br />guestconfiguration.azure.com |

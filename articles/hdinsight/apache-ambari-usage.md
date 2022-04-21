@@ -3,7 +3,7 @@ title: Apache Ambari usage in Azure HDInsight
 description: Discussion of how Apache Ambari is used in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 04/07/2022
 ---
 
 # Apache Ambari usage in Azure HDInsight

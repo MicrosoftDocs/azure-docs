@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for FedRAMP Moderate (Azure Government)
 description: Details of the FedRAMP Moderate (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/15/2022
+ms.date: 03/10/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -38,6 +38,7 @@ initiative definition.
 ### Account Management
 
 **ID**: FedRAMP Moderate AC-2
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -58,6 +59,7 @@ initiative definition.
 ### Automated System Account Management
 
 **ID**: FedRAMP Moderate AC-2 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -68,6 +70,7 @@ initiative definition.
 ### Role-based Schemes
 
 **ID**: FedRAMP Moderate AC-2 (7)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,6 +83,7 @@ initiative definition.
 ### Account Monitoring / Atypical Usage
 
 **ID**: FedRAMP Moderate AC-2 (12)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -96,6 +100,7 @@ initiative definition.
 ### Access Enforcement
 
 **ID**: FedRAMP Moderate AC-3
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -118,6 +123,7 @@ initiative definition.
 ### Information Flow Enforcement
 
 **ID**: FedRAMP Moderate AC-4
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -164,6 +170,7 @@ initiative definition.
 ### Separation of Duties
 
 **ID**: FedRAMP Moderate AC-5
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -172,6 +179,7 @@ initiative definition.
 ### Least Privilege
 
 **ID**: FedRAMP Moderate AC-6
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -181,6 +189,7 @@ initiative definition.
 ### Remote Access
 
 **ID**: FedRAMP Moderate AC-17
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -218,6 +227,7 @@ initiative definition.
 ### Automated Monitoring / Control
 
 **ID**: FedRAMP Moderate AC-17 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -257,6 +267,7 @@ initiative definition.
 ### Audit Review, Analysis, and Reporting
 
 **ID**: FedRAMP Moderate AU-6
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -276,6 +287,7 @@ initiative definition.
 ### Audit Record Retention
 
 **ID**: FedRAMP Moderate AU-11
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,10 +296,10 @@ initiative definition.
 ### Audit Generation
 
 **ID**: FedRAMP Moderate AU-12
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[\[Deprecated\]: Diagnostic logs in App Services should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb607c5de-e7d9-4eee-9e5c-83f1bcee4fa0) |Audit enabling of diagnostic logs on the app. This enables you to recreate activity trails for investigation purposes if a security incident occurs or your network is compromised |AuditIfNotExists, Disabled |[2.0.0-deprecated](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_AuditLoggingMonitoring_Audit_v2_deprecated.json) |
 |[\[Preview\]: Azure Arc enabled Kubernetes clusters should have Azure Defender's extension installed](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |Azure Defender's extension for Azure Arc provides threat protection for your Arc enabled Kubernetes clusters. The extension collects data from nodes in the cluster and sends it to the Azure Defender for Kubernetes backend in the cloud for further analysis. Learn more in [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](/azure/security-center/defender-for-kubernetes-azure-arc). |AuditIfNotExists, Disabled |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ASC_Azure_Defender_Kubernetes_Arc_Extension_Audit.json) |
 |[\[Preview\]: Network traffic data collection agent should be installed on Linux virtual machines](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04c4380f-3fae-46e8-96c9-30193528f602) |Security Center uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations and specific network threats. |AuditIfNotExists, Disabled |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ASC_Dependency_Agent_Audit_Linux.json) |
 |[\[Preview\]: Network traffic data collection agent should be installed on Windows virtual machines](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f2ee1de-44aa-4762-b6bd-0893fc3f306d) |Security Center uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations and specific network threats. |AuditIfNotExists, Disabled |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ASC_Dependency_Agent_Audit_Windows.json) |
@@ -305,6 +317,7 @@ initiative definition.
 |[Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa3a6ea0c-e018-4933-9ef0-5aaa1501449b) |Security Center collects data from your Azure virtual machines (VMs) to monitor for security vulnerabilities and threats. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_InstallLaAgentOnVmss.json) |
 |[Microsoft Defender for Containers should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c988dd6-ade4-430f-a608-2a3e5b0a6d38) |Microsoft Defender for Containers provides hardening, vulnerability assessment and run-time protections for your Azure, hybrid, and multi-cloud Kubernetes environments. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainers_Audit.json) |
 |[Network Watcher should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. It is required to have a network watcher resource group to be created in every region where a virtual network is present. An alert is enabled if a network watcher resource group is not available in a particular region. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
+|[Resource logs in App Services should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F91a78b24-f231-4a8a-8da9-02c35b2b6510) |Audit enabling of resource logs on the app. This enables you to recreate activity trails for investigation purposes if a security incident occurs or your network is compromised. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ResourceLoggingMonitoring_Audit.json) |
 |[Resource logs in Azure Data Lake Store should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
 |[Resource logs in Azure Stream Analytics should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff9be5368-9bf5-4b84-9e0a-7850da98bb46) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Stream%20Analytics/StreamAnalytics_AuditDiagnosticLog_Audit.json) |
 |[Resource logs in Batch accounts should be enabled](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
@@ -322,6 +335,7 @@ initiative definition.
 ### Configuration Settings
 
 **ID**: FedRAMP Moderate CM-6
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -353,6 +367,7 @@ initiative definition.
 ### Least Functionality
 
 **ID**: FedRAMP Moderate CM-7
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -363,6 +378,7 @@ initiative definition.
 ### Prevent Program Execution
 
 **ID**: FedRAMP Moderate CM-7 (2)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -372,6 +388,7 @@ initiative definition.
 ### Authorized Software / Whitelisting
 
 **ID**: FedRAMP Moderate CM-7 (5)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -381,6 +398,7 @@ initiative definition.
 ### Software Usage Restrictions
 
 **ID**: FedRAMP Moderate CM-10
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -390,6 +408,7 @@ initiative definition.
 ### User-installed Software
 
 **ID**: FedRAMP Moderate CM-11
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -401,6 +420,7 @@ initiative definition.
 ### Alternate Storage Site
 
 **ID**: FedRAMP Moderate CP-6
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,6 +433,7 @@ initiative definition.
 ### Separation from Primary Site
 
 **ID**: FedRAMP Moderate CP-6 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -425,6 +446,7 @@ initiative definition.
 ### Alternate Processing Site
 
 **ID**: FedRAMP Moderate CP-7
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,6 +455,7 @@ initiative definition.
 ### Information System Backup
 
 **ID**: FedRAMP Moderate CP-9
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -448,6 +471,7 @@ initiative definition.
 ### Identification and Authentication (organizational Users)
 
 **ID**: FedRAMP Moderate IA-2
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -465,6 +489,7 @@ initiative definition.
 ### Network Access to Privileged Accounts
 
 **ID**: FedRAMP Moderate IA-2 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -474,6 +499,7 @@ initiative definition.
 ### Network Access to Non-privileged Accounts
 
 **ID**: FedRAMP Moderate IA-2 (2)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -482,6 +508,7 @@ initiative definition.
 ### Identifier Management
 
 **ID**: FedRAMP Moderate IA-4
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -496,6 +523,7 @@ initiative definition.
 ### Authenticator Management
 
 **ID**: FedRAMP Moderate IA-5
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -509,6 +537,7 @@ initiative definition.
 ### Password-based Authentication
 
 **ID**: FedRAMP Moderate IA-5 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -529,6 +558,7 @@ initiative definition.
 ### Incident Handling
 
 **ID**: FedRAMP Moderate IR-4
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -547,6 +577,7 @@ initiative definition.
 ### Incident Monitoring
 
 **ID**: FedRAMP Moderate IR-5
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -567,6 +598,7 @@ initiative definition.
 ### Vulnerability Scanning
 
 **ID**: FedRAMP Moderate RA-5
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -592,6 +624,7 @@ initiative definition.
 ### Denial of Service Protection
 
 **ID**: FedRAMP Moderate SC-5
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -603,6 +636,7 @@ initiative definition.
 ### Boundary Protection
 
 **ID**: FedRAMP Moderate SC-7
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -650,6 +684,7 @@ initiative definition.
 ### Access Points
 
 **ID**: FedRAMP Moderate SC-7 (3)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -697,6 +732,7 @@ initiative definition.
 ### Transmission Confidentiality and Integrity
 
 **ID**: FedRAMP Moderate SC-8
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -720,6 +756,7 @@ initiative definition.
 ### Cryptographic or Alternate Physical Protection
 
 **ID**: FedRAMP Moderate SC-8 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -743,6 +780,7 @@ initiative definition.
 ### Cryptographic Key Establishment and Management
 
 **ID**: FedRAMP Moderate SC-12
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -779,6 +817,7 @@ initiative definition.
 ### Protection of Information at Rest
 
 **ID**: FedRAMP Moderate SC-28
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -799,6 +838,7 @@ initiative definition.
 ### Cryptographic Protection
 
 **ID**: FedRAMP Moderate SC-28 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -821,6 +861,7 @@ initiative definition.
 ### Flaw Remediation
 
 **ID**: FedRAMP Moderate SI-2
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -851,6 +892,7 @@ initiative definition.
 ### Malicious Code Protection
 
 **ID**: FedRAMP Moderate SI-3
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -862,6 +904,7 @@ initiative definition.
 ### Central Management
 
 **ID**: FedRAMP Moderate SI-3 (1)
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -873,6 +916,7 @@ initiative definition.
 ### Information System Monitoring
 
 **ID**: FedRAMP Moderate SI-4
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -897,6 +941,7 @@ initiative definition.
 ### Memory Protection
 
 **ID**: FedRAMP Moderate SI-16
+**Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

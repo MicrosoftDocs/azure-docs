@@ -12,9 +12,9 @@ ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Quickstart: Create a Xamarin iOS app with Azure Spatial Anchors
+# Run the sample app: iOS - Xamarin (C#)
 
-This quickstart covers how to create an iOS app with Xamarin using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an iOS app that can save and recall a spatial anchor.
+This quickstart covers how to run the [Azure Spatial Anchors](../overview.md) sample app for iOS devices using Xamarin (C#). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an iOS app that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -33,6 +33,8 @@ To complete this quickstart, make sure you have:
   - An up-to-date version of <a href="/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true" target="_blank">Visual Studio for Mac 8.1+</a>.
   - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
   - <a href="https://git-lfs.github.com/">Git LFS</a>.
+
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

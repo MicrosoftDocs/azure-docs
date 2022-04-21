@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019, devx-track-azurepowershell
 ms.topic: how-to
-author: dimitri-furman
+author: dimitri-furman 
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma, wiassaf
-ms.date: 11/17/2021
+ms.date: 3/10/2022
 ---
 
 # Configure streaming export of Azure SQL Database and SQL Managed Instance diagnostic telemetry
@@ -25,7 +25,7 @@ You will also learn about the destinations to which you can stream this diagnost
 
 ## Diagnostic telemetry for export
 
-Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](intelligent-insights-overview.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates an Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
+Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log (unrelated to [Azure Monitor SQL Insights (preview)](../../azure-sql/database/monitoring-sql-database-azure-monitor.md)). [Intelligent Insights](intelligent-insights-overview.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
 
 In addition to streaming the export of the Intelligent Insights log, you can also export a variety of performance metrics and additional database logs. The following table describes the performance metrics and resources logs that you can configure for streaming export to one of several destinations. This diagnostic telemetry can be configured for single databases, elastic pools and pooled databases, and managed instances and instance databases.
 
@@ -658,7 +658,7 @@ Learn more about [database wait statistics](/sql/relational-databases/system-dyn
 |ElasticPoolName_s|Name of the elastic pool for the database, if any |
 |DatabaseName_s|Name of the database |
 |ResourceId|Resource URI |
-|error_state_d|Error state code |
+|error_state_d|A numeric state value associated with the query timeout (an [attention](/sql/relational-databases/errors-events/mssqlserver-3617-database-engine-error) event) |
 |query_hash_s|Query hash, if available |
 |query_plan_hash_s|Query plan hash, if available |
 
