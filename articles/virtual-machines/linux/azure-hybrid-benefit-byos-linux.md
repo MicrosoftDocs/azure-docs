@@ -132,9 +132,9 @@ you can use the `az vm update` command to update existing license type on runnin
     ```bash
     yum repolist
     ```
- 1. In case the extension is not running by itself, you can try the below command on the VM using:
+ 1. In case the extension is not running by itself, you can try the below command on the VM:
     ```bash
-        
+        systemctl start azure-hybrid-benefit.service
     ```
 
 ## Enable and disable the benefit for SLES
