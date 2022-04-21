@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: arm
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ms.custom: mode-other, devx-track-azurecli 
-ms.devlang: azurecli
+ms.devlang: azurecli 
 ---
 # Quickstart: Create and manage Communication Services resources
 
