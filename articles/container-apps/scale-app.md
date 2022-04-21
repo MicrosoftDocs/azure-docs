@@ -18,8 +18,8 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 25 |
-| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 25 |
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 10 |
+| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 10 |
 
 - If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
