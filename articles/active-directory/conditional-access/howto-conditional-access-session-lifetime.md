@@ -86,7 +86,7 @@ The public preview supports the following scenarios:
 When administrators select **Every time**, it will require full reauthentication when the session is evaluated.
 
 > [!NOTE]
-> An early preview version included the option to prompt for Secondary authentication methods only at reauthentication. This option is no longer respected and reverts to **Every time**.
+> An early preview version included the option to prompt for Secondary authentication methods only at reauthentication. This option is no longer supported and should not be used.
 
 ## Persistence of browsing sessions
 
