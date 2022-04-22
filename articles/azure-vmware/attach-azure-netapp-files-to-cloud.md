@@ -66,23 +66,16 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 	1. Verify you're registered for both the `CloudSanExperience` and `AfnDatstoreExperience` features.
 1. Navigate to your Azure VMware Solution.
 Under **Manage**, select **Storage (preview)**.
+1. Select **Connect Azure NetApp Files volume**.
+1. In **Connect Azure NetApp Files volume**, select the **Subscription**, **NetApp account**, **Capacity pool**, and **Volume** to be attached as a datastore.
 
     :::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop-up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png":::
 
-1. Select **Connect Azure NetApp Files volume**.
-1. In **Connect Azure NetApp Files volume**, select the **Subscription**, **NetApp account**, **Capacity pool**, and **Volume** to be attached as a datastore.
 1. Verify the protocol is NFS. You'll need to verify the virtual network and subnet to ensure connectivity to the Azure VMware Solution private cloud.
 1. Under **Associated cluster**, select the **Client cluster** to associate the NFS volume as a datastore
 1. Under **Data store**, create a personalized name for your **Datastore name**.
     1. When the datastore is created, you should see all of your datastores in the **Storage (preview)**.
     2. You'll also notice that the NFS datastores are added in vCenter.
-
-When you want to disconnect from a datastore:
-1. Select the datastore you want to disconnect from.
-1. Right-click on the datastore and select **disconnect**.
-
-> [!NOTE]
-> This action only disconnects the ANF volume as a datastore. It does not delete the data or the ANF volume.
 
 
 ### [Azure CLI](#tab/azure-cli)
@@ -132,13 +125,18 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
 ---
 
-## Delete an Azure NetApp Files-based datastore from your private cloud
+## Disconnect an Azure NetApp Files-based datastore from your private cloud
 
-You can delete an Azure NetApp Files-based datastore, which is used in Azure VMware Solution private cloud. Use the **Delete an ANF-based private cloud datastore** command, provided below, to perform this operation. There's no maintenance window required for this operation. After the deletion, the actual Azure NetApp Files (ANF) volume will still exist. 
+You can use the instructions provided to disconnect an Azure NetApp Files-based (ANF) datastore using either Azure Portal or Azure CLI. There's no maintenance window required for this operation. The disconnect action only disconnects the ANF volume as a datastore, it doesn't delete the data or the ANF volume.
 
-**Delete an ANF based private cloud datastore**
+**Disconnect an ANF datastore using the Azure Portal**
 
-`az vmware datastore delete --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
+1. Select the datastore you want to disconnect from.
+1. Right-click on the datastore and select **disconnect**.
+
+**Disconnect an ANF datastore using Azure CLI**
+
+ `az vmware datastore delete --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 
 ## Next steps
 
