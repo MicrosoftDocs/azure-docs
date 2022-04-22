@@ -30,8 +30,8 @@ After your license server is set up, you'll need to enable [advanced networking]
 
 Autodesk-generated license files embed the MAC address of the license server.  If you decide to host your license server by using an Azure VM, it’s important to make sure that your license server’s MAC address doesn’t change. If the MAC address changes, you'll need to regenerate your licensing files. To prevent your MAC address from changing:
 
-- [Set a static private IP and MAC address](./how-to-create-a-lab-with-shared-resource.md#static-private-ip-and-mac-address) for the Azure VM that hosts your license server.
-- Be sure to create both your lab plan and the license server’s virtual network in a region. Also, verify the region has sufficient VM capacity so that you don’t have to move these resources to a new region later.
+- [Set a static private IP and MAC address](how-to-create-a-lab-with-shared-resource.md#tips) for the Azure VM that hosts your license server.
+- Be sure to create both your lab plan and the license server’s virtual network in the same region. Also, verify the region has sufficient VM capacity so that you don’t have to move these resources to a new region later.
 
 For more information, see [Set up a license server as a shared resource](./how-to-create-a-lab-with-shared-resource.md).
 
