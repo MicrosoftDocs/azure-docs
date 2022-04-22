@@ -523,7 +523,7 @@
     - name: Search API
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /python/api/overview/azure/search/management
+      href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
     - name: Azure CLI

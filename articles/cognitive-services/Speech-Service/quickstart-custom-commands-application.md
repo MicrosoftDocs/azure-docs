@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/19/2022
 ms.author: eur
-ms.custom: references_regions
+ms.custom: cogserv-non-critical-speech, references_regions
 ---
 
 # Quickstart: Create a voice assistant with Custom Commands

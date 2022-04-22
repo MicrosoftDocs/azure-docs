@@ -76,6 +76,7 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 > [!NOTE]
 > Synonyms are case insensitive. Synonyms also might not work as expected if you add stop words as synonyms. The list of stop words can be found here: [List of stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
 > For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and is filtered when a query is processed.
+> Synonyms do not allow these special characters: ',', '?', ':', ';', '\"', '\'', '(', ')', '{', '}', '[', ']', '-', '+', '.', '/', '!', '*', '-', '_', '@', '#' 
 
 ## Next steps
 
