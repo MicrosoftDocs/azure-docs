@@ -2,7 +2,7 @@
 title: Monitor Azure services and applications using Grafana
 description: Route Azure Monitor and Application Insights data so you can view them in Grafana.
 ms.topic: conceptual
-ms.date: 11/06/2017
+ms.date: 04/22/2022
 
 ---
 
@@ -24,7 +24,7 @@ Azure Managed Grafana is optimized for the Azure environment and works seamlessl
 - Manage user authentication and access control using Azure Active Directory identities
 - Pin charts from the Azure portal directly to Azure Managed Grafana dashboards
 
-Use this [quickstart guide](~/managed-grafana/quickstart-managed-grafana-portal.md) to create an Azure Managed Grafana workspace using the Azure portal.
+Use this [quickstart guide](../../managed-grafana/quickstart-managed-grafana-portal.md) to create an Azure Managed Grafana workspace using the Azure portal.
 
 ### Set up Grafana locally
 To set up a local Grafana server, [download and install Grafana in your local environment](https://grafana.com/grafana/download).
@@ -42,7 +42,7 @@ Azure Managed Grafana includes an Azure Monitor datasource plugin pre-configured
 
 ![Azure Managed Grafana](./media/grafana-plugin/azure-managed-grafana.png)
 
-You can also expand the resources that can be viewed by your Azure Managed Grafana workspace by [configuring additional permissions](~/managed-grafana/how-to-permissions.md) to assign the included Managed Identity the [Monitoring reader role](~/azure-monitor/roles-permissions-security.md) on other subscriptions or resources.
+You can also expand the resources that can be viewed by your Azure Managed Grafana workspace by [configuring additional permissions](../../managed-grafana/how-to-permissions.md) to assign the included Managed Identity the [Monitoring reader role](../roles-permissions-security.md) on other subscriptions or resources.
 
 However, if you are using an instance that is not Azure Managed Grafana, you will need to setup an Azure Monitor datasource.
 
@@ -57,7 +57,7 @@ If your are hosting Grafana on your own Azure VM or Azure App Service with manag
 ### Use Managed Identity
 
 3. Enable managed identity on your VM or App Service and change the Grafana server managed identity support setting to true.
-    * The managed identity of your hosting VM or App Service needs to have the [Monitoring reader role](~/azure-monitor/roles-permissions-security.md) assigned for the subscription, resource group or resources of interest.
+    * The managed identity of your hosting VM or App Service needs to have the [Monitoring reader role](../roles-permissions-security.md) assigned for the subscription, resource group or resources of interest.
     * Additionally, you will need to update the setting 'managed_identity_enabled = true' in the Grafana server config. See [Grafana Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/) for details. Once both steps are complete, you can then save and test access.
 
 4. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
@@ -67,8 +67,8 @@ If your are hosting Grafana on your own Azure VM or Azure App Service with manag
 ### Or use App Registration
 
 5. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
-    * See [these instructions](~/active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
-    * See [Assign application to role](/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) to assign the [Monitoring reader role](~/azure-monitor/roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
+    * See [these instructions](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
+    * See [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) to assign the [Monitoring reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
   
 6. Provide the connection details you'd like to use.
     * When configuring the plugin, you can indicate which Azure Cloud you would like the plugin to monitor (Public, Azure US Government, Azure Germany, or Azure China).
