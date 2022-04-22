@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Azure Database for PostgreSQL - Hyperscale (Citus) documentation
-summary: "Azure Database for PostgreSQL is a fully managed database-as-a-service based on the open-source Postgres relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines using sharding, to serve applications that require greater scale and performance."
+title: Hyperscale (Citus) documentation
+summary: "Hyperscale (Citus) is PostgreSQL extended with the superpower of distributed tables. It's a fully managed service designed to build highly scalable relational apps."
 metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: jonels-msft
