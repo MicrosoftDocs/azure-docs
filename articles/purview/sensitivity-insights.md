@@ -52,7 +52,7 @@ Classifications are matched directly, such as a social security number, which ha
 
 In contrast, sensitivity labels are applied when one or more classifications and conditions are found together. In this context, [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) refer to all the parameters that you can define for unstructured data, such as **proximity to another classification**, and **% confidence**. 
 
- Microsoft Purview Insights uses the same classifications, also known as [sensitive information types](/microsoft-365/compliance/sensitive-information-type-entity-definitions), as those used with Microsoft 365 apps and services. This enables you to extend your existing sensitivity labels across your Microsoft Purview assets.
+Microsoft Purview Insights uses the same classifications, also known as [sensitive information types](/microsoft-365/compliance/sensitive-information-type-entity-definitions), as those used with Microsoft 365 apps and services. This enables you to extend your existing sensitivity labels to assets in the data map.
 
 > [!NOTE]
 > After you have scanned your source types, give **Sensitivity labeling** Insights a couple of hours to reflect the new assets.
