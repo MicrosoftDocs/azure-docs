@@ -440,6 +440,79 @@ For example, the following configuration shows how you can add a unique identifi
 - Keys are case insensitive
 - Values are case-sensitive
 
+## Trailing slash
+
+A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash URL refers to a directory on the web server, while a non-trailing slash indicates a file. 
+
+Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content which can negatively impact search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
+
+The following normalization and redirect rules will apply for each of the available configurations:
+
+### Always 
+
+When setting `trailingSlash` to `always`, all requests that don't include a trailing slash are redirected to a trailing slash URL. For example, `/contact` is redirected to `/contact/`.
+
+```json
+"trailingSlash": "always"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `301` | _/contact/_ |
+| _/contact/_ | The _/contact.html_ file | `200` | _/contact/_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact/_ |
+
+### Never
+
+When setting `trailingSlash` to `never`, all requests ending in a trailing slash are redirected to a non-trailing slash URL. For example, `/contact/` is redirected to `/contact`.
+
+```json
+"trailingSlash": "never"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+
+### Auto
+
+When setting `trailingSlash` to `auto`, all requests to folders are redirected to a URL with a trailing slash. All requests to files are redirected to a non-trailing slash URL.
+
+```json
+"trailingSlash": "auto"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+
+For optimal website performance, configure a trailing slash strategy using one of the `always`, `never` or `auto` modes.
+
+By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules: 
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `200` | _/about/index.html_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `200` | _/contact.html_ |
+
+
 ## Example configuration file
 
 ```json
