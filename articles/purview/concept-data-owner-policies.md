@@ -13,7 +13,7 @@ ms.date: 03/20/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This article discusses concepts related to managing access to data sources in your data estate from within Microsoft Purview Studio.
+This article discusses concepts related to managing access to data sources in your data estate from within the Microsoft Purview governance portal.
 
 > [!Note]
 > This capability is different from access control for Microsoft Purview itself, which is described in [Access control in Microsoft Purview](catalog-permissions.md).
@@ -22,7 +22,7 @@ This article discusses concepts related to managing access to data sources in yo
 
 Access policies in Microsoft Purview enable you to manage access to different data systems across your entire data estate. For example:
 
-A user needs read access to an Azure Storage account that has been registered in Microsoft Purview. You can grant this access directly in Microsoft Purview by creating a data access policy through the **Policy management** app in Microsoft Purview Studio.
+A user needs read access to an Azure Storage account that has been registered in Microsoft Purview. You can grant this access directly in Microsoft Purview by creating a data access policy through the **Policy management** app in the Microsoft Purview governance portal.
 
 Data access policies can be enforced through Purview on data systems that have been registered for policy.
 

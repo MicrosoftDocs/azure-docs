@@ -31,7 +31,7 @@ Currently, there are two kinds of workflows:
 * **Data governance** - for data policy, access governance, and loss prevention. [Scoped](#workflow-scope) at the collection level.
 * **Data catalog** - to manage approvals for CUD (create, update, delete) operations for glossary terms. [Scoped](#workflow-scope) at the glossary level.
 
-These workflows can be built from pre-established [workflow templates](#workflow-templates) provided in the Microsoft Purview studio, but are fully customizable using the available workflow connectors.
+These workflows can be built from pre-established [workflow templates](#workflow-templates) provided in the Microsoft Purview governance portal, but are fully customizable using the available workflow connectors.
 
 
 ## Workflow templates
