@@ -96,10 +96,10 @@ It's important to register the data source in Microsoft Purview before setting u
 If your database server has a firewall enabled, you'll need to update the firewall to allow access in one of two ways:
 
 1. [Allow Azure connections through the firewall](#allow-azure-connections) - a straightforward option to route traffic through Azure networking, without needing to manage virtual machines.
-1. [Install a Self-Hosted Integration Runtime on a machine in your network and give it access through the firewall](#self-hosted-integration-runtime) - if you have a private VNet set up within Azure, or have any other closed network set up, using a self-hosted integration runtime on a machine within that network will alow you to fully manage traffic flow and utilize your existing network.
+1. [Install a Self-Hosted Integration Runtime on a machine in your network and give it access through the firewall](#self-hosted-integration-runtime) - if you have a private VNet set up within Azure, or have any other closed network set up, using a self-hosted integration runtime on a machine within that network will allow you to fully manage traffic flow and utilize your existing network.
 1. [Use a managed virtual network](catalog-managed-vnet.md) - setting up a managed virtual network with your Microsoft Purview account will allow you to connect to Azure SQL using the Azure integration runtime in a closed network.
 
-For more information about the Azure SQL Firewall, see the [SQL Database firewall documenatation.](../azure-sql/database/firewall-configure.md) To connect Microsoft Purview through the firewall, follow the steps below.
+For more information about the Azure SQL Firewall, see the [SQL Database firewall documentation.](../azure-sql/database/firewall-configure.md) To connect Microsoft Purview through the firewall, follow the steps below.
 
 #### Allow Azure Connections
 
@@ -116,7 +116,7 @@ Enabling Azure connections will allow Microsoft Purview to reach and connect the
 A self-hosted integration runtime (SHIR) can be installed on a machine to connect with a resource in a private network.
 
 1. [Create and install a self-hosted integration runtime](./manage-integration-runtimes.md) on a personal machine, or a machine inside the same VNet as your database server.
-1. Check your database server networking configuration to confirm that there is a private endpoint accessible to the SHIR machine. Add the IP of the machine if it doesn't already have access.
+1. Check your database server networking configuration to confirm that there's a private endpoint accessible to the SHIR machine. Add the IP of the machine if it doesn't already have access.
 1. If your Azure SQL Server is behind a private endpoint or in a VNet, you can use an [ingestion private endpoint](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) to ensure end-to-end network isolation.
 
 ### Authentication for a scan
@@ -128,11 +128,11 @@ To scan your data source, you'll need to configure an authentication method in t
 
 The following options are supported:
 
-* **System-assigned managed identity** (Recommended) - This is an identity associated directly with your Microsoft Purview account that allows you to authenticate directly with other Azure resources without needing to manage a go-between user or credential set. The **system-assigned** managed identity is created when your Microsoft Purview resource is created, is managed by Azure, and uses your Microsoft Purview account's name. The SAMI cannot currently be used with a self-hosted integration runtime for Azure SQL. For more information see the [managed identity overview](/active-directory/managed-identities-azure-resources/overview).
+* **System-assigned managed identity** (Recommended) - This is an identity associated directly with your Microsoft Purview account that allows you to authenticate directly with other Azure resources without needing to manage a go-between user or credential set. The **system-assigned** managed identity is created when your Microsoft Purview resource is created, is managed by Azure, and uses your Microsoft Purview account's name. The SAMI can't currently be used with a self-hosted integration runtime for Azure SQL. For more information, see the [managed identity overview](/active-directory/managed-identities-azure-resources/overview).
 
-* **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that allows Microsoft Purview to authenticate against Azure Active Directory. The **user-assigned** managed by users in Azure, rather than by Azure itself, which gives you more control over security. The UAMI cannot currently be used with a self-hosted integration runtime for Azure SQL. For more information, see our [guide for user-assigned managed identities.](manage-credentials.md#create-a-user-assigned-managed-identity)
+* **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that allows Microsoft Purview to authenticate against Azure Active Directory. The **user-assigned** managed by users in Azure, rather than by Azure itself, which gives you more control over security. The UAMI can't currently be used with a self-hosted integration runtime for Azure SQL. For more information, see our [guide for user-assigned managed identities.](manage-credentials.md#create-a-user-assigned-managed-identity)
 
-* **Service Principal**- A service principal is an application that can be assigned permissions like any other group or user, without being associated directly with a person. Their authentication has an expiration date, and so can be useful for temporary projects. For more information see the [service principal documenatation](/active-directory/develop/app-objects-and-service-principals).
+* **Service Principal**- A service principal is an application that can be assigned permissions like any other group or user, without being associated directly with a person. Their authentication has an expiration date, and so can be useful for temporary projects. For more information, see the [service principal documenatation](/active-directory/develop/app-objects-and-service-principals).
 
 * **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documenation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
     > [!NOTE]
