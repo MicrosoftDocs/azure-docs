@@ -114,7 +114,7 @@ Close integration with [Microsoft Purview Information Protection](/microsoft-365
 
 For sensitivity labels to be extended to your assets in the data map, you must actively turn on this capability in the Microsoft Purview compliance center.
 
-For more information, see [How to automatically apply sensitivity labels to your data in the Microsoft Purview Data Map](how-to-automatically-label-your-content).
+For more information, see [How to automatically apply sensitivity labels to your data in the Microsoft Purview Data Map](how-to-automatically-label-your-content.md).
 
 ## Next steps
 
