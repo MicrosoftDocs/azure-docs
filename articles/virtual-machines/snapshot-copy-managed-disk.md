@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 04/22/2022
 ---
 
 # Create a snapshot of a virtual hard disk
@@ -123,6 +123,8 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
     ```
 
 ---
+
+To recover using a snapshot, you must deploy a new VM, or create a new disk with the snapshot and attach it to a VM.
 
 ## Next steps
 
