@@ -139,4 +139,4 @@ sections:
         answer: |
           No, Microsoft Purview does not provide Data Loss Prevention capabilities at this point. 
           
-          Read about [Data Loss Prevention in Microsoft Purview Information Protection](/microsoft-365/compliance/information-protection#prevent-data-loss) if you are interested in Data Loss Prevention features inside Microsoft 365.
+          Read about [Data Loss Prevention in Microsoft Purview Information Protection](/microsoft-365/compliance/information-protection#prevent-data-loss) if you are interested in Data Loss Prevention features for Microsoft 365 apps and services.
