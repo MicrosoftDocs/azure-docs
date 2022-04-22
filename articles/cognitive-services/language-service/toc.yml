@@ -99,7 +99,7 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-swagger
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
     - name: SDKs (v3.2-preview.2)
@@ -173,7 +173,7 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-swagger
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
     - name: SDKs (v3.2-preview.2)
@@ -245,7 +245,7 @@ items:
     - name: REST API
       items:
       - name: Authoring
-        href: https://aka.ms/clu-authoring-apis
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
       - name: Runtime API
         href: https://aka.ms/clu-apis
     - name: SDKs
@@ -530,7 +530,7 @@ items:
     - name: REST API
       items:
       - name: Authoring
-        href: https://aka.ms/clu-authoring-apis
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
       - name: Runtime API
         href: https://aka.ms/clu-apis
     - name: SDKs

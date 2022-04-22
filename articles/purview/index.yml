@@ -24,7 +24,7 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Use Microsoft Purview Studio
+          - text: Use the Microsoft Purview governance portal
             url: use-azure-purview-studio.md
           - text: Understand Microsoft Purview access control
             url: catalog-permissions.md
@@ -169,8 +169,8 @@ landingContent:
           url: concept-self-service-data-access-policy.md
     - linkListType: how-to-guide
       links:
-        - text: Registering data sources for Data use governance
-          url: how-to-enable-data-use-governance.md
+        - text: Registering data sources for Data Use Management
+          url: how-to-enable-data-use-management.md
         - text: Authoring and publishing data owner access policies
           url: how-to-data-owner-policy-authoring-generic.md
     - linkListType: tutorial

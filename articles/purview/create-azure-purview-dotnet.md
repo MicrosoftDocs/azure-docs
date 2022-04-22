@@ -190,8 +190,8 @@ The above code with print 'True' if the name is available and 'False' if the nam
 
 The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Microsoft Purview account.
 
-Follow these next articles to learn how to navigate the Microsoft Purview Studio, create a collection, and grant access to Microsoft Purview.
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to Microsoft Purview.
 
-* [How to use the Microsoft Purview Studio](use-azure-purview-studio.md)
+* [How to use the Microsoft Purview governance portal](use-azure-purview-studio.md)
 * [Create a collection](quickstart-create-collection.md)
 * [Add users to your Microsoft Purview account](catalog-permissions.md)
