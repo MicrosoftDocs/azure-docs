@@ -85,6 +85,10 @@ You can now update an AKS cluster currently working with service principals to w
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
+> An update will only work if there is an actual VHD update to consume.  If you are running the latest VHD, you will need to wait till the next VHD is available in order to do the actual update.
+>
+
+> [!NOTE]
 > After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
 >
 > If your cluster was using --attach-acr to pull from image from Azure Container Registry, after updating your cluster to Managed Identity, you need to rerun `az aks update --attach-acr <ACR Resource ID>` to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.

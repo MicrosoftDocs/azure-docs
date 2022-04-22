@@ -31,6 +31,7 @@
     href: tutorial-create-user-flows.md
   - name: 4 - Manage your tenant
     href: tenant-management.md
+    displayName: break glass account, emergence account
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
@@ -273,6 +274,8 @@
       href: identity-provider-linkedin.md
     - name: Microsoft Account
       href: identity-provider-microsoft-account.md
+    - name: Mobile ID
+      href: identity-provider-mobile-id.md
     - name: PingOne (PingIdentity)
       href: identity-provider-ping-one.md
       displayName: Ping identity
@@ -383,8 +386,6 @@
       items:
       - name: Akamai
         href: partner-akamai.md
-      - name: Azure WAF
-        href: partner-azure-web-application-firewall.md
       - name: Cloudflare
         href: partner-cloudflare.md
     - name: Fraud protection partners
@@ -683,7 +684,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
-    href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    href: find-help-open-support-ticket.md
     displayName: technical
   - name: Videos
     href: azure-ad-external-identities-videos.md

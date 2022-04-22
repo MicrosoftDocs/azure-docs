@@ -136,7 +136,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.givenName|String||
    |name.familyName|String||
    |externalId|String||
-   |displayName|Reference||
+   |displayName|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String||
