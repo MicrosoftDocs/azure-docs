@@ -279,7 +279,7 @@ For the following Kubernetes environments:
 
 run the command `kubectl apply -f <config3. map_yaml_file.yaml>`. 
 
-For an example, run the command, `Example: kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.
+For an example, run the command, `Example: kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.  
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a popup message is displayed that's similar to the following and includes the result: 'configmap "container-azm-ms-agentconfig' created to indicate the configmap resource created.
 
