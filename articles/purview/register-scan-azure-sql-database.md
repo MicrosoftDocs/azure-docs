@@ -97,6 +97,7 @@ If your database server has a firewall enabled, you'll need to update the firewa
 
 1. [Allow Azure connections through the firewall](#allow-azure-connections) - a straightforward option to route traffic through Azure networking, without needing to manage virtual machines.
 1. [Install a Self-Hosted Integration Runtime on a machine in your network and give it access through the firewall](#self-hosted-integration-runtime) - if you have a private VNet set up within Azure, or have any other closed network set up, using a self-hosted integration runtime on a machine within that network will alow you to fully manage traffic flow and utilize your existing network.
+1. [Use a managed virtual network](catalog-managed-vnet.md) - setting up a managed virtual network with your Microsoft Purview account will allow you to connect to Azure SQL using the Azure integration runtime in a closed network.
 
 For more information about the Azure SQL Firewall, see the [SQL Database firewall documenatation.](../azure-sql/database/firewall-configure.md) To connect Microsoft Purview through the firewall, follow the steps below.
 
