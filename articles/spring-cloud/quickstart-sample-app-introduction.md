@@ -78,7 +78,7 @@ The following diagram shows the architecture of the PetClinic application.
 ![Architecture of PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
 
 > [!NOTE]
-> When the application is hosted in Azure Spring Apps Enterprise tier, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see the [Infrastructure services hosted by Azure Spring Apps](#infrastructure-services-hosted-by-azure-spring-cloud) section later in this article.
+> When the application is hosted in Azure Spring Apps Enterprise tier, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see the [Infrastructure services hosted by Azure Spring Apps](#infrastructure-services-hosted-by-azure-spring-apps) section later in this article.
 
 ## Functional services to be deployed
 
