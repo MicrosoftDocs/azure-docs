@@ -33,19 +33,21 @@ Resource logs are disabled by default. To enable resource logs, follow these ste
 
 1. Then you'll get a full view of the diagnostic settings.
 
- ![Diagnostic settings' full view](./media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png)
+    ![Diagnostic settings' full view](./media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png)
 
 1. Configure the log source settings.
    1. In **Log Source Settings** section, a table shows collecting behaviors for each log type. 
-   1. Check the specific log type you want to collect for all connections. Otherwise the log will be collected only for [diagnostic clients](#diagnostic-client).
-1. Configure the log destination settings.
+   2. Check the specific log type you want to collect for all connections. Otherwise the log will be collected only for [diagnostic clients](#diagnostic-client).
+2. Configure the log destination settings.
    1. In **Log Destination Settings** section, a table of diagnostic settings displays the existing diagnostic settings. You can select the link in the table to get access to the log destination to view the collected resource logs.
-   1. In this section, select the button **Configure Log Destination Settings** to add, update, or delete diagnostic settings.
-   1. Select **Add diagnostic setting** to add a new diagnostic setting, or select **Edit** to modify an existing diagnostic setting.
-   1. Set the archive target that you want. Currently, SignalR service supports **Archive to a storage account** and **Send to Log Analytics**.
-   1. Select the logs you want to archive. Only `AllLogs` is available for resource log. It only controls whether you want to archive the logs. To configure which log types need to be generated in SignalR service, configure in **Log Source Settings** section.
+   2. In this section, select the button **Configure Log Destination Settings** to add, update, or delete diagnostic settings.
+   3. Select **Add diagnostic setting** to add a new diagnostic setting, or select **Edit** to modify an existing diagnostic setting.
+   4. Set the archive target that you want. Currently, SignalR service supports **Archive to a storage account** and **Send to Log Analytics**.
+   5. Select the logs you want to archive. Only `AllLogs` is available for resource log. It only controls whether you want to archive the logs. To configure which log types need to be generated in SignalR service, configure in **Log Source Settings** section.
+
     ![Diagnostics settings pane](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
-   2. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs will be sent to configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
+
+   6. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs will be sent to configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### Resource logs categories
 
@@ -126,6 +128,7 @@ The following code is an example of an archive log JSON string:
 To view resource logs, follow these steps:
 
 1. Select `Logs` in your target Log Analytics.
+
     :::image type="content" alt-text="Log Analytics menu item" source="./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png":::
 
 2. Enter `SignalRServiceDiagnosticLogs` and select time range to query resource logs. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
@@ -207,6 +210,7 @@ If you find that you can't establish SignalR client connections to Azure SignalR
 
 When encountering message related problem, you can take advantage of messaging logs to troubleshoot. Firstly, [enable resource logs](#enable-resource-logs) in service, logs for server and client.
 
+> [!NOTE]
 > For ASP.NET Core, see [here](https://docs.microsoft.com/aspnet/core/signalr/diagnostics) to enable logging in server and client.
 >
 > For ASP.NET, see [here](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing) to enable logging in server and client.
@@ -232,6 +236,7 @@ For **collect all** collecting behavior:
 
 SignalR service only trace messages in direction **from server to client via SignalR service**. The tracing ID will be generated in server, the message will carry the tracing ID to SignalR service.
 
+> [!NOTE]
 > If you want to trace message and [send messages from outside a hub](https://docs.microsoft.com/aspnet/core/signalr/hubcontext) in your app server, you need to enable **collect all** collecting behavior to collect message logs for the messages which are not originated from diagnostic clients.
 > Diagnostic clients works for both **collect all** and **collect partially** collecting behaviors. It has higher priority to collect logs. For more information, see [diagnostic client section](#diagnostic-client).
 
@@ -249,6 +254,7 @@ For the direction **from client to server via SignalR service**, SignalR service
 
 The tracing ID will be generated in SignalR service once the message arrives at SignalR service in **Path 1**. SignalR service will generate a log `Received a message <MessageTracingId> from client connection <ConnectionId>.` for each message in diagnostic client. Once the message leaves from the SignalR to server, SignalR service will generate a log `Sent a message <MessageTracingId> to server connection <ConnectionId> successfully.` If you see these two logs, you can be sure that the message passes through SignalR service successfully.
 
+> [!NOTE]
 > Due to the limitation of ASP.NET Core SignalR, the message comes from client doesn't contains any message level ID. But ASP.NET SignalR generate *invocation ID* for each message, you can use it to map with the tracing ID.
 
 Then the message carries the tracing ID Server in **Path 2**. Server will generate a log `Received message <messagetracingId> from client connection <connectionId>` once the message arrives.
@@ -256,6 +262,7 @@ Then the message carries the tracing ID Server in **Path 2**. Server will genera
 <span id="message-flow-detail-for-path3"></span>
 Once the message invokes the hub method in server, a new service message will be generated with a *new tracing ID*. Once the service message is generated, server will generate a sign in template `Start to broadcast/send message <MessageTracingId> ...`, the actual log will be based on your scenario. Then the message will be delivered to SignalR service in **Path 3**, once the service message leaves from server, a log called `Succeeded to send message <MessageTracingId>` will be generated.
 
+> [!NOTE]
 > The tracing ID of the message from client cannot map to the tracing ID of the service message to be sent to SignalR service.
 
 Once the service message arrives at SignalR service, a log called `Received a <MessageType> message <MessageTracingId> from server connection <ConnectionId>.` will be generated. Then SignalR service processes the service message and deliver to the target client(s). Once the message is sent to client(s) in **Path 4**, log `Sent a message <MessageTracingId> to client connection <ConnectionId> successfully.` will be generated.
@@ -306,12 +313,14 @@ Therefore, SignalR service provides two kinds of collecting behaviors
 * **collect all**: collect logs in all connections 
 * **collect partially**: collect logs in some specific connections
 
+> [!NOTE]
 > To distinguish the connections between those collect logs and those don't collect logs, SignalR service will treat some client as diagnostic client based on the diagnostic client configurations of server and client, in which the resource logs always get collected, while the others don't. For more information, see [collect partially section](#collect-partially).
 
 #### Collect all
 
 Resource logs are collected by all the connections. Take messaging logs for example. When this behavior is enabled, SignalR service will send a notification to server to start generating tracing ID for each message. The tracing ID will be carried in the message to the service, the service will also log the message with tracing ID.
 
+> [!NOTE]
 > Note that to ensure the performance of SignalR service, SignalR service doesn't await and parse the whole message sent from client, therefore, the client messages isn't get logged. But if the client is marked as a diagnostic client, then client message will get logged in SignalR service.
 
 ##### Configuration guide
@@ -324,6 +333,7 @@ This behavior doesn't require you to update server side configurations. This con
 
 Resource logs are **only** collected by [diagnostic clients](#diagnostic-client). All messages get logged including client messages and connectivity events in the diagnostic clients.
 
+> [!NOTE]
 > The limit of the diagnostic clients' number is 100. If the number of diagnostic clients exceeds 100, the outnumbered diagnostic clients will get throttled by SignalR service. The new but outnumbered clients will be failed to connect to SignalR service, and throw `System.Net.Http.HttpRequestException` which has message `Response status code does not indicate success: 429 (Too Many Requests)`, while the already connected ones work without getting impacted by the throttling policy.
 
 ##### Diagnostic client
@@ -340,7 +350,7 @@ To enable this behavior, uncheck the checkbox for a specific log type in the *Ty
 
 ###### Server side
 
-Also setup `ServiceOptions.DiagnosticClientFilter` to define a filter of diagnostic clients based on the http context comes from clients. For example, make client with hub URL `<HUB_URL>?diag=yes`, then setup `ServiceOptions.DiagnosticClientFilter` to filter the diagnostic client. If it returns `true`, the client will be marked as diagnostic client; otherwise, it keeps as normal client. The `ServiceOptions.DiagnosticClientFilter` can be set in your startup class like this:
+Also set up `ServiceOptions.DiagnosticClientFilter` to define a filter of diagnostic clients based on the http context comes from clients. For example, make client with hub URL `<HUB_URL>?diag=yes`, then setup `ServiceOptions.DiagnosticClientFilter` to filter the diagnostic client. If it returns `true`, the client will be marked as diagnostic client; otherwise, it keeps as normal client. The `ServiceOptions.DiagnosticClientFilter` can be set in your startup class like this:
 
 ``` C#
 // sample: mark a client as diagnostic client when it has query string "?diag=yes" in hub URL
