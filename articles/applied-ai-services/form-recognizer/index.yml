@@ -99,7 +99,7 @@ landingContent:
   #Card 3
    - title: 🆕Form Recognizer Studio (v3.0)
      linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Studio overview
             url: concept-form-recognizer-studio.md
@@ -126,41 +126,6 @@ landingContent:
 
 
   #Card 4
-   - title: 🆕Sample labeling tool (v2.1)
-     linkLists:
-      - linkListType: overview
-        links:
-        - text: Deploy the Sample labeling tool
-          url: deploy-label-tool.md
-      - linkListType: get-started
-        links:
-          - text: Custom model
-            url: "concept-custom.md#sample-labeling-tool-api-v21"
-          - text:  Invoice model
-            url: "concept-invoice.md#sample-labeling-tool-api-v21"
-          - text:  Receipt model
-            url: "concept-receipt.md#sample-labeling-tool-api-v21"
-          - text:  ID document model
-            url: "concept-id-document.md#sample-labeling-tool-api-v21"
-          - text:  Business card model
-            url: "concept-business-card.md#sample-labeling-tool-api-v21"
-
-# Card 5
-   - title: Responsible AI
-     linkLists:
-      - linkListType: reference
-        links:
-           - text: Transparency notes
-             url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
-           - text: Characteristics and limitations
-             url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
-           - text: Guidance for integration and responsible use
-             url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
-           - text: Data privacy, compliance, and security
-             url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
-
-
-# Card 6
    - title: Online presentations and community support
      linkLists:
       - linkListType: video
@@ -185,6 +150,42 @@ landingContent:
             url:  https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
           - text: Automating document processing to enhance productivity
             url:  https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
+
+# Card 5
+   - title: Responsible AI
+     linkLists:
+      - linkListType: reference
+        links:
+           - text: Transparency notes
+             url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Characteristics and limitations
+             url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Guidance for integration and responsible use
+             url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
+           - text: Data privacy, compliance, and security
+             url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
+
+
+# Card 6
+   - title: Sample labeling tool (v2.1)
+     linkLists:
+      - linkListType: overview
+        links:
+        - text: Deploy the Sample labeling tool
+          url: deploy-label-tool.md
+      - linkListType: get-started
+        links:
+          - text: Custom model
+            url: "concept-custom.md#sample-labeling-tool-api-v21"
+          - text:  Invoice model
+            url: "concept-invoice.md#sample-labeling-tool-api-v21"
+          - text:  Receipt model
+            url: "concept-receipt.md#sample-labeling-tool-api-v21"
+          - text:  ID document model
+            url: "concept-id-document.md#sample-labeling-tool-api-v21"
+          - text:  Business card model
+            url: "concept-business-card.md#sample-labeling-tool-api-v21"
+
 
 #    - title: 🆕General document model
 #      linkLists:
