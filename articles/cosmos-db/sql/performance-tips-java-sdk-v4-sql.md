@@ -91,13 +91,11 @@ Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-
 
 The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
 
-* **Use a singleton Azure Cosmos DB client for the lifetime of your application**
+* <a id="max-connection"></a> **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
 Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, it is recommended to use a single instance of the Azure Cosmos DB client per AppDomain for the lifetime of the application.
 
-<a id="max-connection"></a>
-
-* **Use the lowest consistency level required for your application**
+* <a id="override-default-consistency-javav4"></a> **Use the lowest consistency level required for your application**
 
 When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed processor.
 
