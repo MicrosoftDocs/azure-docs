@@ -86,7 +86,11 @@ Traffic allocation can be used to do safe rollout blue/green deployments by bala
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments":::
 
+:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
+
 Traffic to one deployment can also be mirrored (copied) to another deployment. Mirroring is useful when you want to test for things like response latency or error conditions without impacting live clients. For example, a blue/green deployment where 100% of the traffic is routed to blue and a 5% is mirrored to green. With mirroring, the results of the traffic to the green deployment aren't returned to the clients but metrics and logs are collected. Mirror traffic functionality is a __preview__ feature.
+
+:::image type="content" source="media/concept-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing an endpoint mirroring traffic to a deployment":::
 
 Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-endpoints.md).
 
@@ -116,11 +120,11 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 ### Private endpoint support (preview)
 
-Optionally, you can restrict inbound & outbound traffic to an online endpoint to a virtual network by using a private endpoint. This functionality is currently in preview.
+Optionally, you can secure communication with a managed online endpoint by using private endpoints. This functionality is currently in preview.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can configure the inbound and outbound communications separately. For example, you can have an online endpoint that accepts incoming scoring requests from public networks, but outbound requests from the endpoint to Azure resources are secured by a virtual network. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use a private endpoint created per endpoint deployment.
+You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created per deployment.
 
 For more information, see [Secure online endpoints](how-to-secure-online-endpoint.md).
 

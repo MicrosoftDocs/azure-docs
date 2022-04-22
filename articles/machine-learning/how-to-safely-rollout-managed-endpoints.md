@@ -125,6 +125,8 @@ az ml online-endpoint update --name $ENDPOINT_NAME --mirror-traffic "green=10"
 > * Mirrored traffic is not currently supported with K8s.
 > * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
 
+:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
+
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
 ```azurecli
@@ -138,6 +140,8 @@ Once you've tested your `green` deployment, allocate a small percentage of traff
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
 Now, your `green` deployment will receive 10% of requests. 
+
+:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
 
 ## Send all traffic to your new deployment
 
