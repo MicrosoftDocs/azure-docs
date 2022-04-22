@@ -28,13 +28,13 @@ This document is structured in the way you should approach troubleshooting:
 
 The section [HTTP status codes](#http-status-codes) explains how invocation and prediction errors map to HTTP status codes when scoring endpoints with REST requests.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Prerequisites
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* The [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
 ## Deploy locally
 

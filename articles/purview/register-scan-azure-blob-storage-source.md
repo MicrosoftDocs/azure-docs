@@ -33,7 +33,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -47,9 +47,9 @@ It is important to register the data source in Microsoft Purview prior to settin
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source":::
 
-1. **Open Microsoft Purview Studio** and navigate to the **Data Map --> Sources**
+1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview Studio":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview governance portal":::
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
@@ -192,7 +192,7 @@ It is important to give your service principal the permission to scan the Azure 
 
 ### Creating the scan
 
-1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview Studio**
+1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 1. Select the **New Scan** icon under the **Azure Blob data source** registered earlier
 
@@ -284,7 +284,7 @@ Scans can be managed or run again on completion
 
 ## Access policy
 
-Access policies allow data owners to manage access to datasets from Microsoft Purview. Owners can monitor and manage data use from within the Microsoft Purview Studio, without directly modifying the storage account where the data is housed.
+Access policies allow data owners to manage access to datasets from Microsoft Purview. Owners can monitor and manage data use from within the Microsoft Purview governance portal, without directly modifying the storage account where the data is housed.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 

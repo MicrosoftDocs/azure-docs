@@ -124,7 +124,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Create Azure AD Domain Services instance | [Application Administrator](../roles/permissions-reference.md#application-administrator)<br>[Groups Administrator](../roles/permissions-reference.md#groups-administrator)<br> [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#domain-services-contributor)|   |
+> | Create Azure AD Domain Services instance | [Application Administrator](../roles/permissions-reference.md#application-administrator)<br>[Groups Administrator](../roles/permissions-reference.md#groups-administrator)<br> [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor)|   |
 > | Perform all Azure AD Domain Services tasks | [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain) |  |
 > | Read all configuration | Reader on Azure subscription containing AD DS service |  |
 

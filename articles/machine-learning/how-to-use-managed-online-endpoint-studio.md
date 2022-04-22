@@ -26,7 +26,7 @@ In this article, you learn how to:
 > * Update managed online endpoints
 > * Delete managed online endpoints and deployments
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Prerequisites
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).

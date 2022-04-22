@@ -23,9 +23,7 @@ Azure Monitor autoscaling supports a rich set of rules. You can configure metric
 
 Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure portal. Other Azure ML SDKs, such as the Python SDK, will add support over time.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-## Prerequisites 
+## Prerequisites
 
 * A deployed endpoint. [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md). 
 

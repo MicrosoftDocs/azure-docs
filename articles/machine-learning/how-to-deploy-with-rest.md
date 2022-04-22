@@ -18,8 +18,6 @@ ms.custom: devplatv2
 
 Learn how to use the Azure Machine Learning REST API to deploy models (preview).
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
 In this article, you learn how to use the new REST APIs to:

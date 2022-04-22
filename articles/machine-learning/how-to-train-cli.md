@@ -13,7 +13,7 @@ ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Train models with the CLI (v2) (preview)
+# Train models with the CLI (v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 [!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
@@ -22,7 +22,7 @@ The Azure Machine Learning CLI (v2) is an Azure CLI extension enabling you to ac
 
 Training a machine learning model is typically an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated. With the Azure Machine Learning CLI (v2), you can track your jobs (and models) in a [workspace](concept-workspace.md) with hyperparameter sweeps, scale-up on high-performance Azure compute, and scale-out utilizing distributed training.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Prerequisites
 
