@@ -13,9 +13,9 @@ ms.date: 04/22/2022
 
 ## April 2022
 
-### New metrics to monitor
+### New metrics for connection creation rate
 
-These two new  metrics can help identify whether Azure Cache for Redis clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and **Redis Server Load**.
+These two new metrics can help identify whether Azure Cache for Redis clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and **Redis Server Load**.
 
 - Connections Created Per Second
 - Connections Closed Per Second
