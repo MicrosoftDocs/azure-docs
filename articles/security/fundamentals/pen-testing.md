@@ -5,7 +5,6 @@ services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
 ms.subservice: security-fundamentals
@@ -40,10 +39,10 @@ One type of pen test that you can’t perform is any kind of [Denial of Service 
 
 > [!Note]
 > You may only simulate attacks using Microsoft approved testing partners:
-> - [Red Button](https://www.red-button.net/): Work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 > - [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): A self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
+> - [Red Button](https://www.red-button.net/): Work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 > 
-> To learn more about the BreakingPoint Cloud simulation, see [testing with simulation partners](../../ddos-protection/test-through-simulations.md).
+> To learn more about these simulation partners, see [testing with simulation partners](../../ddos-protection/test-through-simulations.md).
 
 
 ## Next steps

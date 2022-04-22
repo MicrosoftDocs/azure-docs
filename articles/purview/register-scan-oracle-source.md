@@ -124,11 +124,6 @@ On the **Register sources (Oracle)** screen, do the following:
 1. Enter the **Host** name to connect to an Oracle source. This can either be:
     * A host name used by JDBC to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
-    * Its fully qualified JDBC connection string. For example:
-
-         ```
-        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
-        ```
 
 1. Enter the **Port number** used by JDBC to connect to the database server (1521 by default for Oracle).
 
