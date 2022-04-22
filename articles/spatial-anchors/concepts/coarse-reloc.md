@@ -46,19 +46,19 @@ You can refer to one of these tutorials to set up coarse relocalization in your 
 
 ### Platform availability
 
-You can send these types of sensor data to the anchor service:
+The following types of sensors can be used in conjunction with coarse relocation (see details in table below):
 
-* GPS position: latitude, longitude, altitude
-* Signal strength of Wi-Fi access points in range
-* Signal strength of Bluetooth beacons in range
+* **GPS position**: latitude, longitude, altitude
+* Signal strength of **Wi-Fi** access points in range
+* Signal strength of **Bluetooth** beacons in range
 
 This table summarizes the availability of the sensor data on supported platforms and provides information that you should be aware of:
 
 |                 | HoloLens | Android | iOS |
 |-----------------|----------|---------|-----|
 | **GPS**         | No<sup>1</sup>  | Yes<sup>2</sup> | Yes<sup>3</sup> |
-| **Wi-Fi**        | Yes<sup>4</sup> | Yes<sup>5</sup> | No  |
-| **BLE beacons** | Yes<sup>6</sup> | Yes<sup>6</sup> | Yes<sup>6</sup>|
+| **Wi-Fi**        | Yes<sup>4</sup> | Yes<sup>5</sup> | Yes<sup>3</sup> |
+| **BLE beacons** | Yes<sup>6</sup> | Yes<sup>6</sup> | Yes<sup>3, 6</sup>|
 
 
 <sup>1</sup> An external GPS device can be associated with HoloLens. Handle the [UpdatedSensorFingerprintRequired](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updatedsensorfingerprintrequired) event to submit [GeoLocation](/dotnet/api/microsoft.azure.spatialanchors.geolocation) readings if you are using HoloLens with an external GPS tracker.<br/>
