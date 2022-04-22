@@ -75,7 +75,8 @@ See [Deploy an application](service-fabric-deploy-remove-applications.md) for ex
 ## Cleaning up files and data on nodes
 
 The replication of application files will distribute eventually the files to all nodes depending on balancing actions. This can create disk pressure depending on the number of applications and their file size.
-Even when no active instance is running on a node the files from a former instance will kept. The same is true for data from reliable collections used by stateful services. This serves the purpose of higher availability. In case of a new application instance on the same node no files must be copied. For reliable collections, only the delta must be replicated.
+Even when no active instance is running on a node, the files from a former instance will be kept. The same is true for data from reliable collections used by stateful services. This serves the purpose of higher availability. In case of a new application instance on the same node no files must be copied. For reliable collections, only the delta must be replicated.
+
 To remove the application binaries completely you have to unregister the application type.
 
 Recommendations to reduce disk pressure:
