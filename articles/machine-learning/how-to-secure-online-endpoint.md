@@ -1,5 +1,5 @@
 ---
-title: Secure online endpoints with private endpoints
+title: Secure managed online endpoints with private endpoints
 titleSuffix: Azure Machine Learning
 description: Use private endpoints to secure your Azure Machine Learning online endpoints.
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: seramasu
 author: rsethur
-ms.date: 04/14/2022
+ms.date: 04/22/2022
 ms.custom: 
 
 ---
 
-# Secure online endpoints with private endpoints (preview)
+# Secure managed online endpoints with private endpoints (preview)
 
-With a private endpoint, you can configure your Azure Machine Learning online endpoints to securely communicate with resources in an Azure Virtual Network (VNet). Using a private endpoint with online endpoints is currently a preview feature.
+When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](/azure/private-link/private-endpoint-overview). Using a private endpoint with online endpoints is currently a preview feature.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-When securing an online endpoint with a private endpoint, you can secure the inbound communication from clients (scoring requests for example) separately from the outbound communications between the online endpoint and associated resources. For example, you may allow scoring requests over the public network while restricting communications between the online endpoint and the Azure Machine Learning workspace, blob storage, and container registry.
+You can secure the inbound communication from clients (scoring requests) to an _online endpoint_ separately from the outbound communications between a _deployment_ and the Azure resources used by the deployment. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints#what-are-endpoints-and-deployments).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ When securing an online endpoint with a private endpoint, you can secure the inb
 
 * You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
-* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint to communicate with a virtual network. If you don't have one, the steps in this article create an example workspace and VNet, then deploy a model to an online endpoint secured with a private endpoint.
+* You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 > [!IMPORTANT]
 > The end-to-end example in this article comes from the files in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory, use the following commands: 
@@ -43,28 +43,32 @@ When securing an online endpoint with a private endpoint, you can secure the inb
 ## Limitations
 
 * If your Azure Machine Learning workspace has a private endpoint that was created before 5/24/2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+
+* Secure inbound communication only secures scoring requests. Requests to get the authentication key or token for the online endpoint are resolved over the public network (secured with TLS) to Azure Resource Manager. For more information, see [TBD]
+
+* Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
  
 ## Inbound (scoring)
 
-To restrict communications to the online endpoint to the virtual network, set the `public_network_access` flag for the endpoint to `disabled`:
+To secure scoring requests to the online endpoint to your virtual network, set the `public_network_access` flag for the endpoint to `disabled`:
 
 ```azurecli
 az ml online-endpoint create -f endpoint.yml --set public_network_access=disabled
 ```
 
-When `public_network_access` is `disabled`, inbound scoring requests are received using the private endpoint(s) of the Azure Machine Learning workspace.
+When `public_network_access` is `disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 ## Outbound (resource access)
 
-To restrict communication between the online endpoint and the Azure resources used by the endpoint set the `private_network_connection` flag to `true`. Enable this flag to ensure that the download of the model, code, and images needed by your endpoint deployment are secured within the VNet and not sent over the public network.
+To restrict communication between a deployment and the Azure resources used to by the deployment, set the `private_network_connection` flag to `true`. Enable this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
 
-The following are the resources that the online endpoint uses outbound communication with:
+The following are the resources that the deployment communicates with over the private endpoint:
 
 * The Azure Machine Learning workspace.
 * The Azure Storage blob that is the default storage for the workspace.
 * The Azure Container Registry for the workspace.
 
-When you configure the `private_network_connection` to `true`, a new private endpoint is created for each service, _per deployment_. For example, if you set the flag to `true` for three deployments to an online endpoint, nine private endpoints are created.
+When you configure the `private_network_connection` to `true`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `true` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
 
 ```azurecli
 az ml online-deployment create -f deployment.yml --set private_network_connection true
@@ -161,13 +165,13 @@ When prompted, enter the password you used when creating the VM.
     > [!TIP]
     > Use the tabs to select whether you want to perform a deployment using an MLflow model or generic ML model.
 
-    # [MLflow model](#tab/mlflow)
-
-    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet-mlflow.sh" id="set_env_vars":::
-
     # [Generic model](#tab/model)
 
     :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet.sh" id="set_env_vars":::
+
+    # [MLflow model](#tab/mlflow)
+
+    :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-moe-vnet-mlflow.sh" id="set_env_vars":::
 
     ---
 
