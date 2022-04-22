@@ -303,7 +303,8 @@ Azure Storage firewalls for virtual networks  | Supported | If restrict virtual 
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
-Azure shared disks | Not supported
+Azure Shared Disks | Not supported
+Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
 Tags  | Supported | User-generated tags are replicated every 24 hours.
