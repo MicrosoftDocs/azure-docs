@@ -1,18 +1,18 @@
 ---
-title: What is automated ML? AutoML
+title: What is automated ML? AutoML (v1)
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning can automatically generate a model by using the parameters and criteria you provide with automated machine learning.
+description: Learn how automated machine learning in Azure Machine Learning can automatically generate a model by using the parameters and criteria you provide.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-author: cartacioS
-ms.author: sacartac
+ms.author: cesardl
+author: CESARDELATORRE
 ms.date: 03/15/2022
 ms.custom: automl
 ---
 
-# What is automated machine learning (AutoML)?
+# Automated machine learning (AutoML)?
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
@@ -329,7 +329,7 @@ How-to articles provide additional detail into what functionality automated ML o
 
 +  Learn how to [train computer vision models with Python (v1)](../how-to-auto-train-image-models.md).
 
-+  Learn how to [view the generated code from your automated ML models](how-to-generate-automl-training-code.md).
++  Learn how to [view the generated code from your automated ML models](../how-to-generate-automl-training-code.md).
    
 ### Jupyter notebook samples 
 
@@ -342,4 +342,4 @@ Deepen your expertise of SDK design patterns and class specifications with the [
 > [!Note]
 > Automated machine learning capabilities are also available in other Microsoft solutions such as, 
 [ML.NET](/dotnet/machine-learning/automl-overview), 
-[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
+[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

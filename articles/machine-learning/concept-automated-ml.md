@@ -14,7 +14,7 @@ ms.custom: automl
 
 # What is automated machine learning (AutoML)?
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
 > * [v1](./v1/concept-automated-ml-v1.md)
 > * [v2 (current version)](concept-automated-ml.md)
@@ -244,6 +244,7 @@ These settings allow you to review and control your experiment runs and its chil
 |**Cancel runs & child runs**|✓| ✓|✓|
 |**Get guardrails**|✓|✓|✓|
 |**Pause & resume runs**|| ✓| |
+
 <a name="use-with-onnx"></a>
 
 ## AutoML & ONNX
