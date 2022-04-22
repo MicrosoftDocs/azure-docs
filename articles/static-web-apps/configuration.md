@@ -499,7 +499,7 @@ When setting `trailingSlash` to `auto`, all requests to folders are redirected t
 | _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
 | _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
 
-For optimal website performance, it is recommended to configure a trailing slash strategy using one of the `always`, `never` or `auto` modes.
+For optimal website performance, configure a trailing slash strategy using one of the `always`, `never` or `auto` modes.
 
 By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules: 
 
