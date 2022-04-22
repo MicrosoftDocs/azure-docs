@@ -49,14 +49,13 @@ async function deleteContainerImmediately(blobServiceClient, containerName) {
 The following example shows how to delete all of the containers whose name starts with a specified prefix.
 
 ```javascript
-// prefix = prefix to blob object name
-async function deleteContainersWithPrefix(blobServiceClient, prefix){
+async function deleteContainersWithPrefix(blobServiceClient, blobNamePrefix){
 
   const containerOptions = {
     includeDeleted: false,
     includeMetadata: false,
     includeSystem: true,
-    prefix
+    prefix: blobNamePrefix
   }
 
   for await (const containerItem of blobServiceClient.listContainers(containerOptions)) {

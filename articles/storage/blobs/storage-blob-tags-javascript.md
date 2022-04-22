@@ -37,12 +37,7 @@ You can set tags at blob upload time or by using the following method:
 The following example performs this task.
 
 ```javascript
-// Sets tags on the underlying blob. A blob can have up to 10 tags. 
-// Tag keys must be between 1 and 128 characters. Tag values must 
-// be between 0 and 256 characters. Valid tag key and value characters 
-// include lower and upper case letters, digits (0-9), space (' '), 
-// plus ('+'), minus ('-'), period ('.'), foward slash ('/'), 
-// colon (':'), equals ('='), and underscore ('_').
+// A blob can have up to 10 tags. 
 //
 // const tags = {
 //   project: 'End of month billing summary',
@@ -104,7 +99,7 @@ Data is queried with a JSON object sent as a string.The properties don't need to
 
 The following table shows some query strings:
 
-|Query string for tags|Description|
+|Query string for tags (tagOdataQuery)|Description|
 |--|--|
 |`id='1' AND project='billing'`|Filter blobs across all containers based on these two properties|
 |`owner='PhillyProject' AND createdOn >= '2021-12' AND createdOn <= '2022-06'`|Filter blobs across all containers based on strict property value for `owner` and range of dates for `createdOn` property.|

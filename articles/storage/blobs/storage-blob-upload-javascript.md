@@ -28,9 +28,6 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 The following example uploads a local file to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. The [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) object allows you to pass in your own metadata and [tags](storage-manage-find-blobs.md#blob-index-tags-and-data-management), used for indexing, at upload time:
 
 ```javascript
-// containerName: string
-// blobName: string, includes file extension if provided
-// localFileWithPath: fully qualified path and file name
 // uploadOptions: {
 //   metadata: { reviewer: 'john', reviewDate: '2022-04-01' }, 
 //   tags: {project: 'xyz', owner: 'accounts-payable'}
@@ -51,9 +48,6 @@ async function createBlobFromLocalPath(containerClient, blobName, localFileWithP
 The following example uploads a readable stream to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadStream [options](/javascript/api/@azure/storage-blob/blockblobuploadstreamoptions) to affect the upload:
 
 ```javascript
-// containerName: string
-// blobName: string, includes file extension if provided
-// readableStream: Node.js Readable stream
 // uploadOptions: {
 //    metadata: { reviewer: 'john', reviewDate: '2022-04-01' },  
 //    tags: {project: 'xyz', owner: 'accounts-payable'}, 
@@ -105,9 +99,6 @@ const myTransform = new Transform({
 The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 
 ```javascript
-// containerName: string
-// blobName: string, includes file extension if provided
-// buffer: blob content
 // uploadOptions: {
 //    blockSize: destination block blob size in bytes,
 //    concurrency: concurrency of parallel uploading - must be greater than or equal to 0,
@@ -134,9 +125,6 @@ async function createBlobFromBuffer(containerClient, blobName, buffer, uploadOpt
 The following example uploads a string to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobUploadOptions [options](/javascript/api/@azure/storage-blob/blockblobuploadoptions) to affect the upload:
 
 ```javascript
-// containerClient: container client
-// blobName: string, includes file extension if provided
-// fileContentsAsString: blob content
 // uploadOptions: {
 //    metadata: { reviewer: 'john', reviewDate: '2022-04-01' }, 
 //    tags: {project: 'xyz', owner: 'accounts-payable'} 

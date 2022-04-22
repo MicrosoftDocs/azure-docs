@@ -49,14 +49,14 @@ To copy a blob, use the [BlobClient.beginCopyFromURL method](/javascript/api/@az
 ```javascript
 async function copyBlob(
     blobServiceClient, 
-    sourceBlobContainer, 
+    sourceBlobContainerName, 
     sourceBlobName, 
-    destinationBlobContainer,
-    destinationBlobName,) {
+    destinationBlobContainerName,
+    destinationBlobName) {
 
     // create container clients
-    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainer); 
-    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainer);   
+    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainerName); 
+    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainerName);   
     
     // create blob clients
     const sourceBlobClient = await sourceContainerClient.getBlobClient(sourceBlobName);
@@ -78,14 +78,14 @@ When you abort a copy operation, the destination blob's property, [copyStatus](/
 ```javascript
 async function copyThenAbortBlob(
     blobServiceClient, 
-    sourceBlobContainer, 
+    sourceBlobContainerName, 
     sourceBlobName, 
-    destinationBlobContainer,
-    destinationBlobName,) {
+    destinationBlobContainerName,
+    destinationBlobName) {
 
     // create container clients
-    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainer); 
-    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainer);   
+    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainerName); 
+    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainerName);   
     
     // create blob clients
     const sourceBlobClient = await sourceContainerClient.getBlobClient(sourceBlobName);
