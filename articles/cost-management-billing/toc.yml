@@ -204,9 +204,9 @@
         href: manage/cancel-azure-subscription.md
       - name: Manage subscription policies
         href: manage/manage-azure-subscription-policy.md
-    - name: Transfer subscriptions
+    - name: Transfer billing products
       items:
-      - name: Azure subscription transfers
+      - name: Azure billing product transfers
         href: manage/subscription-transfer.md
       - name: Transfer subscription ownership
         displayName: azure transfer subscription
