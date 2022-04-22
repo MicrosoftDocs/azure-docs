@@ -484,7 +484,7 @@ When setting `trailingSlash` to `never`, all requests ending in a trailing slash
 
 ### Auto
 
-When setting `trailingSlash` to `auto`, all requests to folders will be redirected to a URL with a trailing slash. All requests to files will be redirected to a non-trailing slash URL.
+When setting `trailingSlash` to `auto`, all requests to folders are redirected to a URL with a trailing slash. All requests to files are redirected to a non-trailing slash URL.
 
 ```json
 "trailingSlash": "auto"
