@@ -65,7 +65,7 @@ It is important to register the data source in Microsoft Purview prior to settin
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Azure Blob Storage account name** and the **collection** and select **Apply**. Leave the **Data use governance** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Azure Blob Storage account name** and the **collection** and select **Apply**. Leave the **data use management** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
@@ -292,10 +292,10 @@ To create an access policy for an Azure Storage account, follow the guidelines b
 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-### Enable data use governance
+### Enable data use management
 
-Data use governance is an option on your Microsoft Purview sources that will allow you to manage access for that source from within Microsoft Purview.
-To enable data use governance, follow [the data use governance guide](how-to-enable-data-use-governance.md#enable-data-use-governance).
+Data use management is an option on your Microsoft Purview sources that will allow you to manage access for that source from within Microsoft Purview.
+To enable data use management, follow [the data use management guide](how-to-enable-data-use-management.md#enable-data-use-management).
 
 ### Create an access policy
 
