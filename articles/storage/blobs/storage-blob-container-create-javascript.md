@@ -66,7 +66,7 @@ A root container, with the specific name `$root`, enables you to reference a blo
 
 `https://myaccount.blob.core.windowsJavaScript/default.html`
 
-The root container must be explicitly created or deleted. If isn't created by default as part of service creation. The same code displayed in the previous section can create the root. The container name is `$root`.
+The root container must be explicitly created or deleted. It isn't created by default as part of service creation. The same code displayed in the previous section can create the root. The container name is `$root`.
 
 ## See also
 
