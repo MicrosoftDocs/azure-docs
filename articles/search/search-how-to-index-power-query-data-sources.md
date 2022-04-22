@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 04/22/2022
 ms.custom: references_regions
 ---
 
@@ -18,7 +18,7 @@ ms.custom: references_regions
 > [!IMPORTANT] 
 > Power Query connector support was introduced as a **gated public preview** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), but is now discontinued. If you have a search solution that uses a Power Query connector, we recommend migration to an alternative solution.
 
-## Migrate by April 2023
+## Migrate by July 22
 
 CONTENT TBD
 

@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 04/07/2022
+ms.date: 04/22/2022
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
@@ -18,7 +18,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with serv
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | This indexer data source was introduced in May 2021 but will not be moving forward. See the feature documentation for help migrating to alternative solutions.  | Retired |
+| [Power Query connector preview](search-how-to-index-power-query-data-sources.md) | This indexer data source was introduced in May 2021 but will not be moving forward. Please migrate your data ingestion code by July 2022. See the feature documentation for migration guidance.  | Retired |
 
 ## February 2022
 
