@@ -247,7 +247,7 @@ automl_config = AutoMLConfig(task = 'regression',
 > Forecasting does not currently support specifying a test dataset using a train/test split with the `test_size` parameter.
 
 
-Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run upon completion of your experiment. This test run uses the provided test data to evaluate the best model that automated ML recommends. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-models-preview).
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run upon completion of your experiment. This test run uses the provided test data to evaluate the best model that automated ML recommends. Learn more about [how to get the predictions from the test run](./v1/how-to-configure-auto-train-v1.md#test-models-preview).
 
 ## Next steps
 
