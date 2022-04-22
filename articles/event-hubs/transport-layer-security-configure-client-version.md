@@ -13,7 +13,7 @@ ms.author: egrootenboer
 
 # Configure Transport Layer Security (TLS) for an Event Hubs client application
 
-For security purposes, an Azure Azure Event Hubs namespace may require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Event Hubs will fail if the client is using a version of TLS that is lower than the minimum required version. For example, if a namespace requires TLS 1.2, then a request sent by a client who is using TLS 1.1 will fail.
+For security purposes, an Azure Event Hubs namespace may require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Event Hubs will fail if the client is using a version of TLS that is lower than the minimum required version. For example, if a namespace requires TLS 1.2, then a request sent by a client who is using TLS 1.1 will fail.
 
 This article describes how to configure a client application to use a particular version of TLS. For information about how to configure a minimum required version of TLS for an Azure Event Hubs namespace, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace](transport-layer-security-configure-minimum-version.md).
 
