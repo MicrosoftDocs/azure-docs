@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Meet multifactor authentication requirements of memorandum 22-09
 
-This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum 22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
+This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum 22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
 
 The memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multifactor authentication (MFA) protect those personnel from sophisticated online attacks. Phishing is the attempt to obtain and compromise credentials, such as by sending a spoofed email that leads to an inauthentic site.
 
@@ -25,17 +25,14 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 ## Phishing-resistant methods
 
-* Active Directory Federation Services (AD FS) as a federated identity provider that's configured with certificate-based authentication.
+![Table of AAD Phish-resistant methods](media/memo-22-09/AAD-PR-Methods.png)
+> [!Note]
+> Microsoft Authenticator phishing resistance is in development. Once available Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
 
-* Azure AD certificate-based authentication.
+> [!Tip]
+> While CBA accomplished via federated IDP & Microsoft Authenticator combined with conditional access policies that enforce Hybrid join or compliant device provide for a phishing-resistant authentication method, each require additional configuration above credential use. For this reason Microsoft recommends adopting one of the credentials listed under the modern approach to satisfy the M-22-09 requirements for Multi-factor authentication.
 
-* FIDO2 security keys.
-
-* Windows Hello for Business.
-
-* Microsoft Authenticator and conditional access policies that enforce managed or compliant devices to access the application or service. Microsoft Authenticator native phishing resistance is in development.
-
-Your current device capabilities, user personas, and other requirements might dictate specific multifactor methods. For example, if you're adopting FIDO2 security keys that have only USB-C support, they can be used only from devices with USB-C ports. 
+Your current device capabilities, user personas, and other requirements might dictate specific multifactor methods. For example, if you're adopting FIDO2 security keys that have only USB-C support, they can be used only from devices with USB-C ports.
 
 Consider the following approaches to evaluating phishing-resistant MFA methods:
 
@@ -78,10 +75,9 @@ For each of the five phishing-resistant MFA types previously mentioned, you use 
 | VMs hosted on-premises or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM and then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
 | Non-Microsoft virtual desktop solution| Integrate the virtual desktop solution as an app in Azure AD. |
 
-
 ### Enforcing phishing-resistant MFA
 
-Conditional access enables you to enforce MFA for users in your tenant. With the addition of [cross-tenant access policies](../external-identities/cross-tenant-access-overview.md), you can enforce it on external users. 
+Conditional access enables you to enforce MFA for users in your tenant. With the addition of [cross-tenant access policies](../external-identities/cross-tenant-access-overview.md), you can enforce it on external users.
 
 #### Enforcement across agencies
 
@@ -104,7 +100,7 @@ The memo requires organizations to change password policies that are proven inef
 
 * Use [Azure AD Identity Protection](..//identity-protection/concept-identity-protection-risks.md) to be alerted about compromised credentials so you can take immediate action.
 
-Although the memo isn't specific on which policies to use with passwords, consider the standard from [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html). 
+Although the memo isn't specific on which policies to use with passwords, consider the standard from [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 ## Next steps
 
