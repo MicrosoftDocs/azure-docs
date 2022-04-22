@@ -21,7 +21,7 @@ This article addresses recovering from soft and hard deletions in your Azure AD 
 
 ## Monitor for deletions
 
-The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. We recommend that you export these logs to a security information and event management (SIEM) tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0. ](../graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http)
+The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. We recommend that you export these logs to a security information and event management (SIEM) tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0. ](/graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http)
 
 ### Audit log 
 
@@ -188,13 +188,13 @@ Hard deleted items must be recreated and reconfigured. It's best to avoid unwant
 
 Ensure you have a process to frequently review items in the soft delete state and restore them if appropriate. To do so, you should:
 
-* Frequently [list deleted items](../graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http). 
+* Frequently [list deleted items](/graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http). 
 
 * Ensure that you have specific criteria for what should be restored.
 
 * Ensure that you have specific roles or users assigned to evaluating and restoring items as appropriate.
 
-* Develop and test a continuity management plan. For more information, see [Considerations for your Enterprise Business Continuity Management Plan. ](../compliance/assurance/assurance-developing-your-ebcm-plan)
+* Develop and test a continuity management plan. For more information, see [Considerations for your Enterprise Business Continuity Management Plan. ](/compliance/assurance/assurance-developing-your-ebcm-plan)
 
 
 For more information on avoiding unwanted deletions, see the following topics in the [Recoverability best practices](recoverability-overview.md) article.
