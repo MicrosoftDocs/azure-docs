@@ -194,7 +194,9 @@ In this section, you add a new controller to the WebAPI backend to handle reques
 
 9. In the **Controller name** box, type **RegisterController** to name the new class, and then select **Add**.
 
-    ![The Add Controller window][B8]
+    [ ![The Add Controller window](/media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png)](/media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png#lightbox)
+
+
 
 10. In RegisterController.cs, add the following `using` statements:
 
@@ -407,7 +409,6 @@ The URL uses the web app name that you specified earlier, with the format http:/
 [B5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
 [B6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
-[B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
