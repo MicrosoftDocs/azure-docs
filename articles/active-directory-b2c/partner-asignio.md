@@ -107,7 +107,7 @@ Follow the steps mentioned in [this tutorial](tutorial-register-applications.md?
 
 1. Select **New OpenID Connect Provider**.
 
-1. Use the plus button and set **Identity provider type** to **OpenID Connect**.
+1. Select **Identity provider type** > **OpenID Connect**.
 
 1. Fill out the form to set up the Identity provider
 
