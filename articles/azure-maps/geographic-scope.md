@@ -38,7 +38,7 @@ The following is the [Data V2 - List](/rest/api/maps/data-v2/list) command:
 GET https://{geography}.atlas.microsoft.com/mapData?api-version=2.0
 ```
 
-In the previous URl, for an Azure Maps account provisioned in the West US replace {geography} with `us`:
+In the previous URL, for an Azure Maps account provisioned in the West US replace {geography} with `us`:
 
 ```http
 GET https://us.atlas.microsoft.com/mapData?api-version=2.0
@@ -46,5 +46,6 @@ GET https://us.atlas.microsoft.com/mapData?api-version=2.0
 
 ## Additional information
 
+- For information on limiting what regions a SAS token is allowed to be used in see [Authentication with Azure Maps](azure-maps-authentication.md#create-sas-tokens)
 - [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies)
 - [Azure Government cloud support](how-to-use-map-control.md#azure-government-cloud-support)
