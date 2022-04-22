@@ -20,8 +20,7 @@ ms.author: lajanuar
 
 ## Read, Layout, and Custom form (template) model
 
-
-The following lists include the currently GA languages in the the 2.1 version and new ones in the most recent 3.0 preview. These languages are supported by Read, Layout, and Custom form (template) model features.
+The following lists include the currently GA languages in for the v2.1 version and the most recent v3.0 preview. These languages are supported by Read, Layout, and Custom form (template) model features.
 
 > [!NOTE]
 > **Language code optional**
@@ -30,7 +29,7 @@ The following lists include the currently GA languages in the the 2.1 version an
 
 To use the preview languages, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md).
 
-### Handwritten languages
+### Handwritten languages (preview and GA)
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -48,40 +47,40 @@ This section lists the supported languages for extracting printed texts in the l
 
 |Language| Code (optional) |Language| Code (optional) |
 |:-----|:----:|:-----|:----:|
-|Angika (Devanagiri) | `anp`|Lakota | `lkt`
+|Angika (Devanagari) | `anp`|Lakota | `lkt`
 |Arabic | `ar`|Latin | `la`
-|Awadhi-Hindi (Devanagiri) | `awa`|Lithuanian | `lt`
+|Awadhi-Hindi (Devanagari) | `awa`|Lithuanian | `lt`
 |Azerbaijani (Latin) | `az`|Lower Sorbian | `dsb`
 |Bagheli | `bfy`|Lule Sami | `smj`
-|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Mahasu Pahari (Devanagiri) | `bfz`
+|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Mahasu Pahari (Devanagari) | `bfz`
 |Belarusian (Latin) | `be`, `be-latn`|Maltese | `mt`
-|Bhojpuri-Hindi (Devanagiri) | `bho`|Malto (Devanagiri) | `kmj`
-|Bodo (Devanagiri) | `brx`|Maori | `mi`
+|Bhojpuri-Hindi (Devanagari) | `bho`|Malto (Devanagari) | `kmj`
+|Bodo (Devanagari) | `brx`|Maori | `mi`
 |Bosnian (Latin) | `bs`|Marathi | `mr`
 |Brajbha | `bra`|Mongolian (Cyrillic)  | `mn`
 |Bulgarian  | `bg`|Montenegrin (Cyrillic)  | `cnr-cyrl`
 |Bundeli | `bns`|Montenegrin (Latin) | `cnr-latn`
 |Buryat (Cyrillic) | `bua`|Nepali | `ne`
 |Chamling | `rab`|Niuean | `niu`
-|Chhattisgarhi (Devanagiri)| `hne`|Nogay | `nog`
+|Chhattisgarhi (Devanagari)| `hne`|Nogay | `nog`
 |Croatian | `hr`|Northern Sami (Latin) | `sme`
 |Dari | `prs`|Ossetic  | `os`
-|Dhimal (Devanagiri) | `dhi`|Pashto | `ps`
-|Dogri (Devanagiri) | `doi`|Persian | `fa`
+|Dhimal (Devanagari) | `dhi`|Pashto | `ps`
+|Dogri (Devanagari) | `doi`|Persian | `fa`
 |Erzya (Cyrillic) | `myv`|Punjabi (Arabic) | `pa`
 |Faroese | `fo`|Ripuarian | `ksh`
 |Gagauz (Latin) | `gag`|Romanian | `ro`
-|Gondi (Devanagiri) | `gon`|Russian | `ru`
-|Gurung (Devanagiri) | `gvr`|Sadri  (Devanagiri) | `sck`
-|Halbi (Devanagiri) | `hlb`|Samoan (Latin) | `sm`
+|Gondi (Devanagari) | `gon`|Russian | `ru`
+|Gurung (Devanagari) | `gvr`|Sadri  (Devanagari) | `sck`
+|Halbi (Devanagari) | `hlb`|Samoan (Latin) | `sm`
 |Haryanvi | `bgc`|Sanskrit (Devanagari) | `sa`
 |Hawaiian | `haw`|Santali(Devanagiri) | `sat`
 |Hindi | `hi`|Serbian (Latin) | `sr`, `sr-latn`
-|Ho(Devanagiri) | `hoc`|Sherpa (Devanagiri) | `xsr`
-|Icelandic | `is`|Sirmauri (Devanagiri) | `srx`
+|Ho(Devanagiri) | `hoc`|Sherpa (Devanagari) | `xsr`
+|Icelandic | `is`|Sirmauri (Devanagari) | `srx`
 |Inari Sami | `smn`|Skolt Sami | `sms`
-|Jaunsari (Devanagiri) | `Jns`|Slovak | `sk`
-|Kangri (Devanagiri) | `xnr`|Somali (Arabic) | `so`
+|Jaunsari (Devanagari) | `Jns`|Slovak | `sk`
+|Kangri (Devanagari) | `xnr`|Somali (Arabic) | `so`
 |Karachay-Balkar  | `krc`|Southern Sami | `sma`
 |Kara-Kalpak (Cyrillic) | `kaa-cyrl`|Tajik (Cyrillic)  | `tg`
 |Kazakh (Cyrillic)  | `kk-cyrl`|Thangmi | `thf`
@@ -92,7 +91,7 @@ This section lists the supported languages for extracting printed texts in the l
 |Kosraean | `kos`|Uyghur (Arabic) | `ug`
 |Kumyk (Cyrillic) | `kum`|Uzbek (Arabic) | `uz-arab`
 |Kurdish (Arabic) | `ku-arab`|Uzbek (Cyrillic)  | `uz-cyrl`
-|Kurukh (Devanagiri) | `kru`|Welsh | `cy`
+|Kurukh (Devanagari) | `kru`|Welsh | `cy`
 |Kyrgyz (Cyrillic)  | `ky`
 
 ### Print languages (GA)
@@ -177,14 +176,16 @@ Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
 
-## Detected languages by Read
+## Detected languages: Read API
 
 The [Read API](concept-read.md) supports language detection for the following languages:
 
 > [!NOTE]
-> **Detected languages vs extracted languages**
+> **Language detection**
 >
-> This section lists the languages we can detect from the documents using the Read model, if present. Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
+> Form Recognizer read model can _detect_ a wide range of languages, variants, dialects, and some regional/cultural languages and return a language code.
+>
+> This section lists the languages that can be detected using the Read API. To determine if text can also be _extracted_ for a given language, see [handwritten](#handwritten-languages-preview-and-ga), [print preview](#print-languages-preview), and [print GA](#print-languages-ga) language extraction lists (above).
 
 | Language            | Code |
 |---------------------|---------------|
