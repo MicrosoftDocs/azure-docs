@@ -535,9 +535,6 @@
             href: how-to-use-automl-small-object-detect.md
           - name: Auto-train a natural language processing model
             displayName: nlp, auto ML, automl, SDK
-            href: how-to-auto-train-nlp-models-v2.md
-          - name: Auto-train a natural language processing model
-            displayName: nlp, auto ML, automl, SDK
             href: how-to-auto-train-nlp-models.md
           - name: Data splits & cross-validation (Python)
             displayName: automl, feature engineering, feature importance
