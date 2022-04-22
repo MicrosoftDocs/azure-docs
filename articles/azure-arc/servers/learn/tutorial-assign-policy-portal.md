@@ -26,21 +26,21 @@ before you begin.
 
 ## Create a policy assignment
 
-Follow the steps below to create a policy assignment and assign the policy definition _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ to it:
+Follow the steps below to create a policy assignment and assign the policy definition _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_:
 
 1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/all-services-page.png" alt-text="Search for Policy in All Services" border="false":::
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/assignments-tab.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Assign a policy definition from Assignments page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/assign-policy-button.png" alt-text="Assign a policy definition from Assignments page" border="false":::
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either
    a management group or subscription. Optionally, select a resource group. A scope determines what
@@ -65,18 +65,9 @@ Follow the steps below to create a policy assignment and assign the policy defin
    definition (if you have enabled the Arc-enabled servers agent on a Windows-based machine). For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
-   change it. For this example, leave _\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines_ or _\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines_, depending on which one you selected. You can also add an optional **Description**. The description provides details about this policy assignment.
-   **Assigned by** will automatically fill based on who is logged in. This field is optional, so
-   custom values can be entered.
-
-1. Select **Next** at the bottom of the page to go to the Remediation tab. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or
-   initiative includes a policy with the
-   [deployIfNotExists](../../../governance/policy/concepts/effects.md#deployifnotexists) effect. As the policy used for this
-   quickstart doesn't, leave it blank. For more information, see
-   [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and
-   [how remediation security works](../../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
-
-1. Select **Review and Create** to review your new policy assignment, then select **Create**.
+   change it. For this example, leave the policy name as is, and don't change any of the remaining options on the page.
+ 
+1. For this example, we don't need to change any settings on the other tabs. Select **Review + Create** to review your new policy assignment, then select **Create**.
 
 You're now ready to identify non-compliant resources to understand the compliance state of your
 environment.
@@ -85,7 +76,7 @@ environment.
 
 Select **Compliance** in the left side of the page. Then locate the **\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines** policy assignment you created.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Compliance details on the Policy Compliance page" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/compliance-policy.png" alt-text="Compliance details on the Policy Compliance page" border="false":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -96,11 +87,11 @@ work with the condition evaluation for the resulting compliance state. Although 
 evaluation logic in the Azure portal, the compliance state results are shown. The compliance state
 result is either compliant or non-compliant.
 
-| **Resource State** | **Effect** | **Policy Evaluation** | **Compliance State** |
+| **Resource state** | **Effect** | **Policy evaluation** | **Compliance state** |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-compliant |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
-| New | Audit, AuditIfNotExist\* | True | Non-Compliant |
+| New | Audit, AuditIfNotExist\* | True | Non-compliant |
 | New | Audit, AuditIfNotExist\* | False | Compliant |
 
 \* The Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be TRUE.
@@ -115,8 +106,6 @@ To remove the assignment created, follow these steps:
    the **\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines** policy assignment you created.
 
 1. Right-click the policy assignment and select **Delete assignment**.
-
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Delete an assignment from the Compliance page" border="false":::
 
 ## Next steps
 
