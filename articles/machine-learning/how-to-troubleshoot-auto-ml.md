@@ -207,6 +207,6 @@ If you have over 100 automated ML experiments, this may cause new automated ML e
 
 ## Next steps
 
-+ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](concept-automated-ml.md#local-remote).
++ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).
 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
