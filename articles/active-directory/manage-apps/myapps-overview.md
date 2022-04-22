@@ -20,14 +20,17 @@ ms.reviewer: lenalepa
 Users access the My Apps portal to:
 
 - Discover applications to which they have access
-- Request access to new applications that are configured for self-service
+- Request new applications that the organization supports for self-service
 - Create personal collections of applications
 - Manage access to applications
 
-Any application in the Azure Active Directory enterprise applications list appears when both of the following conditions are met:
+Any application in the Azure Active Directory enterprise applications list appears to a user or group when both of the following conditions are met:
 
-- The visibility property for the application is set to `true`
-- The application is assigned to any user or group
+- The application is set to be visible in its properties
+- The application is assigned to the user or group
+
+> [!NOTE]
+> A **User settings** property in **Enterprise applications** can affect whether users can only see Office 365 apps in the Office 365 portal. If this setting is set to **No**, then users will be able to see Office 365 applications in both the My Apps portal and the Office 365 portal.
 
 Administrators can configure:
 
@@ -50,14 +53,16 @@ For more information, see [Properties of an enterprise application](application-
 
 ### Discover applications
 
-When signed in to the My Apps portal, a combination of default applications and the applications that have been made visible are shown. For an application to be visible in the My Apps portal, the appropriate properties need to be set and a user or group with the appropriate members must be assigned.
+When signed in to the My Apps portal, the applications that have been made visible are shown. For an application to be visible in the My Apps portal, the appropriate properties need to be set and a user or group with the appropriate members must be assigned. Property definitions and user or group assignments are completed in the Azure portal.
 
-You can search for applications by entering the name in the search box at the top of the page. The applications that are listed can be formatted in **List view** or a **Grid view**.
+Office 365 applications can be included in the visible applications in the My Apps portal if **Users can only see Office 365 apps in the Office 365 portal** is set to **Yes** in the Azure portal. This setting can be found under **Manage** in **Enterprise applications > User settings** in the Azure portal.
 
-:::image type="content" source="../media/myapps-overview/myapp-app-list.png" alt-text="Screenshot that shows the search box for the My Apps portal.":::
+You can search for applications in the My Apps portal by entering the name in the search box at the top of the page. The applications that are listed can be formatted in **List view** or a **Grid view**.
+
+:::image type="content" source="./media/myapps-overview/myapp-app-list.png" alt-text="Screenshot that shows the search box for the My Apps portal.":::
 
 > [!IMPORTANT]
-> It can take several minutes for an application to appear in the My Apps portal after it has been added to the tenant. There may also be a delay in how soon users can access the application after it has been added.
+> It can take several minutes for an application to appear in the My Apps portal after it has been added to the tenant in the Azure portal. There may also be a delay in how soon users can access the application after it has been added.
 
 Applications can be hidden. For more information, see [Hide an Enterprise application](hide-application-from-user-portal.md).
 
@@ -67,7 +72,7 @@ How the application is represented in the My Apps portal can be controlled by de
 
 When configuring company branding, the banner logo can be defined. The banner logo appears at the top of the page, such as the Contoso demo logo shown below.
 
-:::image type="content" source="../media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
+:::image type="content" source="./media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
 
 For more information, see [Add branding to your organization's sign-in page](../fundamentals/customize-branding.md).
 
@@ -81,17 +86,28 @@ To sign in to password-based SSO applications, or to applications that are acces
 
 If you must integrate these applications, you should define a mechanism to deploy the extension at scale with supported browsers. Options include:
 
-- User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE
+- User-driven download and configuration for Chrome, Microsoft Edge, or IE
 - Configuration Manager for Internet Explorer
 
 The extension allows users to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
 For applications that use password-based SSO or accessed by using Microsoft Azure AD Application Proxy, you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in your mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Azure AD Password SSO**.
 
+To download and install the extension:
+
+- **Microsoft Edge** - From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) feature, and then select **Get to get the extension for Microsoft Edge legacy browser**.
+- **Google Chrome** - From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
+
+An icon is added to the right of your Address bar, letting you sign in and customize the extension.
+
 ### Permissions
 
-[Not sure how this is supposed to work in the My Apps portal]
+Permissions that have been granted to an application can be reviewed by looking at the permissions tab for it. To access the permissions tab, click in the upper right corner of the tile that represents the application and then select **Manage your application**.
 
-[Edit or revoke application permissions](edit-revoke-permissions.md)
+Permissions that are shown on the permissions tab are ones that have been consented to by an administrator or ones that have been consented to by the user. Permissions consented to by the user can be revoked by the user.
+
+The following image shows the `email` permission for Microsoft Graph consented to the application by the administrator of the tenant.
+
+:::image type="content" source="./media/myapps-overview/permission-consent.png" alt-text="Screenshot that shows permissions granted for an application in the My Apps portal.":::
 
 ### Self-service access
 
@@ -111,21 +127,13 @@ For more information, see [Enable self-service application assignment](manage-se
 
 It's best if SSO is enabled for all apps in the My Apps portal so that users have a seamless experience without the need to enter their credentials. To learn more, see [Single sign-on options in Azure AD](what-is-single-sign-on.md#single-sign-on-options).
 
-Applications can be added by using the Linked SSO option. You can configure an application tile that links to the URL of your existing web application. Linked SSO allows you to start directing users to the My Apps portal without migrating all the applications to Azure AD SSO. You can gradually move to Azure AD SSO-configured applications without disrupting the users’ experience.
-
-### Sign in and start applications
-
-Access the My Apps portal on your computer
-Access the My Apps portal on mobile Edge
-Add a new app to the My Apps portal
-
-For more information, see [Sign-in and start applications from My Apps](start-sign-apps.md).
+Applications can be added by using the Linked SSO option. You can configure an application tile that links to the URL of your existing web application. Linked SSO allows you to start directing users to the My Apps portal without migrating all the applications to Azure AD SSO. You can gradually move to Azure AD SSO-configured applications without disrupting the users’ experience. For more information, see [Add linked single sign-on to an application](configure-linked-sign-on.md).
 
 ## Create collections
 
-By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. For information, see Create collections on the My Apps portal.
+By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on.
 
-Every Azure AD application to which a user has access will appear on My Apps in the Apps collection. Use collections to group related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on.
+Every application to which a user has access will appear on My Apps in the Apps collection, but a user can remove applications from the collection. Use collections to group related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on.
 
 End users can also customize their experience by:
 

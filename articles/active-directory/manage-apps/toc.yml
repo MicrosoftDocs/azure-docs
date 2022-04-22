@@ -132,14 +132,10 @@
       items:
       - name: Create collections
         href: access-panel-collections.md
-      - name: Edit or revoke permissions
-        href: edit-revoke-permissions.md
       - name: Enable self-service access
         href: manage-self-service-access.md
       - name: Hide an application
         href: hide-application-from-user-portal.md
-      - name: Sign-in and start applications
-        href: start-sign-apps.md
     - name: Migrate applications
       items:
       - name: Migrate an AD FS app to Azure
