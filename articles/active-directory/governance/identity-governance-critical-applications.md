@@ -1,5 +1,5 @@
 ---
-title: Govern access for critical third party applications in your environment| Microsoft Docs
+title: Govern access for critical applications in your environment| Microsoft Docs
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical third party on-premises and cloud-based applications.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# Govern access for critical third party applications in your environment
+# Govern access for critical applications in your environment
 
 Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources.
 
@@ -29,6 +29,7 @@ Organizations with compliance requirements or risk management plans will have se
 
 In addition to application access governance scenario, identity governance and the other Azure AD features can also be used for other scenarios, such as [reviewing and removing users from other organizations](../governance/access-reviews-external-users.md) or [managing users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).
 
+<!-- TODO guidance for apps that use Graph? -->
 <!-- TODO guidance for in-house apps -->
 
 ## Getting started with governing access to an application
@@ -56,12 +57,12 @@ If this is an existing application in your environment, you may already have doc
 
 ## Ensure your Azure AD environment is prepared for integrating with the application
 
-<!-- TODO: do you have the data in your AAD? -->
+<!-- TODO: do you have the data in your AAD? Might need to sync more users attributes -->
 <!-- TODO: link to standards and fundamentals for security -->
 
 1. First, if Azure AD is not already sending its audit log to an Azure Monitor deployed in one of your organization's Azure subscriptions, then you should [Configure Azure AD to use Azure Monitor](../governance/entitlement-management-logs-and-reporting.md) for its audit log.  Azure AD stores audit events for up to 30 days in the audit log. However, you can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), by using Azure Monitor. You can then use Azure Monitor workbooks and custom queries and reports across current and historical audit data.
 
-1. Ensure the users in highly privileged administrative roles in your Azure AD tenant have been reviewed. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you should ensure [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.
+1. Reduce the number of users in highly privileged administrative roles in your Azure AD tenant. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you should ensure that [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.
 
 ## Integrate the application with Azure AD to ensure only authorized users cannot access the application
 
@@ -69,30 +70,49 @@ Once you have established the policies for who should have access to your applic
 
 1. Check if your app is on the [list of enterprise applications](../manage-apps/view-applications-portal.md) or [list of app registrations](../develop/app-objects-and-service-principals.md). If the application is already present in your tenant, then skip to step 5 in this section.
 1. If your application isn't already registered in your tenant, then check if the app is available the [application gallery](../manage-apps/overview-application-gallery.md) for applications that can be integrated for federated SSO. If it is, then use the [tutorials](../saas-apps/tutorial-list.md) to configure the application for federation, and if it supports it, and [configuration the application](/app-provisioning/configure-automatic-user-provisioning-portal.md) . When complete, skip to step 5 in this section.
-1. If the application isn't a well-known application the gallery, then select the integration that's most appropriate, based on the location and capabilities of the application:
+1. If the application isn't in the gallery, then [ask the SaaS vendor to onboard](manage-apps/v2-howto-app-gallery-listing.md).  If this is a private or custom application, you can also select a single sign on integration that's most appropriate, based on the location and capabilities of the application.
 
-   |Application location|Application supports| Next steps|
-   |----|----|-----|
-   |Cloud| OpenID Connect | [Add an OpenID Connect OAuth application](../saas-apps/openidoauth-tutorial.md) |
-   |Cloud| SAML 2.0 | Register the application and configure the application with [the SAML endpoints and certificate of Azure AD](../develop/active-directory-saml-protocol-reference.md) |
-   |On-premises or IaaS-hosted| SAML 2.0| Deploy the [application proxy](/app-proxy/application-proxy.md) and configure an application for [SAML SSO](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md) |
-   |Cloud| SAML 1.1 | [Add a SAML-based application](../saas-apps/saml-tutorial.md) |
-   |On-premises or IaaS-hosted | Integrated Windows Auth (IWA) | Deploy the [application proxy](/app-proxy/application-proxy.md), configure an application for [Integrated Windows authentication SSO](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md), and set firewall rules to prevent access to the application's endpoints except via the proxy.|
-   |On-premises or IaaS-hosted | header-based authentication | Deploy the [application proxy](/app-proxy/application-proxy.md) and configure an application for [header-based SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md) |
-   |Cloud| local user accounts, with SCIM | Configure an application with SCIM [for user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md) |
-   |On-premises or IaaS-hosted | local user accounts, with SCIM | you will not be able to configure single sign-on for that application, but you can configure an application with the [provisioning agent for on-premises SCIM-based apps](../app-provisioning/on-premises-scim-provisioning.md)|
-    | On-premises or IaaS-hosted | local user accounts, stored in a SQL database or LDAP directory | you will not be able to configure single sign-on for that application, but you can configure an application with the [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md) or the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md) |
+   * If this is a cloud application, then
+
+     |Application supports| Next steps|
+     |----|-----|
+     | OpenID Connect | [Add an OpenID Connect OAuth application](../saas-apps/openidoauth-tutorial.md) |
+     | SAML 2.0 | Register the application and configure the application with [the SAML endpoints and certificate of Azure AD](../develop/active-directory-saml-protocol-reference.md) |
+     | SAML 1.1 | [Add a SAML-based application](../saas-apps/saml-tutorial.md) |
+
+   * If this is an on-premises or IaaS hosted application, then
+
+     |Application supports| Next steps|
+     |----|-----|
+     | SAML 2.0| Deploy the [application proxy](/app-proxy/application-proxy.md) and configure an application for [SAML SSO](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md) |
+     | Integrated Windows Auth (IWA) | Deploy the [application proxy](/app-proxy/application-proxy.md), configure an application for [Integrated Windows authentication SSO](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md), and set firewall rules to prevent access to the application's endpoints except via the proxy.|
+     | header-based authentication | Deploy the [application proxy](/app-proxy/application-proxy.md) and configure an application for [header-based SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md) |
 
 1. If the application is configured for federated single sign-on via SAML, OpenID Connect, IWA or header based authentication, confirm the Conditional Access policies that are in scope for the user being able to sign into the app. For most business critical applications, there should be a policy that requires multi-factor authentication.  In addition, some organizations may also block access by locations, or [require the user to access from a registered device](../conditional-access/howto-conditional-access-policy-compliant-device.md). You can also determine what policies would apply for a user with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
 
-1. If the application supports SCIM, then configure provisioning from Azure AD to that application.  If the application is on-premises, then [provisioning agent for on-premises SCIM-based apps](../app-provisioning/on-premises-scim-provisioning.md).
+1. If the application supports provisioning, then configure provisioning from Azure AD to that application.  If this is a private or custom application, you can also select the integration that's most appropriate, based on the location and capabilities of the application.
+
+   * If this is a cloud application, then
+
+     |Application supports| Next steps|
+     |----|-----|
+     | SCIM | Configure an application with SCIM [for user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md) |
+
+   * If this is an on-premises or IaaS hosted application, then
+
+     |Application supports| Next steps|
+     |----|-----|
+     | SCIM |  configure an application with the [provisioning agent for on-premises SCIM-based apps](../app-provisioning/on-premises-scim-provisioning.md)|
+     | local user accounts, stored in a SQL database or LDAP directory | configure an application with the [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md) or the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md) |
+
 
 1. If your application has multiple roles, then configure those app roles in Azure AD on your application.  Those role can be added using the [app roles UI](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) and will later be sent to the application in federation claims or during provisioning.
 
 ## Review user's existing access to the application to set a baseline of all users having been reviewed
 
-If the application already existed in your environment, then it is possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward.
+<!-- TODO permissions and consent review -->
 
+If the application already existed in your environment, then it is possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward.
 
 1. If this is a new application you have not used before, and therefore no one has pre-existing access, or if you have already been performing access reviews for this application, then skip to the next section.
 
@@ -109,7 +129,7 @@ If the application already existed in your environment, then it is possible that
 1. If you don't already have a catalog for your application governance scenario, [create a catalog](../governance/entitlement-management-catalog-create.md) in Azure AD entitlement management.
 1. Add the application, as well as any Azure AD groups which the application relies upon, [as resources in that catalog](../governance/entitlement-management-catalog-create.md).
 
-1. For each of the applications' roles or groups, [create an access package](../govvernance/entitlement-management-access-package-create.md) which includes that role or group as its resource. At this stage of configuring  that access package, configure the policy for direct assignment, so that only administrators can create assignments.  In that policy, set the access review requirements for existing users, if any, so that they do not retain access indefinitely.
+1. For each of the applications' roles or groups, [create an access package](../governance/entitlement-management-access-package-create.md) which includes that role or group as its resource. At this stage of configuring  that access package, configure the policy for direct assignment, so that only administrators can create assignments.  In that policy, set the access review requirements for existing users, if any, so that they do not retain access indefinitely.
 1. If you have [separation of duties](entitlement-management-access-package-incompatible.md) requirements, then configure the incompatible access packages or existing groups for your access package.  If your scenario requires the ability to override a separation of duties check, then you will also [set up additional access packages for those override scenarios](entitlement-management-access-package-incompatible.md#configuring-multiple-access-packages-for-override-scenarios).
 1. For each access package, assign existing users of the application in that role, or members of that group, to the access package.
 1. In each access package, [create one or more additional policies](..//governance/entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings) for users to request access.  Configure the approval and recurring access review requirements in that policy.
