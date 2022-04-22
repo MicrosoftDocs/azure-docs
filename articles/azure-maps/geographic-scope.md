@@ -18,7 +18,7 @@ Azure Maps is a global service that supports specifying a geographic scope, whic
 
 For disaster recovery and high availability, Microsoft may replicate customer data to other regions within the same geographic area. For example, if you use the Azure Maps Europe API geographic endpoint, your requests (including input data) are kept in an Azure datacenter in Europe. This only impacts where request data is saved, it doesn't limit the locations from which the customers, or their end users, may access customer data via Azure Maps API.
 
-## Geographic and regional mapping
+## Geographic API endpoint mapping
 
 The table below describes the mapping between geography and supported Azure geographic API endpoint. For example, if you want all Azure Maps Search Address requests to be processed and stored within the European Azure geography, use the `eu.atlas.microsoft.com` endpoint.
 
@@ -32,16 +32,16 @@ The table below describes the mapping between geography and supported Azure geog
 
 ### URL example for geographic mapping
 
-The following is the [Data V2 - List](/rest/api/maps/data-v2/list) command:
+The following is the [Search - Get Search Address](/rest/api/maps/search/get-search-address) command:
 
 ```http
-GET https://{geography}.atlas.microsoft.com/mapData?api-version=2.0
+GET https://{geography}.atlas.microsoft.com/search/address/{format}?api-version=1.0&query={query}
 ```
 
 In the previous URL, to ensure data residency remains in Europe for the Azure Maps API calls (and input data) replace {geography} with `eu`:
 
 ```http
-GET https://us.atlas.microsoft.com/mapData?api-version=2.0
+GET https://eu.atlas.microsoft.com/search/address/{format}?api-version=1.0&query={query}
 ```
 
 ## Additional information
