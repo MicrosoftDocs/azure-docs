@@ -91,9 +91,8 @@ This article showed you how to access Kubernetes resources for your AKS cluster.
 
 <!-- LINKS - internal -->
 [concepts-identity]: concepts-identity.md
-[portal-quickstart]: kubernetes-walkthrough-portal.md#run-the-application
+[portal-quickstart]: ./learn/quick-kubernetes-deploy-portal.md
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-managed-aad]: managed-aad.md
 [cli-aad-upgrade]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
 [enable-monitor]: ../azure-monitor/containers/container-insights-enable-existing-clusters.md
-[portal-cluster]: kubernetes-walkthrough-portal.md

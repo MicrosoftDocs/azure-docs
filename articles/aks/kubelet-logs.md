@@ -73,7 +73,7 @@ If you need additional troubleshooting information from the Kubernetes master, s
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
 [azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

@@ -58,4 +58,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## Next steps
 
-- [Create an Azure Kubernetes Service cluster](../aks/kubernetes-walkthrough.md)
+Create an AKS cluster [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
