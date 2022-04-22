@@ -1,5 +1,5 @@
 ---
-title: How to automatically apply sensitivity labels to your data in Microsoft Purview data map
+title: How to automatically apply sensitivity labels to your data in Microsoft Purview Data Map
 description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
 author: whhender
 ms.author: whhender
@@ -8,15 +8,15 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 04/21/2021
 ---
-# How to automatically apply sensitivity labels to your data in the Microsoft Purview data map
+# How to automatically apply sensitivity labels to your data in the Microsoft Purview Data Map
 
 ## Create new or apply existing sensitivity labels in the data map
 
 > [!IMPORTANT]
-> Labeling in the Microsoft Purview data map is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Labeling in the Microsoft Purview Data Map is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-If you don't already have sensitivity labels, you'll need to create them and make them available for the Microsoft Purview data map. Existing sensitivity labels from Microsoft Purview Information Protection can also be modified to make them available to the data map.
+If you don't already have sensitivity labels, you'll need to create them and make them available for the Microsoft Purview Data Map. Existing sensitivity labels from Microsoft Purview Information Protection can also be modified to make them available to the data map.
 
 ### Step 1: Licensing requirements
 
@@ -24,7 +24,7 @@ Sensitivity labels are created and managed in the Microsoft Purview compliance p
 
 For the full list of licenses, see the [Sensitivity labels in Microsoft Purview FAQ](sensitivity-labels-frequently-asked-questions.yml). If you don't already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
 
-### Step 2: Consent to use sensitivity labels in the Microsoft Purview data map
+### Step 2: Consent to use sensitivity labels in the Microsoft Purview Data Map
 
 The following steps extend your existing sensitivity labels and enable them to be available for use in the data map, where you can apply sensitivity labels to files and database columns.
 
@@ -42,7 +42,7 @@ For example:
 >If you don't see the button, and you're not sure if consent has been granted to extend labeling to assets in the Microsoft Purview Data Map, see [this FAQ](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-the-microsoft-purview-data-map) item on how to determine the status.
 >
 
-After you've extended labeling to assets in the Microsoft Purview data map, all published sensitivity labels are available for use in the data map.
+After you've extended labeling to assets in the Microsoft Purview Data Map, all published sensitivity labels are available for use in the data map.
 
 ### Step 3: Create or modify existing label to automatically label content
 
@@ -114,13 +114,13 @@ For example:
 
 ### Step 4: Publish labels
 
-Once you create a label, you'll need to Scan your data in the Microsoft Purview data map to automatically apply the labels you've created, based on the autolabeling rules you've defined.
+Once you create a label, you'll need to Scan your data in the Microsoft Purview Data Map to automatically apply the labels you've created, based on the autolabeling rules you've defined.
 
 ## Scan your data to apply sensitivity labels automatically
 
 Scan your data in the data map to automatically apply the labels you've created, based on the autolabeling rules you've defined. Allow up to 24 hours for sensitivity label changes to reflect in the data map.
 
-For more information on how to set up scans on various assets in the Microsoft Purview data map, see:
+For more information on how to set up scans on various assets in the Microsoft Purview Data Map, see:
 
 |Source  |Reference  |
 |---------|---------|
@@ -146,7 +146,7 @@ For example:
 
 ## View Insight reports for the classifications and sensitivity labels
 
-Find insights on your classified and labeled data in the Microsoft Purview data map use the **Classification** and **Sensitivity labeling** reports.
+Find insights on your classified and labeled data in the Microsoft Purview Data Map use the **Classification** and **Sensitivity labeling** reports.
 
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)

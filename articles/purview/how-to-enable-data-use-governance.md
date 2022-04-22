@@ -36,7 +36,7 @@ To register a resource, follow the **Prerequisites** and **Register** sections o
 
 Once you have your resource registered, follow the rest of the steps to enable an individual resource for *Data use governance*.
 
-1. Go to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Go to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the **Data map** tab in the left menu.
 
@@ -54,7 +54,7 @@ Once you have your resource registered, follow the rest of the steps to enable a
 
 To disable data use governance for a source, resource group, or subscription, a user needs to either be a resource IAM **Owner** or a Microsoft Purview **Data source admin**. Once you have those permissions follow these steps:
 
-1. Go to the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Go to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the **Data map** tab in the left menu.
 
