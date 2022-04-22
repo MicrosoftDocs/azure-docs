@@ -37,3 +37,9 @@ As part of the diagnostics performed, the user is asked to enable permissions fo
 
 By running the network test, the tool collects and store service and client telemetry data to verify your network conditions and ensure that they are compatible with Azure Communication Services. The telemetry collected does not contain personal identifiable information. The test utilizes both audio and video collected through your device for this verification. The audio and video used for the test are not stored.
   
+## Next Steps
+
+- [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
+- [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
+- [Add Real-Time Inspection tool to your application](./real-time-inspection.md)
+- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
