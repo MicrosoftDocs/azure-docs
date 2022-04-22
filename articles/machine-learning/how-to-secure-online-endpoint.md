@@ -20,7 +20,7 @@ When deploying a machine learning model to a managed online endpoint, you can se
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can secure the inbound communication from clients (scoring requests) to an _online endpoint_ separately from the outbound communications between a _deployment_ and the Azure resources used by the deployment. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints#what-are-endpoints-and-deployments).
+You can secure the inbound communication from clients (scoring requests) to an _online endpoint_ separately from the outbound communications between a _deployment_ and the Azure resources used by the deployment. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
 
 ## Prerequisites
 
