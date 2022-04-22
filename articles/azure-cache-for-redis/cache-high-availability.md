@@ -87,7 +87,7 @@ Because your cache data is stored in memory, a rare and unplanned failure of mul
 
 ### Storage account for persistence
 
-Consider choosing a geo-redundant storage account to ensure high availability of persisted data. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Consider choosing a geo-redundant storage account to ensure high availability of persisted data. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Import/Export
 
@@ -97,7 +97,7 @@ Azure cache for Redis supports the option to import and export Redis Database (R
 
 ### Storage account for export
 
-Consider choosing a geo-redundant storage account to ensure high availability of your exported data. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Consider choosing a geo-redundant storage account to ensure high availability of your exported data. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Geo-replication
 
@@ -128,7 +128,7 @@ Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash*
 
 If you experience a regional outage, consider recreating your cache in a different region and updating your application to connect to the new cache instead. It's important to understand that data will be lost during a regional outage. Your application code should be resilient to data loss.
 
-Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](/azure/azure-cache-for-redis/cache-moving-resources).
+Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](./cache-moving-resources.md).
 
 ## Next steps
 

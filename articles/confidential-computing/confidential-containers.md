@@ -87,7 +87,7 @@ Marblerun supports confidential containers created with Graphene, Occlum, and EG
 ## Confidential Containers reference architectures
 
 - [Confidential data messaging for healthcare reference architecture and sample with Intel SGX confidential containers](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
-- [Confidential big-data processing with Apache Spark on AKS with Intel SGX confidential containers](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql). 
+- [Confidential big-data processing with Apache Spark on AKS with Intel SGX confidential containers](/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql). 
 
 ## Get in touch
 
