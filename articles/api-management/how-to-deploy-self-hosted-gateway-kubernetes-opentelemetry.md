@@ -27,7 +27,7 @@ You learn how to:
 ## Prerequisites
 
 - [Create an Azure API Management instance](get-started-create-service-instance.md)
-- [Create an Azure Kubernetes cluster](../aks/kubernetes-walkthrough-portal.md)
+- Create an Azure Kubernetes cluster [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
 - [Provision a self-hosted gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 
 

@@ -14,7 +14,7 @@ The Kubernetes resource view from the Azure portal replaces the AKS dashboard ad
 
 ## Prerequisites
 
-To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][portal-cluster] to create a new AKS cluster.
+To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][./learn/quick-kubernetes-deploy-portal] to create a new AKS cluster.
 
 ## View Kubernetes resources
 
@@ -30,11 +30,11 @@ To see the Kubernetes resources, navigate to your AKS cluster in the Azure porta
 
 ### Deploy an application
 
-In this example, we'll use our sample AKS cluster to deploy the Azure Vote application from the [AKS quickstart][portal-quickstart].
+In this example, we'll use our sample AKS cluster to deploy the Azure Vote application from the [AKS quickstart][./learn/quick-kubernetes-deploy-portal].
 
 1. Select **Add** from any of the resource views (Namespace, Workloads, Services and ingresses, Storage, or Configuration).
-1. Paste the YAML for the Azure Vote application from the [AKS quickstart][portal-quickstart].
-1. Select **Add** at the bottom of the YAML editor to deploy the application. 
+1. Paste the YAML for the Azure Vote application from the [AKS quickstart][./learn/quick-kubernetes-deploy-portal].
+1. Select **Add** at the bottom of the YAML editor to deploy the application.
 
 Once the YAML file is added, the resource viewer shows both Kubernetes services that were created: the internal service (azure-vote-back), and the external service (azure-vote-front) to access the Azure Vote application. The external service includes a linked external IP address so you can easily view the application in your browser.
 
