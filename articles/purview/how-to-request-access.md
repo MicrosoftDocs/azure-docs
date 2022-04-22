@@ -26,7 +26,7 @@ This article outlines how to make an access request.
 
 1. To find a data asset, use Azure Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality.
 
-    :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Microsoft Purview studio, with the search bar and browse buttons highlighted.":::
+    :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Microsoft Purview governance portal, with the search bar and browse buttons highlighted.":::
 
 1. Select the asset to go to asset details.
 

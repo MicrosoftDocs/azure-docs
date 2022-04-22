@@ -18,7 +18,7 @@ The following steps show how to configure Microsoft Purview to enforce a Conditi
 
 ## Prerequisites
 
-- When multi-factor authentication is enabled, to sign in to Microsoft Purview Studio, you must perform multi-factor authentication.
+- When multi-factor authentication is enabled, to sign in to the Microsoft Purview governance portal, you must perform multi-factor authentication.
 
 ## Configure conditional access
 
@@ -43,4 +43,4 @@ The following steps show how to configure Microsoft Purview to enforce a Conditi
 
 ## Next steps
 
-- [Use Microsoft Purview Studio](./use-purview-studio.md)
+- [Use the Microsoft Purview governance portal](./use-purview-studio.md)
