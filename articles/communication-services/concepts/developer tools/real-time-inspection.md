@@ -1,6 +1,6 @@
 ---
-title: Developer Tools - Communications Inspector 
-description: Conceptual documentation outlining the capabilities provided by the communications inspector.
+title: Developer Tools - Real-Time Inspection for Azure Communication Services
+description: Conceptual documentation outlining the capabilities provided by the Real-Time Inspection tool.
 author: ddematheu2
 manager: chpalm
 services: azure-communication-services
@@ -18,7 +18,7 @@ ms.service: azure-communication-services
 The Communications Inspector enables Azure Communication Services developers to inspect the state of the `Call` to debug or monitor their solution. When building a solution, developers might need visibility for debugging into general call information such as the `Call ID` or advanced states, such as did a user facing diagnostic fire. The Communication Inspector provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `azure/communication-tools`.
 
 >[!NOTE]
->Find the open-source repository for the tool [here](ADD LINK).
+>Find the open-source repository for the tool [here](https://github.com/Azure/communication-inspector).
 
 ## Capabilities
 
