@@ -61,7 +61,7 @@ adls://<container>@<storage_account>.dfs.core.windows.net/<path>/<file_name>.par
 
 
 
-If you're new to data virtualization and want to quickly test functionality, start by querying publicly available data sets available in [Azure Open Datasets](/azure/open-datasets/dataset-catalog), like the [Bing COVID-19 dataset](/azure/open-datasets/dataset-bing-covid-19?tabs=azure-storage) allowing anonymous access. 
+If you're new to data virtualization and want to quickly test functionality, start by querying publicly available data sets available in [Azure Open Datasets](../../open-datasets/dataset-catalog.md), like the [Bing COVID-19 dataset](../../open-datasets/dataset-bing-covid-19.md?tabs=azure-storage) allowing anonymous access. 
 
 Use the following endpoints to query the Bing COVID-19 data sets: 
 
@@ -133,7 +133,7 @@ FROM OPENROWSET(
 
 The `OPENROWSET` command also allows querying multiple files or folders by using wildcards in the BULK path.
 
-The following example uses the [NYC yellow taxi trip records open data set](/azure/open-datasets/dataset-taxi-yellow):
+The following example uses the [NYC yellow taxi trip records open data set](../../open-datasets/dataset-taxi-yellow.md):
 
 ```sql
 --Query all files with .parquet extension in folders matching name pattern:
@@ -390,4 +390,4 @@ Issues with query execution are typically caused by managed instance not being a
 
 - To learn more about syntax options available with OPENROWSET, see [OPENROWSET T-SQL](/sql/t-sql/functions/openrowset-transact-sql).
 - For more information about creating external table in SQL Managed Instance, see [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql).
-- To learn more about creating external file format, see [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) 
+- To learn more about creating external file format, see [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)

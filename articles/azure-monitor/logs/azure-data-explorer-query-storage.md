@@ -1,11 +1,9 @@
 ---
 title: Query exported data from Azure Monitor using Azure Data Explorer
 description: Use Azure Data Explorer to query data that was exported from your Log Analytics workspace to an Azure storage account.
-author: osalzberg
-ms.author: bwren
-ms.reviewer: bwren
 ms.topic: conceptual
-ms.date: 10/13/2020 
+ms.reviewer: osalzberg
+ms.date: 03/22/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -113,11 +111,9 @@ write-host -ForegroundColor Green $CreateExternal
 Write-Host -ForegroundColor Green $createMapping
 ```
 
-The following image shows and example of the output.
+The following image shows an example of the output.
 
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="ExternalTable create command output.":::
-
-[![Example output](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
 >* Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.

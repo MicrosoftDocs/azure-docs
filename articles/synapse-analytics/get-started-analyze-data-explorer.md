@@ -34,7 +34,7 @@ In this article, you'll learn the basic steps to load and analyze data with Data
 ## Create a Data Explorer database
 
 1. In Synapse Studio, on the left-side pane, select **Data**.
-1. Select **&plus;** (Add new resource) > **Data Explorer pool**, and paste the following information:
+1. Select **&plus;** (Add new resource) > **Data Explorer database**, and paste the following information:
 
     | Setting | Suggested value | Description |
     |--|--|--|

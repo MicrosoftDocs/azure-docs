@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 02/08/2022
+ms.date: 03/22/2022
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -688,7 +688,7 @@ Appending data is the default behavior of the SQL Managed Instance sink connecto
 
 ### Upsert data
 
-Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data.
+Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data. To learn more about upsert settings in copy activities, see [SQL Managed Instance as a sink](#sql-managed-instance-as-a-sink).
 
 ### Overwrite the entire table
 

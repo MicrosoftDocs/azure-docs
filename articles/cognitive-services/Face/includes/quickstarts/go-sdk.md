@@ -23,7 +23,7 @@ Use the Face service client library for Go to:
 
 ## Prerequisites
 
-* The latest version of [Go](https://golang.org/dl/)
+* The latest version of [Go](https://go.dev/dl/)
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
@@ -49,7 +49,7 @@ Your workspace will contain three folders:
 * **bin** - This directory will contain the binary executable files that are created when you run `go install`.
 
 > [!TIP]
-> To learn more about the structure of a Go workspace, see the [Go language documentation](https://golang.org/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
+> To learn more about the structure of a Go workspace, see the [Go language documentation](https://go.dev/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
 
 ### Install the client library for Go
 

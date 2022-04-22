@@ -9,7 +9,7 @@ author: ssalgadodev
 ms.author:  ssalgado
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli 
+ms.custom: devplatv2, devx-track-azurecli , cliv2
 ms.devlang: azurecli
 #Customer intent: As a machine learning engineer, I want to test and debug online endpoints locally using Visual Studio Code before deploying them Azure.
 ---

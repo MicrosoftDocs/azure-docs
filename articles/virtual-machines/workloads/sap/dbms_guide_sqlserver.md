@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/08/2022
+ms.date: 03/30/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -516,7 +516,7 @@ Detailed documentation on deploying Always On with SQL Server in Azure VMs lists
 SQL Server Always On is the most common used high availability and disaster recovery functionality used in Azure for SAP workload deployments. Most customers use Always On for high availability within a single Azure Region. If the deployment is restricted to two nodes only, you have two choices for connectivity:
 
 - Using the Availability Group Listener. With the Availability Group Listener, you're required to deploy an Azure load balancer. 
-- Using SQL Server 2019 CU8 or more recent releases where you can use the [Direct Network Name (DNN) listener](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) instead. DNN is eliminating the requirement to us an Azure load balancer.
+- Using SQL Server 2016 SP3, SQL Server 2017 CU 25, or SQL Server 2019 CU8 or more recent SQL Server releases on Windows Server 2016 or later you can use the [Direct Network Name (DNN) listener](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) instead. DNN is eliminating the requirement to us an Azure load balancer.
 - Using the connectivity parameters of SQL Server Database Mirroring. In this case, you need to configure the connectivity of the SAP applications in a way where both node names are named. Exact details of such an SAP side configuration is documented in SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908). By using this option, you would have no need to configure an Availability Group listener. And with that no Azure load balancer for the SQL Server high availability. But recall, this option only works if you restrict your Availability Group to span two instances. 
 
 Quite a few customers are using the SQL Server Always On functionality for disaster recovery functionality between Azure regions. Several customers also use the ability to perform backups from a secondary replica. 

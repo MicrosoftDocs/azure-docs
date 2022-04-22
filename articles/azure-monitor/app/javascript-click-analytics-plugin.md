@@ -13,6 +13,8 @@ ms.devlang: javascript
 
 This plugin automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Getting started
 
 Users can set up the Click Analytics Auto-collection plugin via npm.

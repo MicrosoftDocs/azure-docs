@@ -62,7 +62,7 @@ You can use the **Data Collectors** dashboard in CloudKnox Permissions Managemen
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Edit Configuration**. 
 
-    The **M-CIEM Onboarding - Summary** box displays.
+    The **CloudKnox Onboarding - Summary** box displays.
 
 1. Select **Edit** (the pencil icon) for each field you want to change. 
 1. Select **Verify now & save**.

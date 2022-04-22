@@ -1,11 +1,11 @@
 ---
 title: Networking overview - Azure Database for PostgreSQL - Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: nlarin
+author: niklarin
 ms.date: 11/30/2021
 ---
 
@@ -54,6 +54,7 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 * **Delegated subnet**. A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
   Your flexible server must be in a subnet that's *delegated*. That is, only Azure Database for PostgreSQL - Flexible Server instances can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as `Microsoft.DBforPostgreSQL/flexibleServers`.
+ The smallest CIDR range you can specify for a subnet is /28, which provides fourteen IP addresses, of which five will be utilized by Azure internally, whereas a single Flexible Server with HA features utilizes 4 addresses. 
 
   > [!IMPORTANT]
   > The names `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet`, and `GatewaySubnet` are reserved within Azure. Don't use any of these as your subnet name.

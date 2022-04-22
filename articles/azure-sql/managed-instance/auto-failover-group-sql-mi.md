@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: kendralittle, mathoma
-ms.date: 03/01/2022
+ms.date: 03/15/2022
 ---
 
 # Auto-failover groups overview & best practices (Azure SQL Managed Instance)
@@ -54,7 +54,7 @@ There is some overlap of content in the following articles, be sure to make chan
 
 - **Secondary**
 
-  The managed instance that hosts the secondary databases in the failover group. The secondary cannot be in the same Azure region as the primaryF.
+  The managed instance that hosts the secondary databases in the failover group. The secondary cannot be in the same Azure region as the primary.
  
 - **DNS zone**
 
@@ -185,6 +185,13 @@ Due to the high latency of wide area networks, geo-replication uses an asynchron
 > [!NOTE]
 > `sp_wait_for_database_copy_sync` prevents data loss after geo-failover for specific transactions, but does not guarantee full synchronization for read access. The delay caused by a `sp_wait_for_database_copy_sync` procedure call can be significant and depends on the size of the not yet transmitted transaction log on the primary at the time of the call.
 
+## Failover group status
+Auto-failover group reports its status describing the current state of the data replication:
+
+- Seeding - [Initial seeding](auto-failover-group-sql-mi.md#initial-seeding) is taking place after creation of the failover group, until all user databases are initialized on the secondary instance. Failover process cannot be initiated while auto-failover group is in the Seeding status, since user databases are not copied to secondary instance yet.
+- Synchronizing - the usual status of auto-failover group. It means that data changes on the primary instance are being replicated asynchronously to the secondary instance. This status doesn't guarantee that the data is fully synchronized at every moment. There may be data changes from primary still to be replicated to the secondary due to asynchronous nature of the replication process between instances in the auto-failover group. Both automatic and manual failovers can be initiated while the auto-failover group is in the Seeding status.
+- Failover in progress - this status indicates that either automatically or manually initiated failover process is in progress. No changes to the failover group or additional failovers can be initiated while the auto-failover group is in this status.
+
 ## Permissions
 
 <!--
@@ -197,7 +204,7 @@ There is some overlap of content in the following articles, be sure to make chan
 
 Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
 
-Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
+Azure RBAC write access is necessary to create and manage failover groups. The [SQL Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) has all the necessary permissions to manage failover groups.
 
 For specific permission scopes, review how to [configure auto-failover groups in Azure SQL Managed Instance](auto-failover-group-configure-sql-mi.md#permissions). 
 
@@ -208,7 +215,7 @@ Be aware of the following limitations:
 - Failover groups cannot be created between two instances in the same Azure region.
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for databases in failover group. You will need to temporarily delete failover group to be able to rename a database, or remove the database from the failover group.
-- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service master Key (SMK) for SQL Managed Instance, that is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance.
+- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases such as Server Logins and Agent jobs, require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service master Key (SMK) for SQL Managed Instance, that is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance. To learn more, see how to [Enable scenarios dependent on objects from the system databases](#enable-scenarios-dependent-on-objects-from-the-system-databases).
 - Failover groups cannot be created between instances if any of them are in an instance pool.
 
 ## <a name="programmatically-managing-failover-groups"></a> Programmatically manage failover groups

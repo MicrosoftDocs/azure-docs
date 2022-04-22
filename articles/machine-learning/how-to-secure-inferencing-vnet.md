@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/02/2022
+ms.date: 04/04/2022
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -56,10 +56,13 @@ In this article you learn how to secure the following inferencing resources in a
 
 * When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace. Otherwise, the virtual network can be in a different resource group.
 * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
-* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network.
+
+> [!WARNING]
+> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network. Because of this limitation, we do not recommend Azure Container instances for secure deployments with Azure Machine Learning.
 
 ### Azure Kubernetes Service
 
+* If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](./tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
 * Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
 
@@ -241,30 +244,13 @@ az ml computetarget update aks \
 ```
 
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az-ml-computetarget-update-aks) reference.
 
 ---
 
-When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer. For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md).
+When __attaching an existing cluster__ to your workspace, use the `load_balancer_type` and `load_balancer_subnet` parameters of [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.aks.akscompute#azureml-core-compute-aks-akscompute-attach-configuration) to configure the load balancer.
 
-After attaching the existing cluster, you can then update the cluster to use an internal load balancer/private IP:
-
-```python
-import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
-from azureml.core.compute import AksCompute
-
-# ws = workspace object. Creation not shown in this snippet
-aks_target = AksCompute(ws,"myaks")
-
-# Change to the name of the subnet that contains AKS
-subnet_name = "default"
-# Update AKS configuration to use an internal load balancer
-update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-aks_target.update(update_config)
-# Wait for the operation to complete
-aks_target.wait_for_completion(show_output = True)
-```
+For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md).
 
 ## Enable Azure Container Instances (ACI)
 

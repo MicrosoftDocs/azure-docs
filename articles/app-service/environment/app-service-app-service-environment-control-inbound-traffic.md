@@ -5,12 +5,17 @@ author: madsd
 
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18
 
 ---
 # How To Control Inbound Traffic to an App Service Environment
+
+> [!IMPORTANT]
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
+
 ## Overview
 An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created. Instead, an App Service Environment can be created in a pre-existing virtual network and pre-existing subnet.  As of June 2016, ASEs can also be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (private addresses).  For more information, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 

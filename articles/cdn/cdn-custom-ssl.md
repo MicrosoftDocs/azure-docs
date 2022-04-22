@@ -100,7 +100,7 @@ To enable HTTPS on a custom domain, follow these steps:
 > This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Verizon** profiles.
 >
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Verizon, any valid CA will be accepted.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Verizon, any valid CA will be accepted.
 
 ### Prepare your Azure Key vault account and certificate
 
@@ -218,7 +218,7 @@ If your CNAME record is in the correct format, DigiCert automatically verifies y
 Automatic validation typically takes a few hours. If you don’t see your domain validated in 24 hours, open a support ticket.
 
 >[!NOTE]
->If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+>If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include the appropriate CA(s) for authorization. DigiCert is the CA for Microsoft and Verizon profiles. Akamai profile obtains certificates from three CAs: GeoTrust, Let's Encrypt and DigiCert. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
 
 ### Custom domain isn't mapped to your CDN endpoint
 

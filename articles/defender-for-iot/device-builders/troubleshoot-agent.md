@@ -2,10 +2,14 @@
 title: Troubleshoot security agent start-up (Linux)
 description: Troubleshoot working with Microsoft Defender for IoT security agents for Linux.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Security agent troubleshoot guide (Linux)
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Defender for IoT micro agent troubleshooting (Preview)](troubleshoot-defender-micro-agent.md).
+>
 
 This article explains how to solve potential problems in the security agent start-up process.
 

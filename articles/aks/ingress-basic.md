@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure a basic NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/07/2022
 
 ---
 
@@ -310,11 +310,11 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -345,10 +345,10 @@ kind: Ingress
 metadata:
   name: hello-world-ingress-static
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /static/$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -367,8 +367,8 @@ Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml
 ```
 $ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
-ingress.extensions/hello-world-ingress created
-ingress.extensions/hello-world-ingress-static created
+ingress.networking.k8s.io/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress-static created
 ```
 
 ## Test the ingress controller

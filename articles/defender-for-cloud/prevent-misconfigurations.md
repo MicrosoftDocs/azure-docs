@@ -67,7 +67,7 @@ These recommendations can be used with the **enforce** option:
 - Microsoft Defender for Key Vault should be enabled
 - Microsoft Defender for Kubernetes should be enabled
 - Microsoft Defender for Resource Manager should be enabled
-- Microsoft Defender for servers should be enabled
+- Microsoft Defender for Servers should be enabled
 - Microsoft Defender for Azure SQL Database servers should be enabled
 - Microsoft Defender for SQL servers on machines should be enabled
 - Microsoft Defender for SQL should be enabled for unprotected Azure SQL servers
