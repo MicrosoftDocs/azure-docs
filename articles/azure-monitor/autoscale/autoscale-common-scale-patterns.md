@@ -22,7 +22,7 @@ You have a web app (/VMSS/cloud service role) and
 - Additionally, you want to ensure there is a minimum number of instances.
 - Also, you want to ensure that you set a maximum limit to the number of instances you can scale to.
 
-[![Scale based on CPU](/media/autoscale-common-scale-patterns/scale-based-on-cpu.png)](/media/autoscale-common-scale-patterns/scale-based-on-cpu.png#lightbox)
+[![Scale based on CPU](./media/autoscale-common-scale-patterns/scale-based-on-cpu.png)](./media/autoscale-common-scale-patterns/scale-based-on-cpu.png#lightbox)
 
 ## Scale differently on weekdays vs weekends
 
