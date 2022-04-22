@@ -12,25 +12,25 @@ ms.custom:
 
 # Protect against failures in Azure regions by setting up availability zones for Consumption logic app workflows (preview)
 
-In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services. To provide resiliency and distributed availability, at least three separate availability zones exist in all regions that enable these zones. For more information about availability zones, review [Azure regions and availability zones](../availability-zones/az-overview.md).
+In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
 
-In this preview, Azure Logic Apps supports availability zones for Consumption logic app workflows that run in multi-tenant Azure Logic Apps. Currently, you can only enable this functionality when you create your Consumption logic app. After you finish the creation steps, the platform distributes workloads across all three zones without any other setup. Eventually, availability Zone support will be automatically enabled for all existing Consumption logic apps without any other required setup. The Azure Logic Apps platform handles zone distribution. 
+To provide resiliency and distributed availability, at least three separate availability zones exist in any Azure region that supports and enables these zones. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information about availability zones, review [Azure regions and availability zones](../availability-zones/az-overview.md).
 
-Workflow executions are distributed across three zones in any Azure region that's set up with availability zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region.
+This article provides a brief overview about how availability zones work in Azure Logic Apps, considerations for using availability zones, and how to enable this capability for your logic app.
 
 ## Considerations
 
-* Currently, availability zones are available only in the following regions: Australia East, Brazil South, Canada Central, and France Central
+* During public preview, Azure Logic Apps supports availability zones *only for new Consumption logic app workflows* that run in multi-tenant Azure Logic Apps. You can enable this capability *only when you create* a Consumption logic app using the Azure portal. You have the option to enable this capability only for a limited time.
 
-* You can enable availability zones only when you create a Consumption logic app using the Azure portal. You can't enable this functionality for existing logic apps. These opt-in steps are available only specific window.
+* Currently, you can enable availability zones only for the following Azure regions: Australia East, Brazil South, Canada Central, and France Central.
 
-* Starting May 15, 2022, existing logic app workflows aren't affected.
+* You can't enable availability zones for already existing Consumption logic app workflows. Until mid-May 2022, existing Consumption logic app workflows are unaffected by availability zones. However, starting mid-May 2022, existing Consumption logic app workflows gradually move to using availability zones in phases based on Azure region.
 
-* 
+* New IP addresses that support availability zones are now available for Azure Logic Apps, managed connectors, and custom connectors. If you have a firewall or restricted environment, you have to allow traffic to pass through these IP addresses used by Azure Logic Apps, managed connectors, and custom connectors.
 
 ## Prerequisites
 
-To support the new zones, we will add new inbound and outbound IP addresses for Azure Logic Apps. If you have firewall configurations that allow communication with these Azure Logic Apps IP addresses, you will have to add the new addresses, which will be described in the documentation, Limits and configuration reference for Azure Logic Apps.
+* 
 
 ## Set up availability zones for new Consumption logic app workflows
 
