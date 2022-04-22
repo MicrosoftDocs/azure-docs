@@ -22,12 +22,12 @@ This article describes a solution template that you can use to extract data from
 This template analyzes data from a PDF URL source using two Azure Form Recognizer calls. Then, it transforms the output to readable tables in a dataflow and outputs the data to a storage sink.  
 
 This template contains two activities:  
--	**Web Activity** to call Azure Form Recognizer
+-	**Web Activity** to call Azure Form Recognizer's layout model API
 -	**Data flow** to transform extracted data from PDF
 
 This template defines 4 parameters: 
--  *FormRecognizerURL* is the folder path where you can read the files from the source store. You need to replace the default value with your own folder path.
--  *FormRecognizerKey* is the subfolder path where you can read the files from the source store. You need to replace the default value with your own subfolder path.
+-  *FormRecognizerURL* is the Form recognizer URL ("https://{endpoint}/formrecognizer/v2.1/layout/analyze"). Replace {endpoint} with the endpoint that you obtained with your Form Recognizer subscription. You need to replace the default value with your own URL.
+-  *FormRecognizerKey* is the Form Recognizer subscription key. You need to replace the default value with your own subscription key.
 -  *PDF_SourceURL* is the URL of your PDF source. You need to replace the default value with your own URL. 
 -  *outputFolder* is the name of the folder path where you want your files to be in your destination store. You need to replace the default value with your own folder path.
 
@@ -39,45 +39,30 @@ This template defines 4 parameters:
 
 ## How to use this solution template
 
-1. Go to template **PII detection and masking**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
+1. Go to template **Extract data from PDF**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
 
-:::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-1.png" alt-text="Create a new connection or select an existing connection to the source":::
+:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf1.png" alt-text="Create a new connection or select an existing connection to the source":::
 
 2.	Create a **New** connection to your destination storage store or choose an existing connection.
 
- :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-2.png" alt-text="Create a new connection or select existing connection to Cognitive Services":::
+ :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf2.png" alt-text="Create a new connection or select existing connection to Cognitive Services":::
 
 3. Select **Use this template**. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-3.png" alt-text="Use this template":::
+  :::image type="content" source="solution-template-extract-data-from-pdf/extract-data-from-pdf3.png" alt-text="Use this template":::
 
 4. You should see the following pipeline: 
 
   :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-4.png" alt-text="Pipeline view":::
 
-5. Clicking into the dataflow activity will show the following dataflow: 
+5. Select **Debug**.
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-5.png" alt-text="Dataflow view":::
+  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf5.png" alt-text="Debug pipeline":::
 
-6. Turn on **Data flow debug**. 
+6. Enter parameter values, review results, and publish. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-3.png" alt-text="Data flow debug button":::
+  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf6.png" alt-text="Enter pipeline debug parameters":::
 
-7. Update **Parameters** in **Debug Settings** and **Save**. 
-
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-7.png" alt-text="Debug settings":::
-  
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-7b.png" alt-text="Debug settings parameters":::
-
-8. Preview the results in **Data Preview**. 
-
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-8.png" alt-text="Dataflow data preview":::
-  
-9. When data preview results are as expected, update the **Parameters**.
-
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-9.png" alt-text="Update dataflow parameters":::
-
-10. Return to pipeline and select **Debug**. Review results and publish. 
-
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-10.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
+  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf7.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
+ 
 
