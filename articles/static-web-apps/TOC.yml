@@ -118,7 +118,7 @@
       items:
         - name: Blazor
           href: deploy-blazor.md
-        - name: Next.js
+        - name: Next.js support
           href: nextjs.md
           items:
           - name: Statically generated Next.js
