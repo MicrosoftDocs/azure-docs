@@ -11,9 +11,9 @@ ms.custom: devx-track-js
 ---
 
 
-# Deploy zero-config Next.js websites on Azure Static Web Apps
+# Deploy hybrid Next.js websites on Azure Static Web Apps
 
-In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to [Azure Static Web Apps](overview.md), leveraging the zero-config support for dynamic Next.js features such as Server-Side Rendering (SSR) and API routes.
+In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to [Azure Static Web Apps](overview.md), leveraging the hybrid support for dynamic Next.js features such as Server-Side Rendering (SSR) and API routes.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Begin by initializing a new Next.js application.
 
 Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your browser:
 
-:::image type="content" source="media/deploy-nextjs/nextjs-zero-config-starter.png" alt-text="Start Next.js app":::
+:::image type="content" source="media/deploy-nextjs/nextjs-hybrid-starter.png" alt-text="Start Next.js app":::
 
 1. Stop the development server by pressing **CMD/CTRL + C**.
 

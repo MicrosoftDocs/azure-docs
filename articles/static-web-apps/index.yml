@@ -59,10 +59,8 @@ landingContent:
             url: publish-jekyll.md
           - text: Hugo
             url: publish-hugo.md
-          - text: Statically generated Next.js
-            url: deploy-nextjs-ssg.md
-          - text: Zero-config Next.js (preview)
-            url: deploy-nextjs-zero-config.md
+          - text: Hybrid Next.js (preview)
+            url: deploy-nextjs-hybrid.md
           - text: Nuxt.js
             url: deploy-nuxtjs.md
           - text: VuePress
