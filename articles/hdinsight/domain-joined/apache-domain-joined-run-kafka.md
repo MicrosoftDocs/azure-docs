@@ -199,13 +199,13 @@ To produce and consume topics in ESP Kafka by using the console:
 3. Produce messages to topic `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --producer-property security.protocol=SASL_PLAINTEXT
    ```
 
 4. Consume messages from topic `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --consumer-property security.protocol=SASL_PLAINTEXT
    ```
 
 ## Produce and consume topics for long running session in ESP Kafka
@@ -238,8 +238,8 @@ To use keytab in long running session without `kinit`:
    
    # console tool
    export KAFKA_OPTS="-Djava.security.auth.login.config=/home/sshuser/kafka_client_jaas.conf"
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --producer-property security.protocol=SASL_PLAINTEXT
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --consumer-property security.protocol=SASL_PLAINTEXT
    
    # API
    java -jar -Djava.security.auth.login.config=/home/sshuser/kafka_client_jaas.conf kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
