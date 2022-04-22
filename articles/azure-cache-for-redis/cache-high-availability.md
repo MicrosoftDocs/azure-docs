@@ -12,7 +12,7 @@ ms.author: franlanglois
 
 As with any cloud systems, unplanned outages can occur that result in a virtual machines (VM) instance, an Availability Zone, or a complete Azure region going down. We recommend customers have a plan in place to handle zone or regional outages.
 
-This article presents the information for customers to create a _business continuity and disaster recovery plan_ for their Azure Cache for Redis, or Azure Cache for Redis Enterprise implementation.
+This article presents the information for customers to create a *business continuity and disaster recovery plan* for their Azure Cache for Redis, or Azure Cache for Redis Enterprise implementation.
 
 Various high availability options are available in the Standard, Premium, and Enterprise tiers:
 
