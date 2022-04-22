@@ -78,7 +78,7 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
 
 ## Connect with an account name and key
 
-Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) by using the storage account name and account key. Then use the StorageSharedKeyCredential to initialize a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient)).
+Create a [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) by using the storage account name and account key. Then use the StorageSharedKeyCredential to initialize a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient).
 
 ```javascript
 const { BlobServiceClient, StorageSharedKeyCredential } = require('@azure/storage-blob');
@@ -212,7 +212,6 @@ If you plan to deploy the application to servers and clients that run outside of
 If you explicitly enable anonymous access, then you can connect to Blob Storage without authorization for your request. You can create a new BlobServiceClient object for anonymous access by providing the Blob storage endpoint for the account. This requires you to know the account and container names. To learn how to enable anonymous access, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
 ```javascript
-// connect-with-anonymous-credential.js
 const { BlobServiceClient, AnonymousCredential } = require('@azure/storage-blob');
 require('dotenv').config()
 
@@ -249,10 +248,8 @@ Each type of resource is represented by one or more associated JavaScript client
 | [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
 | [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
 | [BlobClient](/javascript/api/@azure/storage-blob/blobclient) | Allows you to manipulate Azure Storage blobs.|
-| [AppendBlobClient](/javascript/api/@azure/storage-blob/appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
-| [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
 
-The following guides show you how to use each of these clients to build your application.
+The following guides show you how to use each of these clients to build your application. The [sample code](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) shown is this guide is available on GitHub.
 
 | Guide | Description |
 |--|---|
@@ -265,8 +262,8 @@ The following guides show you how to use each of these clients to build your app
 | [Copy blobs](storage-blob-copy-javascript.md) | Copy a blob from one account to another account. |
 | [List blobs](storage-blobs-list-javascript.md) | List blobs in different ways. |
 | [Delete and restore](storage-blob-delete-javascript.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
-| [Find blobs using tags](storage-blob-tags-javascript.md) | Set and retrieve tags then use tags to find blobs. |
-| [Manage properties and metadata](storage-blob-properties-metadata-javascript.md) | Get and set properties and metadata for blobs. |
+| [Find blobs using tags](storage-blob-tags-javascript.md) | Set and retrieve indexed tags then use tags to find blobs. |
+| [Manage properties and metadata](storage-blob-properties-metadata-javascript.md) | Get all system properties and set HTTP properties and metadata for blobs. |
 
 ## See also
 

@@ -33,7 +33,7 @@ The URI for a container is in this format:
 
 To create a container, call the following method from the BlobStorageClient:
 
-- [createContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-createcontainer)
+- [BlobServiceClient.createContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-createcontainer)
 
 Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another. An exception is thrown if a container with the same name already exists. 
 
@@ -48,21 +48,15 @@ async function createContainer(blobServiceClient, containerName){
   };
 
   // creating client also creates container
-  const { containerClient, containerCreateResponse } = await blobServiceClient.createContainer(containerName, options);
+  const containerClient = await blobServiceClient.createContainer(containerName, options);
+  console.log(`container ${containerName} created`);
 
-  // check if creation worked
-  if(!containerCreateResponse.errorCode){
+  // do something with container
+  // ...
 
-    console.log(`container ${containerName} created`);
-
-    // list container properties
-    const containerProperties = await containerClient.getProperties();
-    console.log(`container properties = ${JSON.stringify(containerProperties)}`);
-  }
+  return containerClient;
 }
 ```
-
-This shows just one example of [how to create the BlobServiceClient object](/azure/storage/blobs/storage-blob-javascript-get-started#connect-to-blob-storage). 
 
 ## Understand the root container
 

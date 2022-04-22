@@ -30,26 +30,24 @@ By default, a listing operation returns up to 5000 results at a time.
 The BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers) returns a list of [ContainerItem](/javascript/api/@azure/storage-blob/containeritem) objects. Use the containerItem.name to create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) in order to get a more complete [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties) object.
 
 ```javascript
-async function listContainers(blobServiceClient, containerNamePrefix){
+async function listContainers(blobServiceClient, containerNamePrefix) {
 
   const options = {
-        includeDeleted: false,
-        includeMetadata: true,
-        includeSystem: true,
-        prefix: containerNamePrefix
+    includeDeleted: false,
+    includeMetadata: true,
+    includeSystem: true,
+    prefix: containerNamePrefix
   }
 
   for await (const containerItem of blobServiceClient.listContainers(options)) {
 
-      // ContainerItem
-      console.log(`${containerItem.name} last modified on ${containerItem.properties.lastModified}`);
+    // ContainerItem
+    console.log(`For-await list: ${containerItem.name}`);
 
-      // ContainerClient
-      const containerClient = blobServiceClient.getContainerClient(containerItem.name);
+    // ContainerClient
+    const containerClient = blobServiceClient.getContainerClient(containerItem.name);
 
-      // ContainerProperties
-      const containerProperties = await containerClient.getProperties();
-      console.log(containerProperties);
+    // ... do something with container 
   }
 }
 ```
@@ -77,6 +75,7 @@ async function listContainersWithPagingMarker(blobServiceClient) {
     includeSystem: true,
     prefix: containerNamePrefix
   }
+  
   let i = 1;
   let marker;
   let iterator = blobServiceClient.listContainers(options).byPage({ maxPageSize });
@@ -85,7 +84,7 @@ async function listContainersWithPagingMarker(blobServiceClient) {
   // Prints 2 container names
   if (response.containerItems) {
     for (const container of response.containerItems) {
-      console.log(`Container ${i++}: ${container.name}`);
+      console.log(`IteratorPaged: Container ${i++}: ${container.name}`);
     }
   }
 

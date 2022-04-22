@@ -36,6 +36,7 @@ The following code example fetches a container's properties and writes the prope
 
 ```javascript
 async function getContainerProperties(containerClient) {
+
   // Get Properties including existing metadata
   const containerProperties = await containerClient.getProperties();
   if(!containerProperties.errorCode){
@@ -55,43 +56,24 @@ The name of your metadata must conform to the naming conventions for JavaScript 
 The following code example sets metadata on a container.
 
 ```javascript
-async function setMetadataOfContainer(containerClient) {
+/*
+const metadata = {
+  // values must be strings
+  lastFileReview: currentDate.toString(),
+  reviewer: `johnh`
+}
+*/
+async function setContainerMetadata(containerClient, metadata) {
 
-  const currentDate = new Date();
+  await containerClient.setMetadata(metadata);
 
-  const metadata = {
-    // values must be strings
-    lastFileReview: currentDate.toString(),
-    reviewer: `johnh`
-  }
-
-  const response = await containerClient.setMetadata(metadata);
-
-  if (!response.errorCode) {
-    console.log(`metadata set successfully`);
-  }
 }
 ```
 
-To retrieve metadata, use:
+To retrieve metadata, [get the container properties](#retrieve-container-properties) then use the returned **metadata** property. 
 
 - [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties) which returns metadata inside the ContainerProperties object.
 
-> [!WARNING]
-> The metadata object returned in the response will have its keys in lowercase, even if they originally contained uppercase characters. This differs from the metadata keys returned by the listContainers method of BlobServiceClient using the includeMetadata option, which will retain their original casing.
-
-```javascript
-// metadata keys are all lowercase
-async function getMetadataOfContainer(containerClient) {
-  const containerPropertiesResponse = await containerClient.getProperties();
-
-  if(!containerPropertiesResponse.errorCode){
-
-    console.log(containerPropertiesResponse.metadata);
-    return containerPropertiesResponse.metadata;
-  }
-}
-```
 
 ## See also
 

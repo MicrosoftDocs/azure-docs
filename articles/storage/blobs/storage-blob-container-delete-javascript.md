@@ -25,13 +25,11 @@ To delete a container in JavaScript, use one of the following methods:
 - ContainerClient.[delete](/javascript/api/@azure/storage-blob/containerclien#@azure-storage-blob-containerclient-delete)
 - ContainerClient.[deleteIfExists](/javascript/api/@azure/storage-blob/containerclien#@azure-storage-blob-containerclient-deleteifexists)
 
-The delete methods returns an object which includes an errorCode. When the errorCode is undefined, the delete operation succeeded. 
-
 After you delete a container, you can't create a container with the same name for at *least* 30 seconds. Attempting to create a container with the same name will fail with HTTP error code 409 (Conflict). Any other operations on the container or the blobs it contains will fail with HTTP error code 404 (Not Found).
 
-## Delete container immediately
+## Delete container with BlobServiceClient
 
-The following example deletes the specified container immediately. Use the **BlobServiceClient** for the container:
+The following example deletes the specified container. Use the **BlobServiceClient** for the container:
 
 ```javascript
 // delete container immediately on blobServiceClient
@@ -44,27 +42,12 @@ async function deleteContainerImmediately(blobServiceClient, containerName) {
 }
 ```
 
-## Delete container on garbage collection
-
-The following example marks the container for deletion during garbage collection. Use the **ContainerClient** for a soft delete of the container:
-
-```javascript
-// soft delete container on ContainerClient
-async function deleteContainerSoft(containerClient) {
-
-  const response = await containerClient.delete();
-
-  if (!response.errorCode) {
-    console.log(`deleted ${containerClient.name} container`);
-  }
-}
-```
-
-## Delete container on garbage collection with prefix
+## Delete container with ContainerClient
 
 The following example shows how to delete all of the containers whose name starts with a specified prefix.
 
 ```javascript
+// prefix = prefix to blob object name
 async function deleteContainersWithPrefix(blobServiceClient, prefix){
 
   const containerOptions = {
@@ -93,7 +76,7 @@ When container soft delete is enabled for a storage account, a container and its
 
 - BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-undeletecontainer)
 
-The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the [undeleteContainer]() method to restore the container.
+The following example finds a deleted container, gets the version ID of that deleted container, and then passes that ID into the **undeleteContainer** method to restore the container.
 
 ```javascript
 // Undelete specific container - last version
@@ -118,7 +101,7 @@ async function undeleteContainer(blobServiceClient, containerName) {
     }
   }
 
-  const { containerClient, containerUndeleteResponse } = await blobServiceClient.undeleteContainer(
+  const containerClient = await blobServiceClient.undeleteContainer(
     containerName,
     containerVersion,
 
@@ -127,13 +110,10 @@ async function undeleteContainer(blobServiceClient, containerName) {
   );
 
   // undelete was successful
-  if (!containerUndeleteResponse.errorCode) {
-    console.log(`${containerName} is undeleted`);
+  console.log(`${containerName} is undeleted`);
 
-    // do something with containerClient
-    const containerProperties = await containerClient.getProperties();
-    console.log(`${containerName} lastModified: ${containerProperties.lastModified}`);
-  }
+  // do something with containerClient
+  // ...
 }
 ```
 
