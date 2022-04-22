@@ -124,7 +124,7 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
-### Step 3: Upload your Apache Spark configuration to an Apache Spark pool
+### Step 3: Upload your Apache Spark configuration to an Apache Spark pool (This step will be replaced by step 4)
 You can upload the configuration file to your Azure Synapse Analytics Apache Spark pool. In Synapse Studio:
 
    1. Select **Manage** > **Apache Spark pools**.
@@ -139,6 +139,21 @@ You can upload the configuration file to your Azure Synapse Analytics Apache Spa
 > [!NOTE] 
 >
 > All the Apache Spark applications submitted to the Apache Spark pool will use the configuration setting to push the Apache Spark application metrics and logs to your specified workspace.
+
+
+### Step 4: Create an Apache Spark Configuration
+
+You can create an Apache Spark Configuration to your workspace, and when you create Notebook or Apache spark job definition can select the Apache Spark configuration that you want to use with your Apache Spark pool. When you select it, the details of the configuration are displayed.
+
+   1. Select **Manage** > **Apache Spark configurations**.
+   2. Click on **New** button to create an new Apache Spark configuration, or click on **Import** a local .json file to your workspace.
+   3. **New Apache Spark configuration** page will be opened after you click on **New** button.
+   4. For **Name**, you can enter your preferred and valid name.
+   5. For **Description**, you can input some description in it.
+   6. For **Annotations**, you can add annotations by clicking the **New** button, and also you can delete existing annotations by selecting and clicking **Delete** button.
+   7. For **Configuration properties**, customize the configuration by clicking **Add** button to add properties. If you do not add a property, Azure Synapse will use the default value when applicable. 
+
+      ![Screenshot that create spark configuration.](./media/apache-spark-azure-log-analytics/create-spark-configuration.png)
 
 ## Submit an Apache Spark application and view the logs and metrics
 

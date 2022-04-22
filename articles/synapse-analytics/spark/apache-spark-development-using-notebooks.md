@@ -316,6 +316,8 @@ The number of tasks per each job or stage help you to identify the parallel leve
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
+You can also create a configuration from the Apache Spark configuration or select an existing configuration. For details, please refer to [Apache Spark Configuration Management](../../synapse-analytics/spark/apache-spark-azure-create-spark-configuration.md).
+
 [![Screenshot of session-management](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
 #### Spark session configuration magic command
