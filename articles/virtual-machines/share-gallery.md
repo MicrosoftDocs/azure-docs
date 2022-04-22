@@ -18,7 +18,7 @@ ms.devlang: azurecli
 
 The Azure Compute Gallery, definitions, and versions are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image or application version, they can deploy a VM or a Virtual Machine Scale Set.  
 
-We recommend sharing at the gallery level for the best experience. We do not recommend sharing individual image or application versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
+We recommend sharing at the gallery level for the best experience and prevent management overhead. We do not recommend sharing individual image or application versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
 
