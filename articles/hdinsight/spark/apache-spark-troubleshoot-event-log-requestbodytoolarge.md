@@ -35,7 +35,7 @@ java.io.IOException: Operation failed: "The request body is too large and exceed
 
 ## Cause
 
-Files created over ABFS driver create Block blobs in Azure storage. Your Spark event log file is probably hitting the file length limit for WASB. See [50,000 blocks that a block blob can hold at max](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs).
+Files created over ABFS driver create Block blobs in Azure storage. Your Spark event log file is probably hitting the file length limit for WASB. See [50,000 blocks that a block blob can hold at max](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs).
 
 In Spark 2.3, each Spark app generates one Spark event log file. The Spark event log file for a Spark streaming app continues to grow while the app is running. Today a file on WASB has a 50000 block limit, and the default block size is 4 MB. So in default configuration the max file size is 195 GB. However, Azure Storage has increased the max block size to 100 MB, which effectively brought the single file limit to 4.75 TB. For more information, see [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md).
 
