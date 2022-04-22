@@ -16,9 +16,7 @@ ms.custom: cliv1, sdkv1
 ---
 
 # Regenerate storage account access keys
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
+[!INCLUDE [cli v1](../../includes/machine-learning-dev-v1.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
