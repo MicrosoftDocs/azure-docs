@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Communications inspector
+# Communications Inspector
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -34,7 +34,7 @@ Data collected by the tool is only kept locally and temporarily. It can be downl
 
 Communications Inspector is compatible with the same browsers as the Calling SDK [here](../voice-video-calling/calling-sdk-features.md?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
 
-## Get Started with Communications Inspector
+## Get started with Communications Inspector
 
 The tool can be accessed through an npm package `azure/communication-tools`. There developers can find the `CommunicationsInspector` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
 
@@ -90,3 +90,10 @@ CommunicationsInspector.open()
 CommunicationsInspector.close()
 
 ```
+
+## Next Steps
+
+- [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
+- [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
+- [Levearge Network Diagnostic Tool](./network-diagnostic.md)
+- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
