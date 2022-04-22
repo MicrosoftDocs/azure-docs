@@ -28,6 +28,10 @@ Workflow executions are distributed across three zones in any Azure region that'
 
 * 
 
+## Prerequisites
+
+To support the new zones, we will add new inbound and outbound IP addresses for Azure Logic Apps. If you have firewall configurations that allow communication with these Azure Logic Apps IP addresses, you will have to add the new addresses, which will be described in the documentation, Limits and configuration reference for Azure Logic Apps.
+
 ## Set up availability zones for new Consumption logic app workflows
 
 1. In the Azure portal, start the process to create a new Consumption logic app.
