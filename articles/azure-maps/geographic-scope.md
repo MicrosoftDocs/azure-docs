@@ -12,7 +12,7 @@ ms.custom: mvc, references_regions
 
 # Azure Maps service geographic scope
 
-Azure Maps is a geographically scoped service. Azure Maps requests are limited to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are stored exclusively in the specified geographic area. For more information on Azure regions and geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies).
+Azure Maps is a global service that supports specifying a geographic scope, which allows you to limit data residency to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are stored exclusively in the specified geographic area. For more information on Azure regions and geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies).
 
 ## Data locations
 
