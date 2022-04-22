@@ -10,12 +10,13 @@ author: nibaccam
 manager: cgronlun
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, automl
+ms.custom: devx-track-python, automl, sdkv1
 
 ---
 
 # Use automated ML in an Azure Machine Learning pipeline in Python
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Azure Machine Learning's automated ML capability helps you discover high-performing models without you reimplementing every possible approach. Combined with Azure Machine Learning pipelines, you can create deployable workflows that can quickly discover the algorithm that works best for your data. This article will show you how to efficiently join a data preparation step to an automated ML step. Automated ML can quickly discover the algorithm that works best for your data, while putting you on the road to MLOps and model lifecycle operationalization with pipelines.
 

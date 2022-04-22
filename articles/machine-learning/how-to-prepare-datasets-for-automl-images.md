@@ -7,11 +7,13 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: template-how-to
+ms.custom: template-how-to, sdkv1
 ms.date: 10/13/2021
 ---
 
 # Prepare data for computer vision tasks with automated machine learning (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 > [!IMPORTANT]
 > Support for training computer vision models with automated ML in Azure Machine Learning is an experimental public preview feature. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

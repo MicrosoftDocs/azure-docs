@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: contperf-fy21q1, deploy, cliv1
+ms.custom: contperf-fy21q1, deploy, cliv1, sdkv1
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
@@ -166,6 +166,8 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
 from azureml.core.model import Model
@@ -213,6 +215,8 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 ---
 
 ### Autoscaling
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 The component that handles autoscaling for Azure ML model deployments is azureml-fe, which is a smart request router. Since all inference requests go through it, it has the necessary data to automatically scale the deployed model(s).
 

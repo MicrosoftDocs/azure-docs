@@ -10,7 +10,7 @@ ms.author: ssambare
 author: shivanissambare
 ms.date: 11/12/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1, sdkv1
 adobe-target: true
 ---
 
@@ -69,6 +69,8 @@ az ml workspace list --resource-group=<resource-group>
 ```
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -147,6 +149,8 @@ For more information, see the documentation for the [Model class](/python/api/az
 
   + Register a model from an `azureml.core.Run` object:
  
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     ```python
     model = run.register_model(model_name='bidaf_onnx',
                                tags={'area': 'qna'},
@@ -157,6 +161,8 @@ For more information, see the documentation for the [Model class](/python/api/az
     The `model_path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `model_path` to the path of a folder that contains the files. For more information, see the [Run.register_model](/python/api/azureml-core/azureml.core.run.run#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) documentation.
 
   + Register a model from an `azureml.train.automl.run.AutoMLRun` object:
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     description = 'My AutoML Model'
@@ -320,6 +326,8 @@ Notice the use of the `AZUREML_MODEL_DIR` environment variable to locate your re
 Save this file as `inferenceconfig.json` 
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 env = Environment(name='myenv')

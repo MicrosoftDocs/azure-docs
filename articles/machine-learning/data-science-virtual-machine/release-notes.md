@@ -2,10 +2,10 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine 
 description: Release notes for the Azure Data Science Virtual Machine
-author: michalmar
+author: v-jeevkumar
 ms.service: data-science-vm
 
-ms.author: mimarusa
+ms.author: v-jeevkumar
 ms.date: 12/14/2021
 ms.topic: reference
 ---
@@ -20,8 +20,13 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## April 14, 2022
+New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview) is currently live in the marketplace.
+
+Version: 22.04.05
+
 ## April 04, 2022
-New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
+New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
 
 Version: 22.04.01
 
@@ -32,7 +37,7 @@ Main changes:
 - Azure CLI to version 2.33.1
 - Fixed jupyterhub access issue using public ip address
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
-  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](/azure/machine-learning/concept-automated-ml) environment
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
   - `azureml_py38_PT_TF`: additional azureml_py38 environment, preinstalled with latest TensorFlow and PyTorch
   - `py38_default`: default system environment based on Python 3.8
   - We have removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
@@ -49,7 +54,7 @@ Main changes:
 - Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved `log4j` version 2.0 jars.
 - Azure CLI to version 2.33.1
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
-  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](/azure/machine-learning/concept-automated-ml) environment
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
   - `azureml_py38_PT_TF`: complementary environment `azureml_py38` with preinstalled with latest TensorFlow and PyTorch
   - `py38_default`: default system environment based on Python 3.8
   - we removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
@@ -65,7 +70,7 @@ Version: 21.12.03
 
 Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
  
-Users using Azure Resource Manager (ARM) template / virtual machine scale set (VMSS) to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
+Users using Azure Resource Manager (ARM) template / virtual machine scale set to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
 
 ## December 3, 2021
 

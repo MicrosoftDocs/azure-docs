@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: deploy, cliv1
+ms.custom: deploy, cliv1, sdkv1
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
@@ -64,6 +64,8 @@ To deploy a model to Azure Container Instances, create a __deployment configurat
 > * The number of models to be deployed is limited to 1,000 models per deployment (per container). 
 
 ### Using the SDK
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice

@@ -21,8 +21,6 @@ ms.date: 03/31/2022
 
 Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) (preview) for batch scoring.
 
- [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 The following table contains common problems and solutions you may see during batch endpoint development and consumption.
 
 | Problem | Possible solution |

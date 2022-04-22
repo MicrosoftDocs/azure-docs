@@ -9,12 +9,14 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml
+ms.custom: devx-track-python, data4ml, sdkv1
 
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple machine learning experiments.
 ---
 
 # Version and track Azure Machine Learning datasets
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
 

@@ -9,11 +9,18 @@
     - name: MLOps capabilities
       displayName: deploy, deployment, publish, production, operationalize, operationalization
       href: concept-model-management-and-deployment.md
+    - name: MLflow
+      href: concept-mlflow-v1.md
 - name: How-to guides
   items:
   - name: Install and set up the CLI (v1)
     displayName: azurecli, mlops
     href: reference-azure-machine-learning-cli.md
+  - name: Set up software environments CLI (v1)
+    href: how-to-use-environments.md
+  - name: Track experiments with MLflow 
+    displayName: log, monitor, metrics, model registry, register
+    href: how-to-use-mlflow.md  
   - name: Deploy models
     items:
     - name: Azure Kubernetes Service
@@ -22,6 +29,9 @@
     - name: Azure Container Instances
       displayName: aci
       href: how-to-deploy-azure-container-instance.md
+    - name: Deploy MLflow models
+      displayName: log, monitor, deploy, metrics, databricks, aci, aks
+      href: how-to-deploy-mlflow-models.md
   - name: Profile models
     displayName: profile resource requirement
     href: how-to-deploy-profile-model.md
