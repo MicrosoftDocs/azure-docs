@@ -163,8 +163,6 @@ The log file name is constructed from the following "(command name)-(the `-c` op
 > [!NOTE]
 > Log files can be automatically maintained using [this guide](azacsnap-tips.md#manage-azacsnap-log-files).
 
-Next steps
-
 ## Next steps
 
 - [Get snapshot details](azacsnap-cmd-ref-details.md)
