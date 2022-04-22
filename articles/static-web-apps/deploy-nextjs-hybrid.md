@@ -29,7 +29,7 @@ Begin by initializing a new Next.js application.
 1. Initialize the application using `npm init`. If you are prompted to install `create-next-app`, say yes.
 
     ```bash
-    npm init next-app@latest -- --typescript
+    npm init next-app@latest -- --typescript --example https://github.com/staticwebdev/nextjs-hybrid-template
     ```
 
 1. When prompted for an app name, enter **nextjs-app**.
@@ -75,25 +75,7 @@ Before deploying to Azure, you'll need to create a GitHub repo and push the appl
 
     As you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub user name.
 
-### Create a static app
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Select **Create a Resource**.
-1. Search for **Static Web Apps**.
-1. Select **Static Web Apps**.
-1. Select **Create**.
-1. On the _Basics_ tab, enter the following values.
-
-    | Property | Value |
-    | --- | --- |
-    | _Subscription_ | Your Azure subscription name. |
-    | _Resource group_ | **my-nextjs-group**  |
-    | _Name_ | **my-nextjs-app** |
-    | _Plan type_ | **Free** |
-    | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
-    | _Source_ | **GitHub** |
-
-1. Select **Sign in with GitHub** and authenticate with GitHub.
+[!INCLUDE [create a static web app initial steps](../../includes/static-web-apps/create-a-static-web-app.md)]
 
 1. Enter the following GitHub values.
 
