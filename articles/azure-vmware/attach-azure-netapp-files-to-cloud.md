@@ -63,11 +63,11 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. Search for **Microsoft.AVS** and select it.
 1. Select **Register**.
 1. Under **Settings**, select **Preview features**.
-	1. Verify you're registered for both the `CloudSanExperience` and `AfnDatstoreExperience` feautres.
+	1. Verify you're registered for both the `CloudSanExperience` and `AfnDatstoreExperience` features.
 1. Navigate to your Azure VMware Solution.
 Under **Manage**, select **Storage (preview)**.
 
-    :::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png":::
+    :::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop-up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png":::
 
 1. Select **Connect Azure NetApp Files volume**.
 1. In **Connect Azure NetApp Files volume**, select the **Subscription**, **NetApp account**, **Capacity pool**, and **Volume** to be attached as a datastore.
@@ -178,9 +178,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What metrics are available for monitoring?**
 
-    Usage and performance metrics are available for monitoring the Datastore volume. 
-
-    Replication metrics are also available for ANF datastore and be replicated to another region using Cross Regional Replication. See [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics) for more details. 
+    Usage and performance metrics are available for monitoring the Datastore volume. Replication metrics are also available for ANF datastore that can be replicated to another region using Cross Regional Replication. For more information about metrics, see [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics). 
 
 - **What happens if a new node is added to the cluster, or an existing node is removed from the cluster?**
 
