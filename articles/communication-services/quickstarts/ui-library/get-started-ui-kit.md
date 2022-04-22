@@ -14,8 +14,6 @@ ms.custom: mode-other
 
 This article describes how to get started with the UI Library Design Kit (Figma).
 
-To start, get the [UI Library Design Kit](https://www.figma.com/community/file/1095841357293210472) from Figma.
-
 ## Design faster
 
 The UI Library Design Kit is a resource to help you design user interfaces built on Azure Communication Services. By using the APIs in Azure Communication Services, you can deploy applications across any device, on any platform.
