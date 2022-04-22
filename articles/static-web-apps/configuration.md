@@ -450,7 +450,7 @@ The following normalization and redirect rules will apply for each of the availa
 
 ### Always 
 
-When setting `trailingSlash` to `always`, all requests that don't include a trailing slash will be redirected to a trailing slash URL. For example, `/contact` will be redirected to `/contact/`.
+When setting `trailingSlash` to `always`, all requests that don't include a trailing slash are redirected to a trailing slash URL. For example, `/contact` is redirected to `/contact/`.
 
 ```json
 "trailingSlash": "always"
