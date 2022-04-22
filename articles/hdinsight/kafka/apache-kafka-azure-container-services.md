@@ -47,7 +47,7 @@ The following diagram illustrates the network topology used in this document:
 If you do not already have an AKS cluster, use one of the following documents to learn how to create one:
 
 * [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
-* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/learn/quick-kubernetes-deploy-cli.md.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/learn/quick-kubernetes-deploy-cli.md)
 * [Deploy an Azure Kubernetes Service (AKS) cluster - PowerShell](../../aks/learn/quick-kubernetes-deploy-powershell.md)
 
 > [!IMPORTANT]  
