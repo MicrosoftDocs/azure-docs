@@ -26,11 +26,47 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 ## Phishing-resistant methods
 
 ![Table of AAD Phish-resistant methods](media/memo-22-09/AAD-PR-Methods.png)
-> [!Note]
-> Microsoft Authenticator phishing resistance is in development. Once available Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
 
-> [!Tip]
-> While CBA accomplished via federated IDP & Microsoft Authenticator combined with conditional access policies that enforce Hybrid join or compliant device provide for a phishing-resistant authentication method, each require additional configuration above credential use. For this reason Microsoft recommends adopting one of the credentials listed under the modern approach to satisfy the M-22-09 requirements for Multi-factor authentication.
+* **[FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)**
+  * "gold standard of multi-factor authentication" per [CISA](https://www.cisa.gov/mfa)
+
+* **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)**
+  * Native support for Common Access Card (CAC) & Personal Identity Verification (PIV) widely used in US Department of Defense (DoD) & US Federal Civilian agencies
+* **[Windows Hello for Business](.../windows/security/identity-protection/hello-for-business/hello-overview)**
+
+  * Windows Hello for Business [Deployment Overview](.../windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* **[Microsoft Authenticator](../authentication/concept-authentication-authenticator-app.md) and conditional access policies that enforce Hybrid join or compliant devices to access the application or service.**
+
+  Additional configuration steps for this method
+
+  * [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md)\
+    **or**
+  * [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)\
+    **and**  
+  * [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
+
+  This method requires that the device being used to access the application that is protected by Azure AD is either Hybrid joined or compliant device. The mobile device with the authenticator app only needs to itself be managed/compliant if it is the device being used to access the application protected by Azure AD. For this reason if the organization/agency intends to allow access to applications **from un-managed devices** this method is not feasible.
+
+> [!Note]
+> Microsoft Authenticator combined with conditional access policy should not be interpreted as Microsoft Authenticator by itself is phishing-resistant. This approach works around a current limitation with Microsoft Authenticator by additionally securing the authentication via the phishing resistant properties gained from conditional access policy enforcement of Hybrid join or compliant device. This approach does not convey protection against all phishing threats but does protect the authentication from the most significant vector of phishing threats from malicious external actors.
+>
+>**Microsoft Authenticator native phishing resistance is in development.** Once available Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
+
+
+
+* **Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication.**
+  * [Deploying Active Directory Federation Services in Azure](.../windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+  * [Configuring AD FS for user certificate authentication](.../windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
+
+> [!Important]
+> Microsoft recommends securing both registration of MFA credentials (such as FIDO2 and Microsoft Authenticator App) and device registration.
+>
+>More Information on each is provided below:
+>
+>**[Conditional Access: Securing security info registration](../conditional-access/howto-conditional-access-policy-registration.md)**
+>
+>**[Conditional Access: Securing Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions)**
+
 
 Your current device capabilities, user personas, and other requirements might dictate specific multifactor methods. For example, if you're adopting FIDO2 security keys that have only USB-C support, they can be used only from devices with USB-C ports.
 
@@ -52,7 +88,7 @@ The following sections describe support for implementing phishing-resistant meth
 
 The following table details the availability of phishing-resistant MFA scenarios, based on the device type that's used to sign in to the applications:
 
-| Device | AD FS as a federated identity provider configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO2 security keys| Windows Hello for Business| Microsoft authenticator + certificate authority for managed devices |
+| Device | AD FS as a federated identity provider configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO2 security keys| Windows Hello for Business| Microsoft Authenticator combined with conditional access policies that enforce Hybrid join or compliant device |
 | - | - | - | - | - | - |
 | Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
@@ -83,12 +119,12 @@ Conditional access enables you to enforce MFA for users in your tenant. With the
 
 [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration among agencies. It does this by:
 
-- Limiting what other Microsoft tenants your users can access.
-- Enabling you to allow access to users whom you don't have to manage in your own tenant, but whom you can subject to your MFA and other access requirements.
+* Limiting what other Microsoft tenants your users can access.
+* Enabling you to allow access to users whom you don't have to manage in your own tenant, but whom you can subject to your MFA and other access requirements.
 
-You must enforce MFA for partners and external users who access your organization's resources. This is common in many inter-agency collaboration scenarios. Azure AD provides cross-tenant access policies to help you configure MFA for external users who access your applications and resources. 
+You must enforce MFA for partners and external users who access your organization's resources. This is common in many inter-agency collaboration scenarios. Azure AD provides cross-tenant access policies to help you configure MFA for external users who access your applications and resources.
 
-By using trust settings in cross-tenant access policies, you can trust the MFA method that the guest user's tenant is using instead of having them register an MFA method directly with your tenant. These policies can be configured on a per-organization basis. This ability requires you to understand the available MFA methods in the user's home tenant and determine if they meet the requirement for phishing resistance. 
+By using trust settings in cross-tenant access policies, you can trust the MFA method that the guest user's tenant is using instead of having them register an MFA method directly with your tenant. These policies can be configured on a per-organization basis. This ability requires you to understand the available MFA methods in the user's home tenant and determine if they meet the requirement for phishing resistance.
 
 ## Password policies
 
