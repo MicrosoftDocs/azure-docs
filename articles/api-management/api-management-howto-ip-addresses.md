@@ -80,11 +80,15 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
+### IP addresses for outbound traffic
+
 API Management uses a public IP address for connections outside the VNet and a private IP address for connections within the VNet.
 
-When API management is deployed in the [internal VNet configuration](api-management-using-with-internal-vnet.md) and API management connects to private (intranet-facing) backends, internal IP addresses (dynamic IP, or DIP addresses) from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. Therefore in this configuration, if IP restriction lists secure resources within the VNet, it is recommended to use the whole API Management [subnet range](virtual-network-concepts.md#subnet-size) with an IP rule and not just the private IP address associated with the API Management resource.
+* When API management is deployed in a virtual network and API management connects to private (intranet-facing) backends, internal IP addresses (dynamic IP, or DIP addresses) from the subnet are used for the runtime API traffic. 
 
-When a request is sent from API Management to a public-facing (internet-facing) backend, a public IP address will always be visible as the origin of the request.
+    When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. Therefore in this configuration, if IP restriction lists secure resources within the VNet, it is recommended to use the whole API Management [subnet range](virtual-network-concepts.md#subnet-size) with an IP rule and not just the private IP address associated with the API Management resource.
+
+* When a request is sent from API Management to a public-facing (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
 ## IP addresses of Consumption tier API Management service
 
