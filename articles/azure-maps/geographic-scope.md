@@ -38,7 +38,7 @@ The following is the [Data V2 - List](/rest/api/maps/data-v2/list) command:
 GET https://{geography}.atlas.microsoft.com/mapData?api-version=2.0
 ```
 
-In the previous URL, for an Azure Maps account provisioned in the West US replace {geography} with `us`:
+In the previous URL, to ensure data residency remains in Europe for the Azure Maps API calls (and input data) replace {geography} with `eu`:
 
 ```http
 GET https://us.atlas.microsoft.com/mapData?api-version=2.0
