@@ -467,7 +467,7 @@ When setting `trailingSlash` to `always`, all requests that don't include a trai
 
 ### Never
 
-When setting `trailingSlash` to `never`, all requests ending in a trailing slash will be redirected to a non-trailing slash URL. For example, `/contact/` will be redirected to `/contact`.
+When setting `trailingSlash` to `never`, all requests ending in a trailing slash are redirected to a non-trailing slash URL. For example, `/contact/` is redirected to `/contact`.
 
 ```json
 "trailingSlash": "never"
