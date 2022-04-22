@@ -21,8 +21,10 @@ ms.collection: M365-identity-device-management
 
 > [!div class="step-by-step"]
 > [« Prepare](identity-governance-critical-applications.md)
-> [Integrate »](identity-governance-critical-applications-integrate.md)
+> [Integrate the application with Azure AD »](identity-governance-critical-applications-integrate.md)
  
+
+## Define a policy for a critical application
 
 <!-- TODO Could we summarize this section with a table that has 5 columns and a few example values that they fill in? App name, Role name, Access duration, Pre-requisite, Exception management -->
 
@@ -38,20 +40,9 @@ If this is an existing application in your environment, you may already have doc
 
 1. Determine how exceptions to those criteria should be handled.  For example, an application may typically only be available for designated employees, but an auditor or vendor may need temporary access for a specific project.  In these situations, you may wish to also have a policy for approval that may have different stages.  A vendor who is signed in as a guest user in your Azure AD tenant may not have a manager, so instead their access requests could be approved by a sponsor for their organization, or by a resource owner, or a security officer.
 
-## Validate your Azure AD environment is prepared for integrating with the application
-
-<!-- TODO: do you have the data in your AAD? Might need to sync more users attributes -->
-<!-- TODO: link to standards and fundamentals for security and ocmpliance -->
-
-1. First, check whether Azure AD is already sending its audit log to an Azure Monitor deployed in one of your organization's Azure subscriptions. If not, then you should [Configure Azure AD to use Azure Monitor](../governance/entitlement-management-logs-and-reporting.md) for retention of its audit log.  Azure AD stores audit events for up to 30 days in the audit log. However, you can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), by using Azure Monitor. You can then use Azure Monitor workbooks and custom queries and reports across current and historical audit data.
-
-1. Reduce the number of users in highly privileged administrative roles in your Azure AD tenant. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you should ensure that [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.
-
-
 ## Next steps
 
 > [!div class="step-by-step"]
 > [« Prepare](identity-governance-critical-applications.md)
-> [Integrate »](identity-governance-critical-applications-integrate.md)
-
+> [Integrate the application with Azure AD »](identity-governance-critical-applications-integrate.md)
 

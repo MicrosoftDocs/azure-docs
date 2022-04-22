@@ -59,7 +59,15 @@
   expanded: true
   items:
   - name: Govern access for critical applications
-    href: identity-governance-critical-applications.md
+    items:
+    - name: 
+      href: identity-governance-critical-applications-prepare.md
+    - name: 
+      href: identity-governance-critical-applications-define.md
+    - name: 
+      href: identity-governance-critical-applications-integrate.md
+    - name: 
+      href: identity-governance-critical-applications-deploy.md
   - name: Entitlement management
     items:
     - name: Common scenarios
