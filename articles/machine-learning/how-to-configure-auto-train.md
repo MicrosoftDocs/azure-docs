@@ -21,63 +21,49 @@ ms.custom: devx-track-python, automl, sdkv2
 > * [v1](./v1/how-to-configure-auto-train-v1.md)
 > * [v2 (current version)](how-to-configure-auto-train.md)
 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 In this guide, learn how to set up an automated machine learning, AutoML, training job with the [Azure Machine Learning Python SDK v2 (preview)](/python/api/overview/azure/ml/intro). Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
 
 If you prefer a no-code experience, you can also [Set up no-code AutoML training in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
+
+If you prefer to submit training jobs with the Azure Machine learning CLI v2 extension, see [Train models with the CLI (v2)](how-to-train-cli.md).
 
 ## Prerequisites
 
 For this article you need, 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-    ```python
-    from azure.identity import DefaultAzureCredential
-    from azure.ml import MLClient
-    
-    credential = DefaultAzureCredential()
-    ml_client = None
-    try:
-        ml_client = MLClient.from_config(credential)
-    except Exception as ex:
-        print(ex)
-        # Enter details of your AML workspace
-        subscription_id = "<SUBSCRIPTION_ID>"
-        resource_group = "<RESOURCE_GROUP>"
-        workspace = "<AML_WORKSPACE_NAME>"
-        ml_client = MLClient(credential, subscription_id, resource_group, workspace)
-    ```
+
 * The Azure Machine Learning Python SDK v2 (preview) installed.
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
+## Setup your workspace 
 
-## Select your task type
+To connect to a workspace, you need to provide a subscription, resource group and workspace name. These details are used in the MLClient from `azure.ml` to get a handle to the required Azure Machine Learning workspace. 
 
-Before you can submit your automated ML job, you need to determine the kind of machine learning problem you are solving. This problem determines which function your automated ML job uses and what model algorithms it applies.
+In the following example, the default Azure authentication is used along with the default workspace configuration or from any `config.json` file you might have copied into the folders structure. If no `config.json` is found, then you need to manually introduce the subscription_id, resource_group and workspace when creating MLClient.
 
-Automated ML supports classification, regression, forecasting, computer vision, and natural language processing tasks. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
+```Python
+from azure.identity import DefaultAzureCredential
+from azure.ml import MLClient
 
-The following code uses the `classification()` factory function to configure an AutoML job for a classification task.
+credential = DefaultAzureCredential()
+ml_client = None
+try:
+    ml_client = MLClient.from_config(credential)
+except Exception as ex:
+    print(ex)
+    # Enter details of your AML workspace
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace = "<AML_WORKSPACE_NAME>"
+    ml_client = MLClient(credential, subscription_id, resource_group, workspace)
 
-```python
-# Import required libraries
-from azure.ml.constants import AssetTypes
-from azure.ml import automl
-from azure.ml.entities import JobInput
-
-classification_job = automl.classification(
-    compute=compute_name,
-    experiment_name=exp_name,
-    training_data=my_training_data_input,
-    target_column_name="y",
-    primary_metric="accuracy",
-    n_cross_validations=5,
-    enable_model_explainability=True,
-    tags={"my_custom_tag": "My custom value"}
-)
 ```
 
 ## Data source and format
@@ -90,7 +76,12 @@ Requirements for training data in machine learning:
 
 Training data must be accessible from the remote compute. Automated ML only accepts MLtable data assets when working on a remote compute. 
 
+The following shows how to provide your training data from your local directory or cloud storage.
+
 ```Python
+from azure.ml.constants import AssetTypes
+from azure.ml import automl
+from azure.ml.entities import JobInput
 
 # Create MLTable for training data from your local directory
 my_training_data_input = JobInput(
@@ -101,7 +92,7 @@ my_training_data_input = JobInput(
 my_training_data_input  = JobInput(type=AssetTypes.MLTABLE, path="azureml://datastores/workspaceblobstore/paths/Classification/Train")
 ```
 
-## Training, validation, and test data
+### Training, validation, and test data
 
 You can specify separate **training data and validation data sets**, however training data must be provided to the `training_data` parameter in the factory function of your automated ML job.
 
@@ -139,7 +130,7 @@ Automated ML jobs with the Python SDK v2 are only supported on remote computes.
 
 There are several options that you can use to configure your automated ML experiment. These configuration parameters are set in your task method. You can also set job training settings and [exit criteria](#exit-criteria) with the `set_training()` and `set_limits()` functions, respectively. 
 
-The following example shows the required paramters for a classification task that specifies accuracy as the [primary metric](#primary-metric) and 2 cross-validation folds.
+The following example shows the required parameters for a classification task that specifies accuracy as the [primary metric](#primary-metric) and 2 cross-validation folds.
 
 ```python
 
@@ -171,36 +162,23 @@ classification_job.set_training(
     enable_onnx_compatible_models=True
 )
 ```
-    
+
+### Select your task type
+
+Before you can submit your automated ML job, you need to determine the kind of machine learning problem you are solving. This problem determines which function your automated ML job uses and what model algorithms it applies.
+
+Automated ML supports classification, regression, forecasting, computer vision, and natural language processing tasks. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
+
+
 ### Supported models
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
 
-The task method determine the list of algorithms, or models, to apply. Use the `allowed_models` or `blocked_models` parameters in the `set_training()` to further modify iterations with the available models to include or exclude.
-The following table summarizes the supported models by task type. 
-
-> [!NOTE]
-> If you plan to export your automated ML created models to an [ONNX model](concept-onnx.md), only those algorithms indicated with an * (asterisk) are able to be converted to the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Also note, ONNX only supports classification and regression tasks at this time. 
-> 
-Classification | Regression | Time Series Forecasting
-|-- |-- |--
-[Logistic Regression](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#logisticregression----logisticregression-)* | [Elastic Net](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#elasticnet----elasticnet-)* | [AutoARIMA](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting#autoarima----autoarima-)
-[Light GBM](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#lightgbmclassifier----lightgbm-)* | [Light GBM](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#lightgbmregressor----lightgbm-)* | [Prophet](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#prophet----prophet-)
-[Gradient Boosting](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#gradientboosting----gradientboosting-)* | [Gradient Boosting](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#gradientboostingregressor----gradientboosting-)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Decision Tree](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#decisiontree----decisiontree-)* |[Decision Tree](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#decisiontreeregressor----decisiontree-)* |[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[K Nearest Neighbors](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#knearestneighborsclassifier----knn-)* |[K Nearest Neighbors](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#knearestneighborsregressor----knn-)* | [Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[Linear SVC](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#linearsupportvectormachine----linearsvm-)* |[LARS Lasso](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#lassolars----lassolars-)* | [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
-[Support Vector Classification (SVC)](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#supportvectormachine----svm-)* |[Stochastic Gradient Descent (SGD)](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#sgdregressor----sgd-)* | [Arimax](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#arimax----arimax-)
-[Random Forest](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#randomforest----randomforest-)* | [Random Forest](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#randomforestregressor----randomforest-) | [LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Xgboost](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#xgboostclassifier----xgboostclassifier-)* |[Xgboost](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#xgboostregressor----xgboostregressor-)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Averaged Perceptron Classifier](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#averagedperceptronclassifier----averagedperceptronclassifier-)| [Online Gradient Descent Regressor](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast Linear Regressor](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#fastlinearregressor----fastlinearregressor-)| [ForecastTCN](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#tcnforecaster----tcnforecaster-)
-[Stochastic Gradient Descent (SGD)](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#sgdclassifier----sgd-)* || Naive
-[Linear SVM Classifier](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)* || SeasonalNaive
-||| Average
-||| SeasonalAverage
-||| [ExponentialSmoothing](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#exponentialsmoothing----exponentialsmoothing-) 
+The task method determine the list of algorithms, or models, to apply. Use the `allowed_models` or `blocked_models` parameters in the `set_training()` to further modify iterations with the available models to include or exclude. See the reference documentation for the supported models for each task type.
+ 
+* [Classification](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification)
+* [Regression](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression) 
+* [Forecasting](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)
 
 ### Primary metric
 
@@ -302,6 +280,7 @@ print(f"Created job: {returned_job}")
 returned_job.services["Studio"].endpoint
 
 ```
+
 ### Multiple child runs on clusters
 
 Automated ML experiment child runs can be performed on a cluster that is already running another experiment. However, the timing depends on how many nodes the cluster has, and if those nodes are available to run a different experiment.
@@ -328,7 +307,6 @@ You can view the hyperparameters, the scaling and normalization techniques, and 
 After you test a model and confirm you want to use it in production, you can register it for later use.
 
 
-
 > [!TIP]
 > For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 
@@ -336,6 +314,3 @@ After you test a model and confirm you want to use it in production, you can reg
 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-+ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
-
-+ [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
