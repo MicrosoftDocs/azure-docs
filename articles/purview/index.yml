@@ -169,8 +169,8 @@ landingContent:
           url: concept-self-service-data-access-policy.md
     - linkListType: how-to-guide
       links:
-        - text: Registering data sources for Data use governance
-          url: how-to-enable-data-use-governance.md
+        - text: Registering data sources for data use management
+          url: how-to-enable-data-use-management.md
         - text: Authoring and publishing data owner access policies
           url: how-to-data-owner-policy-authoring-generic.md
     - linkListType: tutorial
