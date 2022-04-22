@@ -131,7 +131,7 @@ Use the url from the `resultUrl` key in the body to view the exported assets fro
 
 ### Get export results
 
-Submit a **GET** request using the `{RESULT-URL}` you recieved from the previous step to view the results of the export job.
+Submit a **GET** request using the `{RESULT-URL}` you received from the previous step to view the results of the export job.
 
 #### Headers
 
