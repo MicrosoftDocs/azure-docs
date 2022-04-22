@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, sashan, moslake, mathoma
-ms.date: 04/13/2022
+ms.date: 04/21/2022
 ms.custom: references_regions, ignite-fall-2021
 ---
 # vCore purchasing model - Azure SQL Database 
@@ -78,6 +78,12 @@ Compute tier options in the vCore model include the provisioned and [serverless]
 ## Hardware configuration
 
 Hardware configurations in the vCore model include Gen4, Gen5, M-series, Fsv2-series, and DC-series. Hardware configuration defines compute and memory limits and other characteristics that impact workload performance.
+
+Certain hardware configurations such as Gen5 may use more than one type of processor (CPU), as described in [Compute resources (CPU and memory)](#compute-resources-cpu-and-memory). While a given database or elastic pool tends to stay on the hardware with the same CPU type for a long time (commonly for multiple months), there are certain events that can cause a database or pool to be moved to hardware that uses a different CPU type. For example, a database or pool can be moved if it's scaled up or down to a different service objective, or if the current infrastructure in a datacenter is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life.
+
+For some workloads, a move to a different CPU type can change performance. SQL Database configures hardware with the goal to provide predictable workload performance even if CPU type changes, keeping performance changes within a narrow band. However, across the wide spectrum of customer workloads running in SQL Database, and as new types of CPUs become available, it is possible to occasionally see more noticeable changes in performance if a database or pool moves to a different CPU type.
+
+Regardless of CPU type used, resource limits for a database or elastic pool remain the same as long as the database stays on the same service objective.
 
 ### Gen4/Gen5
 
@@ -210,7 +216,7 @@ If you need DC-series in a currently unsupported region, [submit a support ticke
 
 The following table compares compute resources in different hardware configurations and compute tiers: 
 
-|Hardware configuration  |Compute  |Memory  |
+|Hardware configuration  |CPU  |Memory  |
 |:---------|:---------|:---------|
 |Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4-GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
 |Gen5     |**Provisioned compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz, Intel&reg; SP-8160 (Skylake)\*, and Intel&reg; 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz and Intel&reg; SP-8160 (Skylake)* processors<br>- Auto-scale up to 40 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 120 GB max|
