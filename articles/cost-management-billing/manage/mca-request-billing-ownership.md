@@ -52,7 +52,7 @@ You can also go along with the following video that outlines each step of the pr
 
 ### Required permission for the transfer requestor
 
-For both subscriptions and reservations, the product transfer requestor must have one of the the following permissions:
+For both subscriptions and reservations, the product transfer requestor must have one of the following permissions:
 
 For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
@@ -66,7 +66,7 @@ The subscription product owner (transfer request recipient) must have one of the
 
 ### Required permission for the reservation transfer recipient
 
-The reservation product owner (transfer request recipient) must have one of the the following permissions:
+The reservation product owner (transfer request recipient) must have one of the following permissions:
 
 - For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 - For an Enterprise Agreement, the person must be an EA administrator.
@@ -74,7 +74,7 @@ The reservation product owner (transfer request recipient) must have one of the 
 
 ## Reservation transfer with a currency change
 
-When you transfer a reservation with a monthly billing plan between accounts with differing billing currencies, the reservation is cancelled in the next billing cycle. If needed, the transfer recipient can buy a new reservation.
+When you transfer a reservation with a monthly billing plan between accounts with differing billing currencies, the reservation is canceled in the next billing cycle. If needed, the transfer recipient can buy a new reservation.
 
 ## Create the product transfer request
 
@@ -92,7 +92,7 @@ The following procedure has you navigate to **Transfer requests** by selecting a
         The Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-for-access). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
 1. Select **Billing profiles** from the left-hand side and then select a **Billing profile** from the list. Once you take over the ownership of the products, their usage  will be billed to this billing profile.  
     :::image type="content" source="./media/mca-request-billing-ownership/billing-profile.png" alt-text="Screenshot that shows selecting billing profiles." lightbox="./media/mca-request-billing-ownership/billing-profile.png" :::  
-    *If you don't see Billing profiles, you are not in the right billing scope.* You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+    *If you don't see Billing profiles, you aren't in the right billing scope.* You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 1. Select **Invoice sections** from the left-hand side and then select an invoice section from the list. Each billing profile contains on invoice section by default. Select the invoice where you want to move your Azure product billing - that's where the Azure product consumption is transferred to.  
     :::image type="content" source="./media/mca-request-billing-ownership/invoice-section.png" alt-text="Screenshot that shows selecting invoice sections." lightbox="./media/mca-request-billing-ownership/invoice-section.png" :::  
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**. Enter the email address of the user you're requesting billing ownership from. The user must have an account administrator role for the old products.  
@@ -109,16 +109,16 @@ The recipient of the transfer request uses the following procedure to review and
 
 
 1. The user gets an email with instructions to review your transfer request. Select **Review the request** to open it in the Azure portal.  
-    :::image type="content" source="./media/mca-request-billing-ownership/mca-review-transfer-request-email.png" alt-text="Screenshot that shows review transfer request email." lightbox="./media/mca-request-billing-ownership/mca-review-transfer-request-email.png" :::
+    :::image type="content" source="./media/mca-request-billing-ownership/mca-review-transfer-request-email.png" alt-text="Screenshot that shows review transfer request email." lightbox="./media/mca-request-billing-ownership/mca-review-transfer-request-email.png" :::  
     If the transfer recipient’s user account doesn’t have email enabled, the person that created the request can manually give the target recipient a link to accept the transfer request after the request is created. The person that created the request can navigate to Transfer status page, copy it, and then manually give it to the recipient.  
         :::image type="content" source="./media/mca-request-billing-ownership/transfer-status-pending-link.png" alt-text="Screenshot showing the Transfer status where you can copy the transfer link sent to the recipient." lightbox="./media/mca-request-billing-ownership/transfer-status-pending-link.png" :::
 1. In the Azure portal, the user selects the billing account that they want to transfer Azure products from. Then they select eligible subscriptions on the **Subscriptions** tab. If the owner doesn’t want to transfer subscriptions and instead wants to transfer reservations only, make sure that no subscriptions are selected.
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" alt-text="Screenshot showing the Subscriptions tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" :::  
     *Disabled subscriptions can't be transferred.*
 1. If there are reservations available to transfer, select the **Reservations** tab and then select them. If reservations won’t be transferred, make sure that no reservations are selected.
-If reservations are transferred, they are applied to the scope that’s set in the request. If you want to change the scope of the reservation after it’s transferred, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
+If reservations are transferred, they're applied to the scope that’s set in the request. If you want to change the scope of the reservation after it’s transferred, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" alt-text="Screenshot showing the Reservations tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" :::
-1. Select the **Review request** tab and verify the information about the products to transfer. If there is Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.   
+1. Select the **Review request** tab and verify the information about the products to transfer. If there are Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.   
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-complete.png" alt-text="Screenshot showing the Review request tab where you review your transfer selections." lightbox="./media/mca-request-billing-ownership/review-transfer-request-complete.png" :::
 1. You'll briefly see a `Transfer is in progress` message. When the transfer is completed successfully, you'll see the Transfer details page with the `Transfer completed successfully` message.  
     :::image type="content" source="./media/mca-request-billing-ownership/transfer-completed-successfully.png" alt-text="Screenshot showing the Transfer completed successfully page." lightbox="./media/mca-request-billing-ownership/transfer-completed-successfully.png" :::
