@@ -21,8 +21,8 @@ This article explains the considerations and steps for managing user and group q
 * Individual group quota and default group quota aren't supported for SMB and dual protocol volumes.
 * In a cross-region replication (CRR) setting:
     * Currently, syncing quota rules to the destination (data protection) volume isn't supported.   
-    * You can’t create quota rules on the destination volume until the replication is deleted.  
-    * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after the [replication is deleted](cross-region-replication-delete.md).
+    * You can’t create quota rules on the destination volume until the [replication is deleted](cross-region-replication-delete.md).  
+    * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after the replication is deleted.
 
 ## Register the feature  
 
