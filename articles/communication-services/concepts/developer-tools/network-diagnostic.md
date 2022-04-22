@@ -1,5 +1,5 @@
 ---
-title: Developer Tools - Network test tool
+title: Developer tools - Network Diagnostics Tool for Azure Communication Services
 description: Conceptual documentation outlining the capabilities provided by the Network Test Tool.
 author: ddematheu2
 manager: chpalm
@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Network Test Tool enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://acs-network-diagnostic-tool.azurewebsites.net/). There users can quickly run a test, free of charge, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. 
+The Network Diagnostics Tool enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://acs-network-diagnostic-tool.azurewebsites.net/). There users can quickly run a test, free of charge, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. 
 
 INSERT IMAGE OF NETWORK TEST TOOL
   
