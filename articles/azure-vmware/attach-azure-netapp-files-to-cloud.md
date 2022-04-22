@@ -140,7 +140,12 @@ You can use the instructions provided to disconnect an Azure NetApp Files-based 
 
 ## Next steps
 
-Now that you've attached a datastore on Azure NetApp Files-based NFS volume to your Azure VMware Solution hosts, you can create your VMs.
+Now that you've attached a datastore on Azure NetApp Files-based NFS volume to your Azure VMware Solution hosts, you can create your VMs. Use the following resources to learn more.
+
+- [Service levels for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels)
+- Datastore protection using [Azure NetApp Files snapshots](/azure/azure-netapp-files/snapshots-introduction)
+- [Understand Azure NetApp Files backup](/azure/azure-netapp-files/backup-introduction)
+- [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-region-replication-introduction)
 
 ## FAQs
 
@@ -158,12 +163,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 
-    We're currently validating and working on the benchmarking. For Azure NetApp Files volumes with "Basic" network features, the connectivity from Azure VMware Solution is bound by the bandwidth of the ExpressRoute circuit and the ExpressRoute Gateway along with the latency that comes with that architecture.
-
-    For Azure NetApp Files volumes with "standard" network features (in Public preview), ExpressRoute FastPath is supported. When enabled, FastPath sends network traffic directly to Azure NEtApp Files volumes bypassing the gateway and providing higher bandwidth and lower latency.
-
-    For higher bandwidth, create VMDKs and stripe the logical volumes across VMDKs. As a best practice, create multiple datastores on multiple ANF volumes.
-
+    We're currently validating and working on benchmarking. For now, create multiple datastores of 4-TB size for better performance. 
     For more information, see [Guidelines for Azure NEtApp Files network planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies) and [About Azure ExpressRoute FastPath](/azure/expressroute/about-fastpath).
 
 - **What are my options for backup and recovery?**
