@@ -165,14 +165,12 @@ You can deploy an ARM template using Powershell to automate the creation of your
 
 ```json
 "encryption": {
-            "customerManagedKeyEncryption": {
-                "keyEncryptionKeyIdentity": {
-                    "identityType": "userAssignedIdentity",
-                    "userAssignedIdentity": "UA resource id"
-                },
-                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
+            "keyUrl": "https://contosovault.vault.azure.net/keys/contosokek/abcdef01234567890abcdef012345678",
+            "identity": {
+                "type": "UserAssigned",
+                "resourceId": "User assigned managed identity resource id"
             }
-        }
+
 ```
 
 For example, an Azure Load Testing resource might look like the following:
@@ -180,19 +178,23 @@ For example, an Azure Load Testing resource might look like the following:
 ```json
 {
     "type": "Microsoft.LoadTestService/loadtests",
-    "apiVersion": "2021-09-01-preview",
+    "apiVersion": "2022-04-15-preview",
     "name": "[parameters('name')]",
     "location": "[parameters('location')]",
     "tags": "[parameters('tags')]",
+    "identity": {
+        "type": "userassigned",
+        "userAssignedIdentities": {
+            "User assigned managed identity resource id": {}
+        }
+    },
     "properties": {
         "encryption": {
-            "customerManagedKeyEncryption": {
-                "keyEncryptionKeyIdentity": {
-                    "identityType": "userAssignedIdentity",
-                    "userAssignedIdentity": "UA resource id"
-                },
-                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
-            }
+            "identity": {
+                "type": "UserAssigned",
+                "resourceId": "User assigned managed identity resource id"
+            },
+            "keyUrl": "https://contosovault.vault.azure.net/keys/contosokek/abcdef01234567890abcdef012345678"
         }
     }
 }
@@ -210,14 +212,11 @@ You can deploy an ARM template using Azure CLI to automate the creation of your 
 
 ```json
 "encryption": {
-            "customerManagedKeyEncryption": {
-                "keyEncryptionKeyIdentity": {
-                    "identityType": "userAssignedIdentity",
-                    "userAssignedIdentity": "UA resource id"
-                },
-                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
+            "keyUrl": "https://contosovault.vault.azure.net/keys/contosokek/abcdef01234567890abcdef012345678",
+            "identity": {
+                "type": "UserAssigned",
+                "resourceId": "User assigned managed identity resource id"
             }
-        }
 ```
 
 For example, an Azure Load Testing resource might look like the following:
@@ -225,19 +224,23 @@ For example, an Azure Load Testing resource might look like the following:
 ```json
 {
     "type": "Microsoft.LoadTestService/loadtests",
-    "apiVersion": "2021-09-01-preview",
+    "apiVersion": "2022-04-15-preview",
     "name": "[parameters('name')]",
     "location": "[parameters('location')]",
     "tags": "[parameters('tags')]",
+    "identity": {
+        "type": "userassigned",
+        "userAssignedIdentities": {
+            "User assigned managed identity resource id": {}
+        }
+    },
     "properties": {
         "encryption": {
-            "customerManagedKeyEncryption": {
-                "keyEncryptionKeyIdentity": {
-                    "identityType": "userAssignedIdentity",
-                    "userAssignedIdentity": "UA resource id"
-                },
-                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
-            }
+            "identity": {
+                "type": "UserAssigned",
+                "resourceId": "User assigned managed identity resource id"
+            },
+            "keyUrl": "https://contosovault.vault.azure.net/keys/contosokek/abcdef01234567890abcdef012345678"
         }
     }
 }
@@ -311,9 +314,6 @@ This feature is currently only available for new Azure Load Testing resources.
 
 You can revoke a key by disabling the latest version of the key in Azure Key Vault. Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the managed identity of the Azure Load Testing resource.
 
-### What operations are available after a customer-managed key is revoked?
-
-When the encryption key is revoked, the only operation that is available is resource deletion.
 
 ## Next steps
 
