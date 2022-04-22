@@ -67,10 +67,12 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. Navigate to your Azure VMware Solution.
 Under **Manage**, select **Storage (preview)**.
 
+    :::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience.png":::
+
 1. Select **Connect Azure NetApp Files volume**.
 1. In **Connect Azure NetApp Files volume**, select the **Subscription**, **NetApp account**, **Capacity pool**, and **Volume** to be attached as a datastore.
 1. Verify the protocol is NFS. You'll need to verify the virtual network and subnet to ensure connectivity to the Azure VMware Solution private cloud.
-1. Under **Associated cluster**, select the **Client clusters** to associate the NFS volume as a datastore
+1. Under **Associated cluster**, select the **Client cluster** to associate the NFS volume as a datastore
 1. Under **Data store**, create a personalized name for your **Datastore name**.
 1. When the datastore is created, you should see all of your datastores in the **Storage (preview)**.
 1. You'll also notice that the NFS datastores are added in vCenter.
