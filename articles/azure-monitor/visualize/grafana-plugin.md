@@ -68,7 +68,7 @@ If your are hosting Grafana on your own Azure VM or Azure App Service with manag
 
 5. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
     * See [these instructions](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
-    * See [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) to assign the [Monitoring reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
+    * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
   
 6. Provide the connection details you'd like to use.
     * When configuring the plugin, you can indicate which Azure Cloud you would like the plugin to monitor (Public, Azure US Government, Azure Germany, or Azure China).
