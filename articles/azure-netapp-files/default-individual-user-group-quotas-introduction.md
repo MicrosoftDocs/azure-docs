@@ -20,14 +20,14 @@ ms.author: anfdocs
 Quotas enable you to restrict the storage space that a user or group can use. Quotas apply to a specific Azure NetApp Files volume. 
 
 The following are the types of quotas based on the targets that they apply to for a volume: 
-* Individual user quota 
+* **Individual user quota**   
     The target is a user. The user can be specified by a UNIX UID or a Windows SID. 
-* Individual group quota 
+* **Individual group quota**   
     The target is a group. The group is specified by a GID.
     Group quotas aren’t applicable to SMB and dual protocol volumes.
-* Default user quota 
+* **Default user quota**   
     Automatically applies a quota limit to all the users accessing the volume without creating separate quotas for each target. 
-* Default group quota 
+* **Default group quota**   
     Automatically applies a quota limit to all the groups accessing the volume without creating separate quotas for each target. 
 
 To understand considerations and manage user and group quotas for Azure NetApp Files volumes, see [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md).

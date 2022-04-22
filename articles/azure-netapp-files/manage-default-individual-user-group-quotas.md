@@ -18,9 +18,9 @@ This article explains the considerations and steps for managing user and group q
 * A quota rule is specific to a volume and is applied to an existing volume.  
 * Deleting a volume results in deleting all the associated quota rules for that volume. 
 * You can create a maximum number of 100 quota rules for a volume. You can [request limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) through the portal.
-* Individual group quota and default group quota are not supported for SMB and dual protocol volumes.
+* Individual group quota and default group quota aren't supported for SMB and dual protocol volumes.
 * In a cross-region replication (CRR) setting:
-    * Currently, syncing quota rules to the destination (data protection) volume is not supported.   
+    * Currently, syncing quota rules to the destination (data protection) volume isn't supported.   
     * You can’t create quota rules on the destination volume until the replication is deleted.  
     * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after the [replication is deleted](cross-region-replication-delete.md).
 
@@ -52,27 +52,27 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 2. In the **New quota** window that appears, provide information for the following fields, then click **Create**.
 
-    * Quota rule name:   
+    * **Quota rule name**:   
         The name must be unique within the volume. 
 
-    * Quota type:  
-        Select one of the following options. For details, See [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md).   
+    * **Quota type**:  
+        Select one of the following options. For details, see [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md).   
         * `Default user quota`
         * `Default group quota` 
         * `Individual user quota` 
         * `Individual group quota`
 
-    * Quota target:   
-        * NFS volumes: 
+    * **Quota target**:   
+        * NFS volumes:  
             For individual user quota and individual group quota, specify a value in the range of `0` to `4294967295`.  
             For default quota, specify the value as `""`. 
-        * SMB volumes:
+        * SMB volumes:   
             For individual user quota, specify the range in the `^S-1-[0-59]-\d{2}-\d{8,10}-\d{8,10}-\d{8,10}-[1-9]\d{3}` format.  
-        * Dual-protocol volumes:
+        * Dual-protocol volumes:   
             For individual user quota using the SMB protocol, specify the range in the `^S-1-[0-59]-\d{2}-\d{8,10}-\d{8,10}-\d{8,10}-[1-9]\d{3}` format.  
             For individual user quota using the NFS protocol, specify a value in the range of `0` to `4294967295`.
 
-    * Quota limit:    
+    * **Quota limit**:    
         Specify the limit in the range of `4` to `1125899906842620`.  
         Select `KiB`, `MiB`, `GiB`, or `TiB` from the pulldown. 
 

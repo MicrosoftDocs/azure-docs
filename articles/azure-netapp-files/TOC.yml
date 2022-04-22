@@ -71,7 +71,7 @@
         href: performance-linux-nfs-read-ahead.md
       - name: SMB performance best practices
         href: azure-netapp-files-smb-performance.md
-      - name: Azure virtual machine SKUs best practices
+      - name: Azure virtual machine SKUs' best practices
         href: performance-virtual-machine-sku.md 
   - name: Application volume groups 
     items:
@@ -155,7 +155,7 @@
       href: create-active-directory-connections.md
     - name: Modify Active Directory connections
       href: modify-active-directory-connections.md
-    - name: Enable ADDS LDAP authentication for NFS volumes
+    - name: Enable AD DS LDAP authentication for NFS volumes
       href: configure-ldap-over-tls.md
   - name: Manage capacity pools
     items:
@@ -175,7 +175,7 @@
         href: azure-netapp-files-configure-nfsv41-domain.md
       - name: Configure NFSv4.1 Kerberos encryption
         href: configure-kerberos-encryption.md
-      - name: Configure ADDS LDAP with extended groups for NFS
+      - name: Configure AD DS LDAP with extended groups for NFS
         href: configure-ldap-extended-groups.md
       - name: Configure an NFS client for Azure NetApp Files
         href: configure-nfs-clients.md
@@ -211,8 +211,8 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
-    - name: Manage default and individual user and group quotas for a volume
-      href: manage-default-individual-user-group-quotas.md
+      - name: Manage default and individual user and group quotas for a volume
+        href: manage-default-individual-user-group-quotas.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
