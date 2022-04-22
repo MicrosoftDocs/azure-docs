@@ -72,8 +72,8 @@ A zone redundant cache provides automatic failover. When the current primary nod
 
 A cache in either Enterprise tier runs on a Redis Enterprise *cluster*. It always requires an odd number of server nodes to form a quorum. By default, it has three nodes, each hosted on a dedicated VM.
 
-- An Enterprise cache has two same-sized *data nodes* and one smaller *quorum node*. 
-- An Enterprise Flash cache has three same-sized data nodes. 
+- An Enterprise cache has two same-sized *data nodes* and one smaller *quorum node*.
+- An Enterprise Flash cache has three same-sized data nodes.
 
 The Enterprise cluster divides Azure Cache for Redis data into partitions internally. Each partition has a *primary* and at least one *replica*. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 
