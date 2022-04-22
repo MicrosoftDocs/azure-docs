@@ -623,6 +623,54 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
             },
     ```
 
+<!--new json sample-->
+
+1. Save the parameters file.
+
+    Here is a sample json used in this article.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+          "vmName": {
+              "value": "vm1"
+          },
+          "adminUsername": {
+              "value": "Administrator"
+          },
+          "Password": {
+              "value": "Password1"
+          },
+        "imageName": {
+          "value": "myaselinuximg1"
+        },
+        "vmSize": {
+          "value": "Standard_NC4as_T4_v3"
+        },
+        "vnetName": {
+          "value": "vswitch1"
+        },
+        "subnetName": {
+          "value": "vswitch1subNet"
+        },
+        "vnetRG": {
+          "value": "myaserg1"
+        },
+        "nicName": {
+          "value": "nic1"
+        },
+        "privateIPAddress": {
+          "value": ""
+        },
+        "IPConfigName": {
+          "value": "ipconfig1"
+        }
+      }
+    }       
+    ```
+
 ### [AzureRM](#tab/azure-rm)
 
 To create a VM, use the `CreateVM.parameters.json` parameter file. It takes the following parameters.
@@ -725,7 +773,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
             },
     ```
     
-4. Save the parameters file.
+1. Save the parameters file.
 
     Here's a sample json that is used in this article.
     
@@ -770,7 +818,6 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
       }
     }
     ```
-
 ---
 
 ### Deploy template to create VM
