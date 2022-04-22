@@ -83,17 +83,10 @@ The public preview supports the following scenarios:
 - Require user reauthentication for risky users with the [require password change](concept-conditional-access-grant.md#require-password-change) grant control.
 - Require user reauthentication for risky sign-ins with the [require multi-factor authentication](concept-conditional-access-grant.md#require-multi-factor-authentication) grant control.
 
-When administrators select **Every time**, they can choose to:
-
-- Keep it as is requiring full reauthentication when the session is evaluated
-- Or select the checkbox **Secondary authentication methods only**. 
-
-When administrators choose the **Secondary authentication methods only** option, users are prompted only for the second factor flow. The second factor flow includes the following methods: Passwordless phone sign-in, FIDO2, Authenticator app push notification, software or hardware OATH, SMS, and voice call. 
-
-If you're using Windows Hello for Business, we recommend that you keep “Secondary authentication methods only” not selected. Windows Hello for Business and Temporary Access Pass (TAP) aren't currently available in the list of allowed second factor authentication methods and selecting the **Secondary authentication methods only** will cause an MFA challenge where the user will need a method from the previous list. 
+When administrators select **Every time**, it will require full reauthentication when the session is evaluated.
 
 > [!NOTE]
-> Selecting Secondary authentication only does not directly enforce MFA. In order to require second factor reauthentication, the user and application must be in scope of a Conditional Access policy that requires MFA. That can be accomplished through a single policy by requiring the MFA grant control on the reauthentication policy or through a separate policy that requires MFA for the target users and apps. 
+> An early preview version included the option to prompt for Secondary authentication methods only at reauthentication. This option is no longer respected and reverts to **Every time**.
 
 ## Persistence of browsing sessions
 
