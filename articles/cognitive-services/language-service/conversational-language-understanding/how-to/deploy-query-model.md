@@ -49,7 +49,7 @@ If you would like to swap the models between two deployments, simply select the 
 To delete a deployment, select the deployment you want to delete and click on **Delete deployment**.
 
 > [!TIP]
-> If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for examples and more information.
+> If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob) for examples and more information.
 
 > [!NOTE]
 > You can only have ten deployment names.

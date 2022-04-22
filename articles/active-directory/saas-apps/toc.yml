@@ -55,6 +55,8 @@
         href: adaptivesuite-tutorial.md
       - name: Adaptive Shield
         href: adaptive-shield-tutorial.md  
+      - name: ADEM
+        href: adem-tutorial.md
       - name: Adobe Captivate Prime
         href: adobecaptivateprime-tutorial.md
       - name: Adobe Creative Cloud
@@ -247,6 +249,8 @@
         href: bcinthecloud-tutorial.md
       - name: Bealink
         href: bealink-tutorial.md  
+      - name: Beatrust
+        href: beatrust-tutorial.md
       - name: Beekeeper Azure AD Data Connector
         href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
@@ -1660,6 +1664,8 @@
         href: planview-enterprise-one-tutorial.md
       - name: Pluralsight
         href: pluralsight-tutorial.md
+      - name: Pluto
+        href: pluto-tutorial.md
       - name: Podbean
         href: podbean-tutorial.md
       - name: PolicyStat
@@ -2012,6 +2018,8 @@
         href: splan-visitor-tutorial.md
       - name: Small Improvements
         href: smallimprovements-tutorial.md
+      - name: Smart360
+        href: smart360-tutorial.md
       - name: SmartDraw
         href: smartdraw-tutorial.md
       - name: SmarterU
