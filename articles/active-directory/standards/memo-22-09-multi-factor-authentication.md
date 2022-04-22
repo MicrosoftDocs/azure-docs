@@ -31,7 +31,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
   * "gold standard of multi-factor authentication" per [CISA](https://www.cisa.gov/mfa)
 
 * **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)**
-  * Native support for Common Access Card (CAC) & Personal Identity Verification (PIV) widely used in US Department of Defense (DoD) & US Federal Civilian agencies
+  * Native support for Smart cards implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV) widely used in US Department of Defense (DoD) & US Federal Civilian agencies
 * **[Windows Hello for Business](.../windows/security/identity-protection/hello-for-business/hello-overview)**
 
   * Windows Hello for Business [Deployment Overview](.../windows/security/identity-protection/hello-for-business/hello-deployment-guide)
@@ -39,16 +39,14 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
   Additional configuration steps for this method
 
-  * [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md)\
-    **or**
-  * [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)\
-    **and**  
-  * [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
+  1.) [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
+ 
+  2.) [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
 
   This method requires that the device being used to access the application that is protected by Azure AD is either Hybrid joined or compliant device. The mobile device with the authenticator app only needs to itself be managed/compliant if it is the device being used to access the application protected by Azure AD. For this reason if the organization/agency intends to allow access to applications **from un-managed devices** this method is not feasible.
 
 > [!Note]
-> Microsoft Authenticator combined with conditional access policy should not be interpreted as Microsoft Authenticator by itself is Phishing-resistant. This approach works around a current limitation with Microsoft Authenticator by additionally securing the authentication via the phishing resistant properties gained from conditional access policy enforcement of Hybrid join or compliant device. This approach does not convey protection against all phishing threats but does protect the authentication from the most significant vector of phishing threats from malicious external actors.
+> Microsoft Authenticator by itself is **not** Phishing-resistant. This approach works around a current limitation with Microsoft Authenticator by additionally securing the authentication with the phishing resistant properties gained from conditional access policy enforcement of Hybrid join or compliant device. This approach does not convey protection against all phishing threats but does protect the authentication from the most significant vector of phishing threats from malicious external actors.
 >
 >**Microsoft Authenticator native phishing resistance is in development.** Once available Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
 
