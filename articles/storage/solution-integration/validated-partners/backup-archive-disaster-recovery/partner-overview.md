@@ -3,7 +3,7 @@ title: Storage archive, backup, and disaster recovery partners
 titleSuffix: Azure Storage
 description: List of Microsoft partner companies that build customer solutions for archive, backup, and BCDR with Azure Storage
 
-author: beber-msft,saurabhsensharma
+author: beber-msft
 ms.author: beber,saurse
 ms.date: 04/21/2022
 ms.topic: conceptual
