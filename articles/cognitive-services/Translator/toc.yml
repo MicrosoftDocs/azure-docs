@@ -24,17 +24,22 @@ items:
   - name: Samples
     items:
     - name: Code Sample page
-      href: /samples/browse/?terms=microsoft%20translator
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
     - name: C#
-      href: /samples/microsofttranslator/text-translation-api-v3-c-sharp/translator-c-sharp-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples/Readme.md
+      items:
+      - name: Authenticate with Azure Active Directory
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
+      - name: Authenticate using Azure Active Directory tokens
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
     - name: Java
-      href: /samples/microsofttranslator/text-translation-api-v3-java/translator-java-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
     - name: Python
-      href: /samples/microsofttranslator/text-translation-api-v3-python/translator-python-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Python-Code-Samples
     - name: Node.js
-      href: /samples/microsofttranslator/text-translation-api-v3-nodejs/translator-javascript-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/NodeJS-Code-Samples
     - name: Go
-      href: /samples/microsofttranslator/text-translation-api-v3-go/translator-go-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/GO-Code-Samples
     - name: PHP
       href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
     - name: Ruby

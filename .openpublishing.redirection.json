@@ -38004,6 +38004,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/tutorial-tenant-model.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/custom-speech-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
@@ -38718,6 +38723,11 @@
       "redirect_url": "/azure/aks/open-service-mesh-about",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/aks/security-hardened-vm-host-image.md",
+      "redirect_url": "/azure/aks/cis-ubuntu",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
