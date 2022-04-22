@@ -8,10 +8,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "xref_query_tags": [
-        "/dotnet",
-        "/python"
-      ],
+      "xref_query_tags": ["/dotnet", "/python"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "ZonePivotGroups": "Toc",
@@ -26,12 +23,8 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [
-    "azure-docs-publish@microsoft.com"
-  ],
-  "sync_notification_subscribers": [
-    "angrobe_extended_dir@microsoft.com"
-  ],
+  "notification_subscribers": ["azure-docs-publish@microsoft.com"],
+  "sync_notification_subscribers": ["angrobe_extended_dir@microsoft.com"],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
   "git_repository_branch_open_to_public_contributors": "main",
@@ -832,6 +825,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-javascript-v2",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-v2",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "msdocs-python-flask-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
       "branch": "main",
@@ -882,14 +881,8 @@
 
   ],
   "branch_target_mapping": {
-    "live": [
-      "Publish",
-      "PDF"
-    ],
-    "main": [
-      "Publish",
-      "PDF"
-    ]
+    "live": ["Publish", "PDF"],
+    "main": ["Publish", "PDF"]
   },
   "need_generate_pdf_url_template": true,
   "targets": {
