@@ -390,7 +390,7 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
-      - Retiring features:
+      - name: Retiring features
         items:
           - name: Deprecated developer portal
             items:
