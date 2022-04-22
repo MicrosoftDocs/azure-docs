@@ -17,6 +17,9 @@ ms.date: 06/26/2019
 
 Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [logical SQL server](logical-servers.md) name.
 
+> [!IMPORTANT]
+> Currerently, for Azure Synapse Analytics, DNS alias is only supported for **Dedicated SQL Pool (Formerly DW).** For Synapse Dedicated SQL Pool, DNS alias is not supported at this stage.
+
 A *DNS alias* can be used in place of the server name. Client programs can use the alias in their connection strings. The DNS alias provides a translation layer that can redirect your client programs to different servers. This layer spares you the difficulties of having to find and edit all the clients and their connection strings.
 
 Common uses for a DNS alias include the following cases:
