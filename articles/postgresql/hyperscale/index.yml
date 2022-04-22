@@ -26,6 +26,30 @@ landingContent:
             url: quickstart-create-portal.md
 
   # Card
+  - title: Scale
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Scale server group
+            url: howto-scale-grow.md
+          - text: Manage read replicas
+            url: howto-read-replicas-portal.md
+      - linkListType: concept
+        links:
+          - text: Connection pooling
+            url: concepts-connection-pool.md
+
+  # Card
+  - title: Resilience
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure high availability
+            url: howto-high-availability.md
+          - text: Point-in-time restore
+            url: howto-restore-portal.md
+
+  # Card
   - title: Connect and query
     linkLists:
       - linkListType: how-to-guide
@@ -56,16 +80,6 @@ landingContent:
             url: howto-useful-diagnostic-queries.md
 
   # Card
-  - title: Resilience
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Configure high availability
-            url: howto-high-availability.md
-          - text: Point-in-time restore
-            url: howto-restore-portal.md
-
-  # Card
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -78,17 +92,3 @@ landingContent:
             url: reference-parameters.md
           - text: System tables
             url: reference-metadata.md
-
-  # Card
-  - title: Scale
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Scale server group
-            url: howto-scale-grow.md
-          - text: Manage read replicas
-            url: howto-read-replicas-portal.md
-      - linkListType: concept
-        links:
-          - text: Connection pooling
-            url: concepts-connection-pool.md
