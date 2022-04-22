@@ -32,7 +32,7 @@ The destination blob can't be modified while a copy operation is in progress. A 
 
 The entire source blob or file is always copied. Copying a range of bytes or set of blocks is not supported.
 
-When a blob is copied, it's system properties are copied to the destination blob with the same values.
+When a blob is copied, its system properties are copied to the destination blob with the same values.
 
 A copy operation can take any of the following forms:
 
