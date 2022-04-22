@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/19/2022
+ms.date: 04/22/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -413,15 +413,15 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
     PS C:\WINDOWS\system32>
     ```
 
-    Here is a sample json used in this article.
-
-    ```json
+    Here's a sample json used in this article.
     
+    ```json
+    {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "vmName": {
-              "value": "vm1"
+              "value": "VM1"
           },
           "adminUsername": {
               "value": "Administrator"
@@ -430,28 +430,28 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
               "value": "Password1"
           },
         "imageName": {
-          "value": "myaselinuximg1"
+          "value": "myaselinuximg"
         },
         "vmSize": {
           "value": "Standard_NC4as_T4_v3"
         },
         "vnetName": {
-          "value": "vswitch1"
+          "value": "ASEVNET"
         },
         "subnetName": {
-          "value": "vswitch1subNet"
+          "value": "ASEVNETsubNet"
         },
         "vnetRG": {
-          "value": "myaserg1"
+          "value": "aserg"
         },
         "nicName": {
-          "value": "nic1"
+          "value": "nic5"
         },
         "privateIPAddress": {
           "value": ""
         },
         "IPConfigName": {
-          "value": "ipconfig1"
+          "value": "ipconfig5"
         }
       }
     }
@@ -621,52 +621,6 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
     "privateIPAddress": {
                 "value": "5.5.153.200"
             },
-    ```
-    
-4. Save the parameters file.
-
-    Here's a sample json that is used in this article.
-    
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-          "vmName": {
-              "value": "VM1"
-          },
-          "adminUsername": {
-              "value": "Administrator"
-          },
-          "Password": {
-              "value": "Password1"
-          },
-        "imageName": {
-          "value": "myaselinuximg"
-        },
-        "vmSize": {
-          "value": "Standard_NC4as_T4_v3"
-        },
-        "vnetName": {
-          "value": "ASEVNET"
-        },
-        "subnetName": {
-          "value": "ASEVNETsubNet"
-        },
-        "vnetRG": {
-          "value": "aserg"
-        },
-        "nicName": {
-          "value": "nic5"
-        },
-        "privateIPAddress": {
-          "value": ""
-        },
-        "IPConfigName": {
-          "value": "ipconfig5"
-        }
-      }
-    }
     ```
 
 ### [AzureRM](#tab/azure-rm)
