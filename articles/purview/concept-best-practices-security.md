@@ -32,11 +32,11 @@ For more information, see [Best practices related to connectivity to Azure PaaS 
 
 ### Deploy private endpoints for Microsoft Purview accounts
 
-If you need to use Microsoft Purview from inside your private network, it is recommended to use Azure Private Link Service with your Microsoft Purview accounts for partial or [end-to-end isolation](catalog-private-link-end-to-end.md) to connect to Microsoft Purview Studio, access Microsoft Purview endpoints and to scan data sources.
+If you need to use Microsoft Purview from inside your private network, it is recommended to use Azure Private Link Service with your Microsoft Purview accounts for partial or [end-to-end isolation](catalog-private-link-end-to-end.md) to connect to Microsoft Purview governance portal, access Microsoft Purview endpoints and to scan data sources.
 
 The Microsoft Purview _account_ private endpoint is used to add another layer of security, so only client calls that are originated from within the virtual network are allowed to access the Microsoft Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
-The Microsoft Purview _portal_ private endpoint is required to enable connectivity to Microsoft Purview Studio using a private network.
+The Microsoft Purview _portal_ private endpoint is required to enable connectivity to Microsoft Purview governance portal using a private network.
 
 Microsoft Purview can scan data sources in Azure or an on-premises environment by using ingestion private endpoints.
 
@@ -51,7 +51,7 @@ For more information, see [Microsoft Purview network architecture and best pract
 You can disable Microsoft Purview Public access to cut off access to the Microsoft Purview account completely from the public internet. In this case, you should consider the following requirements:
 
 - Microsoft Purview must be deployed based on [end-to-end network isolation scenario](catalog-private-link-end-to-end.md).
-- To access Microsoft Purview Studio and Microsoft Purview endpoints, you need to use a management machine that is connected to private network to access Microsoft Purview through private network.
+- To access Microsoft Purview governance portal and Microsoft Purview endpoints, you need to use a management machine that is connected to private network to access Microsoft Purview through private network.
 - Review [known limitations](catalog-private-link-troubleshoot.md).
 - To scan Azure platform as a service data sources, review [Support matrix for scanning data sources through ingestion private endpoint](catalog-private-link.md#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint).
 - Azure data sources must be also configured with private endpoints.
@@ -74,7 +74,7 @@ The following NSG rules are required on **data sources** for Microsoft Purview s
 |Inbound     | Self-hosted integration runtime VMs' private IP addresses or subnets         |  *       | Data Sources private IP addresses or Subnets         |  443       | Any        | Allow        |
 
 
-The following NSG rules are required on from the **management machines** to access Microsoft Purview Studio: 
+The following NSG rules are required on from the **management machines** to access Microsoft Purview governance portal: 
 
 |Direction   |Source  |Source port range   |Destination  |Destination port   |Protocol  |Action  |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -260,7 +260,7 @@ Microsoft Purview allows you to use any of the following options to extract meta
 
   :::image type="content" source="media/concept-best-practices/security-self-hosted-runtime.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, a self-hosted runtime, and data sources."lightbox="media/concept-best-practices/security-self-hosted-runtime.png":::
 
-  1. A manual or automatic scan is triggered. Azure purview connects to Azure Key Vault to retrieve the credential to access a data source.
+  1. A manual or automatic scan is triggered. Microsft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
   2. The scan is initiated from the Microsoft Purview data map through a self-hosted integration runtime. 
    
@@ -274,7 +274,7 @@ Microsoft Purview allows you to use any of the following options to extract meta
 
   :::image type="content" source="media/concept-best-practices/security-self-hosted-runtime-on-premises.png" alt-text="Screenshot that shows the connection flow between Microsoft Purview, an on-premises self-hosted runtime, and data sources in on-premises network."lightbox="media/concept-best-practices/security-self-hosted-runtime-on-premises.png":::
 
-  1. A manual or automatic scan is triggered. Azure purview connects to Azure Key Vault to retrieve the credential to access a data source.
+  1. A manual or automatic scan is triggered. Microsft Purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
   2. The scan is initiated through the on-premises self-hosted integration runtime.
    

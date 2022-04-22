@@ -15,7 +15,7 @@ ms.date: 04/11/2022
 
 # Managed online endpoints SKU list (preview)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 This table shows the VM SKUs that are supported for Azure Machine Learning managed online endpoints (preview).
 

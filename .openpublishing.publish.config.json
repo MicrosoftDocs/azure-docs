@@ -442,9 +442,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-march-cli-preview",
+      "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "march-cli-preview",
+      "branch": "sdk-preview",
       "branch_mapping": {}
     },
     {
