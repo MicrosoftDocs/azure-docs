@@ -266,7 +266,7 @@ The latter is supported but will add latency to your application; the SDK must p
 
 For query operations see the [performance tips for queries](performance-tips-query-sdk.md?pivots=programming-language-java).
 
-## <a id="java4-indexing"></a> Indexing policy
+## <a id="java4-indexing"></a><a id="indexing-policy"></a> Indexing policy
  
 * **Exclude unused paths from indexing for faster writes**
 
