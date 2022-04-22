@@ -24,8 +24,8 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 To delete a blob, call either of these methods:
 
-- [BlobClient.Delete](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-delete)
-- [BlobClient.DeleteIfExists](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-deleteifexists)
+- [BlobClient.delete](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-delete)
+- [BlobClient.deleteIfExists](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-deleteifexists)
 
 The following example deletes a blob.
 

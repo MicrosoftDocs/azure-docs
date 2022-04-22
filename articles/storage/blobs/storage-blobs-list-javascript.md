@@ -23,7 +23,7 @@ To list the blobs in a storage account, call one of these methods:
 
 
 - [ContainerClient.listBlobsByHierarcy](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsbyhierarchy)
-- [ContainerClient.listBlobFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
+- [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-listblobsflat)
 
 Related functionality can be found in the following methods:
 
@@ -76,12 +76,13 @@ The following example lists the blobs in the specified container using a flat li
 ```javascript
 async function listBlobsFlatWithPageMarker(containerClient) {
 
-  // page size
+  // page size - artificially low as example
   const maxPageSize = 2;
 
   let i = 1;
   let marker;
 
+  // some options for filtering list
   const listOptions = {
     includeMetadata: true,
     includeSnapshots: false,
@@ -102,7 +103,10 @@ async function listBlobsFlatWithPageMarker(containerClient) {
   marker = response.continuationToken;
 
   // Passing next marker as continuationToken    
-  iterator = containerClient.listBlobsFlat().byPage({ continuationToken: marker, maxPageSize: maxPageSize * 2 });
+  iterator = containerClient.listBlobsFlat().byPage({ 
+      continuationToken: marker, 
+      maxPageSize: maxPageSize * 2 
+  });
   response = (await iterator.next()).value;
 
   // Prints next blob names
@@ -132,9 +136,10 @@ The following example lists the blobs in the specified container using a hierarc
 // Recursively list virtual folders and blobs
 async function listBlobHierarchical(containerClient, virtualHierarchyDelimiter='/') {
 
-  // page size
+  // page size - artificially low as example
   const maxPageSize = 2;
 
+  // some options for filtering list
   const listOptions = {
     includeMetadata: true,
     includeSnapshots: false,
@@ -154,6 +159,22 @@ async function listBlobHierarchical(containerClient, virtualHierarchyDelimiter='
     const segment = response.segment;
 
     if (segment.blobPrefixes) {
+
+      // Do something with each virtual folder
+      for await (const prefix of segment.blobPrefixes) {
+
+        // build new virtualHierarchyDelimiter from current and next
+        await listBlobHierarchical(containerClient, `${virtualHierarchyDelimiter}${prefix.name}`);
+      }
+    }
+
+    for (const blob of response.segment.blobItems) {
+
+      // Do something with each blob
+      console.log(`\tBlobItem: name - ${blob.name}`);
+    }
+  }
+}
 ```
 
 The sample output is similar to:

@@ -48,7 +48,6 @@ async function setHTTPHeaders(blobClient, headers) {
   await blobClient.setHTTPHeaders(headers);
 
   console.log(`headers set successfully`);
-
 }
 ```
 
@@ -87,8 +86,6 @@ To read the metadata, get the blob's properties (shown below), specifically refe
 
 The following code example gets a blob's system properties, including HTTP headers and metadata, and displays those values. 
 
-Metadata is also available from the blob's properties, as shown below.
-
 ```javascript
 async function getProperties(blobClient) {
 
@@ -98,7 +95,7 @@ async function getProperties(blobClient) {
   for (const property in properties) {
 
     switch (property) {
-      // nested properties should be stringified
+      // nested properties are stringified and returned as strings
       case 'metadata':
       case 'objectReplicationRules':
         console.log(`    ${property}: ${JSON.stringify(properties[property])}`);

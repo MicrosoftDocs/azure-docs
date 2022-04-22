@@ -18,8 +18,8 @@ ms.custom: "devx-track-javascript"
 You can download a blob by using any of the following methods:
 
 - Blob.[download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download)
-- Blob.[DownloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1)
-- Blob.[DownloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile)
+- Blob.[downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1)
+- Blob.[downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile)
 
 
 > [!NOTE]
@@ -44,9 +44,9 @@ async function downloadBlobToFile(containerClient, blobName, fileNameWithPath) {
 The following example downloads a blob by creating a Node.js writable stream object and then piping to that stream with the [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download) method.
 
 ```javascript
-async function downloadBlobAsStream(client, blobName, writableStream) {
+async function downloadBlobAsStream(containerClient, blobName, writableStream) {
 
-    const blobClient = await client.getBlobClient(blobName);
+    const blobClient = await containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 
@@ -60,9 +60,10 @@ async function downloadBlobAsStream(client, blobName, writableStream) {
 The following example downloads a blob to a string with [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download) method.  
 
 ```javascript
-async function downloadBlobToString(client, blobName) {
 
-    const blobClient = await client.getBlobClient(blobName);
+async function downloadBlobToString(containerClient, blobName) {
+
+    const blobClient = await containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 

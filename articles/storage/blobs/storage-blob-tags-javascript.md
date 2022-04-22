@@ -19,6 +19,9 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
+> [!NOTE]
+> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
+
 ## Set and retrieve index tags
 
 You can set and get index tags if your code has authorized access by using an account key or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
@@ -42,7 +45,7 @@ The following example performs this task.
 // const tags = {
 //   project: 'End of month billing summary',
 //   reportOwner: 'John Doe',
-//   reportPreented: 'April 2022'
+//   reportPresented: 'April 2022'
 // }
 async function setTags(containerClient, blobName, tags) {
 
@@ -70,7 +73,7 @@ You can get tags by using either of the following methods:
 - [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags
 )
 
-The following example performs this task.
+The following example shows how to get and iterate over the blob's tags.
 
 ```javascript
 async function getTags(containerClient, blobName) {
@@ -81,10 +84,10 @@ async function getTags(containerClient, blobName) {
   // Get tags
   const result = await blockBlobClient.getTags();
 
-  console.log(`${blobName} tags = ${JSON.stringify(result.tags)}`);
+  for (const tag in result.tags) {
 
-  // do something with tags
-  // such as find all blobs with same tags
+      console.log(`TAG: ${tag}: ${result.tags[tag]}`);
+  }
 }
 ```
 
@@ -102,13 +105,13 @@ The following table shows some query strings:
 |Query string for tags|Description|
 |--|--|
 |`id='1' AND project='billing'`|Filter blobs across all containers based on these two properties|
-|`owner='PhillyProject' AND createdOn >= '2021-12' AND createdOn <= '2022-06'`|Filter blobs across all containers based on strict property value for owner and range of dates for other property.|
-|`@container = 'my-container' AND createdBy = 'Jill'`|Filter blobs for specific container, and specific property. In this query, `createdBy` is a text match and doesn't indicate an authorization match through Active Directory. |
+|`owner='PhillyProject' AND createdOn >= '2021-12' AND createdOn <= '2022-06'`|Filter blobs across all containers based on strict property value for `owner` and range of dates for `createdOn` property.|
+|`@container = 'my-container' AND createdBy = 'Jill'`|**Filter by container** and specific property. In this query, `createdBy` is a text match and doesn't indicate an authorization match through Active Directory. |
 
 
 You can find data by using the following method: 
 
-- [BlobServiceClient.FindBlobsByTags](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
+- [BlobServiceClient.findBlobsByTags](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-findblobsbytags)
 
 The following example finds all blobs matching the tagOdataQuery parameter.
 
@@ -127,8 +130,6 @@ async function findBlobsByQuery(blobServiceClient, tagOdataQuery) {
     includeTags: true,
     includeVersions: false
   };
-
-  let foundBlobNames = [];
 
   let iterator = blobServiceClient.findBlobsByTags(tagOdataQuery, listOptions).byPage({ maxPageSize });
   let response = (await iterator.next()).value;
