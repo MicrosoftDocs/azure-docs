@@ -4,17 +4,15 @@ description: Azure SQL Analytics solution helps you manage your Azure SQL databa
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman 
-ms.date: 11/22/2021
+ms.date: 03/10/2022
 ms.reviewer: wiassaf, mathoma
 ms.custom: devx-track-azurepowershell
 ---
 
-# Monitor Azure SQL Database using Azure SQL Analytics (Preview)
+# Monitor Azure SQL Database using Azure SQL Analytics (preview)
 
 > [!CAUTION]
 > Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/monitor-tune-overview).
-
-![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
 
 Azure SQL Analytics (preview) is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
 
