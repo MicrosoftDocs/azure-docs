@@ -112,7 +112,7 @@ Do any of the following to learn more:
 
 Close integration with [Microsoft Purview Information Protection](/microsoft-365/compliance/information-protection) means that you have direct ways to extend visibility into your data estate, and classify and label your data.
 
-For sensitivity labels to be extended to your assets in the data map, you must actively turn on this capability in the Microsoft Purview compliance center.
+For sensitivity labels to be extended to your assets in the data map, you must actively turn on this capability in the Microsoft Purview compliance portal.
 
 For more information, see [How to automatically apply sensitivity labels to your data in the Microsoft Purview Data Map](how-to-automatically-label-your-content.md).
 

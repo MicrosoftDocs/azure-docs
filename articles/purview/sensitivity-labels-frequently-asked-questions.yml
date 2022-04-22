@@ -22,7 +22,7 @@ sections:
     questions:
       - question: What are the licensing requirements to use sensitivity labels on files and database columns in the Microsoft Purview Data Map? 
         answer: |
-          To use sensitivity labels in the Microsoft Purview Data Map, you'll need at least one Microsoft 365 license/account within the same Azure Active Directory (AAD) tenant as your Microsoft Purview account.  
+          To use sensitivity labels in the Microsoft Purview Data Map, you'll need at least one Microsoft 365 license/account within the same Azure Active Directory (Azure AD) tenant as your Microsoft Purview account.  
 
           The following Microsoft 365 licenses are required to automatically apply sensitivity labels to your assets in [Microsoft 365](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#which-licenses-provide-the-rights-for-a-user-to-benefit-from-the-service-10) and [the Microsoft Purview Data Map](how-to-automatically-label-your-content.md):  
           
