@@ -277,13 +277,13 @@ In PowerShell, use [New-AzRoleAssignment](/powershell/module/az.resources/new-az
 
 If [built-in roles](#built-in-roles-used-in-search) don't provide the right combination of permissions, you can create a [custom role](../role-based-access-control/custom-roles.md) to support the operations you require
 
-For example, you might want to augment a read-only role to include listing the indexes on the search service (Microsoft.Search/searchServices/indexes/read), or create a role that can list and query indexes, but not create or delete them. 
+For example, you might want to augment a query execution (reader role) to include listing indexes by name. Normally, listing the indexes on a search service is considered an administrative right.
 
 ### [**Azure portal**](#tab/custom-role-portal)
 
-These steps are derived from [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md). Cloning from an existing role is the recommended approach for creating a custom role for search operations.
+These steps are derived from [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md). Cloning from an existing role is supported in a search service page.
 
-These steps create a custom role that augments search query rights, combined with the ability to list index names. Typically, listing indexes is considered an admin function.
+These steps create a custom role that augments search query rights to include listing indexes by name. Typically, listing indexes is considered an admin function.
 
 1. In the Azure portal, navigate to your search service.
 
