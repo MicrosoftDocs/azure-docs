@@ -25,8 +25,8 @@ Simulations help you:
 
 ## Azure DDoS simulation testing policy
 You may only simulate attacks using our approved testing partners:
-- [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 - [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
+- [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 
 Our testing partners' simulation environments are built within Azure. You can only simulate against Azure-hosted public IP addresses that belong to an Azure subscription of your own, which will be validated by Azure Active Directory (Azure AD) before testing. Additionally, these target public IP addresses must be protected under Azure DDoS Protection.
 
