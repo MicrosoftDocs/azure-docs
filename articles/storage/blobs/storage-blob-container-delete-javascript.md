@@ -17,6 +17,8 @@ ms.custom: devx-track-js
 
 This article shows how to delete containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled container soft delete, you can restore deleted containers.
 
+The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+
 ## Delete a container
 
 To delete a container in JavaScript, use one of the following methods:

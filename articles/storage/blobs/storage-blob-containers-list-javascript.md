@@ -17,6 +17,8 @@ ms.custom: devx-track-js
 
 When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
+The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+
 ## Understand container listing options
 
 To list containers in your storage account, call the following method:
@@ -64,7 +66,7 @@ In your code, check the value of the continuation token to determine whether it 
 async function listContainersWithPagingMarker(blobServiceClient) {
 
   // add prefix to filter list
-  const containerNamePrefix = "";
+  const containerNamePrefix = '';
 
   // page size
   const maxPageSize = 2;

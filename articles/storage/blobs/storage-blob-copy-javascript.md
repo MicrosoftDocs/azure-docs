@@ -17,6 +17,8 @@ ms.custom: "devx-track-js"
 
 This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort an asynchronous copy operation. The example code uses the Azure Storage client libraries.
 
+The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+
 > [!NOTE]
 > The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
 
@@ -62,7 +64,7 @@ async function copyBlob(
 
     // start copy
     const copyPoller = await destinationBlobClient.beginCopyFromURL(sourceBlobClient.url);
-    console.log("start copy from A to B");
+    console.log('start copy from A to B');
 
     // wait until done
     await copyPoller.pollUntilDone();

@@ -18,6 +18,8 @@ ms.custom: template-how-to
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
+The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+
 [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## SDK Objects for service, container, and blob
@@ -68,10 +70,10 @@ The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) o
 1. In your `index.js` file, add the package:
 
     ```javascript
-    const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");    
+    const { BlobServiceClient, StorageSharedKeyCredential } = require('@azure/storage-blob');    
 
     // optional but suggested - connect with managed identity
-    const { DefaultAzureCredential } = require("@azure/identity");
+    const { DefaultAzureCredential } = require('@azure/identity');
     ```
 
 

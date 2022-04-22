@@ -22,6 +22,8 @@ You can download a blob by using any of the following methods:
 - Blob.[downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile)
 
 
+The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+
 > [!NOTE]
 > The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
  
@@ -68,19 +70,19 @@ async function downloadBlobToString(containerClient, blobName) {
     const downloadResponse = await blobClient.download();
 
     const downloaded = await streamToBuffer(downloadResponse.readableStreamBody);
-    console.log("Downloaded blob content:", downloaded.toString());
+    console.log('Downloaded blob content:', downloaded.toString());
 }
 
 async function streamToBuffer(readableStream) {
     return new Promise((resolve, reject) => {
         const chunks = [];
-        readableStream.on("data", (data) => {
+        readableStream.on('data', (data) => {
             chunks.push(data instanceof Buffer ? data : Buffer.from(data));
         });
-        readableStream.on("end", () => {
+        readableStream.on('end', () => {
             resolve(Buffer.concat(chunks));
         });
-        readableStream.on("error", reject);
+        readableStream.on('error', reject);
     });
 }
 ```
