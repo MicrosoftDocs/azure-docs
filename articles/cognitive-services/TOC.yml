@@ -117,7 +117,7 @@
   - name: Python
     href: /python/api/azure-mgmt-cognitiveservices/
   - name: Java
-    href: /java/api/overview/azure/cognitiveservices/resourcemanagement
+    href: /java/api/com.microsoft.azure.management.cognitiveservices
   - name: Go
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v52.5.0+incompatible/services/cognitiveservices/mgmt/2017-04-18/cognitiveservices
   - name: Azure CLI
