@@ -137,7 +137,7 @@ Securing an online endpoint with a private endpoint is a preview feature.
 
 __Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
 
-__Outbound__ communication from the online endpoint can be secured on a per-deployment basis by using the `private_network_connection` flag. Outbound communication in this case is from the deployment to Azure Container Registry, storage blob, and workspace. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+__Outbound__ communication from a deployment can be secured on a per-deployment basis by using the `private_network_connection` flag. Outbound communication in this case is from the deployment to Azure Container Registry, storage blob, and workspace. Setting the flag to `true` will restrict communication with these resources to the virtual network.
 
 > [!NOTE]
 > For secure outbound communication, a private endpoint is created for each deployment where `private_network_connection` is set to `true`.
