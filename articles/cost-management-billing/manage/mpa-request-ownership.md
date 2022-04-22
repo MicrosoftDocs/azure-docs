@@ -10,7 +10,7 @@ ms.date: 04/22/2022
 ms.author: banders
 ---
 
-# Get billing ownership of Azure subscriptions to your MPA account
+# Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 
 An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions and reservations to the Microsoft Partner Agreement (MPA) that they manage. 
 
@@ -47,7 +47,7 @@ Before you begin, make sure that the people involved in the product transfer hav
 
 To request the billing ownership, you must have **Global Admin** or **Admin Agents** role. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
-### Required permission for subscription transfer recipient 
+### Required permission for the subscription transfer recipient 
 
 The subscription product owner (transfer request recipient) must have one of the following permissions:
 
@@ -152,7 +152,7 @@ You can request billing ownership of the following subscription types.
 * [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 * Azure Plan<sup>1</sup> [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
 
-<sup>1</sup> You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There is no discount currently available through the Dev/Test offer to CSP partners.
+<sup>1</sup> You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There's no discount currently available through the Dev/Test offer to CSP partners.
 
 ## Additional information
 
@@ -176,7 +176,7 @@ Azure Marketplace products, which are available for subscriptions that are manag
 
 ### Access to Azure services
 
-Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC access to the subscriptions.
+Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC role)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC role access to the subscriptions.
 
 The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
 

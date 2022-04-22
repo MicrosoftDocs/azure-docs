@@ -56,7 +56,7 @@ For both subscriptions and reservations, the product transfer requestor must hav
 
 For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-### Required permission for subscription transfer recipient 
+### Required permission for the subscription transfer recipient 
 
 The subscription product owner (transfer request recipient) must have one of the following permissions:
 
