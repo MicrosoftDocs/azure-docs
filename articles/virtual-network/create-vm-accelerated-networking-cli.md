@@ -27,7 +27,7 @@ Though this article provides steps to create a virtual machine with accelerated 
 You can also enable or disable accelerated networking through the portal after VM creation by navigating to the network interface and clicking the button at the top of the **Overview** blade.
 
 >[!NOTE]
-> Accelerated Networking in the portal will always show as enabled for those VM sizes that require it. Check your VM size to determine if Accelerated Networking is a required feature.
+> The Accelerated Networking setting in the portal reflects the user-selected state. AccelNet allows choosing “Disabled” even if the VM size requires AccelNet. For those AccelNet-required VM sizes, AccelNet will be enabled at runtime regardless of the user setting seen in the portal.
 > 
 > Only supported operating systems can be enabled through the portal. If you're using a custom image, and your image supports Accelerated Networking, create your VM using CLI or PowerShell. 
 
