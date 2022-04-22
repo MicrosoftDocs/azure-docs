@@ -16,17 +16,14 @@ ms.date: 03/15/2022
 
 # Set up AutoML to train a natural language processing model with Python (preview)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
 > * [v1](how-to-auto-train-nlp-models-v1.md)
 > * [v2 (current version)](../how-to-auto-train-nlp-models.md)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-> [!IMPORTANT]
-> This article shows how to use the SDK v1 to train a natural language processing model with automated ML. For the recommended approach for v2, see [Set up AutoML training for NLP models with v2](how-to-auto-train-nlp-models-v2.md).
-
-In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
+In this article, you learn how to train natural language processing (NLP) models with [automated ML](../concept-automated-ml.md) in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
 Automated ML supports NLP which allows ML professionals and data scientists to bring their own text data and build custom models for tasks such as, multi-class text classification, multi-label text classification, and named entity recognition (NER).  
 
@@ -36,7 +33,7 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
+* An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md). See [GPU optimized virtual machine sizes](../../../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
 
    > [!Warning]
    > Support for multilingual models and the use of models with longer max sequence length is necessary for several NLP use cases, such as non-english datasets and longer range documents. As a result, these scenarios may require higher GPU memory for model training to succeed, such as the NC_v3 series or the ND series. 
@@ -44,16 +41,14 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 * The Azure Machine Learning Python SDK installed. 
 
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md) for more information. 
 
     * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
-    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+    [!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
     
-    > [!WARNING]
-    > Python 3.8 is not compatible with `automl`. 
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](../tutorial-auto-train-models.md) or [how-to](../how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
 ## Select your NLP task 
 
@@ -164,7 +159,7 @@ However, there are key differences:
 * You can ignore `primary_metric`, as it is only for reporting purpose. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
 * If the majority of the samples in your dataset contain more than 128 words, it's considered long range. For this scenario, you can enable the long range text option with the `enable_long_range_text=True` parameter in your `AutoMLConfig`. Doing so, helps improve model performance but requires a longer training times.
-   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series.md)  series.
+   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../../virtual-machines/ncv3-series.md) series  or  [ND](../../virtual-machines/nd-series.md)  series.
    * The `enable_long_range_text` parameter is only available for multi-class classification tasks.
 
 
@@ -198,7 +193,7 @@ Multi-class text classification|    `'eng'` <br>  `'deu'` <br> `'mul'`|  English
 Named entity recognition (NER)|    `'eng'` <br>  `'deu'` <br> `'mul'`|  English&nbsp;BERT&nbsp;[cased](https://huggingface.co/bert-base-cased) <br>  [German BERT](https://huggingface.co/bert-base-german-cased)<br>  [Multilingual BERT](https://huggingface.co/bert-base-multilingual-cased) <br><br>For all other languages, automated ML applies multilingual BERT
 
 
-You can specify your dataset language in your `FeaturizationConfig`. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
+You can specify your dataset language in your `FeaturizationConfig`. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](../how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig
@@ -227,5 +222,5 @@ https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-
 * [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/automl-nlp-ner/automl-nlp-ner.ipynb)
 
 ## Next steps
-+ Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
-+ [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
++ Learn more about [how and where to deploy a model](../how-to-deploy-and-where.md).
++ [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md). 

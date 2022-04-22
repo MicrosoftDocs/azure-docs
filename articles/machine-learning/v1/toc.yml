@@ -23,7 +23,7 @@
     href: how-to-use-mlflow.md
   - name: Auto-train a natural language processing model
     displayName: nlp, auto ML, automl, SDK
-    href: how-to-auto-train-nlp-models.md
+    href: how-to-auto-train-nlp-models-v1.md
   - name: Deploy models
     items:
     - name: Azure Kubernetes Service
