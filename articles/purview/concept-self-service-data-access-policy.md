@@ -34,7 +34,7 @@ A **workflow admin** will need to map a self-service data access workflow to a c
 
 * **Self-service data access workflow** is the workflow that is initiated when a data consumer requests access to data.
 
-* **Approver** is either security group or AAD users that can approve self-service access requests.
+* **Approver** is either security group or Azure Active Directory (Azure AD) users that can approve self-service access requests.
 
 ## How to use Microsoft Purview self-service data access policy
 
@@ -44,7 +44,7 @@ With self-service data access workflow, data consumers can not only find data as
 
 A default self-service data access workflow template is provided with every Microsoft Purview account.The default template can be amended to add more approvers and/or set the approver's email address. For more details refer [Create and enable self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md).
 
-Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Microsft Purview portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **data use management**. The pre-requisites mentioned within the [data use management](./how-to-enable-data-use-management.md#prerequisites) have to be satisfied.  
+Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Microsoft Purview portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **data use management**. The pre-requisites mentioned within the [data use management](./how-to-enable-data-use-management.md#prerequisites) have to be satisfied.  
 
 ## Next steps
 
