@@ -20,7 +20,7 @@ By creating an [Azure Machine Learning dataset](../machine-learning/how-to-creat
 * Don't risk unintentionally changing your original data sources. 
 * Improve ML workflow performance speeds.
 
-To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
+To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/v1/concept-data.md#data-workflow) article.
 
 Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/services/open-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
 

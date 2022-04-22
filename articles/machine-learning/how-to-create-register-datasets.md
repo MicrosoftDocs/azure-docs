@@ -20,7 +20,7 @@ ms.date: 10/21/2021
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments with the Azure Machine Learning Python SDK. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
+In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments with the Azure Machine Learning Python SDK. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](./v1/concept-data.md#data-workflow) article.
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs, and [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
@@ -60,7 +60,7 @@ To create and work with datasets, you need:
 
 When creating a dataset, review your compute processing power and the size of your data in memory. The size of your data in storage is not the same as the size of data in a dataframe. For example, data in CSV files can expand up to 10x in a dataframe, so a 1 GB CSV file can become 10 GB in a dataframe. 
 
-If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~800 GB in memory. Since Parquet files store data in a columnar format, if you only need half of the columns, then you only need to load ~400 GB in memory.
+If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~400 GB in memory.
 
 [Learn more about optimizing data processing in Azure Machine Learning](concept-optimize-data-processing.md).
 
