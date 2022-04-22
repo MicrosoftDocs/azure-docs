@@ -63,7 +63,7 @@ This table summarizes the availability of the sensor data on supported platforms
 
 <sup>1</sup> An external GPS device can be associated with HoloLens. Handle the [UpdatedSensorFingerprintRequired](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updatedsensorfingerprintrequired) event to submit [GeoLocation](/dotnet/api/microsoft.azure.spatialanchors.geolocation) readings if you are using HoloLens with an external GPS tracker.<br/>
 <sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
-<sup>3</sup> Supported through [CLLocationManager][4] APIs.<br/>
+<sup>3</sup> Supported indirectly through [CLLocationManager][4] APIs.<br/>
 <sup>4</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>
 <sup>5</sup> Starting with API level 28, Wi-Fi scans are throttled to four calls every 2 minutes. Starting with Android 10, you can disable this throttling from the **Developer settings** menu. For more information, see the [Android documentation][5].<br/>
 <sup>6</sup> Limited to [Eddystone][1] and [iBeacon][2].
