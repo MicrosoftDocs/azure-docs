@@ -18,6 +18,9 @@ To use Azure Spatial Anchors in Unity, you need to download **both** the **core 
 
 ## [Install with Mixed Reality Feature Tool](#tab/unity-package-mixed-reality-feature-tool)
 
+> [!NOTE]
+> The <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> currently only supports Windows.
+
 Continue to the next step. You'll use the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> in a later step.
 
 ## [Download with web browser](#tab/unity-package-web-ui)

@@ -9,9 +9,6 @@ ms.author: pamistel
 
 # [Mixed Reality Feature Tool](#tab/unity-package-mixed-reality-feature-tool)
 
-> [!NOTE]
-> The <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> currently only supports Windows.
-
 This step requires that the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> is downloaded and available.
 
 1. Follow the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
