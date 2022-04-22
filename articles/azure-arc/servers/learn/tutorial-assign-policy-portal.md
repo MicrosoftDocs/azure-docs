@@ -31,16 +31,16 @@ Follow the steps below to create a policy assignment and assign the policy defin
 1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/all-services-page.png" alt-text="Search for Policy in All Services" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/all-services-page.png" alt-text="Search for Policy in All Services" border="true":::
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/assignments-tab.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/assignments-tab.png" alt-text="Select Assignments page from Policy Overview page" border="true":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/assign-policy-button.png" alt-text="Assign a policy definition from Assignments page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/assign-policy-button.png" alt-text="Assign a policy definition from Assignments page" border="true":::
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either
    a management group or subscription. Optionally, select a resource group. A scope determines what
@@ -76,13 +76,13 @@ environment.
 
 Select **Compliance** in the left side of the page. Then locate the **\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines** policy assignment you created.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/compliance-policy.png" alt-text="Compliance details on the Policy Compliance page" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/compliance-policy.png" alt-text="Compliance details on the Policy Compliance page" border="true":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
 
 When a condition is evaluated against your existing resources and found true, then those resources
-are marked as non-compliant with the policy. The following table shows how different policy effects
+are marked as non-compligitant with the policy. The following table shows how different policy effects
 work with the condition evaluation for the resulting compliance state. Although you don't see the
 evaluation logic in the Azure portal, the compliance state results are shown. The compliance state
 result is either compliant or non-compliant.
