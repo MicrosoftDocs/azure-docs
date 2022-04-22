@@ -393,7 +393,7 @@
       - Retiring features:
         items:
           - name: Deprecated developer portal
-              items:
+            items:
                 - name: Deprecated portal - customize the portal
                   href: api-management-customize-styles.md
                 - name: Deprecated portal - modify pages and layouts
