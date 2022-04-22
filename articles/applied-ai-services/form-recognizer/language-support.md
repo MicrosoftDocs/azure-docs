@@ -32,7 +32,7 @@ To use the preview languages, refer to the [v3.0 REST API migration guide](/rest
 
 ### Handwritten languages
 
-The following table lists the handwritten languages.
+The following table lists the supported languages for extracting handwritten texts.
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -44,7 +44,7 @@ The following table lists the handwritten languages.
 
 ### Print languages (preview)
 
-This section lists the supported languages in the latest preview.
+This section lists the supported languages for extracting printed texts in the latest preview.
 
 |Language| Code (optional) |Language| Code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -97,7 +97,7 @@ This section lists the supported languages in the latest preview.
 
 ### Print languages (GA)
 
-This section lists the supported languages in the latest GA version.
+This section lists the supported languages for extracting printed texts in the latest GA version.
 
 |Language| Code (optional) |Language| Code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -180,6 +180,11 @@ Language| Locale code |
 ## Detected languages by Read
 
 The [Read API](concept-read.md) supports language detection for the following languages:
+
+> [!NOTE]
+> **Detected languages vs extracted languages**
+>
+> This section lists the languages we can detect from the documents using the Read model, if present. Please note that this list differs from list of languages we support extracting text from, which is specified in the above sections for each model.
 
 | Language            | Code |
 |---------------------|---------------|
