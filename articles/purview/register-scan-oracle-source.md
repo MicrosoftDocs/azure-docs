@@ -51,7 +51,7 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -66,7 +66,7 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
 ## Register
 
-This section describes how to register Oracle in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Oracle in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Prerequisites for registration
 
@@ -110,7 +110,7 @@ The only supported authentication for an Oracle source is **Basic authentication
 
 To register a new Oracle source in your data catalog, do the following:
 
-1. Navigate to your Microsoft Purview account in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **Oracle**. Select **Continue**.
