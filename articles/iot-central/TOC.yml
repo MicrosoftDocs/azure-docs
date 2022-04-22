@@ -102,6 +102,8 @@
       href: core/overview-iot-central-solution-builder.md
     - name: Application administration guide
       href: core/overview-iot-central-admin.md
+    - name: Application security guide
+      href: core/overview-iot-central-security.md
     - name: Network security using private endpoints
       href: core/concepts-private-endpoints.md
     - name: FAQ
@@ -221,8 +223,6 @@
           href: core/howto-create-organizations.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
-        - name: Migrate V2 to V3 application
-          href: core/howto-migrate.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
         - name: Manage and monitor in the Azure portal
@@ -276,5 +276,3 @@
     href: core/iot-central-customer-data-requests.md
   - name: Supported browsers
     href: core/iot-central-supported-browsers.md
-  - name: Azure IoT Central (legacy templates)
-    href: /previous-versions/azure/iot-central/core/overview-iot-central

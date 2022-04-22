@@ -16,7 +16,7 @@ Azure Database for MariaDB automatically creates server backups and stores them 
 
 Azure Database for MariaDB takes backups of the data files and the transaction log. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
-These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](howto-migrate-dump-restore.md) to copy a database.
+These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MariaDB. You can use [mysqldump](howto-migrate-dump-restore.md) to copy a database.
 
 The backup type and frequency is depending on the backend storage for the servers.
 

@@ -298,9 +298,7 @@ The discount will be effective starting from the approval date, and won't take p
 
 ## Does Microsoft Defender for Servers support the new unified Microsoft Defender for Endpoint agent for Windows Server 2012 R2 and 2016?
 
-In October 2021, we released [a new Microsoft Defender for Endpoint solution stack](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292) to public preview for Windows Server 2012 R2 and 2016. The new solution stack does not use or require installation of the Microsoft Monitoring Agent (MMA).
-
-The new version of Microsoft Defender for Endpoint is deployed by Defender for Servers Plan 1 for Windows Server 2012 R2 and 2016.
+Defender for Servers Plan 1 deploys [the new Microsoft Defender for Endpoint solution stack](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292) for Windows Server 2012 R2 and 2016, which does not use or require installation of the Microsoft Monitoring Agent (MMA).
 
 ### How do I switch from a third-party EDR tool?
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
