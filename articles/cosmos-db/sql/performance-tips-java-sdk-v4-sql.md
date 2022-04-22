@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 04/22/2022
 ms.author: jroth
 ms.custom: devx-track-java, contperf-fy21q2
 ---
