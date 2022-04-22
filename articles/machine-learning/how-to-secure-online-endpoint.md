@@ -20,7 +20,7 @@ When deploying a machine learning model to a managed online endpoint, you can se
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can secure the inbound communication from clients (scoring requests) to an _online endpoint_ separately from the outbound communications between a _deployment_ and the Azure resources used by the deployment. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
+You can secure the inbound scoring requests from clients to an _online endpoint_. You can also configure the outbound communications between a _deployment_ and the Azure resources used by the deployment. Security for inbound and outbound communication is configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ You can secure the inbound communication from clients (scoring requests) to an _
 
 ## Limitations
 
-* If your Azure Machine Learning workspace has a private endpoint that was created before 5/24/2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+* If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 * Secure inbound communication only secures scoring requests. Requests to get the authentication key or token for the online endpoint are resolved over the public network (secured with TLS) to Azure Resource Manager. For more information, see [TBD]
 
@@ -130,7 +130,7 @@ az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --ima
 > [!IMPORTANT]
 > The VM created by these commands has a public endpoint that you can connect to over the public network.
 
-The response from this command is a JSON document similar to the following:
+The response from this command is similar to the following JSON document:
 
 ```json
 {
@@ -175,7 +175,7 @@ When prompted, enter the password you used when creating the VM.
 
     ---
 
-1. To login to the Azure CLI in the VM environment, use the following command:
+1. To sign in to the Azure CLI in the VM environment, use the following command:
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
@@ -202,7 +202,7 @@ When prompted, enter the password you used when creating the VM.
 
     :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/endpoints/online/managed/vnet/setup_vm/scripts/create_moe.sh" id="create_vnet_deployment":::
 
-1. To make a scoring request using the endpoint, use the following commands:
+1. To make a scoring request with the endpoint, use the following commands:
 
     :::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/endpoints/online/managed/vnet/setup_vm/scripts/score_endpoint.sh" id="check_deployment":::
 
