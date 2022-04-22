@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Replicate an Azure VM to another region
+  - name: Set up disaster recovery to a secondary Azure region
     href: azure-to-azure-quickstart.md
   - name: Create a vault - ARM template
     displayName: Resource Manager
