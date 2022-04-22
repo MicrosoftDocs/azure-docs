@@ -27,7 +27,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 This breaking change comes from the June release of `azureml-inference-server-http`. In the `azureml-inference-server-http` June release, Python 3.6 support will be dropped. Since `azureml-defaults` depends on `azureml-inference-server-http`, this change will be propagated to `azureml-defaults`. If you are not using `azureml-defaults` for inference, feel free to use `azureml-core` or any other AzureML SDK packages directly instead of install `azureml-defaults`.
 
   + **azureml-automl-dnn-nlp**
-    + Turning on long range text feature by default using hyper-parameter adjustments of reducing train batch size while increasing gradient accumulation steps in a way that effective train batch size remains consistent with the default configuration, while also not increasing the GPU memory requirements as a result of possibly using a larger model (due to increased max sequence length)
+    + Turning on long range text feature by default.
   + **azureml-automl-dnn-vision**
     + Chaning the ObjectAnnotation Class type from object to "dataobject"(https://pypi.org/project/recordclass/)
   + **azureml-core**
