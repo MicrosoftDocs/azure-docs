@@ -295,10 +295,23 @@ Learn more about the [AnchorLocatedDelegate](/dotnet/api/microsoft.azure.spatial
 
 Learn more about the [DeleteAnchorAsync](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) method.
 
+### Delete anchor after locating (recommended)
 ```csharp
     await this.cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
 ```
+
+### Delete anchor without locating
+//REWORD THIS
+
+one can use the ``GetAnchorPropertiesAsync`` API which takes an anchorId GUID as input to get a CloudSpatialAnchor object, and then pass that to DeleteAnchorAsync to delete it. I just quickly prototyped this in a unit test and was able to delete an anchor without locating it. 
+
+```csharp
+var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
+await this.cloudSession.DeleteAnchorAsync(anchor);
+```
+    
+
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
