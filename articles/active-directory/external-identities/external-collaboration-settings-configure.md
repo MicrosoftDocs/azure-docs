@@ -33,9 +33,9 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 > [!NOTE]
 > The article describes how to configure External collaboration settings in the Azure portal. These settings are also configurable using the Microsoft Graph API:
 >
-> - For **Guest user access restrictions** and **Guest invite restrictions**, use the [authorizationPolicy](/graph/api/resources/authorizationpolicy?view=graph-rest-1.0) resource type.
-> - For the **Enable guest self-service sign up via user flows** setting, use [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0) resource type.
-> - For email one-time passcode settings (now on the **All identity providers** page in the Azure portal), use the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailAuthenticationMethodConfiguration?view=graph-rest-1.0) resource type.
+> - For **Guest user access restrictions** and **Guest invite restrictions**, use the [authorizationPolicy](/graph/api/resources/authorizationpolicy?view=graph-rest-1.0&preserve-view=true) resource type.
+> - For the **Enable guest self-service sign up via user flows** setting, use [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) resource type.
+> - For email one-time passcode settings (now on the **All identity providers** page in the Azure portal), use the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailAuthenticationMethodConfiguration?view=graph-rest-1.0&preserve-view=true) resource type.
 
 ### To configure external collaboration settings:
 

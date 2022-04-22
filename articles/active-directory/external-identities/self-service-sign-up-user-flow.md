@@ -41,7 +41,7 @@ User attributes are values collected from the user during self-service sign-up. 
 Before you can add a self-service sign-up user flow to your applications, you need to enable the feature for your tenant. After it's enabled, controls become available in the user flow that let you associate the user flow with an application.
 
 > [!NOTE]
-> This setting can also be configured with the [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0) resource type in the Microsoft Graph API.
+> This setting can also be configured with the [authenticationFlowsPolicy](/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) resource type in the Microsoft Graph API.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
