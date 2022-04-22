@@ -218,7 +218,7 @@ The original billing owner of the subscriptions is responsible for any charges t
 
 ### Cancel a transfer request
 
-You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, go to the [transfer details page](#check-the-transfer-request-status) and select cancel from the bottom of the page.
+You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, go to the [transfer details page](mca-request-billing-ownership.md#check-the-transfer-request-status) and select cancel from the bottom of the page.
 
 ### Software as a Service (SaaS) transfer
 
