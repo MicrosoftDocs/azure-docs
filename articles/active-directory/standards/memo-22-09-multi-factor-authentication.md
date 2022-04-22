@@ -31,7 +31,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
   * "gold standard of multi-factor authentication" per [CISA](https://www.cisa.gov/mfa)
 
 * **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)**
-  * Native support for Smart cards implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV) widely used in US Department of Defense (DoD) & US Federal Civilian agencies
+  * Native support for certificate use including smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV) widely in use throughout US Department of Defense (DoD) & US Federal Civilian agencies as well as derived credentials (Such as derived CAC/PIV) on mobile devices or security keys
 * **[Windows Hello for Business](.../windows/security/identity-protection/hello-for-business/hello-overview)**
 
   * Windows Hello for Business [Deployment Overview](.../windows/security/identity-protection/hello-for-business/hello-deployment-guide)
@@ -50,21 +50,11 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 >
 >**Microsoft Authenticator native phishing resistance is in development.** Once available Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
 
-
-
 * **Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication.**
   * [Deploying Active Directory Federation Services in Azure](.../windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
   * [Configuring AD FS for user certificate authentication](.../windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
-> [!Important]
-> Microsoft recommends securing both registration of MFA credentials (such as FIDO2 and Microsoft Authenticator App) and device registration.
->
->More Information on each is provided below:
->
->**[Conditional Access: Securing security info registration](../conditional-access/howto-conditional-access-policy-registration.md)**
->
->**[Conditional Access: Securing Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions)**
-
+#### Additional Phishing-resistant method considerations
 
 Your current device capabilities, user personas, and other requirements might dictate specific multifactor methods. For example, if you're adopting FIDO2 security keys that have only USB-C support, they can be used only from devices with USB-C ports.
 
@@ -77,6 +67,17 @@ Consider the following approaches to evaluating phishing-resistant MFA methods:
 * Logistics of distributing, configuring, and registering MFA methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips.
 
 * Need for FIPS 140 validation at a specific [authenticator assurance level](nist-about-authenticator-assurance-levels.md). For example, some FIDO security keys are FIPS 140 validated at levels required for [AAL3](nist-authenticator-assurance-level-3.md), as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
+
+> [!Important]
+> Microsoft recommends securing both registration of MFA credentials (such as FIDO2 and Microsoft Authenticator App) and device registration.
+>
+>More Information on each is provided below:
+>
+>**[Conditional Access: Securing security info registration](../conditional-access/howto-conditional-access-policy-registration.md)**
+>
+>**[Conditional Access: Securing Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions)**
+
+
 
 ## Implementation considerations for phishing-resistant MFA
 
