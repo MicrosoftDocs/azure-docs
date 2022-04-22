@@ -95,7 +95,7 @@ You can use index tags to find and filter data if your code has authorized acces
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
 
-Data is queried with a JSON object sent as a string.The properties don't need to have additional string quotes but the values do need additional string quotes.
+Data is queried with a JSON object sent as a string. The properties don't need to have additional string quotes but the values do need additional string quotes.
 
 The following table shows some query strings:
 
