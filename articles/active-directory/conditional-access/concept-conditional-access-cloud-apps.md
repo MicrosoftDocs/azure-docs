@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 04/19/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -194,7 +194,7 @@ Administrators can select published authentication contexts in their Conditional
 
 For more information about authentication context use in applications, see the following articles.
 
-- [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Microsoft Defender for Cloud Apps](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 

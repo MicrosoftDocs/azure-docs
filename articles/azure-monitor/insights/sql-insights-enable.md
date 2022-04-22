@@ -1,23 +1,23 @@
 ---
-title: Enable SQL insights
-description: Enable SQL insights in Azure Monitor
+title: Enable SQL Insights (preview)
+description: Enable SQL Insights (preview) in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 1/18/2022
 ---
 
-# Enable SQL insights (preview)
-This article describes how to enable [SQL insights](sql-insights-overview.md) to monitor your SQL deployments. Monitoring is performed from an Azure virtual machine that makes a connection to your SQL deployments and uses Dynamic Management Views (DMVs) to gather monitoring data. You can control what datasets are collected and the frequency of collection using a monitoring profile.
+# Enable SQL Insights (preview)
+This article describes how to enable [SQL Insights (preview)](sql-insights-overview.md) to monitor your SQL deployments. Monitoring is performed from an Azure virtual machine that makes a connection to your SQL deployments and uses Dynamic Management Views (DMVs) to gather monitoring data. You can control what datasets are collected and the frequency of collection using a monitoring profile.
 
 > [!NOTE]
-> To enable SQL insights by creating the monitoring profile and virtual machine using a resource manager template, see [Resource Manager template samples for SQL insights](resource-manager-sql-insights.md).
+> To enable SQL Insights (preview) by creating the monitoring profile and virtual machine using a resource manager template, see [Resource Manager template samples for SQL Insights (preview)](resource-manager-sql-insights.md).
 
-To learn how to enable SQL Insights, you can also refer to this Data Exposed episode.
+To learn how to enable SQL Insights (preview), you can also refer to this Data Exposed episode.
 > [!VIDEO https://docs.microsoft.com/Shows/Data-Exposed/How-to-Set-up-Azure-Monitor-for-SQL-Insights/player?format=ny]
 
 ## Create Log Analytics workspace
-SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-workspaces). Before you can enable SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
+SQL Insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-workspaces). Before you can enable SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL Insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
 
 ## Create monitoring user 
 You need a user (login) on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
@@ -27,11 +27,11 @@ The instructions below cover the process per type of SQL that you can monitor. T
 ### Azure SQL Database
 
 > [!NOTE]
-> SQL insights does not support the following Azure SQL Database scenarios:
+> SQL Insights (preview) does not support the following Azure SQL Database scenarios:
 > - **Elastic pools**: Metrics cannot be gathered for elastic pools. Metrics cannot be gathered for databases within elastic pools.
 > - **Low service tiers**: Metrics cannot be gathered for databases on Basic, S0, S1, and S2 [service tiers](/azure/azure-sql/database/resource-limits-dtu-single-databases)
 > 
-> SQL insights has limited support for the following Azure SQL Database scenarios:
+> SQL Insights (preview) has limited support for the following Azure SQL Database scenarios:
 > - **Serverless tier**: Metrics can be gathered for databases using the [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview). However, the process of gathering metrics will reset the auto-pause delay timer, preventing the database from entering an auto-paused state.
 
 Connect to an Azure SQL database with [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms), [Query Editor (preview)](/azure/azure-sql/database/connect-query-portal) in the Azure portal, or any other SQL client tool.
@@ -157,7 +157,7 @@ If you have these permissions, a new Key Vault access policy will be automatical
 > You need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](../../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ## Create SQL monitoring profile
-Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 
+Open SQL Insights (preview) by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 
 
 :::image type="content" source="media/sql-insights-enable/create-new-profile.png" alt-text="Create new profile." lightbox="media/sql-insights-enable/create-new-profile.png":::
 
@@ -191,7 +191,7 @@ Select the subscription and name of your monitoring virtual machine. If you're u
 :::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Add monitoring machine." lightbox="media/sql-insights-enable/add-monitoring-machine.png":::
 
 ### Add connection strings 
-The connection string specifies the login name that SQL insights should use when logging into SQL to collect monitoring data. If you're using a Key Vault to store the password for your monitoring user, provide the Key Vault URI and name of the secret that contains the password.
+The connection string specifies the login name that SQL Insights (preview) should use when logging into SQL to collect monitoring data. If you're using a Key Vault to store the password for your monitoring user, provide the Key Vault URI and name of the secret that contains the password.
 
 The connections string will vary for each type of SQL resource:
 
@@ -261,13 +261,13 @@ WHERE net_transport = 'TCP'
 
 Select **Add monitoring virtual machine** to configure the virtual machine to collect data from your SQL resources. Do not return to the **Overview** tab.  In a few minutes, the Status column should change to read "Collecting", you should see data for the SQL resources you have chosen to monitor.
 
-If you do not see data, see [Troubleshooting SQL insights](sql-insights-troubleshoot.md) to identify the issue. 
+If you do not see data, see [Troubleshooting SQL Insights (preview)](sql-insights-troubleshoot.md) to identify the issue. 
 
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profile created" lightbox="media/sql-insights-enable/profile-created.png":::
 
 > [!NOTE]
-> If you need to update your monitoring profile or the connection strings on your monitoring VMs, you may do so via the SQL insights **Manage profile** tab.  Once your updates have been saved the changes will be applied in approximately 5 minutes.
+> If you need to update your monitoring profile or the connection strings on your monitoring VMs, you may do so via the SQL Insights (preview) **Manage profile** tab.  Once your updates have been saved the changes will be applied in approximately 5 minutes.
 
 ## Next steps
 
-- See [Troubleshooting SQL insights](sql-insights-troubleshoot.md) if SQL insights isn't working properly after being enabled.
+- See [Troubleshooting SQL Insights (preview)](sql-insights-troubleshoot.md) if SQL Insights isn't working properly after being enabled.

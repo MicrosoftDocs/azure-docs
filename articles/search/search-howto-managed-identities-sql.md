@@ -76,7 +76,7 @@ In this section you'll give your Azure Cognitive Search service permission to re
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select the appropriate **Reader** role.
+1. On the **Role** tab, select the appropriate **Reader** role.
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 

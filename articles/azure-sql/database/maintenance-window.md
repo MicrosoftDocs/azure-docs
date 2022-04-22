@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma, urosmil
 ms.custom: references_regions
-ms.date: 04/04/2022
+ms.date: 04/19/2022
 ---
 
 # Maintenance window
@@ -113,7 +113,7 @@ Choosing a maintenance window other than the default is currently available in t
 | Switzerland North | Yes | Yes | |
 | Switzerland West | Yes | | |
 | UAE Central | Yes | | |
-| UAE North | Yes | | |
+| UAE North | Yes | Yes | |
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
 | US Gov Arizona | Yes | | |
