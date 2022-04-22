@@ -138,14 +138,14 @@ For more information about Microsoft Purview, [see our overview page](overview.m
     az purview account add-root-collection-admin --account-name [Microsoft Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
     ```
 
-    This command will grant the user account [collection admin](catalog-permissions.md#roles) permissions on the root collection in your Microsoft Purview account. This allows the user to access the Microsoft Purview Studio and add permission for other users. For more information about permissions in Microsoft Purview, see our [permissions guide](catalog-permissions.md). For more information about collections, see our [manage collections article](how-to-create-and-manage-collections.md).
+    This command will grant the user account [collection admin](catalog-permissions.md#roles) permissions on the root collection in your Microsoft Purview account. This allows the user to access the Microsoft Purview governance portal and add permission for other users. For more information about permissions in Microsoft Purview, see our [permissions guide](catalog-permissions.md). For more information about collections, see our [manage collections article](how-to-create-and-manage-collections.md).
 
 ## Next steps
 
 In this quickstart, you learned how to create a Microsoft Purview account.
 
-Follow these next articles to learn how to navigate the Microsoft Purview Studio, create a collection, and grant access to Microsoft Purview.
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to Microsoft Purview.
 
-* [How to use the Microsoft Purview Studio](use-azure-purview-studio.md)
+* [How to use the Microsoft Purview governance portal](use-azure-purview-studio.md)
 * [Add users to your Microsoft Purview account](catalog-permissions.md)
 * [Create a collection](quickstart-create-collection.md)
