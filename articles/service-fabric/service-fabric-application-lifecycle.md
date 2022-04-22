@@ -80,9 +80,9 @@ To remove the application binaries completely you have to unregister the applica
 
 Recommendations to reduce disk pressure:
 
-1. [Remove-ServiceFabricApplicationPackage](service-fabric-deploy-remove-applications#remove-an-application-package-from-the-image-store) this removes the package from temporary upload location.
-1. [Unregister-ServiceFabricApplicationType](service-fabric-deploy-remove-applications#unregister-an-application-type) releases storage space by removing the application type files from image store service and all nodes. The deletion manager runs every hour per default.
-1. [CleanupUnusedApplicationTypes](service-fabric-cluster-fabric-settings)
+1. [Remove-ServiceFabricApplicationPackage](service-fabric-deploy-remove-applications.md#remove-an-application-package-from-the-image-store) this removes the package from temporary upload location.
+1. [Unregister-ServiceFabricApplicationType](service-fabric-deploy-remove-applications.md#unregister-an-application-type) releases storage space by removing the application type files from image store service and all nodes. The deletion manager runs every hour per default.
+1. [CleanupUnusedApplicationTypes](service-fabric-cluster-fabric-settings.md)
     cleans up old unused application versions automatically.
     ```ARM template
     {
