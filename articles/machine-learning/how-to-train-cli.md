@@ -316,7 +316,7 @@ In Azure Machine Learning you basically have two possible ways to train a model:
 1. Train a model with your own custom training script. This approach offers the most control and allows you to customize your training.  
 
 
-### Train a model with 
+### Train a model with automated ML
 
 Automated ML is the easiest way to train a model because you don't need to know how training algorithms work exactly but you just need to provide your training/validation/test datasets and some basic configuration parameters such as 'ML Task', 'target column', 'primary metric, 'timeout' etc, and the service will train multiple models and try out various algorithms and hyperparameter combinations for you.
 
