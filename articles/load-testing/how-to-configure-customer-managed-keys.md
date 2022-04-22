@@ -36,7 +36,7 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - Customer-managed keys are only available for new Azure Load Testing resources. You should configure the key during resource creation.
 
-- Azure Load Testing cannot automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.
+- Azure Load Testing cannot automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.****
 
 ## Configure your Azure Key Vault
 
@@ -121,13 +121,13 @@ The user-assigned managed identity that you will use to configure customer-manag
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
-:::image type="content" source="media/how-to-configure-customer-managed-keys/access-policies-akv.png" alt-text="Screenshot that shows access policies option in Azure Key Vault.":::
+    :::image type="content" source="media/how-to-configure-customer-managed-keys/access-policies-akv.png" alt-text="Screenshot that shows access policies option in Azure Key Vault.":::
 
 1. Select **+ Add Access Policy**.
 
 1. Under the **Key permissions** drop-down menu, select **Get**, **Unwrap Key**, and **Wrap Key** permissions:
 
-:::image type="content" source="media/how-to-configure-customer-managed-keys/akv-permissions.png" alt-text="Screenshot that shows Azure Key Vault permissions.":::
+    :::image type="content" source="media/how-to-configure-customer-managed-keys/akv-permissions.png" alt-text="Screenshot that shows Azure Key Vault permissions.":::
 
 1. Under **Select principal**, select **None selected**.
 
@@ -159,9 +159,9 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 :::image type="content" source="media/how-to-configure-customer-managed-keys/encryption-new-alt-resource.png" alt-text="Screenshot that shows how to enable customer managed key encryption while creating an Azure Load Testing resource.":::
 
-# [ARM template](#tab/arm)
+# [PowerShell](#tab/powershell)
 
-You can use an ARM template to automate the deployment of your Azure resources. You can create any resource of type `Microsoft.LoadTestService/loadtests` with customer managed key enabled for encryption by adding the following properties:
+You can deploy an ARM template using Powershell to automate the creation of your Azure resources. You can create any resource of type `Microsoft.LoadTestService/loadtests` with customer managed key enabled for encryption by adding the following properties:
 
 ```json
 "encryption": {
@@ -197,7 +197,58 @@ For example, an Azure Load Testing resource might look like the following:
     }
 }
 ```
-----
+
+Deploy the above template to a resource group, using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+You can deploy an ARM template using Azure CLI to automate the creation of your Azure resources. You can create any resource of type `Microsoft.LoadTestService/loadtests` with customer managed key enabled for encryption by adding the following properties:
+
+```json
+"encryption": {
+            "customerManagedKeyEncryption": {
+                "keyEncryptionKeyIdentity": {
+                    "identityType": "userAssignedIdentity",
+                    "userAssignedIdentity": "UA resource id"
+                },
+                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
+            }
+        }
+```
+
+For example, an Azure Load Testing resource might look like the following:
+
+```json
+{
+    "type": "Microsoft.LoadTestService/loadtests",
+    "apiVersion": "2021-09-01-preview",
+    "name": "[parameters('name')]",
+    "location": "[parameters('location')]",
+    "tags": "[parameters('tags')]",
+    "properties": {
+        "encryption": {
+            "customerManagedKeyEncryption": {
+                "keyEncryptionKeyIdentity": {
+                    "identityType": "userAssignedIdentity",
+                    "userAssignedIdentity": "UA resource id"
+                },
+                "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek"
+            }
+        }
+    }
+}
+```
+
+Deploy the above template to a resource group, using [az deployment group create](https://docs.microsoft.com/cli/azure/deployment/group#az-deployment-group-create):
+
+```azurecli-interactive
+az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+```
+
 ----
 
 ## Change the customer-managed key
@@ -206,7 +257,7 @@ You can change the managed identity for customer-managed keys for an existing Az
 
 1. Navigate to your Azure Load Testing resource.
 
-1. On the **Settings** page, select **Encryption**. 
+1. On the **Settings** page, select **Encryption**.
 
     The **Encryption type** shows the encryption type you selected at resource creation time.
 
