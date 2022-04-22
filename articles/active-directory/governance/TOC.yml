@@ -53,13 +53,13 @@
       href: manage-access-review.md
     - name: Manage users excluded from Conditional Access
       href: conditional-access-exclusion.md
-  - name:  Govern access for critical applications
-    href: identity-governance-critical-applications.md
   - name:  Review and remove users from external organizations
     href: access-reviews-external-users.md
 - name: How-to guides
   expanded: true
   items:
+  - name: Govern access for critical applications
+    href: identity-governance-critical-applications.md
   - name: Entitlement management
     items:
     - name: Common scenarios
