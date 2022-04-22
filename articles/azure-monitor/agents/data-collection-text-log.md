@@ -105,12 +105,6 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
             },
             "location": {
                 "type": "string",
-                "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
                     "description": "Specifies the location in which to create the Data Collection Endpoint."
                 }
@@ -195,12 +189,6 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
             },
             "location": {
                 "type": "string",
-            "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
                     "description": "Specifies the location in which to create the Data Collection Rule."
                 }
