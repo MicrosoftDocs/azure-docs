@@ -623,8 +623,6 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
             },
     ```
 
-<!--new json sample-->
-
 1. Save the parameters file.
 
     Here is a sample json used in this article.
