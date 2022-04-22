@@ -217,7 +217,7 @@ Preventing unwanted changes is far less difficult than needing to recreate and r
 
  <li> [Use Privileged Identity Management (PIM](../privileged-identity-management/pim-configure.md)). PIM enables just-in-time escalation of privileges to perform tasks like hard deletion. You can configure PIM to have notifications and or approvals for the privilege escalation. 
 
-## Next steps
+## Next steps   
 
 [Recover from deletions](recover-from-deletions.md)
 
