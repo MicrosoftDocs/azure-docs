@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: List of Microsoft partner companies that build customer solutions for archive, backup, and BCDR with Azure Storage
 
 author: beber-msft
-ms.author: beber,saurse
+ms.author: beber
 ms.date: 04/21/2022
 ms.topic: conceptual
 ms.service: storage
