@@ -24,9 +24,6 @@ The AI models used by the API are provided by the service, you just have to send
 
 ## Features
 
-> [!TIP]
-> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
-
 The conversation summarization API uses natural language processing techniques to locate key issues and resolutions in text-based chat logs. Conversation summarization will return issues and resolutions found from the text input.
 
 Each returned summary contains:
@@ -45,18 +42,6 @@ When using this feature, the API results are available for 24 hours from the tim
 
 When you submit data to conversation summarization, we recommend sending one chat log per request, for better latency.
  
-<!--
-You can use the `sentenceCount` parameter to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
-
-You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned - either `Offset` or `Rank`, with `Offset` being the default. 
-
-
-|parameter value  |Description  |
-|---------|---------|
-|Rank    | Order sentences according to their relevance to the input document, as decided by the service.        |
-|Offset    | Keeps the original order in which the sentences appear in the input document.        |
--->
-
 ## Getting conversation summarization results
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
@@ -65,7 +50,7 @@ The following is an example of content you might submit for summarization. This 
  
 **Agent**: "*Hello, how can I help you*?"
 
-**Customer**: "*How can I upgrade Office? I've been trying the entire day.*"
+**Customer**: "*How can I upgrade my Contoso subscription? I've been trying the entire day.*"
 
 **Agent**: "*Press the upgrade button please. Then sign in and follow the instructions.*"
 

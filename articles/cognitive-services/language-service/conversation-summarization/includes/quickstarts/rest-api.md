@@ -20,6 +20,24 @@ ms.custom: ignite-fall-2021
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
+## Request approval to use the API
+
+Fill out and submit the [request form](https://aka.ms/applyforconversationsummarization) to request access to the container.
+
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team reviews it and emails you with a decision within 10 business days.
+
+> [!IMPORTANT]
+> * On the form, you must use an email address associated with an Azure subscription ID.
+> * The Azure resource you use to run the container must have been created with the approved Azure subscription ID.
+> * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
+
+After you're approved, you'll be able to send API requests to the conversation summarization feature.
+
+You won't be able to run the container if your Azure subscription hasn't been approved.
+
+## Conversation summarization
+
+
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
@@ -35,9 +53,6 @@ To call the API, you need the following information:
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
-
-
-## Text Summarization
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 

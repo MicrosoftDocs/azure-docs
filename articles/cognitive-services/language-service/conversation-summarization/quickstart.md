@@ -12,42 +12,13 @@ ms.date: 03/01/2022
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-summarization, mode-api
-zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using the conversation summarization client library and REST API (preview)
+# Quickstart: using the conversation summarization REST API (preview)
 
-Use this article to get started with conversation summarization using the client library and REST API. Follow these steps to try out examples code for mining text:
-
-::: zone pivot="programming-language-csharp"
-
-[!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](includes/quickstarts/java-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-[!INCLUDE [NodeJS quickstart](includes/quickstarts/nodejs-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](includes/quickstarts/python-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="rest-api"
+Use this article to get started with conversation summarization using the REST API. Follow these steps to try out examples code for mining text:
 
 [!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
-
-::: zone-end
 
 ## Clean up resources
 

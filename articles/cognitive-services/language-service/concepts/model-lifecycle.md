@@ -51,6 +51,7 @@ Use the table below to find which model versions are supported by each feature.
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
 | Custom text classification                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
 | Conversational language understanding               | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
+| Conversation summarization                          | `2022-05-15`                                                        | `2022-05-15`                       |                        |
 | Sentiment Analysis and opinion mining               | `2019-10-01`, `2020-04-01`, `2021-10-01`                            | `2021-10-01`                       |                        |
 | Language Detection                                  | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05`              | `2021-01-05`                       |                        |
 | Entity Linking                                      | `2019-10-01`, `2020-02-01`                                          | `2020-02-01`                       |                        |
