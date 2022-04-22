@@ -75,7 +75,7 @@ Use the following steps to reset the VM password for your Azure Stack Edge Pro G
 
     ![Azure portal Linux VM change password progress](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/my-linux-vm-change-password-progress.png)
 
-1. When the operation is complete, you can see that the *windowsVMAccessExt* extension is installed for the VM.
+1. When the operation is complete, you can see that the *linuxVMAccessExt* extension is installed for the VM.
 
     ![Azure portal Linux VM change password confirmation](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/my-linux-vm-change-password-success.png)
 
