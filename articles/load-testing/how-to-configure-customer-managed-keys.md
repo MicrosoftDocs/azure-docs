@@ -36,7 +36,7 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - Customer-managed keys are only available for new Azure Load Testing resources. You should configure the key during resource creation.
 
-- Azure Load Testing cannot automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.****
+- Azure Load Testing cannot automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.
 
 ## Configure your Azure Key Vault
 
