@@ -11,7 +11,7 @@ ms.date: 04/20/2022
 
 [Azure NetApp Files](https://review.docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction?) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) documentation. 
 
-[Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/introduction) supports attaching Network File System (NFS) datastores as a continual storage option. You can create NFS datastores with [Azure NetApp Files](https://review.docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction?branch=main) volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
+[Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/introduction) supports attaching Network File System (NFS) datastores as a continual storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
 
 > [!IMPORTANT]
 > Azure NetApp Files datastores for Azure VMware Solution (Preview) is currently in public preview. This version is provided without a service-level agreement and is not recommended for production workloads. Some features may not be supported or have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,7 +32,7 @@ Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, 
 
 ## Prerequisites
 
-1. [Deploy Azure VMware Solution private cloud](/azure/azure-vmware/deploy-azure-vmware-solution) in a configured virtual network. For more information, see [Network planning checklist](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?).
+1. [Deploy Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/deploy-azure-vmware-solution?) private cloud in a configured virtual network. For more information, see [Network planning checklist](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?).
 1. Create an [NFSv3 volume for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in the same virtual network as the Azure VMware Solution private cloud. 
     1. Verify connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
     2. Verify the subscription is registered to the `ANFAvsDataStore` feature in the `Microsoft.NetApp` namespace. If the subscription isn't registered, register it now.
