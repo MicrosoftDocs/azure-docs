@@ -51,7 +51,7 @@ For more information on misconfigurations and how to recover from them, see [Rec
 
 Recoverability is a shared responsibility between Microsoft as your cloud service provider, and your organization.
 
-![Image of the shared responsibilities between Microsoft and customers for planning and recovery](media\recoverability\overview-shared-responsiblility.jpg)
+![Image of the shared responsibilities between Microsoft and customers for planning and recovery](media\recoverability\overview-shared-responsiblility.png)
 
 You can use the tools and services that Microsoft provides to prepare for deletions and misconfigurations.
 
