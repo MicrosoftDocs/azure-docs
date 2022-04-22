@@ -49,7 +49,8 @@ ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_g
 You can use data from your current working directory in a training job with the JobInput class. 
 The JobInput class allows you to define data inputs from a specific file, `uri_file` or a folder location, `uri_folder`. In the JobInput object you specify the `path` of where your data is located; the path can be a local path or a cloud path. Azure Machine Learning supports https://, abfss://, wasbs:// and azureml:// URIs. 
 
-> [!IMPORTANT] If the path is local, but your compute is defined to be in the cloud, Azure Machine Learning will automatically upload the data to cloud storage for you.
+> [!IMPORTANT] 
+> If the path is local, but your compute is defined to be in the cloud, Azure Machine Learning will automatically upload the data to cloud storage for you.
 
 ```python
 
