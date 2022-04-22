@@ -126,7 +126,7 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
 
 ## Next steps
 
-To recover using a snapshot, you must create a new disk from the snapshot, then either deploy a new VM and use the managed disk as the OS disk, or attach the disk as a data disk to an existing VM.
+To recover using a snapshot, you must create a new disk from the snapshot, then either deploy a new VM, and use the managed disk as the OS disk, or attach the disk as a data disk to an existing VM.
 
 # [Portal](#tab/portal)
 
