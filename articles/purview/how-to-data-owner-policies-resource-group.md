@@ -38,7 +38,7 @@ To register your resource, follow the **Prerequisites** and **Register** section
 
 - [Register multiple sources in Microsoft Purview](register-scan-azure-multiple-sources.md#prerequisites)
 
-After you've registered your resources, you'll need to enable data use management. data use management affects the security of your data, as it delegates to certain users to manage access to data resources from within Microsoft Purview.
+After you've registered your resources, you'll need to enable data use management. Data use management affects the security of your data, as it delegates to certain users to manage access to data resources from within Microsoft Purview.
 
 To ensure you securely enable data use management, and follow best practices, follow this guide to enable data use management for your resource group or subscription:
 

@@ -37,7 +37,7 @@ To register your resources, follow the **Prerequisites** and **Register** sectio
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
 
-After you've registered your resources, you'll need to enable *data use management*. data use management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *data use management* are described in this guide:
+After you've registered your resources, you'll need to enable *data use management*. Data use management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to data sources that have been registered. Secure practices related to *data use management* are described in this guide:
 
 - [How to enable data use management](./how-to-enable-data-use-management.md) 
 

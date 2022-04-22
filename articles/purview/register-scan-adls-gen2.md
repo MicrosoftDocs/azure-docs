@@ -263,7 +263,7 @@ To create an access policy for Azure Data Lake Storage Gen 2, follow the guideli
 
 ### Enable data use management
 
-data use management is an option on your Microsoft Purview sources that will allow you to manage access for that source from within Microsoft Purview.
+Data use management is an option on your Microsoft Purview sources that will allow you to manage access for that source from within Microsoft Purview.
 To enable data use management, follow [the data use management guide](how-to-enable-data-use-management.md#enable-data-use-management).
 
 ### Create an access policy

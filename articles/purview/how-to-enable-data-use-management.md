@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-*data use management* (DUG) is an option (enabled/disabled) in data source registration in Microsoft Purview. This option allows you to enable Microsoft Purview to manage data access for your resources.
+*Data use management* (DUG) is an option (enabled/disabled) in data source registration in Microsoft Purview. This option allows you to enable Microsoft Purview to manage data access for your resources.
 
 Currently, a data owner can enable DUG on a data source to make data access management available to Microsoft Purview through these methods:
 
@@ -81,7 +81,7 @@ To disable data use management for a source, resource group, or subscription, a 
 > - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Microsoft Purview before moving it and then register it again after that happens.
 > - Once a subscription gets disabled for *data use management* any underlying assets that are enabled for *data use management* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
-## data use management best practices
+## Data use management best practices
 - We highly encourage registering data sources for *data use management* and managing all associated access policies in a single Microsoft Purview account.
 - Should you have multiple Microsoft Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *data use management* in a single Microsoft Purview account. That Microsoft Purview account can be in any subscription in the tenant. The *data use management* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is registered in a Microsoft Purview account in the same subscription.

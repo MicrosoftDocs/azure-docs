@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ### Register the data sources in Microsoft Purview for data use management
 
-Your Azure Storage account needs to be registered in Microsoft Purview to later define access policies, and during registration we'll enable data use management. **data use management** is an available feature in Microsoft Purview that allows users to manage access to a resource from within Microsoft Purview. This allows you to centralize data discovery and access management, however it's a feature that directly impacts your data security.
+Your Azure Storage account needs to be registered in Microsoft Purview to later define access policies, and during registration we'll enable data use management. **Data use management** is an available feature in Microsoft Purview that allows users to manage access to a resource from within Microsoft Purview. This allows you to centralize data discovery and access management, however it's a feature that directly impacts your data security.
 
 > [!WARNING]
 > Before enabling data use management for any of your resources, read through our [**data use management article**](how-to-enable-data-use-management.md).
