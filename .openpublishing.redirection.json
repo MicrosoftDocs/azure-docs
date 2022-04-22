@@ -37969,6 +37969,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/tutorial-tenant-model.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/custom-speech-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
