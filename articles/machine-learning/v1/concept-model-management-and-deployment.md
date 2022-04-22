@@ -1,7 +1,7 @@
 ---
 title: 'MLOps: ML model management v1'
 titleSuffix: Azure Machine Learning
-description: 'Learn about model management (MLOps) with Azure Machine Learning. Deploy, manage, track lineage and monitor your models to continuously improve them. '  
+description: 'Learn about model management (MLOps) with Azure Machine Learning. Deploy, manage, track lineage and monitor your models to continuously improve them. (v1)'  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -133,7 +133,7 @@ When deploying to Azure Kubernetes Service, you can use controlled rollout to en
 * Perform A/B testing by routing traffic to different versions of the endpoint.
 * Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
 
-For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+For more information, see [Controlled rollout of ML models](../how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
 
 ### Analytics
 
