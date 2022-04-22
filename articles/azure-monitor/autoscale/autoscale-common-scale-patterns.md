@@ -31,7 +31,7 @@ You have a web app (/VMSS/cloud service role) and
 - You want 3 instances by default (on weekdays)
 - You don't expect traffic on weekends and hence you want to scale down to 1 instance on weekends.
 
-[![Scale differently on weekdays vs weekends](./media/autoscale-common-scale-patterns/scale-based-on-day.png)](./media/autoscale-common-scale-patterns/scale-based-on-day.png#lightbox)
+[![Scale differently on weekdays vs weekends](./media/autoscale-common-scale-patterns/scale-based-on-day.png)](./media/autoscale-common-scale-patterns/scale-differently-on-weekends.png#lightbox)
 
 ## Scale differently during holidays
 
