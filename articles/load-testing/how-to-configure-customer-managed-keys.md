@@ -255,7 +255,7 @@ az deployment group create --resource-group <resource-group-name> --template-fil
 
 ----
 
-## Change the customer-managed key
+## Change the managed identity
 
 You can change the managed identity for customer-managed keys for an existing Azure Load Testing resource at any time.
 
