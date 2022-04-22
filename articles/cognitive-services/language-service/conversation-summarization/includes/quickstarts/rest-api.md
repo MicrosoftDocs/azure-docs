@@ -24,9 +24,18 @@ ms.custom: ignite-fall-2021
 
 Fill out and submit the [request form](https://aka.ms/applyforconversationsummarization) to request access to the container.
 
-[!INCLUDE [cognitive-services-containers-request-access](../../../../../../includes/cognitive-services-containers-request-access.md)]
+The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team reviews it and emails you with a decision within 10 business days.
 
-## Text Summarization
+> [!IMPORTANT]
+> * On the form, you must use an email address associated with an Azure subscription ID.
+> * The Azure resource you use to run the container must have been created with the approved Azure subscription ID.
+> * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
+
+After you're approved, you'll be able to send API requests to the conversation summarization feature.
+
+You won't be able to run the container if your Azure subscription hasn't been approved.
+
+## Conversation summarization
 
 
 > [!NOTE]

@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-conversation-summarization
 ---
 
-# What is conversation summarization (preview) in Azure Cognitive Service for Language?
+# What is conversation summarization (preview)?
 
 Conversation summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications. 
 
@@ -24,9 +24,9 @@ This documentation contains the following article types:
 
 ## Conversation summarization feature
 
-Conversation summarization uses abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
+Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
 
-:::image type="content" source="media/feature-diagram.svg" alt-text="A diagram showing an example of sending data to conversation summarization.":::
+:::image type="content" source="media/feature-diagram.svg" alt-text="A diagram for sending data to the conversation summarization feature.":::
 ## When to use conversation summarization
 
 * When there are predefined aspects of an “issue” and “resolution”, such as:
