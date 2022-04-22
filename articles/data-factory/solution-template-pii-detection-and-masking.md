@@ -31,8 +31,8 @@ This template defines 3 parameters:
 
 ## Prerequisites
 
--	Azure Cognitive Services Resource (endpoint URL and key)
-> - Create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
+*	Azure Cognitive Services Resource (endpoint URL and key)
+> * Create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
 
 ## How to use this solution template
 
@@ -74,7 +74,7 @@ This template defines 3 parameters:
 
   :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-9.png" alt-text="Update dataflow parameters":::
 
-10. Return to pipeline and select **Debug**. Review results. 
+10. Return to pipeline and select **Debug**. Review results and publish. 
 
   :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-10.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
 
