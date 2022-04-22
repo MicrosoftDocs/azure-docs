@@ -10,7 +10,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: cliv1
+ms.custom: cliv1, sdkv1
 
 ---
 
@@ -163,6 +163,8 @@ az role assignment create --assignee <principal ID> \
 
 Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md#use-existing-environments).
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Environment
 env = Environment(name="private-acr")
@@ -198,6 +200,8 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 
 1. Specify the external ACR and client ID of the __user-assigned managed identity__ in workspace connections by using [Workspace.set_connection method](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-):
 
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     ```python
     workspace.set_connection(
         name="privateAcr", 
@@ -209,6 +213,8 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 
 Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core import Environment
 
@@ -217,6 +223,8 @@ env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
 Optionally, you can specify the managed identity resource URL and client ID in the environment definition itself by using [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity). If you use registry identity explicitly, it overrides any workspace connections specified earlier:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.container_registry import RegistryIdentity
@@ -253,6 +261,8 @@ az ml workspace create -w <workspace name> -g <resource group> --primary-user-as
 ```
 
 __Python__
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace

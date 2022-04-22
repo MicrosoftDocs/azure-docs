@@ -1,6 +1,6 @@
 ---
 title: Self-service hybrid data access workflows
-description: This article describes how to create and manage hybrid self-service data access workflows in Azure Purview.
+description: This article describes how to create and manage hybrid self-service data access workflows in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -18,7 +18,7 @@ This guide will take you through the creation and management of self-service dat
 
 ## Create and enable self-service data access workflow
 
-1. Sign in to [Azure Purview Studio](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents.
+1. Sign in to [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-section.png" alt-text="Screenshot showing the management center left menu with the new workflow section highlighted.":::
 
@@ -33,11 +33,11 @@ This guide will take you through the creation and management of self-service dat
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-select-new.png" alt-text="Screenshot showing the authoring workflows page, with the + New button highlighted.":::
 
-1. You'll be presented with different categories workflows creatable in Azure Purview. To create **an access request workflow** Select **Governance** and select **Continue**.
+1. You'll be presented with different categories workflows creatable in Microsoft Purview. To create **an access request workflow** Select **Governance** and select **Continue**.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-governance.png" alt-text="Screenshot showing the new workflow window, with the Governance option selected.":::
 
-1. In the next screen, you'll see all the templates provided by Azure Purview to create a self-service data access workflow. Select the template **Data access request** and select **Continue**.
+1. In the next screen, you'll see all the templates provided by Microsoft Purview to create a self-service data access workflow. Select the template **Data access request** and select **Continue**.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/select-data-access-request.png" alt-text="Screenshot showing the new workflow window, with the Data access request option selected.":::
 
@@ -70,7 +70,7 @@ This guide will take you through the creation and management of self-service dat
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-inline.png" alt-text="Screenshot showing the workflow canvas with the start and wait for an approval step, and the Create Task and wait for task completion steps highlighted, and the Assigned to textboxes highlighted within those steps." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-expanded.png":::
 
     > [!NOTE]
-    > Please configure the workflow to create self-service policies ONLY for sources supported by Azure purview's policy feature. To see what's supported by policy, check the [Data owner policies documentation](tutorial-data-owner-policies-storage.md).
+    > Please configure the workflow to create self-service policies ONLY for sources supported by Microsft Purview's policy feature. To see what's supported by policy, check the [Data owner policies documentation](tutorial-data-owner-policies-storage.md).
 
 1. You can also modify the template by adding more connectors to suit your organizational needs. 
 
@@ -110,7 +110,7 @@ To delete a workflow, select the workflow and then select **Delete**.
 
 For more information about workflows, see these articles:
 
-- [What are Azure Purview workflows](concept-workflow.md)
+- [What are Microsoft Purview workflows](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
 

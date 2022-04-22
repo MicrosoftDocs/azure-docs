@@ -82,7 +82,7 @@ Use this page to define private offer terms, notification contacts, and pricing 
 - **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
 
     > [!NOTE]
-    > Customers can find their billing account in the [Azure portal ](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. See [Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts).
+    > Customers can find their billing account in the [Azure portal ](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** > **Properties** > **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. See [Billing account scopes in the Azure portal](../cost-management-billing/manage/view-all-accounts.md).
 
     :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
@@ -94,7 +94,7 @@ Use this page to define private offer terms, notification contacts, and pricing 
     - **Terms and conditions** – Optionally, upload a PDF with terms and conditions your customer must accept as part of the private offer.
 
         > [!NOTE]
-        > Your terms and conditions must adhere to Microsoft supported billing models, offer types, and the [Microsoft Publisher Agreement](https://aka.ms/PrivateOfferPublisherAgreement).
+        > Your terms and conditions must adhere to Microsoft supported billing models, offer types, and the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement).
 
 - **Notification Contacts** – Provide up to five emails in your organization as **Notification Contacts** to receive email updates on the status of your private offer. These emails are sent when your offer status changes to **Pending acceptance**, **Accepted**, or **Expired**. You must also provide a **Prepared by** email address, which will be displayed to the customer in the private offer listing in the Azure portal.
 

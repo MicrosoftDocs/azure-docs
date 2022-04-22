@@ -10,10 +10,12 @@ author: swatig007
 ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 10/06/2021
-ms.custom: devx-track-python, automl
+ms.custom: devx-track-python, automl, sdkv1
 ---
 
 # Tutorial: Train an object detection model (preview) with AutoML and Python
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 >[!IMPORTANT]
 > The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.

@@ -10,10 +10,12 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 12/21/2021
-ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1
 ---
 
 # Tutorial: Upload data and train a model (part 3 of 3)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.  
 

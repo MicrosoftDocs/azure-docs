@@ -10,11 +10,13 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: how-to
-
+ms.custom: sdkv1
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
 # Train Keras models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your Keras training scripts with Azure Machine Learning.
 

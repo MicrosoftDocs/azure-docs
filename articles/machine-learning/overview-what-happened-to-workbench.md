@@ -5,8 +5,8 @@ description: Azure Machine Learning is an integrated data science solution to mo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+ms.custom: sdkv1
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
@@ -62,6 +62,10 @@ Start training your models and tracking the run histories using the new CLI and 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning workspace by using a local config file. See a [diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
 
 Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](/python/api/azureml-core/azureml.core.experiment.experiment) Python command or using the `az ml project attach` CLI command.  For example:
+
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)

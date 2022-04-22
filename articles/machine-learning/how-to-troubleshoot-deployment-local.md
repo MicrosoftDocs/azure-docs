@@ -9,7 +9,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.date: 10/21/2021
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperf-fy21q2
+ms.custom: devx-track-python, deploy, contperf-fy21q2, sdkv1
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
@@ -62,6 +62,8 @@ You can find a sample [local deployment notebook](https://github.com/Azure/Machi
 > Local web service deployments are not supported for production scenarios.
 
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.environment import Environment
