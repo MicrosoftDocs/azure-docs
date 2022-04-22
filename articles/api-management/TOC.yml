@@ -60,9 +60,9 @@
   items:
       - name: Terminology
         href: api-management-terminology.md
-      - name: API Management policies overview
+      - name: API Management policies
         href: api-management-howto-policies.md
-      - name: Self-hosted gateway overview
+      - name: Self-hosted gateway
         href: self-hosted-gateway-overview.md
       - name: Networking
         href: virtual-network-concepts.md
@@ -72,11 +72,15 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
-      - name: API best practices
+      - name: Observability
+        href: observability.md
+      - name: APIs
         items:
-            - name: Design
+            - name: API design ebook
+              href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+            - name: RESTful web API design
               href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-            - name: Implementation
+            - name: Web API implementation
               href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
       - name: Microservices as APIs
         items:
@@ -105,6 +109,17 @@
               href: zone-redundancy.md
             - name: Compute platform
               href: compute-infrastructure.md
+            - name: Set up DR using backup/restore
+              href: api-management-howto-disaster-recovery-backup-restore.md
+            - name: Use role-based access control
+              href: api-management-role-based-access-control.md
+            - name: Use managed identities for Azure resources
+              href: api-management-howto-use-managed-service-identity.md
+            - name: Move instances between regions
+              href: api-management-howto-migrate.md
+            - name: Recover a deleted instance                
+              displayName: soft delete
+              href: soft-delete.md
             - name: Configure networking
               items:
                 - name: Connect to a virtual network
@@ -115,6 +130,18 @@
                   href: api-management-howto-integrate-internal-vnet-appgateway.md
                 - name: Connect privately using private endpoint
                   href: private-endpoint.md
+                - name: Retrieve IP addresses
+                  href: api-management-howto-ip-addresses.md  
+            - name: Configuration management
+              items:
+              - name: CI/CD using ARM templates
+                href: devops-api-development-templates.md
+              - name: Manage using automation
+                href: automation-manage-api-management.md
+              - name: Configure using Git
+                href: api-management-configuration-repository-git.md
+              - name: Validate service updates
+                href: validate-service-updates.md  
             - name: Self-host the gateway
               items:
                 - name: Provision a self-hosted gateway
@@ -183,6 +210,8 @@
                   href: backends.md 
                 - name: Export APIs to the Power Platform
                   href: export-api-power-platform.md
+                - name: Automate API deployments
+                  href: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
           - name: Cache
             items:
                 - name: Add caching to improve performance
@@ -228,11 +257,21 @@
                 items:
                 - name: Mutual certificate authentication
                   href: api-management-howto-mutual-certificates.md
+          - name: Monitor APIs
+            items:
+            - name: Get API analytics
+              href: howto-use-analytics.md
+            - name: Log events to Azure Event Hubs
+              href: api-management-howto-log-event-hubs.md
+            - name: Send events to Event Grid
+              href: how-to-event-grid.md
+            - name: Log requests with Azure Application Insights
+              href: api-management-howto-app-insights.md        
       - name: Manage developer experience
         items:
             - name: Use subscriptions
               items: 
-                  - name: Subscriptions overview
+                  - name: Subscriptions
                     href: api-management-subscriptions.md
                   - name: Create subscriptions
                     href: api-management-howto-create-subscriptions.md
@@ -286,70 +325,6 @@
                   href: developer-portal-use-community-widgets.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
-            - name: Deprecated portal
-              items:
-                - name: Deprecated portal - customize the portal
-                  href: api-management-customize-styles.md
-                - name: Deprecated portal - modify pages and layouts
-                  href: api-management-modify-content-layout.md
-                - name: Deprecated portal - customize with templates
-                  href: api-management-developer-portal-templates.md
-                - name: Deprecated portal templates
-                  items:
-                    - name: Data model reference
-                      href: api-management-template-data-model-reference.md
-                    - name: Page controls
-                      href: api-management-page-controls.md
-                    - name: Templates
-                      href: api-management-developer-portal-templates-reference.md
-                    - name: APIs
-                      href: api-management-api-templates.md
-                    - name: Products
-                      href: api-management-product-templates.md
-                    - name: Applications
-                      href: api-management-application-templates.md
-                    - name: Issues
-                      href: api-management-issue-templates.md
-                    - name: User profile
-                      href: api-management-user-profile-templates.md
-                    - name: Pages
-                      href: api-management-page-templates.md
-                    - name: Template resources
-                      href: api-management-template-resources.md
-      - name: Monitor and manage your instance
-        items:
-            - name: Observability overview
-              href: observability.md
-            - name: Get API analytics
-              href: howto-use-analytics.md
-            - name: Log events to Azure Event Hubs
-              href: api-management-howto-log-event-hubs.md
-            - name: Send events to Event Grid
-              href: how-to-event-grid.md
-            - name: Log requests with Azure Application Insights
-              href: api-management-howto-app-insights.md
-            - name: Retrieve IP addresses
-              href: api-management-howto-ip-addresses.md  
-            - name: Set up DR using backup/restore
-              href: api-management-howto-disaster-recovery-backup-restore.md
-            - name: Use role-based access control
-              href: api-management-role-based-access-control.md
-            - name: Use managed identities for Azure resources
-              href: api-management-howto-use-managed-service-identity.md
-            - name: Move instances between regions
-              href: api-management-howto-migrate.md
-            - name: Recover a deleted instance
-              href: soft-delete.md
-            - name: Configuration management
-              items:
-                    - name: CI/CD using ARM templates
-                      href: devops-api-development-templates.md
-                    - name: Manage using automation
-                      href: automation-manage-api-management.md
-                    - name: Configure using Git
-                      href: api-management-configuration-repository-git.md
-                    - name: Validate service updates
-                      href: validate-service-updates.md
       - name: Troubleshoot
         items:
           - name: Diagnose issues in production
@@ -415,6 +390,38 @@
         href: https://aka.ms/apimupdates
       - name: Release notes
         href: https://aka.ms/apim/releases
+      - Retiring features:
+        items:
+          - name: Deprecated developer portal
+              items:
+                - name: Deprecated portal - customize the portal
+                  href: api-management-customize-styles.md
+                - name: Deprecated portal - modify pages and layouts
+                  href: api-management-modify-content-layout.md
+                - name: Deprecated portal - customize with templates
+                  href: api-management-developer-portal-templates.md
+                - name: Deprecated portal templates
+                  items:
+                    - name: Data model reference
+                      href: api-management-template-data-model-reference.md
+                    - name: Page controls
+                      href: api-management-page-controls.md
+                    - name: Templates
+                      href: api-management-developer-portal-templates-reference.md
+                    - name: APIs
+                      href: api-management-api-templates.md
+                    - name: Products
+                      href: api-management-product-templates.md
+                    - name: Applications
+                      href: api-management-application-templates.md
+                    - name: Issues
+                      href: api-management-issue-templates.md
+                    - name: User profile
+                      href: api-management-user-profile-templates.md
+                    - name: Pages
+                      href: api-management-page-templates.md
+                    - name: Template resources
+                      href: api-management-template-resources.md
       - name: Breaking changes
         items:
             - name: Breaking changes overview
