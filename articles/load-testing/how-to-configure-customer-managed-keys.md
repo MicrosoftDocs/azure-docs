@@ -30,7 +30,7 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An existing user-assigned managed identity. If you don't have a user-assigned managed identity, create one following the steps mentioned [here](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
+- An existing user-assigned managed identity. If you don't have a user-assigned managed identity, create one following the steps mentioned [here](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
 ## Limitations
 
@@ -67,7 +67,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-To learn how to enable purge protection on an existing key vault with PowerShell, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell).
+To learn how to enable purge protection on an existing key vault with PowerShell, see [Azure Key Vault recovery overview](/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -81,7 +81,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](/azure/key-vault/general/key-vault-recovery?tabs=azure-cli).
 
 ---
 
