@@ -27,7 +27,7 @@ Before authoring data policies in the Microsoft Purview governance portal, you'l
 
 1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](azure-purview-connector-overview.md#microsoft-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
 1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
-1. [Enable the data use management toggle on the data source](how-to-enable-data-use-management.md#enable-data-use-management). Additional permissions for this step are described in the linked document.
+1. [Enable the Data Use Management toggle on the data source](how-to-enable-data-use-management.md#enable-data-use-management). Additional permissions for this step are described in the linked document.
 
 ## Create a new policy
 
