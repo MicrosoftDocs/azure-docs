@@ -99,7 +99,7 @@ landingContent:
   #Card 3
    - title: 🆕Form Recognizer Studio (v3.0)
      linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: Studio overview
             url: concept-form-recognizer-studio.md
@@ -167,7 +167,7 @@ landingContent:
 
 
 # Card 6
-   - title: 🆕Sample labeling tool (v2.1)
+   - title: Sample labeling tool (v2.1)
      linkLists:
       - linkListType: overview
         links:
