@@ -64,6 +64,10 @@ until just after you select **Consumption** as the plan type for your logic app 
 
 1. Under **Zone redundancy**, select **Enabled**.
 
+   At this point, your logic app creation experience appears similar to this example:
+
+   ![Screenshot showing Azure portal, the "Create Logic App" page, logic app information to this point, and the "Consumption" plan type selected.](./media/)
+
 1. Finish creating your logic app.
 
 1. If you use a firewall and haven't set up access for traffic through the required IP addresses, make sure to complete that [requirement](#prerequisites).
