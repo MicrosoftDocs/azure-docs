@@ -26,7 +26,6 @@ https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsof
 
 This will display a list of Automanage Configuration Profile information, including the settings and the ConfigurationProfile ID
 ```azurepowershell-interactive
-
 $listConfigurationProfilesURI = "https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2021-04-30-preview"
 
 Invoke-RestMethod `
@@ -67,7 +66,6 @@ This will result in a list of your Configuration Profiles created in this subscr
 The next step is to do another `GET`, this time to retrieve the specific profile we would like to create in a new region.  For this example, we will retrieve 'testProfile1'.  We will perform a `GET` against the `id` value for the desired profile.
 
 ```azurepowershell-interactive
-
 $profileId = "https://management.azure.com/subscriptions/yourSubscription/resourceGroups/yourResourceGroup/providers/Microsoft.Automanage/configurationProfiles/testProfile1?api-version=2021-04-30-preview"
 
 $profile = Invoke-RestMethod `
