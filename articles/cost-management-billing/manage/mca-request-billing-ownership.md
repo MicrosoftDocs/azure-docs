@@ -72,10 +72,6 @@ The reservation product owner (transfer request recipient) must have one of the 
 - For an Enterprise Agreement, the person must be an EA administrator.
 - For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
 
-## Reservation transfer with a currency change
-
-When you transfer a reservation with a monthly billing plan between accounts with differing billing currencies, the reservation is canceled in the next billing cycle. If needed, the transfer recipient can buy a new reservation.
-
 ## Create the product transfer request
 
 The person creating the transfer request uses the following procedure to create the transfer request. The transfer request essentially asks the owner of the product to allow subscriptions and or reservations associated with a subscription to be transferred.
