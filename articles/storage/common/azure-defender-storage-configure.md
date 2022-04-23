@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 
 Microsoft Defender for Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without being a security expert or managing security monitoring systems.
 
-Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
+Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with [Microsoft Defender for Cloud](https://github.com/MicrosoftDocs/azure-docs/tree/main/articles/defender-for-cloud), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
 The service ingests resource logs of read, write, and delete requests to Blob storage and to Azure Files for threat detection. To investigate alerts from Microsoft Defender for Cloud, you can view related storage activity using Storage Analytics Logging. For more information, see **Configure logging** in [Monitor a storage account in the Azure portal](./manage-storage-analytics-logs.md#configure-logging).
 
@@ -28,7 +28,7 @@ Microsoft Defender for Storage is currently available for Blob storage, Azure Fi
 
 Accounts with hierarchical namespaces enabled for Data Lake Storage support transactions using both the Azure Blob storage APIs and the Data Lake Storage APIs. Azure file shares support transactions over SMB.
 
-For pricing details, including a free 30 day trial, see the [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+For pricing details, including a free 30 day trial, see the [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/de-de/pricing/details/defender-for-cloud/).
 
 The following list summarizes the availability of Microsoft Defender for Storage:
 
@@ -93,13 +93,13 @@ Use an Azure Policy to enable Microsoft Defender for Cloud across storage accoun
 
 ### [PowerShell](#tab/azure-powershell)
 
-To enable Microsoft Defender for Storage for a storage account via PowerShell, first make sure you have installed the [Az.Security](https://www.powershellgallery.com/packages/Az.Security) module. Next, call the [Enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) command. Remember to replace values in angle brackets with your own values:
+To enable Microsoft Defender for Storage for a storage account via PowerShell, first make sure you have installed the [Az.Security](https://www.powershellgallery.com/packages/Az.Security) module. Next, call the [Enable-AzSecurityAdvancedThreatProtection](https://github.com/Azure/azure-powershell/blob/main/src/Security/Security/help/Enable-AzSecurityAdvancedThreatProtection.md) command. Remember to replace values in angle brackets with your own values:
 
 ```azurepowershell
 Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
 ```
 
-To check the Microsoft Defender for Storage setting for a storage account via PowerShell, call the [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection) command. Remember to replace values in angle brackets with your own values:
+To check the Microsoft Defender for Storage setting for a storage account via PowerShell, call the [Get-AzSecurityAdvancedThreatProtection](https://github.com/Azure/azure-powershell/blob/main/src/Security/Security/help/Get-AzSecurityAdvancedThreatProtection.md) command. Remember to replace values in angle brackets with your own values:
 
 ```azurepowershell
 Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
@@ -107,7 +107,7 @@ Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable Microsoft Defender for Storage for a storage account via Azure CLI, call the [az security atp storage update](/cli/azure/security/atp/storage#az-security-atp-storage-update) command. Remember to replace values in angle brackets with your own values:
+To enable Microsoft Defender for Storage for a storage account via Azure CLI, call the [az security atp storage update](https://docs.microsoft.com/en-us/cli/azure/security/atp/storage?view=azure-cli-latest#az-security-atp-storage-update) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az security atp storage update \
@@ -116,7 +116,7 @@ az security atp storage update \
     --is-enabled true
 ```
 
-To check the Microsoft Defender for Storage setting for a storage account via Azure CLI, call the [az security atp storage show](/cli/azure/security/atp/storage#az-security-atp-storage-show) command. Remember to replace values in angle brackets with your own values:
+To check the Microsoft Defender for Storage setting for a storage account via Azure CLI, call the [az security atp storage show](https://docs.azure.cn/zh-cn/cli/security/atp/storage?view=azure-cli-latest#az-security-atp-storage-show) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az security atp storage show \
@@ -142,16 +142,16 @@ The email also includes details on possible causes and recommended actions to in
 
 :::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Microsoft Defender for Storage alert email":::
 
-You can review and manage your current security alerts from Microsoft Defender for Cloud's [Security alerts tile](../../security-center/security-center-managing-and-responding-alerts.md). Select an alert for details and actions for investigating the current threat and addressing future threats.
+You can review and manage your current security alerts from Microsoft Defender for Cloud's [Security alerts tile](../../defender-for-cloud/managing-and-responding-alerts.md). Select an alert for details and actions for investigating the current threat and addressing future threats.
 
 :::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Microsoft Defender for Storage alert":::
 
 ## Security alerts
 
-Alerts are generated by unusual and potentially harmful attempts to access or exploit storage accounts. For a list of alerts for Azure Storage, see [Alerts for Azure Storage](../../security-center/alerts-reference.md#alerts-azurestorage).
+Alerts are generated by unusual and potentially harmful attempts to access or exploit storage accounts. For a list of alerts for Azure Storage, see [Alerts for Azure Storage](../../defender-for-cloud/alerts-reference.md#alerts-azurestorage).
 
 ## Next steps
 
-- [Introduction to Microsoft Defender for Storage](../../security-center/defender-for-storage-introduction.md)
-- [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
+- [Introduction to Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md)
+- [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
 - [Logs in Azure Storage accounts](/rest/api/storageservices/About-Storage-Analytics-Logging)
