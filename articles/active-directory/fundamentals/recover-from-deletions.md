@@ -27,7 +27,7 @@ The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains i
 
 The Audit Log always records a “Delete <object>” event when an object in the tenant is removed from an active state by either a soft or hard deletion.
 
-![Screen shot of audit log showing deletions](media/recoverability/overview-audit-log.png)
+![Screenshot of audit log showing deletions](media/recoverability/overview-audit-log.png)
 
 
 A delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type, it's a hard delete. Track the occurrence of hard-delete events by comparing “Delete <object>” events with the type of object that has been deleted, noting those that do not support soft-delete. In addition, note "Hard Delete <object>" events. 
@@ -56,7 +56,8 @@ When objects such as users, Microsoft 365 groups, or application registrations a
 
 > [!NOTE]
 > Objects cannot be restored from a hard-deleted state. They must be recreated and reconfigured.
-### When Soft Deletes occur
+  
+### When soft deletes occur
 
 It's important to understand why object deletions occur in your environment to prepare for them. This section outlines frequent scenarios for soft deletion by object class. Keep in mind there may be scenarios your organization sees which are unique to your organization so a discovery process is key to preparation.
 
@@ -145,7 +146,7 @@ Applications have two objects, the application registration and the service prin
 
 To restore an application from the Azure portal, select App registrations, then deleted applications. Select the application registration to restore, and then select Restore app registration. 
 
-![a screen shot showing the app registration restore process in the azure portal](media/recoverability/deletion-restore-application.png)
+![a screenshot showing the app registration restore process in the azure portal](media/recoverability/deletion-restore-application.png)
 
 
 ## Hard deletions
@@ -160,7 +161,7 @@ A “hard deletion” is the permanent removal of an object from your Azure Acti
 
 > [!IMPORTANT]
 > All other item types are hard deleted. When an item is hard deleted it cannot be restored: it must be recreated. Neither administrators nor Microsoft can restore hard deleted items.It's important to prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.
-For information on preparing for and documenting current states, see [link to that content in overview]
+For information on preparing for and documenting current states, see [Rcoverability best practices](recoverability-overview.md]
 
 ### When hard deletes usually occur
 
