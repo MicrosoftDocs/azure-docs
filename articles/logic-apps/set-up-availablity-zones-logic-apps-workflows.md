@@ -22,7 +22,7 @@ This article provides a brief overview about considerations for using availabili
 
 During this preview, the following considerations apply:
 
-* You can currently enable availability zones only for the following Azure regions:<br><br>
+* You can enable availability zones only for the following Azure regions:<br><br>
 
   - Australia East
   - Brazil South
@@ -57,10 +57,16 @@ During this preview, the following considerations apply:
 
 ## Set up availability zones for Consumption logic app workflows
 
-1. In the [Azure portal](https://portal.azure.com), start the steps to create a Consumption logic app.
+1. In the [Azure portal](https://portal.azure.com), start the steps to create a Consumption logic app. For a quick tutorial, review [Quickstart: Create your first integration workflow with multi-tenant Azure Logic Apps and the Azure portal](quickstart-create-first-logic-app-workflow.md).
 
-   For a quick tutorial, review [Quickstart: Create your first integration workflow with multi-tenant Azure Logic Apps and the Azure portal](quickstart-create-first-logic-app-workflow.md).
+   After you select **Consumption** as the plan type for your logic app, the **Zone redundancy** section and options become available for you to select.
 
-1. On the **Create Logic App** page, under 
+1. On the **Create Logic App** page, under **Zone redundancy**, select **Enabled**.
+
+1. Finish creating your logic app.
+
+1. If you haven't set up any firewalls currently in use, make sure to complete that [requirement](#prerequisites).
 
 ## Next steps
+
+* [Connectors in Azure Logic Apps](../connectors/apis-list.md)
