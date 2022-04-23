@@ -24,6 +24,10 @@ landingContent:
         links:
           - text: Hyperscale quickstart
             url: quickstart-create-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Building scalable apps
+            url: howto-build-scalable-apps.md
 
   # Card
   - title: Scale

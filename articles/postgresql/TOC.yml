@@ -681,6 +681,8 @@
       href: hyperscale/concepts-columnar.md
   - name: How-to guides
     items:
+    - name: Build scalable apps
+      href: hyperscale/howto-build-scalable-apps.md
     - name: Server group size
       items:
       - name: Pick initial size
