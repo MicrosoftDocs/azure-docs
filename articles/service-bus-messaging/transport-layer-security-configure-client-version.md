@@ -1,5 +1,5 @@
 ---
-title: Configure Transport Layer Security (TLS) for a client application
+title: Configure Transport Layer Security (TLS) for a Service Bus client application
 titleSuffix: Service Bus
 description: Configure a client application to communicate with Azure Service Bus using a minimum version of Transport Layer Security (TLS).
 services: service-bus
@@ -7,11 +7,11 @@ author: EldertGrootenboer
 
 ms.service: service-bus
 ms.topic: article
-ms.date: 04/12/2022
+ms.date: 04/22/2022
 ms.author: egrootenboer
 ---
 
-# Configure Transport Layer Security (TLS) for a Service Bus client application
+# Configure Transport Layer Security (TLS) for a Service Bus client application (Preview)
 
 For security purposes, an Azure Service Bus namespace may require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Service Bus will fail if the client is using a version of TLS that is lower than the minimum required version. For example, if a namespace requires TLS 1.2, then a request sent by a client who is using TLS 1.1 will fail.
 
@@ -37,6 +37,9 @@ The following sample shows how to enable TLS 1.2 in a .NET client using the Azur
     
     // Name of your Service Bus queue
     string queueName = "<QUEUE NAME>";
+
+    // The client that owns the connection and can be used to create senders and receivers
+    static ServiceBusClient client = new ServiceBusClient(connectionString);
     
     // The sender used to publish messages to the queue
     ServiceBusSender sender = client.CreateSender(queueName);
@@ -51,3 +54,11 @@ The following sample shows how to enable TLS 1.2 in a .NET client using the Azur
 ## Verify the TLS version used by a client
 
 To verify that the specified version of TLS was used by the client to send a request, you can use [Fiddler](https://www.telerik.com/fiddler) or a similar tool. Open Fiddler to start capturing client network traffic, then execute one of the examples in the previous section. Look at the Fiddler trace to confirm that the correct version of TLS was used to send the request.
+
+## Next steps
+
+See the following documentation for more information.
+
+- [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md)
+- [Configure the minimum TLS version for a Service Bus namespace](transport-layer-security-configure-minimum-version.md)
+- [Use Azure Policy to audit for compliance of minimum TLS version for a Service Bus namespace](transport-layer-security-audit-minimum-version.md)

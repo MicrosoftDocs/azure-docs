@@ -139,4 +139,4 @@ landingContent:
           - text: Authenticate an application with Azure Active Directory
             url: authenticate-application.md
           - text: Enforce minimum required TLS version
-            url: transport-layer-security-configure-minimum-version.md
+            url: transport-layer-security-enforce-minimum-version.md
