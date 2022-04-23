@@ -150,7 +150,7 @@ User settings changes are made in the Azure AD portal User settings page. Passwo
 
 
 
-### External identities configuration changes.
+### External identities configuration changes
 
 You can make changes to these settings on the External identities or External collaboration settings pages in the Azure AD portal.
 
@@ -181,7 +181,7 @@ You can make changes to these settings on the External identities or External co
 
 Selecting some audit entries in the Audit Log will provide you with details on the old and new configuration values. For example, for Conditional Access policy configuration changes you can see the information in the following screenshot.
 
-![A screen shot of audit log details for a change to a conditional access policy](media\recoverability\misconfiguration-audit-log-details.png)
+![A screenshot of audit log details for a change to a conditional access policy](media/recoverability/misconfiguration-audit-log-details.png)
 
 
 ## Use workbooks to track changes
@@ -200,7 +200,7 @@ There are several Azure Monitor workbooks that can help you to monitor configura
 
 The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing, and which applications I your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
 
-## Next Steps
+## Next steps
 
 For foundational information on recoverability, see [Recoverability best practices](recoverability-overview.md)
 
