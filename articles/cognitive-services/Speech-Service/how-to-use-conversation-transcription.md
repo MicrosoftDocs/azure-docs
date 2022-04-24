@@ -12,7 +12,7 @@ ms.date: 01/24/2022
 ms.author: eur
 zone_pivot_groups: acs-js-csharp
 ms.devlang: csharp, javascript
-ms.custom: ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 ---
 
 # Quickstart: Real-time Conversation Transcription

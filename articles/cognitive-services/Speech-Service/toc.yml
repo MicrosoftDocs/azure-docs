@@ -81,8 +81,6 @@ items:
             href: how-to-custom-speech-train-model.md
           - name: CI/CD for Custom Speech
             href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Improve recognition with tenant models
-          href: tutorial-tenant-model.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
     - name: Transcribe audio in batches
