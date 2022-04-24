@@ -15,7 +15,7 @@ This article describes the **HPE ProLiant DL20 Plus** appliance for OT sensors a
 |**Architecture** | [Enterprise] |
 |**Performance** | 	Max bandwidth: 1 Gbp/s <br>Max devices: 10,000 |
 |**Physical specifications** | Mounting: 1U <br> Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported; Available as pre-configured |
+|**Status** | Supported, Available pre-installed |
 
 :::image type="content" source="media/ot-system-requirements/hpe-proliant-dl20-plus.png" alt-text="Photo of the DL20 Plus panel." border="false":::
 
@@ -73,8 +73,6 @@ Optional modules for port expansion include:
 | PCI Slot 2 (High profile)|Quad Port F/O NIC| 869585-B21 - HPE 10 GbE 4p SFP+ X710 Adapter SI|
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
 | SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
-
-:::image type="content" source="media/ot-system-requirements/dl20-profile-back-view.png" alt-text="Profile view of back of DL20." border="false":::
 
 ## HPE ProLiant DL20 installation
 
