@@ -68,8 +68,6 @@ The following image shows a view of the back panel of the HPE Edgeline EL300.
 
 This section describes how to install Defender for IoT software on the HPE EdgeLine 300 appliance.
 
-Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
-
 Installation includes:
 
 - Enabling remote access
@@ -77,6 +75,10 @@ Installation includes:
 - Installing Defender for IoT software
 
 A default administrative user is provided. We recommend that you change the password during the network configuration.
+
+> [!NOTE]
+> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+>
 
 
 ### Enable remote access

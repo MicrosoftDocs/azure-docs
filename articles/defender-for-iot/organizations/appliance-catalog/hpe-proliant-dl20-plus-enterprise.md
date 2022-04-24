@@ -88,14 +88,16 @@ Optional modules for port expansion include:
 
 This section describes how to install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus appliance.
 
-Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
-
 Installation includes:
 
 - Enabling remote access and updating the default administrator password
 - Configuring iLO port on network port 1
 - Configuring BIOS and RAID settings
 - Installing Defender for IoT software
+
+> [!NOTE]
+> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+>
 
 ### Enable remote access and update the password
 

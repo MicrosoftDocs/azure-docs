@@ -11,13 +11,21 @@ This article lists the specifications required if you want to install Microsoft 
 
 ## About hypervisors
 
-The virtualized hardware used to run guest operating systems is supplied by virtual machine hosts, also known as *hypervisors*.
-Defender for IoT supports the following hypervisor software:
+The virtualized hardware used to run guest operating systems is supplied by virtual machine hosts, also known as *hypervisors*. Defender for IoT supports the following hypervisor software:
 
 - **VMware ESXi** (version 5.0 and later)
 - **Microsoft Hyper-V** (VM configuration version 8.0 and later)
 
-Other types of hypervisors, such as hosted hypervisors, may also run Defender for IoT. However, due due to their lack of exclusive hardware control and resource reservation, other types of hypervisors are not supported for production environments. For example: Parallels, Oracle VirtualBox, and VMware Workstation or Fusion
+Learn more:
+
+- [OT sensor as a virtual appliance with VMWare ESXi](appliance-catalog/virtual-sensor-vmware.md)
+- [OT sensor as a virtual appliance with Microsoft Hyper-V](appliance-catalog/virtual-sensor-hyper-v.md)
+- [On-premises management console as a virtual appliance with VMWare ESXi](appliance-catalog/virtual-management-vmware.md)
+- [On-premises management console as a virtual appliance with Microsoft Hyper-V](appliance-catalog/virtual-management-hyper-v.md)
+
+> [!IMPORTANT]
+> Other types of hypervisors, such as hosted hypervisors, may also run Defender for IoT. However, due due to their lack of exclusive hardware control and resource reservation, other types of hypervisors are not supported for production environments. For example: Parallels, Oracle VirtualBox, and VMware Workstation or Fusion
+>
 
 ## Virtual appliance design considerations
 
@@ -113,3 +121,5 @@ Then, use any of the following procedures to continue:
 - [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
+
+Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances.

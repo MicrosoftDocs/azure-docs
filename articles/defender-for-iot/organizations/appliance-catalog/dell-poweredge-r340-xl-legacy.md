@@ -72,9 +72,12 @@ In this image, numbers refer to the following components:
 
 This section describes how to install Defender for IoT software on the Dell PowerEdgeR340XL appliance.
 
-Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
-
 Before installing the software on the Dell appliance, you need to adjust the appliance's BIOS configuration.
+
+> [!NOTE]
+> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+>
+
 ### Prerequisites
 
 To install the Dell PowerEdge R340XL appliance, you need:

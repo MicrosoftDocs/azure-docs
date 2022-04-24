@@ -74,7 +74,9 @@ In this image, numbers indicate the following components:
 
 This section describes how to install OT sensor software on the Nuvo 5006LP appliance. Before you install the OT sensor software, you must adjust the appliance's BIOS configuration.
 
-Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> [!NOTE]
+> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+>
 
 ### Prerequisites
 

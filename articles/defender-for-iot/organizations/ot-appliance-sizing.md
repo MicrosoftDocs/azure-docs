@@ -7,7 +7,9 @@ ms.topic: conceptual
 
 # Which appliances do I need?
 
-This article is designed to help you choose the right OT appliances for sensors and on-premises management consoles to fit your organization's network monitoring needs. You can use both physical or virtual appliances.
+This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs.
+
+You can use both physical or virtual appliances.
 
 ## Corporate IT/OT mixed environments
 
@@ -56,3 +58,5 @@ Then, use any of the following procedures to continue:
 - [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
+
+Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances.
