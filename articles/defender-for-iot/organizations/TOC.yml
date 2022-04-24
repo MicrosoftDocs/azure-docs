@@ -197,7 +197,7 @@
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Legacy appliances
       items:
-      - name: Dell PowerEdge R340 XL
+      - name: Dell PowerEdge R340 XL (enterprise)
         href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
       - name: HPE Edgeline EL300 (SMB rugged)
         href: appliance-catalog/hpe-edgeline-el300.md
