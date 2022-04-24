@@ -21,7 +21,7 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
     - To install software on your own appliances, do the following:
 
-        1. Make sure that you have a supported appliance available. For more information, see [Hardware compatibility matrix for non-certified appliances](ot-physical-appliances.md) and [Resource requirements for virtual appliances](ot-virtual-appliances.md).
+        1. Make sure that you have a supported appliance available.
 
         1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
 
