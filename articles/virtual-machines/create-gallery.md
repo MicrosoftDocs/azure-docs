@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/12/2022
+ms.date: 04/24/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to, devx-track-azurecli 
@@ -215,8 +215,9 @@ Making a community gallery available to all Azure users is a two-step process. F
 1. In **Resource group**, select **Create new** and type *myGalleryRG* for the name.
 1. In **Name**, type *myGallery* for the name of the gallery.
 1. Leave the default for **Region**.
-1. You can type a short description of the gallery, like *My gallery for testing*. 
+1. You can type a short description of the gallery, like *My gallery for testing*.
 1. At the bottom of the page, select **Next: Sharing method**.
+   :::image type="content" source="../virtual-machine-scale-sets/media/gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
 1. On the **Sharing** tab, select **RBAC + share to public community gallery**.
 
    :::image type="content" source="media/create-gallery/sharing-type.png" alt-text="Screenshot showing the option to share using both role-based access control and a community gallery.":::

@@ -7,7 +7,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 04/24/2022
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli
 ---
@@ -182,13 +182,13 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
+>
 > Microsoft does not provide support for images in the [community gallery](../virtual-machines/azure-compute-gallery.md#community).
+>
+> You can create scale sets from images in the community gallery, but if the image is removed at a later time, you won't be able to scale up. To ensure you have long-term access to the image, you should consider creating an image in your own gallery from a VM created using the community gallery image that you want to use for your scale set. For more information, see [Create an image definition and an image version](../virtual-machines/image-version.md).
 
-You can create scale sets from images in the community gallery, but if the image is removed at a later time, you won't be able to scale up. To ensure you have long-term access to the image, you should consider creating an image in your own gallery from a VM created using the community gallery image that you want to use for your scale set. For more information, see [Create an image definition and an image version](../virtual-machines/image-version.md).
 
-> [!NOTE]
-> As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
+As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 Replace resource names as needed in these examples.
 ### [CLI](#tab/cli2)
@@ -233,6 +233,8 @@ Creating a scale set using an image from the community gallery is the same as cr
 The **Select an image** page will open. Select **Community images (PREVIEW)** to see the list of images available in the community gallery.
 
 :::image type="content" source="./media/gallery/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
+
+---
 ## Next steps
 [Azure Image Builder (preview)](../virtual-machines/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 

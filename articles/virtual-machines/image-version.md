@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/31/2021
+ms.date: 04/24/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: 
@@ -17,9 +17,9 @@ ms.custom:
 
 # Create an image definition and an image version 
 
-A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
+A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
 
-The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. 
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant, or publicly using a [community gallery (preview)](azure-compute-gallery.md#community). Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images.
 
 The Azure Compute Gallery feature has multiple resource types:
 
@@ -41,7 +41,7 @@ Image definition names can be made up of uppercase or lowercase letters, digits,
 
 Allowed characters for the image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-If you will be sharing your images using a community gallery, be aware that information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
+If you will be sharing your images using a [community gallery (preview)](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly. Also, information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
 
 When working through this article, replace the resource names where needed.
 
@@ -57,8 +57,8 @@ To create an image using a source other than a VM, follow these steps.
 
 1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Azure Compute Gallery**.
 1. Select the gallery you want to use from the list.
-1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down. 
-1. on the **Add new image definition to Azure Compute Gallery** page, in the **Basics** tab, select a **Region**. 
+1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down.
+1. on the **Add new image definition to Azure Compute Gallery** page, in the **Basics** tab, select a **Region**.
 1. For **Image definition name**, type a name like *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source.  
 1. For **VM generation**, select the option based on your source. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](generation-2.md).

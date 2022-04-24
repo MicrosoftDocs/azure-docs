@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 04/20/2022
+ms.date: 04/24/2022
 ms.reviewer: cynthn
 
 ---
@@ -110,9 +110,9 @@ You [create a gallery resource](create-gallery.md#create-a-community-gallery-pre
 
 When you are ready, you flag your gallery as ready to be shared publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries`, which are public.
 
-The end-users can only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery will be used, along with a unique GUID, to create the public facing name for your gallery.
+The end-users can only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, you should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery will be used, along with a unique GUID, to create the public facing name for your gallery.
 
-When creating a community gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing:
+When creating a community gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing it:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
@@ -141,7 +141,7 @@ There are some limitations for sharing your gallery to the community:
 ### Community-shared images FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**
-   **A**: There are no charges for using the service itself. However, content publishers would be charged for the following: 
+   **A**: There are no charges for using the service itself. However, content publishers would be charged for the following:
 - Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
 - Network egress charges for replication across regions.
 

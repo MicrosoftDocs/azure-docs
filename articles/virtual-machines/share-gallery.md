@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 03/28/2022
+ms.date: 04/24/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -85,7 +85,7 @@ New-AzRoleAssignment `
 <a name=community></a>
 ## Community gallery (preview)
 
-To share a gallery with all Azure users, you can create a [community gallery (preview)](azure-compute-gallery.md#community). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+To share a gallery with all Azure users, you can [create a community gallery (preview)](create-gallery.md#community). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -102,7 +102,7 @@ To learn more, see [Community gallery (preview) overview](azure-compute-gallery.
 
 Create an [image definition and an image version](image-version.md).
 
-You can also create Azure Compute Gallery resources using templates. There are several quickstart templates available: 
+You can also create Azure Compute Gallery resources using templates. There are several quickstart templates available:
 
 - [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
