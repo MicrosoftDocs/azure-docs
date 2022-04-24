@@ -19,7 +19,7 @@ ms.devlang: azurecli
 There are two main ways to share images in an Azure Compute Gallery:
 
 - Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level.
-- Community gallery let's you share your entire gallery publicly, to all Azure users.
+- Community gallery lets you share your entire gallery publicly, to all Azure users.
 
 ## RBAC
 
