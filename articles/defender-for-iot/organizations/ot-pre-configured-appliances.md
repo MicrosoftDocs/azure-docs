@@ -1,5 +1,5 @@
 ---
-title: Which appliances do I need for OT network monitoring?-  Microsoft Defender for IoT
+title: Preconfigured appliances for OT network monitoring -  Microsoft Defender for IoT
 description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
 ms.date: 04/07/2022
 ms.topic: conceptual
@@ -32,10 +32,10 @@ You can order any of the following preconfigured appliances for monitoring your 
 |Capacity / Hardware profile  |Appliance  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|---------|
 |Corporate   | [HPE ProLiant DL360](appliance-catalog/hpe-proliant-dl360.md)         |   **Max bandwidth**: 3Gbp/s <br>**Max devices**:12,000      |  **Mounting**: 1U <br>**Ports**: 15x RJ45 or 8x SFP (OPT)     |
-|[Enterprise]     | [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md)  <br> (4SFF)     |  **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
+|Enterprise    | [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md)  <br> (4SFF)     |  **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
 |SMB    |  [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-smb.md)  <br> (NHP 2LFF)    |      **Max bandwidth**: 200Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: 1U<br>**Ports**: 4x RJ45         |
-|[SMB]     |  [Dell Edge 5200](appliance-catalog/dell-edge-5200.md)  <br> (NHP 2LFF)    |      **Max bandwidth**: 60Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: Wall Mount<br>**Ports**: 3x RJ45         |
-|[Office]     |  [YS-Techsystems YS-FIT2](appliance-catalog/ys-techsystems-ys-fit2.md)       |      **Max bandwidth**: 10Mbp/s <br>**Max devices**: 100      |  **Mounting**: DIN/VESA<br>**Ports**: 2x RJ45          |
+|SMB    |  [Dell Edge 5200](appliance-catalog/dell-edge-5200.md)  <br> (NHP 2LFF)    |      **Max bandwidth**: 60Mbp/s<br>**Max devices**:  1,000     |  **Mounting**: Wall Mount<br>**Ports**: 3x RJ45         |
+|Office     |  [YS-Techsystems YS-FIT2](appliance-catalog/ys-techsystems-ys-fit2.md)       |      **Max bandwidth**: 10Mbp/s <br>**Max devices**: 100      |  **Mounting**: DIN/VESA<br>**Ports**: 2x RJ45          |
 
 
 > [!NOTE]
@@ -45,13 +45,13 @@ You can order any of the following preconfigured appliances for monitoring your 
 
 You can purchase any of the following appliances for your OT on-premises management consoles:
 
-|Capacity  |Appliance  |Max sensors  |Physical specifications  |
+|Capacity / Hardware profile |Appliance  |Max sensors  |Physical specifications  |
 |---------|---------|---------|---------|
-|[Enterprise]     | [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md) <br> (4SFF)       | 300     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
+|Enterprise    | [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md) <br> (4SFF)       | 300     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
 
 Then, use any of the following procedures to continue:
 
