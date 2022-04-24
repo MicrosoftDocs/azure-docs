@@ -457,7 +457,7 @@
       - name: Azure Advisor recommendations
         href: concepts-azure-advisor-recommendations.md
     - name: Tutorials
-    items:
+      items:
     - name: Application Development
       items:
       - name: Design a database
