@@ -61,6 +61,7 @@ Connectivity logs provide detailed information for SignalR hub connections. For 
 
 Messaging logs provide tracing information for the SignalR hub messages received and sent via SignalR service. For example, tracing ID and message type of the message. The tracing ID and message type is also logged in app server. Typically the message is recorded when it arrives at or leaves from service or server. Therefore messaging logs are helpful for troubleshooting message related issues. For typical message related troubleshooting guide, see [message related issues](#message-related-issues).
 
+> [!NOTE]
 > This type of logs is generated for every message, if the messages are sent frequently, messaging logs might impact the performance of SignalR service. However, you can choose different collecting behaviors to minimize the performance impact. See [resource logs collecting behaviors](#resource-logs-collecting-behaviors) below.
 
 #### Http request logs
@@ -140,6 +141,7 @@ To use sample query for SignalR service, please follow the steps below:
 2. Select `Queries` to open query explorer.
 3. Select `Resource type` to group sample queries in resource type.
 4. Select `Run` to run the script.
+
     :::image type="content" alt-text="Sample query in Log Analytics" source="./media/signalr-tutorial-diagnostic-logs/log-analytics-sample-query.png" lightbox="./media/signalr-tutorial-diagnostic-logs/log-analytics-sample-query.png":::
 
 
@@ -350,7 +352,7 @@ To enable this behavior, uncheck the checkbox for a specific log type in the *Ty
 
 ###### Server side
 
-Also set up `ServiceOptions.DiagnosticClientFilter` to define a filter of diagnostic clients based on the http context comes from clients. For example, make client with hub URL `<HUB_URL>?diag=yes`, then setup `ServiceOptions.DiagnosticClientFilter` to filter the diagnostic client. If it returns `true`, the client will be marked as diagnostic client; otherwise, it keeps as normal client. The `ServiceOptions.DiagnosticClientFilter` can be set in your startup class like this:
+Also set up `ServiceOptions.DiagnosticClientFilter` to define a filter of diagnostic clients based on the http context comes from clients. For example, make client with hub URL `<HUB_URL>?diag=yes`, then set up `ServiceOptions.DiagnosticClientFilter` to filter the diagnostic client. If it returns `true`, the client will be marked as diagnostic client; otherwise, it keeps as normal client. The `ServiceOptions.DiagnosticClientFilter` can be set in your startup class like this:
 
 ``` C#
 // sample: mark a client as diagnostic client when it has query string "?diag=yes" in hub URL
