@@ -182,7 +182,7 @@
     - name: Corporate appliances
       items:
       - name: HPE ProLiant DL360
-        href: hpe-proliant-dl360.md
+        href: /appliance-catalog/hpe-proliant-dl360.md
     - name: Enterprise appliances
       items:
       - name: HPE ProLiant DL20/DL20 Plus
