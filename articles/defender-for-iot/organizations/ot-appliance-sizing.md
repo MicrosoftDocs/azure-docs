@@ -48,7 +48,6 @@ On-premises management consoles are supported for enterprise deployment systems.
 Continue understanding system requirements, including options for ordering pre-configured appliances, or required specifications to install software on your own appliances:
 
 - [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
-- [Hardware compatibility matrix for non-certified appliances](ot-physical-appliances.md)
 - [Resource requirements for virtual appliances](ot-virtual-appliances.md)
 
 Then, use any of the following procedures to continue:
