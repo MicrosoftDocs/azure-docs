@@ -25,7 +25,7 @@ The following image shows the Azure Synapse Link integration with Azure SQL DB, 
 
 ## Benefit
 
-Azure Synapse Link for SQL provides fully managed and turnkey experience for you to land operational data in Azure Synapse dedicated SQL pool. It does this by continuously replicating the data from Azure SQL DB or SQL Server 2022 with full consistency. It guarantees no data loss and transactional consistency at Link level. By using Azure Synapse Link for SQL, you can get the following benefits:
+Azure Synapse Link for SQL provides fully managed and turnkey experience for you to land operational data in Azure Synapse dedicated SQL pool. It does this by continuously replicating the data from Azure SQL DB or SQL Server 2022 with full consistency. By using Azure Synapse Link for SQL, you can get the following benefits:
 
 * **Minimum impact on operational workload**
 With the new change feed technology in Azure SQL Database and SQL Server 2022, Synapse link for SQL can automatically extract incremental changes from Azure SQL DB or SQL Server 2022. It then replicates to Azure Synapse dedicated SQL pool without impacting the operational workload.
