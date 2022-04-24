@@ -53,4 +53,4 @@ keywords: speech to text, speech to text software
 
 * [Try the speech to text quickstart](get-started-speech-to-text.md)
 * [Improve recognition accuracy with custom speech](custom-speech-overview.md)
-* [Transcribe audio in batches](batch-transcription.md)
+* [Use batch transcription](batch-transcription.md)
