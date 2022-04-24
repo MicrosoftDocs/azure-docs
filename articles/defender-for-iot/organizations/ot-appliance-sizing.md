@@ -13,7 +13,7 @@ You can use both physical or virtual appliances.
 
 ## Corporate IT/OT mixed environments
 
-Use the following deployment sizing for high bandwidth corporate IT/OT mixed networks:
+Use the following hardware profiles for high bandwidth corporate IT/OT mixed networks:
 
 
 |Hardware profile  |Max throughput |Max monitored Assets  |Deployment |
@@ -22,7 +22,7 @@ Use the following deployment sizing for high bandwidth corporate IT/OT mixed net
 
 ## Enterprise monitoring at the site level
 
-Use the following deployment for enterprise monitoring at the site level:
+Use the following  hardware profiles for enterprise monitoring at the site level:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
@@ -30,7 +30,7 @@ Use the following deployment for enterprise monitoring at the site level:
 
 ## Production line monitoring
 
-Use the following deployment for production line monitoring:
+Use the following hardware profiles for production line monitoring:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
@@ -40,7 +40,7 @@ Use the following deployment for production line monitoring:
 
 ## On-premises management console systems
 
-On-premises management consoles are supported for enterprise deployment systems. Use the following deployment when working with an on-premises management console:
+On-premises management consoles allow to manage and monitor large multiple sensor deployments. Use the following  hardware profiles for deployment of an on-premises management console:
 
 |Hardware profile  |Max monitored sensors  |Deployment  |
 |---------|---------|---------|
