@@ -202,6 +202,8 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 - Sensor software version is out of date and cannot connect
 - A [remote sensor upgrade from the Azure portal](how-to-manage-individual-sensors.md?tabs=portal#update-your-sensor-software-version) fails, for software versions starting from version 22.2.0 and higher
 
+For more information, see our [Sensor health message reference](sensor-health-messages.md).
+
 ## Upload a diagnostics log for support (Public preview)
 
 If you need to open a support ticket for a locally managed sensor, upload a diagnostics log to the Azure portal for the support team.

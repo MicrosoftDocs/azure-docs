@@ -24,10 +24,10 @@ This article shows how to set up a working data history connection between Azure
 * an [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an event hub
 * an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database
 
-It also contains a sample twin graph and telemetry scenario that you can use to see the historized twin updates in Azure Data Explorer. 
+It also contains a sample twin graph that you can use to see the historized twin property updates in Azure Data Explorer. 
 
->[!NOTE]
->You can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs. That process isn't shown in this article.
+>[!TIP]
+>Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs. 
 
 ## Prerequisites
 
@@ -241,15 +241,15 @@ After setting up the data history connection, you can optionally remove the role
 
 Now that your data history connection is set up, you can test it with data from your digital twins.
 
-If you already have twins in your Azure Digital Twins instance that are receiving telemetry updates, you can skip this section and visualize the results using your own resources. 
+If you already have twins in your Azure Digital Twins instance that are receiving property updates, you can skip this section and visualize the results using your own resources. 
 
-Otherwise, continue through this section to set up a sample graph containing twins that can receive telemetry updates. 
+Otherwise, continue through this section to set up a sample graph containing twins that receives twin property updates. 
 
-You can set up a sample graph for this scenario using the **Azure Digital Twins Data Simulator**. The Azure Digital Twins Data Simulator continuously pushes telemetry to several twins in an Azure Digital Twins instance.
+You can set up a sample graph for this scenario using the **Azure Digital Twins Data Simulator**. The Azure Digital Twins Data Simulator continuously pushes property updates to several twins in an Azure Digital Twins instance.
 
 ### Create a sample graph
 
-You can use the **Azure Digital Twins Data Simulator** to provision a sample twin graph and push telemetry data to it. The twin graph created here models pasteurization processes for a dairy company.
+You can use the **Azure Digital Twins Data Simulator** to provision a sample twin graph and push property updates to it. The twin graph created here models pasteurization processes for a dairy company.
 
 Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) web application in your browser.
 
