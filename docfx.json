@@ -293,6 +293,7 @@
         "articles/data-lake-analytics/*.md": "xujxu",
         "articles/defender-for-cloud/*.md": "elazark",
         "articles/defender-for-iot/organizations/*.md": "batamig",
+        "articles/defender-for-iot/organizations/appliance-catalog/*.md": "batamig",
         "articles/defender-for-iot/device-builders/*.md": "batamig",
         "articles/dev-spaces/**/*.md": "zr-msft",
         "articles/devtest-labs/**/*.md": "j-martens",
