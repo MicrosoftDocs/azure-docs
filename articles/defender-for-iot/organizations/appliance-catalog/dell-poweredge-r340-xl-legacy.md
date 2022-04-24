@@ -21,7 +21,7 @@ Legacy appliances are certified but aren't currently offered as pre-configured a
 
 The following image shows a view of the Dell PowerEdge R340 front panel:
 
-:::image type="content" source="../media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Photo of the Dell PowerEdge R340 front panel.":::
+:::image type="content" source="../media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Photo of the Dell PowerEdge R340 front panel." border="false":::
 
 In this image, numbers refer to the following components:
 
@@ -33,7 +33,7 @@ In this image, numbers refer to the following components:
 
 The following image shows a view of the Dell PowerEdge R340 back panel:
 
-:::image type="content" source="../media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Photo of the Dell PowerEdge R340 back panel.":::
+:::image type="content" source="../media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Photo of the Dell PowerEdge R340 back panel." border="false":::
 
 In this image, numbers refer to the following components:
 

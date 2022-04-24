@@ -18,11 +18,11 @@ Legacy appliances are certified but aren't currently offered as pre-configured a
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
 
-:::image type="content" source="../media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP.":::
+:::image type="content" source="../media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP." border="false":::
 
 The following image shows a view of the Nuvo 5006LP front panel:
 
-:::image type="content" source="../media/tutorial-install-components/nuvo5006lp_frontpanel.png" alt-text="A photo of the front panel of the Nuvo 5006LP device.":::
+:::image type="content" source="../media/tutorial-install-components/nuvo5006lp_frontpanel.png" alt-text="A photo of the front panel of the Nuvo 5006LP device." border="false":::
 
 In this image, numbers indicate the following components:
 
@@ -37,7 +37,7 @@ In this image, numbers indicate the following components:
 
 The following image shows a view of the Nuvo 5006LP back panel:
 
-:::image type="content" source="../media/tutorial-install-components/nuvo5006lp_backpanel.png" alt-text="A photo of the back panel of the Nuvo 5006lp.":::
+:::image type="content" source="../media/tutorial-install-components/nuvo5006lp_backpanel.png" alt-text="A photo of the back panel of the Nuvo 5006lp." border="false":::
 
 In this image, numbers indicate the following components:
 

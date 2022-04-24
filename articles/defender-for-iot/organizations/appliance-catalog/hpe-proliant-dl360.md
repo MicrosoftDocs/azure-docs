@@ -19,11 +19,11 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 
 The following image shows a view of the HPE ProLiant Dl360 front panel:
 
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="Photo of the HPE ProLiant DL360 front panel.":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="Photo of the HPE ProLiant DL360 front panel." border="false":::
 
 The following image shows a view of the HPE ProLiant Dl360 back panel:
 
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="Photo of the HPE ProLiant DL360 back panel.":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="Photo of the HPE ProLiant DL360 back panel." border="false":::
 
 ## Specifications
 

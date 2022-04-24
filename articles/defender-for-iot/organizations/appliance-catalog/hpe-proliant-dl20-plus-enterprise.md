@@ -21,11 +21,11 @@ The HPE ProLiant DL20 Plus is also available for the on-premises management cons
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 front panel.":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 front panel." border="false":::
 
 The following image shows a sample of the HPE ProLiant DL20 back panel:
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20.":::
+:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
 
 ### Specifications
 

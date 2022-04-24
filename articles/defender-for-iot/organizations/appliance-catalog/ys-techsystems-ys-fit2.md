@@ -18,11 +18,11 @@ This article describes the **YS-techsystems YS-FIT2** appliance deployment and i
 
 The following image shows a view of the YS-FIT2 front panel:
 
-:::image type="content" source="../media/tutorial-install-components/fitlet-front-panel.png" alt-text="A photo of the front panel of the YS-FIT2.":::
+:::image type="content" source="../media/tutorial-install-components/fitlet-front-panel.png" alt-text="A photo of the front panel of the YS-FIT2." border="false":::
 
 The following image shows a view of the YS-FIT2 back panel:
 
-:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="A photo of the back panel of the YS-FIT2.":::
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="A photo of the back panel of the YS-FIT2." border="false":::
 
 ## Specifications
 
