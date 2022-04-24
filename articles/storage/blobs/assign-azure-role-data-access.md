@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/14/2021
+ms.date: 04/19/2022
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -161,7 +161,7 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 - If you have set the appropriate allow permissions to access data via Azure AD and are unable to access the data, for example you are getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you have made in Azure AD to replicate, and be sure that you do not have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
 
 > [!NOTE]
-> You also can make your own Azure custom roles to access blob data. For more information, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
+> You can create custom Azure RBAC roles for granular access to blob data. For more information, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 ## Next steps
 
