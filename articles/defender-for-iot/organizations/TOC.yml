@@ -182,29 +182,29 @@
     - name: Corporate appliances
       items:
       - name: HPE ProLiant DL360
-        href: /appliance-catalog/hpe-proliant-dl360.md
+        href: ../appliance-catalog/hpe-proliant-dl360.md
     - name: Enterprise appliances
       items:
       - name: HPE ProLiant DL20/DL20 Plus
-        href: /appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+        href: ../appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
     - name: SMB appliances
       items:
       - name: Dell Edge 5200
-        href: /appliance-catalog/dell-edge-5200.md
+        href: ../appliance-catalog/dell-edge-5200.md
       - name: HPE ProLiant DL20 Plus
-        href: /appliance-catalog/hpe-proliant-dl20-plus-smb.md
+        href: ../appliance-catalog/hpe-proliant-dl20-plus-smb.md
     - name: Rugged appliances
       items:
       - name: YS-techsystems YS-FIT2
-        href: /appliance-catalog/ys-techsystems-ys-fit2.md
+        href: ../appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Legacy appliances
       items:
       - name: Dell PowerEdge R340 XL
-        href: /appliance-catalog/dell-poweredge-r340-xl-legacy.md
+        href: ../appliance-catalog/dell-poweredge-r340-xl-legacy.md
       - name: HPE Edgeline EL300 (SMB rugged)
-        href: /appliance-catalog/hpe-edgeline-el300.md
+        href: ../appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
-        href: /appliance-catalog/neousys-nuvo-5006lp.md
+        href: ../appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
   - name: Work with Defender for IoT APIs
