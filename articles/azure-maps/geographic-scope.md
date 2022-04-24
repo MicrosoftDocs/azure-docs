@@ -27,7 +27,7 @@ The table below describes the mapping between geography and supported Azure geog
 | Europe                        | `eu.atlas.microsoft.com`  |
 | United States                 | `us.atlas.microsoft.com`  |
 
->[TIP]
+> [!TIP]
 > When using the Azure Government cloud, use the `atlas.azure.us` endpoint. For more information, see [Azure Government cloud support](how-to-use-map-control.md#azure-government-cloud-support).
 
 ### URL example for geographic mapping
