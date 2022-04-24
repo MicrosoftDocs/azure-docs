@@ -48,7 +48,7 @@ To create your collection, we'll start in the [Microsoft Purview governance port
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections-2.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select **+ Add a collection**.
 
