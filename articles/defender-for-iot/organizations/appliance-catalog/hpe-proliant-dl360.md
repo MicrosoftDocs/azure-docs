@@ -5,7 +5,7 @@ ms.date: 04/04/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL360
+# HPE ProLiant DL360 (Corporate)
 
 This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 
@@ -14,7 +14,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 |**Architecture** | [Corporate] |
 |**Performance** | 	Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
-|**Status** | Supported; Available as pre-configured |
+|**Status** | Supported, Available pre-installed|
 
 
 
