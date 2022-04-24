@@ -143,6 +143,7 @@ Based on your selections in **Upon completion settings**, auto-apply will be exe
 > [!NOTE]
 > It is possible for a security group to have other groups assigned to it. In this case, only the users assigned directly to the security group assigned to the role will appear in the review of the role.
 
+
 ## Update the access review
 
 After one or more access reviews have been started, you may want to modify or update the settings of your existing access reviews. Here are some common scenarios that you might want to consider:

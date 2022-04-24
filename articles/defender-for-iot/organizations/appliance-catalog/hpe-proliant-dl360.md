@@ -115,7 +115,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
 
 
 ## Next steps

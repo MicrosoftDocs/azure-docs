@@ -126,7 +126,7 @@ The following procedure describes how to configure the BIOS for HP EL300 applian
 
 1. Select the device with the sensor image. Either **DVD** or **USB**.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
 
 ## Next steps
 

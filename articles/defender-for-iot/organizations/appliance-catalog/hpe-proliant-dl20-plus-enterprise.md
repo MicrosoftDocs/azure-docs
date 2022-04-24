@@ -187,4 +187,14 @@ To install the software:
 
 1. Start the appliance.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
+
+## Next steps
+
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+Then, use any of the following procedures to continue:
+
+- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Install software](how-to-install-software.md)

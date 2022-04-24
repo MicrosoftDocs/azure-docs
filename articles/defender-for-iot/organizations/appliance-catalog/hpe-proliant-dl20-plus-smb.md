@@ -161,7 +161,7 @@ To install the software:
 
 1. Start the appliance.
 
-1. Follow the software installation instructions located [here](#install-the-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
 
 ## Next steps
 

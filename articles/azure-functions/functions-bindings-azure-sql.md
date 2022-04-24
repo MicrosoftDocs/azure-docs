@@ -57,4 +57,4 @@ The Azure SQL bindings for Azure Functions are open-source and available on the 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
 - [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
 - [Learn how to connect Azure Function to Azure SQL with managed identity](./functions-identity-access-azure-sql-with-managed-identity.md)
-- [Use SQL bindings in Azure Stream Analytics](/azure/stream-analytics/sql-database-upsert#option-1-update-by-key-with-the-azure-function-sql-binding)
+- [Use SQL bindings in Azure Stream Analytics](../stream-analytics/sql-database-upsert.md#option-1-update-by-key-with-the-azure-function-sql-binding)
