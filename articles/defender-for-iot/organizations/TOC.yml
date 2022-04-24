@@ -177,7 +177,7 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: OT pre-configured appliances
+  - name: OT pre-installed appliances
     items:
     - name: Corporate appliances
       items:
