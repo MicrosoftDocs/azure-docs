@@ -24,7 +24,7 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
 
 ## Manage your security alerts
 
-1. From Defender for Cloud's overview page, select the **Security alerts** tile at the top of the page, or the link from the sidebar..
+1. From Defender for Cloud's overview page, select the **Security alerts** tile at the top of the page, or the link from the sidebar.
 
     :::image type="content" source="media/managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Getting to the security alerts page from Microsoft Defender for Cloud's overview page":::
 
