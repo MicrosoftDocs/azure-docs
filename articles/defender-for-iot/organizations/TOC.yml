@@ -39,9 +39,7 @@
           href: ot-appliance-sizing.md
         - name: Pre-configured appliances
           href: ot-pre-configured-appliances.md
-        - name: Bring your own physical appliance
-          href: ot-physical-appliances.md
-        - name: Bring your own virtual appliance
+        - name: OT monitoring with virtual appliances
           href: ot-virtual-appliances.md
       - name: Supported OT protocols
         href: concept-supported-protocols.md

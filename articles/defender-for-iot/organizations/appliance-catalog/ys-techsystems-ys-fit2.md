@@ -22,7 +22,7 @@ The following image shows a view of the YS-FIT2 front panel:
 
 The following image shows a view of the YS-FIT2 back panel:
 
-:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="A photo of the back panel of the YS-FIT2." border="false":::
+:::image type="content" source="../media/tutorial-install-components/fitlet2-back-panel.png" alt-text="A photo of the back panel of the YS-FIT2." border="false":::
 
 ## Specifications
 

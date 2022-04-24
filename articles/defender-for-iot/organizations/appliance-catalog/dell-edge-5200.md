@@ -18,7 +18,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 
 ## Specifications
 
-|Component|	Technical specifications|
+|Component |	Technical specifications|
 |:----|:----|
 |Chassis|	Desktop / Wall mount server|
 |Dimensions|	211 mm (W) x 240 mm (D) x 86 mm (H)|
@@ -30,7 +30,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 |Network controller|3x Intel GbE: 2x i210 + i219LM PHY|
 |Management|Intel AMT supported on i5 and i7 CPUs|
 |Device access|	6x USB 3.0|
-|Power|	DC Input 12–24 V (±10% tolerance) | AC Input Optional: 180 W / 220 W, 60 W (for PoE) external AC/DC adapter|
+|Power|	DC Input 12–24 V (±10% tolerance) <br>AC Input Optional: 180 W / 220 W, 60 W (for PoE) external AC/DC adapter|
 
 ## Appliance BOM
 

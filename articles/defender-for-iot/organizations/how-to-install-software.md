@@ -312,15 +312,12 @@ Mount the ISO file using one of the following options;
 
 ## On-premises management console installation
 
-Before installing the software on the appliance, you need to adjust the appliance's BIOS configuration:
+Before installing the software on the appliance, you need to adjust the appliance's BIOS configuration.
 
-### BIOS configuration
+For more information, see the installation procedures in the following articles:
 
-**To configure the BIOS for your appliance**:
-
-1. [Enable remote access and update the password](#enable-remote-access-and-update-the-password).
-
-1. [Configure the BIOS](#configure-the-hpe-bios).
+- [HPE ProLiant DL20/DL20 Plus for SMB deployments](appliance-catalog/hpe-proliant-dl20-plus-smb.md)
+- [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md)
 
 ### Software installation
 

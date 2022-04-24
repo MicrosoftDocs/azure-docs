@@ -5,7 +5,8 @@ ms.date: 04/04/2022
 ms.topic: conceptual
 ---
 
-# Which appliances do I need? 
+# Which appliances do I need?
+
 This article is designed to help you choose the right OT appliances for sensors and on-premises management consoles to fit your organization's network monitoring needs. You can use both physical or virtual appliances.
 
 ## Corporate IT/OT mixed environments
@@ -13,35 +14,35 @@ This article is designed to help you choose the right OT appliances for sensors 
 Use the following deployment sizing for high bandwidth corporate IT/OT mixed networks:
 
 
-|Name  |Max throughput |Max monitored Assets  |Deployment |
+|Hardware profile  |Max throughput |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
-|[Corporate]    | 3 Gbps        | 12 K        |Physical / Virtual         |
+|Corporate   | 3 Gbps        | 12 K        |Physical / Virtual         |
 
 ## Enterprise monitoring at the site level
 
 Use the following deployment for enterprise monitoring at the site level:
 
-|Name  |Max throughput  |Max monitored assets  |Deployment  |
+|Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|[Enterprise]    |1 Gbps         |10K         |Physical / Virtual         |
+|Enterprise    |1 Gbps         |10K         |Physical / Virtual         |
 
 ## Production line monitoring
 
 Use the following deployment for production line monitoring:
 
-|Name  |Max throughput  |Max monitored assets  |Deployment  |
+|Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|[SMB]    | 200 Mbps        |   1,000      |Physical / Virtual         |
-|[Office]    | 60 Mbps        |   800      | Physical / Virtual        |
-|[Rugged]    | 10 Mbps        |   100      |Physical / Virtual|
+|SMB   | 200 Mbps        |   1,000      |Physical / Virtual         |
+|Office    | 60 Mbps        |   800      | Physical / Virtual        |
+|Rugged    | 10 Mbps        |   100      |Physical / Virtual|
 
 ## On-premises management console systems
 
 On-premises management consoles are supported for enterprise deployment systems. Use the following deployment when working with an on-premises management console:
 
-|Name  |Max monitored sensors  |Deployment  |
+|Hardware profile  |Max monitored sensors  |Deployment  |
 |---------|---------|---------|
-|[Enterprise]    |Up to 300         |Physical / Virtual         |
+|Enterprise    |Up to 300         |Physical / Virtual         |
 
 ## Next steps
 

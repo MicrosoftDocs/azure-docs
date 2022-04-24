@@ -21,7 +21,7 @@ Legacy appliances are certified but aren't currently offered as pre-configured a
 
 The following image shows a view of the back panel of the HPE Edgeline EL300.
 
-:::image type="content" source="..media/tutorial-install-components/edgeline-el300-panel.png" alt-text="Photo of the back panel of the EL300" border="false":::
+:::image type="content" source="../media/tutorial-install-components/edgeline-el300-panel.png" alt-text="Photo of the back panel of the EL300" border="false":::
 
 ## Specifications
 
