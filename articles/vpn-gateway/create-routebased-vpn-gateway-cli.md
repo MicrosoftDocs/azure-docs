@@ -151,7 +151,7 @@ To view the public IP address assigned to your gateway, use the following exampl
 ```azurecli-interactive
 az network public-ip show \
   --name VNet1GWIP \
-  --resource-group TestRG11
+  --resource-group TestRG1
 ```
 
 The value associated with the **ipAddress** field is the public IP address of your VPN gateway.
