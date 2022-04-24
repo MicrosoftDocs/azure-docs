@@ -109,9 +109,9 @@ During the preview, make sure that you create your gallery, image definitions, a
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To publish to a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
+> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 
-When creating a community shared gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing:
+When creating a to share with the community, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
@@ -217,7 +217,7 @@ Making a community gallery available to all Azure users is a two-step process. F
 1. Leave the default for **Region**.
 1. You can type a short description of the gallery, like *My gallery for testing*.
 1. At the bottom of the page, select **Next: Sharing method**.
-   :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
+    - :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
 1. On the **Sharing** tab, select **RBAC + share to public community gallery**.
 
    :::image type="content" source="media/create-gallery/sharing-type.png" alt-text="Screenshot showing the option to share using both role-based access control and a community gallery.":::

@@ -81,7 +81,7 @@ The regions that a resource is replicated to can be updated after creation time.
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
 
 <a name=community></a>
-## Share images with the community (preview)
+## Community gallery (preview)
 
 
 > [!IMPORTANT]
@@ -90,7 +90,7 @@ The regions that a resource is replicated to can be updated after creation time.
 > To share images in the community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs and scale sets from images shared the community gallery is open to all Azure users.
 
 
-Sharing images to the community is a new capability in Azure Compute Gallery. In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as community-enabled, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
+Sharing images to the community is a new capability in Azure Compute Gallery. In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
 ### Why share to the community?
 

@@ -125,6 +125,8 @@ When you create an image version, you can set the replication mode to shallow fo
 
 Shallow replication can also be useful if you have very large images (up to 32TB) that aren't frequently deployed. Because the source image isn't copied, larger disks can be used. But, they also can't be used for deploying large numbers of VMs concurrently.
 
+To set an image for shallow replication, use `--replication-mode Shallow` with the Azure CLI.
+
 ## SDK support
 
 The following SDKs support creating Azure Compute Galleries:
