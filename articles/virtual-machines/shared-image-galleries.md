@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 6/8/2021
+ms.date: 04/21/2022
 ms.reviewer: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
@@ -111,10 +111,12 @@ Image version:
 
 ## Sharing
 
-You can [share images](share-gallery.md) to users and groups using the standard role-based access control (RBAC) or you can share an entire gallery of images to the public, using a [Community Gallery (preview)](azure-compute-gallery.md#community).
+You can [share images](share-gallery.md) to users and groups using the standard role-based access control (RBAC) or you can share an entire gallery of images to the public, using a [community gallery (preview)](azure-compute-gallery.md#community).
 
 > [!IMPORTANT]
-> Azure Compute Gallery – Community Galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - Community Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – community gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> To share images in the community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs and scale sets from images shared the community gallery is open to all Azure users.
 
 
 ## Shallow replication 

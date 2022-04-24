@@ -19,7 +19,7 @@ ms.devlang: azurecli
 There are two main ways to share images in an Azure Compute Gallery:
 
 - Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level.
-- Community Gallery let's you share your entire gallery publicly, to all Azure users.
+- Community gallery let's you share your entire gallery publicly, to all Azure users.
 
 ## RBAC
 
@@ -83,18 +83,18 @@ New-AzRoleAssignment `
 ---
 
 <a name=community></a>
-## Community Gallery (preview)
+## Community gallery (preview)
 
-To share a gallery with all Azure users, you can also create a [Community Galleries (preview)](azure-compute-gallery.md#community). Community Galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
+To share a gallery with all Azure users, you can create a [community gallery (preview)](azure-compute-gallery.md#community). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
 > [!IMPORTANT]
-> Azure Compute Gallery – Community Galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - Community Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > To publish to a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 > 
 > During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
 
-To learn more, see [Community Galleries (preview) overview](azure-compute-gallery.md#community) and [Create a community gallery](create-gallery.md#community).
+To learn more, see [Community gallery (preview) overview](azure-compute-gallery.md#community) and [Create a community gallery](create-gallery.md#community).
 
 
 

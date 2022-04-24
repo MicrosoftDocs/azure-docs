@@ -312,10 +312,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ---
 
-## Community Galleries
+## Community galleries
 
 > [!IMPORTANT]
-> Azure Compute Gallery – Community Galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - Community Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To list your own galleries, and output the public names for your community galleries:
 

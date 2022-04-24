@@ -106,7 +106,7 @@ As a content publisher, you might want to share a gallery to the community:
 
 ### How sharing with the community works
 
-You create a gallery resource under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
+You [create a gallery resource](create-gallery.md#create-a-community-gallery-preview) under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
 
 When you are ready, you flag your gallery as ready to be shared publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries`, which are public.
 
@@ -124,7 +124,7 @@ There are some limitations for sharing your gallery to the community:
 - Encrypted images aren't supported.
 - For the preview, image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available during the public preview.
 - For the preview, you can't share [VM Applications](vm-applications.md) to the community.
-- The gallery must be created as a community-shared gallery. For the preview, there is no way to migrate an existing gallery to be a community-shared gallery.
+- The gallery must be created as a community gallery. For the preview, there is no way to migrate an existing gallery to be a community gallery.
 - To find images shared to the community from the Azure portal, you need to go through the VM create or scale set creation pages. You can't search the portal or Azure Marketplace for the images.
 
 > [!IMPORTANT]

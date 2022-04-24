@@ -181,11 +181,9 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Create a scale set from an image in a community gallery
 
 > [!IMPORTANT]
-> The Community Gallery is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> Microsoft does not provide support for images in the [Community Gallery](../virtual-machines/azure-compute-gallery.md#community).
+> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> Microsoft does not provide support for images in the [community gallery](../virtual-machines/azure-compute-gallery.md#community).
 
 You can create scale sets from images in the community gallery, but if the image is removed at a later time, you won't be able to scale up. To ensure you have long-term access to the image, you should consider creating an image in your own gallery from a VM created using the community gallery image that you want to use for your scale set. For more information, see [Create an image definition and an image version](../virtual-machines/image-version.md).
 
@@ -228,11 +226,11 @@ az vmss create \
 
 ### [Portal](#tab/portal2)
 
-Creating a scale set using an image from the Community Gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
+Creating a scale set using an image from the community gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.
 
 :::image type="content" source="./media/gallery/see-all-images.png" alt-text="Screenshot showing how to select other image to use when creating a scale set.":::
 
-The **Select an image** page will open. Select **Community images (PREVIEW)** to see the list of images available in the Community Gallery.
+The **Select an image** page will open. Select **Community images (PREVIEW)** to see the list of images available in the community gallery.
 
 :::image type="content" source="./media/gallery/my-shared.png" alt-text="Screenshot showing where to select the type of image to use to create a scale set.":::
 ## Next steps
