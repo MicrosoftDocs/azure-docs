@@ -1,27 +1,34 @@
 ---
 title: HPE Edgeline EL300 (SMB) - Microsoft Defender for IoT
 description: Learn about the HPE Edgeline EL300 appliance for IoT in SMB rugged deployments.
-ms.date: 04/04/2022
+ms.date: 04/24/2022
 ms.topic: reference
 ---
 
 # HPE Edgeline EL300
 
-This article describes the HPE Edgeline EL300 appliance for OT sensors.
+This article describes the HPE Edgeline EL300 appliance for OT sensors or on-premises management consoles.
+
+Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Architecture** | [SMB] |
+|**Hardware profile** | SMB|
 |**Performance** | 	Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
+
+The following image shows a view of the back panel of the HPE Edgeline EL300.
+
+:::image type="content" source="..media/tutorial-install-components/edgeline-el300-panel.png" alt-text="View of the back panel of the EL300":::
 
 ## Specifications
 
 
 |Component|Technical specifications|
 |:----|:----|
-|Construction|Aluminum, Fanless & Dust-proof Design|
+|Construction|Aluminum, fanless and dust-proof design|
 |Dimensions (height x width x depth)|200.5 mm (7.9”) tall, 232 mm (9.14”) wide by 100 mm (3.9”) deep|
 |Weight|4.91 KG (10.83 lbs.)|
 |CPU|Intel Core i7-8650U (1.9GHz/4-core/15W)|
@@ -35,9 +42,9 @@ This article describes the HPE Edgeline EL300 appliance for OT sensors.
 |Operating Temperature|0C to +70C|
 |Humidity|10%~90%, non-condensing|
 |Vibration|0.3 gram 10 Hz to 300 Hz, 15 minutes per axis - Din rail|
-|Shock|10G 10 ms, half-sine, three for each axis. (Both positive & negative pulse) – Din Rail|
+|Shock|10G 10 ms, half-sine, three for each axis. (Both positive and negative pulse) – Din Rail|
 
-## Appliance BOM
+### Appliance BOM
 
 |Product|Description|
 |:----|:----|
@@ -57,27 +64,32 @@ This article describes the HPE Edgeline EL300 appliance for OT sensors.
 |P08020-B21 optional|HPE Edgeline EL300 Wall Mount Kit|
 |P03456-B21 optional|HPE Edgeline 1-GbE 4-port TSN FIO Daughter Card|
 
-## HP EdgeLine 300 installation
+## HPE EdgeLine 300 installation
 
-- A default administrative user is provided. We recommend that you change the password during the network configuration.
+This section describes how to install Defender for IoT software on the HPE EdgeLine 300 appliance.
 
-- The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 
-### HP EdgeLine 300 back panel
+Installation includes:
 
-:::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="View of the back panel of the EL300":::
+- Enabling remote access
+- Configuring BIOS settings
+- Installing Defender for IoT software
+
+A default administrative user is provided. We recommend that you change the password during the network configuration.
+
 
 ### Enable remote access
 
 1. Enter the iSM IP Address into your web browser.
 
-1. Sign in using the default username, and password found on your appliance.
+1. Sign in using the default username and password found on your appliance.
 
 1. Navigate to **Wired and Wireless Network** > **IPV4**
 
-    :::image type="content" source="media/tutorial-install-components/wired-and-wireless.png" alt-text="navigate to highlighted sections.":::
+    :::image type="content" source="../media/tutorial-install-components/wired-and-wireless.png" alt-text="Screenshot of the Wired and Wireless Network screen.":::
 
-1. Disable **DHCP toggle**.
+1. Toggle off the **DHCP** option..
 
 1. Configure the IPv4 addresses as such:
     - **IPV4 Address**: `192.168.1.125`
@@ -86,11 +98,11 @@ This article describes the HPE Edgeline EL300 appliance for OT sensors.
 
 1. Select **Apply**.
 
-1. Sign out, and reboot the appliance.
+1. Sign out and reboot the appliance.
 
 ### Configure the BIOS
 
-The following procedure describes how to configure the BIOS for HP EL300 appliance.
+This procedure describes how to update the HPE BIOS configuration for your OT deployment.
 
 **To configure the BIOS**:
 
@@ -98,35 +110,35 @@ The following procedure describes how to configure the BIOS for HP EL300 applian
 
 1. Select **Advanced**, and scroll down to **CSM Support**.
 
-    :::image type="content" source="media/tutorial-install-components/csm-support.png" alt-text="Enable CSM support to open the additional menu.":::
+    :::image type="content" source="../media/tutorial-install-components/csm-support.png" alt-text="Screenshot showing the CSM Support menu.":::
 
 1. Push **Enter** to enable CSM Support.
 
-1. Navigate to Storage, and push **+/-** to change it to Legacy.
+1. Go to **Storage**, and press **+/-** to change it to **Legacy**.
 
-1. Navigate to Video, and push **+/-** to change it to Legacy.
+1. Go to **Video**, and press **+/-** to change it to **Legacy**.
 
-    :::image type="content" source="media/tutorial-install-components/storage-and-video.png" alt-text="Navigate to storage and video and change them to Legacy.":::
+    :::image type="content" source="../media/tutorial-install-components/storage-and-video.png" alt-text="Screenshot showing the Storage and Video options":::
 
-1. Navigate to **Boot** > **Boot mode select**.
+1. Go to **Boot** > **Boot mode select**.
 
-1. Push **+/-** to change it to Legacy.
+1. Press **+/-** to change it to **Legacy**.
 
-    :::image type="content" source="media/tutorial-install-components/boot-mode.png" alt-text="Change Boot mode select to Legacy.":::
+    :::image type="content" source="../media/tutorial-install-components/boot-mode.png" alt-text="Screenshot of the Boot mode.":::
 
-1. Navigate to **Save & Exit**.
+1. Go to **Save & Exit**.
 
 1. Select **Save Changes and Exit**.
 
-    :::image type="content" source="media/tutorial-install-components/save-and-exit.png" alt-text="Save your changes and exit the system.":::
+    :::image type="content" source="../media/tutorial-install-components/save-and-exit.png" alt-text="Screenshot of the Save Changes and Exit option.":::
 
 1. Select **Yes**, and the appliance will reboot.
 
-1. Push **F11** to enter the **Boot Menu**.
+1. Press **F11** to enter the **Boot Menu**.
 
 1. Select the device with the sensor image. Either **DVD** or **USB**.
 
-1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
+1. Continue by installing your Defender for IoT software. For more information, see [Install Defender for IoT software](../how-to-install-software.md#install-defender-for-iot-software).
 
 ## Next steps
 

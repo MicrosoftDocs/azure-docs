@@ -1,23 +1,54 @@
 ---
 title: Dell PowerEdge R340 XL for OT monitoring (legacy) - Microsoft Defender for IoT
 description: Learn about the Dell PowerEdge R340 XL appliance in its legacy configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
-ms.date: 04/04/2022
+ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# Dell PowerEdge R340 XL (enterprise)
+# Dell PowerEdge R340 XL
 
 This article describes the Dell PowerEdge R340 XL appliance, supported for OT sensors and on-premises management consoles.
 
-Legacy appliances that certified but aren't currently offered as pre-configured appliances.
+Legacy appliances are certified but aren't currently offered as pre-configured appliances.
 
 
 |Appliance characteristic  | Description|
 |---------|---------|
-|**Architecture** | [Enterprise] |
+|**Hardware profile** | Enterprise|
 |**Performance** | 	Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
 |**Physical Specifications** | Mounting: 1U<br>Ports: 8x RJ45 or 6x SFP (OPT)|
-|**Status** | Supported, not available as a pre-installed appliance|
+|**Status** | Supported, not available as a preconfigured appliance|
+
+The following image shows a view of the Dell PowerEdge R340 front panel:
+
+:::image type="content" source="../media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Photo of the Dell PowerEdge R340 front panel.":::
+
+In this image, numbers refer to the following components:
+
+ 1. Left control panel
+ 1. Optical drive (optional)
+ 1. Right control panel
+ 1. Information tag
+ 1. Drives
+
+The following image shows a view of the Dell PowerEdge R340 back panel:
+
+:::image type="content" source="../media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Photo of the Dell PowerEdge R340 back panel.":::
+
+In this image, numbers refer to the following components:
+
+1. Serial port
+1. NIC port (Gb 1)
+1. NIC port (Gb 1)
+1. Half-height PCIe
+1. Full-height PCIe expansion card slot
+1. Power supply unit 1
+1. Power supply unit 2
+1. System identification
+1. System status indicator cable port (CMA) button
+1. USB 3.0 port (2)
+1. iDRAC9 dedicated network port
+1. VGA port
 
 ## Specifications
 
@@ -39,58 +70,25 @@ Legacy appliances that certified but aren't currently offered as pre-configured 
 
 ## Dell PowerEdgeR340XL installation
 
-Before installing the software on the Dell appliance, you need to adjust the appliance's BIOS configuration:
+This section describes how to install Defender for IoT software on the Dell PowerEdgeR340XL appliance.
 
-- [Dell PowerEdge R340 Front Panel](#dell-poweredge-r340-front-panel) and [Dell PowerEdge R340 Back Panel](#dell-poweredge-r340-back-panel) contains the description of front and back panels, along with information required for installation, such as drivers and ports.
+Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 
-- [Dell BIOS Configuration](#dell-bios-configuration) provides information about how to connect to the Dell appliance management interface and configure the BIOS.
-
-- [Software Installation (Dell R340)](#software-installation-dell-r340) describes the procedure required to install the Defender for IoT sensor software.
-
-### Dell PowerEdge R340XL requirements
+Before installing the software on the Dell appliance, you need to adjust the appliance's BIOS configuration.
+### Prerequisites
 
 To install the Dell PowerEdge R340XL appliance, you need:
 
-- Enterprise license for Dell Remote Access Controller (iDrac)
+- An Enterprise license for Dell Remote Access Controller (iDrac)
 
-- BIOS configuration XML
+- A BIOS configuration XML
 
-- Server firmware versions:
+- One of the following server firmware versions:
 
   - BIOS version 2.1.6
-
   - iDrac version 3.23.23.23
 
-### Dell PowerEdge R340 front panel
-
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Dell PowerEdge R340 front panel.":::
-
- 1. Left control panel
- 1. Optical drive (optional)
- 1. Right control panel
- 1. Information tag
- 1. Drives  
-
-### Dell PowerEdge R340 back panel
-
-:::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Dell PowerEdge R340 back panel.":::
-
-1. Serial port
-1. NIC port (Gb 1)
-1. NIC port (Gb 1)
-1. Half-height PCIe
-1. Full-height PCIe expansion card slot
-1. Power supply unit 1
-1. Power supply unit 2
-1. System identification
-1. System status indicator cable port (CMA) button
-1. USB 3.0 port (2)
-1. iDRAC9 dedicated network port
-1. VGA port
-
-### Dell BIOS configuration
-
-Dell BIOS configuration is required to adjust the Dell appliance to work with the software.
+### Configure the Dell BIOS
 
 The Dell appliance is managed by an integrated iDRAC with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances.
 
@@ -98,13 +96,7 @@ To establish the communication between the Dell appliance and the management com
 
 When the connection is established, the BIOS is configurable.
 
-**To configure Dell BIOS**:
-
-1. [Configure the iDRAC IP address](#configure-idrac-ip-address)
-
-1. [Configuring the BIOS](#configuring-the-bios)
-
-#### Configure iDRAC IP address
+**To configure the iDRAC IP address**:
 
 1. Power up the sensor.
 
@@ -121,21 +113,15 @@ When the connection is established, the BIOS is configurable.
 
 1. Change the static subnet mask to **255.255.255.0**.
 
-   :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot that shows the static subnet mask.":::
+   :::image type="content" source="../media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot that shows the static subnet mask.":::
 
 1. Select **Back** > **Finish**.
 
-#### Configuring the BIOS
+**To configure the Dell BIOS**:
 
-Configure the appliance BIOS if:
+This procedure describes how to update the Dell PowerEdge R340 XL configuration for your OT deployment.
 
-- You did not purchase your appliance from Arrow.
-
-- You have an appliance, but do not have access to the XML configuration file.
-
-After you access the BIOS, go to **Device Settings**.
-
-**To configure the BIOS**:
+Configure the appliance BIOS only if you did not purchase your appliance from Arrow, or if you have an appliance, but do not have access to the XML configuration file.
 
 1. Access the appliance's BIOS directly by using a keyboard and screen, or use iDRAC.
 
@@ -171,7 +157,9 @@ After you access the BIOS, go to **Device Settings**.
 
 1. Select **Back**, and then select **Finish** to exit the BIOS settings.
 
-### Software installation (Dell R340)
+### Install Defender for IoT software on the Dell R340
+
+This procedure describes how to install Defender for IoT software on the HPE DL360.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
@@ -179,7 +167,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Verify that the version media is mounted to the appliance in one of the following ways:
 
-   - Connect the external CD, or disk on a key with the release.
+    - Connect an external CD or disk-on-key that contains the sensor software you downloaded from the Azure portal.
 
    - Mount the ISO image by using iDRAC. After signing in to iDRAC, select the virtual console, and then select **Virtual Media**.
 
@@ -189,14 +177,13 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Select the **Map Device** button.
 
-   :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen-v2.png" alt-text="Screenshot that shows a mapped device.":::
+   :::image type="content" source="../media/tutorial-install-components/mapped-device-on-virtual-media-screen-v2.png" alt-text="Screenshot that shows a mapped device.":::
 
 1. The media is mounted. Select **Close**.
 
 1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
 
-1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
-
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Install Defender for IoT software](../how-to-install-software.md#install-defender-for-iot-software).
 
 ## Next steps
 

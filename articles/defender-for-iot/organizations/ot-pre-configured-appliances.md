@@ -27,7 +27,7 @@ For more information, see [Purchase sensors or download software for sensors](ho
 
 ## Appliances for OT network sensors
 
-You can order any of the following appliances pre-installed for monitoring your OT networks:
+You can order any of the following preconfigured appliances for monitoring your OT networks:
 
 |Capacity  |Appliance  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|---------|

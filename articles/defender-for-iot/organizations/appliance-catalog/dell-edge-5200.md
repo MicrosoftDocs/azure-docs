@@ -1,7 +1,7 @@
 ---
 title: Dell Edge 5200 (SMB) - Microsoft Defender for IoT
 description: Learn about the Dell Edge 5200 appliance for OT monitoring with Microsoft Defender for IoT.
-ms.date: 04/04/2022
+ms.date: 04/24/2022
 ms.topic: reference
 ---
 
@@ -11,7 +11,7 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Architecture** | [SMB] |
+|**Hardware profile** | SMB|
 |**Performance** | 	Max bandwidth: 60 Mbp/s<br>Max devices: 1,000 |
 |**Physical specifications** | Mounting: Wall Mount<br>Ports: 3x RJ45 |
 |**Status** | Supported, Not available pre-configured|
@@ -44,13 +44,12 @@ This article describes the Dell Edge 5200 appliance for OT sensors.
 |1|199-BIRW|ProSupport and Next Business Day Onsite Service Extension, 21 Month(s)|
 |1|990-10090|EX-Works|
 
-
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](how-to-install-software.md)
+- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Install software](../how-to-install-software.md)

@@ -1,24 +1,29 @@
 ---
 title: HPE ProLiant DL360 OT monitoring - Microsoft Defender for IoT
 description: Learn about the HPE ProLiant DL360 appliance when used for OT monitoring with Microsoft Defender for IoT.
-ms.date: 04/04/2022
+ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL360 (Corporate)
+# HPE ProLiant DL360
 
 This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Architecture** | [Corporate] |
+|**Hardware profile** | Corporate  |
 |**Performance** | 	Max bandwidth: 3Gbp/s <br> Max devices: 12,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
-|**Status** | Supported, Available pre-installed|
+|**Status** | Supported, Available preconfigured|
 
 
+The following image shows a view of the HPE ProLiant Dl360 front panel:
 
-:::image type="content" source="media/ot-system-requirements/hpe-proliant-dl360.png" alt-text="Photo of the Proliant Dl360." border="false":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="Photo of the HPE ProLiant DL360 front panel.":::
+
+The following image shows a view of the HPE ProLiant Dl360 back panel:
+
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="Photo of the HPE ProLiant DL360 back panel.":::
 
 ## Specifications
 
@@ -42,7 +47,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors.
 |Power            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
 |Rack support     | HPE 1U Gen10 SFF easy install rail kit        |
 
-## Port expansion
+### Port expansion
 
 Optional modules for port expansion include:
 
@@ -58,38 +63,64 @@ Optional modules for port expansion include:
 
 ## HPE ProLiant DL360 installation
 
-- A default administrative user is provided. We recommend that you change the password during the network configuration.
+This section describes how to install OT sensor software on the HPE ProLiant DL360 appliance, and includes adjusting the appliance's BIOS configuration.
 
-- During the network configuration, you'll configure the iLO port.
+Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 
-- The installation process takes about 20 minutes. After the installation, the system is restarted several times.
-
-### HPE ProLiant DL360 front panel
-
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-front-panel.png" alt-text="HPE ProLiant DL360 front panel.":::
-
-### HPE ProLiant DL360 back panel
-
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl360-back-panel.png" alt-text="HPE ProLiant DL360 back panel.":::
+During this procedure, you'll configure the iLO port. We recommend that you also change the default password provided for the administrative user.
 
 ### Enable remote access and update the password
 
-Refer to the preceding sections for HPE ProLiant DL20 installation:
+Use the following procedure to set up network options and update the default password.
 
-- "Enable remote access and update the password"
+**To enable and update the password**:
 
-- "Configure the HPE BIOS"
+1. Connect a screen and a keyboard to the HP appliance, turn on the appliance, and press **F9**.
 
-The enterprise configuration is identical.
+    :::image type="content" source="../media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
 
-> [!Note]
-> In the array form, verify that you select all the options.
+1. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
 
-### iLO remote installation (from a virtual drive)
+    :::image type="content" source="../media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
 
-This procedure describes the iLO installation from a virtual drive.
+    1. Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
 
-**To perform the iLO installation from a virtual drive**:
+    1. Set **Enable DHCP** to **Off**.
+
+    1. Enter the IP address, subnet mask, and gateway IP address.
+
+1. Select **F10: Save**.
+
+1. Select **Esc** to get back to the **iLO 5 Configuration Utility**, and then select **User Management**.
+
+1. Select **Edit/Remove User**. The administrator is the only default user defined.
+
+1. Change the default password and select **F10: Save**.
+
+### Configure the HPE BIOS
+
+This procedure describes how to update the HPE BIOS configuration for your OT sensor deployment.
+
+**To configure the HPE BIOS**:
+
+1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
+
+1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
+
+1. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
+
+1. Select **Esc** twice to close the **System Configuration** form.
+
+1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10** > **Array Configuration** > **Create Array**.
+
+1. In the **Create Array** form, select all the options.
+
+
+### Install iLO remotely from from a virtual drive
+
+This procedure describes how to install iLO software remotely from a virtual drive.
+
+**To install iLO software**:
 
 1. Sign in to the iLO console, and then right-click the servers' screen.
 
@@ -105,25 +136,27 @@ This procedure describes the iLO installation from a virtual drive.
 
 1. The appliance will restart, and run the sensor installation process.
 
-### Software installation (HPE DL360)
+### Install OT sensor software on the HPE DL360
+
+This procedure describes how to install OT sensor software on the HPE DL360. 
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-**To install the software**:
+**To install OT sensor software**:
 
-1. Connect a screen, and keyboard to the appliance, and then connect to the CLI.
+1. Connect a screen and keyboard to the appliance, and then connect to the CLI.
 
-1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
+1. Connect an external CD or disk-on-key that contains the sensor software you downloaded from the Azure portal.
 
-1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](../how-to-install-software.md#install-the-software).
+1. Continue with the generic procedure for installing OT sensor software. For more information, see [Install Defender for IoT software](../how-to-install-software.md#install-defender-for-iot-software).
 
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](how-to-install-software.md)
+- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
+- [Install software](../how-to-install-software.md)

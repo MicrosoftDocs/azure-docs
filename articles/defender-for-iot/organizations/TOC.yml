@@ -177,7 +177,7 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: OT pre-installed appliances
+  - name: OT preconfigured appliances
     items:
     - name: Corporate appliances
       items:
@@ -197,14 +197,6 @@
       items:
       - name: YS-techsystems YS-FIT2
         href: /appliance-catalog/ys-techsystems-ys-fit2.md
-    - name: Virtual machine appliances
-      items:
-      - name: OT sensors on VMWare ESXi
-        href: ot-sensor-vmware.md
-      - name: OT sensors on Microsoft Hyper-V
-        href: ot-sensor-hyper-v.md
-      - name: On-premises management console on VMWare ESXi or Microsoft Hyper-V
-        href: on-premises-vmware-hyper-v.md
     - name: Legacy appliances
       items:
       - name: Dell PowerEdge R340 XL
