@@ -21,11 +21,11 @@ The HPE ProLiant DL20 Plus is also available for the on-premises management cons
 
 The following image shows a sample of the HPE ProLiant DL20 front panel:
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 front panel." border="false":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 front panel." border="false":::
 
 The following image shows a sample of the HPE ProLiant DL20 back panel:
 
-:::image type="content" source="media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
 
 ### Specifications
 
@@ -105,11 +105,11 @@ Use the following procedure to set up network options and update the default pas
 
 1. Connect a screen and a keyboard to the HPE appliance, turn on the appliance, and press **F9**.
 
-    :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
+    :::image type="content" source="../media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
 
 1. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
 
-    :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
+    :::image type="content" source="../media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
 
     1. Select **Shared Network Port-LOM** from the **Network Interface Adapter** field.
 

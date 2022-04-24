@@ -318,6 +318,7 @@ For more information, see the installation procedures in the following articles:
 
 - [HPE ProLiant DL20/DL20 Plus for SMB deployments](appliance-catalog/hpe-proliant-dl20-plus-smb.md)
 - [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md)
+- [Dell PowerEdge R340 XL](appliance-catalog/dell-poweredge-r340-xl-legacy.md)
 
 ### Software installation
 
