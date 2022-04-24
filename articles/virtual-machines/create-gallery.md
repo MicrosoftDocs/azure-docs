@@ -117,6 +117,7 @@ When creating a community shared gallery, you will need to provide contact infor
 - Publisher URL
 - Legal agreement URL
 
+Information from your image definitions will also be publicly available, like what you provide for **Publisher**, **Offer**, and **SKU**.
 
 ### Prerequisites
 

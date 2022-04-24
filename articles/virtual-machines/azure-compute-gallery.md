@@ -112,6 +112,14 @@ When you are ready, you flag your gallery as ready to be shared publicly. Only t
 
 The end-users can only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery will be used, along with a unique GUID, to create the public facing name for your gallery.
 
+When creating a community gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing:
+- Community gallery prefix
+- Publisher support email
+- Publisher URL
+- Legal agreement URL
+
+Information from your image definitions will also be publicly available, like what you provide for **Publisher**, **Offer**, and **SKU**.
+
 > [!WARNING]
 > If you want to stop sharing a gallery publicly, you can update the gallery to stop sharing, but making the gallery private will prevent existing virtual machine scale set users from scaling their resources.
 >

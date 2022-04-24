@@ -41,6 +41,8 @@ Image definition names can be made up of uppercase or lowercase letters, digits,
 
 Allowed characters for the image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
+If you will be sharing your images using a community gallery, be aware that information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
+
 When working through this article, replace the resource names where needed.
 
 ## Create an image 
