@@ -209,9 +209,9 @@
       items:
       - name: Dell PowerEdge R340 XL (enterprise)
         href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
-      - name: HPE Edgeline EL300
+      - name: HPE Edgeline EL300 (SMB rugged)
         href: appliance-catalog/hpe-edgeline-el300.md
-      - name: Neousys Nuvo-500LP
+      - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md

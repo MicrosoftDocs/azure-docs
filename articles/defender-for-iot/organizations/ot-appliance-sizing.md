@@ -40,7 +40,7 @@ Use the following hardware profiles for production line monitoring:
 
 ## On-premises management console systems
 
-On-premises management consoles allow to manage and monitor large multiple sensor deployments. Use the following  hardware profiles for deployment of an on-premises management console:
+On-premises management consoles allow you to manage and monitor large, multiple-sensor deployments. Use the following hardware profiles for deployment of an on-premises management console:
 
 |Hardware profile  |Max monitored sensors  |Deployment  |
 |---------|---------|---------|
