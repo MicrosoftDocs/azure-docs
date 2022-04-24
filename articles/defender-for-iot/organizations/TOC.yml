@@ -207,7 +207,7 @@
         href: appliance-catalog/virtual-management-hyper-v.md
     - name: Legacy appliances
       items:
-      - name: Dell PowerEdge R340 XL
+      - name: Dell PowerEdge R340 XL (enterprise)
         href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
       - name: HPE Edgeline EL300
         href: appliance-catalog/hpe-edgeline-el300.md
