@@ -98,11 +98,11 @@ For Azure VMs, the following high availability configurations are supported on D
 	- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server}](./sap-hana-scale-out-standby-netapp-files-suse.md)
 	- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](./sap-hana-scale-out-standby-netapp-files-rhel.md)
 - SQL Server Failover cluster based on Windows Scale-Out File Services. Though recommendation for production systems is to use SQL Server Always On instead of clustering. SQL Server Always On provides better availability using separate storage. Details are described in this article: 
-	- [Configure a SQL Server failover cluster instance on Azure virtual machines](../../../azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md)
+	- [Configure a SQL Server failover cluster instance on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)
 - SQL Server Always On is supported with the Windows operating system for SQL Server on Azure. This is the default recommendation for production SQL Server instances on Azure. Details are described in these articles:
-	- [Introducing SQL Server Always On availability groups on Azure virtual machines](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
-	- [Configure an Always On availability group on Azure virtual machines in different regions](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions.md).
-	- [Configure a load balancer for an Always On availability group in Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
+	- [Introducing SQL Server Always On availability groups on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/availability-group-overview).
+	- [Configure an Always On availability group on Azure virtual machines in different regions](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions).
+	- [Configure a load balancer for an Always On availability group in Azure](/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure).
 - Oracle Data Guard for Windows and Oracle Linux. Details for Oracle Linux can be found in this article:
 	- [Implement Oracle Data Guard on an Azure Linux virtual machine](../oracle/configure-oracle-dataguard.md)
 - IBM Db2 HADR on SUSE and RHEL Detailed documentation for SUSE and RHEL using Pacemaker is provided here:

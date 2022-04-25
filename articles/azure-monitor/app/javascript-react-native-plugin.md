@@ -52,6 +52,16 @@ appInsights.loadAppInsights();
 
 ```
 
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-correlation).
+
+### PageView
+
+If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
+
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
