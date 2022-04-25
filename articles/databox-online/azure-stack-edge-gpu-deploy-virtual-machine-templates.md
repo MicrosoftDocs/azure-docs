@@ -413,50 +413,6 @@ Deploy the template `CreateImage.json`. This template deploys the image resource
     PS C:\WINDOWS\system32>
     ```
 
-    Here's a sample json used in this article.
-    
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-          "vmName": {
-              "value": "VM1"
-          },
-          "adminUsername": {
-              "value": "Administrator"
-          },
-          "Password": {
-              "value": "Password1"
-          },
-        "imageName": {
-          "value": "myaselinuximg"
-        },
-        "vmSize": {
-          "value": "Standard_NC4as_T4_v3"
-        },
-        "vnetName": {
-          "value": "ASEVNET"
-        },
-        "subnetName": {
-          "value": "ASEVNETsubNet"
-        },
-        "vnetRG": {
-          "value": "aserg"
-        },
-        "nicName": {
-          "value": "nic5"
-        },
-        "privateIPAddress": {
-          "value": ""
-        },
-        "IPConfigName": {
-          "value": "ipconfig5"
-        }
-      }
-    }
-    ```
-
 ### [AzureRM](#tab/azure-rm)
 
 Deploy the template `CreateImage.json`. This template deploys the image resources that will be used to create VMs in the later step.
