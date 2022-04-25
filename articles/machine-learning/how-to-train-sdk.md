@@ -1,19 +1,19 @@
 ---
-title: Train models with the Azure ML Python SDK (v2) (preview)
+title: Train models with the Azure ML Python SDK v2 (preview)
 titleSuffix: Azure Machine Learning
-description: Configure and submit Azure Machine Learning jobs to train your models.with SDK v2.
+description: Configure and submit Azure Machine Learning jobs to train your models with SDK v2.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
+author: balapv
+ms.author: balapb
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 04/23/2022
+ms.date: 04/25/2022
 ms.topic: how-to
 ms.custom: sdkv2
 ---
 
-# Train models with the Azure ML Python SDK (v2) (preview)
+# Train models with the Azure ML Python SDK v2 (preview)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
@@ -80,7 +80,7 @@ Let us tackle these steps below
 
 ### 1. Connect to the workspace
 
-To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](https://docs.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python). Check this [example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python). Check this [example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
 ```python
 #import required libraries
@@ -161,7 +161,7 @@ In the above, you configured:
 - `command` -  command that needs to be run
 - `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. To use files or folders as inputs, you can use the `Input` class.
 
-For more details, refer to the reference documentation [here](https://review.docs.microsoft.com/en-us/python/api/azure-ml/azure.ml?view=azure-ml-py&branch=sdk-cli-v2-preview-master#azure-ml-command)
+For more details, refer to the reference documentation [here](/python/api/azure-ml/azure.ml?view=azure-ml-py&branch=sdk-cli-v2-preview-master#azure-ml-command)
 
 ## Improve the model using hyperparameter sweep
 
