@@ -90,7 +90,7 @@ Sign-in conditions are configured in [Azure AD Conditional Access](../conditiona
 | High risk| Require MFA always for external users |
 
 
-Today, you can [enforce multi-factor authentication for B2B users in your tenant](../external-identities/b2b-tutorial-require-mfa.md). You can also trust the MFA from external tenants to satisfy your MFA requirements using [Cross Tenant Access Settings](https://docs.microsoft.com/azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration#modify-inbound-access-settings).
+Today, you can [enforce multi-factor authentication for B2B users in your tenant](../external-identities/b2b-tutorial-require-mfa.md). You can also trust the MFA from external tenants to satisfy your MFA requirements using [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration#modify-inbound-access-settings).
 
 **User- and device-based sign in conditions**.
 
@@ -101,7 +101,7 @@ Today, you can [enforce multi-factor authentication for B2B users in your tenant
 | Identity protection shows high risk| Require user to change password |
 | Network location| Require sign in from a specific IP address range to highly confidential projects |
 
-Today, to use device state as an input to a policy, the device must be either be registered or joined to your tenant or [Cross Tenant Access Settings](https://docs.microsoft.com/azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration#modify-inbound-access-settings) must be configured to trust the device claims from the home tenant.  
+Today, to use device state as an input to a policy, the device must be either be registered or joined to your tenant or [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration#modify-inbound-access-settings) must be configured to trust the device claims from the home tenant.  
 
 [Identity Protection risk-based policies](../conditional-access/howto-conditional-access-policy-risk.md) can be used. However, issues must be mitigated in the user’s home tenant.
 
