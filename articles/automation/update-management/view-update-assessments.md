@@ -54,12 +54,12 @@ Machine Name | Name of the machine attached to Update Management.
 Compliance | State of the system's compliance with security and critical updates.
 Update agent readiness | View the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.|
 Platform | Lists the platform as either Azure or non-Azure. 
-Operating system | Lists the operating system.
+Operating system | Lists the operating system as either Windows or Linux.
 Critical missing updates| Count of missing critical updates.        
 Security missing updates | Count of missing security updates.
 Other missing updates |  Count of non-security and non-critical updates.
-Update approval source | The source of updates. Either Windows update, WSUS, Microsoft update *applicable to Windows*.
-Windows auto update | Default OS update setting on the machine *applicable to Windows* 
+Update approval source | The source of updates. Either Windows update, WSUS, and Microsoft update *applicable to Windows*.
+Windows auto update | Default OS update setting on the machine *applicable to Windows* .
 
 > [!NOTE]
 > Information that is displayed about the Windows Defender definition update status is based on the last data that was summarized from the Log Analytics workspace and might not be current. Review [Windows Defender update always show as missing](../troubleshoot/update-management.md#windows-defender-update-missing-status) to learn more about this behavior.
