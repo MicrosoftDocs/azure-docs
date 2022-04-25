@@ -46,13 +46,11 @@ items:
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
     - name: How to recognize speech
-      items:
-      - name: Start speech recognition
-        href: how-to-recognize-speech.md
-      - name: Set recognition source language
-        href: how-to-specify-source-language.md
-      - name: Get speech recognition results
-        href: get-speech-recognition-results.md
+      href: how-to-recognize-speech.md
+    - name: Set recognition source language
+      href: how-to-specify-source-language.md
+    - name: Get speech recognition results
+      href: get-speech-recognition-results.md
     - name: How to use batch transcription
       href: batch-transcription.md
     - name: Improve recognition with Custom Speech
