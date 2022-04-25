@@ -25,7 +25,7 @@ You can use any of the following resources for a training compute target for mos
 |[Azure&nbsp;Databricks](../articles/machine-learning/v1/how-to-attach-compute-targets.md#databricks)| Yes (SDK local mode only) | Yes | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/v1/how-to-attach-compute-targets.md#adla) | &nbsp; | Yes | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/v1/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Yes | &nbsp; |
-|[Azure Batch](../articles/machine-learning/hv1/ow-to-attach-compute-targets.md#azbatch) | &nbsp; | Yes | &nbsp; |
+|[Azure Batch](../articles/machine-learning/v1/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Yes | &nbsp; |
 |[Azure Kubernetes Service](../articles/machine-learning/v1/how-to-attach-compute-targets.md#kubernetes) (preview) | Yes | Yes | Yes |
 |[Azure Arc-enabled Kubernetes](../articles/machine-learning/v1/how-to-attach-compute-targets.md#kubernetes) (preview) | Yes | Yes | Yes |
 

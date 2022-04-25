@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Configure and submit Azure Machine Learning jobs to train your models with SDK v2.
 services: machine-learning
 author: balapv
-ms.author: balapb
+ms.author: balapv
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -20,12 +20,12 @@ ms.custom: sdkv2
 > * [v1](v1/how-to-attach-compute-targets.md)
 > * [v2 (preview)](how-to-attach-compute-targets.md)
 
-In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training job. Then use one of the [example notebooks](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk) to find the full end-to-end working examples.
+In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training     job. Then use one of the [example notebooks](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk) to find the full end-to-end working examples.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-* The Azure Machine Learning SDK v2 for Python - [install SDKv2](./install-sdkv2.md)
+* The Azure Machine Learning SDK v2 for Python - [install SDKv2]()
 * An Azure Machine Learning workspace
 
 ### Clone examples repository
@@ -217,7 +217,7 @@ As seen above, the `sweep` function allows user to configure the following key a
 
 Once this job completes, you can look at the metrics and the job details in the [Azure ML Portal](https://ml.azure.com/). The job details page will identify the best performing child run.
 
-:::image type="content" source="sweep-best-run.jpg" alt-text="Best run of the sweep":::
+:::image type="content" source="media/how-to-train-sdk/sweep-best-run.jpg" alt-text="Best run of the sweep":::
  
 ## Distributed training
 
@@ -241,4 +241,4 @@ job.distribution = MpiDistribution(process_count_per_instance=3)
 
 Try these next steps to learn how to use the Azure Machine Learning SDK (v2) for Python:
 
-1. [Use pipelines with the Azure ML Python SDK (v2)](../pipeline-sdkv2.md)
+1. Use pipelines with the Azure ML Python SDK (v2)

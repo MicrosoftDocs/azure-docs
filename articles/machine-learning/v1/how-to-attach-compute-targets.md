@@ -20,7 +20,7 @@ ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021, sdkv1
 > * [v1](how-to-attach-compute-targets.md)
 > * [v2 (preview)](../how-to-attach-compute-targets.md)
 	 
-Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](concept-compute-target.md) in your machine learning tasks.
+Learn how to attach Azure compute resources to your Azure Machine Learning workspace with SDK v1.  Then you can use these resources as training and inference [compute targets](../concept-compute-target.md) in your machine learning tasks.
 
 In this article, learn how to set up your workspace to use these compute resources:
 
@@ -29,7 +29,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
+* Azure Databricks - used as a training compute target only in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
 * Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
@@ -44,7 +44,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
 ## Limitations
 
@@ -130,13 +130,13 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
 
 ## <a id="synapse"></a>Apache Spark pools
 
-The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
+The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](../how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
 
 ## <a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight is a popular platform for big-data analytics. The platform provides Apache Spark, which can be used to train your model.
 
-1. **Create**:  Azure Machine Learning cannot create an HDInsight cluster for you. Instead, you must create the cluster and then attach it to your Azure Machine Learning workspace. For more information, see [Create a Spark Cluster in HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+1. **Create**:  Azure Machine Learning cannot create an HDInsight cluster for you. Instead, you must create the cluster and then attach it to your Azure Machine Learning workspace. For more information, see [Create a Spark Cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
     > [!WARNING]
     > Azure Machine Learning requires the HDInsight cluster to have a __public IP address__.
@@ -342,7 +342,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 ## <a id="aci"></a>Azure Container Instance
 
-Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md).
+Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
 ## <a id="kubernetes"></a>Kubernetes (preview)
 
