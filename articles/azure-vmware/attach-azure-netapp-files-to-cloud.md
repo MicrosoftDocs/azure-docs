@@ -30,6 +30,14 @@ The diagram below demonstrates a typical architecture of Azure NetApp Files back
 
 Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany West Central, Japan West, North Central US, North Europe, Southeast Asia, Switzerland West, UK South, UK West, US South Central, and West US are currently supported and will be expanded to other Azure VMware Solution regions later in the preview. 
 
+## Performance best practices
+
+There are some important best practices to follow for optimal performance of NFS datastores on Azure NetApp Files volumes.
+
+- For optimized performance, choose **UltraPerformance** gateway and enable [ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
+- Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For best performance, it's recommended to use the Ultra tier.
+- Create multiple datastores of 4-TB size for better performance. The current default datastore limit is 8. The limit can be increased up to a maximum of 64 through submitting a Support ticket.  
+
 ## Prerequisites
 
 1. [Deploy Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/deploy-azure-vmware-solution?) private cloud in a configured virtual network. For more information, see [Network planning checklist](/azure/azure-vmware/tutorial-network-checklist) and [Configure networking for your VMware private cloud](https://review.docs.microsoft.com/azure/azure-vmware/tutorial-configure-networking?).
@@ -41,14 +49,6 @@ Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, 
 
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
     1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it's recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
-
-## Performance best practices
-
-There are some important best practices to follow for optimal performance of NFS datastores on Azure NetApp Files volumes.
-
-- For optimized performance, choose **UltraPerformance** gateway and enable [ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
-- Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For best performance, it's recommended to use the Ultra tier.
-- Create multiple datastores of 4-TB size for better performance. The current default datastore limit is 8. The limit can be increased up to a maximum of 64 through submitting a Support ticket.  
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
