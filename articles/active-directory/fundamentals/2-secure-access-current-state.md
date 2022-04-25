@@ -2,14 +2,14 @@
 title: Discover the current state of external collaboration with Azure Active Directory 
 description: Learn methods to discover the current state of your collaboration.
 services: active-directory
-author: BarbaraSelden
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.author: baselden
+ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -34,6 +34,8 @@ To find users who are currently collaborating, review the [Microsoft 365 audit l
 ## Find current collaboration partners
 
 External users may be [Azure AD B2B users](../external-identities/what-is-b2b.md) (preferable) with partner-managed credentials, or external users with locally provisioned credentials. These users are typically (but not always) marked with a UserType of Guest. You can enumerate guest users through the [Microsoft Graph API](/graph/api/user-list?tabs=http), [PowerShell](/graph/api/user-list?tabs=http), or the [Azure portal](../enterprise-users/users-bulk-download.md).
+
+There are also tools specifically designed to identify existing Azure AD B2B cllaboration such as identifying external Azure AD tenants, and which external users are accessing what applications. These tools include a [PowerShell module](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity) and an [Azure Monitor workbook](https://docs.microsoft.com/azure/active-directory/reports-monitoring/workbook-cross-tenant-access-activity).  
 
 ### Use email domains and companyName property
 
