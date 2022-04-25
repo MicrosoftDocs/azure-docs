@@ -35,7 +35,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
 
 
 ### Create a container registry
@@ -245,7 +245,7 @@ https://github.com/MicrosoftDocs/pipelines-javascript-docker
 
 ## Create the Azure resources
 
-Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](/azure/cloud-shell/overview) button in the upper-right corner.
+Sign in to the [Azure portal](https://portal.azure.com/), and then select the [Cloud Shell](../cloud-shell/overview.md) button in the upper-right corner.
 
 ### Create a container registry
 

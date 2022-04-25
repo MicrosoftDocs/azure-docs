@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/02/2022
+ms.date: 04/18/2022
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -85,6 +85,14 @@ Follow these steps to make a user eligible for an Azure resource role.
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
 1. To specify a specific assignment duration, change the start and end dates and times.
+
+1. If the role has been defined with actions that permit assignments to that role with conditions, then you can select **Add condition** to add a condition based on the principal user and resource attributes that are part of the assignment.
+
+    ![New assignment - Conditions](./media/pim-resource-roles-assign-roles/new-assignment-conditions.png)
+    
+    Conditions can be entered in the expression builder. 
+
+    ![New assignment - Condition built from an expression](./media/pim-resource-roles-assign-roles/new-assignment-condition-expression.png)
 
 1. When finished, select **Assign**.
 

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 02/02/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv1
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv1, sdkv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
@@ -163,6 +163,8 @@ Most examples in the documentation and samples use interactive authentication. F
 
 * Calling the `from_config()` function will issue the prompt.
 
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
     ```python
     from azureml.core import Workspace
     ws = Workspace.from_config()
@@ -171,6 +173,8 @@ Most examples in the documentation and samples use interactive authentication. F
     The `from_config()` function looks for a JSON file containing your workspace connection information.
 
 * Using the `Workspace` constructor to provide subscription, resource group, and workspace information, will also prompt for interactive authentication.
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     ws = Workspace(subscription_id="your-sub-id",
@@ -182,6 +186,7 @@ Most examples in the documentation and samples use interactive authentication. F
 > [!TIP]
 > If you have access to multiple tenants, you may need to import the class and explicitly define what tenant you are targeting. Calling the constructor for `InteractiveLoginAuthentication` will also prompt you to login similar to the calls above.
 >
+> [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 > ```python
 > from azureml.core.authentication import InteractiveLoginAuthentication
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
@@ -192,6 +197,7 @@ When using the Azure CLI, the `az login` command is used to authenticate the CLI
 > [!TIP]
 > If you are using the SDK from an environment where you have previously authenticated interactively using the Azure CLI, you can use the `AzureCliAuthentication` class to authenticate to the workspace using the credentials cached by the CLI:
 >
+> [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 > ```python
 > from azureml.core.authentication import AzureCliAuthentication
 > cli_auth = AzureCliAuthentication()
@@ -208,6 +214,8 @@ When using the Azure CLI, the `az login` command is used to authenticate the CLI
 
 To authenticate to your workspace from the SDK, using a service principal, use the `ServicePrincipalAuthentication` class constructor. Use the values you got when creating the service provider as the parameters. The `tenant_id` parameter maps to `tenantId` from above, `service_principal_id` maps to `clientId`, and `service_principal_password` maps to `clientSecret`.
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
 
@@ -218,6 +226,8 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
 
 The `sp` variable now holds an authentication object that you use directly in the SDK. In general, it is a good idea to store the ids/secrets used above in environment variables as shown in the following code. Storing in environment variables prevents the information from being accidentally checked into a GitHub repo.
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 import os
 
@@ -227,6 +237,8 @@ sp = ServicePrincipalAuthentication(tenant_id=os.environ['AML_TENANT_ID'],
 ```
 
 For automated workflows that run in Python and use the SDK primarily, you can use this object as-is in most cases for your authentication. The following code authenticates to your workspace using the auth object you created.
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace
@@ -258,6 +270,8 @@ For information and samples on authenticating with MSAL, see the following artic
 ## Use managed identity authentication
 
 To authenticate to the workspace from a VM or compute cluster that is configured with a managed identity, use the `MsiAuthentication` class. The following example demonstrates how to use this class to authenticate to a workspace:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.authentication import MsiAuthentication

@@ -8,10 +8,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "xref_query_tags": [
-        "/dotnet",
-        "/python"
-      ],
+      "xref_query_tags": ["/dotnet", "/python"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "ZonePivotGroups": "Toc",
@@ -26,12 +23,8 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [
-    "azure-docs-publish@microsoft.com"
-  ],
-  "sync_notification_subscribers": [
-    "angrobe_extended_dir@microsoft.com"
-  ],
+  "notification_subscribers": ["azure-docs-publish@microsoft.com"],
+  "sync_notification_subscribers": ["angrobe_extended_dir@microsoft.com"],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
   "git_repository_branch_open_to_public_contributors": "main",
@@ -442,9 +435,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-march-cli-preview",
+      "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "march-cli-preview",
+      "branch": "sdk-preview",
       "branch_mapping": {}
     },
     {
@@ -801,21 +794,27 @@
       "branch": "main",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "active-directory-b2c-msal-node-sign-in-sign-out-webapp",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp",
       "branch": "main",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
       "branch": "master",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-javascript-v2",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-v2",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -870,14 +869,8 @@
 
   ],
   "branch_target_mapping": {
-    "live": [
-      "Publish",
-      "PDF"
-    ],
-    "main": [
-      "Publish",
-      "PDF"
-    ]
+    "live": ["Publish", "PDF"],
+    "main": ["Publish", "PDF"]
   },
   "need_generate_pdf_url_template": true,
   "targets": {
@@ -899,7 +892,6 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.key-vault.json",
-    ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.sql-database.json",
     "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",

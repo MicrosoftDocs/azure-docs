@@ -4,7 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
 ms.service: data-science-vm
-
+ms.custom: sdkv1
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
@@ -175,6 +175,8 @@ When the model has deployed successfully, you should see the following (to get t
 You should see that the deployment state goes from __transitioning__ to __healthy__. In addition, this details section provides the REST endpoint and Swagger URLs that an application developer can use to integrate your ML model into their apps.
 
 You can test the endpoint using [Postman](https://www.postman.com/), or you can use the AzureML SDK:
+
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Webservice

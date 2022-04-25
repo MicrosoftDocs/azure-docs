@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: contperf-fy21q1, data4ml
+ms.custom: contperf-fy21q1, data4ml, sdkv1
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
@@ -17,6 +17,8 @@ ms.date: 10/21/2021
 ---
 
 # Create Azure Machine Learning datasets
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments with the Azure Machine Learning Python SDK. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 

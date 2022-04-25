@@ -10,6 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/15/2022
 ms.topic: how-to
+ms.custom: sdkv1
 
 ---
 

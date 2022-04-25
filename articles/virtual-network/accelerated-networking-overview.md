@@ -85,6 +85,31 @@ az vm list-skus \
 
 If you're using a custom image and your image supports Accelerated Networking, make sure that you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Also, Accelerated Networking requires network configurations that exempt the configuration of the virtual functions (mlx4_en and mlx5_core drivers). In images that have cloud-init >=19.4, networking is correctly configured to support Accelerated Networking during provisioning.
 
+
+Sample configuration drop-in for NetworkManager (RHEL, CentOS):
+```
+sudo mkdir -p /etc/NetworkManager/conf.d 
+sudo cat /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF 
+# Ignore SR-IOV interface on Azure, since it'll be transparently bonded 
+# to the synthetic interface 
+[keyfile] 
+unmanaged-devices=driver:mlx4_core;driver:mlx5_core 
+EOF 
+```
+
+Sample configuration drop-in for networkd (Ubuntu, Debian, Flatcar):
+```
+sudo mkdir -p /etc/systemd/network 
+sudo cat /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF 
+# Ignore SR-IOV interface on Azure, since it'll be transparently bonded 
+# to the synthetic interface 
+[Match] 
+Driver=mlx4_en mlx5_en mlx4_core mlx5_core 
+[Link] 
+Unmanaged=yes 
+EOF 
+```
+
 ### Regions
 
 Accelerated networking is available in all global Azure regions and Azure Government Cloud.

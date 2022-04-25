@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.  
 author: sdgilley
 ms.author: sgilley
-ms.custom: subject-cost-optimization, devx-track-azurecli
+ms.custom: subject-cost-optimization, devx-track-azurecli, sdkv1
 ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
@@ -35,7 +35,7 @@ On the left, select **AI + Machine Learning**, then select **Azure Machine Learn
 
 The following screenshot shows the cost estimation by using the calculator:
 
-:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing estimated cost in the Azure Pricing calculator.":::
+:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing estimated cost in the Azure Pricing calculator. Prices in this screenshot are examples only; your price may differ.":::
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
 
@@ -79,6 +79,7 @@ After you delete an Azure Machine Learning workspace in the Azure portal or with
 
 To delete the workspace along with these dependent resources, use the SDK:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 ```python
 ws.delete(delete_dependent_resources=True)
 ```

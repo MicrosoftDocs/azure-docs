@@ -32,19 +32,19 @@ In this article, you learn to do the following tasks:
 > * Test the new deployment and set it as the default deployment
 > * Delete the not in-use endpoint and deployment
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Prerequisites
 
 * You must have an Azure subscription to use Azure Machine Learning. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* Install the Azure CLI and the `ml` extension. Follow the installation steps in [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* Install the Azure CLI and the `ml` extension. Follow the installation steps in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-* Create an Azure resource group if you don't have one, and you (or the service principal you use) must have `Contributor` permission. For resource group creation, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
+* Create an Azure resource group if you don't have one, and you (or the service principal you use) must have `Contributor` permission. For resource group creation, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
 
-* Create an Azure Machine Learning workspace if you don't have one. For workspace creation, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
+* Create an Azure Machine Learning workspace if you don't have one. For workspace creation, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
 
-* Configure your default workspace and resource group for the Azure CLI. Machine Learning CLI commands require the `--workspace/-w` and `--resource-group/-g` parameters. Configure the defaults can avoid passing in the values multiple times. You can override these on the command line. Run the following code to set up your defaults. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* Configure your default workspace and resource group for the Azure CLI. Machine Learning CLI commands require the `--workspace/-w` and `--resource-group/-g` parameters. Configure the defaults can avoid passing in the values multiple times. You can override these on the command line. Run the following code to set up your defaults. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
 ```azurecli
 az account set -s "<subscription ID>"

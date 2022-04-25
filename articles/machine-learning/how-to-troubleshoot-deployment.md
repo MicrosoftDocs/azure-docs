@@ -9,7 +9,7 @@ ms.date: 10/21/2021
 author: blackmist
 ms.author: larryfr
 ms.topic: troubleshooting
-ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, sdkv1
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 
@@ -63,6 +63,7 @@ az ml service get-logs --verbose --workspace-name <my workspace name> --name <se
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Assuming you have an object of type `azureml.core.Workspace` called `ws`, you can do the following:
 
@@ -126,6 +127,8 @@ The most common failure for `azureml-fe-aci` is that the provided SSL certificat
 ## Function fails: get_model_path()
 
 Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.model import Model

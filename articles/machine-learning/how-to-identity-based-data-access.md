@@ -205,8 +205,6 @@ When you submit a training job that consumes a dataset created with identity-bas
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 When training on [Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster), you can authenticate to storage with your Azure Active Directory token. 
 
 This authentication mode allows you to: 
@@ -215,7 +213,7 @@ This authentication mode allows you to:
 
 > [!WARNING] 
 > This functionality has the following limitations
-> * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI v2 (preview)](how-to-configure-cli.md)
+> * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](how-to-configure-cli.md)
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
 

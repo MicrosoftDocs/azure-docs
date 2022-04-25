@@ -58,6 +58,8 @@ You'll need the following items:
 * Start a run and its logging process
 
     # [Python](#tab/python)
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
     
     1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment), [Run](/python/api/azureml-core/azureml.core.run%28class%29), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) classes from the [azureml.core](/python/api/azureml-core/azureml.core) package.
     
@@ -126,6 +128,8 @@ You'll need the following items:
 * Monitor the status of a run
 
     # [Python](#tab/python)
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
     
     * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
     
@@ -228,6 +232,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 * Add properties and tags
 
     # [Python](#tab/python)
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
     
     To add searchable metadata to your runs, use the [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
     
@@ -290,6 +296,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
     # [Python](#tab/python)
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
     
     ```Python
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
@@ -327,6 +335,8 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
@@ -372,6 +382,8 @@ To cancel a run in the studio, using the following steps:
 ---
 
 ## Create child runs
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
 
