@@ -74,29 +74,13 @@ Install the Moby engine.
      sudo apt-get install moby-engine
    ```
 ---
-Once the Moby Engine is successfully installed, configure the Docker daemon to use the [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
-
->[!NOTE]
->By default, the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space.
-
-We recommend using `local` logging driver as it offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limit based on your need. The following example sets the default logging driver to the `local` logging driver. 
+Once the Moby Engine is successfully installed, configure the Docker daemon to use the [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. The following example sets the default logging driver to the `local` logging driver. 
    
 ```JSON
    {
       "log-driver": "local"
    }
    ```
-You can also configure your `log-opts` keys to use appropriate values in the `daemon.json` file. The following example sets the log driver to `local` and sets the `max-size` and `max-file` options.
-
-```JSON
-{
-    "log-driver": "local",
-    "log-opts": {
-        "max-size": "10m",
-        "max-file": "3"
-    }
-}
-```
 Add (or append) this information to a file named `daemon.json` and place it in the following location:
 
 * `/etc/docker/`
