@@ -102,9 +102,10 @@ If you don't have a classic VNet and are using these steps as an exercise, you c
   * Location = West US
 
 1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-1. **Important** - to see the option to create a classic VNet, you have to navigate to the page using the following steps.
+   > [!Important]
+   > To see the option to create a classic VNet, you have to navigate to the page using the following steps.
 
-   Click **+ Create a resource** at the top of the page to open the page showing **Search service and marketplace**.
+1. Click **+ Create a resource** at the top of the page to open the page showing **Search service and marketplace**.
 1. In the **Search services and marketplace** field, type 'Virtual Network'.
 1. Locate **Virtual Network** from the returned list and click it to open the **Virtual network** page.
 1. On the **Virtual network** page, in the text under the 'Create' button, click **(change to Classic)** to toggle to the Deploy with Classic wording. If you accidentally don't do this, you'll  wind up with a Resource Manager VNet instead.
