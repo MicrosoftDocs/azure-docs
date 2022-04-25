@@ -22,14 +22,14 @@ This article provides a brief overview about considerations for using availabili
 
 During preview, the following considerations apply:
 
-* You can enable availability zones only for the following Azure regions:<br><br>
+* The following list includes the Azure regions where you can currently enable availability zones with the list expanding as available:<br><br>
 
   - Australia East
   - Brazil South
   - Canada Central
   - France Central
 
-* Azure Logic Apps supports the option to enable availability zones for *only new Consumption logic app workflows* that run in multi-tenant Azure Logic Apps.
+* Azure Logic Apps currently supports the option to enable availability zones *only for new Consumption logic app workflows* that run in multi-tenant Azure Logic Apps.
 
   * This option is available *only when you create a Consumption logic app using the Azure portal*. No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable availability zones.
 
