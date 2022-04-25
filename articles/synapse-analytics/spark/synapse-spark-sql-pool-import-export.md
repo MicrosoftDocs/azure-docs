@@ -263,14 +263,14 @@ val writeOptionsWithBasicAuth:Map[String, String] = Map(Constants.SERVER -> "<de
                                            //Set database user's password
                                            Constants.PASSWORD -> "<user_password>",
                                            //Required only when writing to an external table. For write to internal table, this can be used instead of TEMP_FOLDER option.
-                                           Constants.DATA_SOURCE -> "<Name of the datasource as defined in the target database>"
+                                           Constants.DATA_SOURCE -> "<Name of the datasource as defined in the target database>",
                                            //To be used only when writing to internal tables. Storage path will be used for data staging.
                                            Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
 
 //Configure and submit the request to write to Azure Synapse Dedicated SQL Pool. 
 readDF.
     write.
-    options(writeOptions).
+    options(writeOptionsWithBasicAuth).
     //Choose a save mode that is apt for your use case.
     mode(SaveMode.Overwrite). 
     synapsesql(tableName = "<database_name>.<schema_name>.<table_name>", 
