@@ -39,7 +39,6 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 1. Configure the web app with a custom docker container from Docker Hub.
 
    ```azurecli
-
    az webapp config container set --docker-custom-image-name $dockerHubContainerPath --name $webApp --resource-group $resourceGroup
    ```
 
