@@ -294,7 +294,7 @@ You can change the key that you are using for Azure Load Testing encryption at a
 
 ## Key rotation
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. To rotate a key, in Azure Key Vault, update the key version or create a new key. You can then update the Azure Load Testing resource to encrypt data using the new key URI. You can follow the steps [here](#change-the-key) to update the key.
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. To rotate a key, in Azure Key Vault, update the key version or create a new key. You can then update the Azure Load Testing resource to [encrypt data using the new key URI](#change-the-key).
 
 ## Frequently asked questions
 
