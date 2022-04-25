@@ -13,7 +13,7 @@ ms.date: 04/25/2022
 
 Azure NetApp Files allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. Re-establishing the relationship can only be performed from the destination volume. 
 
-If the destination volume remains operational and no snapshots we deleted, the replication re-establish operation will use the last common snapshot and incrementally synchronize the destination volume based on the last known good snapshot. No baseline will be required. 
+If the destination volume remains operational and no snapshots were deleted, the replication re-establish operation will use the last common snapshot and incrementally synchronize the destination volume based on the last known good snapshot. No baseline will be required. 
 
 ## Considerations
 
