@@ -2,6 +2,8 @@
 title: Configure auto-start settings for a VM
 description: Learn how to configure auto-start settings for VMs in a lab. This setting allows VMs in the lab to be automatically started on a schedule. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/29/2022
 ---
 

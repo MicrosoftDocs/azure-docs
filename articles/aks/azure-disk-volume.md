@@ -3,7 +3,7 @@ title: Create a static volume for pods in Azure Kubernetes Service (AKS)
 description: Learn how to manually create a volume with Azure disks for use with a pod in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/01/2019
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
@@ -65,10 +65,11 @@ metadata:
   name: pv-azuredisk
 spec:
   capacity:
-    storage: 100Gi
+    storage: 20Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: managed-csi
   csi:
     driver: disk.csi.azure.com
     readOnly: false
@@ -89,9 +90,9 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Gi
+      storage: 20Gi
   volumeName: pv-azuredisk
-  storageClassName: ""
+  storageClassName: managed-csi
 ```
 
 Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*.
@@ -107,7 +108,7 @@ Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolum
 $ kubectl get pvc pvc-azuredisk
 
 NAME            STATUS   VOLUME         CAPACITY    ACCESS MODES   STORAGECLASS   AGE
-pvc-azuredisk   Bound    pv-azuredisk   100Gi       RWO                           5s
+pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
 ```
 
 Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:

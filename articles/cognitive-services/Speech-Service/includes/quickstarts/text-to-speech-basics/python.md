@@ -43,21 +43,21 @@ Follow these steps to create a new console application and install the Speech SD
 
     ```Python
     import azure.cognitiveservices.speech as speechsdk
-    
+
     speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
     audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
-    
+
     # The language of the voice that speaks.
     speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
-    
+
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-    
+
     # Get text from the console and synthesize to the default speaker.
     print("Enter some text that you want to speak >")
     text = input()
-    
+
     speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
-    
+
     if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
         print("Speech synthesized for text [{}]".format(text))
     elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
@@ -66,7 +66,7 @@ Follow these steps to create a new console application and install the Speech SD
         if cancellation_details.reason == speechsdk.CancellationReason.Error:
             if cancellation_details.error_details:
                 print("Error details: {}".format(cancellation_details.error_details))
-        print("Did you update the subscription info?")
+                print("Did you set the speech resource key and region values?")
     ```
 1. In `speech_synthesis.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.

@@ -1,6 +1,6 @@
 ---
 title: Migrate databases at scale using Azure PowerShell / CLI
-description: Learn how to use Azure PowerShell or CLI to migrate databases at scale using the capabilities of Azure SQL Migration extension in Azure Data Studio with Azure Database Migration Service.
+description: Learn how to use Azure PowerShell or CLI to migrate databases at scale using the capabilities of Azure SQL migration extension in Azure Data Studio with Azure Database Migration Service.
 services: database-migration
 author: mokabiru
 ms.author: mokabiru
@@ -15,7 +15,7 @@ ms.custom:
 
 # Migrate databases at scale using automation (Preview)
 
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to assess, get Azure recommendations and migrate your SQL Server databases to Azure. Using automation with [Azure PowerShell](/powershell/module/az.datamigration) or [Azure CLI](/cli/azure/datamigration), you can leverage the capabilities of the extension with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
+The [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to assess, get Azure recommendations and migrate your SQL Server databases to Azure. Using automation with [Azure PowerShell](/powershell/module/az.datamigration) or [Azure CLI](/cli/azure/datamigration), you can leverage the capabilities of the extension with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
 
 The following sample scripts can be referenced to suit your migration scenario using Azure PowerShell or Azure CLI:
 
@@ -111,6 +111,10 @@ az datamigration sql-managed-instance create `
 $migOpId = az datamigration sql-managed-instance show --managed-instance-name "mySQLMI" --resource-group "myRG" --target-db-name "AdventureWorks2008" --expand=MigrationStatusDetails --query "properties.migrationOperationId"
 az datamigration sql-managed-instance cutover --managed-instance-name "mySQLMI" --resource-group "myRG" --target-db-name "AdventureWorks2008" --migration-operation-id $migOpId
 ```
+
+> [!TIP] 
+> If you receive the error "The subscription is not registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions.", run 
+> ```azurepowershell    Register-AzResourceProvider -ProviderNamespace "Microsoft.DataMigration".   ```
 
 ## Next steps
 

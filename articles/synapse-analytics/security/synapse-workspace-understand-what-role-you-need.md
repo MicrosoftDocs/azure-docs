@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 03/23/2022
+ms.date: 04/22/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021

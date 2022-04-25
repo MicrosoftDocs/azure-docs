@@ -178,10 +178,8 @@
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
   - name: Feature support and retirement
-    items:
-    - name: Feature support and retirement
-      displayName: C, C#, deprecation, support
-      href: edge-security-module-deprecation.md
+    displayName: C, C#, deprecation, support
+    href: edge-security-module-deprecation.md
 - name: Resource
   items:
   - name: Build your security skills with Microsoft Learn

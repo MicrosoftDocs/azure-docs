@@ -6,7 +6,7 @@ ms.author: sidram
 
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 03/31/2022
 ms.custom: devx-track-js
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
@@ -70,6 +70,9 @@ If your input data sent to the ML UDF is inconsistent with the schema that is ex
 
 - Validate input to your ML UDF is not null
 - Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
+
+> [!NOTE]
+> ML UDFs are evaluated for each row of a given query step, even when called via a conditional expression (i.e. `CASE WHEN [A] IS NOT NULL THEN udf.score(A) ELSE '' END`). If need be, use the [WITH](/stream-analytics-query/with-azure-stream-analytics) clause to create diverging paths, calling the ML UDF only where required, before using [UNION](/stream-analytics-query/union-azure-stream-analytics) to merge paths together again.
 
 ## Pass multiple input parameters to the UDF
 
