@@ -18000,7 +18000,7 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_url": "/azure/lab-services/lab-services-overview",
       "redirect_document_id": false
     },
     {
@@ -18250,11 +18250,11 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md",
-      "redirect_url": "/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",
+      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",      
       "redirect_url": "/azure/lab-services/tutorial-setup-classroom-lab",
       "redirect_document_id": true
     },
@@ -43027,6 +43027,31 @@
       "source_path_from_root": "/articles/azure/sentinel/connect-windows-virtual-desktop.md",
       "redirect_url": "/azure/sentinel/connect-azure-virtual-desktop",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/how-to-use-classroom-lab.md",
+      "redirect_url": "/azure/lab-services/how-to-use-lab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-setup-classroom-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-connect-virtual-machine-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/how-to-use-remote-desktop-linux-student.md",
+      "redirect_url": "/azure/lab-services/connect-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/get-started-manage-labs.md",
+      "redirect_url": "/azure/lab-services/quick-create-lab-portal",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
