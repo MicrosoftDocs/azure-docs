@@ -65,7 +65,7 @@ The following example output shows the resource group created successfully:
 
 ## Create an AKS cluster
 
-To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
+To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-advanced-networking] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][configure-azure-cni]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
 
 * The cluster is configured with two nodes.
 * The `--windows-admin-password` and `--windows-admin-username` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet [Windows Server password requirements][windows-server-password]. If you don't specify the *windows-admin-password* parameter, you will be prompted to provide a value.
@@ -339,10 +339,10 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
-[kubernetes-concepts]: concepts-clusters-workloads.md
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
 [aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
-[aks-taints]:  use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[aks-taints]:  ../use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
@@ -354,8 +354,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-cli-install]: /cli/azure/install-azure-cli
-[azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
+[azure-cni-about]: ../concepts-network.md#azure-cni-advanced-networking
+[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
