@@ -125,7 +125,7 @@ If you do not want to keep your deployment, [delete the resource group](../azure
 
 ## Next steps
 
-You can either begin designing policy control to determine how your private mobile network will handle traffic, or you can add more sites to your private mobile network.
+If you have kept your deployment, you can either begin designing policy control to determine how your private mobile network will handle traffic, or you can add more sites to your private mobile network.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
 - [Collect the required information for a site](collect-required-information-for-a-site.md)
