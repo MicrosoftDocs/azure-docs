@@ -822,7 +822,7 @@ Learn more about [system node pools][use-system-pool].
 
 In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
 
-To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
+To create and use Windows Server container node pools, see [Create a Windows Server container in AKS](/learn/quick-windows-container-deploy-cli.md).
 
 Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
 

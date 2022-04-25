@@ -36,7 +36,7 @@ about installing the Az PowerShell module, see
 Install-Module Az.Aks
 ```
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription ID using the
@@ -60,7 +60,7 @@ The following additional limitations apply to Windows Server node pools:
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md)
+An [Azure resource group](../../azure-resource-manager/management/overview.md)
 is a logical group in which Azure resources are deployed and managed. When you create a resource
 group, you are asked to specify a location. This location is where resource group metadata is
 stored, it is also where your resources run in Azure if you don't specify another region during
@@ -90,7 +90,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 ## Create an AKS cluster
 
 Use the `ssh-keygen` command-line utility to generate an SSH key pair. For more details, see
-[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to
 use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more
