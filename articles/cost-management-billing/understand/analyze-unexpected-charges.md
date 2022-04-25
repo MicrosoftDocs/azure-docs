@@ -1,6 +1,6 @@
 ---
 title: Identify anomalies and unexpected changes in cost
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: Learn how to identify anomalies and unexpected changes in cost.
 author: bandersmsft
 ms.reviewer: micflan
