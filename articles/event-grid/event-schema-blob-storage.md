@@ -45,6 +45,19 @@ These events are triggered if you enable a hierarchical namespace on the storage
 > [!NOTE]
 > For **Azure Data Lake Storage Gen2**, if you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](./how-to-filter-events.md).
 
+### List of the events for SFTP APIs
+
+These events are triggered if you enable a hierarchical namespace on the storage account, and clients use SFTP APIs. For more information about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+
+|Event name|Description|
+|----------|-----------|
+|**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed.|
+|**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is also triggered when clients call the `rm` operation, which corresponds to the `SftpRemove` API.|
+|**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on files, which corresponds to the `SftpRename` API.|
+|**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `mkdir` operation, which corresponds to the `SftpMakeDir` API.|
+|**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on a directory, which corresponds to the `SftpRename` API.|
+|**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `rmdir` operation, which corresponds to the `SftpRemoveDir` API.|
+
 ## Example event
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each blob storage event.
 
