@@ -5,16 +5,17 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 04/25/2022
 ms.reviewer: mbullwin
 ---
 
 # Profile production applications in Azure with Application Insights
-## Enable Application Insights Profiler for your application
 
 Azure Application Insights Profiler provides performance traces for applications running in production in Azure. Profiler:
 - Captures the data automatically at scale without negatively affecting your users. 
 - Helps you identify the “hot” code path spending the most time handling a particular web request. 
+
+## Enable Application Insights Profiler for your application
 
 ### Supported in Profiler
 

@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 04/25/2022
 ---
 
 # Profile live Azure containers with Application Insights
@@ -116,38 +116,41 @@ In this article, you'll learn the various ways you can:
 
 ## View the container via your browser
 
-1. To hit the endpoint, either:
+To hit the endpoint, either:
 
-   - Visit [http://localhost:8080/weatherforecast](http://localhost:8080/weatherforecast) in your browser, or
-   - Use curl:
+- Visit [http://localhost:8080/weatherforecast](http://localhost:8080/weatherforecast) in your browser, or
+- Use curl:
    
-     ```terraform
-     curl http://localhost:8080/weatherforecast
-     ```
+  ```terraform
+  curl http://localhost:8080/weatherforecast
+  ```
 
 
 ## Inspect the logs
 
-1. Optionally, inspect the local log to see if a session of profiling finished:
+Optionally, inspect the local log to see if a session of profiling finished:
 
-   ```bash
-   docker logs testapp
-   ```
+```bash
+docker logs testapp
+```
 
-   In the local logs, note the following events:
+In the local logs, note the following events:
    
-   ```output
-   Starting application insights profiler with instrumentation key: your-instrumentation key # Double check the instrumentation key
-   Service Profiler session started.               # Profiler started.
-   Finished calling trace uploader. Exit code: 0   # Uploader is called with exit code 0.
-   Service Profiler session finished.              # A profiling session is completed.
-   ```
+```output
+Starting application insights profiler with instrumentation key: your-instrumentation key # Double check the instrumentation key
+Service Profiler session started.               # Profiler started.
+Finished calling trace uploader. Exit code: 0   # Uploader is called with exit code 0.
+Service Profiler session finished.              # A profiling session is completed.
+```
 
 ## View the Service Profiler traces
 
 1. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
 1. Open the **Performance** blade in your Application Insights resource. 
 1. Once the trace process is complete, you will see the Profiler Traces button like it below:
+
+      :::image type="content" source="./media/profiler-containerinstances/profiler_traces.png" alt-text="Find instrumentation key in Azure portal":::
+
 
 
 ## Clean up resources
