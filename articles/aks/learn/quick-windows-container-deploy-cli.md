@@ -11,7 +11,7 @@ ms.date: 04/25/2022
 
 # Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure CLI
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster using the Azure CLI. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster that runs Windows Server 2019 containers using the Azure CLI. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
 :::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Image of browsing to ASP.NET sample application":::
 
@@ -19,7 +19,11 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 ### Limitations
 
@@ -74,7 +78,7 @@ To run an AKS cluster that supports node pools for Windows Server containers, yo
 > [!NOTE]
 > To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
 
-Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it WINDOWS_USERNAME for use in a later command (remember that the commands in this article are entered into a BASH shell).
+Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and sets it to *WINDOWS_USERNAME* for use in a later command (remember that the commands in this article are entered into a BASH shell).
 
 ```azurecli-interactive
 echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
@@ -99,7 +103,7 @@ az aks create \
 > If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
 >
 > If you do not specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
-> 
+>
 > The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more details, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.

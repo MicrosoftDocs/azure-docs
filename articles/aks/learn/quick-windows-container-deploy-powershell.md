@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 # Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using PowerShell
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and
-manage clusters. In this article, you deploy an AKS cluster using PowerShell. You also deploy an
+manage clusters. In this article, you deploy an AKS cluster running Windows Server 2019 containers using PowerShell. You also deploy an
 `ASP.NET` sample application in a Windows Server container to the cluster.
 
 :::image type="content" source="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png" alt-text="Image of browsing to ASP.NET sample application":::
@@ -26,11 +26,13 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
+* The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+* If you choose to use PowerShell locally, you need to install the [Az PowerShell](/powershell/azure/new-azureps-module-az)
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell][install-azure-powershell]. You also must install the Az.Aks PowerShell module:
+[Install Azure PowerShell][install-azure-powershell].
+* You also must install the [Az.Aks](/powershell/module/az.aks) PowerShell module:
 
 ```azurepowershell-interactive
 Install-Module Az.Aks

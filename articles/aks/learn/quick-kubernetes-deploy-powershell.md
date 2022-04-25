@@ -278,7 +278,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
 
-<!-- LINKS - external -->[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
+<!-- LINKS - external -->
+[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [azure-dev-spaces]: /previous-versions/azure/dev-spaces/
