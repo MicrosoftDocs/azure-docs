@@ -20,11 +20,10 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 ## April
 
-From April 25th, 2022 we are making the Verifiable Credentials service available to more Azure tenants. This important update requires making updates to the service that take about 15 mins o ensure ongoing service operation. [Uptake April configuration changes](verifiable-credentials-faq.md?#uptake-service-configuration-changes).
+From April 25th, 2022 we are making the Verifiable Credentials service available to more Azure tenants. This important update requires making updates to the service that take about 15 mins o ensure ongoing service operation. Existing teanants using the Azure AD Verifiable Credentials service must do the [following steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to avoid service disruptions.
 
 >[!IMPORTANT]
-> The following instructions take about 15 mins to complete. 
-> Existing teanants using the Azure AD Verifiable Credentials service must follow the steps to avoid service disruptions. After April 25th, there will be errors when issuing verifiable credentials on configurations that have not been updated.
+> When the configuration on your tenant has not been updated, there will be errors when issuing verifiable credentials. [Uptake April configuration changes](verifiable-credentials-faq.md?#updating-the-vc-service-configuration).
 
 ## March 2022
 - Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure portal.
