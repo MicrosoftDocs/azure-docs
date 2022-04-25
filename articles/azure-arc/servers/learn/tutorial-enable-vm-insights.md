@@ -7,23 +7,15 @@ ms.date: 04/25/2022
 
 # Tutorial: Monitor a hybrid machine with VM insights
 
-[Azure Monitor](../../../azure-monitor/overview.md) can collect data directly from your hybrid machines into a Log Analytics workspace for detailed analysis and correlation. Typically this would entail installing the [Log Analytics agent](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) on the machine using a script, manually, or automated method following your configuration management standards. Azure Arc-enabled servers recently introduced support to install the Log Analytics and Dependency agent [VM extensions](../manage-vm-extensions.md) for Windows and Linux, enabling [VM insights](../../../azure-monitor/vm/vminsights-overview.md) to collect data from your non-Azure VMs.
+[Azure Monitor](../../../azure-monitor/overview.md) can collect data directly from your hybrid machines into a Log Analytics workspace for detailed analysis and correlation. Previously this would require installing the [Log Analytics agent](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) on the machine using a script, manually, or an automated method following your configuration management standards. Now, Azure Arc-enabled servers can install the Log Analytics and Dependency agent [VM extensions](../manage-vm-extensions.md) for Windows and Linux, enabling [VM insights](../../../azure-monitor/vm/vminsights-overview.md) to collect data from your non-Azure VMs.
 
 This tutorial shows you how to configure and collect data from your Linux or Windows machines by enabling VM insights following a simplified set of steps, which streamlines the experience and takes a shorter amount of time. 
-
-
-
 
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Create and connect to a VM
-> * Select and use VM images
-> * View and use specific VM sizes
-> * Resize a VM
-> * View and understand VM state
-
-
+> * Enable and configure VM insights
+> * View data collected from you non-Azure VMs
 
 ## Prerequisites
 
@@ -59,7 +51,7 @@ Sign in to the [Azure portal](https://portal.azure.com).--->
 
     :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Enable VM insights progress status message" border="false":::
 
-    When the process is complete, a message displays that the machine has been onboarded and that Insight has been successfully deployed.
+    When the process is complete, a message displays that the machine has been onboarded and that insight has been successfully deployed.
 
 ## View data collected
 
