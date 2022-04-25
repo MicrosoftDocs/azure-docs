@@ -60,7 +60,7 @@ its password. Here's how:
 
 Once service principal is created, you need to assign Data plane roles of your purview account to the service principal created above. The below steps need to be followed to assign role to establish trust between the service principal and purview account.
 
-1. Navigate to your [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select the Data Map in the left menu.
 1. Select Collections.
 1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Microsoft Purview account.

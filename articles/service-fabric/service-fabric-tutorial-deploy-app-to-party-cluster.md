@@ -93,12 +93,12 @@ When the new cluster is ready, you can deploy the Voting application directly fr
 
 In Solution Explorer, right-click on **Voting** and select **Publish**. The **Publish** dialog box appears.
 
-In **Connection Endpoint**, select the endpoint for the cluster you created in the previous step.  For example, "mytestcluster.southcentral.cloudapp.azure.com:19000". If you select **Advanced Connection Parameters**, the certificate information should be auto-filled.  
+In **Connection Endpoint**, select the endpoint for the cluster you created in the previous step.  For example, "mytestcluster.southcentralus.cloudapp.azure.com:19000". If you select **Advanced Connection Parameters**, the certificate information should be auto-filled.  
 ![Publish a Service Fabric application](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
 Select **Publish**.
 
-Once the application is deployed, open a browser and enter the cluster address followed by **:8080**. Or enter another port if one is configured. An example is `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. You see the application running in the cluster in Azure. In the voting web page, try adding and deleting voting options and voting for one or more of these options.
+Once the application is deployed, open a browser and enter the cluster address followed by **:8080**. Or enter another port if one is configured. An example is `http://mytestcluster.southcentralus.cloudapp.azure.com:8080`. You see the application running in the cluster in Azure. In the voting web page, try adding and deleting voting options and voting for one or more of these options.
 
 ![Service Fabric voting sample](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 
