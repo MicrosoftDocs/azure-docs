@@ -12,7 +12,7 @@ metadata:
   author: vimeht
   ms.author: vimeht
   
-  ms.date: 04/19/2022
+  ms.date: 04/25/2022
 
 landingContent:
   - title: About Device Update
@@ -33,29 +33,40 @@ landingContent:
           url: device-update-ubuntu-agent.md
         - text: Device update for Azure RTOS
           url: device-update-azure-real-time-operating-system.md
-  - title: Update device components with proxy update
-    linkLists:
-    - linkListType: tutorial
-      links:
-      - text: Proxy update using device update binary agent
-        url: device-update-howto-proxy-updates.md
-    - linkListType: concept
-      links:
-      - text: Proxy updates and multi-component updating
-        url: device-update-proxy-updates.md
-  - title: Secure your IoT solution
+  - title: Prep your devices with the agent
     linkLists:
     - linkListType: concept
       links:
-      - text: Device Update security model
-        url: device-update-security.md
-      - text: Control access to Device Update
-        url: device-update-control-access.md
-  - title: Develop with the open source agent
-    linkLists:
+      - text: Agent overview
+        url: device-update-agent-overview.md
     - linkListType: how-to-guide
       links:
-        - text: How to build and run Device Update Agent
-          url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
-
-
+      - text: Create a device update account
+        url: create-device-update-account.md
+      - text: Provision the agent on your devices
+  - title: Create and import updates
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Import updates into the Device Update service
+        url: import-concepts.md
+    - linkListType: how-to-guide
+      links:
+      - text: Create an update
+        url: create-update.md
+      - text: Import an update
+        url: import-update.md
+  - title: Organize and update your devices
+    linkLists:
+    - linkListType: concept
+      links: 
+      - text: Device groups
+        url: device-update-groups.md
+      - text: Deployments
+        url: device-update-deployments.md
+    - linkListType: how-to-guide
+      links:
+      - text: Create device groups
+        url: create-update-group.md
+      - text: Deploy a device update
+        url: deploy-update.md
