@@ -20,7 +20,7 @@ ms.custom: sdkv1
 > * [v1](./v1/how-to-log-view-metrics.md)
 > * [v2 (preview)](how-to-log-view-metrics.md)
 
-Log real-time information using MLflow. You can log models, metrics, and artifacts with MLflow as it supports local mode to cloud portability.
+Log real-time information using [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). You can log models, metrics, and artifacts with MLflow as it supports local mode to cloud portability.
 
 > [!IMPORTANT]
 > Unlike the Azure Machine Learning SDK v1, there is no logging functionality in the SDK v2 preview.
@@ -58,11 +58,10 @@ The following table describes how to log specific value types:
 |Log a string | `mlflow.log_text('foo', 'my_string')`| Logged as an artifact|
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
+
 ## Logging with MLflow
 
 The examples in this section show how to use MLflow to log metrics and artifacts from your training runs.
-
-
 
 > [!TIP]
 > You do not need to call `mlflow.set_tracking_url()` if you are using an Azure Machine Learning compute resources (compute instance or compute cluster) to run the training job. On an Azure ML compute, the tracking URL is automatically set.
@@ -81,7 +80,9 @@ mlflow.set_experiment("mlflow-experiment")
 mlflow_run = mlflow.start_run()
 ```
 
+You can then log information using a method such as `mlflow.log_metric()`, `mlflow.log_text()`, etc. For more information on MLflow logging APIs, see the [MLflow reference](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
 
+To end the current run, use `mlflow.end_run()`.
 
 ## View run metrics
 
