@@ -19,7 +19,7 @@ ms.custom: mvc, devx-track-azurecli
 
 ## Limitations
 
-* You can't pull images from [Azure Container Registry](../container-registry/container-registry-vnet.md) deployed into an Azure Virtual Network at this time.
+* The [Azure Container Registry](../container-registry/container-registry-vnet.md) must have [Public Access set to 'All Networks'](../container-registry/container-registry-access-selected-networks.md). To use ACR with Public Access set to 'Select Networks' or 'None' networking mode, visit [/using-azure-container-registry-mi.md].
 
 ## Configure registry authentication
 
