@@ -149,7 +149,7 @@ Service Profiler session finished.              # A profiling session is complet
 1. Open the **Performance** blade in your Application Insights resource. 
 1. Once the trace process is complete, you will see the Profiler Traces button like it below:
 
-      :::image type="content" source="./media/profiler-containerinstances/profiler_traces.png" alt-text="Find instrumentation key in Azure portal":::
+      :::image type="content" source="./media/profiler-containerinstances/profiler_traces.png" alt-text="Profile traces in the performance blade":::
 
 
 
