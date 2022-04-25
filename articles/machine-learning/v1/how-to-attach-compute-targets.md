@@ -57,13 +57,13 @@ To use compute targets managed by Azure Machine Learning, see:
 With Azure Machine Learning, you can train your model on various resources or environments, collectively referred to as [__compute targets__](../concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You also use compute targets for model deployment as described in ["Where and how to deploy your models"](../how-to-deploy-and-where.md).
 
 
-## <a id="local"></a>Local computer
+## Local computer
 
 When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](../how-to-set-up-training-targets.md) from your local machine.
 
 When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](../how-to-deploy-and-where.md).
 
-## <a id="vm"></a>Remote virtual machines
+## Remote virtual machines
 
 Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](../how-to-configure-environment.md#dsvm).
 
@@ -132,7 +132,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
 
 The Azure Synapse Analytics integration with Azure Machine Learning (preview) allows you to attach an Apache Spark pool backed by Azure Synapse for interactive data exploration and preparation. With this integration, you can have a dedicated compute for data wrangling at scale. For more information, see [How to attach Apache Spark pools powered by Azure Synapse Analytics](../how-to-link-synapse-ml-workspaces.md#attach-synapse-spark-pool-as-a-compute).
 
-## <a id="hdinsight"></a>Azure HDInsight 
+## Azure HDInsight 
 
 Azure HDInsight is a popular platform for big-data analytics. The platform provides Apache Spark, which can be used to train your model.
 
@@ -225,7 +225,7 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Batch from your workspace. Each new attachment will break the previous existing attachment(s).
 
-## <a id="databricks"></a>Azure Databricks
+## Azure Databricks
 
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
@@ -284,7 +284,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-databri
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same Azure Databricks from your workspace. Each new attachment will break the previous existing attachment(s).
 
-## <a id="adla"></a>Azure Data Lake Analytics
+## Azure Data Lake Analytics
 
 Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 

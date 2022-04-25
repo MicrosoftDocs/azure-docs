@@ -25,7 +25,7 @@ In this article, you learn how to configure and submit Azure Machine Learning jo
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-* The Azure Machine Learning SDK v2 for Python - [install SDKv2]()
+* The Azure Machine Learning SDK v2 for Python
 * An Azure Machine Learning workspace
 
 ### Clone examples repository
@@ -72,9 +72,9 @@ You can set `force_col_wise=true` to remove the overhead.
 
 Now that the local run works, move this run to an Azure Machine Learning workspace. To run this on Azure ML, you need:
 
-1. A workspace to run
-1. A compute on which to run it
-1. An environment on the compute to ensure you have the required packages to run your script
+* A workspace to run
+* A compute on which to run it
+* An environment on the compute to ensure you have the required packages to run your script
 
 Let us tackle these steps below
 
@@ -121,8 +121,8 @@ except Exception:
 
 To run your script on `cpu-cluster`, you need an environment, which has the required packages and dependencies to run your script. There are a few options available for environments:
 
-1. Use a curated environment in your workspace - Azure ML offers several curated [environments](https://ml.azure.com/environments), which cater to various needs.
-1. Use a custom environment - Azure ML allows you to create your own environment using 
+* Use a curated environment in your workspace - Azure ML offers several curated [environments](https://ml.azure.com/environments), which cater to various needs.
+* Use a custom environment - Azure ML allows you to create your own environment using 
    * A docker image
    * A base docker image with a conda YAML to customize further
    * A docker build context
@@ -241,4 +241,4 @@ job.distribution = MpiDistribution(process_count_per_instance=3)
 
 Try these next steps to learn how to use the Azure Machine Learning SDK (v2) for Python:
 
-1. Use pipelines with the Azure ML Python SDK (v2)
+* Use pipelines with the Azure ML Python SDK (v2)

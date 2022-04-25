@@ -440,7 +440,7 @@
     - name: Train models
       items: 
         - name: Train with SDK v2 (preview)
-          href: how-to-attach-compute-targets.md
+          href: how-to-train-sdk.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
