@@ -24,7 +24,7 @@ Per-user access over search results (sometimes referred to as row-level security
 
 ## Built-in roles used in Search
 
-Built-in roles include generally available and preview roles.
+Built-in roles include generally available and preview roles. If these roles lack the behaviors you need, [create a custom role](#create-a-custom-role) instead.
 
 | Role | Description and availability |
 | ---- | ---------------------------- |
@@ -277,7 +277,7 @@ In PowerShell, use [New-AzRoleAssignment](/powershell/module/az.resources/new-az
 
 If [built-in roles](#built-in-roles-used-in-search) don't provide the right combination of permissions, you can create a [custom role](../role-based-access-control/custom-roles.md) to support the operations you require
 
-For example, you might want to augment a query execution (reader role) to include listing indexes by name. Normally, listing the indexes on a search service is considered an administrative right.
+This example clones **Search Index Data Reader** and then adds the ability to list indexes by name. Normally, listing the indexes on a search service is considered an administrative right.
 
 ### [**Azure portal**](#tab/custom-role-portal)
 
