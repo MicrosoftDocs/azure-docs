@@ -201,4 +201,4 @@ landingContent:
           - text: Configure customer-managed keys for encrypting data at rest
             url: configure-customer-managed-key.md     
           - text: Enforce minimum required TLS version
-            url: transport-layer-security-configure-minimum-version.md       
+            url: transport-layer-security-enforce-minimum-version.md    
