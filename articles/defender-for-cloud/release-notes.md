@@ -27,7 +27,8 @@ Updates in April include:
 - [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
 - [Deprecated the Azure Cache for Redis recommendation](#deprecated-the-azure-cache-for-redis-recommendation)
 - [New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-variant-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
-- [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation) 
+- [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation)
+- [See the activity logs that relate to a security alert](#see-the-activity-logs-that-relate-to-a-security-alert)
 
 ### New Defender for Servers plans
 
@@ -95,6 +96,13 @@ For example, the added information to the title of the `Publicly accessible stor
 - `Publicly accessible storage containers have been exposed`**`by a Tor exit node`** 
 
 All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
+
+### See the activity logs that relate to a security alert
+
+As part of the actions you can take to [triage a security alert](managing-and-responding-alerts.md#respond-to-security-alerts), you can find the related platform logs in **Inspect resource context** to gain context about the affected resource.
+Microsoft Defender for Cloud identifies platform logs that are within one day of the alert.
+
+The platform logs can help you evaluate the security threat and identify steps that you can take to mitigate risk.
 
 ## March 2022
 
