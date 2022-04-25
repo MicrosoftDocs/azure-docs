@@ -133,7 +133,7 @@ sections:
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
         
       - question: Why are some header values not present when requests are forwarded to my application?
-        answer: Application Gateway supports header names with letters, numbers, and hyphens. Header names containing special characters and symbols will be discarded. Header values do not have this limitation and support letters, numbers, and symbols.
+        answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters will be discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), with the exception of underscores (\_).
 
       - question: Does Application Gateway affinity cookie support SameSite attribute?
         answer: |
