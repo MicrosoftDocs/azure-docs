@@ -1,3 +1,14 @@
+---
+title: Sampel Script 
+description: Sample script to run when Cluster creation fails with DomainNotFound error.
+ms.custom: references_regions
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 04/25/2022
+---
+
+# Sample Script
+
 ```
 domainName=$1
 userName=$2
