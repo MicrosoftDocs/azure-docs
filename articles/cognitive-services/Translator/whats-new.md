@@ -7,19 +7,68 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 06/22/2021
+ms.date: 04/25/2022
 ms.author: lajanuar
 
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
-# What's new in Translator
+# What's new in Azure Cognitive Services Translator
 
-Review the latest updates to the text Translator service. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+* Translator is available to help users translate text and documents in their personal lives, businesses expand their global outreach, and preserve at-risk and endangered languages.
+
+* The goal of Translator is to break the language barrier so that users can communicate freely in their language of choice and be understood by anyone around the globe.
+
+* If your language community is interested in partnering with Microsoft to add your language to Translator and the products that are using it, and you have access to digital documents in your language and another commonly spoken language, please contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+* Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+
+## April 2022
+
+### Translator has added Faroese, Basque and Galician, to the list of languages supported by Translator.
+
+* You can now add [Faroese text translation](https://www.microsoft.com/translator/blog/2022/04/25/introducing-faroese-translation-for-faroese-flag-day/) to your apps, websites, workflows, and tools; or use Translator's Document Translation feature to translate entire documents, or volumes of documents, in a variety of different file formats preserving their original formatting.
+
+* Using Translator, you can translate to or from any of 100+ languages and dialects, now including [Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/).
+
+## March 2022
+
+### Translator welcomes Somali and Zulu languages to the platform
+
+* Using Translator,you can add [Somali and Zulu text translation](https://www.microsoft.com/translator/blog/2022/03/29/translator-welcomes-two-new-languages-somali-and-zulu/) to your apps, websites, workflows, and tools; or use Translator's Document Translation feature to translate entire documents, or volumes of documents, in a variety of different file formats preserving their original formatting.
+
+## February 2022
+
+### Translator introduces language support for  Upper Sorbian, Inuinnaqtun, and Romanized Inuktitut text translation
+
+* You can now use Azure Cognitive Services Translator to add [Upper Sorbian text and document translation](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/) to your apps, websites, workflows and tools. 
+
+* Using Azure Cognitive Services Translator you can add [Inuinnaqtun and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/) text and document translation to your apps, websites, workflows and tools.
+
+
+## January 2022
+
+### Custom Translator portal (v2.0) public preview
+
+* The new [Custom Translator portal](https://portal.customtranslator.azure.ai/) (supporting v2.0) is now in public preview and includes significant changes to make it easier to create your custom translation systems.
+
+* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our[quickstart](custom-translator/v2-preview/quickstart.md) for step-by-step instructions.
+
+## October 2021
+
+### Translator supports more than 100 languages
+
+* Translator service has added Bashkir, Dhivehi, Georgian, Kyrgyz, Macedonian, Mongolian (Cyrillic), Mongolian (Traditional), Tatar, Tibetan, Turkmen, Uyghur, and Uzbek (Latin). This addition brings the total number of languages supported in Translator to 103.
+
+## August 2021
+
+### Literary Chinese translation release
+
+* Azure Cognitive Services Translator supports translation capabilities between [literary Chinese]((https://www.microsoft.com/translator/blog/2021/08/25/microsoft-translator-releases-literary-chinese-translation/)) and [more than 90 languages](language-support.md).
 
 ## June 2021
 
-### [Document Translation client libraries for C#/.NET and Python](document-translation/client-sdks.md)—now available in prerelease.
+### [Document Translation client libraries for C#/.NET and Python](document-translation/client-sdks.md)—now available in prerelease
 
 ## May 2021
 
