@@ -11,7 +11,7 @@ ms.custom:
 
 Log collection is critical to a successful security analytics program. The more log sources you have for an investigation or threat hunt, the more you might accomplish.
 
-The primary log sources used for detection often contain the metadata and context of what was detected. But sometimes you need secondary log sources to provide a complete picture of the security incident or breach. Unfortunately, many of these secondary log sources are high-volume verbose logs with limited security detection value. They aren't useful until they're needed for a security incident or threat hunt. That's where Basic Logs comes in. Basic Logs provides a lower cost option for ingestion of high-volume, verbose logs into your Log Analytics workspace.
+The primary log sources used for detection often contain the metadata and context of what was detected. But sometimes you need secondary log sources to provide a complete picture of the security incident or breach. Unfortunately, many of these secondary log sources are high-volume verbose logs with limited security detection value. They aren't useful until they're needed for a security incident or threat hunt. That is where Basic Logs come in. Basic Logs provides a lower cost option for ingestion of high-volume, verbose logs into your Log Analytics workspace.
 
 Event log data in Basic Logs can't be used as the primary log source for security incidents and alerts. But Basic Log event data is useful to correlate and draw conclusions when you investigate an incident or perform threat hunting.
 
@@ -37,7 +37,7 @@ Virtual Private Cloud (VPC) flow logs have become important for investigations a
 
 ## TLS/SSL certificate monitor logs
 
-TLS/SSL certificate monitor logs have an outsized relevance in recent high profile cyber-attacks. While TLS/SSL certificate monitoring isn't a common log source, the logs provide valuable data for several types of attacks where certificates are involved. They help you understand the source of the certificate:
+TLS/SSL certificate monitor logs have an out sized relevance in recent high profile cyber-attacks. While TLS/SSL certificate monitoring isn't a common log source, the logs provide valuable data for several types of attacks where certificates are involved. They help you understand the source of the certificate:
 
 - Whether it was self-signed
 - How it was generated
@@ -45,7 +45,7 @@ TLS/SSL certificate monitor logs have an outsized relevance in recent high profi
 
 ## Proxy logs
 
-Many networks maintain a transparent proxy to provide visibility over traffic of internal users. Proxy server logs contain requests made by users and applications on a local network. These logs also contain application or service requests made over the Internet, such as application updates. What's logged depends on the appliance or solution. But the logs often provide:
+Many networks maintain a transparent proxy to provide visibility over traffic of internal users. Proxy server logs contain requests made by users and applications on a local network. These logs also contain application or service requests made over the Internet, such as application updates. What is logged depends on the appliance or solution. But the logs often provide:
 
 - Date
 - Time
@@ -53,11 +53,11 @@ Many networks maintain a transparent proxy to provide visibility over traffic of
 - Internal host that made the request
 - What the host requested
 
-When you dig into the network as as part of an investigation, proxy log data overlap can be a valuable resource.
+When you dig into the network as part of an investigation, proxy log data overlap can be a valuable resource.
 
 ## Firewall logs
 
-Firewall event logs are often the most fundamental network log sources for threat hunting and investigations. Firewall event logs can reveal abnormally large file transfers, volume, and frequency of communication by a host. These logs can also show important events such as failed sequential connection attempts. Firewall logs are also very useful as a data source for various unstructured hunting techniques, such as stacking ephemeral ports, or grouping and clustering different communication patterns.
+Firewall event logs are often the most fundamental network log sources for threat hunting and investigations. Firewall event logs can reveal abnormally large file transfers, volume, and frequency of communication by a host. These logs can also show important events such as failed sequential connection attempts. Firewall logs are also useful as a data source for various unstructured hunting techniques, such as stacking ephemeral ports, or grouping and clustering different communication patterns.
 
 ## IoT Logs
 
