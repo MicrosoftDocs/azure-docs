@@ -5,14 +5,169 @@ ms.date: 01/06/2022
 ms.topic: how-to
 ---
 
-# Defender for IoT installation
+# Defender for IoT software installation
 
-This article describes how to install the following Microsoft Defender for IoT components:
+This article describes how to install software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're re-installing software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
-- **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors.
 
-- **On-premises management console**: The on-premises management console lets you carry out device management, risk management, and vulnerability management. You can also use it to carry out threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
 
+## Prerequisites
+
+- **Pre-installation configuration**. Each appliance type comes with it's own set of instructions that are required before installing Defender for IoT software.
+
+    Make sure that you've completed the procedures as instructed in the **Reference > OT monitoring appliance** section of our documentation before installing Defender for IoT software.
+
+    For more information, see:
+
+    - [Which appliances do I need?](ot-appliance-sizing.md)
+    - [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), including the catalog of available appliances
+    - [OT monitoring with virtual appliances](ot-virtual-appliances.md)
+
+- **Software files to install**. Make sure that you've downloaded the relevant software file.
+
+    You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal, on the Defender for IoT > **Getting started** page. Select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
+
+    Mount the ISO file using one of the following options;
+
+    - Physical media – burn the ISO file to a DVD, or USB, and boot from the media.
+
+    - Virtual mount – use iLO for HPE, or iDRAC for Dell to boot the iso file.
+
+## Install sensor software
+
+> [!Note]
+> At the end of this process you will be presented with the usernames, and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
+
+**To install the sensor's software**:
+
+1. Select the installation language.
+
+    :::image type="content" source="media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
+
+1. Select the sensor's architecture.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
+
+1. The sensor will reboot, and the **Package configuration** screen will appear. Press the up or down arrows to navigate, and the SPACE bar to select an option. Press ENTER to advance to the next screen.
+
+1. Select the monitor interface, and press the **ENTER** key.
+
+    :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
+
+1. If one of the monitoring ports is for ERSPAN, select it, and press the **ENTER** key.
+
+    :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
+
+1. Select the interface to be used as the management interface, and press the **ENTER** key.
+
+    :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
+
+1. Enter the sensor's IP address, and press the **ENTER** key.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
+
+1. Enter the path of the mounted logs folder. We recommend using the default path, and press the **ENTER** key.
+
+    :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
+
+1. Enter the Subnet Mask IP address, and press the **ENTER** key.
+
+1. Enter the default gateway IP address, and press the **ENTER** key.
+
+1. Enter the DNS Server IP address, and press the **ENTER** key.
+
+1. Enter the sensor hostname, and press the **ENTER** key.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
+
+1. The installation process runs.
+
+1. When the installation process completes, save the appliance ID, and passwords. Copy these credentials to a safe place as you'll need them to access the platform the first time you use it.
+
+    :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
+
+## Install on-premises management console software
+
+The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+During the installation process, you can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic) at a later time.
+
+**To install the software**:
+
+1. Select your preferred language for the installation process.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::
+
+1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::
+
+1. In the Installation Wizard, define the network properties:
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br>  Or <br />**possible value** |
+   | **configure management network IP address:** | **IP address provided by the customer** |
+   | **configure subnet mask:** | **IP address provided by the customer** |
+   | **configure DNS:** | **IP address provided by the customer** |
+   | **configure default gateway IP address:** | **IP address provided by the customer** |
+
+1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+
+   | Parameter | Configuration |
+   |--|--|
+   | **configure sensor monitoring interface (Optional):** | **eth1**, or **possible value** |
+   | **configure an IP address for the sensor monitoring interface:** | **IP address provided by the customer** |
+   | **configure a subnet mask for the sensor monitoring interface:** | **IP address provided by the customer** |
+
+1. Accept the settlings and continue by typing `Y`.
+
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
+
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::  
+
+   Save the usernames, and passwords, you'll need these credentials to access the platform the first time you use it.
+
+1. Select **Enter** to continue.
+
+For information on how to find the physical port on your appliance, see [Find your port](#find-your-port).
+
+### Add a secondary NIC
+
+You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
+
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
+
+Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
+
+If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
+
+1. Use the network reconfigure command:
+
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Enter the following responses to the following questions:
+
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Enter the following answers to configure your appliance.":::
+
+    | Parameters | Response to enter |
+    |--|--|
+    | **Management Network IP address** | `N` |
+    | **Subnet mask** | `N` |
+    | **DNS** | `N` |
+    | **Default gateway IP Address** | `N` |
+    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, **select a possible value** |
+    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer**|
+    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer** |
+    | **Hostname** | **provided by the customer** |
+
+1. Review all choices, and enter `Y` to accept the changes. The system reboots.
 
 ### Find your port
 
@@ -39,7 +194,9 @@ Post-installation validation must include the following tests:
 
 - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Check system health by using the GUI
+### Check system health
+
+Check your system health from the sensor or on-premises management console. For example:
 
 :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 

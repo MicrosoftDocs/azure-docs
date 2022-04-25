@@ -70,7 +70,7 @@ This procedure describes how to create a virtual machine by using ESXi.
 
 1. Select **Next** > **Finish**.
 
-### Software installation 
+### Software installation
 
 This section describes the ESXi software installation.
 
@@ -98,33 +98,33 @@ Mount the ISO file using one of the following options;
 
 1. Select the installation language.
 
-    :::image type="content" source="media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
+    :::image type="content" source="../media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
 
 1. Select the sensor's architecture.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
 
 1. The Sensor will reboot, and the Package configuration screen will appear. Press the up, or down arrows to navigate, and the Space bar to select an option. Press the Enter key to advance to the next screen.  
 
 1. Select the monitor interface, and press the **Enter** key.
 
-    :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
+    :::image type="content" source="../media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
 
 1. If one of the monitoring ports is for ERSPAN, select it, and press the **Enter** key.
 
-    :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
+    :::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
 1. Select the interface to be used as the management interface, and press the **Enter** key.
 
-    :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
+    :::image type="content" source="../media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
 
 1. Enter the sensor's IP address, and press the **Enter** key.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
 
 1. Enter the path of the mounted logs folder. We recommend using the default path, and press the **Enter** key.
 
-    :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
+    :::image type="content" source="../media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
 
 1. Enter the Subnet Mask IP address, and press the **Enter** key.
 
@@ -134,19 +134,19 @@ Mount the ISO file using one of the following options;
 
 1. Enter the sensor hostname, and press the **Enter** key.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
 
 1. The installation process runs.
 
 1. When the installation process completes, save the appliance ID, and passwords. Copy these credentials to a safe place as you'll need them to access the platform the first time you use it.
 
-    :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
+    :::image type="content" source="../media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
     
 ## Configure a SPAN port
 
 A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, and a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
 
-:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
+:::image type="content" source="../media/tutorial-install-components/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
 ### Configure a SPAN port with ESXi
 

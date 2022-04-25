@@ -140,7 +140,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 1. Select the device with the sensor image. Either **DVD** or **USB**.
 
-1. Continue by installing your Defender for IoT software. For more information, see [Install Defender for IoT software](../how-to-install-software.md#install-defender-for-iot-software).
+1. Continue by installing your Defender for IoT software. For more information, see [Defender for IoT software installation](../how-to-install-software.md).
 
 ## Next steps
 

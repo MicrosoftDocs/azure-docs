@@ -150,8 +150,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Connect an external CD or disk-on-key that contains the sensor software you downloaded from the Azure portal.
 
-1. Continue with the generic procedure for installing OT sensor software. For more information, see [Install Defender for IoT software](../how-to-install-software.md#install-defender-for-iot-software).
-
+1. Continue with the generic procedure for installing OT sensor software. For more information, see [Defender for IoT software installation](../how-to-install-software.md).
 
 ## Next steps
 

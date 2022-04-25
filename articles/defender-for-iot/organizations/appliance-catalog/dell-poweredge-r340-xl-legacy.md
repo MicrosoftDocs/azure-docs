@@ -186,7 +186,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
 
-1. Continue by installing OT sensor or on-premises management software. For more information, see [Install Defender for IoT software](../how-to-install-software.md#install-defender-for-iot-software).
+1. Continue by installing OT sensor or on-premises management software. For more information, see [Defender for IoT software installation](../how-to-install-software.md).
 
 ## Next steps
 

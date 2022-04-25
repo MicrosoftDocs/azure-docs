@@ -159,7 +159,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Start the appliance.
 
-1. Continue with the generic procedure for installing Defender for IoT software. For more information, see [Install Defender for IoT software](../how-to-install-software.md#install-defender-for-iot-software).
+1. Continue with the generic procedure for installing Defender for IoT software. For more information, see [Defender for IoT software installation](../how-to-install-software.md).
 
 ## Next steps
 
