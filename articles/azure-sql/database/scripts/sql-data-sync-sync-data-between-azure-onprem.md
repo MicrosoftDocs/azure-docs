@@ -7,8 +7,8 @@ ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: MaraSteiu 
-ms.author: masteiu
+author: rothja 
+ms.author: jroth
 ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---

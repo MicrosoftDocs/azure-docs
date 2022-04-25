@@ -1,10 +1,11 @@
 ---
 title: Upgrade using dump and restore - Azure Database for PostgreSQL
 description: Describes offline upgrade methods using dump and restore databases to migrate to a higher version Azure Database for PostgreSQL.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: srranga
+author: sr-msft
 ms.date: 11/30/2021
 ---
 

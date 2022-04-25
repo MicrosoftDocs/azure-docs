@@ -17,6 +17,11 @@ When the add-on is enabled, it creates a DNS Zone in your subscription. For more
 > [!CAUTION]
 > The HTTP application routing add-on is designed to let you quickly create an ingress controller and access your applications. This add-on is not currently designed for use in a production environment and is not recommended for production use. For production-ready ingress deployments that include multiple replicas and TLS support, see [Create an HTTPS ingress controller](./ingress-tls.md).
 
+
+## Limitations
+
+* HTTP application routing doesn't currently work with AKS versions 1.22.6+
+
 ## HTTP routing solution overview
 
 The add-on deploys two components: a [Kubernetes Ingress controller][ingress] and an [External-DNS][external-dns] controller.
@@ -278,12 +283,12 @@ ingress "aks-helloworld" deleted
 For information on how to install an HTTPS-secured Ingress controller in AKS, see [HTTPS Ingress on Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [ingress-https]: ./ingress-tls.md
-[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
-[az aks install-cli]: /cli/azure/aks#az_aks_install_cli
-[az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/

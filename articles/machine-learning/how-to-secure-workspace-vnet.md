@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 03/09/2022
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2
 
 ---
 
@@ -71,7 +71,7 @@ In this article you learn how to enable the following workspaces resources in a 
 * If you plan to use Azure Machine Learning studio and the storage account is also in the VNet, there are extra validation requirements:
 
     * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
-    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
+    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ### Azure Container Registry
 
@@ -351,3 +351,5 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md)
+* [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md)

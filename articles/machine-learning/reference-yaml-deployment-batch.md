@@ -6,11 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: cliv2
 
-author: tracychms
-ms.author: tracych
-ms.date: 10/21/2021
-ms.reviewer: laobri
+author: blackmist
+ms.author: larryfr
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
 ---
 
 # CLI (v2) batch deployment YAML schema
@@ -34,7 +35,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
 | `model` | string or object | **Required.** The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification. <br><br> To reference an existing model, use the `azureml:<model-name>:<model-version>` syntax. <br><br> To define a model inline, follow the [Model schema](reference-yaml-model.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the model separately and reference it here. | | |
 | `code_configuration` | object | Configuration for the scoring code logic. <br><br> This property is not required if your model is in MLflow format. | | |
-| `code_configuration.code.local_path` | string | Local path to the source code directory for scoring the model. | | |
+| `code_configuration.code` | string | Local path to the source code directory for scoring the model. | | |
 | `code_configuration.scoring_script` | string | Relative path to the scoring file in the source code directory. | | |
 | `environment` | string or object | The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> This property is not required if your model is in MLflow format. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `compute` | string | **Required.** Name of the compute target to execute the batch scoring jobs on. This value should be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. | | |
@@ -48,7 +49,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `retry_settings.timeout` | integer | The timeout in seconds for scoring a mini batch. | | `30` |
 | `output_action` | string | Indicates how the output should be organized in the output file. | `append_row`, `summary_only` | `append_row` |
 | `output_file_name` | string | Name of the batch scoring output file. | | `predictions.csv` |
-| `environment_variables` | object | Dictionary of environment variable name-value pairs to set for each batch scoring job. | | |
+| `environment_variables` | object | Dictionary of environment variable key-value pairs to set for each batch scoring job. | | |
 
 ## Remarks
 

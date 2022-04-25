@@ -25,7 +25,15 @@
     - name: Open Support ticket
       href: azure-edge-hardware-center-contact-microsoft-support.md
   - name: References
-    href: /powershell/module/az.edgeorder           
+    items:
+    - name: .NET APIs
+      href: /dotnet/api/overview/azure/edgeorder?view=azure-dotnet-preview
+    - name: REST API
+      href: /rest/api/edgehardwarecenter/
+    - name: Python SDK
+      href: https://pypi.org/project/azure-mgmt-edgeorder/1.0.0/
+    - name: Azure PowerShell
+      href: /powershell/module/az.edgeorder/?view=azps-7.3.2&viewFallbackFrom=azps-7.1.0#edgeorder
   - name: Resources
     items:
     - name: Azure Stack Edge product  

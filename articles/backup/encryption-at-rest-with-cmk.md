@@ -243,7 +243,7 @@ $Set-AzKeyVaultAccessPolicy -VaultName myKeyVault -ObjectId $sp.Id -PermissionsT
 
 # [CLI](#tab/cli)
 
-Use the [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) command to get the principal ID of the Recovery Services vault, and then use this ID in the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command to set an access policy for the Key vault.
+Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) command to get the principal ID of the Recovery Services vault, and then use this ID in the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to set an access policy for the Key vault.
 
 Example:
 
@@ -406,7 +406,7 @@ InfrastructureEncryptionState : Disabled
 
 # [CLI](#tab/cli)
 
-Use the [az backup vault encryption update](/cli/azure/backup/vault/encryption#az_backup_vault_encryption_update) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
+Use the [az backup vault encryption update](/cli/azure/backup/vault/encryption#az-backup-vault-encryption-update) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
 
 Example:
 
@@ -504,7 +504,7 @@ $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -Storag
 
 # [CLI](#tab/cli)
 
-Use the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/cli/azure/disk-encryption-set) to be used for encrypting the restored disk.
+Use the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/cli/azure/disk-encryption-set) to be used for encrypting the restored disk.
 
 Example:
 

@@ -204,7 +204,7 @@ recognizer.canceled = (s, e) => {
     if (e.reason == CancellationReason.Error) {
         console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
-        console.log("CANCELED: Did you update the subscription info?");
+        console.log("CANCELED: Did you set the speech resource key and region values?");
     }
     recognizer.stopContinuousRecognitionAsync();
 };

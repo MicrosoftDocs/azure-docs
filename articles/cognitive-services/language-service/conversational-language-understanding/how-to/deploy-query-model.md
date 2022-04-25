@@ -14,7 +14,7 @@ ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
-# Deploy and test model
+# Deploy and test a conversational language understanding model
 
 After you have [trained a model](./train-model.md) on your dataset, you're ready to deploy it. After deploying your model, you'll be able to query it for predictions. 
 
@@ -49,26 +49,10 @@ If you would like to swap the models between two deployments, simply select the 
 To delete a deployment, select the deployment you want to delete and click on **Delete deployment**.
 
 > [!TIP]
-> If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for examples and more information.
+> If you're using the REST API, see the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob) for examples and more information.
 
 > [!NOTE]
 > You can only have ten deployment names.
-
-### Orchestration workflow projects deployments
-
-1.	Click on **Add deployment** to submit a new deployment job.
-
-    Like conversation projects, In the window that appears, you can create a new deployment name by giving the deployment a name or override an existing deployment name. Then, you can add a trained model to this deployment name and press next.
-
-    :::image type="content" source="../media/create-deployment-job-orch.png" alt-text="A screenshot showing deployment job creation in Language Studio." lightbox="../media/create-deployment-job-orch.png":::
-
-2. If you're connecting one or more LUIS applications or conversational language understanding projects, specify the deployment name.
-
-    No configurations are required for custom question answering or unlinked intents.
-
-    LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
-
-    :::image type="content" source="../media/deploy-connected-services.png" alt-text="A screenshot showing the deployment screen for orchestration workflow projects." lightbox="../media/deploy-connected-services.png":::
 
 ## Send a Conversational Language Understanding request
 
@@ -125,16 +109,6 @@ In a conversations project, you'll get predictions for both your intents and ent
     - The text of the entity that was extracted
     - Its start location denoted by an offset value
     - The length of the entity text denoted by a length value.
-
-## API response for an orchestration Workflow Project
-
-Orchestration workflow projects return with the response of the top scoring intent, and the response of the service it is connected to.
-- Within the intent, the *targetKind* parameter lets you determine the type of response that was returned by the orchestrator's top intent (conversation, LUIS, or QnA Maker).
-- You will get the response of the connected service in the *result* parameter. 
-
-Within the request, you can specify additional parameters for each connected service, in the event that the orchestrator routes to that service.
-- Within the project parameters, you can optionally specify a different query to the connected service. If you don't specify a different query, the original query will be used.
-- The *direct target* parameter allows you to bypass the orchestrator's routing decision and directly target a specific connected intent to force a response for it.
 
 ## Next steps
 
