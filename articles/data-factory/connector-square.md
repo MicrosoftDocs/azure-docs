@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/27/2022
+ms.date: 04/20/2022
 ---
 
 # Copy data from Square using Azure Data Factory or Synapse Analytics (Preview)
@@ -86,6 +86,10 @@ Square support two types of access token: **personal** and **OAuth**.
 
 - Personal access tokens are used to get unlimited Connect API access to resources in your own Square account.
 - OAuth access tokens are used to get authenticated and scoped Connect API access to any Square account. Use them when your app accesses resources in other Square accounts on behalf of account owners. OAuth access tokens can also be used to access resources in your own Square account.
+
+    >[!Important]
+    > To perform **Test connection** in the linked service, `MERCHANT_PROFILE_READ` is required to get a scoped OAuth access token. For permissions to access other tables, see [Square OAuth Permissions Reference](https://developer.squareup.com/docs/oauth-api/square-permissions).
+
 
 Authentication via personal access token only needs `accessToken`, while authentication via OAuth requires `accessToken` and `refreshToken`. Learn how to retrieve access token from [here](https://developer.squareup.com/docs/build-basics/access-tokens).
 
