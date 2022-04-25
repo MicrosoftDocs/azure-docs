@@ -443,7 +443,7 @@ Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slo
 
 Your app's backups are consistently failing due to invalid storage settings, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup.).
+Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup).
 
 ### Move your App Service resource to Standard or higher and use deployment slots
 
