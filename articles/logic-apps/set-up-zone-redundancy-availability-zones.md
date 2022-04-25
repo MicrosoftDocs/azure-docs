@@ -1,16 +1,16 @@
 ---
-title: Set up availability zones in logic app workflows
-description: Set up availability zones for disaster recovery and redundancy when you create logic app workflows that run in multi-tenant Azure Logic Apps.
+title: Protect logic apps from region failures with zone redundancy
+description: Set up availability zones for logic apps with zone redundancy for business continuity and disaster recovery.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
 ms.date: 05/02/2022
 ms.custom:
-#Customer intent: As a developer, I want to set up protection against failures by enabling availability zones for logic app workflows running in Azure Logic Apps.
+#Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
-# Protect against failures in Azure regions by setting up availability zones for logic app workflows (preview)
+# Protect logic apps from region failures with zone redundancy and availability zones (preview)
 
 In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
 
@@ -59,7 +59,7 @@ During preview, the following considerations apply:
 
    When you select **Consumption**, the **Zone redundancy** section and options become available for you to select.
 
-   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Consumption" plan type selected.](./media/enable-availability-zones/)
+   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Consumption" plan type selected.](./media/set-up-zone-redundancy-availability-zones/)
 
    For a quick tutorial, review [Quickstart: Create your first integration workflow with multi-tenant Azure Logic Apps and the Azure portal](quickstart-create-first-logic-app-workflow.md).
 
@@ -67,7 +67,7 @@ During preview, the following considerations apply:
 
    At this point, your logic app creation experience appears similar to this example:
 
-   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Enabled" option under "Zone redundancy" selected.](./media/enable-availability-zones/)
+   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Enabled" option under "Zone redundancy" selected.](./media/set-up-zone-redundancy-availability-zones/)
 
 1. Finish creating your logic app.
 
@@ -75,4 +75,5 @@ During preview, the following considerations apply:
 
 ## Next steps
 
+* [Business continuity and disaster recovery for Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 * [Connectors in Azure Logic Apps](../connectors/apis-list.md)
