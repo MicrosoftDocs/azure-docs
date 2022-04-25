@@ -4545,17 +4545,32 @@
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-onetime.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-onetime",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-onetime.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-restore.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-restore",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-restore.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-scheduled.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-scheduled",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-scheduled.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
