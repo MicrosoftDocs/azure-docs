@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Export Custom Commands application as a remote skill
