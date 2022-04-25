@@ -17,54 +17,57 @@ ms.author: lajanuar
 
 * Translator is available to help users translate text and documents in their personal lives, businesses expand their global outreach, and preserve at-risk and endangered languages.
 
-* The goal of Translator is to break the language barrier so that users can communicate freely in their language of choice and be understood by anyone around the globe.
+* Translator aims to break language barriers and enable users to communicate freely in a language of their choice.
 
-* If your language community is interested in partnering with Microsoft to add your language to Translator and the products that are using it, and you have access to digital documents in your language and another commonly spoken language, please contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+* If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
 * Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 ## April 2022
 
-### Translator has added Faroese, Basque and Galician, to the list of languages supported by Translator.
+### [Text and document translation support for Faroese](https://www.microsoft.com/translator/blog/2022/04/25/introducing-faroese-translation-for-faroese-flag-day/), [Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/)
 
-* You can now add [Faroese text translation](https://www.microsoft.com/translator/blog/2022/04/25/introducing-faroese-translation-for-faroese-flag-day/) to your apps, websites, workflows, and tools; or use Translator's Document Translation feature to translate entire documents, or volumes of documents, in a variety of different file formats preserving their original formatting.
+* Translator service has [text and document translation language support](language-support.md) for Faroese, a Germanic language originating on the Faroe Islands. It's descended from Old West Norse spoken by Vikings in the Middle Ages. The Faroe Islands are a self-governing country within the Kingdom of Denmark located between Norway and Iceland.
 
-* Using Translator, you can translate to or from any of 100+ languages and dialects, now including [Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/).
+* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language and is spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are co-official languages of Spain.
 
 ## March 2022
 
-### Translator welcomes Somali and Zulu languages to the platform
+### [Text and document translation support for Somali and Zulu languages](https://www.microsoft.com/translator/blog/2022/03/29/translator-welcomes-two-new-languages-somali-and-zulu/)
 
-* Using Translator,you can add [Somali and Zulu text translation](https://www.microsoft.com/translator/blog/2022/03/29/translator-welcomes-two-new-languages-somali-and-zulu/) to your apps, websites, workflows, and tools; or use Translator's Document Translation feature to translate entire documents, or volumes of documents, in a variety of different file formats preserving their original formatting.
+* Translator service has [text and document translation language support](language-support.md) for Somali and Zulu.
+
+* The Somali language is spoken throughout Africa by more than 21 million people. It is in the Cushitic branch of the Afroasiatic language family.
+
+* The Zulu language is spoken by 12 million people and is recognized as on of South Africa's 11 official languages.
 
 ## February 2022
 
-### Translator introduces language support for  Upper Sorbian, Inuinnaqtun, and Romanized Inuktitut text translation
+### Text and document translation support for [Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/), [Inuinnaqtun, and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/)
 
-* You can now use Azure Cognitive Services Translator to add [Upper Sorbian text and document translation](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/) to your apps, websites, workflows and tools. 
+* Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team has worked tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
 
-* Using Azure Cognitive Services Translator you can add [Inuinnaqtun and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/) text and document translation to your apps, websites, workflows and tools.
-
+* Translator service has [text and document translation language support](language-support.md) for Inuinnaqtun and Romanized Inuktitut. Both are indigenous languages that are intrinsic and treasured foundations of Canadian culture and society.
 
 ## January 2022
 
 ### Custom Translator portal (v2.0) public preview
 
-* The new [Custom Translator portal](https://portal.customtranslator.azure.ai/) (supporting v2.0) is now in public preview and includes significant changes to make it easier to create your custom translation systems.
+* The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes to make it easier to create your custom translation systems.
 
 * To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our[quickstart](custom-translator/v2-preview/quickstart.md) for step-by-step instructions.
 
 ## October 2021
 
-### Translator supports more than 100 languages
+### [Text and document support for more than 100 languages](https://www.microsoft.com/translator/blog/2021/10/11/translator-now-translates-more-than-100-languages/)
 
-* Translator service has added Bashkir, Dhivehi, Georgian, Kyrgyz, Macedonian, Mongolian (Cyrillic), Mongolian (Traditional), Tatar, Tibetan, Turkmen, Uyghur, and Uzbek (Latin). This addition brings the total number of languages supported in Translator to 103.
+* Translator service has added **Bashkir**, **Dhivehi**, **Georgian**, **Kyrgyz**, **Macedonian (Cyrillic)**, **Mongolian (Traditional)**, **Tatar**, **Tibetan**, **Turkmen**, **Uyghur**, and **Uzbek (Latin)**. This addition brings the total number of languages supported in Translator to 103.
 
 ## August 2021
 
-### Literary Chinese translation release
+### [Text and document translation support for literary Chinese](https://www.microsoft.com/translator/blog/2021/08/25/microsoft-translator-releases-literary-chinese-translation/)
 
-* Azure Cognitive Services Translator supports translation capabilities between [literary Chinese]((https://www.microsoft.com/translator/blog/2021/08/25/microsoft-translator-releases-literary-chinese-translation/)) and [more than 90 languages](language-support.md).
+* Azure Cognitive Services Translator has [text and document language support](language-support.md) for  literary Chinese, a traditional style of written Chinese used by classical Chinese poets and in ancient Chinese poetry.
 
 ## June 2021
 
@@ -86,9 +89,9 @@ ms.author: lajanuar
 
 * **New release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
-### [Text translation support for nine added languages](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
+### [Text and document translation support for nine added languages](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
 
-* Translator service has [text translation language support](language-support.md) for the following languages:
+* Translator service has [text and document translation language support](language-support.md) for the following languages:
 
   * **Albanian**. An isolate language unrelated to any other and spoken by nearly 8 million people.
   * **Amharic**. An official language of Ethiopia spoken by approximately 32 million people. It's also the liturgical language of the Ethiopian Orthodox church.
@@ -102,9 +105,9 @@ ms.author: lajanuar
 
 ## January 2021
 
-### [Text translation support for Inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
+### [Text and document translation support for Inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
 
-* Translator service has [text translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
+* Translator service has [text and document translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
 
 ## November 2020
 
@@ -114,15 +117,15 @@ ms.author: lajanuar
 
 ## October 2020
 
-### [Text translation support for Canadian French](https://www.microsoft.com/translator/blog/2020/10/20/cest-tiguidou-ca-translator-adds-canadian-french/)
+### [Text and document translation support for Canadian French](https://www.microsoft.com/translator/blog/2020/10/20/cest-tiguidou-ca-translator-adds-canadian-french/)
 
-* Translator service has [text translation language support](language-support.md) for **Canadian French**. Canadian French and European French are similar to one another and are mutually understandable. However, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
+* Translator service has [text and document translation language support](language-support.md) for **Canadian French**. Canadian French and European French are similar to one another and are mutually understandable. However, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
 
 ## September 2020
 
-### [Text translation support for Assamese and Axomiya](https://www.microsoft.com/translator/blog/2020/09/29/assamese-text-translation-is-here/)
+### [Text and document translation support for Assamese and Axomiya](https://www.microsoft.com/translator/blog/2020/09/29/assamese-text-translation-is-here/)
 
-* Translator service has [text translation language support](language-support.md) for **Assamese** also knows as **Axomiya**.  Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
+* Translator service has [text and document translation language support](language-support.md) for **Assamese** also knows as **Axomiya**.  Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
 
 ## August 2020
 
@@ -134,14 +137,14 @@ ms.author: lajanuar
 
 * **New release**: Custom Translator V2 phase 1 is available. The newest version of Custom Translator will roll out in two phases to provide quicker translation and quality improvements, and allow you to keep your training data in the region of your choice. *See* [Microsoft Translator blog: Custom Translator: Introducing higher quality translations and regional data residency](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
 
-### [Text translation support for two Kurdish dialects](https://www.microsoft.com/translator/blog/2020/08/20/translator-adds-two-kurdish-dialects-for-text-translation/)
+### [Text and document translation support for two Kurdish dialects](https://www.microsoft.com/translator/blog/2020/08/20/translator-adds-two-kurdish-dialects-for-text-translation/)
 
 * **Northern (Kurmanji) Kurdish** (15 million native speakers) and **Central (Sorani) Kurdish** (7 million native speakers). Most Kurdish texts are written in Kurmanji and Sorani.
 
-### [Text translation support for two Afghan languages](https://www.microsoft.com/translator/blog/2020/08/17/translator-adds-dari-and-pashto-text-translation/)
+### [Text and document translation support for two Afghan languages](https://www.microsoft.com/translator/blog/2020/08/17/translator-adds-dari-and-pashto-text-translation/)
 
 * **Dari** (20 million native speakers) and **Pashto** (40 - 60 million speakers). The two official languages of Afghanistan.
 
-### [Text translation support for Odia](https://www.microsoft.com/translator/blog/2020/08/13/odia-language-text-translation-is-now-available-in-microsoft-translator/)
+### [Text and document translation support for Odia](https://www.microsoft.com/translator/blog/2020/08/13/odia-language-text-translation-is-now-available-in-microsoft-translator/)
 
 * **Odia** is a classical language spoken by 35 million people in India and across the world. It joins **Bangla**, **Gujarati**, **Hindi**, **Kannada**, **Malayalam**, **Marathi**, **Punjabi**, **Tamil**, **Telugu**, **Urdu**, and **English** as the 12th most used language of India supported by Microsoft Translator.
