@@ -1,5 +1,5 @@
 ---
-title: Recoverability best practices overview
+title: Recoverability best practices in Azure Active Directory
 description: Learn the best practices for increasing recoverability.
 services: active-directory
 author: BarbaraSelden
@@ -35,7 +35,7 @@ The impact of deletions depends on the object type.
 
 Users, Microsoft 365 (Microsoft 365) Groups, and applications can be “soft deleted.” Soft deleted items are sent to the Azure AD recycle bin. While in the recycle bin, items are not available for use. However, they retain all their properties, and can be restored via a Microsoft Graph API call, or in the Azure AD portal. Items in the soft delete state that aren't restored within 30 days, are permanently or “hard deleted.”
 
-![An image showing that users, Microsoft 365 groups, and applications are soft deleted, and then hard deleted after 30 days.](media/recoverability/overview-deletes.png)
+![Screenshot showing that users, Microsoft 365 groups, and applications are soft deleted, and then hard deleted after 30 days.](media/recoverability/overview-deletes.png)
 
 > [!IMPORTANT]
 > All other object types are hard deleted immediately when selected for deletion. When an object is hard deleted, it cannot be recovered. It must be recreated and reconfigured.
@@ -51,7 +51,7 @@ For more information on misconfigurations and how to recover from them, see [Rec
 
 Recoverability is a shared responsibility between Microsoft as your cloud service provider, and your organization.
 
-![Image of the shared responsibilities between Microsoft and customers for planning and recovery](media/recoverability/overview-shared-responsiblility.png)
+![The shared responsibilities between Microsoft and customers for planning and recovery.](media/recoverability/overview-shared-responsiblility.png)
 
 You can use the tools and services that Microsoft provides to prepare for deletions and misconfigurations.
 
@@ -65,51 +65,51 @@ You should rehearse your restoration process for different object types, and the
 
 Testing your plan can help you to determine the following:
 
-<li> Validity and completeness of your object state documentation.
+- Validity and completeness of your object state documentation.
 
-<li> Typical time to resolution.
+- Typical time to resolution.
 
-<li> Appropriate communications and their audiences.
+- Appropriate communications and their audiences.
 
-<li> Expected successes and potential challenges.
+- Expected successes and potential challenges.
 
 ### Create the communication process
 
 Create a process of pre-defined communications to make others aware of the issue and timelines for restoration. Include the following in your restoration communication plan.
 
-<li> The types of communications to go out. Consider creating pre-defined templates.
+- The types of communications to go out. Consider creating pre-defined templates.
 
-<li> Stakeholders to receive communications. Include the following as applicable:
+- Stakeholders to receive communications. Include the following as applicable:
 
-  <li> impacted business owners.
+  - impacted business owners.
 
-  <li> operational admins who will perform recovery.
+  - operational admins who will perform recovery.
 
-  <li> Business and technical approvers.
+  - Business and technical approvers.
 
-  <li> Impacted users.
+  - Impacted users.
 
-<li> Define the events that trigger communications, such as
+- Define the events that trigger communications, such as
 
- <li> Initial deletion
+ - Initial deletion
 
- <li> Impact assessment
+ - Impact assessment
 
- <li> Time to resolution
+ - Time to resolution
 
- <li> Restoration 
+ - Restoration 
 
 ## Document known good states
 
 Document the state of your tenant and its objects regularly so that in the event of a hard delete or misconfiguration you have a road map to recovery. The following tools can help you in documenting your current state.
 
- <li> The [Microsoft Graph APIs](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) can be used to export the current state of many Azure AD configurations.
+- The [Microsoft Graph APIs](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) can be used to export the current state of many Azure AD configurations.
 
- <li> You can use the [Azure AD Exporter](https://github.com/microsoft/azureadexporter) to regularly export your configuration settings. 
+- You can use the [Azure AD Exporter](https://github.com/microsoft/azureadexporter) to regularly export your configuration settings. 
 
- <li> The [Microsoft 365 desired state configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) module is a module of the PowerShell Desired State Configuration framework. It can be used to export the configurations for reference, and application of the prior state of many settings.
+- The [Microsoft 365 desired state configuration](https://github.com/microsoft/Microsoft365DSC/wiki/What-is-Microsoft365DSC) module is a module of the PowerShell Desired State Configuration framework. It can be used to export the configurations for reference, and application of the prior state of many settings.
 
- <li> The [Conditional Access APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) can be used to manage your Conditional Access policies as code.
+- The [Conditional Access APIs](https://github.com/Azure-Samples/azure-ad-conditional-access-apis) can be used to manage your Conditional Access policies as code.
 
 
 
@@ -173,7 +173,7 @@ The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains i
 
 The Audit Log always records a “Delete <object>” event when an object in the tenant is removed from an active state (either from active to soft-deleted or active to hard-deleted).
 
-![Image of audit log detail.](media/recoverability/deletions-audit-log.png)
+! A screenshhot of audit log detail.](media/recoverability/deletions-audit-log.png)
 
 A Delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type it's a hard delete.
 
@@ -211,11 +211,11 @@ The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cros
 
 Preventing unwanted changes is far less difficult than needing to recreate and reconfigure objects. Include the following in your change management processes to minimize accidents:
 
- <li> Use a least privilege model. Ensure that each member of your team has the least privileges necessary to complete their usual tasks and require a process to escalate privileges for more unusual tasks.
+- Use a least privilege model. Ensure that each member of your team has the least privileges necessary to complete their usual tasks and require a process to escalate privileges for more unusual tasks.
 
-  <li>Administrative control of an object enables configuration and deletion. Use Read Only admin roles, for example the Global Reader role, for any tasks that do not require operations to create, update, or delete (CRUD). When CRUD operations are required, use object specific roles when possible. For example, User Administrators can delete only users, and Application Administrators can delete only applications. Use these more limited roles whenever possible, instead of a Global Administrator role, which can delete anything, including the tenant. 
+- Administrative control of an object enables configuration and deletion. Use Read Only admin roles, for example the Global Reader role, for any tasks that do not require operations to create, update, or delete (CRUD). When CRUD operations are required, use object specific roles when possible. For example, User Administrators can delete only users, and Application Administrators can delete only applications. Use these more limited roles whenever possible, instead of a Global Administrator role, which can delete anything, including the tenant. 
 
- <li> [Use Privileged Identity Management (PIM](../privileged-identity-management/pim-configure.md)). PIM enables just-in-time escalation of privileges to perform tasks like hard deletion. You can configure PIM to have notifications and or approvals for the privilege escalation. 
+- [Use Privileged Identity Management (PIM](../privileged-identity-management/pim-configure.md)). PIM enables just-in-time escalation of privileges to perform tasks like hard deletion. You can configure PIM to have notifications and or approvals for the privilege escalation. 
 
 ## Next steps   
 
