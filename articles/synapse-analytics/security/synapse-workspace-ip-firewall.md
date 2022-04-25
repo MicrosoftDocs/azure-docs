@@ -45,7 +45,7 @@ Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio
 
 ## Manage the Azure Synapse workspace firewall 
 
-For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
+For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
 For more information on the methods to manage the firewall programmatically, see: 
 - [API](/rest/api/synapse/ip-firewall-rules)
