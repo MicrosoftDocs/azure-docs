@@ -70,7 +70,7 @@ The reservation product owner (transfer request recipient) must have one of the 
     [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
     [![Screenshot that shows selecting transfer requests](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. Enter the email address of the user in the customer organization who will accept the transfer request. The user must be an account owner on an Enterprise Agreement. Select **Send transfer request**.  
+1. Enter the email address of the user in the customer organization who will accept the transfer request. Select **Send transfer request**.  
     [![Screenshot that shows sending a transfer request](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 
 
@@ -84,6 +84,8 @@ The recipient of the transfer request uses the following procedure to review and
 
 1. The user gets an email with instructions to review your transfer request. Select **Review the request** to open it in the Azure portal.  
     :::image type="content" source="./media/mpa-request-ownership/mpa-review-transfer-request-email.png" alt-text="Screenshot that shows review transfer request email." lightbox="./media/mpa-request-ownership/mpa-review-transfer-request-email.png" :::  
+    If the transfer recipient’s user account doesn’t have email enabled, the person that created the request can manually give the target recipient a link to accept the transfer request after the request is created. The person that created the request can navigate to Transfer status page, copy it, and then manually give it to the recipient.  
+        :::image type="content" source="./media/mpa-request-billing-ownership/transfer-status-pending-link.png" alt-text="Screenshot showing the Transfer status where you can copy the transfer link sent to the recipient." lightbox="./media/mpa-request-billing-ownership/transfer-status-pending-link.png" :::
 1. In the Azure portal, the user selects the billing account that they want to transfer Azure products from. Then they select eligible subscriptions on the **Subscriptions** tab. If the owner doesn’t want to transfer subscriptions and instead wants to transfer reservations only, make sure that no subscriptions are selected.
     :::image type="content" source="./media/mpa-request-ownership/review-transfer-request-subscriptions-select.png" alt-text="Screenshot showing the Subscriptions tab." lightbox="./media/mpa-request-ownership/review-transfer-request-subscriptions-select.png" :::  
     *Disabled subscriptions can't be transferred.*
