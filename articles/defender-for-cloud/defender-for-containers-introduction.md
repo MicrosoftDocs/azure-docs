@@ -94,9 +94,6 @@ The recommendation **Running container images should have vulnerability findings
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable" lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
-> [!NOTE]
-> This recommendation is currently supported for Linux containers only, as there's no Defender profile/extension for Windows.
-> 
 ## Run-time protection for Kubernetes nodes and clusters
 
 Defender for Cloud provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
