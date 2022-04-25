@@ -29,7 +29,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
   + **azureml-automl-dnn-nlp**
     + Turning on long range text feature by default.
   + **azureml-automl-dnn-vision**
-    + Chaning the ObjectAnnotation Class type from object to "dataobject"(https://pypi.org/project/recordclass/)
+    + Changing the ObjectAnnotation Class type from object to "dataobject".
   + **azureml-core**
     + This release updates the Keyvault class used by customers to enable them to provide the keyvault content type when creating a secret using the SDK. This release also updates the SDK to include a new function that enables customers to retrieve the value of the content type from a specific secret.
   + **azureml-interpret**
