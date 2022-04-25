@@ -104,6 +104,11 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
     * `Write` enables ability to write.
   * It's important to configure ACLs such that the Connector can successfully write and read from the storage locations.
 
+>[!Note]
+> * If your use case involves use of Synapse Workspace pipelines to run notebooks, you must grant above mentioned access permissions to the workspace default managed identity. The name of the workspace default identity will be same as the workspace.
+>
+> * To use the Synapse workspace with secured storage accounts, a managed private end point must be [configured](../../storage/common/storage-network-security.md?tabs=azure-portal) from the notebook. The managed private end point must be approved from the ADLS Gen2 storage account's `Private endpoint connections` section in the `Networking` pane.
+
 #### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization is necessary unless you're a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
