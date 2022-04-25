@@ -297,7 +297,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/aks
-[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

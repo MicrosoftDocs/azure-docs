@@ -17,6 +17,8 @@ In this tutorial, you'll learn how to identify performance bottlenecks in a web 
 
 The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
 
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
+
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
@@ -42,7 +44,7 @@ Before you can load test the sample app, you have to get it deployed and running
 
 1. Open Windows PowerShell, sign in to Azure, and set the subscription:  
 
-   ```powershell
+   ```azurecli
    az login
    az account set --subscription <your-Azure-Subscription-ID>
    ```

@@ -408,7 +408,7 @@ public static async Task MultiLingualTranslation()
                 {
                     Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                     Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                    Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                 }
 
                 stopTranslation.TrySetResult(0);

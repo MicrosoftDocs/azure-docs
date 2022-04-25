@@ -5,8 +5,8 @@ description: Launch TensorBoard to visualize experiment run histories and identi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: minxia
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 

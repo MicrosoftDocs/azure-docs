@@ -9,10 +9,10 @@ ms.devlang:
 ms.topic: how-to
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: DavidTrigano
-ms.author: datrigan
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/25/2022"
 ms.reviewer: vanto
-ms.date: 06/21/2021
 ---
 # Get started with Azure SQL Managed Instance auditing
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -163,6 +163,17 @@ For additional information:
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
 
+
+
+## Auditing of Microsoft Support operations
+
+Auditing of Microsoft Support operations for SQL Managed Instance allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
+
+To enable auditing of Microsoft Support operations, navigate to **Create Audit** under **Security** > **Audit** in your SQL Manage Instance, and select **Microsoft support operations**.
+
+![create audit icon](./media/auditing-configure/support-operations.png)
+
+
 ## Set up auditing for your server to Event Hubs or Azure Monitor logs
 
 Audit logs from a managed instance can be  sent to Azure Event Hubs or Azure Monitor logs. This section describes how to configure this:
@@ -213,7 +224,7 @@ There are several methods you can use to view blob auditing logs.
 
 - You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Azure Storage, auditing logs are saved as a collection of blob files within a container that was defined to store the audit logs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](../database/audit-log-format.md).
 
-- For a full list of audit log consumption methods, refer to [Get started with Azure SQL Database auditing](../../azure-sql/database/auditing-overview.md).
+- For a full list of audit log consumption methods, refer to [Get started with Azure SQL Database auditing](/azure/azure-sql/database/auditing-overview).
 
 ### Consume logs stored in Event Hubs
 
@@ -246,7 +257,7 @@ The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob stor
 
 ## Next steps
 
-- For a full list of audit log consumption methods, refer to [Get started with Azure SQL Database auditing](../../azure-sql/database/auditing-overview.md).
+- For a full list of audit log consumption methods, refer to [Get started with Azure SQL Database auditing](/azure/azure-sql/database/auditing-overview).
 - For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), where you can find the most current list of compliance certifications.
 
 <!--Image references-->

@@ -19,7 +19,7 @@ You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in me
 
 > [!VIDEO https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
 
-<a href="https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
+<a href="/_themes/docs.theme/master/_themes/global/video-embed.html?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
 
 ## Architecture
 
@@ -114,7 +114,7 @@ You can find the resource ID in the **Properties** page of the IoT hub in the Az
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id.png" alt-text="Retrieve resource ID from the IoT Hub properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <hub name> --resource-type "Microsoft.Devices/IoTHubs"
@@ -134,7 +134,7 @@ You can find the resource ID in the **Properties** page of the IoT Central appli
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id-iot-central.png" alt-text="Retrieve resource ID from the IoT Central properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <application name> --resource-type "Microsoft.IoTCentral/IoTApps"

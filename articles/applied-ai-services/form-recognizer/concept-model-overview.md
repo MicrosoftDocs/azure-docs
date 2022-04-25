@@ -22,15 +22,19 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 
 | **Model**   | **Description**   |
 | --- | --- |
+|**Document analysis**||
 | 🆕[Read (preview)](#read-preview) | Extract printed and handwritten text lines, words, locations, and detected languages.|
+| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.|
+| [Layout](#layout)  | Extract text and layout information from documents.|
+|**Prebuilt**||
 | 🆕[W-2 (preview)](#w-2-preview) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
-| 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
-| [Layout](#layout)  | Extracts text and layout information from documents.  |
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
 | [Business card](#business-card)  | Extract key information from English business cards.  |
+|**Custom**||
 | [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+| [Composed](#composed-custom-model) | Compose a collection of custom models and assign them to a single model built from your form types.
 
 ### Read (preview)
 
@@ -157,9 +161,20 @@ The custom model analyzes and extracts data from forms and documents specific to
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
 
+#### Composed custom model
+
+A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. you can assign up to 100 trained custom models to a single composed model.
+
+***Composed model dialog window[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+
+:::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot of Form Recognizer Studio compose custom model dialog window.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: custom model](concept-custom.md)
+
 ## Model data extraction
 
- | **Model**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
+ | **Data extraction**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
 | --- |:---: |:---:|:---: |:---: |:---: |:---: |
 |🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ |   ||   |   |   |
 |🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |  ✓  | ✓ | ✓ | ✓ ||

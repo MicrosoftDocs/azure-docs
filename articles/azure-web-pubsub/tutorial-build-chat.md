@@ -612,7 +612,7 @@ ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed f
 
 Then we update the service event handler and set the Webhook URL to `https://<domain-name>.ngrok.io/eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
 
-Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az_webpubsub_hub_update) command to create the event handler settings for the chat hub
+Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.

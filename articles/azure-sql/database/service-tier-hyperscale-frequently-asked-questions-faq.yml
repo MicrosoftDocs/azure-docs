@@ -155,7 +155,7 @@ sections:
       - question: |
           What is the size of the transaction log with Hyperscale?
         answer: |
-          The transaction log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. Additionally , if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit. Other than the restrictions stated, you do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
+          The transaction log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. Additionally, if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1 TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit. Other than the restrictions stated, you do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
 
       - question: |
           Does my `tempdb` scale as my database grows?
@@ -169,7 +169,7 @@ sections:
 
       - question: |
           What is the smallest database size that Hyperscale supports?
-        answer: 40 GB. A Hyperscale database is created with a starting size of 10 GB. Then, it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB. Each of these 10 GB chunks is allocated in a different page server in order to provide more IOPS and higher I/O parallelism. Because of this optimization, even if you choose initial database size smaller than 40 GB, the database will grow to at least 40 GB automatically.
+        answer: 40 GB. A Hyperscale database is created with a starting size of 10 GB. Then, it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB. Each of these 10-GB chunks is allocated in a different page server in order to provide more IOPS and higher I/O parallelism. Because of this optimization, even if you choose initial database size smaller than 40 GB, the database will grow to at least 40 GB automatically.
 
       - question: |
           In what increments does my database size grow?
@@ -216,14 +216,22 @@ sections:
       - question: |
           Can I move my existing databases in Azure SQL Database to the Hyperscale service tier?
         answer: |
-          Yes. You can move your existing databases in Azure SQL Database to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. For proofs of concept (POCs), we recommend you make a copy of your database and migrate the copy to Hyperscale. 
+          Yes. You can move your existing databases in Azure SQL Database to Hyperscale. For proofs of concept (POCs), we recommend you make a copy of your database and migrate the copy to Hyperscale. 
+
+          Reverse migration to the General Purpose service tier allows customers who have recently migrated an existing database in Azure SQL Database to the Hyperscale service tier to move back in an emergency, should Hyperscale not meet their needs. While reverse migration is initiated by a service tier change, it's essentially a size-of-data move between different architectures. Learn the [limitations for reverse migration](manage-hyperscale-database.md#limitations-for-reverse-migration).
           
           The time required to move an existing database to Hyperscale consists of the time to copy data, and the time to replay the changes made in the source database while copying data. The data copy time is proportional to data size. The time to replay changes will be shorter if the move is done during a period of low write activity.
+
+          Get sample code to migrate existing Azure SQL Databases to Hyperscale in the Azure portal, Azure CLI, PowerShell, and Transact-SQL in [Migrate an existing database to Hyperscale](manage-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
             
       - question: |
           Can I move my Hyperscale databases to other service tiers?
         answer: |
-          No. At this time, you can’t move a Hyperscale database to another service tier.
+          If you previously migrated an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier within 45 days of the original migration to Hyperscale.  If you wish to migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then modify the service tier. Reverse migration is a size of data operation.
+
+          Databases created in the Hyperscale service tier cannot be moved to other service tiers.
+          
+          Learn [how to reverse migrate from Hyperscale](manage-hyperscale-database.md#reverse-migrate-from-hyperscale), including the [limitations for reverse migration](manage-hyperscale-database.md#limitations-for-reverse-migration) and [Limitations for reverse migration](manage-hyperscale-database.md#limitations-for-reverse-migration) and impacted [backup policies](manage-hyperscale-database.md#backup-policies).
 
       - question: |
           Do I lose any functionality or capabilities after migration to the Hyperscale service tier?

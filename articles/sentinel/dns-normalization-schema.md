@@ -75,16 +75,17 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific DNS p
 
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
-|**Microsoft DNS Server**<br>Collected by the DNS connector<br> and the Log Analytics Agent | `_ASim_DnsMicrosoftOMS` (regular) <br> `_Im_DnsMicrosoftOMS` (filtering) <br><br>  | `ASimDnsMicrosoftOMS` (regular) <br>`vimDnsMicrosoftOMS` (filtering) <br><br> |
-| **Microsoft DNS Server**<br>Collected by NXlog| `_ASim_DnsMicrosoftNXlog` (regular)<br>`_Im_DnsMicrosoftNXlog` (filtering)| `ASimDnsMicrosoftNXlog` (regular)<br> `vimDnsMicrosoftNXlog` (filtering)|
-| **Azure Firewall** | `_ASim_DnsAzureFirewall` (regular)<br> `_Im_DnsAzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>`vimDnsAzureFirewall` (filtering) |
-| **Sysmon for Windows**  (event 22)<br> Collected by the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_DnsMicrosoftSysmon` (regular)<br> `_Im_DnsMicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering) |
-| **Cisco Umbrella**  | `_ASim_DnsCiscoUmbrella` (regular)<br> `_Im_DnsCiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
-| **Infoblox NIOS**<br><br>The InfoBlox parsers<br>require [configuring the relevant sources](normalization-manage-parsers.md#configure-the-sources-relevant-to-a-source-specific-parser).<br> Use `InfobloxNIOS` as the source type. | `_ASim_DnsInfobloxNIOS` (regular)<br> `_Im_DnsInfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
-| **GCP DNS** | `_ASim_DnsGcp` (regular)<br> `_Im_DnsGcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
-| **Corelight Zeek DNS events** | `_ASim_DnsCorelightZeek` (regular)<br> `_Im_DnsCorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering) |
-| **Zscaler ZIA** |`_ASim_DnsZscalerZIA` (regular)<br> `_Im_DnsZscalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
-
+|**Microsoft DNS Server**<br>Collected by the DNS connector<br> and the Log Analytics Agent | `_ASim_Dns_MicrosoftOMS` (regular) <br> `_Im_Dns_MicrosoftOMS` (filtering) <br><br>  | `ASimDnsMicrosoftOMS` (regular) <br>`vimDnsMicrosoftOMS` (filtering) <br><br> |
+| **Microsoft DNS Server**<br>Collected by NXlog| `_ASim_Dns_MicrosoftNXlog` (regular)<br>`_Im_Dns_MicrosoftNXlog` (filtering)| `ASimDnsMicrosoftNXlog` (regular)<br> `vimDnsMicrosoftNXlog` (filtering)|
+| **Azure Firewall** | `_ASim_Dns_AzureFirewall` (regular)<br> `_Im_Dns_AzureFirewall` (filtering) | `ASimDnsAzureFirewall` (regular)<br>`vimDnsAzureFirewall` (filtering) |
+| **Sysmon for Windows**  (event 22)<br> Collected by the Log Analytics Agent<br> or the Azure Monitor Agent,<br>supporting both the<br> `Event` and `WindowsEvent` tables | `_ASim_Dns_MicrosoftSysmon` (regular)<br> `_Im_Dns_MicrosoftSysmon` (filtering)  | `ASimDnsMicrosoftSysmon` (regular)<br> `vimDnsMicrosoftSysmon` (filtering) |
+| **Cisco Umbrella**  | `_ASim_Dns_CiscoUmbrella` (regular)<br> `_Im_Dns_CiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
+| **Infoblox NIOS**<br><br>The InfoBlox parsers<br>require [configuring the relevant sources](normalization-manage-parsers.md#configure-the-sources-relevant-to-a-source-specific-parser).<br> Use `InfobloxNIOS` as the source type. | `_ASim_Dns_InfobloxNIOS` (regular)<br> `_Im_Dns_InfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
+| **GCP DNS** | `_ASim_Dns_Gcp` (regular)<br> `_Im_Dns_Gcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
+| **Corelight Zeek DNS events** | `_ASim_Dns_CorelightZeek` (regular)<br> `_Im_Dns_CorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering) |
+| **Vectra AI** |`_ASim_Dns_VectraIA` (regular)<br> `_Im_Dns_VectraIA` (filtering)  | `AsimDnsVectraAI` (regular)<br> `vimDnsVectraAI` (filtering)  |
+| **Zscaler ZIA** |`_ASim_Dns_ZscalerZIA` (regular)<br> `_Im_Dns_ZscalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
+||||
 
 These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 

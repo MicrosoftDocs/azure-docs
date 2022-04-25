@@ -1,17 +1,17 @@
 ---
-title: Microsoft Defender for IoT sensor connection methods
+title: OT sensor cloud connection methods - Microsoft Defender for IoT
 description: Learn about the architecture models available for connecting your sensors to Microsoft Defender for IoT.
 ms.topic: conceptual
 ms.date: 03/08/2022
 ---
 
-# Sensor connection methods
+# OT sensor cloud connection methods
 
-This article describes the architectures and connection methods supported for connecting your sensors to Microsoft Defender for IoT in the Azure portal.
+This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the cloud.
 
-All supported connection methods provide:
+All supported cloud connection methods provide:
 
-- **Simple deployment**, requiring no additional installations in your private Azure environment, such as for an IoT Hub
+- **Simple deployment**, requiring no extra installations in your private Azure environment, such as for an IoT Hub
 
 - **Improved security**, without needing to configure or lock down any resource security settings in the Azure VNET
 
@@ -44,9 +44,9 @@ The following image shows how you can connect your sensors to the Defender for I
 
 :::image type="content" source="media/architecture-connections/proxy-chaining.png" alt-text="Diagram of a proxy connection using proxy chaining." border="false":::
 
-This method supports connecting your sensors without direct internet access, using an SSL-encrypted tunnel to transfer data from the sensor to the service endpoint via proxy servers. The proxy server does not perform any data inspection, analysis, or caching.
+This method supports connecting your sensors without direct internet access, using an SSL-encrypted tunnel to transfer data from the sensor to the service endpoint via proxy servers. The proxy server doesn't perform any data inspection, analysis, or caching.
 
-With a proxy chaining method, Defender for IoT does not support your proxy service. It's the customer's responsibility to set up and maintain the proxy service.
+With a proxy chaining method, Defender for IoT doesn't support your proxy service. It's the customer's responsibility to set up and maintain the proxy service.
 
 For more information, see [Connect via proxy chaining](connect-sensors.md#connect-via-proxy-chaining).
 
@@ -80,9 +80,9 @@ For more information, see [Connect via multi-cloud vendors](connect-sensors.md#c
 
 ## Working with a mixture of sensor software versions
 
-If you are a customer with an existing production deployment, we recommend that upgrade any legacy sensor versions to version 22.1.x.
+If you're a customer with an existing production deployment, we recommend that upgrade any legacy sensor versions to version 22.1.x.
 
-While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versions-and-support-dates), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
+While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versioning-and-support-for-on-premises-software-versions), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
 
 After migrating, you can remove any relevant IoT Hubs from your subscription as they'll no longer be required for your sensor connections.
 

@@ -153,7 +153,7 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 
 After you have made one or more backups for your app, the backups are visible on the **Containers** page of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
-The database backup for the app is stored in the root of the .zip file. For SQL Database, this is a BACPAC file (no file extension) and can be imported. To create a database in Azure SQL Database based on the BACPAC export, see [Import a BACPAC file to create a database in Azure SQL Database](../azure-sql/database/database-import.md).
+The database backup for the app is stored in the root of the .zip file. For SQL Database, this is a BACPAC file (no file extension) and can be imported. To create a database in Azure SQL Database based on the BACPAC export, see [Import a BACPAC file to create a database in Azure SQL Database](/azure/azure-sql/database/database-import).
 
 > [!WARNING]
 > Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
