@@ -10,13 +10,13 @@ ms.custom:
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
-# Protect logic apps from region failures with zone redundancy and availability zones (preview)
+# Protect Consumption logic apps from region failures with zone redundancy and availability zones (preview)
 
 In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
 
 To provide resiliency and distributed availability, at least three separate availability zones exist in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information about availability zones and zone redundancy, review [Azure regions and availability zones](../availability-zones/az-overview.md).
 
-This article provides a brief overview about considerations for using availability zones in Azure Logic Apps and how to enable this capability for your logic app.
+This article provides a brief overview about considerations for using availability zones in Azure Logic Apps and how to enable this capability for your Consumption logic app.
 
 ## Considerations
 
