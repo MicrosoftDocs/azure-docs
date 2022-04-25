@@ -146,6 +146,8 @@ Keep the container page open because you can use it to verify the output at the 
 
 2. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline only has one activity of type **Copy**. You should see a run for that activity.
 
+    :::image type:"content" source="media/quickstart-create-data-factory-bicep/data-factory-bicep-successful-run.png" alt-text="Successful run":::
+
 ## Verify the output file
 
 The pipeline automatically creates an output folder in the blob container. It then copies the **emp.txt** file from the input folder to the output folder.
