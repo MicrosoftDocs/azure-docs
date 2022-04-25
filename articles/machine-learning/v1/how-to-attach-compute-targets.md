@@ -36,15 +36,15 @@ In this article, learn how to set up your workspace to use these compute resourc
 
 To use compute targets managed by Azure Machine Learning, see:
 
-* [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
-* [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
-* [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
+* [Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md)
+* [Azure Machine Learning compute cluster](../how-to-create-attach-compute-cluster.md)
+* [Azure Kubernetes Service cluster](../how-to-create-attach-kubernetes.md)
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Limitations
 
@@ -54,23 +54,23 @@ To use compute targets managed by Azure Machine Learning, see:
 
 ## What's a compute target?
 
-With Azure Machine Learning, you can train your model on various resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You also use compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning, you can train your model on various resources or environments, collectively referred to as [__compute targets__](../concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You also use compute targets for model deployment as described in ["Where and how to deploy your models"](../how-to-deploy-and-where.md).
 
 
 ## <a id="local"></a>Local computer
 
-When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
+When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](../how-to-set-up-training-targets.md) from your local machine.
 
-When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](../how-to-deploy-and-where.md).
 
 ## <a id="vm"></a>Remote virtual machines
 
-Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](./how-to-configure-environment.md#dsvm).
+Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](../how-to-configure-environment.md#dsvm).
 
 > [!TIP]
-> Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+> Instead of a remote VM, we recommend using the [Azure Machine Learning compute instance](../concept-compute-instance.md). It is a fully managed, cloud-based compute solution that is specific to Azure Machine Learning. For more information, see [create and manage Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
 
-1. **Create**: Azure Machine Learning cannot create a remote VM for you. Instead, you must create the VM and then attach it to your Azure Machine Learning workspace. For information on creating a DSVM, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
+1. **Create**: Azure Machine Learning cannot create a remote VM for you. Instead, you must create the VM and then attach it to your Azure Machine Learning workspace. For information on creating a DSVM, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](../data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
     > [!WARNING]
     > Azure Machine Learning only supports virtual machines that run **Ubuntu**. When you create a VM or choose an existing VM, you must select a VM that uses Ubuntu.
@@ -96,7 +96,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
    compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
+   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#attached-compute).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same DSVM from your workspace. Each new attachment will break the previous existing attachment(s).
@@ -168,7 +168,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
+   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](../how-to-create-attach-compute-studio.md#attached-compute).
 
     > [!WARNING]
     > Do not create multiple, simultaneous attachments to the same HDInsight from your workspace. Each new attachment will break the previous existing attachment(s).
@@ -288,7 +288,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-databri
 
 Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline.
 
-Create an Azure Data Lake Analytics account before using it. To create this resource, see the [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) document.
+Create an Azure Data Lake Analytics account before using it. To create this resource, see the [Get started with Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md) document.
 
 To attach Data Lake Analytics as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
 
@@ -348,10 +348,10 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 
 Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training and inferencing:
 
-* [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use Azure Arc-enabled Kubernetes clusters if your cluster is hosted outside of Azure.
+* [Azure Kubernetes Service](../../aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
+* [Azure Arc Kubernetes](../../azure-arc/kubernetes/overview.md). Use Azure Arc-enabled Kubernetes clusters if your cluster is hosted outside of Azure.
 
-[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 To detach a Kubernetes cluster from your workspace, use the following method:
 
@@ -360,7 +360,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster.md#clean-up-resources).
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../../azure-arc/kubernetes/quickstart-connect-cluster.md#clean-up-resources).
 
 ## Notebook examples
 
@@ -368,12 +368,12 @@ See these notebooks for examples of training with various compute targets:
 * [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
-* Use the compute resource to [configure and submit a training run](how-to-set-up-training-targets.md).
-* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
-* Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)
+* Use the compute resource to [configure and submit a training run](../how-to-set-up-training-targets.md).
+* [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md) uses a managed compute target to  train a model.
+* Learn how to [efficiently tune hyperparameters](../how-to-tune-hyperparameters.md) to build better models.
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-and-where.md).
+* [Use Azure Machine Learning with Azure Virtual Networks](../how-to-network-security-overview.md)
