@@ -14,15 +14,11 @@ zone_pivot_groups: devops-or-github
 
 Azure Static Web Apps publishes a website to a production environment by building apps from an Azure DevOps or GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
-If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
-
 ## Prerequisites
 
-::: zone pivot="github"
 
-- [GitHub](https://github.com) account
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 - [Azure](https://portal.azure.com) account
-
 ::: zone-end
 
 ::: zone pivot="azure-devops"

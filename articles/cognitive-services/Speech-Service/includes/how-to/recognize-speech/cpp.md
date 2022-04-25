@@ -110,7 +110,7 @@ switch (result->Reason)
             if (cancellation->Reason == CancellationReason::Error) {
                 cout << "CANCELED: ErrorCode= " << (int)cancellation->ErrorCode << std::endl;
                 cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-                cout << "CANCELED: Did you update the speech key and location/region info?" << std::endl;
+                cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
             }
         }
         break;
@@ -169,7 +169,7 @@ recognizer->Canceled.Connect([&recognitionEnd](const SpeechRecognitionCanceledEv
         {
             cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << "\n"
                  << "CANCELED: ErrorDetails=" << e.ErrorDetails << "\n"
-                 << "CANCELED: Did you update the speech key and location/region info?" << std::endl;
+                 << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
 
             recognitionEnd.set_value(); // Notify to stop recognition.
         }
