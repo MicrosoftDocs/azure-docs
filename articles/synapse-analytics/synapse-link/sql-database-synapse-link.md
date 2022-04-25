@@ -21,27 +21,27 @@ This article helps you to understand the functions of Synapse link for Azure SQL
 
 ## Link connection
 
-Link connection is an artifact for you to create, manage, and monitor in your Synapse workspace. A link connection identifies a mapping relationship between an Azure SQL database and an Azure Synapse dedicated SQL pool. When you create a link connection, it will guide you to select both source database and a destination Synapse SQL pool so that the operational data from your source database will be automatically replicated to the specified destination Synapse SQL pool. You can add or remove one or more tables from your source database to be replicated.
+A link connection identifies a mapping relationship between an Azure SQL database and an Azure Synapse dedicated SQL pool. You can create, manage, monitor and delete link connections in your Synapse workspace. When creating a link connection, you can select both source database and a destination Synapse SQL pool so that the operational data from your source database will be automatically replicated to the specified destination Synapse SQL pool. You can also add or remove one or more tables from your source database to be replicated.
 
 You can start or stop a link connection. When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via the change feed feature in Azure SQL database. When you stop a link connection, the updates made to the operational data won't be synchronized to your Synapse SQL pool.
 
-You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and price.
+You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and cost.
 
 ## Monitoring
 
 You can monitor Synapse link for SQL in different levels. For each link connection, you'll see the following status:
 
-* **Initial:** a link connection is created but not started.
+* **Initial:** a link connection is created but not started. You will not be charged in initial state.
 * **Starting:** a link connection is setting up compute engines to replicate data.
 * **Running:** a link connection is replicating data.
 * **Stopping:** a link connection is shutting down the compute engines.
-* **Stopped:** a link connection is stopped.
+* **Stopped:** a link connection is stopped. You will not be charged in stopped state.
 
 For each table, you'll see the following status:
 
-* **Snapshotting:** a source table is initially loaded to destination with full snapshot.
-* **Replicating:** any updates on source table are replicated to destination.
-* **Failed:** the data on source table can't be replicated to destination due to a fatal error. If you want to retry after fixing the error, remove the table from link and add it back.
+* **Snapshotting:** a source table is initially loaded to the destination with full snapshot.
+* **Replicating:** any updates on source table are replicated to the destination.
+* **Failed:** the data on source table can't be replicated to destination due to a fatal error. If you want to retry after fixing the error, remove the table from link connection and add it back.
 * **Suspended:** replication is suspended for this table due to an error. It will be resumed after the error is resolved. 
 
 ## Transactional consistency across tables
