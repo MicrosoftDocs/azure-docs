@@ -1635,6 +1635,8 @@ groups:
     title: Europe
   - id: asia-australia
     title: Asia, Australia
+  - id: Africa
+    title: Africa
   - id: self-managed
     title: Self-managed
 # Owner: timlt
