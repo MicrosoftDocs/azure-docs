@@ -6,7 +6,7 @@ author: rwike77
 manager: CelesteDG
 
 ms.service: app-service-web
-ms.topic: tutorial
+ms.topic: include
 ms.workload: identity
 ms.date: 11/02/2021
 ms.author: ryanwi
@@ -66,20 +66,20 @@ The Azure Resource Explorer is now opened with your web app selected in the reso
 1. In the **authsettingsV2** view, select **Edit**. 
 1. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
-```json
-"identityProviders": {
-    "azureActiveDirectory": {
-      "enabled": true,
-      "login": {
-        "loginParameters":[
-          "response_type=code id_token",
-          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
-        ]
+    ```json
+    "identityProviders": {
+        "azureActiveDirectory": {
+          "enabled": true,
+          "login": {
+            "loginParameters":[
+              "response_type=code id_token",
+              "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
+            ]
+          }
+        }
       }
-    }
-  }
-},
-```
+    },
+    ```
 
 1. Save your settings by selecting **PUT**. This setting can take several minutes to take effect. Your web app is now configured to access Microsoft Graph with a proper access token. If you don't, Microsoft Graph returns an error saying that the format of the compact token is incorrect.
 
@@ -93,7 +93,7 @@ Use the Azure CLI to call the App Service Web App REST APIs to [get](/rest/api/a
     az login
     ```
 
-1. Get your existing 'config/authsettingsv2’ settings and save to a local *authsettings.json* file.
+1. Get your existing 'config/authsettingsv2' settings and save to a local *authsettings.json* file.
     
     ```azurecli
     az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
