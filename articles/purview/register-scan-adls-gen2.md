@@ -1,11 +1,6 @@
 ---
-<<<<<<< HEAD
-title: 'Register, scan and share data from Azure Data Lake Storage (ADLS) Gen2'
-description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
-=======
 title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
 description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
->>>>>>> b8d492de1dafe5243a7326ca924eda3f66776104
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
@@ -15,11 +10,7 @@ ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure Data Lake Gen2 in Microsoft Purview
 
-<<<<<<< HEAD
-This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source.
-=======
 This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
->>>>>>> b8d492de1dafe5243a7326ca924eda3f66776104
 
 ## Supported capabilities
 
