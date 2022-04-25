@@ -27,7 +27,8 @@ The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains i
 
 The Audit Log always records a “Delete <object>” event when an object in the tenant is removed from an active state by either a soft or hard deletion.
 
-![Screenshot of audit log showing deletions.](media/recoverability/delete-audit-log.png)
+[![Screenshot of audit log showing deletions](./media/recoverability/delete-audit-log.png)](./media/recoverability/delete-audit-log.png#lightbox)
+
 
 
 A delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type, it's a hard delete. Track the occurrence of hard-delete events by comparing “Delete <object>” events with the type of object that has been deleted, noting those that do not support soft-delete. In addition, note "Hard Delete <object>" events. 
@@ -146,9 +147,8 @@ Applications have two objects, the application registration and the service prin
 
 To restore an application from the Azure portal, select App registrations, then deleted applications. Select the application registration to restore, and then select Restore app registration. 
 
-![A screenshot showing the app registration restore process in the azure portal.](media/recoverability/deletion-restore-application.png)
-
-
+[![A screenshot showing the app registration restore process in the azure portal.](./media/recoverability/deletion-restore-application.png)](./media/recoverability/deletion-restore-application.png#lightbox)
+  
 ## Hard deletions
 
 A “hard deletion” is the permanent removal of an object from your Azure Active Directory (Azure AD) tenant. Objects that don't support soft delete are removed in this way. Similarly, soft deleted objects are hard deleted once the deletion time is 30 days ago. The only object types that support a soft delete are:
