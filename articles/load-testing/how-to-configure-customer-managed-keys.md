@@ -40,7 +40,6 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 - Once customer-managed key ecryption is enabled on a resource, it cannot be disabled.
 
 ## Configure your Azure Key Vault
-  account
 You can use a new or existing key vault to store customer-managed keys. The Azure Load Testing resource and key vault may be in different regions or subscriptions in the same tenant. Using customer-managed keys with Azure Load Testing requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: **Soft Delete** and **Purge Protection**. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
 # [Azure portal](#tab/portal)
