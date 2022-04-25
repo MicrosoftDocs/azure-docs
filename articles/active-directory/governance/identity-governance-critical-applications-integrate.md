@@ -1,6 +1,6 @@
 ---
 title: Govern access for critical applications in your environment| Microsoft Docs
-description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical third party on-premises and cloud-based applications.
+description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can integrate your existing business critical third party on-premises and cloud-based applications with Azure AD for identity governance scenarios.
 services: active-directory
 documentationcenter: ''
 author: ajburnle

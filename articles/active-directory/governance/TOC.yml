@@ -60,13 +60,13 @@
   items:
   - name: Govern access for critical applications
     items:
-    - name: 
+    - name: Prepare
       href: identity-governance-critical-applications-prepare.md
-    - name: 
+    - name: Define
       href: identity-governance-critical-applications-define.md
-    - name: 
+    - name: Integrate
       href: identity-governance-critical-applications-integrate.md
-    - name: 
+    - name: Deploy
       href: identity-governance-critical-applications-deploy.md
   - name: Entitlement management
     items:
