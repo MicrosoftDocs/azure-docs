@@ -71,7 +71,7 @@ Select **Create** to create a new Azure Health Data Services account.
 
 ## Next steps
 
-Now that the workspace is created, you can:
+Now that the workspace is created, you can do the following:
 
 >[!div class="nextstepaction"]
 >[Deploy FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
