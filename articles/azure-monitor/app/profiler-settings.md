@@ -69,14 +69,18 @@ Cooldown | Sets the length of time the profiler will wait before checking for th
 
 **Sampling trigger**
 
-For the Sampling trigger, you can set up how often profiling can occur and the duration of a profiling session.
+Unlike CPU or memory triggers, the Sampling trigger isn't triggered by an event. Instead, it's triggered randomly to get a truly random sample of your application's performance. You can:
+- Turn this trigger off to disable random sampling.
+- Set how often profiling will occur and the duration of the profiling session. 
+
+  
 
 :::image type="content" source="./media/profiler-settings/sampling-trigger-settings.png" alt-text="Screenshot of trigger settings pane for Sampling trigger":::
 
 | Setting | Description |
 |-|-|
 On / Off Button | On: profiler can be started by this trigger; Off: profiler won't be started by this trigger.
-Sample rate | The rate at which the profiler can occur. Normal is recommended for production environments.
+Sample rate | The rate at which the profiler can occur. </br> <ul><li>The **Normal** setting collects data 5% of the time, which is about 2 minutes per hour.</li><li>The **High** setting profiles 50% of the time.</li><li>The **Maximum** setting profiles 75% of the time.</li></ul> </br> Normal is recommended for production environments.
 Duration | Sets the length of time the profiler will run when triggered.
 
 ## Recent Profiling Sessions
