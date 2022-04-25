@@ -320,4 +320,5 @@ When you revoke the encryption key, the only available operation is resource del
 
 ## Next steps
 
-- Start using Azure Load Testing [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
+- Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics).
+- Learn how to [Parameterize a load test](./how-to-parameterize-load-tests).
