@@ -47,7 +47,7 @@ Depending on the requirements of your organization, you may need to deploy one o
 
 First, ensure you have documented the organizations you are currently collaborating with, and if necessary, the  domains for those organizations' users. Note that domain-based restrictions may be impractical, since one collaboration partner may have multiple domains, and a partner could add domains at any time. For example, a partner may have multiple business units with separate domains and add more domains as they configure more synchronization.
 
-If your users have already started using Azure AD B2B, you can discover what external Azure AD tenants your users are currently collaborating with via the sign-in logs, [PowerShell](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity), or a [built-in workbook](https://docs.microsoft.com/azure/active-directory/reports-monitoring/workbook-cross-tenant-access-activity).
+If your users have already started using Azure AD B2B, you can discover what external Azure AD tenants your users are currently collaborating with via the sign-in logs, [PowerShell](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity), or a [built-in workbook](../reports-monitoring/workbook-cross-tenant-access-activity).
 
 Next, determine if you want to enable future collaboration with 
 
@@ -91,14 +91,14 @@ If you wish to deny access to specific tenants (deny list), you can set the defa
 > [!NOTE]
 > Cross Tenant Access Settings Inbound Access does not prevent the invitations from being sent or redeemed. However, it does control what applications can be accessed and whether a token is issued to the guest user or not. Even if the guest can redeem an invitation, if the policy blocks access to all applications, the user will not have access to anything.
 
-If you wish to control what external organizations your users can access, you can configure outbound access policies following the same pattern as inbound access – allow/deny list. Configure the default and organization-specific policies as desired. [Learn more about configuring inbound and outbound access policies](https://docs.microsoft.com/azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration). 
+If you wish to control what external organizations your users can access, you can configure outbound access policies following the same pattern as inbound access – allow/deny list. Configure the default and organization-specific policies as desired. [Learn more about configuring inbound and outbound access policies](../external-identities/cross-tenant-access-settings-b2b-collaboration). 
 
 > [!NOTE]
 > Cross Tenant Access Settings only applies to Azure AD tenants. If you need to control access to partners who do not use Azure AD, you must use External Collaboration Settings.
 
 ### Using Entitlement Management and Connected Organizations
 
-If you want to use Entitlement Management to ensure guest lifecycle is governed automatically, you can create Access Packages and publish them to any external user or only to Connected Organizations. Connected Organizations support Azure AD tenants and any other domain. When you create an Access Package you can restrict access only to specific Connected Organizations. This is covered in greater detail in the next section. [Learn more about Entitlement Management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). 
+If you want to use Entitlement Management to ensure guest lifecycle is governed automatically, you can create Access Packages and publish them to any external user or only to Connected Organizations. Connected Organizations support Azure AD tenants and any other domain. When you create an Access Package you can restrict access only to specific Connected Organizations. This is covered in greater detail in the next section. [Learn more about Entitlement Management](../governance/entitlement-management-overview). 
 
 ## Control how external users gain access
 
@@ -113,7 +113,7 @@ There are many ways to collaborate with external partners using Azure AD B2B. To
 When you enable Azure AD B2B, you enable the ability to invite guest users via direct links and email invitations by default. Self Service sign-up and publishing Access Packages to the My Access portal require additional configuration. 
 
 > [NOTE]
-> Self Service sign-up does not enforce the allow/deny list in External Collaboration Settings. Cross Tenant Access Settings will apply. You can also integrate your own allow/deny list with Self Service sign-up using [custom API connectors](https://docs.microsoft.com/azure/active-directory/external-identities/self-service-sign-up-add-api-connector).
+> Self Service sign-up does not enforce the allow/deny list in External Collaboration Settings. Cross Tenant Access Settings will apply. You can also integrate your own allow/deny list with Self Service sign-up using [custom API connectors](../external-identities/self-service-sign-up-add-api-connector).
 
 ### Control who can invite guest users
 
