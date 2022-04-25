@@ -46,7 +46,7 @@ You have to set the **Soft Delete** and **Purge Protection** properties on your 
 
 # [Azure portal](#tab/portal)
 
-To learn how to create a key vault with the Azure portal, see [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select Enable purge protection, as shown in the following image.
+To learn how to create a key vault with the Azure portal, see [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select **Enable purge protection**, as shown in the following image.
 
 :::image type="content" source="media/how-to-configure-customer-managed-keys/purge-protection-on-akv.png" alt-text="Screenshot that shows how to enable purge protection on a new key vault.":::
 
