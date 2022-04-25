@@ -13,7 +13,7 @@ ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
 
 * Deploy an AKS cluster using an Azure Resource Manager template.
-* Run a simple multi-container application with a web front-end and a Redis instance in the cluster.
+* Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
 :::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
@@ -277,12 +277,12 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][../aks-tutorial]
+> [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -295,7 +295,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

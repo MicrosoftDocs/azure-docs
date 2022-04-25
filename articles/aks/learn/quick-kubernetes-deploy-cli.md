@@ -13,7 +13,7 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-ja
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
 
 * Deploy an AKS cluster using the Azure CLI.
-* Run a simple multi-container application with a web front-end and a Redis instance in the cluster.
+* Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
 :::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
@@ -21,7 +21,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers][quick-windows-container-deploy-cli].
+To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers](quick-windows-container-deploy-cli.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -289,7 +289,7 @@ In this quickstart, you deployed a Kubernetes cluster and then deployed a simple
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][../aks-tutorial]
+> [AKS tutorial][aks-tutorial]
 
 This quickstart is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
@@ -303,7 +303,7 @@ This quickstart is for introductory purposes. For guidance on a creating full so
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials

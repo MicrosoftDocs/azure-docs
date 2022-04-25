@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
 
 * Deploy an AKS cluster using PowerShell.
-* Run a simple multi-container application with a web front-end and a Redis instance in the cluster.
+* Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
 :::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
@@ -271,12 +271,12 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][../aks-tutorial]
+> [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->[azure-monitor-containers]: ../../azure-monitor/containers/container-insights-overview.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -298,4 +298,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: ../concepts-network.md#services
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
-[aks-tutorial]: tutorial-kubernetes-prepare-app.md
+[aks-tutorial]: ../tutorial-kubernetes-prepare-app.md

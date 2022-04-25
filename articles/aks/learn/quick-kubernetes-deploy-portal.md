@@ -14,7 +14,7 @@ ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
 
 * Deploy an AKS cluster using the Azure portal.
-* Run a simple multi-container application with a web front-end and a Redis instance in the cluster.
+* Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
 :::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
@@ -271,12 +271,12 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --yes --no-wa
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
 
 To learn more about AKS by walking through a complete example, including building an application, deploying from Azure Container Registry, updating a running application, and scaling and upgrading your cluster, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [AKS tutorial][../aks-tutorial]
+> [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
