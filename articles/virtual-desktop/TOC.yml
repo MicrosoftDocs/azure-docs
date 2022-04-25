@@ -213,6 +213,8 @@
         href: configure-host-pool-load-balancing.md
       - name: Personal desktop assignment type
         href: configure-host-pool-personal-desktop-assignment-type.md
+  - name: Move resources between regions
+    href: move-resources.md
   - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
   - name: Customize session host image
