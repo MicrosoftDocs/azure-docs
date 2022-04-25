@@ -66,7 +66,7 @@
           href: tutorial-multi-container-app.md
     - name: Authenticate users
       href: tutorial-auth-aad.md
-    - name: Connect to Azure OBO app
+    - name: Connect to Azure resource as app
       items:
         - name: Overview
           href: tutorial-connect-overview.md
@@ -102,17 +102,17 @@
                 href: tutorial-connect-msi-key-vault-javascript.md    
               - name: PHP
                 href: tutorial-connect-msi-key-vault-php.md              
-    - name: Connect to Azure OBO user
+    - name: Connect to Azure resource as user
       items:
         - name: Set up App Service authentication
           href: scenario-secure-app-authentication-app-service-as-user.md
-        - name: Access Microsoft Graph as the user
+        - name: Connect to Microsoft Graph
           items: 
             - name: .NET
               href: scenario-secure-app-access-microsoft-graph-as-user.md
             - name: JavaScript
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
-        - name: Access another App Service as the user
+        - name: Connect to another App Service
           href: tutorial-auth-aad.md
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
