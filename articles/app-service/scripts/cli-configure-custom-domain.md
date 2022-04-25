@@ -28,22 +28,21 @@ This sample script creates an app in App Service with its related resources, and
 
 ### Map your prepared custom domain name to the web app
 
-Create the following variable containing your fully qualified domain name.
+1. Create the following variable containing your fully qualified domain name.
 
-```azurecli
-fqdn=<Replace with www.{yourdomain}>
-```
+   ```azurecli
+   fqdn=<Replace with www.{yourdomain}>
+   ```
 
-Configure a CNAME record that maps your fully qualified domain name to your web app's default domain name ($webappname.azurewebsites.net).
+1. Configure a CNAME record that maps your fully qualified domain name to your web app's default domain name ($webappname.azurewebsites.net).
 
-Map your domain name to the web app.
+1. Map your domain name to the web app.
 
-```azurecli
-az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \
---hostname $fqdn
-
-echo "You can now browse to http://$fqdn"
-```
+   ```azurecli
+   az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup --hostname $fqdn
+   
+   echo "You can now browse to http://$fqdn"
+   ```
 
 ## Clean up resources
 

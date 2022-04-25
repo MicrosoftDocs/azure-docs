@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/15/2022
+ms.date: 04/25/2022
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
@@ -22,44 +22,9 @@ This sample script creates an app in App Service with an additional deployment s
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-### To create the web app
+### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-github/deploy-github.sh" id="FullScript":::
-
-### To deploy code to a staging environment
-
-Create a deployment slot with the name "staging", use the following command".
-
-```azurecli
-az webapp deployment slot create --name $webapp --resource-group $resourceGroup --slot staging
-```
-
-Deploy sample code to "staging" slot from GitHub.
-
-```azurecli
-# az webapp deployment source config --name $webapp --resource-group $resourceGroup --slot staging --repo-url $gitrepo --branch master --manual-integration
-```
-
-Use the following commands to see the web app in the staging slot.
-
-```azurecli
-siteStaging="http://$webapp-staging.azurewebsites.net"
-echo $siteStaging
-curl "$siteStaging" # Optionally, copy and paste the output of the previous command into a browser to see the web app
-```
-
-```azurecli
-# Swap the verified/warmed up staging slot into production.
-# az webapp deployment slot swap --name $webapp --resource-group $resourceGroup --slot staging
-```
-
-Use the following commands to see the deployed web app.
-
-```azurecli
-site="http://$webapp.azurewebsites.net"
-echo $site
-curl "$site" # Optionally, copy and paste the output of the previous command into a browser to see the web app
-```
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh" id="FullScript":::
 
 ## Clean up resources
 

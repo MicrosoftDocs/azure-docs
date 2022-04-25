@@ -33,18 +33,21 @@ This sample script creates an app in App Service with its related resources, and
 
 ### To configure continuous deployment from GitHub
 
-Create the following variables containing your GitHub information.
+1. Create the following variables containing your GitHub information.
 
-```azurecli
-gitrepo=<replace-with-URL-of-your-own-GitHub-repo>
-token=<replace-with-a-GitHub-access-token>
-```
+   ```azurecli
+   gitrepo=<replace-with-URL-of-your-own-GitHub-repo>
+   token=<replace-with-a-GitHub-access-token>
+   ```
 
-Configure continuous deployment from GitHub. The `--git-token` parameter is required only once per Azure account (Azure remembers token).
+1. Configure continuous deployment from GitHub.
 
-```azurecli
-az webapp deployment source config --name $webapp --resource-group $resourceGroup --repo-url $gitrepo --branch master --git-token $token
-```
+   > [!TIP]
+   > The `--git-token` parameter is required only once per Azure account (Azure remembers token).
+
+   ```azurecli
+   az webapp deployment source config --name $webapp --resource-group $resourceGroup --repo-url $gitrepo --branch master --git-token $token
+   ```
 
 ## Clean up resources
 

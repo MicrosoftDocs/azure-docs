@@ -30,28 +30,27 @@ This sample script creates an app in App Service with its related resources, and
 
 ### To deploy to your local Git repository
 
-Create the following variables containing your GitHub information.
+1. Create the following variables containing your GitHub information.
 
-```azurecli
-gitdirectory=<Replace with path to local Git repo>
-username=<Replace with desired deployment username>
-password=<Replace with desired deployment password>
-```
+   ```azurecli
+   gitdirectory=<Replace with path to local Git repo>
+   username=<Replace with desired deployment username>
+   password=<Replace with desired deployment password>
+   ```
 
-Configure local Git and get deployment URL
+1. Configure local Git and get deployment URL.
 
-```azurecli
-url=$(az webapp deployment source config-local-git --name $webapp --resource-group $resourceGroup --query url --output tsv)
-```
+   ```azurecli
+   url=$(az webapp deployment source config-local-git --name $webapp --resource-group $resourceGroup --query url --output tsv)
+   ```
 
-Add the Azure remote to your local Git repository and push your code.
+1. Add the Azure remote to your local Git repository and push your code. When prompted for password, use the value of $password that you specified.
 
-```azurecli
-cd $gitdirectory
-git remote add azure $url
-git push azure main
-# When prompted for password, use the value of $password that you specified
-```
+   ```bash
+   cd $gitdirectory
+   git remote add azure $url
+   git push azure main
+   ```
 
 ## Clean up resources
 

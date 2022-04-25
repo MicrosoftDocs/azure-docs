@@ -31,48 +31,44 @@ This sample script creates an app in App Service with its related resources, the
 
 ### Map your prepared custom domain name to the web app
 
-Create the following variable containing your fully qualified domain name.
+1. Create the following variable containing your fully qualified domain name.
 
-```azurecli
-fqdn=<Replace with www.{yourdomain}>
-```
+   ```azurecli
+   fqdn=<Replace with www.{yourdomain}>
+   ```
 
-Configure a CNAME record that maps your fully qualified domain name to your web app's default domain name ($webappname.azurewebsites.net).
+1. Configure a CNAME record that maps your fully qualified domain name to your web app's default domain name ($webappname.azurewebsites.net).
 
-Map your domain name to the web app.
+1. Map your domain name to the web app.
 
-```azurecli
-az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \
---hostname $fqdn
+   ```azurecli
+   az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup --hostname $fqdn
+   
+   echo "You can now browse to http://$fqdn"
+   ```
 
-echo "You can now browse to http://$fqdn"
-```
+### Upload and bind the SSL certificate
 
-### Upload and bind the SSL certificate 
+1. Create the following variable containing your pfx path and password.
 
-Create the following variable containing your pfx path and password.
+   ```azurecli
+   pfxPath=<replace-with-path-to-your-.PFX-file>
+   pfxPassword=<replace-with-your=.PFX-password>
+   ```
 
-```azurecli
-pfxPath=<replace-with-path-to-your-.PFX-file>
-pfxPassword=<replace-with-your=.PFX-password>
-```
+1. Upload the SSL certificate and get the thumbprint.
 
-Upload the SSL certificate and get the thumbprint.
+   ```azurecli
+   thumbprint=$(az webapp config ssl upload --certificate-file $pfxPath --certificate-password $pfxPassword --name $webapp --resource-group $resourceGroup --query thumbprint --output tsv)
+   ```
 
-```azurecli
-thumbprint=$(az webapp config ssl upload --certificate-file $pfxPath \
---certificate-password $pfxPassword --name $webapp --resource-group $resourceGroup \
---query thumbprint --output tsv)
-```
+1. Bind the uploaded SSL certificate to the web app.
 
-Bind the uploaded SSL certificate to the web app.
-
-```azurecli
-az webapp config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
---name $webapp --resource-group $resourceGroup
-
-echo "You can now browse to https://$fqdn"
-```
+   ```azurecli
+   az webapp config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI --name $webapp --resource-group $resourceGroup
+   
+   echo "You can now browse to https://$fqdn"
+   ```
 
 ## Clean up resources
 

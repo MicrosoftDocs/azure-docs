@@ -30,18 +30,26 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 ### Configure Web App with a Custom Docker Container from Docker Hub
 
-Create the following variable containing your GitHub information.
+1. Create the following variable containing your GitHub information.
 
-```azurecli
-dockerHubContainerPath="<replace-with-docker-container-path>" #format: <username>/<container-or-image>:<tag>
-```
+   ```azurecli
+   dockerHubContainerPath="<replace-with-docker-container-path>" #format: <username>/<container-or-image>:<tag>
+   ```
 
-Configure the web app with a custom docker container from Docker Hub.
+1. Configure the web app with a custom docker container from Docker Hub.
 
-```azurecli
+   ```azurecli
 
-az webapp config container set --docker-custom-image-name $dockerHubContainerPath --name $webApp --resource-group $resourceGroup
-```
+   az webapp config container set --docker-custom-image-name $dockerHubContainerPath --name $webApp --resource-group $resourceGroup
+   ```
+
+1. Copy the result of the following command into a browser to see the web app.
+
+   ```azurecli
+   site="http://$webapp.azurewebsites.net"
+   echo $site
+   curl "$site"
+   ```
 
 ## Clean up resources
 
