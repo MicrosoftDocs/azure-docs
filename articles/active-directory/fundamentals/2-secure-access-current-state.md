@@ -35,7 +35,7 @@ To find users who are currently collaborating, review the [Microsoft 365 audit l
 
 External users may be [Azure AD B2B users](../external-identities/what-is-b2b.md) (preferable) with partner-managed credentials, or external users with locally provisioned credentials. These users are typically (but not always) marked with a UserType of Guest. You can enumerate guest users through the [Microsoft Graph API](/graph/api/user-list?tabs=http), [PowerShell](/graph/api/user-list?tabs=http), or the [Azure portal](../enterprise-users/users-bulk-download.md).
 
-There are also tools specifically designed to identify existing Azure AD B2B cllaboration such as identifying external Azure AD tenants, and which external users are accessing what applications. These tools include a [PowerShell module](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity) and an [Azure Monitor workbook](../reports-monitoring/workbook-cross-tenant-access-activity).  
+There are also tools specifically designed to identify existing Azure AD B2B cllaboration such as identifying external Azure AD tenants, and which external users are accessing what applications. These tools include a [PowerShell module](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity) and an [Azure Monitor workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md).  
 
 ### Use email domains and companyName property
 
