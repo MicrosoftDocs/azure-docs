@@ -1,5 +1,5 @@
 ---
-title: Recover from misconfigurations
+title: Recover from misconfigurations in Azure Active Directory
 description: Learn how to recover from misconfigurations.
 services: active-directory
 author: BarbaraSelden
@@ -57,7 +57,7 @@ The implementation of some tenant-wide configurations can be scoped, provided th
 
 Conditional Access policies are access control configurations that bring together signals to make decisions and enforce organizational policies. 
 
-![Graphic showing user, location. Device, application, and risk signals coming together in conditional access policies](media\recoverability\miscofigurations-conditional-accss-signals.png)
+![A screenshot showing user, location. Device, application, and risk signals coming together in conditional access policies.](media\recoverability\miscofigurations-conditional-accss-signals.png)
 
 
 
@@ -181,7 +181,7 @@ You can make changes to these settings on the External identities or External co
 
 Selecting some audit entries in the Audit Log will provide you with details on the old and new configuration values. For example, for Conditional Access policy configuration changes you can see the information in the following screenshot.
 
-![A screenshot of audit log details for a change to a conditional access policy](media/recoverability/misconfiguration-audit-log-details.png)
+![A screenshot of audit log details for a change to a conditional access policy.](media/recoverability/misconfiguration-audit-log-details.png)
 
 
 ## Use workbooks to track changes
