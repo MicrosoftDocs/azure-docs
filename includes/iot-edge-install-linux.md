@@ -47,7 +47,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 * **10 (Buster)**:
 
     ```bash
-    curl https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb > ./packages- microsoft-prod.deb 
+    curl https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb 
     sudo apt install ./packages-microsoft-prod.deb
     ```
 
