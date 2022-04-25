@@ -73,6 +73,6 @@ To deploy the template:
 
 ## Next steps
 
-- Find out which Azure regions are currently available at [Azure Geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/#overview).
+- Find out which Azure regions are currently available at [Azure Geographies](https://azure.microsoft.com/global-infrastructure/geographies/#overview).
 - See [our Azure Resource Manager templates for Azure Virtual Desktop](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates) for more templates you can use in your deployments after you move your resources.
 
