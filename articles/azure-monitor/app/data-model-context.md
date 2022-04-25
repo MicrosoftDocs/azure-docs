@@ -73,8 +73,8 @@ Anonymous user ID. Represents the end user of the application. When telemetry is
 
 [Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. Sampling algorithm attempts to either sample in or out all the correlated telemetry. Anonymous user ID is used for sampling score generation. So anonymous user ID should be a random enough value. 
 
-[!NOTE]
-The count of anonymous user IDs is not the same as the number of unique application users. The count of anonymous user IDs is typically higher because each time the user opens your app on a different device or browser, or cleans up browser cookies, a new unique anonymous user id is allocated. This may result in counting the same physical users multiple times.
+> [!NOTE]
+> The count of anonymous user IDs is not the same as the number of unique application users. The count of anonymous user IDs is typically higher because each time the user opens your app on a different device or browser, or cleans up browser cookies, a new unique anonymous user id is allocated. This may result in counting the same physical users multiple times.
 
 User IDs can be cross referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
 
