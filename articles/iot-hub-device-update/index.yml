@@ -44,6 +44,7 @@ landingContent:
       - text: Create a device update account
         url: create-device-update-account.md
       - text: Provision the agent on your devices
+        url: device-update-agent-provisioning.md
   - title: Create and import updates
     linkLists:
     - linkListType: concept
