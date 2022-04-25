@@ -24,8 +24,6 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
     1. On the page for the VM, select **Networking** from the left menu.
     1. On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
-    :::image type="content" source="media/linux-vm-connect/check-rule.png" alt-text="Screenshot showing how to check to see if there is already a rule allowing S S H connections.":::
-
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
     1. From the **Service** dropdown select **SSH**.
     
@@ -47,10 +45,6 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
 - Verify your VM is running. On the Overview tab, in the **Essentials** section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
    
-
-   :::image type="content" source="media/linux-vm-connect/running.png" alt-text="Screenshot showing how to check to make sure your virtual machine is in the running state.":::
- 
-
 ## Connect to the VM
 
 Once the above prerequisites are met, you are ready to connect to your VM. Open your SSH client of choice.
