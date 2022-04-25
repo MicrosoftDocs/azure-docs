@@ -332,7 +332,7 @@ val writeOptionsWithBasicAuth:Map[String, String] = Map(Constants.SERVER -> "<de
 //Configure and submit the request to write to Synapse Dedicated SQL Pool. 
 readDF.
     write.
-    options(writeOptions).
+    options(writeOptionsWithBasicAuth).
     //Choose a save mode that is apt for your use case.
     mode(SaveMode.Overwrite). 
     synapsesql(tableName = "<database_name>.<schema_name>.<table_name>", 
