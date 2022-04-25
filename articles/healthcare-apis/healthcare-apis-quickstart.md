@@ -40,13 +40,13 @@ Select **Create** to create a new Azure Health Data Services account.
 
 ## Enter subscription and workspace details
 
-1. Under the **Project details** section of the **Basics** tab, select a **Subscription** and **Resource group** from their drop-down lists. You may also select **Create new** to create a new Resource group.
+1. Under the **Project details** section of the **Basics** tab, select a **Subscription** and **Resource group** from their drop-down lists.  Select **Create new** to create a new resource group.
 
    [ ![Screenshot of create health data services workspace basics tab.](media/create-health-data-services-workspace-basics-tab.png) ](media/create-health-data-services-workspace-basics-tab.png#lightbox)
 
 2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Don't use a hyphen "-" as it's an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
-3. Select **Next: Networking >**.  It is here that you can connect a workspace publicly with the default **Public endpoint (all networks)** option selected. You may also connect a workspace using a private endpoint by selecting the **Private endpoint** option. For more information about accessing Azure Health Data Services over a private endpoint, see [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md).
+3. Select **Next: Networking >**.  It's here that you can connect a workspace publicly with the default **Public endpoint (all networks)** option selected. You may also connect a workspace using a private endpoint by selecting the **Private endpoint** option. For more information about accessing Azure Health Data Services over a private endpoint, see [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md).
 
    [ ![Screenshot of create health data services workspace networking tab.](media/create-workspace-networking-tab.png) ](media/create-workspace-networking-tab.png#lightbox)
 
@@ -62,21 +62,28 @@ Select **Create** to create a new Azure Health Data Services account.
 
 6. After the workspace deployment process is complete, select **Go to resource**.
 
-   [ ![Screenshot of the workspace deployment and go to resource button.](media/workspace-deployment-details.png) ](media/workspace-deployment-details.png#lightbox)
+   [ ![Screenshot of the workspace and the go to resource button.](media/workspace-deployment-details.png) ](media/workspace-deployment-details.png#lightbox)
 
     You now can create a FHIR service, DICOM service, and MedTech service from the newly deployed Azure Health Data Services workspace.
 
-[ ![Screenshot of newly deployed Azure Health Data Services workspace.](media/deploy-health-data-services-workspace.png) ](media/deploy-health-data-services-workspace.png#lightbox)
+[ ![Screenshot of the newly deployed Azure Health Data Services workspace.](media/deploy-health-data-services-workspace.png) ](media/deploy-health-data-services-workspace.png#lightbox)
 
 
 ## Next steps
 
 Now that the workspace is created, you can:
 
-* [Deploy FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
-* [Deploy DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
-* [Deploy a MedTech service and ingest data to your FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
-* [Convert your data to FHIR](./../healthcare-apis/fhir/convert-data.md)
+>[!div class="nextstepaction"]
+>[Deploy FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
+
+>[!div class="nextstepaction"]
+>[Deploy DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
+
+>[!div class="nextstepaction"]
+>[Deploy a MedTech service and ingest data to your FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
+
+>[!div class="nextstepaction"]
+>[Convert your data to FHIR](./../healthcare-apis/fhir/convert-data.md)
 
 For more information about Azure Health Data Services workspace, see
 
