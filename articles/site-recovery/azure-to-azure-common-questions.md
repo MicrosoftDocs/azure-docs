@@ -48,7 +48,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 - Site Recovery supports:
     - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
     - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Windows Azure VMs must have managed disks.
-    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema). about the extension schemas.
+    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
@@ -94,7 +94,7 @@ Site Recovery doesn't support "hot remove" of disks from a replicated VM. If you
 
 ### How often can I replicate to Azure?
 
-Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about how replication works.
+Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about the replication process.
 
 ### Can I replicate virtual machines within a region?
 

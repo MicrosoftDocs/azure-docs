@@ -34,7 +34,7 @@ Before you start this tutorial:
 
 ## Check Azure settings
 
-Check permissions, and settings in the target region.
+Check permissions and settings in the target region.
 
 ### Check permissions
 
@@ -81,7 +81,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 #### Outbound connectivity for IP address ranges
 
-If you're using network security groups (NSGs) to control connectivity, create service-tag based NSG rules that allow HTTPS outbound to port 443 for these [service tags](../virtual-network/service-tags-overview.md#available-service-tags)(groups of IP addresses):
+If you're using network security groups (NSGs) to control connectivity, create a service-tag based NSG rules that allow HTTPS outbound to port 443 for these [service tags](../virtual-network/service-tags-overview.md#available-service-tags)(groups of IP addresses):
 
 **Tag** | **Allow**
 --- | ---
