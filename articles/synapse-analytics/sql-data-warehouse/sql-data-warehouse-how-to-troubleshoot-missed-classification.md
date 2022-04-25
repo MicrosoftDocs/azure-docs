@@ -141,7 +141,9 @@ The Azure Synapse Workspace SQL Admin login and the Azure Synapse Azure Active D
 
 :::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png" alt-text="Identifying the service admin by looking at the Workspace SQL Admin Login field" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png":::
 
-Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
+Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md). 
+
+For Managed Identity in Azure Synapse workspaces, Azure Synapse workspaces adds MI (Managed Identity) to the dbo role. This cannot be changed. As the dbo role, by default, is classified to smallrc, creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. [Create Workload Classifier](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)
 
 
 ### Use workload group precedence for better classification
