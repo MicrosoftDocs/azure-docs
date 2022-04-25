@@ -21,7 +21,7 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 
 For information on using PowerShell to restore a disk and create a recovered VM, see [Back up and restore Azure VMs with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-Now, you can also use CLI to directly restore the backup content to a VM (original/new VM) without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
+Now, you can also use CLI to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -314,7 +314,7 @@ az vm list --resource-group myResourceGroup --output table
 
 ## Restore data to virtual machine using CLI
 
-You can now directly restore data to original or alternate VM without performing multiple steps.
+You can now directly restore data to original/alternate VM without performing multiple steps.
 
 ### Restore data to original VM
 

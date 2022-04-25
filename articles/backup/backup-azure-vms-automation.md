@@ -439,7 +439,7 @@ The basic steps to restore an Azure VM are:
 * Restore the disks.
 * Create the VM from stored disks.
 
-Now, you can also use PowerShell to directly restore the backup content to a VM (original/new VM) simply without performing the above steps separately. For more information, see [Restore data to virtual machine using PowerShell](#restore-data-to-virtual-machine-using-powershell).
+Now, you can also use PowerShell to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using PowerShell](#restore-data-to-virtual-machine-using-powershell).
 
 ### Select the VM (when restoring files)
 
@@ -986,7 +986,7 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $ta
 
 ## Restore data to virtual machine using PowerShell
 
-You can now directly restore data to the original VM or an alternate VM without performing multiple steps.
+You can now directly restore data to original/alternate VM without performing multiple steps.
 
 ### Restore data to original VM
 
