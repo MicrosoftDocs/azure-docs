@@ -156,7 +156,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
 1. Run the following command in your SSH client, where `20.51.230.13` is the public IP Address of your VM and `azureuser` is the username you created when you created the VM. 
 
     ```bash
-    ssh azureuser@azureuser@20.51.230.13
+    ssh azureuser@20.51.230.13
     ```
 
    If you forgot your password or username see [Reset Access to an Azure VM](./extensions/vmaccess.md)
