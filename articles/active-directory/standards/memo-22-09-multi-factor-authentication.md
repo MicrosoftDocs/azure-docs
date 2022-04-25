@@ -46,7 +46,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
   This method requires that the device being used to access the application that is protected by Azure AD is either Hybrid joined or compliant device. The mobile device with the authenticator app only needs to itself be managed/compliant if it is the device being used to access the application protected by Azure AD. For this reason if the organization/agency intends to allow access to applications **from un-managed devices** this method is not feasible.
 
 > [!Note]
-> Today, Microsoft Authenticator by itself is **not** Phishing-resistant. This approach works around a current limitation with Microsoft Authenticator by additionally securing the authentication with the phishing resistant properties gained from conditional access policy enforcement of Hybrid join or compliant device. This approach does not convey protection against all phishing threats but does protect the authentication from the most significant vector of phishing threats from malicious external actors.
+> Today, Microsoft Authenticator by itself is **not** Phishing-resistant. This approach works around a current limitation with Microsoft Authenticator by additionally securing the authentication with the phishing resistant properties gained from conditional access policy enforcement of Hybrid join or compliant device. This approach protects against phishing threats from the most significant vector of phishing threats from malicious external actors.
 >
 >**Microsoft Authenticator native phishing resistance is in development.** Once available Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
 
