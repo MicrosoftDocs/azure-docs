@@ -109,6 +109,10 @@ The following software must be installed:
 ## Unity
 
 For development with Unity, install a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+
+> [!IMPORTANT]
+> In addition to the supported versions mentioned below, make sure to check out the [Unity known issues page](/mixed-reality/develop/unity/known-issues).
+
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
 * **IL2CPP** - Windows Build Support (IL2CPP)

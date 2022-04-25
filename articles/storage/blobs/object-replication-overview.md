@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 04/19/2022
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -193,7 +193,7 @@ This table shows how this feature is supported in your account and the impact on
 
 <sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
-<sup>2</sup>    Feature is supported at the preview level.
+<sup>2</sup> Feature is supported in preview.
 
 ## Billing
 
