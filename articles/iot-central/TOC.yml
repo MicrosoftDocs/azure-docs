@@ -82,6 +82,8 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
+    - name: Industrial IoT patterns
+      href: core/concepts-iiot-architecture.md
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
