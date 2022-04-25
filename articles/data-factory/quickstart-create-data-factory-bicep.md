@@ -128,7 +128,7 @@ Keep the container page open because you can use it to verify the output at the 
 
     :::image type="content" source="media/quickstart-create-data-factory-bicep/data-factory-open-tile-bicep.png" alt-text="Author & Monitor":::
 
-3. Select the **Author** tab. :::image type="icon" source="media/quickstart-create-data-factory-bicep/data-factory-author-bicep.png border="false":::
+3. Select the **Author** tab :::image type="icon" source="media/quickstart-create-data-factory-bicep/data-factory-author-bicep.png" border="false":::.
 
 4. Select the pipeline created: **ArmtemplateSampleCopyPipeline**.
 
