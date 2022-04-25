@@ -426,6 +426,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -41286,7 +41291,7 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
       "redirect_url": "/azure/storage/files/files-nfs-protocol",
-      "redireect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
