@@ -504,7 +504,7 @@ If all of your source records map to the same target entity and your source data
 
 ## Mapping data flow properties
 
-When transforming data in mapping data flow, you can read and write to tables from Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+When transforming data in mapping data flow, you can read from and write to tables in Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
 
 ### Source transformation
 
