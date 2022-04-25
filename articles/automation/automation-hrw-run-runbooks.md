@@ -109,6 +109,11 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
     1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
     1. Enter the Client ID.
 
+>[!NOTE]
+>By default, the Azure contexts are saved for use between PowerShell sessions. It is possible that when a previous runbook on the Hybrid Runbook Worker has been authenticated with Azure, that context persists to the disk in the System PowerShell profile, as per [Azure contexts and sign-in credentials | Microsoft Docs](/powershell/azure/context-persistence?view=azps-7.3.2). 
+For instance, a runbook with `Get-AzVM` can return all the VMs in the subscription with no call to `Connect-AzAccount`, and the user would be able to access Azure resources without having to authenticate within that runbook. You can disable context autosave in Azure PowerShell, as detailed [here](/powershell/azure/context-persistence?view=azps-7.3.2#save-azure-contexts-across-powershell-sessions).
+
+
 ### Use runbook authentication with Run As account
 
 Instead of having your runbook provide its own authentication to local resources, you can specify a Run As account for a Hybrid Runbook Worker group. To specify a Run As account, you must define a [credential asset](./shared-resources/credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.

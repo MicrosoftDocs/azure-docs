@@ -75,9 +75,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Resizing or changing a SKU
 
-If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. In comparison, when you resize a gateway SKU, there isn't much downtime because you don't have to delete and rebuild the gateway. If you have the option to resize your gateway SKU, rather than change it, you will want to do that. However, there are rules regarding resizing:
+If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. In comparison, when you resize a gateway SKU, there isn't much downtime because you don't have to delete and rebuild the gateway. If you have the option to resize your gateway SKU, rather than change it, you'll want to do that. However, there are rules regarding resizing:
 
-1. With the exception of the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2). For example, VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1 but not to VpnGw2 of Generation2.
+1. Except for the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2). For example, VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1 but not to VpnGw2 of Generation2.
 2. When working with the old gateway SKUs, you can resize between Standard and HighPerformance SKUs.
 3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
 
@@ -118,7 +118,7 @@ When you create the virtual network gateway for a VPN gateway configuration, you
 
 The VPN type you select must satisfy all the connection requirements for the solution you want to create. For example, if you want to create a S2S VPN gateway connection and a P2S VPN gateway connection for the same virtual network, you would use VPN type *RouteBased* because P2S requires a RouteBased VPN type. You would also need to verify that your VPN device supported a RouteBased VPN connection. 
 
-Once a virtual network gateway has been created, you can't change the VPN type. You have to delete the virtual network gateway and create a new one. 
+Once a virtual network gateway has been created, you can't change the VPN type. You have to delete the virtual network gateway and create a new one.
 There are two VPN types:
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
@@ -130,10 +130,6 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
-
-## <a name="requirements"></a>Gateway requirements
-
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ## <a name="gwsub"></a>Gateway subnet
 
