@@ -128,7 +128,7 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
 Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Microsoft Purview account.
 
-1. From the [Azure portal](https://portal.azure.com), select your Microsoft Purview account and open the [Microsoft Purview Studio](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
+1. From the [Azure portal](https://portal.azure.com), select your Microsoft Purview account and open the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Navigate to the **Management Center** in the studio and then navigate to **credentials**.
 
 2. From the **Credentials** page, select **Manage Key Vault connections**.
 
@@ -219,9 +219,9 @@ The following steps will show you how to create a UAMI for Microsoft Purview to 
    :::image type="content" source="media/manage-credentials/status-successful.png" alt-text="Screenshot the Microsoft Purview account in the Azure portal with Status highlighted under the overview tab and essentials menu.":::
 
 
-1. Once the managed identity is successfully deployed, navigate to the [Microsoft Purview Studio](https://web.purview.azure.com/), by selecting the **Open Microsoft Purview Studio** button.
+1. Once the managed identity is successfully deployed, navigate to the [Microsoft Purview governance portal](https://web.purview.azure.com/), by selecting the **Open Microsoft Purview governance portal** button.
 
-1. In the [Microsoft Purview Studio](https://web.purview.azure.com/), navigate to the Management Center in the studio and then navigate to the Credentials section.
+1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/), navigate to the Management Center in the studio and then navigate to the Credentials section.
 
 1. Create a user-assigned managed identity by selecting **+New**. 
 1. Select the Managed identity authentication method, and select your user assigned managed identity from the drop-down menu.

@@ -15,7 +15,7 @@ Data classification, in the context of Microsoft Purview, is a way of categorizi
 
 When you classify data assets, you make them easier to understand, search, and govern. Classifying data assets also helps you understand the risks associated with them. This in turn can help you implement measures to protect sensitive or important data from ungoverned proliferation and unauthorized access across the data estate.
 
-Microsoft Purview provides an automated classification capability while you scan your data sources. You get more than 200+ built-in system classifications and the ability to create custom classifications for your data. You can classify assets automatically when they're configured as part of a scan, or you can edit them manually in Microsoft Purview Studio after they're scanned and ingested.  
+Microsoft Purview provides an automated classification capability while you scan your data sources. You get more than 200+ built-in system classifications and the ability to create custom classifications for your data. You can classify assets automatically when they're configured as part of a scan, or you can edit them manually in the Microsoft Purview governance portal after they're scanned and ingested.  
 
 ## Use of classification
 
@@ -50,4 +50,4 @@ Custom classification rules can be based on a *regular expression* pattern or *d
 * [Read about classification best practices](concept-best-practices-classification.md)
 * [Create custom classifications](create-a-custom-classification-and-classification-rule.md)
 * [Apply classifications](apply-classifications.md)
-* [Use the Microsoft Purview Studio](use-azure-purview-studio.md)
+* [Use the Microsoft Purview governance portal](use-azure-purview-studio.md)
