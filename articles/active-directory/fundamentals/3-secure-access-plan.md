@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# 3. Create a security plan for external access 
+# Create a security plan for external access 
 
 Now that you have [determined your desired security posture security posture for external access](1-secure-access-posture.md) and [discovered your current collaboration state](2-secure-access-current-state.md), you can create an external user security and governance plan. 
 
