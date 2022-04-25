@@ -135,6 +135,8 @@
         href: azure-stack-hci-faq.yml
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
+  - name: Fair Share technologies enabled by default
+    href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Migrate your deployment

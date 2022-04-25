@@ -27,7 +27,8 @@ Updates in April include:
 - [PowerShell script to stream alerts to Splunk and QRadar](#powershell-script-to-stream-alerts-to-splunk-and-ibm-qradar)
 - [Deprecated the Azure Cache for Redis recommendation](#deprecated-the-azure-cache-for-redis-recommendation)
 - [New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data](#new-alert-variant-for-microsoft-defender-for-storage-preview-to-detect-exposure-of-sensitive-data)
-- [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation) 
+- [Container scan alert title augmented with IP address reputation](#container-scan-alert-title-augmented-with-ip-address-reputation)
+- [See the activity logs that relate to a security alert](#see-the-activity-logs-that-relate-to-a-security-alert)
 
 ### New Defender for Servers plans
 
@@ -40,7 +41,7 @@ While Microsoft Defender for Servers Plan 2 continues to provide,  complete prot
 
 If you have been using Defender for Servers until now – no action is required.
  
-In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016 (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will deploy the unified agent soon after it's approved for general use.
+In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will start deploying the unified agent soon.
 
 ### Relocation of custom recommendations
 
@@ -95,6 +96,13 @@ For example, the added information to the title of the `Publicly accessible stor
 - `Publicly accessible storage containers have been exposed`**`by a Tor exit node`** 
 
 All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
+
+### See the activity logs that relate to a security alert
+
+As part of the actions you can take to [triage a security alert](managing-and-responding-alerts.md#respond-to-security-alerts), you can find the related platform logs in **Inspect resource context** to gain context about the affected resource.
+Microsoft Defender for Cloud identifies platform logs that are within one day of the alert.
+
+The platform logs can help you evaluate the security threat and identify steps that you can take to mitigate risk.
 
 ## March 2022
 
