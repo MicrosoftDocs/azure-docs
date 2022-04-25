@@ -318,13 +318,13 @@ az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-
 
 To check the extension instance creation was successful, and inspect extension metadata, run the following command substituting `<>` with your values:
 
-```console
+```azurecli
 az k8s-extension show --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 
 #### Example:
 
-```console
+```azurecli
 az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azurepolicy
 ```
 

@@ -36,7 +36,7 @@ To use the Azure Synapse Prometheus connector in your on-premises Prometheus ser
 
 #### 2.1 Create a service principal:
 
-```bash
+```azurecli
 az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
 ```
 

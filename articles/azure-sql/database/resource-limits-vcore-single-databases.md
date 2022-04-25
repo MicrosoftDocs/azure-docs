@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 04/13/2022
+ms.date: 04/25/2022
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,7 +63,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Min-max auto-pause delay (minutes)|60-10080|60-10080|60-10080|60-10080|60-10080|
 |Columnstore support|Yes <sup>1</sup>|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|512|1024|1024|1024|1536|
+|Max data size (GB)|512|1024|1024|1024|2048|
 |Max log size (GB) <sup>2</sup>|154|307|307|307|461|
 |Tempdb max data size (GB)|32|64|128|192|256|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
@@ -93,7 +93,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Min-max auto-pause delay (minutes)|60-10080|60-10080|60-10080|60-10080|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
-|Max data size (GB)|1536|3072|3072|3072|
+|Max data size (GB)|2048|3072|3072|3072|
 |Max log size (GB) <sup>1</sup>|461|461|461|922|
 |Tempdb max data size (GB)|320|384|448|512|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
@@ -361,7 +361,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Memory (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Max data size (GB)|1024|1024|1536|2048|2048|3072|3072|
 |Max log size (GB) <sup>1</sup>|307|307|461|461|461|922|922|
 |Tempdb max data size (GB)|64|128|192|256|320|384|384|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
@@ -565,7 +565,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Memory (GB)|10.4|20.8|31.1|41.5|51.9|62.3|72.7|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.57|3.14|4.71|6.28|8.65|11.02|13.39|
-|Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Max data size (GB)|1024|1024|1536|2048|2048|3072|3072|
 |Max log size (GB) <sup>1</sup>|307|307|461|461|461|922|922|
 |Tempdb max data size (GB)|64|128|192|256|320|384|448|
 |[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|4829|

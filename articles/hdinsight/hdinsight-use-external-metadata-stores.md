@@ -55,9 +55,9 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 ### Create and config Azure SQL Database for the custom metastore
 
-Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
+Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal).
 
-While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 Private endpoints for SQL stores is only supported on the clusters created with `outbound` ResourceProviderConnection. To learn more, see this [documentationa](./hdinsight-private-link.md).
 
@@ -78,7 +78,7 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 * If you intend multiple HDInsight clusters to access separate data, use a separate database for the metastore on each cluster. If you share a metastore across multiple HDInsight clusters, it means that the clusters use the same metadata and underlying user data files.
 
-* Back up your custom metastore periodically. Azure SQL Database generates backups automatically, but the backup retention timeframe varies. For more information, see [Learn about automatic SQL Database backups](../azure-sql/database/automated-backups-overview.md).
+* Back up your custom metastore periodically. Azure SQL Database generates backups automatically, but the backup retention timeframe varies. For more information, see [Learn about automatic SQL Database backups](/azure/azure-sql/database/automated-backups-overview).
 
 * Locate your metastore and HDInsight cluster in the same region. This configuration will provide the highest performance and lowest network egress charges.
 
