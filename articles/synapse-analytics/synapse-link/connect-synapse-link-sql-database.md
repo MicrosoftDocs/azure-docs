@@ -18,17 +18,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 > Synapse Link for Azure SQL Database is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Synapse Link enables a seamless data pipeline between OLTP and OLAP platforms. It eliminates undesired burden on OLTP sources for real-time analytics, which includes advanced BI and AI/ML processing.
-
-Azure Synapse Link for Azure SQL Database enables a seamless and fully managed data pipeline from Azure SQL Databases to Synapse SQL Pools with one to one column and data type mapping. It adds minimum impact on source databases with a new change feed technology. Azure Synapse Link for Azure SQL Database supports an average minimum latency to publish incremental data changes from Azure SQL DB to Azure Synapse Link tables with full consistency. In a healthy state, it guarantees no data loss and transactional consistency at Synapse Link connection level for all the link tables.
-
-If at any point you run into issues, check the [Known issues and restrictions page](#known-issues), then reach out to [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20issue).
-
 ## Prerequisites
 
-* First, make sure your subscription, the source SQL logical server, and the database are allowed to configure Synapse Link. If you aren't sure email us at [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20allow%20list%20request). Wait for a confirmation from the team before proceeding with the next steps.
-
-* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) in the Azure subscription that has been added to the preview. To use this feature, currently you need to create a new Synapse workspace.
+* [Create a new Synapse workspace](https://ms.portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database.
 
 ## Configure your source Azure SQL Database
 
@@ -49,10 +41,9 @@ If at any point you run into issues, check the [Known issues and restrictions pa
    ALTER ROLE [db_owner] ADD MEMBER workspacename;
    ```
 
-1. Create the master key for your source Azure SQL Database and create at least one new table. You can create a table with your own schema; the following is just an example for a `CREATE TABLE` query. You can also insert some rows into this table to ensure there's data to be replicated.
+1. You can create a table with your own schema; the following is just an example for a `CREATE TABLE` query. You can also insert some rows into this table to ensure there's data to be replicated.
 
    ```sql
-   CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<a new password>'
    CREATE TABLE myTestTable1 (c1 int primary key, c2 int, c3 nvarchar(50)) 
    ```
 
@@ -75,7 +66,7 @@ If at any point you run into issues, check the [Known issues and restrictions pa
 
 ## Create your target Synapse SQL pool and database
 
-1. Launch [Synapse Studio](https://aka.ms/synapselinkpreview).
+1. Launch [Synapse Studio](https://ms.web.azuresynapse.net/).
 
 1. Open the **Manage** hub, navigate to **SQL pools**, and select **+ New**.
 
@@ -116,9 +107,6 @@ If at any point you run into issues, check the [Known issues and restrictions pa
    * Select the subscription, server, and database corresponding to your Azure SQL Database.
    * If you wish to connect your Synapse workspace to the source DB using the workspace’s managed identity, set **Authentication type** to **Managed Identity**.
    * If you wish to use SQL authentication instead and know the username/password to use, select **SQL Authentication** instead.
-
-   > [!NOTE]
-   > If you choose to use Managed Identity, please make sure you have completed **Step 6**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-linked-service.png" alt-text="Enter the server, database details to create a new linked service.":::
 
@@ -199,47 +187,51 @@ The following is the list of known issues, restrictions, and limits for Synapse 
 
 Many of these are on our road map to address and may be supported in the future. However, we don't have any timelines for these at this point.
 
-* Service principal and user-assigned managed identity aren't supported for authenticating to source DB, so when creating Azure SQL linked service, please choose SQL Auth or Service Assigned Managed Identity (SAMI).
+* Users must create new Synapse workspace to get Synapse link for SQL DB. 
 
-* Currently, VNet isn't supported when creating Synapse workspace.
+* Synapse link for SQL DB is not supported on Free, Basic or Standard tier (S0,S1,S2) in Azure SQL database. Users need to use Azure SQL databases tiers above Standard 3.
 
-* Synapse Link CANNOT be enabled for Azure SQL DB tables in following conditions:
+* Synapse link for SQL DB cannot be used in virtual network environment. Users need to check “Allow Azure Service and resources to access to this server” on Azure SQL database and check “Disable Managed virtual network” and “Allow connections from all IP address” for Synapse workspace.
 
-  * tables without a primary key.
-  * tables with computed columns.
-  * tables with column data types, which aren't supported by Azure Synapse including image, text, xml, timestamp, sql_variant, UDT, geometry, geography.
-  * time(7) value “23:59:59.9999999” and datetime2(7) value “'9999-12-31 23:59:59.9999999” in source table
+* Users need to manually create schema in destination Synapse SQL pool in advance, as target database schema object will not be automatically created in data replication. 
 
-* Currently, a maximum of 40,000 tables can be added to a single link connection.
+* Service principal and user-assigned managed identity are not supported for authenticating to source Azure SQL DB, so when creating Azure SQL DB linked service, please choose SQL auth or service assigned managed Identity (SAMI).
 
-* The following DDL operations aren't allowed on tables, which are enabled for Azure Synapse Link.
+* Synapse Link for Azure SQL DB CANNOT be enabled for source tables in Azure SQL DB in following conditions:
 
-  * Switch partition, add/drop/alter column, alter PK, drop/truncate table, rename table isn't allowed if the table is part of Synapse Link.
+  * Source tables do not have primary keys.
+  * The PK columns in source tables contain the unsupported data types including real and float.  
+  * Source table row size exceeds the limit of 7500 bytes. 
 
-  * All other DDL operations are allowed, but not published to Synapse.
+* When SQL DB owner does not have a mapped login, Synapse link for SQL DB will run into error when enabling a link connection. User can set database owner to sa to fix this.
+
+* The computed columns and the column containing unsupported data types by Synapse SQL Pool including image, text, xml, timestamp, sql_variant, UDT, geometry, geography in source tables in Azure SQL DB will be skipped, and not to replicate to the Synapse SQL Pool.
+
+* Maximum 5000 tables can be added to a single link connection.
+
+* When source columns with type datetime2(7) and time(7) are replicated using Synapse Link, the target columns will have last digit truncated.
+
+* The following DDL operations are not allowed on source tables in Azure SQL DB which are enabled for Synapse Link for Azure SQL DB.
+
+  * Switch partition, add/drop/alter column, alter PK, drop/truncate table, rename table are not allowed if the tables have been added into a running link connection of Synapse Link for Azure SQL DB. 
+  * All other DDL operations are allowed, but those DDL operations will not be replicated to the Synapse SQL Pool.
 
 * If DDL + DML is executed in an explicit transaction (between Begin Transaction and End Transaction statements), replication for corresponding tables will fail within the link connection.
 
   > [!NOTE]
-  > If a table is critical for transactional consistency at the topic level, please review the state of the Synapse Link table in the Monitoring tab.
+  > If a table is critical for transactional consistency at the link connection level, please review the state of the Synapse Link table in the Monitoring tab.
 
-* When source columns with type datetime2(7) and time(7) are replicated using Synapse Link,  the target columns will have last digit truncated.
-
-* Synapse Link can't be enabled if any of the following features are in use for the source Azure SQL database tables:
+* Synapse Link for SQL DB cannot be enabled if any of the following features are in use for the source tables in Azure SQL database:
 
   * Transactional Replication
   * Change Data Capture
   * Hekaton, Column Store index, Graph table, temporal table.
-  * Always encrypted.
-  * Internal tables won't be replicated.
-  * Security configuration of source will NOT be reflected to the target tables.
-  * Change tracking can be used with Synapse Link side by side.
-
-* S0 (Sub core) SLO on the source databases aren't supported.
-* Enabling Synapse Link will create a new schema on the DB as 'SynapseLink', please don't use this schema name for your workload.
-* In Synapse Studio, you may see error messages that mention `linkTopics` – this refers to `linkConnections`.
-* When publishing a new link connection, you may see an error if the link connection name is already taken.
-* When you pause Synapse SQL Pool, although you'll see error message on UI, the link connection keep running and retrying to write data to Synapse SQL Pool until it's resumed.
+  * Always encrypted
+	
+* System tables in SQL database will not be replicated.
+* Security configuration of Azure SQL database will NOT be reflected to Synapse SQL Pool. 
+* Enabling Synpase Link will create a new schema on the Azure SQL DB as 'changefeed', please do not use this schema name for your workload.
+* Source tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 
 ## Next steps
 
