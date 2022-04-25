@@ -238,6 +238,9 @@ To enable number matching in the Azure AD portal, complete the following steps:
 1. Select the **Authentication mode**, and then for **Require number matching (Preview)**, click **Enable**, and then click **Done**. 
 
    ![Screenshot of enabling number match.](media/howto-authentication-passwordless-phone/enable-number-matching.png)
+   
+>[!NOTE]
+>[Least privilege role in Azure Active Directory - Multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/roles/delegate-by-task#multi-factor-authentication)
 
 
 ## Next steps
