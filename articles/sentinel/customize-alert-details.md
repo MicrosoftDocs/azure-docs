@@ -40,10 +40,13 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
     1. In the **Alert Name Format** field, enter the text you want to appear as the name of the alert (the alert text), and include, in double curly brackets, any parameters you want to be part of the alert text.
 
-        Example: `Alert from {{ProviderName}}: {{AccountName}} failed to log on to computer {{ComputerName}} with IP address {{IPAddress}}.`
+        Example: `Alert from {{ProviderName}}: {{AccountName}} failed to log on to computer {{ComputerName}}.`
 
     1. Do the same with the **Alert Description Format** field.
-    
+
+        > [!NOTE]
+        > You are currently limited to **three parameters each** in the **Alert Name Format** and **Alert Description Format** fields.
+
     1. Use the **Tactic Column** and **Severity Column** fields only if your query results contain columns with this information in them. For each one, choose the column that contains the corresponding information.
 
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Tactic/Severity Column** fields or delete the free text from the **Alert Name/Description Format** fields.
