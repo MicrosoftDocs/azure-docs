@@ -105,12 +105,6 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
             },
             "location": {
                 "type": "string",
-                "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
                     "description": "Specifies the location in which to create the Data Collection Endpoint."
                 }
@@ -195,12 +189,6 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
             },
             "location": {
                 "type": "string",
-            "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
                     "description": "Specifies the location in which to create the Data Collection Rule."
                 }
@@ -250,7 +238,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
                         "logFiles   ": [
                             {
                                 "streams": [
-                                    "Custom-MyLogFileFormat "
+                                    "Custom-MyLogFileFormat"
                                 ],
                                 "filePatterns": [
                                     "C:\\JavaLogs\\*.log"
@@ -268,7 +256,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
                                     "Custom-MyLogFileFormat" 
                                 ],
                                 "filePatterns": [
-                                    "/var/*.log"
+                                    "//var//*.log"
                                 ],
                                 "format": "text",
                                 "settings": {
@@ -327,12 +315,6 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
             },
             "location": {
                 "type": "string",
-            "defaultValue": "westus2",
-                "allowedValues": [
-                    "westus2",
-                    "eastus2",
-                    "eastus2euap"
-                ],
                 "metadata": {
                     "description": "Specifies the location in which to create the Data Collection Rule."
                 }
