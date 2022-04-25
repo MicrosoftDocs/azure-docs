@@ -16,11 +16,11 @@ ms.custom: references_regions
 # Power Query connectors (preview - retired)
 
 > [!IMPORTANT] 
-> Power Query connector support was introduced as a **gated public preview** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), but is now discontinued. If you have a search solution that uses a Power Query connector, we recommend migration to an alternative solution.
+> Power Query connector support was introduced as a **gated public preview** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), but is now discontinued. If you have a search solution that uses a Power Query connector, please migrate to an alternative solution.
 
 ## Migrate by July 22
 
-The Power Query connector preview was announced in May 2021 and will not be moving forward into general availability. The following migration guidance is available for Elasticsearch and PostgreSQL. If you're using a different connector and need migration instructions, please use the email contact information provided in your preview sign up to request help.
+The Power Query connector preview was announced in May 2021 and will not be moving forward into general availability. The following migration guidance is available for Elasticsearch and PostgreSQL. If you're using a different connector and need migration instructions, please use the email contact provided in your preview sign-up to request help.
 
 ## Migrate an Elasticsearch data pipeline
 
