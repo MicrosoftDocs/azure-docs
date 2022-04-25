@@ -21,37 +21,37 @@ This article helps you to understand the functions of Synapse link for SQL Serve
 
 ## Link connection
 
-Link connection is an artifact for you to create, manage and monitor in your Synapse workspace. A link connection identifies a mapping relationship between an SQL Server 2022 and an Azure Synapse dedicated SQL pool. When you create a link connection, it will guide you to select both source database and destination Synapse SQL pool so that the operational data from your source database will be automatically replicated to the specified destination Synapse SQL pool. You can add or remove one or more tables from your source database to be replicated.
+A link connection identifies a mapping relationship between an SQL Server 2022 and an Azure Synapse dedicated SQL pool. You can create, manage, monitor and delete link connections in your Synapse workspace. When creating a link connection, you can select both source database and destination Synapse SQL pool so that the operational data from your source database will be automatically replicated to the specified destination Synapse SQL pool. You can also add or remove one or more tables from your source database to be replicated.
 
 You can start or stop a link connection. When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via change feed feature in SQL Server 2022. When you stop a link connection, the updates made to the operational data won't be synchronized to your Synapse SQL pool.
 
-You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and price.
+You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and cost.
 
 ## Landing zone
 
-Landing zone is a folder within the Azure storage account that is required to be provided by users. It's managed by Synapse link for SQL Server 2022 as a staging area for data replication.
+Landing zone is an interim staging store required for Synapse link for SQL Server 2022. First, the operational data is loaded from the SQL Server 2022 to the landing zone. Next, the data is copied from the landing zone to the Synapse SQL pool. You need to provide your own Azure Data Lake Storage Gen2 account to be used as a landing zone. You are not suggested to directly consume or manage the data in the landing zone.
 
-SAS token is required for Synapse link for SQL Server 2022 to access the landing zone. It has expiry date so that users need to rotate the SAS token before the expiry date. Otherwise, Synapse link will fail to replicate the data from SQL Server 2022 to Synapse SQL pool.
+SAS token from your own Azure Data Lake Storage Gen2 account is required for a link connection to get access to the landing zone. Be aware that SAS token has an expiry date. So you need to always rotate the SAS token before the expiry date to ensure the SAS token is valid. Otherwise, Synapse link will fail to replicate the data from SQL Server 2022 to Synapse SQL pool after the expiry date of SAS token.
 
 ## Self-hosted integration runtime
 
-Self-hosted integration runtime is required to be set up for Synapse link for SQL Server 2022. It helps Synapse link to access the data on SQL Server 2022 on premise that is behind the firewall. For more information, see [Create a self-hosted integration runtime](../../data-factory/create-self-hosted-integration-runtime.md?tabs=synapse-analytics)
+Self-hosted integration runtime is a software agent that you can download and install on an on-premise machine or a virtual machine. It is required for Synapse link for SQL Server 2022 to get access the data on SQL Server 2022 on premise that is behind the firewall. Currently, the self-hosted IR is only supported on a Windows operating system. For more information, see [Create a self-hosted integration runtime](../../data-factory/create-self-hosted-integration-runtime.md?tabs=synapse-analytics)
 
 ## Monitoring
 
 You can monitor Synapse link for SQL in different levels. For each link connection, you'll see the following status:
 
-* **Initial:** a link connection is created but not started.
+* **Initial:** a link connection is created but not started. You will not be charged in initial state.
 * **Starting:** a link connection is setting up compute engines to replicate data.
 * **Running:** a link connection is replicating data.
 * **Stopping:** a link connection is shutting down the compute engines.
-* **Stopped:** a link connection is stopped.
+* **Stopped:** a link connection is stopped. You will not be charged in stopped state.
 
 For each table, you'll see the following status:
 
-* **Snapshotting:** a source table is initially loaded to destination with full snapshot.
-* **Replicating:** any updates on source table are replicated to destination.
-* **Failed:** the data on source table can't be replicated to destination. If you want to retry after fixing the error, remove the table from link and add it back.
+* **Snapshotting:** a source table is initially loaded to the destination with full snapshot.
+* **Replicating:** any updates on source table are replicated to the destination.
+* **Failed:** the data on source table can't be replicated to destination. If you want to retry after fixing the error, remove the table from link connection and add it back.
 * **Suspended:** replication is suspended for this table due to an error. It will be resumed after the error is resolved. 
 
 ## Transactional consistency across tables
