@@ -4,7 +4,6 @@ description: Enable Application Insights Profiler for Azure Cloud Services.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 08/06/2018
-ms.reviewer: mbullwin
 ---
 
 # Profile live Azure Cloud Services with Application Insights

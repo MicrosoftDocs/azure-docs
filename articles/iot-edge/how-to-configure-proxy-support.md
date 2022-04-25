@@ -278,11 +278,15 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 1. Open the config file on your IoT Edge device: `/etc/aziot/config.toml`. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor.
 
-2. In the config file, find the `[agent]` section, which contains all the configuration information for the edgeAgent module to use on startup. The IoT Edge agent definition includes an `[agent.env]` subsection where you can add environment variables.
+2. In the config file, find the `[agent]` section, which contains all the configuration information for the edgeAgent module to use on startup. Check and make sure that the `[agent]`section is uncommented or add it if it is not included in the `config.toml`. The IoT Edge agent definition includes an `[agent.env]` subsection where you can add environment variables.
 
 3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
 
    ```toml
+   [agent]
+   name = "edgeAgent"
+   type = "docker"
+   
    [agent.env]
    # "RuntimeLogLevel" = "debug"
    # "UpstreamProtocol" = "AmqpWs"
