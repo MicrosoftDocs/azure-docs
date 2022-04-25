@@ -131,6 +131,9 @@ sections:
           
       - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
         answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
+        
+      - question: Why are some header values not present when requests are forwarded to my application?
+        answer: Application Gateway supports header names with letters, numbers, and hyphens. Header names containing special characters and symbols will be discarded. Header values do not have this limitation and support letters, numbers, and symbols.
 
       - question: Does Application Gateway affinity cookie support SameSite attribute?
         answer: |
