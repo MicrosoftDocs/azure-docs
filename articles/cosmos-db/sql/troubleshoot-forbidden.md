@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix forbidden exceptions.
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 10/06/2021
+ms.date: 04/14/2022
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -17,13 +17,13 @@ The HTTP status code 403 represents the request is forbidden to complete.
 
 ## Firewall blocking requests
 
-Data plane requests can come to Cosmos DB via the following 3 paths.
+Data plane requests can come to Cosmos DB via the following three paths.
 
 - Public internet (IPv4)
 - Service endpoint
 - Private endpoint
 
-When a data plane request is blocked with 403 Forbidden, the error message will specify via which of the above 3 paths the request came to Cosmos DB.
+When a data plane request is blocked with 403 Forbidden, the error message will specify via which of the above three paths the request came to Cosmos DB.
 
 - `Request originated from client IP {...} through public internet.`
 - `Request originated from client VNET through service endpoint.`
@@ -58,7 +58,7 @@ Partition key reached maximum size of {...} GB
 This error means that your current [partitioning design](../partitioning-overview.md#logical-partitions) and workload is trying to store more than the allowed amount of data for a given partition key value. There is no limit to the number of logical partitions in your container but the size of data each logical partition can store is limited. You can reach to support for clarification.
 
 ## Non-data operations are not allowed
-This scenario happens when non-data [operations are disallowed in the account](../how-to-setup-rbac.md#permission-model). On this scenario, it's common to see errors like the ones below:
+This scenario happens when [attempting to perform non-data operations](../how-to-setup-rbac.md#permission-model) using Azure Active Directory (Azure AD) identities. On this scenario, it's common to see errors like the ones below:
 
 ```
 Operation 'POST' on resource 'calls' is not allowed through Azure Cosmos DB endpoint
@@ -68,7 +68,8 @@ Forbidden (403); Substatus: 5300; The given request [PUT ...] cannot be authoriz
 ```
 
 ### Solution
-Perform the operation through Azure Resource Manager, Azure portal, Azure CLI, or Azure PowerShell. Or reallow execution of non-data operations.
+Perform the operation through Azure Resource Manager, Azure portal, Azure CLI, or Azure PowerShell.
+If you are using the [Azure Functions Cosmos DB Trigger](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) make sure the `CreateLeaseContainerIfNotExists` property of the trigger isn't set to `true`. Using Azure AD identities blocks any non-data operation, such as creating the lease container.
 
 ## Next steps
 * Configure [IP Firewall](../how-to-configure-firewall.md).

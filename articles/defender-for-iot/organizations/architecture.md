@@ -74,7 +74,7 @@ Specifically for OT networks, OT network sensors also provide the following anal
 
 Defender for IoT provides hybrid network support using the following management options:
 
-- **The Azure portal**. Use the Azure portal as a single pane of glass view all data ingested from your devices via network sensors. The Azure portal provides extra value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended), and more.
+- **The Azure portal**. Use the Azure portal as a single pane of glass view all data ingested from your devices via network sensors. The Azure portal provides extra value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json), and more.
 
     Also use the Azure portal to obtain new appliances and software updates, onboard and maintain your sensors in Defender for IoT, and update threat intelligence packages.
 
@@ -95,4 +95,3 @@ For more information, see:
 - [Frequently asked questions](resources-frequently-asked-questions.md)
 - [Sensor connection methods](architecture-connections.md)
 - [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
-

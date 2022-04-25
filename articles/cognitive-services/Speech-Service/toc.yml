@@ -75,8 +75,6 @@ items:
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Improve recognition with tenant models
-          href: tutorial-tenant-model.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
     - name: Transcribe audio in batches
@@ -146,12 +144,14 @@ items:
       href: intent-recognition.md
     - name: Intent recognition quickstart
       href: get-started-intent-recognition.md
-    - name: Pattern Matching overview
+    - name: Pattern matching overview
       href: pattern-matching-overview.md
-    - name: 'Recognize speech intents with LUIS'
+    - name: Recognize speech intents with LUIS
       href: how-to-recognize-intents-from-speech-csharp.md
-    - name: 'Recognize speech intents with simple pattern matching'
+    - name: Recognize speech intents with simple pattern matching
       href: how-to-use-simple-language-pattern-matching.md
+    - name: Recognize speech intents with custom entity pattern matching
+      href: how-to-use-custom-entity-pattern-matching.md
     - name: LUIS developer resources
       href: ../luis/developer-reference-resource.md
     - name: Language support

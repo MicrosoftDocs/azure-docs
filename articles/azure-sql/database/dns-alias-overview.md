@@ -102,6 +102,7 @@ Presently, a DNS alias has the following limitations:
 - _Table auditing is not supported:_ You cannot use a DNS alias on a server that has *table auditing* enabled on a database.
   - Table auditing is deprecated.
   - We recommend that you move to [Blob Auditing](../../azure-sql/database/auditing-overview.md).
+- DNS alias is subject to [naming restrictions](../../azure-resource-manager/management/resource-name-rules.md).
 
 ## Related resources
 
