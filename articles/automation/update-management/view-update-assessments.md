@@ -11,35 +11,55 @@ ms.topic: conceptual
 
 In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Azure Arc-enabled server, or from the Automation account across all configured machines and servers.
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com)
-
 ## View update assessment
 
-To view update assessment from an Azure VM, navigate to **Virtual Machines** and select your virtual machine from the list. From the left menu, select **Guest + host updates**, and then select **Go to Update Management** on the **Guest + host updates** page.
+To view update assessment from an Azure VM:
 
-In Update Management, you can view information about your machine, missing updates, update deployments, and scheduled update deployments.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Navigate to **Virtual Machines** and select your virtual machine from the list. From the left menu, under **Operations**, select **Updates**, and select **Go to Update Management**. 
+
+In Update Management, you can view information about your machine, missing updates, update deployments, manage multiple machines, scheduled update deployments and so on.
 
 [ ![Update Management assessment view for Azure VM](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
-To view update assessment from an Azure Arc-enabled server, navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, select **Guest and host updates**. On the **Guest + host updates** page, select **Go to Update Management**.
+To view update assessment from an Azure Arc-enabled server:
 
-In Update Management, you can view information about your Azure Arc-enabled machine, missing updates, update deployments, and scheduled update deployments.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, under **Operation**, select **Guest + host updates** and select **Go to Updates using Update management center**.
+
+In Update Management, you can view information about your Azure Arc-enabled machine, total updates, assess updates, scheduled update deployments, and so on.
 
 [ ![Update Management assessment view for Arc-enabled servers](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
-To view update assessment across all machines, including Azure Arc-enabled servers from your Automation account, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
+To view update assessment across all machines, including Azure Arc-enabled servers from your Automation account:
 
-The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of them is shown on the **Missing updates** tab.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list. In your Automation account, select **Update management** from the left menu.
+
+The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of them appears in the **Missing updates** tab.
 
 [ ![Update Management default view](./media/overview/update-management-view.png)](./media/overview/update-management-view-expanded.png#lightbox)
 
-Under the **COMPLIANCE** column, you can see the last time the machine was assessed. Under the **UPDATE AGENT READINESS** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
-
-Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
+- Under the **Compliance** column, you can see the last time the machine was assessed. 
+- Under the **Upadate agent readiness** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
+- Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
 [ ![View update status](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
+
+The values displayed for each column are:
+
+**Field Name**     |**Description**   |
+--- | --- |
+Machine Name | Name of the machine attached to Update Management. 
+Compliance | State of the system's compliance with security and critical updates.
+Update agent readiness | View the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.|
+Platform | Lists the platform as either Azure or non-Azure. 
+Operating system | Lists the operating system.
+Critical missing updates| Count of missing critical updates.        
+Security missing updates | Count of missing security updates.
+Other missing updates |  Count of non-security and non-critical updates.
+Update approval source | The source of updates. Either Windows update, WSUS, Microsoft update *applicable to Windows*.
+Windows auto update | Default OS update setting on the machine *applicable to Windows* 
 
 > [!NOTE]
 > Information that is displayed about the Windows Defender definition update status is based on the last data that was summarized from the Log Analytics workspace and might not be current. Review [Windows Defender update always show as missing](../troubleshoot/update-management.md#windows-defender-update-missing-status) to learn more about this behavior.
