@@ -148,7 +148,7 @@ In this scenario, Traffic Manager is connected to application gateways (as confi
 
 In this scenario, Load Balancer distributes connections from the web tier to the databases within a high-availability cluster.
 
-If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) for step-by-step instructions.
+If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) for step-by-step instructions.
 
 For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 
