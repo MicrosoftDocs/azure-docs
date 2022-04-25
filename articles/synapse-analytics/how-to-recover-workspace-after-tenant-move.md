@@ -40,7 +40,7 @@ After transferring the subscription to another tenant, follow the below steps to
 
 1. [Disable and re-enable the system Assigned Managed Identity](#disablereenable). More information later in this article.
 2. [Assign Azure RBAC (role based access control) permissions to the required Azure AD users, groups, and managed identities](../role-based-access-control/transfer-subscription.md#step-3-re-create-resources) on the Synapse Analytics workspace and required Azure resources.
-3. [Set the SQL Active Directory admin.](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database)
+3. [Set the SQL Active Directory admin.](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#provision-azure-ad-admin-sql-database)
 4. Re-create [Azure AD users and groups](sql/sql-authentication.md?tabs=provisioned#non-administrator-users) based on their equivalent users and groups in the new Azure AD tenant for the dedicated and serverless SQL pools.
 5. Assign Azure RBAC to Azure AD users, groups to Synapse Analytics workspace. This step should be first step after recovering the workspace. Without this step, launching Synapse Studio will throw 403 messages, due to Azure AD users not having permissions on the workspace:
    ```JSON
