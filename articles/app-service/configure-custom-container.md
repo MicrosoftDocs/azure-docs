@@ -507,8 +507,6 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-
-
 ::: zone-end
 
 ## Next steps
