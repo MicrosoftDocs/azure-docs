@@ -15,8 +15,8 @@ This article describes an on-premises management console deployment on a virtual
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | As required, refer to [Which appliances do I need?](../ot-appliance-sizing.md) |
-|**Performance** | 	As required, refer to [Which appliances do I need?](../ot-appliance-sizing.md) |
+|**Hardware profile** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md). |
+|**Performance** |  As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md). |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
