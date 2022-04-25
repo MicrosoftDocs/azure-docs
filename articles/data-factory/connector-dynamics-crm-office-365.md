@@ -547,7 +547,7 @@ The below table lists the properties supported by Dynamics sink. You can edit th
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Alternate key name | The alternate key name defined on your entity to do an update, upsert or delete.  | No | - | alternateKeyName |
 | Update method | Specify what operations are allowed on your database destination. The default is to only allow inserts.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | insertable <br/>updateable<br/>upsertable<br>deletable|
-| Entity name| The logical name of the entity to retrieve. | Yes when use inline dataset | - | *(for inline dataset only)*<br>entity|
+| Entity name| The logical name of the entity to write. | Yes when use inline dataset | - | *(for inline dataset only)*<br>entity|
 
 
 #### Dynamics sink script example
