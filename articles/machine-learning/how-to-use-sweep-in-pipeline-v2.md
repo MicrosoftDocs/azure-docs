@@ -3,15 +3,18 @@
 In this article, you will learn how to do hyperparameter sweep in Azure Machine Learning pipeline.
 
 ## Prerequisite
-1. Understand what is hyperparameter sweep, and how to do sweep in Azure Machine Learning start from a single step job. **[to-do](link to single step sweep doc)** It's highly suggested going through the single step sweep example to understand how sweep works in Azure Machine Learning, before using it in a pipeline. 
-2. Understand what is Azure Machine Learning pipeline and how to build your first pipeline. [to-do](link to pipeline concept.) 
-3. Build a command component following [this atcile] (add a link how-to create component article). 
+1. Understand what is hyperparameter sweep, and how to do sweep in Azure Machine Learning start from a single step job. **[to-do](link to single step sweep doc)** It's highly suggested going through the single step sweep job example to understand how hyperparameter sweep works in Azure Machine Learning, before using it in a pipeline. 
+2. Understand what is Azure Machine Learning pipeline and how to build your first pipeline. [to-do](link to updated pipeline concept.) 
+3. Build a command component following [this atcile] (add a link how-to create component using CLI v2 article). 
 
 ## How to use sweep in Azure Machine Learning pipeline
 
-This section explains how to use sweep to do hyperparameter tuning in Azure Machine Learning pipeline using CLI and Python SDK. All the approaches share the same prerequisite: you already have a command component created and the command component takes hyperparameters as inputs. If you don't have a command component yet. Follow [this article](link to how-to create component article) to create a command component first. 
+This section explains how to use sweep to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK(preview). Both approaches share the same prerequisite: you already have a command component created and the command component takes hyperparameters as inputs. If you don't have a command component yet. Follow [this article](link to how-to create component article) to create a command component first. 
 
-### CLI 
+### CLI v2
+
+The example used in this article can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep* to check the example. 
+
 
 Assume you already have a command component defined in `train.yaml`. A two step pipeline job YAML looks like below. 
 
@@ -78,11 +81,10 @@ jobs:
 ```
 
 
-The `sweep_step` is the step for hyperparameter sweep. Step type needs to be `sweep`.  And `trial` refers to the `train.yaml`. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep) for full schema of sweep job. 
+The `sweep_step` is the step for hyperparameter sweep. Step type needs to be `sweep`.  And `trial` refers to the command component defined in `train.yaml`. From the `search sapce` we can see three hyparmeters(`c_value`, `kernel`, and `coef`) are added to the search space. After submitting this pipeline job, Azure Machine Learning will run the trial component multiple times to sweep over hypermaters based on the search space and terminate policy you defined in `sweep_step`. Check [sweep job YAML schema](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-sweep) for full schema of sweep job. 
 
 
-And below is the trial component (`train.yml`) definition. It takes the hyperparamter as input. 
-
+Below is the trial component (`train.yml`) definition. The hyperparamters added to search space need to be input for the component. 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 type: command
@@ -168,16 +170,20 @@ command: >-
     --test_data ${{outputs.test_data}}
 ```
 
-You can see the source code of train component in  `train.py` file. This is the code that will be executed in every trial of the sweep job. Make sure in your training script, you log the metric with exactly the same name as `primary_metric` value in pipeline YAML. In this example, we use `mlflow.autolog()`. We suggest using mlflow to track and monitoring your training.  
+You can see the source code of trial component in  `train.py` file (stored under `train-src` folder). This is the code that will be executed in every trial of the sweep job. Make sure in your training script, you log the metric with exactly the same name as `primary_metric` value in pipeline YAML. In this example, we use `mlflow.autolog()`. We suggest using mlflow to track your ML experiments. See more about mlflow [here](./how-to-use-mlflow-cli-runs.md)  
 
 
 
 ### Python SDK
 
-In Azure Machine Learning Python SDK, sweep is a method of command component class. You can enable sweep for any command component by calling the.sweep() method of a command component. 
+The python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to azureml-examples/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep to check the example. 
+
+In Azure Machine Learning Python SDK, sweep is a method of command component class. You can enable sweep for any command component by calling the `.sweep()` method of a command component. 
 
 Below code snipe shows how to enable sweep for command component `train`. It assumes you already define the `train` component in `train.yml` file. `train` component takes 15 inputs(line 209-233). Now let's enable hyperparameter sweep for `c_value`, `kernel` and `coef0`. Line 209-211 defines the search space for the three hyperparameters. Line 224-229 defines the sampling algorithm, primary metrics etc. 
 
+
+**to-do: remove below hard copy of code and reference to azureml-example-main after example release to main**
 
 ```Python
 from azure.ml import dsl
@@ -206,7 +212,7 @@ score_component_func = load_component(yaml_file="./predict.yml")
 )
 def pipeline_with_hyperparameter_sweep():
     train_model = train_component_func(
-        data=JobInput(type="uri_file", path="wasbs://datasets@azuremlexamples.blob.core.windows.net/iris.csv"),
+        data=Input(type="uri_file", path="wasbs://datasets@azuremlexamples.blob.core.windows.net/iris.csv"),
         c_value=Uniform(min_value=0.5, max_value=0.9),
         kernel=Choice(["rbf", "linear", "poly"]),
         coef0=Uniform(min_value=0.1, max_value=1),
