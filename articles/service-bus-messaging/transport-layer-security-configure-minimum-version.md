@@ -1,7 +1,7 @@
 ---
 title: Configure the minimum TLS version for a Service Bus namespace using ARM
 titleSuffix: Service Bus
-description: Configure a Azure Service Bus namespace to use a minimum version of Transport Layer Security (TLS).
+description: Configure an Azure Service Bus namespace to use a minimum version of Transport Layer Security (TLS).
 services: service-bus
 author: EldertGrootenboer
 
@@ -17,6 +17,8 @@ To configure the minimum TLS version for a Service Bus namespace, set the  `Mini
 
 > [!NOTE]
 > Namespaces created using an api-version prior to 2022-01-01-preview will have 1.0 as the value for `MinimumTlsVersion`. This behavior was the prior default, and is still there for backwards compatibility.
+
+## Create a template to configure the minimum TLS version
 
 To configure the minimum TLS version for a Service Bus namespace with a template, create a template with the  `MinimumTlsVersion`  property set to 1.0, 1.1, or 1.2. The following steps describe how to create a template in the Azure portal.
 
@@ -84,5 +86,5 @@ When a client accesses a Service Bus namespace using a TLS version that does not
 See the following documentation for more information.
 
 - [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md)
-- [Use Azure Policy to audit for compliance of minimum TLS version for a Service Bus namespace](transport-layer-security-audit-minimum-version.md)
 - [Configure Transport Layer Security (TLS) for a Service Bus client application](transport-layer-security-configure-client-version.md)
+- [Use Azure Policy to audit for compliance of minimum TLS version for a Service Bus namespace](transport-layer-security-audit-minimum-version.md)
