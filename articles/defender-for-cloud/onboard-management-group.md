@@ -15,7 +15,7 @@ To onboard a management group and all its subscriptions:
 
 1. As a user with **Security Admin** permissions, open Azure Policy and search for the definition **Enable Azure Security Center on your subscription**.
 
-    :::image type="content" source="./media/get-started/enable-microsoft-defender-for-cloud-policy.png" alt-text="Screenshot showing the the Azure Policy definition Enable Defender for Cloud on your subscription.":::
+    :::image type="content" source="./media/get-started/enable-microsoft-defender-for-cloud-policy.png" alt-text="Screenshot showing the Azure Policy definition Enable Defender for Cloud on your subscription." lightbox="media/get-started/enable-microsoft-defender-for-cloud-policy-extended.png":::
 
 1. Select **Assign** and ensure you set the scope to the MG level.
 
