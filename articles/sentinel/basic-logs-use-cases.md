@@ -9,11 +9,11 @@ ms.custom:
 ---
 # Log sources to use for Basic Logs ingestion (preview)
 
-Log collection is critical to a successful security analytics program. The more log sources that the security analyst can apply to an investigation or threat hunt, more can often be accomplished.
+Log collection is critical to a successful security analytics program. The more log sources you have for an investigation or threat hunt, the more you might accomplish.
 
-The primary log sources used for detection often contain the metadata and context of what was detected. But sometimes you need secondary log sources to provide a complete picture of the security incident or breach. Unfortunately, many of these secondary log sources are high-volume verbose logs with limited security detection value until they're needed for a security incident or threat hunt. That's where Basic Logs comes in. Basic Logs provides a lower cost ingestion option for ingestion of high-volume, verbose logs into your Log Analytics workspace.
+The primary log sources used for detection often contain the metadata and context of what was detected. But sometimes you need secondary log sources to provide a complete picture of the security incident or breach. Unfortunately, many of these secondary log sources are high-volume verbose logs with limited security detection value. They aren't useful until they're needed for a security incident or threat hunt. That's where Basic Logs comes in. Basic Logs provides a lower cost option for ingestion of high-volume, verbose logs into your Log Analytics workspace.
 
-While event log data in Basic Logs cannot be used as the primary log source for security incidents and alerts, Basic Log event data can be a useful to correlate and draw conclusions when investigating an incident or performing threat hunting.
+Event log data in Basic Logs can't be used as the primary log source for security incidents and alerts. But Basic Log event data is useful to correlate and draw conclusions when you investigate an incident or perform threat hunting.
 
 This topic highlights log sources to consider configuring for Basic Logs when they're stored in Log Analytics tables.
 
@@ -25,11 +25,11 @@ This topic highlights log sources to consider configuring for Basic Logs when th
 
 Storage access logs can provide a secondary source of information for investigations that involve exposure of sensitive data to unauthorized parties. These logs can help you identify issues with system or user permissions granted to the data.
 
-Many cloud providers allow you to log all activity, which you can use to investigate or threat hunt unusual or unauthorized activity or in response to an incident.
+Many cloud providers allow you to log all activity. You can use these logs to investigate or threat hunt unusual or unauthorized activity or in response to an incident.
 
 ## NetFlow logs
 
-Typically, you use NetFlow data to get a picture of the network traffic flow and volume.  Most commonly, you use this data to investigate command and control activity because it records source and destination IPs and ports. Use the metadata provided by NetFlow to help you piece together information about an adversary on the network.
+Typically, you use NetFlow data to get a picture of the network traffic flow and volume.  Most often, you use this data to investigate command and control activity because it records source and destination IPs and ports. Use the metadata provided by NetFlow to help you piece together information about an adversary on the network.
 
 ## VPC flow logs for cloud providers
 
@@ -41,7 +41,7 @@ TLS/SSL certificate monitor logs have an outsized relevance in recent high profi
 
 - Whether it was self-signed
 - How it was generated
-- If the certificate issued from a reputable source  
+- If the certificate was issued from a reputable source  
 
 ## Proxy logs
 
