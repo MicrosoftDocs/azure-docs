@@ -17,12 +17,12 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 
 ## Usage and version details
 
-- SSL 2.0 and 3.0 are disabled by default for all application gateways. These protocol versions are not configurable.
+- SSL 2.0 and 3.0 are disabled for all application gateways and are not configurable.
 - A custom TLS policy allows you to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2, or TLSv1_3.
 - If no TLS policy is defined, the minimum protocol version is set to TLSv1_0, and protocol versions v1.0, v1.1, and v1.2 are supported.
 - The new **Predefined and Customv2 policies** that support **TLS v1.3** are currently in **Preview** and only available with Application Gateway V2 SKUs (Standard_v2 or WAF_v2).
 - Using a new Predefined or Customv2 policy enhances SSL security and performance posture of the entire gateway (for SSL Policy and [SSL Profile](application-gateway-configure-listener-specific-ssl-policy.md#set-up-a-listener-specific-ssl-policy)). Hence, both old and new policies cannot co-exist on a gateway. You must use any of the older predefined or custom policies across the gateway if clients require older TLS versions or ciphers (for example, TLS v1.0).
-- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites used in "client to application gateway connections" are based on the type of listener certificates on the application gateway. For "application gateway to backend pool connections", the cipher suites used are based on the type of server certificates on the backend servers.
+- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites used in "client to application gateway connections" are based on the type of listener certificates on the application gateway. Whereas the cipher suites used in establishing "application gateway to backend pool connections" are based on the type of server certificates presented by the backend servers.
 
 ## Predefined TLS policy
 
