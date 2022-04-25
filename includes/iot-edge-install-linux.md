@@ -74,7 +74,7 @@ Install the Moby engine.
      sudo apt-get install moby-engine
    ```
 ---
-Once the Moby Engine is successfully installed, configure the Docker daemon to use the [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. The following example sets the default logging driver to the `local` logging driver. 
+Once the Moby Engine is successfully installed, configure the Docker daemon to use [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. The following example sets the default logging driver to the `local` logging driver. 
    
 ```JSON
    {
