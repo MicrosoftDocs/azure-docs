@@ -20,13 +20,10 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Initial setup
 
-* First, add your test subscription to the public preview of Synapse Link for SQL Server 2022 by emailing us at [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20allow%20list%20request). In the email, include the Azure region that will be hosting your Synapse Workspace. Wait for the confirmation from the product group before moving to the next step.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Synapse link for Azure SQL Database.
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) in the Azure subscription that has been added to the preview. To use this feature, currently you need to create a new Synapse workspace for the subscription and the region you requested to enable public preview.
+* Create an Azure Data Lake Storage Gen2 account used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
 
-* You need to create an Azure Data Lake Storage Gen2 account of type *block blob* used as the landing zone to stage the data submitted by SQL Server 2022. See [how to create a Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md) article for more details.
-
-* Start SQL Server 2022 with the following trace flags `-T13800 -T12701 -T12711 -T4511 –T13803` to enable Synapse Link.
 
 * Make sure the source database has master key created.
 
@@ -243,63 +240,38 @@ SAS token is required for SQL change feed to get access on landing zone and push
 
 There are some temporary limitations we're aware of and working on to remove them in further CTPs, please see the list below.
 
-* When creating SQL Server linked service, please choose SQL Auth or Windows Auth.
+* Users must create new Synapse workspace to get Synapse link for SQL Server 2022.
+* Synapse link for SQL Server 2022 can not be used in virtual network environment.
+* User need to manually create schema in destination Synapse SQL pool in advance, as target database schema object will not be automatically created.
+* When creating SQL Server linked service, please choose SQL Auth, Windows Auth or AAD auth.
+* Synapse Link for SQL Server 2022 can work with SQL Server on Linux. But HA scenarios with Linux Pacemaker are not supported. Shelf hosted IR cannot be installed on Linux environment 
+* Synapse Link for SQL Server 2022 CANNOT be enabled for source tables in SQL Server 2022 in following conditions:
+  * Source table do not have primary keys.
+  * The PK columns in source tables contain the unsupported data types including real and float.  
+  * Source table row size exceeds the limit of 7500 bytes. 
 
-* Currently, VNet isn't supported when creating Synapse workspace.  
-
-* Synapse Link isn't supported with SQL Server on Linux.
-
-* Synapse Link CANNOT be enabled for SQL Server tables in following conditions:
-
-  * Tables without a primary key.
-
-  * Tables with computed columns.
-
-  * Tables with column data types, which aren't supported by Azure Synapse including image, text, xml, timestamp, sql_variant, UDT, geometry, geography.
-
-  * Time(7) value “23:59:59.9999999” and datetime2(7) value “'9999-12-31 23:59:59.9999999” in source table  
-
-  * Currently a maximum of 40,000 tables can be added to a single link connection.
-
-* The following DDL operations aren't allowed on tables, which are enabled for Azure Synapse Link.  
-
-  * Add/Drop/Alter Column, Switch partition, alter PK, drop/truncate table, rename table isn't allowed if the table is part of Synapse Link.  
-
-  * All other DDL operations are allowed, but not published to Synapse at this time.  
-
-  * If DDL + DML is executed in an explicit transaction (between Begin Transaction and End Transaction statements), replication for corresponding tables will fail within the link connection.
-
+* When SQL Server 2022 database owner does not have a mapped login, Synapse link for SQL Server 2022 will run into error when enabling a link connection. User can set database owner to sa to fix this.
+* The computed columns and the column containing unsupported data types by Synapse SQL Pool including image, text, xml, timestamp, sql_variant, UDT, geometry, geography in source tables in SQL Server 2022 will be skipped, and not to replicate to the Synapse SQL Pool.
+* Maximum 5000 tables can be added to a single link connection.
+* When source columns with type datetime2(7) and time(7) are replicated using Synapse Link, the target columns will have last digit truncated.
+* The following DDL operations are not allowed on source tables in SQL Server 2022 which are enabled for Synapse Link for SQL Server 2022.
+  * Switch partition, add/drop/alter column, alter PK, drop/truncate table, rename table is not allowed if the tables have been added into a running link connection of Synapse Link for SQL Server 2022.
+  * All other DDL operations are allowed, but those DDL operations will not be replicated to the Synapse SQL Pool.
+* If DDL + DML is executed in an explicit transaction (between Begin Transaction and End Transaction statements), replication for corresponding tables will fail within the link connection.
    > [!NOTE]
-   > If a table is critical for transactional consistency at the topic level, please review the state of the Synapse Link table in the Monitoring tab.
-
-* When source columns with type datetime2(7) and time(7) are replicated using Synapse Link,  the target columns will have last digit truncated.
-
-* Synapse Link can't be enabled if any of the following features are in use for the source SQL Server tables:
-
-  * Transactional Replication
+   > If a table is critical for transactional consistency at the link connection level, please review the state of the Synapse Link table in the Monitoring tab.
+* Synapse Link for SQL Server 2022 cannot be enabled if any of the following features are in use for the source tables in SQL Server 2022:
+* Transactional Replication
   * Change Data Capture
   * Hekaton, Column Store index, Graph table, temporal table.
-  * Always encrypted.  
+  * Always encrypted.
+* System tables in SQL Server 2022 will not be replicated.
+* Security configuration of SQL Server 2022 will NOT be reflected to Synapse SQL Pool. 
+* Enabling Synpase Link will create a new schema on SQL Server 2022 as 'changefeed', please do not use this schema name for your workload.
+* If the SAS key of landing zone expires and gets rotated during Snapshot, new key will not get picked up. Snapshot will fail and restart automatically with the new key.
+* Sub core SLOs on the source databases in SQL Server 2022 are not supported.
+* Source tables with non-default collations: UTF8, Japanese can not be replicated ot Synapse. Here is the [supported collations in Synapse SQL Pool](https://docs.microsoft.com/azure/synapse-analytics/sql/reference-collation-types).
 
-* Internal tables won't be replicated.  
-
-* Security configuration of source will NOT be reflected to the target tables.
-
-* Change tracking can be used with Synapse Link side by side.
-
-* Sub core SLOs on the source databases aren't supported.
-
-* In Synapse Studio, you may see error messages that mention `linkTopics` – this refers to `linkConnections`.
-
-* When publishing a new link connection, you may see an error if the link connection name is already taken.
-
-* Source string value can't contain the double quote character if link table is in Synapse SQL gen2.
-
-* Tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse.
-
-* SQL Server can be part of a VNET, but the landing zone should be configured with public endpoint for this scenario.
-
-* When you pause Synapse SQL Pool, although you'll see error message on UI, the link connection keep running and retrying to write data to Synapse SQL Pool until it's resumed.
 
 ## Next steps
 
