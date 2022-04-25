@@ -3,7 +3,7 @@ title: Create a Windows Server container on an AKS cluster by using Azure CLI
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 08/06/2021
+ms.date: 04/25/2022
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
@@ -13,13 +13,13 @@ ms.date: 08/06/2021
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster using the Azure CLI. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
-![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
+:::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Image of browsing to ASP.NET sample application":::
 
 This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ### Limitations
 
@@ -123,15 +123,13 @@ The above command creates a new node pool named *npwin* and adds it to the *myAK
 
 Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools.  From Kubernetes 1.23, containerd will be the default container runtime for Windows.
 
-
 > [!IMPORTANT]
 > When using `containerd` with Windows Server 2019 node pools:
 > - Both the control plane and Windows Server 2019 node pools must use Kubernetes version 1.20 or greater.
 > - When creating or updating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3* which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes].
 > - It is highly recommended that you use [taints or labels][aks-taints] with your Windows Server 2019 node pools running `containerd` and tolerations or node selectors with your deployments to guarantee your workloads are scheduled correctly.
 
-
-### Add a Windows Server node pool with `containerd` 
+### Add a Windows Server node pool with `containerd`
 
 Use the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers with the `containerd` runtime.
 
@@ -307,7 +305,7 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the sample app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
+:::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Image of browsing to ASP.NET sample application":::
 
 > [!Note]
 > If you receive a connection timeout when trying to load the page then you should verify the sample app is ready with the following command [kubectl get pods --watch]. Sometimes the Windows container will not be started by the time your external IP address is available.
@@ -342,8 +340,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
+[aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [aks-taints]:  use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
@@ -359,13 +357,13 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
-[kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: concepts-network.md#services
-[restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
-[use-advanced-networking]: configure-azure-cni.md
-[aks-support-policies]: support-policies.md
+[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
+[kubernetes-service]: ../concepts-network.md#services
+[restricted-vm-sizes]: ../quotas-skus-regions.md#restricted-vm-sizes
+[use-advanced-networking]: ../configure-azure-cni.md
+[aks-support-policies]: ../support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
-[win-faq-change-admin-creds]: windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
+[win-faq-change-admin-creds]: ../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster
