@@ -966,7 +966,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 
 **Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
 
-**Use sink schema**: By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, in **Select user DB schema**, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have created table permission in the database and alter permission on the schema.
+**Use sink schema**: By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, in **Select user DB schema**, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema.
 
 :::image type="content" source="media/data-flow/use-sink-schema.png" alt-text="Screenshot showing the data flow 'Use sink schema'.":::
 
