@@ -173,7 +173,7 @@ The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains i
 
 The Audit Log always records a “Delete <object>” event when an object in the tenant is removed from an active state (either from active to soft-deleted or active to hard-deleted).
 
-! A screenshhot of audit log detail.](media/recoverability/deletions-audit-log.png)
+![A screenshhot of audit log detail.](media/recoverability/deletions-audit-log.png)
 
 A Delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type it's a hard delete.
 
