@@ -1,5 +1,5 @@
 ---
-title: "Start speech recognition - Speech service"
+title: "How to recognize speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to convert speech to text, including object construction, supported audio input formats, and configuration options for speech recognition.
 services: cognitive-services
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-services
 keywords: speech to text, speech to text software
 ---
 
-# Start speech recognition
+# How to recognize speech
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/how-to/recognize-speech/csharp.md)]
