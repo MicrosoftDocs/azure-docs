@@ -15,7 +15,8 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Recoverability Best Practices
+# Recoverability best practices
+
 
 Unintended deletions and misconfigurations will happen to your tenant. To minimize the impact of these unintended events, you must prepare for their occurrence. 
 
@@ -51,7 +52,8 @@ For more information on misconfigurations and how to recover from them, see [Rec
 
 Recoverability is a shared responsibility between Microsoft as your cloud service provider, and your organization.
 
-![The shared responsibilities between Microsoft and customers for planning and recovery.](media/recoverability/overview-shared-responsiblility.png)
+![Screenshot that shows shared responsibilities between Microsoft and customers for planning and recovery.](media/recoverability/overview-shared-responsiblility.png)
+
 
 You can use the tools and services that Microsoft provides to prepare for deletions and misconfigurations.
 
@@ -137,13 +139,11 @@ Securely store these configuration exports with access provided to a limited num
 
 The [Azure AD Exporter](https://github.com/microsoft/azureadexporter) can provide most of the documentation you'll need.
 
- <li> Verify that you've implemented the desired configuration.
+- Verify that you've implemented the desired configuration.
+- Use the exporter to capture current configurations.
+- Review the export, understand the settings for your tenant that aren't exported, and manually document them.
+- Store the output in a secure location with limited access.
 
- <li> Use the exporter to capture current configurations.
-
- <li> Review the export, understand the settings for your tenant that aren't exported, and manually document them.
-
- <li> Store the output in a secure location with limited access.
 
 > [!NOTE]
 > Settings in the legacy MFA portal, for Application Proxy and federation settings may not be exported with the Azure AD Exporter, or with the Graph API.
@@ -173,7 +173,7 @@ The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains i
 
 The Audit Log always records a “Delete <object>” event when an object in the tenant is removed from an active state (either from active to soft-deleted or active to hard-deleted).
 
-![A screenshhot of audit log detail.](media/recoverability/deletions-audit-log.png)
+:::image type="content" source="media/recoverability/deletions-audit-log.png" alt-text="Screenshot of audit log detail." lightbox="media/recoverability/deletions-audit-log.png":::
 
 A Delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type it's a hard delete.
 
@@ -188,7 +188,8 @@ A Delete event for applications, users, and Microsoft 365 Groups is a soft delet
 | All other objects| Delete “objectType”| Hard deleted |
 
 > [!NOTE]
-> The audit log does not distinguish the group type of a deleted group. Only Microsoft 365 Groups are soft-deleted. If you see a Delete group entry , it may be the soft delete of a M365 group, or the hard delete of another type of group. It is therefore important that your documentation of your known good state include the group type for each group in your organization.
+> The audit log does not distinguish the group type of a deleted group. Only Microsoft 365 Groups are soft-deleted. If you see a Delete group entry, it may be the soft delete of a M365 group, or the hard delete of another type of group. It is therefore important that your documentation of your known good state include the group type for each group in your organization.
+
 For information on monitoring configuration changes, see [Recover from misconfigurations](recover-from-misconfigurations.md). 
 
 ### Use workbooks to track configuration changes
@@ -197,13 +198,11 @@ There are several Azure Monitor workbooks that can help you to monitor configura
 
 [The Sensitive Operations Report workbook](../reports-monitoring/workbook-sensitive-operations-report.md) can help identify suspicious application and service principal activity that may indicate a compromise, including:
 
- <li> Modified application or service principal credentials or authentication methods
+- Modified application or service principal credentials or authentication methods
+- New permissions granted to service principals
+- Directory role and group membership updates for service principals
+- Modified federation settings
 
- <li> New permissions granted to service principals
-
- <li> Directory role and group membership updates for service principals
-
- <li> Modified federation settings
 
 The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing, and which applications I your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
 
@@ -215,7 +214,8 @@ Preventing unwanted changes is far less difficult than needing to recreate and r
 
 - Administrative control of an object enables configuration and deletion. Use Read Only admin roles, for example the Global Reader role, for any tasks that do not require operations to create, update, or delete (CRUD). When CRUD operations are required, use object specific roles when possible. For example, User Administrators can delete only users, and Application Administrators can delete only applications. Use these more limited roles whenever possible, instead of a Global Administrator role, which can delete anything, including the tenant. 
 
-- [Use Privileged Identity Management (PIM](../privileged-identity-management/pim-configure.md)). PIM enables just-in-time escalation of privileges to perform tasks like hard deletion. You can configure PIM to have notifications and or approvals for the privilege escalation. 
+- [Use Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). PIM enables just-in-time escalation of privileges to perform tasks like hard deletion. You can configure PIM to have notifications and or approvals for the privilege escalation. 
+
 
 ## Next steps   
 
