@@ -129,7 +129,7 @@ To complete the application registration process, you'll need to create a servic
 
 ```
 ###Create an AAD service principal
-spid=(az ad sp create --id $clientid --query objectId --output tsv)
+spid=$(az ad sp create --id $clientid --query objectId --output tsv)
 ###Look up a service principal
 spid=$(az ad sp show --id $clientid --query objectId --output tsv)
 ```

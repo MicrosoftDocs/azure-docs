@@ -15,7 +15,7 @@ ms.date: 10/05/2021
 ---
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with DMS
 
-You can use the Azure SQL Migration extension in Azure Data Studio to migrate the database(s) from a SQL Server instance to Azure SQL Managed Instance. For methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
+You can use the Azure SQL migration extension in Azure Data Studio to migrate the database(s) from a SQL Server instance to Azure SQL Managed Instance. For methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 In this tutorial, you migrate the **AdventureWorks** database from an on-premises instance of SQL Server to Azure SQL Managed Instance by using Azure Data Studio with Azure Database Migration Service (DMS). This tutorial focuses on the offline migration mode that considers an acceptable downtime during the migration process.
 
@@ -39,7 +39,7 @@ This article describes an offline migration from SQL Server to a SQL Managed Ins
 To complete this tutorial, you need to:
 
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
-* [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
+* [Install the Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
