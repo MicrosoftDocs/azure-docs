@@ -2,7 +2,10 @@
 title: Encrypt disks using customer-managed keys
 description: Learn how to encrypt disks using customer-managed keys in Azure DevTest Labs. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 09/29/2021
+ms.custom: subject-rbac-steps
 ---
 
 # Encrypt disks using customer-managed keys in Azure DevTest Labs
@@ -25,32 +28,17 @@ The following section shows how a lab owner can set up encryption using a custom
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Managed keys":::
-1. For the lab to handle encryption for all the lab disks, lab owner needs to explicitly grant the lab’s **system-assigned identity** reader role on the disk encryption set as well as virtual machine contributor role on the underlying Azure subscription. Lab owner can do so by completing the following steps:
+1. For the lab to handle encryption for all the lab disks, lab owner needs to explicitly grant the lab’s **system-assigned identity** reader role on the disk encryption set as well as virtual machine contributor role on the underlying Azure subscription. The lab owner can do so by completing the following steps:
 
-   
-    1. Ensure you are a member of [User Access Administrator role](../role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources. 
-    1. On the **Disk Encryption Set** page, select **Access control (IAM)** on the left menu. 
-    1. Select **+ Add** on the toolbar and select **Add a role assignment**.  
+    1. Ensure you are a member of [User Access Administrator role](../role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources.
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Add role management - menu":::
-    1. On the **Add role assignment** page, select the **Reader** role or a role that allows more access. 
-    1. Type the lab name for which the disk encryption set will be used and select the lab name (system-assigned identity for the lab) from the dropdown-list. 
-    
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Select system-managed identity of the lab":::        
-    1. Select **Save** on the toolbar. 
+    1. On the **Disk Encryption Set** page, assign at least the Reader role to the lab name for which the disk encryption set will be used.
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Save role assignment":::
-3. Add the lab's **system-assigned identity** to the **Virtual Machine Contributor** role using the **Subscription** -> **Access control (IAM)** page. The steps are similar to the ones in the previous steps. 
+       For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-    
-    1. Navigate to the **Subscription** page in the Azure portal. 
-    1. Select **Access control (IAM)**. 
-    1. Select **+Add** on the toolbar, and select **Add a role assignment**. 
-    
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Subscription -> Access control (IAM) page":::
-    1. On the **Add role assignment** page, select **Virtual Machine Contributor** for the role.
-    1. Type the lab name, and select the **lab name** (system-assigned identity for the lab) from the dropdown-list. 
-    1. Select **Save** on the toolbar. 
+    1. Navigate to the **Subscription** page in the Azure portal.
+
+    1. Assign the Virtual Machine Contributor role to the lab name (system-assigned identity for the lab).
 
 ## Encrypt lab OS disks with a customer-managed key 
 

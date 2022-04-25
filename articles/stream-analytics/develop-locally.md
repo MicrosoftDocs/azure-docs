@@ -24,6 +24,9 @@ The environments in the following table support local development:
 |[Visual Studio 2019](stream-analytics-tools-for-visual-studio-install.md) |Stream Analytics Tools is part of the Azure development and Data storage and processing workloads in Visual Studio. You can use Visual Studio to write custom C# user-defined functions and deserializers. To learn more, see [Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md).|
 |[Command prompt or terminal](stream-analytics-tools-for-visual-studio-cicd.md)|The Azure Stream Analytics CI/CD NuGet package provides tools for Visual studio project build, local testing on an arbitrary machine. The Azure Stream Analytics CI/CD npm package provides tools for Visual Studio Code project builds (which generates an Azure Resource Manager template) on an arbitrary machine.|
 
+> [!NOTE] 
+> We strongly recommend using [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
+
 ## Next steps
 
 * [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)

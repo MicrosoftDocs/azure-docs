@@ -51,12 +51,12 @@ If you have SAS key that you should use to access files, make sure that you crea
 
 If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
 
-If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ALC permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it didn't expired. 
+If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ACL permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it hasn't expired. 
 If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
 
 ### Query fails because file cannot be opened
 
-If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file or because a firewall is blocking access to the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure that both files exist and aren't used by another process, then serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file or because a firewall is blocking access to the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. The easiest way is to grant yourself a 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
@@ -64,7 +64,7 @@ If your query fails with the error 'File cannot be opened because it does not ex
 
 Instead of granting Storage Blob Data Contributor, you can also grant more granular permissions on a subset of files. 
 
-* All users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
+* All users that need access to some data in this container also need to have the EXECUTE permission on all parent folders up to the root (the container). 
 Learn more about [how to set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md). 
 
 > [!NOTE]
@@ -501,8 +501,147 @@ The error *The query references an object that is not supported in distributed p
 
 ### `WaitIOCompletion` call failed
 
-The error message *WaitIOCompletion call failed* indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake).
-Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
+The error message `WaitIOCompletion call failed` indicates that the query failed while waiting to complete I/O operation that reads data from the remote storage (Azure Data Lake).
+
+The error message has the following pattern:
+
+```
+Error handling external file: 'WaitIOCompletion call failed. HRESULT = ???'. File/External table name...
+```
+
+Make sure that your storage is placed in the same region as serverless SQL pool. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate I/O requests.
+
+The field HRESULT contains the result code, below are the most common error codes and potential solutions:
+
+### [0x80070002](#tab/x80070002)
+
+This error code means the source file is not in storage.
+
+There are reasons why this can happen:
+
+- The file was deleted by another application.
+ - A common scenario: the query execution starts, it enumerates the files and the files are found. Later, during the query execution, a file is deleted (for example by Databricks, Spark or ADF). The query fails because the file is not found.
+ - This issue can also occur with delta format. The query might succeed on retry because there is a new version of the table and the deleted file is not queried again.
+
+- Invalid execution plan cached
+  - As a temporary mitigation, run the command `DBCC FREEPROCCACHE`. If the problem persists create a support ticket.
+
+
+### [0x80070005](#tab/x80070005)
+
+This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the Azure AD access token expires.
+
+The error message might also resemble:
+
+```
+File {path} cannot be opened because it does not exist or it is used by another process.
+```
+
+- If an Azure AD login has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails. This includes querying storage using Azure AD pass-through and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This affects tools that keep connections open, like in query editor in SSMS and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
+
+- Azure AD authentication token might be cached by the client applications. For example Power BI caches Azure Active Directory token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
+
+Consider the following mitigations:
+
+- Restart the client application to obtain a new Azure Active Directory token.
+- Consider switching to: 
+  - [Service Principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
+  - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) 
+  - or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
+
+
+### [0x80070008](#tab/x80070008)
+
+This error message can occur when the serverless SQL pool is experiencing resource constraints, or if there was a transient platform issue.
+
+- Transient issues:
+  - This error can occur when Azure detects a potential platform issue that results in a change in topology to keep the service in a healthy state.
+  - This type of issue happens infrequently and is transient. Retry the query.
+
+- High concurrency or query complexity:
+  - Serverless SQL doesn't impose a maximum limit in query concurrency, it depends on the query complexity and the amount of data scanned.
+  - One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. For more information, see [Concurrency limits for Serverless SQL Pool](resources-self-help-sql-on-demand.md#constraints).  
+  - Try reducing the number of queries executing simultaneously or the query complexity. 
+
+If the issue is non-transient or you confirmed the problem is not related to high concurrency or query complexity, create a support ticket.
+
+
+### [0x8007000C](#tab/x8007000C)
+
+This error code occurs when a query is executing and the source files are modified at the same time.
+The default behavior is to terminate the query execution with an error message.
+
+The error message returned can also have the following format:
+
+```
+"Cannot bulk load because the file 'https://????.dfs.core.windows.net/????' could not be opened. Operating system error code 12 (The access code is invalid.)."
+```
+
+If the source files are updated while the query is executing, it can cause inconsistent reads. For example, half row is read with the old version of the data, and half row is read with the newer version of the data.
+
+
+### CSV files
+
+If the problem occurs when reading CSV files, you can allow appendable files to be queried and updated at the same time, by using the option ALLOW_INCONSISTENT_READS.  
+
+More information about syntax and usage:
+
+  - [OPENROWSET syntax](query-single-csv-file.md#querying-appendable-files)  
+  ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+  - [External Tables syntax](create-use-external-tables.md#external-table-on-appendable-files)  
+  TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+### Parquet files
+
+When reading Parquet files, the query will not recover automatically. It needs to be retried by the client application.
+
+### Synapse Link for Dataverse
+
+This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this.
+
+
+### [0x800700A1](#tab/x800700A1)
+
+Confirm the storage account accessed is using the "Archive" access tier.
+
+The `archive access` tier is an offline tier. While a blob is in the `archive access` tier, it can't be read or modified.
+
+To read or download a blob in the Archive tier, rehydrate it to an online tier: [Archive access tier](/azure/storage/blobs/access-tiers-overview.md#archive-access-tier)
+
+
+### [0x80070057](#tab/x80070057)
+
+This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the Azure Active Directory access token expires.
+
+The error message might also resemble the following:
+
+```
+File {path} cannot be opened because it does not exist or it is used by another process.
+```
+
+- If an Azure AD login has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails. This includes querying storage using Azure AD pass-through and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This affects tools that keep connections open, like the query editor in SQL Server Management Studio (SSMS) and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
+
+- Azure AD authentication token might be cached by the client applications. For example Power BI caches an Azure AD token and reuses it for one hour. The long-running queries might fail if the token expires in the middle of execution.
+
+Consider the following mitigations to resolve the issue:
+
+- Restart the client application to obtain a new Azure Active Directory token.
+- Consider switching to: 
+  - [Service Principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
+  - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) 
+  - or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
+   
+
+### [0x80072EE7](#tab/x80072EE7)
+
+This error code can occur when there is a transient issue in the serverless SQL pool.
+It happens infrequently and is temporary by nature. Retry the query.
+
+If the issue persists create a support ticket.
+
+---
+
 
 ### Incorrect syntax near 'NOT'
 
@@ -512,12 +651,12 @@ The error *Incorrect syntax near 'NOT'* indicates that there are some external t
 
 If your query returns `NULL` values instead of partitioning columns or cannot find the partition columns, you have few possible troubleshooting steps:
 - If you are using tables to query partitioned data set, note that tables do not support partitioning. Replace the table with the [partitioned views](create-use-views.md#partitioned-views).
-- If you are using the [partitioned views](create-use-views.md#partitioned-views) with the OPENROWSET that [queries partitioned files using the FILEPATH() function](query-specific-files.md), make sure that you have correctly specified wildcard pattern in the location that that you have used the proper index for referencing the wildcard.
+- If you are using the [partitioned views](create-use-views.md#partitioned-views) with the OPENROWSET that [queries partitioned files using the FILEPATH() function](query-specific-files.md), make sure that you have correctly specified wildcard pattern in the location and that you have used the proper index for referencing the wildcard.
 - If you are querying the files directly in the partitioned folder, note that the partitioning columns are not the parts of the file columns. The partitioning values are placed in the folder paths and not the files. Therefore, the files do not contain the partitioning values.
 
 ### Inserting value to batch for column type DATETIME2 failed
 
-The error *Inserting value to batch for column type DATETIME2 failed* indicates that the serverless pool cannot read the date values form the underlying files. The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julian calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+The error *Inserting value to batch for column type DATETIME2 failed* indicates that the serverless pool cannot read the date values from the underlying files. The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julian calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
 
 Try to use Spark to update these values because they are treated as invalid date values in SQL. The following sample shows how to update the values that are out of SQL date ranges to `NULL` in Delta Lake:
 
@@ -556,7 +695,7 @@ If you are getting the error '*CREATE DATABASE failed. User database limit has b
 
 ### Please create a master key in the database or open the master key in the session before performing this operation.
 
-If your query fails with the error message *Please create a master key in the database or open the master key in the session before performing this operation*, it means that your user database has no access to a master key at the moment. 
+If your query fails with the error message '*Please create a master key in the database or open the master key in the session before performing this operation*', it means that your user database has no access to a master key at the moment. 
 
 Most likely, you just created a new user database and did not create a master key yet. 
 
@@ -743,7 +882,7 @@ See the [Synapse Studio section](#synapse-studio).
 ### Cannot connect to Synapse pool from a tool
 
 Some tools might not have an explicit option that enables you to connect to the Synapse serverless SQL pool. 
-Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog do not need to be branded as "Synapse" because the serverless SQL pool use the same protocol as SQL Server or Azure SQL database. 
+Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog do not need to be branded as "Synapse" because the serverless SQL pool uses the same protocol as SQL Server or Azure SQL database. 
 
 Even if a tool enables you to enter only a logical server name and predefines `database.windows.net` domain, put the Synapse workspace name followed by `-ondemand` suffix and `database.windows.net` domain.
 
@@ -766,7 +905,7 @@ If a user cannot access a lake house or Spark database, it might not have permis
 Dataverse tables are accessing storage using the callers Azure AD identity. SQL user with high permissions might try to select data from a table, but the table would not be able to access Dataverse data. This scenario is not supported.
 
 ### Azure AD service principal login failures when SPI is creating a role assignment
-If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
+If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to log in, you're probably receiving following error:
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
@@ -790,7 +929,7 @@ go
 
 **Solution #3**
 
-You can also setup service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
+You can also set up service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
 The solution is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. PowerShell script:
 ```azurepowershell
 $spAppId = "<app_id_which_is_already_an_admin_on_the_workspace>"
@@ -811,7 +950,7 @@ Connect to serverless SQL endpoint and verify that the external login with SID `
 select name, convert(uniqueidentifier, sid) as sid, create_date
 from sys.server_principals where type in ('E', 'X')
 ```
-or just try to login on serverless SQL endpoint using the just set admin app.
+or just try to log in on serverless SQL endpoint using the just set admin app.
 
 ## Constraints
 

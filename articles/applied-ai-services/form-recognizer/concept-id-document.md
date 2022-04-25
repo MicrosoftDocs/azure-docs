@@ -20,7 +20,7 @@ The ID document model combines Optical Character Recognition (OCR) with deep lea
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
-:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license." lightbox="media/overview-id.jpg":::
+:::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license.":::
 
 ## Development options
 
@@ -62,7 +62,7 @@ See how to extract data, including name, birth date, machine-readable zone, and 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API v2.1)
 
 You'll need an ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
 

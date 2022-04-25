@@ -12,12 +12,14 @@ ms.custom: devx-track-dotnet
 Enabling monitoring on your ASP.NET based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!NOTE]
-> Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the agent-based instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
+> Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the auto-instrumentation instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
 
 > [!NOTE]
-> If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
+> If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
 
-## Enable agent-based monitoring
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+## Enable auto-instrumentation monitoring
 
 > [!NOTE]
 > The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-is-not-supported).
@@ -41,7 +43,7 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
             
     | Data | ASP.NET Basic Collection | ASP.NET Recommended collection |
     | --- | --- | --- |
-    | Adds CPU, memory, and I/O usage trends |Yes |Yes |
+    | Adds CPU, memory, and I/O usage trends |No |Yes |
     | Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
     | Collects exceptions unhandled by the host process | Yes |Yes |
     | Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
@@ -107,7 +109,7 @@ To check which version of the extension you're running, go to `https://yoursiten
 
 Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version, you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](#enable-agent-based-monitoring). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes, the old private site extension will be removed.)
+* [Upgrade by enabling via the portal](#enable-auto-instrumentation-monitoring). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes, the old private site extension will be removed.)
 
 * [Upgrade through PowerShell](#enable-through-powershell):
 
@@ -130,7 +132,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
     
-         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-agent-based-monitoring).
+         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-auto-instrumentation-monitoring).
 
     - Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
 
