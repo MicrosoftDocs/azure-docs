@@ -87,10 +87,11 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | GCP | Cloud DNS | 
 | Infoblox | NIOS | 
 | Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
-| Okta | Okta | 
+| Okta | - Okta<BR> - Auth0<br> | 
 | Palo Alto | - PanOS<br> - CDL<br> |
 | Squid | Squid Proxy | 
 | Vectra AI | Vectra Steam |
+| WatchGuard | Fireware |
 | Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
 
 
