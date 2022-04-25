@@ -266,7 +266,7 @@
     - name: Configure minimum required TLS version
       href: transport-layer-security-configure-minimum-version.md
     - name: Audit minimum required TLS version
-      href: transport-layer-security-configure-minimum-version.md
+      href: transport-layer-security-audit-minimum-version.md
     - name: Configure TLS version for client
       href: transport-layer-security-configure-client-version.md
   - name: Troubleshoot
