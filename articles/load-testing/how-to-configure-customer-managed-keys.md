@@ -314,7 +314,9 @@ This feature is currently only available for new Azure Load Testing resources.
 
 ### How do I revoke an encryption key?
 
-You can revoke a key by disabling the latest version of the key in Azure Key Vault. Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the managed identity of the Azure Load Testing resource. When the encryption key is revoked, the only operation that is available is resource deletion. It is recommended to rotate the key instead of revoking to handle security of the resource and retain your data.
+You can revoke a key by disabling the latest version of the key in Azure Key Vault. Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the managed identity of the Azure Load Testing resource.
+
+When you revoke the encryption key, the only available operation is resource deletion. It is recommended to rotate the key instead of revoking it to manage resource security and retain your data.
 
 ## Next steps
 
