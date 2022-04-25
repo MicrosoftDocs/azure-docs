@@ -170,7 +170,7 @@ Follow the steps mentioned in [this tutorial](tutorial-register-applications.md?
 
 1. If you already have an Asignio Signature, you'll be prompted to authenticate using it. If not, you'll be prompted to supply the phone number of your device to authenticate via SMS OTP and then receive a link to register your Asignio Signature.
 
-1. Once the authentication is complete, the browser will redirect the user to the Reply URL, https://jwt.ms in this case.
+1. If the sign-in process is successful, your browser is redirected to https://jwt.ms, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -464,7 +464,7 @@ In the following example, for the `AsignioSUSI` user journey, the **ReferenceId*
 
 1. If you already have an Asignio Signature, you'll be prompted to authenticate with your Asignio Signature. If not, you'll be prompted to supply the phone number of your device to authenticate via SMS OTP and then receive a link to register your Asignio Signature.
 
-1. Once the authentication is complete, the browser will redirect the user to the Reply URL, https://jwt.ms in this case, which displays the contents of the token returned by Azure AD B2C.
+1. If the sign-in process is successful, your browser is redirected to https://jwt.ms, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
