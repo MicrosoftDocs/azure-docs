@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 04/25/2022
 ---
 
 # Dapr integration with Azure Container Apps (preview)
@@ -19,9 +19,9 @@ Dapr APIs, also referred to as building blocks, are built on best practice indus
 
 Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
 
-## Dapr in Container Apps
+## Dapr building blocks in Container Apps
 
-<!--:::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Visualization of Dapr building blocks"::: -->
+:::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Visualization of Dapr building blocks":::
 
 | Building block | Description |
 | -------------- | ----------- |
@@ -32,22 +32,16 @@ Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into you
 | [**Actors**][dapr-actors] | Dapr actors apply the scalability and reliability that the underlying platform provides. |
 | **Observability** | Send tracing information to an Application Insights backend. |
 
-### Dapr settings in Container Apps
+## Dapr settings in Container Apps
+
+In the following Pub/sub example, we demonstrate how:
+- Dapr is enabled in your Container App.
+- Dapr components are plugged into and scoped to your Container App and Dapr sidecar.
+- Dapr APIs are exposed to your Container App.
 
 :::image type="content" source="media/dapr-overview/aca_dapr_architecture.png" alt-text="diagram demonstrating Dapr pub/sub":::
 
-| # | Core concepts 
-| - | ------------- 
-| 1 | [Container App environment](#container-app-environment) | 
-| 2 | [Container App with Dapr enabled]() | 
-| 3 | [Dapr sidecar](#dapr-sidecar) | 
-| 4 | [Dapr component scoped to each Container App](#dapr-components) | 
-| 5 | [External Azure service integrated with your Container App](#external-azure-service-integrated-with-your-container-app) | 
-
-
-#### Container App environment
-
-#### Container App with Dapr enabled
+### 1 - Container App with Dapr enabled
 
 Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With the following settings, you enable Dapr on your app:
 
@@ -60,9 +54,15 @@ Define Dapr sidecars or control plane settings for your container app using a YA
 
 # [Dapr OSS](#tab/oss)
 
+In the Dapr CLI, you'll point to the component path that holds the `<component>.yml` spec you've defined. By default, Dapr points to the Redis YAML file that was created with `dapr init`. For the Pub/sub example, you'd the following command:
+
+```bash
+dapr run --app-id nodeapp --components-path ../../../components/ --app-port 3000
+```
+
 # [YAML](#tab/yaml)
 
-When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI.
+When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI using the following command:
 
 ```azurecli
 --enable-dapr \
@@ -94,11 +94,16 @@ dapr: {
 }
 ```
 
+# [Azure Service Bus](#tab/asb)
+
+
+
+
 ---
 
 Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
 
-#### Dapr components
+### 2 - Dapr components
 
 Dapr components are scoped to a Container App environment and are pluggable modules that:
 
@@ -110,28 +115,26 @@ Based on your needs, you can "plug in" certain Dapr component types like state s
 
 # [Dapr OSS](#tab/oss)
 
-In Dapr OSS, running `dapr init` generates the following `<component>.yml` spec in the Dapr components directory.
+In Dapr OSS, running `dapr init` generates the following default Redis `<component>.yml` spec in the Dapr components directory.
 
 ```yml
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: statestore
+  name: pubsub
 spec:
-  type: state.redis
+  type: pubsub.redis
   version: v1
   metadata:
   - name: redisHost
     value: localhost:6379
   - name: redisPassword
     value: ""
-  - name: actorStateStore
-    value: "true"
 ```
 
 # [YAML](#tab/yaml)
 
-When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI.
+When defining a component via the `<component>.yml` spec, you'll pass it to the Azure CLI.
 
 ```yaml
 # components.yaml for Azure Blob storage component
@@ -139,9 +142,6 @@ When defining a component via the `<component>.yml` spec, you pass it to the Azu
   type: state.azure.blobstorage
   version: v1
   metadata:
-  # Note that in a production scenario, account keys and secrets 
-  # should be securely stored. For more information, see
-  # https://docs.dapr.io/operations/components/component-secrets
   - name: accountName
     secretRef: storage-account-name
   - name: accountKey
@@ -153,186 +153,105 @@ When defining a component via the `<component>.yml` spec, you pass it to the Azu
 # [Bicep](#tab/bicep)
 
 ```bicep
-param location string = 'canadacentral'
-param environment_name string
-param storage_account_name string
-param storage_account_key string
-param storage_container_name string
-
-resource nodeapp 'Microsoft.Web/containerapps@2021-03-01' = {
-  name: 'nodeapp'
-  kind: 'containerapp'
-  location: location
+resource daprComponent 'daprComponents@2022-01-01-preview' = {
+  name: 'statestore'
   properties: {
-    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
-    configuration: {
-      ingress: {
-        external: true
-        targetPort: 3000
+    componentType: 'state.azure.blobstorage'
+    version: 'v1'
+    ignoreErrors: false
+    initTimeout: '5s'
+    secrets: [
+      {
+        name: 'storageaccountkey'
+        value: listKeys(resourceId('Microsoft.Storage/storageAccounts/', storage_account_name), '2021-09-01').keys[0].value
       }
-      secrets: [
-        {
-          name: 'storage-key'
-          value: storage_account_key
-        }
-      ]
-    }
-    template: {
-      containers: [
-        {
-          image: 'dapriosamples/hello-k8s-node:latest'
-          name: 'hello-k8s-node'
-          resources: {
-            cpu: '0.5'
-            memory: '1Gi'
-          }
-        }
-      ]
-      scale: {
-        minReplicas: 1
-        maxReplicas: 1
+    ]
+    metadata: [
+      {
+        name: 'accountName'
+        value: storage_account_name
       }
-      dapr: {
-        enabled: true
-        appPort: 3000
-        appId: 'nodeapp'
-        components: [
-          {
-            name: 'statestore'
-            type: 'state.azure.blobstorage'
-            version: 'v1'
-            metadata: [
-              {
-                name: 'accountName'
-                value: storage_account_name
-              }
-              {
-                name: 'accountKey'
-                secretRef: 'storage-key'
-              }
-              {
-                name: 'containerName'
-                value: storage_container_name
-              }
-            ]
-          }
-        ]
+      {
+        name: 'containerName'
+        value: storage_container_name
       }
-    }
+      {
+        name: 'accountKey'
+        secretRef: 'storageaccountkey'
+      }
+    ]
+    scopes: [
+      'nodeapp'
+    ]
   }
 }
-
 ```
 
 # [ARM](#tab/arm)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "defaultValue": "canadacentral",
-            "type": "String"
-        },
-        "environment_name": {
-            "type": "String"
-        },
-        "storage_account_name": {
-            "type": "String"
-        },
-        "storage_account_key": {
-            "type": "String"
-        },
-        "storage_container_name": {
-            "type": "String"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "name": "nodeapp",
-            "type": "Microsoft.Web/containerApps",
-            "apiVersion": "2021-03-01",
-            "kind": "containerapp",
-            "location": "[parameters('location')]",
-            "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
-                "configuration": {
-                    "ingress": {
-                        "external": true,
-                        "targetPort": 3000
-                    },
-                    "secrets": [
-                        {
-                            "name": "storage-key",
-                            "value": "[parameters('storage_account_key')]"
-                        }
-                    ]
-                },
-                "template": {
-                    "containers": [
-                        {
-                            "image": "dapriosamples/hello-k8s-node:latest",
-                            "name": "hello-k8s-node",
-                            "resources": {
-                                "cpu": 0.5,
-                                "memory": "1Gi"
-                            }
-                        }
-                    ],
-                    "scale": {
-                        "minReplicas": 1,
-                        "maxReplicas": 1
-                    },
-                    "dapr": {
-                        "enabled": true,
-                        "appPort": 3000,
-                        "appId": "nodeapp",
-                        "components": [
-                            {
-                                "name": "statestore",
-                                "type": "state.azure.blobstorage",
-                                "version": "v1",
-                                "metadata": [
-                                    {
-                                        "name": "accountName",
-                                        "value": "[parameters('storage_account_name')]"
-                                    },
-                                    {
-                                        "name": "accountKey",
-                                        "secretRef": "storage-key"
-                                    },
-                                    {
-                                        "name": "containerName",
-                                        "value": "[parameters('storage_container_name')]"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-    ]
+  "resources": [
+    {
+      "type": "daprComponents",
+      "name": "statestore",
+      "apiVersion": "2022-01-01-preview",
+      "dependsOn": [
+        "[resourceId('Microsoft.App/managedEnvironments/', parameters('environment_name'))]"
+      ],
+      "properties": {
+        "componentType": "state.azure.blobstorage",
+        "version": "v1",
+        "ignoreErrors": false,
+        "initTimeout": "5s",
+        "secrets": [
+          {
+            "name": "storageaccountkey",
+            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', parameters('storage_account_name')), '2021-09-01').keys[0].value]"
+          }
+        ],
+        "metadata": [
+          {
+            "name": "accountName",
+            "value": "[parameters('storage_account_name')]"
+          },
+          {
+            "name": "containerName",
+            "value": "[parameters('storage_container_name')]"
+          },
+          {
+            "name": "accountKey",
+            "secretRef": "storageaccountkey"
+          }
+        ],
+        "scopes": ["nodeapp"]
+      }
+    }
+  ]
 }
 ```
 
+# [Azure Service Bus](#tab/asb)
+
+
+
+
 ---
+
+By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes.
+
+Scope the Dapr component to particular Container Apps by adding the `scopes` property and providing the necessary app IDs. 
 
 > [!NOTE]
 > Since Dapr components and settings aren't revisionable, all running instances of a revision share the same set of Dapr components. 
 
-By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes.
+### 3 - Dapr sidecar
 
-Scope the Dapr component to particular Container Apps by adding the `scopes` property and providing the necessary app ids. 
+:::image type="content" source="media/dapr-overview/sidecar_architecture.png" alt-text="Visualization of Dapr sidecar architecture":::
 
+The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. The Dapr sidecar is named `daprd` and is launched in different ways depending on the hosting environment. By leveraging the Dapr sidecar architecture, you don't need to add any Dapr runtime code in your Container App code.
 
-#### Dapr sidecar
-
-#### External Azure service integrated with your Container App
-
-### Current supported Dapr version
+## Current supported Dapr version
 
 Currently, Azure Container Apps supports Dapr version 1.4.2. 
 
