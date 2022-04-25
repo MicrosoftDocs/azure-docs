@@ -298,7 +298,7 @@ Returns all the vulnerabilities found on virtual machines that have a Qualys age
 ```kusto
 SecurityResources
 | where type == 'microsoft.security/assessments'
-| where * contains 'vulnerabilities in your virtual machines'
+| where properties contains 'Machines should have vulnerability findings resolved'
 | summarize by assessmentKey=name //the ID of the assessment
 | join kind=inner (
 	securityresources

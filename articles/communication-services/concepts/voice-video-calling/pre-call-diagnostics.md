@@ -20,14 +20,17 @@ The Pre-Call API enables developers to programmatically validate a client’s re
 
 ## Accessing Pre-Call APIs
 
-To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `Diganostics` feature and the `preCallTest` method.
+>[!IMPORTANT]
+>Pre-Call diagnostics are available starting on the version [1.5.2-alpha.20220415.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.5.2-alpha.20220415.1) of the Calling SDK. Make sure to use that version when trying the instructions below.
+
+To Access the Pre-Call API, you will need to initialize a `callClient` and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```javascript
 import { CallClient, Features} from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 const tokenCredential = new AzureCommunicationTokenCredential(); 
-const preCallTest = await callClient.feature(Features.Diganostics).preCallTest(tokenCredential);
+const preCallDiagnosticsResult = await callClient.feature(Features.PreCallDiagnostics).startTest(tokenCredential);
 
 ```
 
@@ -35,28 +38,29 @@ Once it finishes running, developers can access the result object.
 
 ## Diagnostic results
 
-The Pre-Call API returns a full diagnostic of the device including details like device permissions, availability and compatibility, call quality stats and in-call diagnostics. The results are returned as a `CallDiagnosticsResult` object. 
+The Pre-Call API returns a full diagnostic of the device including details like device permissions, availability and compatibility, call quality stats and in-call diagnostics. The results are returned as a `PreCallDiagnosticsResult` object. 
 
 ```javascript
 
-export declare type CallDiagnosticsResult = {
+export declare type PreCallDiagnosticsResult  = {
     deviceAccess: Promise<DeviceAccess>;
     deviceEnumeration: Promise<DeviceEnumeration>;
     inCallDiagnostics: Promise<InCallDiagnostics>;
     browserSupport?: Promise<DeviceCompatibility>;
+    id: string;
     callMediaStatistics?: Promise<MediaStatsCallFeature>;
 };
 
 ```
 
-Individual result objects can be accessed as such using the `preCallTest` constant above.
+Individual result objects can be accessed as such using the `preCallDiagnosticsResult` constant above. Results for individual tests will be returned as they are completed with many of the test results being available immediately. In the case of the `inCallDiagnostics` test, the results might take up to 1 minute as the test validates quality of the video and audio.
 
 ### Browser support
 Browser compatibility check. Checks for `Browser` and `OS` compatibility and provides a `Supported` or `NotSupported` value back. 
 
 ```javascript
 
-const browserSupport =  await preCallTest.browserSupport;
+const browserSupport =  await preCallDiagnosticsResult.browserSupport;
   if(browserSupport) {
     console.log(browserSupport.browser)
     console.log(browserSupport.os)
@@ -66,12 +70,15 @@ const browserSupport =  await preCallTest.browserSupport;
 
 In the case that the test fails and the browser being used by the user is `NotSupported`, the easiest way to fix that is by asking the user to switch to a supported browser. Refer to the supported browsers in our [documentation](./calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
 
+>[!NOTE]
+>Known issue: `browser support` test returning `Unknown` in cases where it should be returning a correct value.
+
 ### Device access
 Permission check. Checks whether video and audio devices are available from a permissions perspective. Provides `boolean` value for `audio` and `video` devices. 
 
 ```javascript
 
-  const deviceAccess =  await preCallTest.deviceAccess;
+  const deviceAccess =  await preCallDiagnosticsResult.deviceAccess;
   if(deviceAccess) {
     console.log(deviceAccess.audio)
     console.log(deviceAccess.video)
@@ -86,7 +93,7 @@ Device availability. Checks whether microphone, camera and speaker devices are d
 
 ```javascript
 
-  const deviceEnumeration = await preCallTest.deviceEnumeration;
+  const deviceEnumeration = await preCallDiagnosticsResult.deviceEnumeration;
   if(deviceEnumeration) {
     console.log(deviceEnumeration.microphone)
     console.log(deviceEnumeration.camera)
@@ -102,7 +109,7 @@ Performs a quick call to check in-call metrics for audio and video and provides 
 
 ```javascript
 
-  const inCallDiagnostics =  await preCallTest.inCallDiagnostics;
+  const inCallDiagnostics =  await preCallDiagnosticsResult.inCallDiagnostics;
   if(inCallDiagnostics) {    
     console.log(inCallDiagnostics.connected)
     console.log(inCallDiagnostics.bandWidth)
@@ -118,7 +125,7 @@ At this step, there are multiple failure points to watch out for:
 - If bandwidth is `Bad`, the user should be prompted to try out a different network or verify the bandwidth availability on their current one. Ensure no other high bandwidth activities might be taking place.
 
 ### Media stats
-For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `PreCallTest` feature. You can subscribe to the call media stats to get full collection of them.
+For granular stats on quality metrics like jitter, packet loss, rtt, etc. `callMediaStatistics` are provided as part of the `preCallDiagnosticsResult` feature. You can subscribe to the call media stats to get full collection of them.
 
 ## Pricing
 
