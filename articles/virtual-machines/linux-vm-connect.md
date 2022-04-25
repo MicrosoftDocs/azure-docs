@@ -24,12 +24,12 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
     1. On the page for the VM, select **Networking** from the left menu.
     1. On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
-    :::image type="content" source="media/linux-vm-connect/check-rule.png" alt-text="Screenshot showing how to check to see if there is already a rule allowing SSH connections.":::
+    :::image type="content" source="media/linux-vm-connect/check-rule.png" alt-text="Screenshot showing how to check to see if there is already a rule allowing S S H connections.":::
 
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
     1. From the **Service** dropdown select **SSH**.
     
-       :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose SSH.":::
+       :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose S S H.":::
 
     1. Edit **Priority** and **Source** if necessary
     1. For **Name**, type *SSH*.
@@ -40,12 +40,13 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
  
     If your VM does not have a public IP Address, it will look like this:
 
-    :::image type="content" source="media/linux-vm-connect/no-pip.png" alt-text="Screenshot of how the networking section looks when you do not have a public IP.":::
+    :::image type="content" source="media/linux-vm-connect/no-public-ip.png" alt-text="Screenshot of how the networking section looks when you do not have a public I P.":::
 
  
     To learn more about adding a public IP address to an existing VM, see  [Associate a public IP address to a virtual machine](../virtual-network/ip-services/associate-public-ip-address-vm.md)
 
-- Verify your VM is running. On the Overview tab, in the essentials section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
+- Verify your VM is running. On the Overview tab, in the **Essentials** section, verify the status of the VM is **Running**. To start the VM, select **Start** at the top of the page.
+   
 
    :::image type="content" source="media/linux-vm-connect/running.png" alt-text="Screenshot showing how to check to make sure your virtual machine is in the running state.":::
  
