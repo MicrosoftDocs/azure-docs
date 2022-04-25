@@ -1624,6 +1624,19 @@ groups:
     title: Single node device
   - id: two-node
     title: Two node cluster
+# Owner: alkohli
+- id: data-box-shipping
+  title: Data Box shipping
+  prompt: Choose shipping location
+  pivots:
+  - id: north-america
+    title: North America
+  - id: europe
+    title: Europe
+  - id: asia-australia
+    title: Asia, Australia
+  - id: self-managed
+    title: Self-managed
 # Owner: timlt
 - id: iot-develop-toolset
   title: IoT Devices
