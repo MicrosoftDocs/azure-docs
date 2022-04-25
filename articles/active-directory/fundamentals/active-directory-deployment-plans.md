@@ -53,7 +53,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | -| -|
 | [User provisioning](../app-provisioning/plan-auto-user-provisioning.md)| Azure AD helps you automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications, such as Dropbox, Salesforce, ServiceNow, and more. |
 | [Cloud HR user provisioning](../app-provisioning/plan-cloud-hr-provision.md)| Cloud HR user provisioning to Active Directory creates a foundation for ongoing identity governance and enhances the quality of business processes that rely on authoritative identity data. Using this feature with your cloud HR product, such as Workday or Successfactors, you can seamlessly manage the identity lifecycle of employees and contingent workers by configuring rules that map Joiner-Mover-Leaver processes (such as New Hire, Terminate, Transfer) to IT provisioning actions (such as Create, Enable, Disable) |
-| [Azure AD B2B collaboration]()| Azure AD enables you to collaborate with any external user, allowing them to securely gain access to SaaS and Line-of-Business (LoB) applications. |
+| [Azure AD B2B collaboration](../secure-external-access-resources.md)| Azure AD enables you to collaborate with any external user, allowing them to securely gain access to SaaS and Line-of-Business (LoB) applications. |
 
 ## Deploy governance and reporting
 
