@@ -103,6 +103,11 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ---
 
+> [!NOTE]
+> You can also verify that the FHIR service is up and running by opening a browser and navigating to `https://<yourfhirservice>.azurehealthcareapis.com/metadata`. If the
+> capability statement is automatically displayed or downloaded, your deployment was successful. Make sure to replace **\<yourfhirservice\>** with the **\<service-name\>** you
+> used in the deployment step of this quickstart.
+
 ## Clean up the resources
 
 When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
