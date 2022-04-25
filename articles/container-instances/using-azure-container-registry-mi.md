@@ -22,7 +22,7 @@ ms.custom: mvc, devx-track-azurecli
 
 * Windows containers don't support managed identity-authenticated image pulls with ACR.
 
-* The Azure Container Registry's networking mode cannot be set to Public
+* The Azure container registry must have [Public Access set to either 'Select networks' or 'None'](../container-registry/container-registry-access-selected-networks.md). To set the Azure container registry's Public Access to 'All networks', visit ACI's article on [how to authenticate with ACR with service principal based authentication](container-instances-using-azure-container-registry.md).
 
 ## Configure registry authentication
 
