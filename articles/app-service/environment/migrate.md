@@ -22,19 +22,28 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - Australia East
 - Australia Central
 - Australia Southeast
+- Brazil South
 - Canada Central
 - Central India
+- Central US
 - East Asia
 - East US
 - East US 2
 - France Central
 - Germany West Central
 - Korea Central
+- North Central US
+- North Europe
 - Norway East
+- South Central US
 - Switzerland North
 - UAE North
 - UK South
+- UK West
 - West Central US
+- West Europe
+- West US
+- West US 3
 
 You can find the version of your App Service Environment by navigating to your App Service Environment in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your App Service Environment.
 
