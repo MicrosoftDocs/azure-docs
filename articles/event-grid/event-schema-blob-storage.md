@@ -139,11 +139,13 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 
 * The `data.api` key is set to the string `SftpCreate` or `SftpCommit`.
 
+* The `clientRequestId` key is not included.
+
+* The `contentType` key is set to `application/octet-stream`.
+
 * The `contentOffset` key is included in the data set.
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
-
-* The `clientRequestId` key will not be included.
 
 > [!NOTE]
 > SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are written.
@@ -159,7 +161,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
     "api": "SftpCommit",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
     "eTag": "\"0x8D4BCC2E4835CD0\"",
-    "contentType": "text/plain",
+    "contentType": "application/octet-stream",
     "contentLength": 0,
     "contentOffset": 0,
     "blobType": "BlockBlob",
@@ -226,6 +228,47 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "contentType": "text/plain",
     "blobType": "BlockBlob",
     "url": "https://my-storage-account.dfs.core.windows.net/my-file-system/file-to-delete.txt",
+    "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.BlobDeleted event (SFTP)
+
+If the blob storage account uses SFTP to delete a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `2`.
+
+* The `data.api` key is set to the string `SftpRemove`.
+
+* The `clientRequestId` key is not included.
+
+* The `contentType` key is set to `application/octet-stream`.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/new-file.txt",
+  "eventType": "Microsoft.Storage.BlobDeleted",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRemove",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "contentType": "text/plain",
+    "contentLength": 0,
+    "contentOffset": 0,
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",  
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
