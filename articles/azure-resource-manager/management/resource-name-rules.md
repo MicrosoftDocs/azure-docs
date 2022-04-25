@@ -459,6 +459,14 @@ In the following tables, the term alphanumeric refers to:
 > | /clusters / databases / dataConnections | database | 1-40 | Alphanumerics, hyphens, spaces, and periods. |
 > | /clusters / databases / eventhubconnections | database | 1-40 | Alphanumerics, hyphens, spaces, and periods. |
 
+## Microsoft.LabServices
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | labplans | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
+> | labs | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
+
 ## Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
