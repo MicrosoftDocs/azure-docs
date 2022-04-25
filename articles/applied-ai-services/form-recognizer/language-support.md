@@ -18,7 +18,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 
-## Read, Layout, and Custom form (template) model
+## Read, layout, and custom form (template) model
 
 The following lists include the currently GA languages in for the v2.1 version and the most recent v3.0 preview. These languages are supported by Read, Layout, and Custom form (template) model features.
 
