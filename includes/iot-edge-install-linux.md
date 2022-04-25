@@ -74,7 +74,7 @@ Install the Moby engine.
      sudo apt-get install moby-engine
    ```
 ---
-Once the Moby Engine is successfully installed, configure the Docker daemon to use [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
+Once the Moby Engine is successfully installed, configure the Docker daemon to use [local logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism.Learn more about logging configuration in [Production Deployment Checklist](https://docs.microsoft.com/en-us/azure/iot-edge/production-checklist?view=iotedge-2018-06#place-limits-on-log-size).
 
 * Create or open the Docker daemon's config file at `/etc/docker/daemon.json`.
 * Set the default logging driver to the `local` logging driver as shown in the example below.   
