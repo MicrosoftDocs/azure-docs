@@ -25,7 +25,7 @@ A link connection identifies a mapping relationship between an SQL Server 2022 a
 
 You can start or stop a link connection. When being started, a link connection will start from a full initial load from your source database followed by incremental change feeds via change feed feature in SQL Server 2022. When you stop a link connection, the updates made to the operational data won't be synchronized to your Synapse SQL pool.
 
-You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and price.
+You need to select compute core counts for each link connection to replicate your data. The core counts represent the compute power and it impacts your data replication latency and cost.
 
 ## Landing zone
 
