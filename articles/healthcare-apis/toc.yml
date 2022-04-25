@@ -19,6 +19,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+    - name: Get started with Azure Health Data Services
+      href: get-started-with-health-data-services.md
     - name: Deploy Azure Health Data Services
       expanded: true
       items:
