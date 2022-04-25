@@ -19,7 +19,7 @@ The example used in this article can be found in [azureml-example repo](https://
 Assume you already have a command component defined in `train.yaml`. A two step pipeline job YAML looks like below. 
 
 <to-do> remove the hard code YAML after example merge to main
-:::code language="yaml" source"~/azureml-examples-april-sdk-preview/cli/jobs/pipelines-with-components/pipeline_with_hyperparameter_sweep/pipeline.yml":::
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
