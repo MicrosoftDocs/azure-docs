@@ -57,17 +57,17 @@ During preview, the following considerations apply:
 
 1. In the [Azure portal](https://portal.azure.com), start creating a Consumption logic app. On the **Create Logic App** page, stop after you select **Consumption** as the plan type for your logic app.
 
-   When you select **Consumption**, the **Zone redundancy** section and options become available for you to select.
-
-   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Consumption" plan type selected.](./media/set-up-zone-redundancy-availability-zones/)
+   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Consumption" plan type selected.](./media/set-up-zone-redundancy-availability-zones/select-consumption-plan.png)
 
    For a quick tutorial, review [Quickstart: Create your first integration workflow with multi-tenant Azure Logic Apps and the Azure portal](quickstart-create-first-logic-app-workflow.md).
+
+   After you select **Consumption**, the **Zone redundancy** section and options become available.
 
 1. Under **Zone redundancy**, select **Enabled**.
 
    At this point, your logic app creation experience appears similar to this example:
 
-   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Enabled" option under "Zone redundancy" selected.](./media/set-up-zone-redundancy-availability-zones/)
+   ![Screenshot showing Azure portal, "Create Logic App" page, logic app details, and the "Enabled" option under "Zone redundancy" selected.](./media/set-up-zone-redundancy-availability-zones/enable-zone-redundancy.png)
 
 1. Finish creating your logic app.
 
