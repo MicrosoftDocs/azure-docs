@@ -8,9 +8,9 @@ ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
-ms.date: 04/25/2022
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv2
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Start, monitor, and track run history in studio
@@ -29,9 +29,9 @@ This article shows how to do the following tasks:
  
 
 > [!TIP]
-> If you're looking for information on monitoring training runs from the CLI or SDK v2, see [Track experiments with MLflow and CLI v2](how-to-use-mlflow-cli-runs.md).
->
-> If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
+> * If you're looking for information on using the Azure Machine Learning SDK v1 or CLI v1, see [./v1/how-to-track-monitor-analyze-runs.md].
+> * If you're looking for information on monitoring training runs from the CLI or SDK v2, see [Track experiments with MLflow and CLI v2](how-to-use-mlflow-cli-runs.md).
+> * If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
 >
 > If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
 
