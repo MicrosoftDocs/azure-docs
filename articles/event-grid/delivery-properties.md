@@ -89,7 +89,7 @@ You can also specify custom properties when sending messages to Service Bus queu
 
 ### Event Hubs example
 
-If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
+If you need to publish events to a specific partition within an event hub, set the `PartitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
 
 | Header name | Header type |
 | :-- | :-- |
