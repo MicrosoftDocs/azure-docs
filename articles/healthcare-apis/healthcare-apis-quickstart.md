@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/25/2022
+ms.date: 04/26/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
