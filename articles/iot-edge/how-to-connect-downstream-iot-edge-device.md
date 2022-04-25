@@ -199,9 +199,7 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
 >
 > You can also use the template file as a reference to add configuration parameters in this section.
 
-> [!IMPORTANT] The *hostname*, *local_gateway_hostname*, and *trust_bundle_cert* parameters, must be
-> at the beginning of the configuration file before any sections. Adding the parameter before
-> defined sections, ensures it is applied correctly.
+> [!IMPORTANT] The *hostname*, *local_gateway_hostname*, and *trust_bundle_cert* parameters, must be at the beginning of the configuration file before any sections. Adding the parameter before defined sections, ensures it is applied correctly.
 
 
 01. Open the IoT Edge configuration file using an editor. For example, use the `nano` editor to open the `/etc/aziot/config.toml` file.
@@ -230,12 +228,7 @@ You need to update the `/etc/aziot/config.toml` configuration file on each paren
     Be consistent with the hostname pattern across a gateway hierarchy. Use either FQDNs or IP
     addresses, but not both. FQDN or IP address is required to connect downstream devices.
 
-    > [!IMPORTANT] You must configure the hostname because IoT Edge uses this value in the server
-    > certificate when downstream devices connect. The values must match or you will get *IP address
-    > mismatch* error. Set the hostname before the *edgeHub* container is created. If *edgeHub* is
-    > running, changing the hostname in the configuration file won't take affect until the container
-    > is recreated. For more information on how to verify the hostname is applied, see the
-    > [Verify hostname](#verify-hostname) section.
+    > [!IMPORTANT] You must configure the hostname because IoT Edge uses this value in the server certificate when downstream devices connect. The values must match or you will get *IP address mismatch* error. Set the hostname before the *edgeHub* container is created. If *edgeHub* is running, changing the hostname in the configuration file won't take affect until the container is recreated. For more information on how to verify the hostname is applied, see the [Verify hostname](#verify-hostname) section.
 
 01. Find the **Trust bundle cert** parameter or add it to the beginning of the configuration file.
 
