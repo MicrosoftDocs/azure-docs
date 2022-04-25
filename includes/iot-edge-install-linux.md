@@ -84,7 +84,6 @@ Once the Moby Engine is successfully installed, configure the Docker daemon to u
       "log-driver": "local"
    }
    ```
-* Place the file named `daemon.json` at the location `/etc/docker/`
 * Restart the container engine for the changes to take effect.
 
    > [!TIP]
