@@ -241,7 +241,7 @@ SAS token is required for SQL change feed to get access on landing zone and push
 There are some temporary limitations we're aware of and working on to remove them in further CTPs, please see the list below.
 
 * Users must create new Synapse workspace to get Synapse link for SQL Server 2022.
-* Synapse link for SQL Server 2022 cannot be used in virtual network environment.
+* Synapse link for SQL Server 2022 cannot be used in virtual network environment. Users need to check “Disable Managed virtual network” for Synapse workspace.
 * Users need to manually create schema in destination Synapse SQL pool in advance, as target database schema object will not be automatically created.
 * When creating SQL Server linked service, please choose SQL Auth, Windows Auth or AAD auth.
 * Synapse Link for SQL Server 2022 can work with SQL Server on Linux. But HA scenarios with Linux Pacemaker are not supported. Shelf hosted IR cannot be installed on Linux environment 
@@ -270,7 +270,7 @@ There are some temporary limitations we're aware of and working on to remove the
 * Enabling Synpase Link will create a new schema on SQL Server 2022 as 'changefeed', please do not use this schema name for your workload.
 * If the SAS key of landing zone expires and gets rotated during Snapshot, new key will not get picked up. Snapshot will fail and restart automatically with the new key.
 * Sub core SLOs on the source databases in SQL Server 2022 are not supported.
-* Source tables with non-default collations: UTF8, Japanese cannot be replicated ot Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* Source tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 
 
 ## Next steps

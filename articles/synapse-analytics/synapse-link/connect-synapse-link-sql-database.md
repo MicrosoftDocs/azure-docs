@@ -191,7 +191,7 @@ Many of these are on our road map to address and may be supported in the future.
 
 * Synapse link for SQL DB is not supported on Free, Basic or Standard tier (S0,S1,S2) in Azure SQL database. Users need to use Azure SQL databases tiers above Standard 3.
 
-* Synapse link for SQL DB cannot be used in virtual network environment. Users need to check “Allow Azure Service and resources to access to this server” on Azure SQL database and check “Allow connections from all IP address” for Synapse workspace.
+* Synapse link for SQL DB cannot be used in virtual network environment. Users need to check “Allow Azure Service and resources to access to this server” on Azure SQL database and check “Disable Managed virtual network” and “Allow connections from all IP address” for Synapse workspace.
 
 * Users need to manually create schema in destination Synapse SQL pool in advance, as target database schema object will not be automatically created in data replication. 
 
@@ -231,7 +231,7 @@ Many of these are on our road map to address and may be supported in the future.
 * System tables in SQL database will not be replicated.
 * Security configuration of Azure SQL database will NOT be reflected to Synapse SQL Pool. 
 * Enabling Synpase Link will create a new schema on the Azure SQL DB as 'changefeed', please do not use this schema name for your workload.
-* Source tables with non-default collations: UTF8, Japanese cannot be replicated ot Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
+* Source tables with non-default collations: UTF8, Japanese cannot be replicated to Synapse. Here is the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
 
 ## Next steps
 
