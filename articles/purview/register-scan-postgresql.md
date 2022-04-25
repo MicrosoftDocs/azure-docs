@@ -44,7 +44,7 @@ When setting up scan, you can choose to scan an entire PostgreSQL database, or s
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 **If your data store is not publicly accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
 
@@ -60,13 +60,13 @@ The PostgreSQL user must have read access to system tables in order to access ad
 
 ## Register
 
-This section describes how to register PostgreSQL in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register PostgreSQL in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new PostgreSQL source in your data catalog, do the following:
 
-1. Navigate to your Microsoft Purview account in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **PostgreSQL**. Select **Continue**.
@@ -78,11 +78,6 @@ On the **Register sources (PostgreSQL)** screen, do the following:
 1. Enter the **Server** name to connect to a PostgreSQL source. This can either be:
     * A host name used to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
-    * Its fully qualified JDBC connection string. For example:
-
-        ```
-        jdbc:postgresql://COMPUTER_NAME_OR_IP:PORT/DATABASE_NAME
-        ```
 
 1. Enter the **Port** used to connect to the database server (5432 by default for PostgreSQL).
 

@@ -19,12 +19,12 @@ Microsoft Purview supports the following browsers. We recommend that you use the
 
 ## Chrome Incognito mode
 
- Chrome Incognito blocking 3rd party cookies must be disabled for Microsoft Purview Studio to work.
+ Chrome Incognito blocking 3rd party cookies must be disabled for the Microsoft Purview governance portal to work.
 
 :::image type="content" source="./media/supported-browsers/incognito-chrome.png" alt-text="Screenshot showing chrome.":::
 
 ## Chromium Edge InPrivate mode
 
-Chromium Edge InPrivate using Strict Tracking Prevention must be disabled for Microsoft Purview Studio to work.
+Chromium Edge InPrivate using Strict Tracking Prevention must be disabled for the Microsoft Purview governance portal to work.
 
 :::image type="content" source="./media/supported-browsers/incognito-edge.png" alt-text="Screenshot showing edge.":::
