@@ -49,7 +49,7 @@ Enabling the private link service for each of the preceding communication channe
    - The command communications between the self-hosted integration runtime and the Azure data factory service can be performed securely in a private network environment. The traffic between the self-hosted integration runtime and the Azure data factory service goes through private link. 
 - **Not currently supported**:
    - Interactive authoring that uses a self-hosted integration runtime, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
-   - The new version of the self-hosted integration runtime which can be automatically downloaded from Microsoft Download Center if you enable Auto-Update , is not supported at this time .
+   - The new version of the self-hosted integration runtime that can be automatically downloaded from Microsoft Download Center if you enable Auto-Update, isn't supported at this time.
    
    > [!NOTE]
    > For functionality that's not currently supported, you still need to configure the previously mentioned domain and port in the virtual network or your corporate firewall. 
@@ -64,13 +64,13 @@ Enabling the private link service for each of the preceding communication channe
 This section will detail how to configure the private endpoint for communication between self-hosted integration runtime and Azure data factory.
 
 **Step 1: Create a private endpoint and set up a private link for Azure data factory.**
-The private endpoint is created in your virtual network for the communication between self-hosted integration runtime and Azure data factory service. Please follow the details step in [Set up a private endpoint link for Azure Data Factory](#set-up-a-private-endpoint-link-for-azure-data-factory)
+The private endpoint is created in your virtual network for the communication between self-hosted integration runtime and Azure data factory service. Follow the details step in [Set up a private endpoint link for Azure Data Factory](#set-up-a-private-endpoint-link-for-azure-data-factory)
 
 **Step 2: Make sure the DNS configuration is correct.**
-Please follow the instructions [DNS changes for private endpoints](#dns-changes-for-private-endpoints) to check or configure your DNS settings.
+Follow the instructions [DNS changes for private endpoints](#dns-changes-for-private-endpoints) to check or configure your DNS settings.
 
 **Step 3: Put FQDNs of Azure Relay and download center into the allow list of your firewall.**
-If your self-hosted integration runtime is installed on the virtual machine in your virtual network, please allow outbound traffic to below FQDNs in the NSG of your virtual network.
+If your self-hosted integration runtime is installed on the virtual machine in your virtual network, allow outbound traffic to below FQDNs in the NSG of your virtual network.
 
 If your self-hosted integration runtime is installed on the machine in your on-premises environment, please allow outbound traffic to below FQDNs in the firewall of your on-premises environment and NSG of your virtual network.
 
@@ -81,6 +81,9 @@ If your self-hosted integration runtime is installed on the machine in your on-p
 
 > [!NOTE]
 > If you don’t allow above outbound traffic in the firewall and NSG, self-hosted integration runtime is shown as limited status. But you can still use it to execute activities. Only interactive authoring and auto-update don’t work.
+
+> [!NOTE]
+> If one data factory (shared) has a self-hosted integration runtime and the self-hosted integration runtime is shared with other data factories (linked). You only need to create private endpoint for the shared data factory, other linked data factories can leverage this private link for the communications between self-hosted integration runtime and Azure data factory service.
 
 ## DNS changes for private endpoints
 When you create a private endpoint, the DNS CNAME resource record for the data factory is updated to an alias in a subdomain with the prefix 'privatelink'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the 'privatelink' subdomain, with the DNS A resource records for the private endpoints.
@@ -101,7 +104,7 @@ The DNS resource records for DataFactoryA, when resolved in the virtual network 
 | DataFactoryA.{region}.datafactory.azure.net | CNAME	| DataFactoryA.{region}.privatelink.datafactory.azure.net |
 | DataFactoryA.{region}.privatelink.datafactory.azure.net	| A | < private endpoint IP address > |
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the data factory endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the virtual network, or configure the A records for ' DataFactoryA.{region}.datafactory.azure.net' with the private endpoint IP address.
+If you're using a custom DNS server on your network, clients must be able to resolve the FQDN for the data factory endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the virtual network, or configure the A records for ' DataFactoryA.{region}.datafactory.azure.net' with the private endpoint IP address.
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 - [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
 
@@ -111,7 +114,7 @@ If you are using a custom DNS server on your network, clients must be able to re
 
 ## Set up a private endpoint link for Azure Data Factory
 
-In this section you will set up a private endpoint link for Azure Data Factory.
+In this section, you'll set up a private endpoint link for Azure Data Factory.
 
 You can choose whether to connect your Self-Hosted Integration Runtime (SHIR) to Azure Data Factory via public endpoint or private endpoint during the data factory creation step, shown here: 
 
@@ -122,7 +125,7 @@ You can change the selection anytime after creation from the data factory portal
 A private endpoint requires a virtual network and subnet for the link. In this example, a virtual machine within the subnet will be used to run the Self-Hosted Integration Runtime (SHIR), connecting via the private endpoint link.
 
 ### Create the virtual network
-If you do not have an existing virtual network to use with your private endpoint link, you must create a one, and assign a subnet.  
+If you don't have an existing virtual network to use with your private endpoint link, you must create a one, and assign a subnet.  
 
 1. Sign into the Azure portal at https://portal.azure.com.
 2. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
@@ -255,11 +258,12 @@ Finally, you must create the private endpoint in your data factory.
 
 
 ## Restrict access for data factory resources using private link
-If you want to restrict access for data factory resources in your subscriptions by private link, please follow [Use portal to create private link for managing Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/create-private-link-access-portal?source=docs)
+If you want to restrict access for data factory resources in your subscriptions by private link, please follow [Use portal to create private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md?source=docs)
+
 
 ## Known issue
-You are unable to access each other PaaS Resources when both sides are exposed to private Link and private endpoint. This is a known limitation of private link and private endpoint. 
-For example, if A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn’t block public access, B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then he can’t access data factory A via public in virtual network B anymore.
+You're unable to access each other PaaS Resource when both sides are exposed to private Link and private endpoint. This is a known limitation of private link and private endpoint. 
+For example, if A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn’t block public access, B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then customer B can’t access data factory A via public in virtual network B anymore.
 
 
 ## Next steps

@@ -226,6 +226,10 @@
         href: database/monitoring-with-dmvs.md
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+      - name: Azure Monitor for SQL Database
+        href: database/monitoring-sql-database-azure-monitor.md 
+      - name: Azure Monitor for SQL Database reference 
+        href: database/monitoring-sql-database-azure-monitor-reference.md        
       - name: In-memory OLTP
         items:
         - name: Configure In-Memory OLTP
@@ -1144,6 +1148,18 @@
                 href: /sql/machine-learning/administration/extended-events?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
               - name: Monitor PREDICT T-SQL
                 href: /sql/machine-learning/administration/extended-events-predict-tsql?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+            - name: SQL Insights (preview)
+              items:
+              - name: Overview
+                href: ../azure-monitor/insights/sql-insights-overview.md
+              - name: FAQ
+                href: ../azure-monitor/faq.yml
+              - name: Enable
+                href: ../azure-monitor/insights/sql-insights-enable.md
+              - name: Alerts
+                href: ../azure-monitor/insights/sql-insights-alerts.md
+              - name: Troubleshoot
+                href: ../azure-monitor/insights/sql-insights-troubleshoot.md
         - name: Security
           items:
           - name: Give users permission
@@ -1663,7 +1679,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sql-database/single/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home
+    href: https://social.msdn.microsoft.com/Forums/home
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sql-database
   - name: Troubleshoot

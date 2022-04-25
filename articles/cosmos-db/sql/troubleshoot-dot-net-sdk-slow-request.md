@@ -33,7 +33,7 @@ Consider the following when developing your application:
 
 ## Metadata operations
 
-If you need to verify that a database or container exists, don't do so by calling `Create...IfNotExistsAsync` or `Read...Async` before doing an item operation. The validation should only be done on application startup when it's necessary, if you expect them to be deleted. These metadata operations generate extra latency, have no service-level agreement (SLA), and have their own separate [limitations](/azure/cosmos-db/sql/troubleshoot-request-rate-too-large#rate-limiting-on-metadata-requests). They don't scale like data operations.
+If you need to verify that a database or container exists, don't do so by calling `Create...IfNotExistsAsync` or `Read...Async` before doing an item operation. The validation should only be done on application startup when it's necessary, if you expect them to be deleted. These metadata operations generate extra latency, have no service-level agreement (SLA), and have their own separate [limitations](./troubleshoot-request-rate-too-large.md#rate-limiting-on-metadata-requests). They don't scale like data operations.
 
 ## Slow requests on bulk mode
 
