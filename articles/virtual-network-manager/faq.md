@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: duongau
 ms.service: virtual-network-manager
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 4/18/2022
 ms.author: duau
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -18,6 +18,8 @@ ms.custom: references_regions, ignite-fall-2021
 
 * North Central US
 
+* South Central US
+
 * West US
 
 * West US 2
@@ -26,11 +28,31 @@ ms.custom: references_regions, ignite-fall-2021
 
 * East US 2
 
+* Canada Central
+
 * North Europe
 
 * West Europe
 
-* France Central
+* UK South
+
+* Switzerland North
+
+* Southeast Asia
+
+* Japan East
+
+* Japan West
+
+* Australia East
+
+* Central India
+
+* All regions that have [Availability Zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones), except France Central.
+
+> [!NOTE]
+> Even if an Azure Virtual Network Manager instance isn't available because all zones are down, configurations applied to resources will still persist.
+>
 
 ### What are common use cases for using Azure Virtual Network Manager?
 

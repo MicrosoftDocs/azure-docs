@@ -86,8 +86,6 @@
       href: billing.md
     - name: Quotas
       href: quotas.md
-    - name: Frequently asked questions
-      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
     - name: "Video: Build and deliver apps with Container Apps"
       href: https://www.youtube.com/watch?v=b3dopSTnSRg
     - name: Frequently asked questions

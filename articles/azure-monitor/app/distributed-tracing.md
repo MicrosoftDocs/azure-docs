@@ -4,7 +4,6 @@ description: Provides information about Microsoft's support for distributed trac
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 09/17/2018
-ms.reviewer: mbullwin
 ---
 
 # What is Distributed Tracing?

@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage Oracle
-description: This guide describes how to connect to Oracle in Azure Purview, and use Azure Purview's features to scan and manage your Oracle source.
+description: This guide describes how to connect to Oracle in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Oracle source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 03/28/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Oracle in Azure Purview
+# Connect to and manage Oracle in Microsoft Purview
 
-This article outlines how to register Oracle, and how to authenticate and interact with Oracle in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Oracle, and how to authenticate and interact with Oracle in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -24,7 +24,7 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 The supported Oracle server versions are 6i to 19c. Proxy server isn't supported when scanning Oracle source.
 
-When scanning Oracle source, Azure Purview supports:
+When scanning Oracle source, Microsoft Purview supports:
 
 - Extracting technical metadata including:
 
@@ -49,9 +49,9 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -66,7 +66,7 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
 ## Register
 
-This section describes how to register Oracle in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Oracle in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Prerequisites for registration
 
@@ -110,7 +110,7 @@ The only supported authentication for an Oracle source is **Basic authentication
 
 To register a new Oracle source in your data catalog, do the following:
 
-1. Navigate to your Azure Purview account in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **Oracle**. Select **Continue**.
@@ -124,11 +124,6 @@ On the **Register sources (Oracle)** screen, do the following:
 1. Enter the **Host** name to connect to an Oracle source. This can either be:
     * A host name used by JDBC to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
-    * Its fully qualified JDBC connection string. For example:
-
-         ```
-        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
-        ```
 
 1. Enter the **Port number** used by JDBC to connect to the database server (1521 by default for Oracle).
 
@@ -217,8 +212,8 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

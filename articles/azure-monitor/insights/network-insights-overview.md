@@ -132,7 +132,7 @@ Here are some links to troubleshooting articles for frequently used services. Fo
 * [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-troubleshoot.md)
 * [Azure ExpressRoute](../../expressroute/expressroute-troubleshooting-expressroute-overview.md) 
 * [Azure Load Balancer](../../load-balancer/load-balancer-troubleshoot.md) 
-* [Azure NAT Gateway](/azure/virtual-network/nat-gateway/troubleshoot-nat)
+* [Azure NAT Gateway](../../virtual-network/nat-gateway/troubleshoot-nat.md)
 
 ### Why don't I see the resources for all the subscriptions I've selected?
 
