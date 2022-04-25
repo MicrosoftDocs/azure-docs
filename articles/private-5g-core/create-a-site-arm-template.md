@@ -35,7 +35,7 @@ Need to confirm whether the following link is correct.
 
 The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-new-site).
 
-:::code language="json" source="~/quickstart-templates/microsoft.mobilenetwork/mobilenetwork-create-new-site/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-new-site/azuredeploy.json":::
 
 Four Azure resources are defined in the template.
 

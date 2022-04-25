@@ -37,7 +37,7 @@ Need to confirm whether the following link is correct.
 
 The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-sim-policy).
 
-:::code language="json" source="~/quickstart-templates/microsoft.mobilenetwork/mobilenetwork-create-sim-policy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-sim-policy/azuredeploy.json":::
 
 Two Azure resources are defined in the template.
 
