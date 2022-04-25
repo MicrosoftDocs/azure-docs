@@ -112,10 +112,7 @@ The quickstart is now complete. You've successfully created a scalable
 Hyperscale (Citus) server group, created tables, sharded them, loaded data, and
 run distributed queries.
 
-Here are good resources to deepen your knowledge.
+Now you're ready to learn to build applications with Hyperscale (Citus).
 
-* See a more detailed [illustration](tutorial-shard.md) of distributed query
-  execution.
-* Scale your server group by [adding
-  nodes](howto-scale-grow.md#add-worker-nodes) and [rebalancing
-  shards](howto-scale-rebalance.md).
+> [!div class="nextstepaction"]
+> [Build a scalable application >](howto-build-scalable-apps.md)
