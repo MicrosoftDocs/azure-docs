@@ -9,7 +9,7 @@ ms.date: 04/20/2022
 
 ## Overview
 
-[Azure NetApp Files](https://review.docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction?) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) documentation. 
+[Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) documentation. 
 
 [Azure VMware Solution](/azure/azure-vmware/introduction) supports attaching Network File System (NFS) datastores as a continual storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
 
