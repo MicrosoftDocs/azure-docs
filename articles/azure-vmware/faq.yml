@@ -137,6 +137,9 @@ sections:
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
 
+      - question: Is NSX-T Identity Firewall supported with Azure VMware Solution?
+        answer: Yes, NSX-T Identity Firewall is supported with Azure VMware Solution.
+        
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
