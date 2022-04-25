@@ -68,7 +68,7 @@ Make sure that you complete any outstanding payments for your older [pay-as-you-
 
 ## Cancel support plan
 
-Learn how to [cancel a previous support plan](../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json#cancel-a-prior-support-plan).
+Learn how to [cancel a previous support plan](../manage/subscription-transfer.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json#cancel-a-prior-support-plan).
 
 ## Need help? Contact us
 
