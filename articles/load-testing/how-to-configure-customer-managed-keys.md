@@ -202,7 +202,7 @@ For example, an Azure Load Testing resource might look like the following:
 }
 ```
 
-Deploy the above template to a resource group, using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment):
+Deploy the above template to a resource group, using [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
@@ -248,7 +248,7 @@ For example, an Azure Load Testing resource might look like the following:
 }
 ```
 
-Deploy the above template to a resource group, using [az deployment group create](https://docs.microsoft.com/cli/azure/deployment/group#az-deployment-group-create):
+Deploy the above template to a resource group, using [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
 ```azurecli-interactive
 az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
