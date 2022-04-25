@@ -36,11 +36,11 @@ Follow the steps below to create a policy assignment and assign the policy defin
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/assignments-tab.png" alt-text="Select Assignments page from Policy Overview page" border="true":::
+    :::image type="content" source="./media/tutorial-assign-policy-portal/assignments-tab.png" alt-text="Select Assignments page from Policy Overview page" border="true":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/assign-policy-button.png" alt-text="Assign a policy definition from Assignments page" border="true":::
+   <!--- :::image type="content" source="./media/tutorial-assign-policy-portal/assign-policy-button.png" alt-text="Assign a policy definition from Assignments page" border="true"::: --->
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either
    a management group or subscription. Optionally, select a resource group. A scope determines what
