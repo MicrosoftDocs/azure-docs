@@ -15,7 +15,7 @@ First, run the following commands to add the package repository and then add the
 
 # [Ubuntu](#tab/ubuntu)
 
-Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
+Installing can be done with a few commands.  Open a terminal and run the following commands:
 
 * **20.04**:
 
@@ -39,9 +39,17 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 * **11 (Bullseye)**:
 
-   ```bash
-   curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
-   sudo apt install ./packages-microsoft-prod.deb
+    ```bash
+    curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
+    sudo apt install ./packages-microsoft-prod.deb
+    ```
+
+* **10 (Buster)**:
+
+    ```bash
+    curl https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb > ./packages- microsoft-prod.deb 
+    sudo apt install ./packages-microsoft-prod.deb
+    ```
 
 > [!TIP]
 > If you gave the "root" account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
@@ -52,7 +60,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 > By June 30, 2022 we will retire Raspberry Pi OS Stretch from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye (or minimally Buster).
 Here's more information on the [Retiring of Raspberry Pi OS Stretch](https://azure.microsoft.com/updates/update-rpios-stretch-to-latest).
 
-Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
+Installing can be done with a few commands.  Open a terminal and run the following commands:
 
 * **Stretch**:
 
