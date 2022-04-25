@@ -41,7 +41,7 @@ The updates for your environment are listed on the **Update management** page. I
 [ ![Update Management default view](./media/overview/update-management-view.png)](./media/overview/update-management-view-expanded.png#lightbox)
 
 - Under the **Compliance** column, you can see the last time the machine was assessed. 
-- Under the **Upadate agent readiness** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
+- Under the **Update agent readiness** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
 - Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
 [ ![View update status](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
@@ -62,7 +62,7 @@ Update approval source | The source of updates. Either Windows update, WSUS, and
 Windows auto update | Default OS update setting on the machine *applicable to Windows* .
 
 > [!NOTE]
-> Information that is displayed about the Windows Defender definition update status is based on the last data that was summarized from the Log Analytics workspace and might not be current. Review [Windows Defender update always show as missing](../troubleshoot/update-management.md#windows-defender-update-missing-status) to learn more about this behavior.
+> Information that is displayed about the Windows Defender definition update status is based on the last data that was summarized from the Log Analytics workspace and might not be current. Review [Windows Defender update always shows as missing](../troubleshoot/update-management.md#windows-defender-update-missing-status) to learn more about this behavior.
  
 Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
