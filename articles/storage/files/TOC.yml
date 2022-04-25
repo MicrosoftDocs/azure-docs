@@ -233,11 +233,11 @@
         href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
       - name: Configure TLS version for a client application
         href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Transfer
+  - name: Transfer data
     items: 
-    - name: Get started - AzCopy
+    - name: Get started with AzCopy
       href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Use with Files
+    - name: Use AzCopy with Files
       href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Configure, optimize, troubleshoot - AzCopy
       href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
