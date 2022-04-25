@@ -24,7 +24,7 @@ Per-user access over search results (sometimes referred to as row-level security
 
 ## Built-in roles used in Search
 
-Built-in roles include generally available and preview roles. If these roles lack the behaviors you need, [create a custom role](#create-a-custom-role) instead.
+Built-in roles include generally available and preview roles. If these roles are insufficient, [create a custom role](#create-a-custom-role) instead.
 
 | Role | Description and availability |
 | ---- | ---------------------------- |
