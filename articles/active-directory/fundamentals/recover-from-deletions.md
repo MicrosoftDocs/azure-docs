@@ -1,5 +1,5 @@
 ---
-title: Recover from deletions
+title: Recover from deletions in Azure Active Directory
 description: Learn how to recover from unintended deletions.
 services: active-directory
 author: BarbaraSelden
@@ -160,8 +160,8 @@ A “hard deletion” is the permanent removal of an object from your Azure Acti
 * Application registration
 
 > [!IMPORTANT]
-> All other item types are hard deleted. When an item is hard deleted it cannot be restored: it must be recreated. Neither administrators nor Microsoft can restore hard deleted items.It's important to prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.
-For information on preparing for and documenting current states, see [Rcoverability best practices](recoverability-overview.md]
+> All other item types are hard deleted. When an item is hard deleted it cannot be restored: it must be recreated. Neither administrators nor Microsoft can restore hard deleted items. It's important to prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.
+For information on preparing for and documenting current states, see [Recoverability best practices](recoverability-overview.md).
 
 ### When hard deletes usually occur
 
