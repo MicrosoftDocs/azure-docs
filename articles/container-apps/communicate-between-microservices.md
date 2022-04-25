@@ -66,21 +66,19 @@ cd code-to-cloud-ui
 # [Bash](#tab/bash)
 
 ```bash
-FRONTEND_NAME=albumsapp-api
-ACR_NAME=albumsacr
+FRONTEND_NAME=albumsapp-ui
 ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
 ACR_ADMIN_USERNAME=$ACR_NAME
-CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$API_NAME-$LANGUAGE:1.0
+CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$FRONTEND_NAME="albums-frontend"
-$ACR_NAME="albumsacr"
-$ACR_LOGIN_SERVER="$ACR_NAME.azurecr.io"
-$ACR_ADMIN_USERNAME="$ACR_NAME"
-$CONTAINER_IMAGE_NAME="$ACR_LOGIN_SERVER/$API_NAME-$LANGUAGE:1.0"
+$FRONTEND_NAME=albumsapp-ui
+$$ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
+$ACR_ADMIN_USERNAME=$ACR_NAME
+$CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
 ```
 
 ---
@@ -103,11 +101,28 @@ Connect-AzAccount
 
 ---
 
+az containerapp env update
+
+# [Bash](#tab/bash)
+
+```azurecli
+API_FQDN=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$API_FQDN=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+```
+
+---
+
+
 ## Build your application
 
 ::: zone pivot="acr-remote"
 
-You can build your docker file with the ACR build command.
+You can build your Dockerfile with the ACR build command.
 
 # [Bash](#tab/bash)
 
