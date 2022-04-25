@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 
-title: Translator documentation
+title: Microsoft Translator documentation
 summary: Translator is a cloud-based machine translation service you can use to translate text in with a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
 metadata:
-  title: Translator documentation - quickstarts, tutorials, API reference
+  title: Microsoft Translator documentation - quickstarts, tutorials, API reference
   titleSuffix: Azure Cognitive Services
   description: Translator is a cloud-based machine translation service you can use to translate text through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
   services: cognitive-services
@@ -12,7 +12,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
-  ms.date: 10/14/2019
+  ms.date: 04/25/2022
   ms.author: lajanuar
   ms.custom: contperf-fy21q2
 
@@ -20,11 +20,12 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: Translator
+  # Card 1
+  - title: About Microsoft Translator
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Translator?
+          - text: What is Microsoft Translator?
             url: translator-overview.md
           - text: Language support
             url:  language-support.md  
