@@ -22,7 +22,7 @@ To use custom data, you must Base64-encode the contents before passing the data 
 
 In the CLI, you can pass your custom data as a file, as the following example shows. The file will be converted to Base64.
 
-```bash
+```azurecli
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \

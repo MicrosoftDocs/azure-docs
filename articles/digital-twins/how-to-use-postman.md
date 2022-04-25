@@ -108,14 +108,14 @@ The first step in importing the API set is to download a collection. Choose the 
 There are currently two Azure Digital Twins data plane collections available for you to choose from:
 * [Azure Digital Twins Postman Collection](https://github.com/microsoft/azure-digital-twins-postman-samples): This collection provides a simple getting started experience for Azure Digital Twins in Postman. The requests include sample data, so you can run them with minimal edits required. Choose this collection if you want a digestible set of key API requests containing sample information.
     - To find the collection, navigate to the repo link and open the file named *postman_collection.json*.
-* [Azure Digital Twins data plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins): This repo contains the complete Swagger file for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request, but with empty data bodies rather than sample data. Choose this collection if you want to have access to every API call and fill in all the data yourself.
-    - To find the collection, navigate to the repo link and choose the folder for the latest spec version. From here, open the file called *digitaltwins.json*.
+* [Azure Digital Twins data plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins): This repo contains complete Swagger files for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request, but with empty data bodies rather than sample data. Choose this collection if you want to have access to every API call and fill in all the data yourself. You should also use this collection if you need a specific version of the APIs (like one that supports a preview feature, such as [data history](concepts-data-history.md)).
+    - To find the collection, navigate to the repo link and choose the folder for your preferred spec version. From here, open the file called *digitaltwins.json*.
 
 # [Control plane](#tab/control-plane)
 
-The collection currently available for control plane is the [Azure Digital Twins control plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo contains the complete Swagger file for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request.
+The collection currently available for control plane is the [Azure Digital Twins control plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo contains the complete Swagger file for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request.
 
-To find the collection, navigate to the repo link and choose the folder for the latest spec version. From here, open the file called *digitaltwins.json*.
+To find the collection, navigate to the repo link and choose the folder for your preferred spec version. From here, open the file called *digitaltwins.json*.
 
 ---
 

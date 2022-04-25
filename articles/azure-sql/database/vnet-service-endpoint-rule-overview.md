@@ -4,7 +4,7 @@ description: "Mark a subnet as a virtual network service endpoint. Then add the 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, subject-rbac-steps
 ms.devlang: 
 ms.topic: how-to
 author: rohitnayakmsft
@@ -128,7 +128,19 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
     - If you have a general-purpose v1 or Blob Storage account, you must *first upgrade to v2* by following the steps in [Upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md).
     - For known issues with Azure Data Lake Storage Gen2, see [Known issues with Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under your storage account, go to **Access Control (IAM)**, and select **Add role assignment**. Assign the **Storage Blob Data Contributor** Azure role to the server or workspace hosting your dedicated SQL pool, which you've registered with Azure AD.
+1. On your storage account page, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | Server or workspace hosting your dedicated SQL pool that you've registered with Azure AD |
+
+    ![Screenshot that shows Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
    > [!NOTE]
    > Only members with Owner privilege on the storage account can perform this step. For various Azure built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).

@@ -18,6 +18,10 @@ items:
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
+  - name: Default service and SIM policy
+    href: default-service-sim-policy.md
+  - name: Monitor Azure Private 5G Core using Log Analytics
+    href: monitor-private-5g-core-with-log-analytics.md  
   - name: Local monitoring tools
     items:
     - name: Distributed tracing
@@ -58,8 +62,14 @@ items:
     items:
     - name: Provision SIMs
       href: provision-sims-azure-portal.md
-    - name: Activate SIMs
-      href: activate-sims.md
+  - name: Log Analytics
+    items:
+    - name: Enable Log Analytics for a packet core instance
+      href: enable-log-analytics-for-private-5g-core.md
+  - name: Distributed tracing
+    items:
+    - name: Export, upload and share traces
+      href: distributed-tracing-share-traces.md
 - name: Reference
   items:
    - name: REST API

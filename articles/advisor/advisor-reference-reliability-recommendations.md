@@ -7,7 +7,7 @@ ms.date: 02/04/2022
 
 # Reliability recommendations
 
-Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations on the **Reliability** tab on the Advisor dashboard. 
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations on the **Reliability** tab on the Advisor dashboard.
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com).
 
@@ -151,7 +151,7 @@ Learn more about [Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade you
 
 ### Add a second region to your production workloads on Azure Cosmos DB
 
-Based on their names and configuration, we have detected the Azure Cosmos DB accounts below as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions. 
+Based on their names and configuration, we have detected the Azure Cosmos DB accounts below as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions.
 
 > [!NOTE]
 > Additional regions will incur extra costs.
@@ -162,7 +162,7 @@ Learn more about [Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a se
 
 We observed your account is throwing a TooManyRequests error with the 16500 error code. Enabling Server Side Retry (SSR) can help mitigate this issue for you.
 
-Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/prevent-rate-limiting-errors).
+Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/cassandra/prevent-rate-limiting-errors).
 
 ### Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
@@ -280,7 +280,7 @@ Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade
 
 Please be advised that your media account is about to hit its quota limits. Please review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Please don't create additional Azure Media accounts in an attempt to obtain higher limits.
 
-Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](../media-services/latest/limits-quotas-constraints-reference.md).
+Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](/azure/media-services/latest/limits-quotas-constraints-reference).
 
 ## Networking
 
@@ -346,9 +346,9 @@ Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WA
 
 ### Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228)
 
-To mitigate the impact of Log4j2 vulnerability, we recommend these steps:  
+To mitigate the impact of Log4j2 vulnerability, we recommend these steps:
 
-1) Upgrade Log4j2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link below.  
+1) Upgrade Log4j2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link below.
 2) Take advantage of WAF Core rule sets (CRS) by upgrading to WAF SKU
 
 Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
@@ -443,7 +443,7 @@ Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slo
 
 Your app's backups are consistently failing due to invalid storage settings, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup.).
+Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup).
 
 ### Move your App Service resource to Standard or higher and use deployment slots
 
