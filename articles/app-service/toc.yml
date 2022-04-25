@@ -140,15 +140,15 @@
               href: ./scripts/cli-deploy-ftp.md
             - name: Deploy from GitHub
               href: ./scripts/cli-deploy-github.md
-            - name: Configure continuous deploy from GitHub
+            - name: Deploy continuously from GitHub
               href: ./scripts/cli-continuous-deployment-github.md
             - name: Deploy into local Git repo
               href: ./scripts/cli-deploy-local-git.md
-            - name: Deploy code to a staging environment
+            - name: Deploy to a staging environment
               href: ./scripts/cli-deploy-staging-environment.md
             - name: Deploy in a Docker container
               href: ./scripts/cli-linux-docker-aspnetcore.md
-            - name: Expose app with a private endpoint
+            - name: Deploy with a private endpoint
               href: ./scripts/cli-deploy-privateendpoint.md
         - name: Configure app
           items:
@@ -160,7 +160,7 @@
           items:
             - name: Scale an app manually
               href: ./scripts/cli-scale-manual.md
-            - name: Scale an app worldwide with HA
+            - name: Scale an app with HA architecture
               href: ./scripts/cli-scale-high-availability.md
         - name: Integrate with Azure Application Gateway
           href: ./scripts/cli-integrate-app-service-with-application-gateway.md
@@ -174,7 +174,7 @@
               href: ./scripts/cli-connect-to-redis.md
             - name: Connect to Cosmos DB
               href: ./scripts/cli-connect-to-documentdb.md
-        - name: Backup and restore app
+        - name: Backup and restore an app
           href: ./scripts/cli-backup-schedule-restore.md
         - name: Monitor an app with web server logs
           href: ./scripts/cli-monitor.md
