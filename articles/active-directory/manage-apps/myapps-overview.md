@@ -110,7 +110,11 @@ The following image shows the `email` permission for Microsoft Graph consented t
 
 ### Self-service access
 
-Access can be granted on a tenant level, assigned to specific users, or from self-service access. Before users can self-discover applications from the My Apps portal, enable self-service application access. This feature is available for applications that were added from the Azure AD Gallery, Azure AD Application Proxy, or using user or admin consent.
+Access can be granted on a tenant level, assigned to specific users, or from self-service access. Before users can self-discover applications from the My Apps portal, enable self-service application access. This feature is available for applications when added using these methods:
+
+- The Azure AD application gallery
+- Azure AD Application Proxy
+- Using user or admin consent
 
 Enable users to discover and request access to applications by using the My Apps portal. To do so, you must first:
 
@@ -139,7 +143,7 @@ Users can also customize their experience by:
 - Creating their own application collections
 - Hiding and reordering application collections
 
-There’s an option to hide applications from the My Apps portal, while still allowing access from other locations, such as the Microsoft 365 portal. Only 950 applications to which a user has access can be accessed through My Apps. This includes applications hidden by either the user or the administrator.
+Applications can be hidden from the My Apps portal by a user or administrator. A hidden application can still be accessed from other locations, such as the Microsoft 365 portal. Only 950 applications to which a user has access can be accessed through the My Apps portal.
 
 For more information, see [Create collections on the My Apps portal](access-panel-collections.md).
 
