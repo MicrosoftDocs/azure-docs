@@ -82,7 +82,7 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
 
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 
 [sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541

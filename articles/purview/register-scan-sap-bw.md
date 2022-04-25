@@ -50,7 +50,7 @@ When scanning SAP BW source, Microsoft Purview supports extracting technical met
 
 * An active [Microsoft Purview resource](create-catalog-portal.md).
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Microsoft Purview Studio. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.15.8079.1.
 
@@ -72,7 +72,7 @@ When scanning SAP BW source, Microsoft Purview supports extracting technical met
 
 ## Register
 
-This section describes how to register SAP BW in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register SAP BW in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 

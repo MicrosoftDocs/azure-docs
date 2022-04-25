@@ -20,9 +20,9 @@ This article describes the steps required to deploy this module.
 
 ## Prerequisites
 
-Download the SAP ABAP function module source code from Microsoft Purview Studio. After you register a source for [SAP ECC](register-scan-sapecc-source.md), [SAP S/4HANA](register-scan-saps4hana-source.md), or [SAP BW](register-scan-sap-bw.md), you can find a download link on top as shown in the following image. You can also see the link when you create a new scan or edit a scan.
+Download the SAP ABAP function module source code from the Microsoft Purview governance portal. After you register a source for [SAP ECC](register-scan-sapecc-source.md), [SAP S/4HANA](register-scan-saps4hana-source.md), or [SAP BW](register-scan-sap-bw.md), you can find a download link on top as shown in the following image. You can also see the link when you create a new scan or edit a scan.
 
-:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Screenshot that shows the download link for the ABAP function module source code from Microsoft Purview Studio." border="true":::
+:::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Screenshot that shows the download link for the ABAP function module source code from the Microsoft Purview governance portal." border="true":::
 
 ## Deploy the module
 
@@ -72,7 +72,7 @@ After the module is created, specify the following information:
 
 1. Go to the **Source code** tab. There are two ways to deploy code for the function:
 
-   1. On the main menu, upload the text file you downloaded from Microsoft Purview Studio as described in [Prerequisites](#prerequisites). To do so, select **Utilities** > **More Utilities** > **Upload/Download** > **Upload**.
+   1. On the main menu, upload the text file you downloaded from the Microsoft Purview governance portal as described in [Prerequisites](#prerequisites). To do so, select **Utilities** > **More Utilities** > **Upload/Download** > **Upload**.
 
    1. Alternatively, open the file and copy and paste the contents in the **Source code** area.
 

@@ -3,11 +3,12 @@ title: 'Quickstart: distribute tables - Hyperscale (Citus) - Azure Database for 
 description: Quickstart to distribute table data across nodes in Azure Database for PostgreSQL - Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
+recommendations: false
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/09/2022
+ms.date: 04/20/2022
 ---
 
 # Model and load data
@@ -147,4 +148,4 @@ Now we have a table sharded and loaded with data. Next, let's try running
 queries across the data in these shards.
 
 > [!div class="nextstepaction"]
-> [Run distributed queries](quickstart-run-queries.md)
+> [Run distributed queries >](quickstart-run-queries.md)
