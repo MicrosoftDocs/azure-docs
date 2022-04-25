@@ -8,7 +8,8 @@ ms.custom: devdivchpfy22
 
 # Manage a VM pool in Lab Services from Teams
 
-Virtual Machine (VM) creation starts as soon as the template VM is first published. Number of VMs equivalent to the number of users in the lab's user list will be created. VMs are also automatically assigned to students when they first access the Azure Lab Services lab.
+Virtual Machine (VM) creation starts as soon as the template VM is first published.
+The number of VMs equivalent to the number of users in the lab's user list will be created. VMs are also automatically assigned to students when they first access the Azure Lab Services lab.
 
 ## Publish a template and manage a VM pool
 
