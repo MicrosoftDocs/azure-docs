@@ -52,7 +52,7 @@ The following list mentions fields that have specific guidelines for process act
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For User Management activity, the supported values are:<br> - `UserCreated`<br> - `UserDeleted`<br> - `UserModified`<br> - `UserLocked`<br> - `UserUnlocked`<br> - `UserDisabled`<br> - `UserEnabled`<br> - `PasswordChanged`<br> - `PasswordReset`<br> - `GroupCreated`<br> - `GroupDeleted`<br> - `GroupModified`<br> - `UserAddedToGroup`<br> - `UserRemovedFromGroup`<br> - `GroupEnumerated`<br> - `UserRead`<br> - `GroupRead`<br> |
 | <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | The following sub-types are supported:<br> - `UserRead`: Password, Hash<br> - `UserCreated`, `GroupCreated`, `UserModified`, `GroupModified`. For more information, see [UpdatedPropertyName](#updatedpropertyname) |
 | **EventResult** | Mandatory | Enumerated | While failure is possible, most systems report only successful user management events. The expected value for successful events is `Success`. |
-| **EventResultDetails** | Optional | Enumerated | The valid values are `NotAuthorized` and `Other`. |
+| **EventResultDetails** | Recommended | Enumerated | The valid values are `NotAuthorized` and `Other`. |
 | **EventSeverity** | Mandatory | Enumerated | While any valid severity value is allowed, the severity of user management events is typically `Informational`. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `UserManagement`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1.1`.        |
