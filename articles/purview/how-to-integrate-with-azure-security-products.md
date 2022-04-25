@@ -39,7 +39,7 @@ The integration supports data sources in Azure and AWS; sensitive data discovere
 3. Data sensitivity information is currently not shared for Azure PaaS data sources registered using a connection string. 
 5. Unregistering the data source in Microsoft Purview doesn't remove the data sensitivity enrichment in Microsoft Defender for Cloud.
 6. Deleting the Microsoft Purview account will persist the data sensitivity enrichment for 30 days in Microsoft Defender for Cloud.
-7. Custom classifications defined in the Microsoft Purview compliance portal or Microsoft Purview governance portal aren't shared with Microsoft Defender for Cloud. 
+7. Custom classifications defined in the Microsoft Purview compliance portal or Microsoft Purview governance portal aren't shared with Microsoft Defender for Cloud.
 
 ### FAQ
 #### **Why don't I see the AWS data source I have scanned with Microsoft Purview in Microsoft Defender for Cloud?**
