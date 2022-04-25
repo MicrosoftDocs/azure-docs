@@ -285,19 +285,15 @@ To see the sample app in action, open a web browser to the external IP address o
 
 ## Delete cluster
 
-When the cluster is no longer needed, use the
-[Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove
-the resource group, container service, and all related resources.
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, use the
+[Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster
-> is not removed. For steps on how to remove the service principal, see
-> [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity,
-> the identity is managed by the platform and does not require removal.
+> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 
 ## Next steps
 

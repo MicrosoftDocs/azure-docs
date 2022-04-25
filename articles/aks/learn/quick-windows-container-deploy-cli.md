@@ -25,6 +25,9 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
+[Az account](/cli/azure/account) command.
+
 ### Limitations
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
@@ -316,14 +319,14 @@ To see the sample app in action, open a web browser to the external IP address o
 
 ## Delete cluster
 
-When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
+> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
