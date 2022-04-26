@@ -21,7 +21,7 @@ This article addresses recovering from soft and hard deletions in your Azure AD 
 
 ## Monitor for deletions
 
-The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. We recommend that you export these logs to a security information and event management (SIEM) tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0. ](/graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http)
+The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. We recommend that you export these logs to a security information and event management (SIEM) tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on finding deleted items using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0. ](/graph/api/directory-deleteditems-list?tabs=http)
 
 ### Audit log 
 
@@ -126,7 +126,7 @@ For details on restoring users, see the following documentation:
 
 * See [Restore or permanently remove recently deleted user](active-directory-users-restore.md) for restoring in the Azure portal.
 
-* See [Restore deleted item – Microsoft Graph v1.0](%20/graph/api/directory-deleteditems-restore?view=graph-rest-1.0&tabs=http) for restoring with Microsoft Graph.
+* See [Restore deleted item – Microsoft Graph v1.0](%20/graph/api/directory-deleteditems-restore?tabs=http) for restoring with Microsoft Graph.
 
 ### Groups
 
@@ -139,7 +139,7 @@ For details on restoring soft deleted Microsoft 365 Groups, see the following do
 
 * To restore from the Azure portal, see [Restore a deleted Microsoft 365 group. ](../enterprise-users/groups-restore-deleted.md) 
 
-* To restore by using Microsoft Graph, see [Restore deleted item – Microsoft Graph v1.0](/graph/api/directory-deleteditems-restore?view=graph-rest-1.0&tabs=http). 
+* To restore by using Microsoft Graph, see [Restore deleted item – Microsoft Graph v1.0](/graph/api/directory-deleteditems-restore?tabs=http). 
 
 ### Applications
 
@@ -189,7 +189,7 @@ Hard deleted items must be recreated and reconfigured. It's best to avoid unwant
 
 Ensure you have a process to frequently review items in the soft delete state and restore them if appropriate. To do so, you should:
 
-* Frequently [list deleted items](/graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http). 
+* Frequently [list deleted items](/graph/api/directory-deleteditems-list?tabs=http). 
 
 * Ensure that you have specific criteria for what should be restored.
 
