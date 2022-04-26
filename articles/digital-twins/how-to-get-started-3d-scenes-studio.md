@@ -54,7 +54,7 @@ Next, create a private container in the storage account.
     This will bring you to a **Properties** page for the container.
 1. Copy the **URL** and save this value to use later.
 
-    :::image type="content"  source="media/how-to-get-started-3d-scenes-studio/container-url.png" alt-text="Screenshot of the Azure portal highlighting the container's URL value." lightbox="media/how-to-get-started-3d-scenes-studio/container-url.png":::
+    :::image type="content"  source="media/how-to-get-started-3d-scenes-studio/container-url.png" alt-text="Screenshot of the Azure portal highlighting the container's U R L value." lightbox="media/how-to-get-started-3d-scenes-studio/container-url.png":::
 
 Finally, configure CORS for your storage account. This is necessary for 3D Scenes Studio to access your storage container.
 
@@ -81,7 +81,7 @@ In this section, you'll use the *Azure Digital Twins data simulator* tool to gen
 
 You can view the models and graph that have been created in the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) tool. To enter the tool, navigate to your Azure Digital Twins instance in the Azure portal and select  **Open Azure Digital Twins Explorer (preview)**.
 
-:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Open Azure Digital Twins Explorer (preview) button." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
+:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing where to open Azure Digital Twins for an Azure Digital Twins instance." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
 Then, use the **Run Query** button to query for all the twins and relationships that have been created in the instance.
 
@@ -89,7 +89,7 @@ Then, use the **Run Query** button to query for all the twins and relationships 
 
 To see all the models that have been uploaded and how they relate to each other, select **Model graph**.
 
-:::image type="content" source="media/how-to-get-started-3d-scenes-studio/run-query.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Model Graph button for the view pane." lightbox="media/how-to-get-started-3d-scenes-studio/model-graph.png":::
+:::image type="content" source="media/how-to-get-started-3d-scenes-studio/model-graph.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Model Graph button for the view pane." lightbox="media/how-to-get-started-3d-scenes-studio/model-graph.png":::
 
 ## Initialize your 3D Scenes Studio environment
 
