@@ -12,22 +12,22 @@ keywords: azure, openshift, aro, red hat, azure CLI, azure portal
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ---
 
-# Create and use a service principal with an Azure Red Hat OpenShift cluster  
+# Create and use a service principal with an Azure Red Hat OpenShift cluster
 
-To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires an Azure Active Directory (AD) service principal. This service principal is used to dynamically create and manage other Azure resources, such as an Azure load balancer or an Azure Container Registry (ACR). For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires an Azure Active Directory (AD) service principal. This service principal is used to dynamically create, manage, or access other Azure resources, such as an Azure load balancer or an Azure Container Registry (ACR). For more information, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 This article explains how to create and use a service principal for your Azure Red Hat OpenShift clusters using the Azure command-line interface (Azure CLI) or the Azure portal.
 
-## Before you begin 
+## Before you begin  
 
-To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant and to assign the application to a role in your subscription. You need **User Access Administrator** and **Contributor** permissions at the resource-group level to create service principals.
+The user creating an Azure AD service principal must have permissions to register an application with your Azure AD tenant and to assign the application to a role in your subscription. You need **User Access Administrator** and **Contributor** permissions at the resource-group level to create service principals.
 
 Use the following Azure CLI command to add these permissions.
 
 ```azurecli-interactive
 az role assignment create \
     --role 'User Access Administrator' \
-    --assignee-object-id $SP_OBJECT_ID \m 
+    --assignee-object-id $SP_OBJECT_ID \ 
     --resource-group $RESOURCEGROUP \
     --assignee-principal-type 'ServicePrincipal'
 
@@ -74,24 +74,36 @@ The output is similar to the following example.
 ```
 { 
 
-  "appId": "<appId.", 
+  "appId": "", 
 
   "displayName": "myAROClusterServicePrincipal", 
 
   "name": "http://myAROClusterServicePrincipal", 
 
-  "password": "\<password>", 
+  "password": "", 
 
-  "tenant": "\<tenant-id>" 
+  "tenant": "" 
 
 } 
 ```
 
-Retain your `appId` and `password`. These values are used when you create an Azure Red Hat OpenShift cluster in the next section. 
+Retain your `appId` and `password`. These values are used when you create an Azure Red Hat OpenShift cluster below. 
 
-## Use the service principal - Azure CLI
+## Grant permissions to the service principal - Azure CLI
 
-To use an existing service principal when you create an Azure Red Hat OpenShift cluster using the `az aro create` command, use the `--service-principal` and `--client-secret` parameters to specify the appId and password from the output of the `az ad sp create-for-rbac` command: 
+Grant permissions to an existing service principal with Azure CLI, as shown in the following command.
+
+```azurecli-interactive
+az role assignment create \
+    --role 'Contributor' \
+    --assignee-object-id $SP_OBJECT_ID \ 
+    --resource-group $RESOURCEGROUP \
+    --assignee-principal-type 'ServicePrincipal'
+```
+
+## Use the service principal to create a cluster - Azure CLI
+
+To use an existing service principal when you create an Azure Red Hat OpenShift cluster using the `az aro create` command, use the `--client-id` and `--client-secret` parameters to specify the appId and password from the output of the `az ad sp create-for-rbac` command: 
 
 ```azure-cli 
 az aro create \ 
@@ -100,7 +112,7 @@ az aro create \
 
     --name myAROCluster \ 
 
-    --service-principal <appId> \ 
+    --client-id <appID> \ 
 
     --client-secret <password> 
 ```
@@ -118,15 +130,26 @@ The following sections explain how to use the Azure portal to create a service p
 
 ## Create a service principal - Azure portal
 
-To create a service principal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md).
+To create a service principal using the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md).
+
+## Grant permissions to the service principal - Azure portal
+
+To grant permissions to an existing service principal with the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
 
 ## Use the service principal - Azure portal
 
-If you deploy an AKS cluster using the Azure portal, on the **Authentication** page of the **Create Kubernetes cluster** dialog, choose to **Configure service principal**. Select **Use existing**, and specify the following values. 
+When deploying an Azure Red Hat OpenShift cluster using the Azure portal, configure the service principal on the **Authentication** page of the *Azure Red Hat OpenShift** dialog.
+
+[ ![Use the Azure Red Hat service principal with Azure portal to create a cluster.](./media/openshift-service-principal-portal.png)](./media/openshift-service-principal-portal.png#lightbox)
+
+Specify the following values, and then select **Review + Create".
+
+In the **Service principal information** section:
 
 - **Service principal client ID** is your appId. 
-- **Service principal client secret** is the decrypted Secret value. 
+- **Service principal client secret** is the service principal's decrypted Secret value.
 
-[ ![Use the Azure Red Hat service principal with Azure portal.](./media/openshift-service-principal-portal.png)](./media/openshift-service-principal-portal.png#lightbox)
+In the **Cluster pull secret** section:
 
+- **Pull secret** is your cluster's pull secret's decrypted value.
 ::: zone-end
