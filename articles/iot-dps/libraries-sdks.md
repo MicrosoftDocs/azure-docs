@@ -33,7 +33,14 @@ Microsoft also provides embedded device SDKs to facilitate development on resour
 | .NET|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) |[GitHub](https://github.com/Azure/azure-iot-sdk-csharp/)|[Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/service)|[Quickstart](/azure/iot-dps/quick-enroll-device-tpm?tabs=symmetrickey&pivots=programming-language-csharp)|[Reference](/dotnet/api/microsoft.azure.devices.provisioning.service) |
 | Java|[Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client)|[GitHub](https://github.com/Azure/azure-iot-sdk-java/blob/main/provisioning)|[Samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-samples)|[Quickstart](/azure/iot-dps/quick-enroll-device-tpm?tabs=symmetrickey&pivots=programming-language-java)|[Reference](/java/api/com.microsoft.azure.sdk.iot.provisioning.service) |
 | Node.js|[npm](https://www.npmjs.com/package/azure-iot-provisioning-service)|[GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning)|[Samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/service/samples)|[Quickstart](/azure/iot-dps/quick-enroll-device-tpm?tabs=symmetrickey&pivots=programming-language-nodejs)|[Reference](/javascript/api/overview/azure/iothubdeviceprovisioning) |
-| Python|[pip](https://pypi.org/project/azure-iothub-provisioningserviceclient/)|[GitHub](https://github.com/Azure/azure-iot-sdk-python)| See Quickstart|[Quickstart](/azure/iot-dps/quick-enroll-device-tpm?tabs=symmetrickey&pivots=programming-language-python)|[Reference](/python/api/azure-mgmt-iothubprovisioningservices) |
+
+## Management SDKs
+
+| Platform | Package | Code repository | Reference |
+| -----|-----|-----|-----|
+| .NET|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.DeviceProvisioningServices) |[GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/deviceprovisioningservices/Microsoft.Azure.Management.DeviceProvisioningServices)| -- |
+| Node.js|[npm](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices)|[GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceprovisioningservices/arm-deviceprovisioningservices)|[Reference](/javascript/api/@azure/arm-deviceprovisioningservices) |
+| Python|[pip](https://pypi.org/project/azure-mgmt-iothubprovisioningservices/) |[GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/iothub/azure-mgmt-iothubprovisioningservices)|[Reference](/python/api/azure-mgmt-iothubprovisioningservices) |
 
 ## Next steps
 

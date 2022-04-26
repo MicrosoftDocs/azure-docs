@@ -137,10 +137,8 @@ items:
     href: /javascript/api/overview/azure/iothubdeviceprovisioning
   - name: Python (Device)
     href: /python/api/azure-iot-device/azure.iot.device.aio.provisioningdeviceclient
-  - name: Python (Service)
-    href: /python/api/azure-iothub-provisioningserviceclient/provisioningserviceclient
   - name: Python (Management)
-    href: /python/api/azure-mgmt-iothubprovisioningservices/azure.mgmt.iothubprovisioningservice
+    href: /python/api/azure-mgmt-iothubprovisioningservices
   - name: Azure IoT SDK for C API documentation
     href: /azure/iot-hub/iot-c-sdk-ref
   - name: REST API
