@@ -2,7 +2,7 @@
 title: Best practices for autoscale
 description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services
 ms.topic: conceptual
-ms.date: 07/07/2017
+ms.date: 04/22/2022
 ms.subservice: autoscale
 ---
 # Best practices for Autoscale
@@ -29,6 +29,14 @@ If you manually update the instance count to a value above or below the maximum,
 
 ### Always use a scale-out and scale-in rule combination that performs an increase and decrease
 If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts, as defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.
+
+When you use a scale-in and scale-out rule, ideally use the same metric to control both. Otherwise, it’s possible that the scale-in and scale-out conditions could be met at the same time resulting in some level of flapping. For example, the following rule combination is *not* recommended because there is no scale-in rule for memory usage:
+
+* If CPU > 90%, scale-out by 1
+* If Memory > 90%, scale-out by 1
+* If CPU < 45%, scale-in by 1
+
+In this example, you can have a situation in which the memory usage is over 90% but the CPU usage is under 45%. This can lead to flapping for as long as both conditions are met.
 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.

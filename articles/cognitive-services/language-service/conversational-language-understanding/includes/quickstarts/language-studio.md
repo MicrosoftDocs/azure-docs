@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 03/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -29,7 +29,7 @@ ms.custom: ignite-fall-2021
 
 Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart, you'll create a project that can identify commands for email, such as: reading emails by certain people, deleting emails, and attaching a document to an email.
 
-1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand conversational language** and select **Conversational language understanding**.  
+1. In [Language Studio](https://aka.ms/languageStudio), find the section named **Understand conversational language** and select **Conversational language understanding**.  
     :::image type="content" source="../../media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../media/select-custom-clu.png"::: 
     
 
@@ -99,15 +99,18 @@ When you're done, select **Save Changes** to save the utterances and labels to t
 
 ## Train your model and view its details
 
-Select **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key. 
+Select **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key.
 
-Turn off **Run evaluation with training** before selecting **Train**. 
+> [!NOTE]
+> If you did not [tag utterances](#tag-utterances) you will only be allowed to train using the **Automatically split the testing set from all data** option. See [Add utterances to testing set](../../how-to/tag-utterances.md#tag-utterances) for more information.
 
-You should see the **View model details** page. Wait until training completes, which may take about 5 minutes. When training succeeds, Select **Deploy Model** on the left of the screen.
+When the training job is complete, which may take some time, you should see the output model performance in the **View model details** page.
 
 ## Deploy your model
 
-From the **Deploy model** page on the left of the screen, select the trained model and select the **Deploy model** button. In the screen that appears, select **Deploy**.
+From the **Deploy model** page on the left of the screen, select **Add deployment**.
+
+In the window that appears, give your deployment a **deployment name** and then assign your trained model to this deployment name and then select **Submit**.
 
 ## Test your model
 

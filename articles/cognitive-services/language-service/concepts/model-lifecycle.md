@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 04/21/2022
 ms.author: aahi
 ---
 
@@ -47,18 +47,18 @@ The model-version used in your API request will be included in the response obje
 Use the table below to find which model versions are supported by each feature.
 
 
-| Endpoint                                            | Supported Versions                                                  | Latest Generally Available version | Latest preview version |
+| Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
 | Custom text classification                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
 | Conversational language understanding               | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
-| Sentiment Analysis and opinion mining               | `2019-10-01`, `2020-04-01`, `2021-10-01-preview`                    | `2020-04-01`                       | `2021-10-01-preview`   |
+| Sentiment Analysis and opinion mining               | `2019-10-01`, `2020-04-01`, `2021-10-01`                            | `2021-10-01`                       |                        |
 | Language Detection                                  | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05`              | `2021-01-05`                       |                        |
 | Entity Linking                                      | `2019-10-01`, `2020-02-01`                                          | `2020-02-01`                       |                        |
 | Named Entity Recognition (NER)                      | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`                       |                        |
 | Custom NER                                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
 | Personally Identifiable Information (PII) detection | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15` | `2021-01-15`                       |                        |
 | Question answering                                  | `2021-10-01`                                                        | `2021-10-01`                                  |
-| Text Analytics for health                           | `2021-05-15`                                                        | `2021-05-15`                       |                        |
+| Text Analytics for health                           | `2021-05-15`, `2022-03-01`                                                        | `2022-03-01`                       |                        |
 | Key phrase extraction                               | `2019-10-01`, `2020-07-01`, `2021-06-01`                            | `2021-06-01`                       |                        |
 | Text summarization                                  | `2021-08-01`                                                        | `2021-08-01`                       |                        |
 

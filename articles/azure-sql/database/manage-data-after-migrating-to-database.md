@@ -62,7 +62,7 @@ You don’t create backups on Azure SQL Database and that is because you don’t
 |Basic|7|
 |Standard|35|
 |Premium|35|
-|||
+
 
 In addition, the [Long-Term Retention (LTR)](long-term-retention-overview.md) feature allows you to hold onto your backup files for a much longer period specifically, for up to 10 years, and restore data from these backups at any point within that period. Furthermore, the database backups are kept in geo-replicated storage to ensure resilience from regional catastrophe. You can also restore these backups in any Azure region at any point of time within the retention period. See [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
@@ -85,11 +85,11 @@ To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recover
 SQL Database takes Security and Privacy very seriously. Security within SQL Database is available at the database level and at the platform level and is best understood when categorized into several layers. At each layer you get to control and provide optimal security for your application. The layers are:
 
 - Identity & authentication ([SQL authentication and Azure Active Directory [Azure AD] authentication](logins-create-manage.md)).
-- Monitoring activity ([Auditing](../../azure-sql/database/auditing-overview.md) and [threat detection](threat-detection-configure.md)).
+- Monitoring activity ([Auditing](/azure/azure-sql/database/auditing-overview) and [threat detection](threat-detection-configure.md)).
 - Protecting actual data ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) and [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlling Access to sensitive and privileged data ([Row Level security](/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
 
-[Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) offers centralized security management across workloads running in Azure, on-premises, and in other clouds. You can view whether essential SQL Database protection such as [Auditing](../../azure-sql/database/auditing-overview.md) and [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) are configured on all resources, and create policies based on your own requirements.
+[Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) offers centralized security management across workloads running in Azure, on-premises, and in other clouds. You can view whether essential SQL Database protection such as [Auditing](/azure/azure-sql/database/auditing-overview) and [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) are configured on all resources, and create policies based on your own requirements.
 
 ### What user authentication methods are offered in SQL Database
 
@@ -111,7 +111,7 @@ Azure AD supports [Azure AD Multi-Factor Authentication](authentication-mfa-ssms
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
 |Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
 |Have middle-tier services which need to connect to SQL Database or Azure Synapse Analytics|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
-|||
+
 
 ### How do I limit or control connectivity access to my database
 
@@ -147,7 +147,7 @@ Port 1433. SQL Database communicates over this port. To connect from within a co
 
 #### SQL Database Auditing
 
-With SQL Database, you can turn ON Auditing to track database events. [SQL Database Auditing](../../azure-sql/database/auditing-overview.md) records database events and writes them into an audit log file in your Azure Storage Account. Auditing is especially useful if you intend to gain insight into potential security and policy violations, maintain regulatory compliance etc. It allows you to define and configure certain categories of events that you think need auditing and based on that you can get preconfigured reports and a dashboard to get an overview of events occurring on your database. You can apply these auditing policies either at the database level or at the server level. A guide on how to turn on auditing for your server/database, see: [Enable SQL Database Auditing](secure-database-tutorial.md#enable-security-features).
+With SQL Database, you can turn ON Auditing to track database events. [SQL Database Auditing](/azure/azure-sql/database/auditing-overview) records database events and writes them into an audit log file in your Azure Storage Account. Auditing is especially useful if you intend to gain insight into potential security and policy violations, maintain regulatory compliance etc. It allows you to define and configure certain categories of events that you think need auditing and based on that you can get preconfigured reports and a dashboard to get an overview of events occurring on your database. You can apply these auditing policies either at the database level or at the server level. A guide on how to turn on auditing for your server/database, see: [Enable SQL Database Auditing](secure-database-tutorial.md#enable-security-features).
 
 #### Threat detection
 
@@ -170,7 +170,6 @@ For protecting your sensitive data in-flight and at rest, SQL Database provides 
 |**Allowed T-SQL operations**|Equality comparison|All T-SQL surface area is available|
 |**App changes required to use the feature**|Minimal|Very Minimal|
 |**Encryption granularity**|Column level|Database level|
-||||
 
 ### How can I limit access to sensitive data in my database
 
@@ -300,7 +299,7 @@ SQL Database offers various service tiers Basic, Standard, and Premium. Each ser
 |**Basic**|Applications with a handful users and a database that doesn’t have high concurrency, scale, and performance requirements. |
 |**Standard**|Applications with a considerable concurrency, scale, and performance requirements coupled with low to medium IO demands. |
 |**Premium**|Applications with lots of concurrent users, high CPU/memory, and high IO demands. High concurrency, high throughput, and latency sensitive apps can leverage the Premium level. |
-|||
+
 
 For making sure you’re on the right compute size, you can monitor your query and database resource consumption through one of the above-mentioned ways in “How do I monitor the performance and resource utilization in SQL Database”. Should you find that your queries/databases are consistently running hot on CPU/Memory etc. you can consider scaling up to a higher compute size. Similarly, if you note that even during your peak hours, you don’t seem to use the resources as much; consider scaling down from the current compute size.
 

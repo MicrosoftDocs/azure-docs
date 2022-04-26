@@ -28,7 +28,7 @@ This is the basic template format:
       "<name>": "<value>"
     },
     "identity": {},			 
-    "properties": { 
+    "properties": {
       "buildTimeoutInMinutes": <minutes>, 
       "vmProfile": {
         "vmSize": "<vmSize>",
@@ -50,8 +50,6 @@ This is the basic template format:
     } 
   } 
 ```
-
-
 
 ## Type and API version
 
@@ -80,6 +78,22 @@ The location is the region where the custom image will be created. The following
 - Australia East
 - UK South
 - UK West
+- Brazil South
+- Canada Central
+- Central India
+- Central US
+- France Central
+- Germany West Central
+- Japan East
+- North Central US
+- Norway East
+- Switzerland North
+- Jio India West
+- UAE North
+- East Asia
+- Korea Central
+- South Africa North
+
 
 ```json
     "location": "<region>",
@@ -175,7 +189,7 @@ The Image Builder Build VM User Assigned Identity:
 * Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
 * Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
-To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
+To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
 
 ## Properties: source
 
@@ -185,7 +199,6 @@ The API requires a `SourceType` that defines the source for the image build, cur
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you're using an image version in an Azure Compute Gallery as the source.
-
 
 > [!NOTE]
 > When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
@@ -207,7 +220,7 @@ Azure Image Builder supports Windows Server and client, and Linux  Azure Marketp
 The properties here are the same that are used to create VM's, using AZ CLI, run the below to get the properties: 
  
 ```azurecli-interactive
-az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
+az vm image list -l westus -f UbuntuServer -p Canonical --output table --all 
 ```
 
 You can use `latest` in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
@@ -232,7 +245,7 @@ You can also specify plan information, for example:
 Sets the source image as an existing managed image of a generalized VHD or VM.
 
 > [!NOTE]
-> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template. 
+> The source managed image must be of a supported OS and the image must reside in the same subscription and region as your Azure Image Builder template.
 
 ```json
         "source": { 
@@ -245,10 +258,10 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 
 
 ### SharedImageVersion source
-Sets the source image an existing image version in an Azure Compute Gallery.
+Sets the source image as an existing image version in an Azure Compute Gallery.
 
 > [!NOTE]
-> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
+> The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
 
 
 ```json
@@ -258,7 +271,7 @@ Sets the source image an existing image version in an Azure Compute Gallery.
         } 
 ```
 
-The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) to list image versions.
+The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 
 ## Properties: buildTimeoutInMinutes
@@ -406,7 +419,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "type": "PowerShell",
              "name":   "<name>",  
              "scriptUri": "<path to script>",
-             "runElevated": "<true false>",
+             "runElevated": <true false>,
              "sha256Checksum": "<sha256 checksum>" 
         }, 	
         { 
@@ -414,7 +427,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
              "validExitCodes": "<exit code>",
-             "runElevated": "<true or false>" 
+             "runElevated": <true or false> 
          } 
      ], 
 ```
@@ -557,7 +570,7 @@ You can distribute an image to both of the target types in the same configuratio
 
 Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying an Azure Compute Gallery distribution:
 
-```bash
+```azurecli
 subscriptionID=<subcriptionID>
 imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
@@ -707,7 +720,7 @@ Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $ima
 ```
 
 
-```bash
+```azurecli
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
@@ -727,7 +740,7 @@ Examples of `cancel` commands:
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
 ```
 
-```bash
+```azurecli
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \

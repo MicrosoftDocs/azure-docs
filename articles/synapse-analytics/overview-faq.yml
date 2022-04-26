@@ -148,7 +148,7 @@ sections:
       - question: |
           Now that Azure Synapse is GA, how do I move my dedicated SQL pools that were previously standalone into Azure Synapse? 
         answer: |
-          There is no “move” or “migration” necessary. You can choose to enable new workspace features on your existing pools. If you do, there are no breaking changes, instead you’ll be able to use new features such as Synapse Studio, Spark, and serverless SQL pools. Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features for an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](/azure/synapse-analytics/sql-data-warehouse/workspace-connected-create).
+          There is no “move” or “migration” necessary. You can choose to enable new workspace features on your existing pools. If you do, there are no breaking changes, instead you’ll be able to use new features such as Synapse Studio, Spark, and serverless SQL pools. Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features for an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
           
       - question: |
           What is the default deployment of dedicated SQL pools now? 
@@ -160,7 +160,7 @@ sections:
       - question: |
           How do I secure access to my Azure Synapse workspace?
         answer: |
-          With or without a [managed virtual network](./security/synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](./security/connectivity-settings.md). Access from public networks can be controlled by enabling the [public network access feature](./security/connectivity-settings.md#public-network-access) or the [workspace firewall](./security/synapse-workspace-ip-firewall.md). Alternatively, you can connect to your workspace using a [managed private endpoint](./security/synapse-workspace-managed-private-endpoints.md) and [Private Link](../azure-sql/database/private-endpoint-overview.md). Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](./security/synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
+          With or without a [managed virtual network](./security/synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](./security/connectivity-settings.md). Access from public networks can be controlled by enabling the [public network access feature](./security/connectivity-settings.md#public-network-access) or the [workspace firewall](./security/synapse-workspace-ip-firewall.md). Alternatively, you can connect to your workspace using a [managed private endpoint](./security/synapse-workspace-managed-private-endpoints.md) and [Private Link](/azure/azure-sql/database/private-endpoint-overview). Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](./security/synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
           
 
 

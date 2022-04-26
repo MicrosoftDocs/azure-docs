@@ -10,7 +10,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, cliv1
 ---
 
 # Start, monitor, and track run history
@@ -100,7 +100,7 @@ You'll need the following items:
     
         This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
     
-        For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az_ml_folder_attach).
+        For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az-ml-folder-attach).
     
     2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
     
@@ -115,7 +115,7 @@ You'll need the following items:
         >
         > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az_ml_run_submit-script).
+        For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az-ml-run-submit-script).
 
     # [Studio](#tab/azure-studio)
 
@@ -168,7 +168,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about runs for this experiment.
     
-        For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az_ml_experiment_list).
+        For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az-ml-experiment-list).
     
     * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
     
@@ -178,7 +178,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about the run.
     
-        For more information, see [az ml run show](/cli/azure/ml(v1)/run#az_ml_run_show).
+        For more information, see [az ml run show](/cli/azure/ml(v1)/run#az-ml-run-show).
     
     
     # [Studio](#tab/azure-studio)
@@ -275,7 +275,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    For more information, see [az ml run update](/cli/azure/ml(v1)/run#az_ml_run_update).
+    For more information, see [az ml run update](/cli/azure/ml(v1)/run#az-ml-run-update).
     
     # [Studio](#tab/azure-studio)
     
@@ -357,7 +357,7 @@ To cancel a run using the CLI, use the following command. Replace `runid` with t
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az_ml_run_cancel).
+For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az-ml-run-cancel).
 
 # [Studio](#tab/azure-studio)
 

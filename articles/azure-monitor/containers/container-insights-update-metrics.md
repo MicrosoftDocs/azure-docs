@@ -87,7 +87,7 @@ az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId>
 ```
 
 
-To get the value for `clientIdOfSPNOrMsi`, you can run the command `az aks show` as shown in the following example. If the `servicePrincipalProfile` object has a valid `clientid` value, you can use that. Otherwise, if it's set to `msi`, you need to pass in the client ID from `addonProfiles.omsagent.identity.clientId`.
+To get the value for `clientIdOfSPNOrMsi`, you can run the command `az aks show` as shown in the following example. If the `servicePrincipalProfile` object has a valid `objectid` value, you can use that. Otherwise, if it's set to `msi`, you need to pass in the Object ID from `addonProfiles.omsagent.identity.objectId`.
 
 ```azurecli
 az login

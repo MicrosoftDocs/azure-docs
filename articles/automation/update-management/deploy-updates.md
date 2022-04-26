@@ -95,7 +95,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
    * If you want to install only security and critical updates, along with one or more optional updates, you should select **Security** and **Critical** under **Update classifications**. Then for the **Include** option, specify the KBIDs for the optional updates.
 
-   * If you want to install only security and critical updates, but skip one or more updates for python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the python packages to skip.
+   * If you want to install only security and critical updates, but skip one or more updates for Python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the Python packages to skip.
 
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
@@ -109,6 +109,9 @@ To schedule a new update deployment, perform the following steps. Depending on t
 12. Use the **Maintenance window (minutes)** field to specify the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window:
 
     * Maintenance windows control how many updates are installed.
+    * If the next step in the update process is to install a Service Pack, there must be 20 minutes left in the maintenance window, or that update will be skipped.
+    * If the next step in the update process is to install any other kind of update besides Service Pack, there must be 15 minutes left in the maintenance window, or that update will be skipped.
+    * If the next step in the update process is a reboot, there must be 10 minutes left in the maintenance window, or the reboot will be skipped.
     * Update Management doesn't stop installing new updates if the end of a maintenance window is approaching.
     * Update Management doesn't terminate in-progress updates if the maintenance window is exceeded. Any remaining updates to be installed are not attempted. If this is consistently happening, you should reevaluate the duration of your maintenance window.
     * If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
