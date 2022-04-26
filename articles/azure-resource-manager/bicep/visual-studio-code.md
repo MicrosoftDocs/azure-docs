@@ -40,7 +40,7 @@ The [Bicep configuration file (bicepconfig.json)](./bicep-config.md) can be used
 ### Deploy Bicep File
 
 > [!NOTE]
-> This is an experimental function. To enable the feature, select **Manage**, type **bicep**, and then select **Enable Deploy**.
+> Deploy Bicep File is an experimental function. To enable the feature, select **Manage**, type **bicep**, and then select **Enable Deploy**.
 > ![Bicep Visual Studio Code enable deploy](./media/visual-studio-code/visual-studio-code-bicep-enable-deploy.png)
 
 You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bicep file** from the command palette. The extension prompts you to sign in Azure, select subscription, and create/select resource group.
@@ -69,7 +69,7 @@ Similar to exporting templates, the process tries to create a usable resource. H
 
 For more information, see [Decompiling ARM template JSON to Bicep](./decompile.md).
 
-### Open Visualizer
+### Open Bicep Visualizer
 
 The visualizer shows the resources defined in the Bicep file with the resource dependency information. The diagram is the visualization of a [Linux virtual machine Bicep file](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-simple-linux/main.bicep).
 
