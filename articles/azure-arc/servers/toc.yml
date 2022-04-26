@@ -63,6 +63,8 @@
       items:
        - name: Connect machines using a service principal
          href: onboard-service-principal.md
+       - name: Connect machines using group policy
+         href: onboard-group-policy.md
        - name: Connect machines using Configuration Manager script
          href: onboard-configuration-manager-powershell.md
        - name: Connect machines using Configuration Manager custom task sequence

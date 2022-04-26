@@ -1,0 +1,109 @@
+---
+title: Connect machines at scale using group policy
+description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using group policy. 
+ms.date: 04/26/2022
+ms.topic: conceptual
+ms.custom: template-how-to
+---
+
+# Connect machines at scale using Group Policy
+
+You can onboard Active Directory joined Windows machines to Azure Arc-enabled servers at scale using Group Policy.
+
+After setting up a local remote share with the Connected Machine Agent and defining a configuration file on their landing zone within Azure, you can define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering, native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
+
+Before you get started, be sure to review the prerequisites and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see supported Azure regions. Also review the at-scale planning guide to understand the design and deployment criteria, as well as our management and monitoring recommendations. 
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prepare a remote share
+
+The Group Policy to onboard Azure Arc-enabled servers will leverage a remote share with the Connected Machine Agent. You will need to: 1. <!-- Step 1 -->
+
+1. Prepare a remote share to host the Azure Connected Machine agent package for windows and the configuration file. You need to be able to add files to the distributed location.
+1. Download the Connected Machine Agent to the remote share. Download Windows agent Windows Installer package from the Microsoft Download Center and save it to the remote share. 
+
+## Generate an onboarding script and configuration file from Azure Portal
+
+Before you can run the script to connect your machines, you'll need to do the following:
+
+1. Follow the steps to create a service principal for onboarding at scale. Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone. Make a note of the Service Principal Secret, as you'll need this value later.
+1. Modify and save the following configuration file to the remote share as "ArcConfig.json". Edit the file with your Azure subscription, resource group, and location details. Insert the service principal details from Step 1 into the last two fields. Note, the group policy will land assigned machines to the subscription, resource group, and region specified in this configuration file.
+
+## Modify and save the onboarding script
+
+Before you can run the script to connect your machines, you'll need to modify and save the onboarding script:
+
+1. Edit the field for remotePath to reflect the distributed share location with the configuration file and Connected Machine Agent.
+1. Edit the localPath with the local path where the logs generated from the onboarding to Azure Arc-enabled servers will be saved per machine.
+1. Save the modified onboarding script locally and note its location since this will be referenced in authoring the Group Policy Object.
+
+## Create a group policy object
+
+Next, create a new Group Policy Object (GPO) to run the onboarding script using the configuration file details. 
+
+1. Open the Group Policy Management Console (GPMC). 
+1. Navigate to the Organization Unit (OU), Domain, or Security Group in your AD forest that contains the machines, which you would like to onboard to Azure Arc-enabled servers. 
+1. Right click on this set of resources, and select "Create a GPO in this domain, and Link it here."  
+1. Assign the name “Onboard servers to Azure Arc-enabled servers” to this new Group Policy Object (GPO) 
+
+
+## Create a scheduled task
+
+We must edit the newly created GPO to run the onboarding script at the appropriate cadence. We will leverage Group Policy’s built-in Scheduled Task capabilities for our use case. 
+
+1. To edit the GPO, navigate to the following location: Computer Configuration -> Preferences -> Control Panel Settings -> Scheduled Tasks.
+1. Next, right-click in the blank area, and select New -> Scheduled Task. 
+
+Note, your workstation must be running Windows 7 or higher to be able to create a Scheduled Task from Group Policy Management Console. 
+
+### Assign the appropriate general information
+
+Follow the next steps for the different parameters under Security options: 
+
+1. For the field ‘When running the task, use the following user account:’, enter "NT AUTHORITY\System". 
+1. Select the option to ‘Run whether user is logged on or not’ 
+1. Select the checkbox to ‘Run with highest privileges’ 
+
+In the field ‘Configure for’, select the option ‘Choose Windows Vista or Window 2008’. 
+
+:::image type="content" source="media/onboard-group-policy/st-general.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
+
+### Assign the appropriate triggers information
+
+Select the new button in the Triggers tab. Within the New Trigger window, follow the next steps for the different parameters: 
+
+1. In the field ‘Begin the task’, select the option ‘On a schedule’. 
+1. Under Settings, select ‘One time’ and enter the date and time to schedule the task for.  
+1. Under Advanced Settings, select the checkbox next to Enabled.  
+
+Upon specifying the trigger parameters, click on the ‘OK’ button. 
+
+:::image type="content" source="media/onboard-group-policy/new-trigger.png" alt-text="Screenshot of the New Trigger window." :::
+
+
+### Assign the appropriate actions information
+
+Select the new button in the Actions tab. Within the New Action window, follow the next steps for the different parameters: 
+
+1. For Action, select ‘Start a program’ from the dropdown.  
+1. For Program/script under settings, enter "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" 
+1. For Add Arguments (optional) under settings, enter  
+-ExecutionPolicy Bypass -command “INSERT PATH TO DEPLOYMENT SCRIPT”. Note that you must enter the location of the deployment script, modified earlier with the DeploymentPath and LocalPath, instead of the placeholder “INSERT PATH TO DEPLOYMENT SCRIPT”. 
+1. For Start In (Optional), enter ‘C:\’ 
+
+Upon specifying the action parameters, click on the ‘OK’ button. 
+
+:::image type="content" source="media/onboard-group-policy/new-action.png" alt-text="Screenshot of the New Action window." :::
+
+## Apply the Group Policy Object 
+
+On the Group Policy Management Console, you need to right-click on the desired Organizational Unit and select the option to link an existent GPO. Choose the Group Policy Object defined in the Scheduled Task. After 10 or 20 minutes, the Group Policy Object will be replicated to the respective domain controllers. Learn more about creating and managing group policy in Azure AD Domain Services. 
+
+After you have successfully installed the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your Organizational Unit have successfully connected. View your machines in the Azure portal. 
+
+## Next steps
+
+- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
+- Review connection troubleshooting information in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md) for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying that the machine is reporting to the expected Log Analytics workspace, enabling monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
