@@ -36,3 +36,10 @@ To view the health of your NAT gateway resource:
 1. From the NAT gateway resource page, under **Support + troubleshooting**, select **Resource health**.
 2. In the Health history section, select the drop-down arrows next to dates to get more information on health history events of your NAT gateway resource. You can view up to 30 days of history in the Health history section. 
 3. Select the **+ Add resource health alert** at the top of the page to set up an alert for a specific health status of your NAT gateway resource. 
+
+## Next Steps
+
+- Learn aout [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview)
+- Learn about [metrics and alerts for NAT gateway](/azure/virtual-network/nat-gateway/nat-metrics)
+- Learn about [troubleshooting NAT gateway resources](/azure/virtual-network/nat-gateway/troubleshoot-nat)
+- Learn about [Azure resource health](/azure/service-health/resource-health-overview)
