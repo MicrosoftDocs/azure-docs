@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
+# Email SDK Overview
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
