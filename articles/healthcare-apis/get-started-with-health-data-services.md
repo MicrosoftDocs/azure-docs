@@ -20,7 +20,7 @@ Before you can create a workspace in the Azure portal, you must have an Azure ac
 
 ## Deploy Health Data Services 
 
-To get started with Azure Health Data Services, you must [create a resource](https://ms.portal.azure.com/#create/hub) in the Azure portal. To do this, enter **Azure Health Data Services** in the **Search services and marketplace** box.
+To get started with Azure Health Data Services, you must [create a resource](https://ms.portal.azure.com/#create/hub) in the Azure portal. Enter *Azure Health Data Services* in the **Search services and marketplace** box.
 
 [![Screenshot of the Azure search services and marketplace text box.](media/search-services-marketplace.png)](media/search-services-marketplace.png#lightbox)
 
@@ -30,7 +30,7 @@ After you've located the Azure Health Data Services resource, select **Create**.
 
 ## Create workspace
 
-After you've deployed the Azure Health Data Services resource group, you can enter the workspace subscription and instance details. 
+After the Azure Health Data Services resource group is deployed, you can enter the workspace subscription and instance details. 
 
 To be guided through these steps, see [Deploy Azure Health Data Services workspace using Azure portal](healthcare-apis-quickstart.md).
 
@@ -39,7 +39,7 @@ To be guided through these steps, see [Deploy Azure Health Data Services workspa
 
 [![Screenshot of the Azure Health Data Services workspace.](media/health-data-services-workspace.png)](media/health-data-services-workspace.png#lightbox)
 
-After your workspace has been deployed, you can provision a FHIR service, DICOM service, and MedTech service.
+With a deployed workspace, you can provision a FHIR service, DICOM service, and MedTech service.
 
 ### FHIR service
 
@@ -64,7 +64,7 @@ After you've provisioned a FHIR service, DICOM service, or MedTech service, you 
 
 ## Next steps
 
-This article described the basic steps to get started using Azure Health Data Services. For information about Azure Health Data Services, see
+This article described the basic steps to get started using Azure Health Data Services. For more information about Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[What is Azure Health Data Services?](healthcare-apis-overview.md)
