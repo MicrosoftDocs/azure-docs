@@ -102,12 +102,28 @@ To use this feature, you submit raw unstructured text for analysis and handle th
 
 # [Conversation summarization](#tab/conversation-summarization)
 
+To use this feature, you submit raw text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use conversation summarization:
+
+
+|Development option  |Description  | Links | 
+|---------|---------|---------|
+| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md) |
+
 ---
 
 ## Input requirements and service limits
 
+# [Document summarization](#tab/document-summarization)
+
 * Text summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
 * Text summarization works with a variety of written languages. See [language support](language-support.md) for more information.
+
+# [Conversation summarization](#tab/conversation-summarization)
+
+* Conversation summarization takes structured text for analysis. See the [data and service limits](../concepts/data-limits.md) for more information.
+* Conversation summarization accepts text in English. See [language support](language-support.md) for more information.
+
+---
 
 ## Reference documentation and code samples
 
