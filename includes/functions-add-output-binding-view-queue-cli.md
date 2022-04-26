@@ -39,13 +39,13 @@ You can view the queue in the [Azure portal](../articles/storage/queues/storage-
 
     # [bash](#tab/bash)
     
-    ```bash
+    ```azurecli
     echo `echo $(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
     # [PowerShell](#tab/powershell)
     
-    ```powershell
+    ```azurecli
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     

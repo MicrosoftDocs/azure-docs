@@ -54,7 +54,7 @@ In the following REST API calls, we use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `$TOKEN` with your own value. You can retrieve this token with the following command:
 
-```bash
+```azurecli
 TOKEN=$(az account get-access-token --query accessToken -o tsv)
 ```
 
@@ -117,7 +117,7 @@ Now that you have the datastore, you can create a dataset. For this example, use
 Now that you have the dataset and datastore, you can upload the training script that will run on the job. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure portal or Azure Storage Explorer.
 
 
-```bash
+```azurecli
 az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
  -s jobs/train/lightgbm/iris/src --account-name $AZURE_STORAGE_ACCOUNT --account-key $AZURE_STORAGE_KEY
 ```
