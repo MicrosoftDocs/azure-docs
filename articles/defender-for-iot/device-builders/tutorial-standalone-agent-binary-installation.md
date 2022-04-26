@@ -129,6 +129,7 @@ This procedure describes additional steps required to support the AMQP protocol.
     "IothubModule_TransportProtocol": "AMQP_Protocol"
     }
     ```
+1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
 
 1. Restart the micro-agent. Run
 
