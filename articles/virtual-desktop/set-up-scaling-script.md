@@ -13,6 +13,9 @@ You can reduce your total Azure Virtual Desktop deployment cost by scaling your 
 
 In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
+> [!NOTE]
+> You can't scale session hosts using Azure Automation and use the [autoscale feature](autoscale-scaling-plan.md) on the same host pool. You must use one or the other.
+
 ## How the scaling tool works
 
 The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
@@ -21,7 +24,7 @@ You can use the scaling tool to:
 
 - Schedule VMs to start and stop based on peak and off-peak business hours.
 - Scale out VMs based on number of sessions per CPU core.
-- Scale in VMs during Off-Peak hours, leaving the minimum number of session host VMs running.
+- Scale in VMs during off-peak hours, leaving the minimum number of session host VMs running.
 
 The scaling tool uses a combination of an Azure Automation account, a PowerShell runbook, a webhook, and the Azure Logic App to function. When the tool runs, Azure Logic App calls a webhook to start the Azure Automation runbook. The runbook then creates a job.
 
