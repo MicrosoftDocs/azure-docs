@@ -61,7 +61,7 @@ When `public_network_access` is `disabled`, inbound scoring requests are receive
 
 ## Outbound (resource access)
 
-To restrict communication between a deployment and the Azure resources used to by the deployment, set the `egress_public_network_access` flag to `disabled`. Enable this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
+To restrict communication between a deployment and the Azure resources used to by the deployment, set the `egress_public_network_access` flag to `disabled`. Use this flag to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint.
 
 The following are the resources that the deployment communicates with over the private endpoint:
 
@@ -72,7 +72,7 @@ The following are the resources that the deployment communicates with over the p
 When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `true` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
 
 ```azurecli
-az ml online-deployment create -f deployment.yml --set egress_public_network_access disabled
+az ml online-deployment create -f deployment.yml --set egress_public_network_access=disabled
 ```
 
 ## Scenarios
