@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 04/26/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure SQL Database in Microsoft Purview
@@ -42,8 +42,9 @@ When setting up scan, you can further scope the scan after providing the databas
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
 * Stored procedures with dynamic SQL, running from remote data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
-* Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed
-* If sql views are referenced in stored procedures, they're captured as sql tables currently
+* Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed.
+* If sql views are referenced in stored procedures, they're captured as sql tables currently.
+* Lineage extraction is currently not supported, if Azure SQL Server is configured behind a private endpoint.
 
 ## Prerequisites
 
