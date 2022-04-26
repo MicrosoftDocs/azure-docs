@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 08/09/2021
+ms.date: 04/26/2022
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service, custom translator
@@ -28,7 +28,7 @@ Text translation documentation contains the following article types:
 
  The following methods are supported by the Text Translation feature:
 
-* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate**, and **Dictionary Lookup** operations. This request does not require authentication; just copy and paste the following GET request into Postman or your favorite API tool or browser:
+* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate**, and **Dictionary Lookup** operations. This request doesn't require authentication; just copy and paste the following GET request into Postman or your favorite API tool or browser:
 
     ```http
     https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
