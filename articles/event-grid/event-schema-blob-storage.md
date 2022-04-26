@@ -263,10 +263,7 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
   "data": {
     "api": "SftpRemove",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
-    "contentLength": 0,
-    "contentOffset": 0,
     "blobType": "BlockBlob",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",  
