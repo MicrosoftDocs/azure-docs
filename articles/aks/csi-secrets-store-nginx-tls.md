@@ -120,6 +120,7 @@ helm install ingress-nginx/ingress-nginx --generate-name \
     --namespace $NAMESPACE \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
@@ -136,6 +137,7 @@ helm install ingress-nginx/ingress-nginx --generate-name \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set controller.podLabels.aadpodidbinding=$AAD_POD_IDENTITY_NAME \
     -f - <<EOF
 controller:

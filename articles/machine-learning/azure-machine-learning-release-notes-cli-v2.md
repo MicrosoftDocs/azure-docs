@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: minxia
-author: mx-iao
+ms.author: larryfr
+author: blackmist
 ms.date: 04/12/2022
 ---
 

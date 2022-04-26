@@ -101,7 +101,7 @@ items:
       href: logs/resource-manager-cluster.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
-    - name: SQL insights
+    - name: SQL Insights (preview)
       href: insights/resource-manager-sql-insights.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
@@ -785,10 +785,6 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#application-insights
-    - name: Troubleshooting
-      items:
-      - name: Error retrieving data in Portal
-        href: app/troubleshoot-portal-connectivity.md
     - name: Auto-instrumentation
       items:
       - name: Overview
@@ -832,8 +828,6 @@ items:
               href: app/status-monitor-v2-api-reference.md
         - name: Java
           href: app/java-on-premises.md
-      - name: Troubleshooting
-        href: app/auto-instrumentation-troubleshoot.md
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -1022,8 +1016,10 @@ items:
         href: app/profiler-servicefabric.md
       - name: Enable Profiler for an Azure VM
         href: app/profiler-vm.md
-      - name: Profiler for Linux App services (preview)
+      - name: Enable Profiler for Linux App services (preview)
         href: app/profiler-aspnetcore-linux.md
+      - name: Enable Profiler for a Container
+        href: app/profiler-containers.md
       - name: Profiler Settings
         href: app/profiler-settings.md
       - name: Track Requests for Profiling
@@ -1333,18 +1329,6 @@ items:
       href: insights/network-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
-    - name: SQL insights (preview)
-      items:
-      - name: Overview
-        href: insights/sql-insights-overview.md
-      - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-(preview)
-      - name: Enable
-        href: insights/sql-insights-enable.md
-      - name: Alerts
-        href: insights/sql-insights-alerts.md
-      - name: Troubleshoot
-        href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayName: storage, monitor, insights, storage accounts, azure storage
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
@@ -1660,7 +1644,7 @@ items:
 - name: Resources
   items:
   - name: Azure updates
-    href: https://azure.microsoft.com/en-us/updates/?category=management-tools
+    href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/monitor/
   - name: Pricing calculator

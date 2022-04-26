@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 03/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,30 +38,16 @@ Organizations can choose to deploy this policy using the steps outlined below or
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
+1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to**. 
    1. Select **High** and **Medium**.
    1. Select **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Under **Access controls** > **Grant**.
+   1. Select **Grant access**, **Require multi-factor authentication**.
+   1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
 After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
-
-## Enable through Identity Protection
-
-1. Sign in to the **Azure portal**.
-1. Select **All services**, then browse to **Azure AD Identity Protection**.
-1. Select **Sign-in risk policy**.
-1. Under **Assignments**, select **Users**.
-   1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Select excluded users**, choose your organization's emergency access or break-glass accounts, and select **Select**.
-   1. Select **Done**.
-1. Under **Conditions**, select **Sign-in risk**, then choose **Medium and above**.
-   1. Select **Select**, then **Done**.
-1. Under **Controls** > **Access**, choose **Allow access**, and then select **Require multi-factor authentication**.
-   1. Select **Select**.
-1. Set **Enforce Policy** to **On**.
-1. Select **Save**.
 
 ## Next steps
 
