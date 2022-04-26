@@ -15,19 +15,19 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 # What's new in Azure Cognitive Services Translator
 
+Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 * Translator is a language service that enables users to translate text and documents, helps businesses expand their global outreach, and supports at-risk and endangered language preservation.
 
-* Currently, Translator supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+* Translator supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
-* Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 ## April 2022
 
 ### [Text and document translation support for Faroese](https://www.microsoft.com/translator/blog/2022/04/25/introducing-faroese-translation-for-faroese-flag-day/), [Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/)
 
-* Translator service has [text and document translation language support](language-support.md) for Faroese, a Germanic language originating on the Faroe Islands. It's descended from Old West Norse spoken by Vikings in the Middle Ages. The Faroe Islands are a self-governing country within the Kingdom of Denmark located between Norway and Iceland.
+* Translator service has [text and document translation language support](language-support.md) for Faroese, a Germanic language originating on the Faroe Islands. The Faroe Islands are a self-governing country within the Kingdom of Denmark located between Norway and Iceland. Faroese is descended from Old West Norse spoken by Vikings in the Middle Ages.
 
-* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language and is spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are co-official languages of Spain.
+* Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language. It's spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are co-official languages of Spain.
 
 ## March 2022
 
@@ -35,25 +35,25 @@ ms.author: lajanuar
 
 * Translator service has [text and document translation language support](language-support.md) for Somali and Zulu.
 
-* The Somali language is spoken throughout Africa by more than 21 million people. It is in the Cushitic branch of the Afroasiatic language family.
+* The Somali language is spoken throughout Africa by more than 21 million people. It's in the Cushitic branch of the Afroasiatic language family.
 
-* The Zulu language is spoken by 12 million people and is recognized as on of South Africa's 11 official languages.
+* The Zulu language is spoken by 12 million people and is recognized as one of South Africa's 11 official languages.
 
 ## February 2022
 
-### Text and document translation support for [Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/), [Inuinnaqtun, and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/)
+### [Text and document translation support for Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/), [Inuinnaqtun, and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/)
 
 * Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team has worked tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
 
-* Translator service has [text and document translation language support](language-support.md) for Inuinnaqtun and Romanized Inuktitut. Both are indigenous languages that are intrinsic and treasured foundations of Canadian culture and society.
+* Translator service has [text and document translation language support](language-support.md) for Inuinnaqtun and Romanized Inuktitut. Both are indigenous languages that are essential and treasured foundations of Canadian culture and society.
 
 ## January 2022
 
 ### Custom Translator portal (v2.0) public preview
 
-* The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes to make it easier to create your custom translation systems.
+* The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes that makes it easier to create your custom translation systems.
 
-* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our[quickstart](custom-translator/v2-preview/quickstart.md) for step-by-step instructions.
+* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/v2-preview/quickstart.md) for step-by-step instructions.
 
 ## October 2021
 
