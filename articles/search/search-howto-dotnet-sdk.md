@@ -308,7 +308,7 @@ The `JsonIgnore` attribute on this property tells the `FieldBuilder` to not seri
 
 ## Load an index
 
-The next step in `Main` populates the newly-created "hotels" index. This index population is done in the following method:
+The next step in `Main` populates the newly created "hotels" index. This index population is done in the following method:
 (Some code replaced with "..." for illustration purposes. See the full sample solution for the full data population code.)
 
 ```csharp
@@ -422,7 +422,7 @@ private static void UploadDocuments(SearchClient searchClient)
     Thread.Sleep(2000);
 ```
 
-This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In an actual application, data will likely come from an external data source such as a SQL database.
+This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In an actual application, data will likely come from an external data source such as an SQL database.
 
 The second part creates an [`IndexDocumentsBatch`](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) containing the documents. You specify the operation you want to apply to the batch at the time you create it, in this case by calling [`IndexDocumentsAction.Upload`](/dotnet/api/azure.search.documents.models.indexdocumentsaction.upload). The batch is then uploaded to the Azure Cognitive Search index by the [`IndexDocuments`](/dotnet/api/azure.search.documents.searchclient.indexdocuments) method.
 
