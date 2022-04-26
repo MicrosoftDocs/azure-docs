@@ -2,10 +2,10 @@
 title: include file
 description: Send email.net sdk include file
 services: azure-communication-services
-author: author
-manager: author
+author: bashan-git
+manager: sphenry
 services: azure-communication-services
-ms.author: author
+ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: include
 ms.service: azure-communication-services
