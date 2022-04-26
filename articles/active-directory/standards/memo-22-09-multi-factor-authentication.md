@@ -33,7 +33,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 - **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers native support for certificate use, including smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV). These methods are in use throughout the US Department of Defense (DoD) & US Federal Civilian agencies as well as derived credentials (Such as derived CAC/PIV) on mobile devices or security keys
 
-- **[Windows Hello for Business](.../windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multfactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](.../windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+- **[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multfactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
 
 ### Protection from external phishing
 
