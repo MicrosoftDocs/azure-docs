@@ -27,7 +27,7 @@ This article shows how to set up a working data history connection between Azure
 It also contains a sample twin graph that you can use to see the historized twin property updates in Azure Data Explorer. 
 
 >[!TIP]
->Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs. 
+>Although this article uses the Azure portal, you can also work with data history using the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the rest APIs.
 
 ## Prerequisites
 

@@ -95,8 +95,6 @@
       href: how-to-use-tags.md
   - name: Use live execution environment
     items:
-    - name: Use Azure Digital Twins Explorer
-      href: how-to-use-azure-digital-twins-explorer.md  
     - name: Manage digital twins
       href: how-to-manage-twin.md
     - name: Manage the twin graph and relationships
@@ -105,6 +103,12 @@
       href: how-to-send-twin-to-twin-events.md
     - name: Query the twin graph
       href: how-to-query-graph.md
+  - name: Visualize
+    items:
+    - name: Use Azure Digital Twins Explorer
+      href: how-to-use-azure-digital-twins-explorer.md
+    - name: Get started with 3D Scenes Studio
+      href: how-to-get-started-3d-scenes-studio.md
   - name: Develop client apps
     items:
     - name: Make API requests with Postman

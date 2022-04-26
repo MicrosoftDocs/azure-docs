@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Use Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Learn how to use the features of Azure Digital Twins Explorer
+description: Learn how to use all the features of Azure Digital Twins Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/24/2022
