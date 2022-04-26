@@ -60,7 +60,7 @@ To download a snapshot of the dashboard, select **Download as PDF**. Alternative
 
 To email dashboard widgets data, select **Share** and provide the email information. Share report URLs using **Copy link** and **Share to Teams**, or **Copy as image** to send a snapshot of chart data.
 
-:::image type="content" source="media/license-dashboard/email-window.png" alt-text="Screenshot shows the Email window option of the Share function on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/email-window.png" alt-text="Screenshot shows the Email window option of the Share function on the Insights screen of the Customers dashboard.":::
 
 ### What’s new
 
@@ -80,7 +80,7 @@ View the data source and the data refresh details, such as frequency of the data
 
 Submit feedback about the report/dashboard along with an optional screenshot.
 
-:::image type="content" source="media/license-dashboard/feedback.png" alt-text="Screenshot shows the Feedback window for the Share function on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/feedback.png" alt-text="Screenshot shows the Feedback window for the Share function on the Insights screen of the Customers dashboard.":::
 
 ### Month range
 
