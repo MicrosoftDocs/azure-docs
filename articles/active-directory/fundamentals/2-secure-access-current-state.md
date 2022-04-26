@@ -35,19 +35,19 @@ To find users who are currently collaborating, review the [Microsoft 365 audit l
 
 External users may be [Azure AD B2B users](../external-identities/what-is-b2b.md) (preferable) with partner-managed credentials, or external users with locally provisioned credentials. These users are typically (but not always) marked with a UserType of Guest. You can enumerate guest users through the [Microsoft Graph API](/graph/api/user-list?tabs=http), [PowerShell](/graph/api/user-list?tabs=http), or the [Azure portal](../enterprise-users/users-bulk-download.md).
 
-There are also tools specifically designed to identify existing Azure AD B2B cllaboration such as identifying external Azure AD tenants, and which external users are accessing what applications. These tools include a [PowerShell module](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity) and an [Azure Monitor workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md).  
+There are also tools specifically designed to identify existing Azure AD B2B collaboration such as identifying external Azure AD tenants, and which external users are accessing what applications. These tools include a [PowerShell module](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity) and an [Azure Monitor workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md).  
 
 ### Use email domains and companyName property
 
 External organizations can be determined by the domain names of external user email addresses. If consumer identity providers such as Google are supported, this may not be possible. In this case we recommend that you write the companyName attribute to clearly identify the user’s external organization.
 
-### Use allow or deny lists
+### Use allow or block lists
 
-Consider whether your organization wants to allow collaboration with only specific organizations. Alternatively, consider if your organization wants to block collaboration with specific organizations. At the tenant level, there is an [allow or deny list](../external-identities/allow-deny-list.md), which can be used to control overall B2B invitations and redemptions regardless of source (such as Microsoft Teams, Microsoft SharePoint, or the Azure portal).
+Consider whether your organization wants to allow collaboration with only specific organizations. Alternatively, consider if your organization wants to block collaboration with specific organizations. At the tenant level, there is an [allow or block list](../external-identities/allow-deny-list.md), which can be used to control overall B2B invitations and redemptions regardless of source (such as Microsoft Teams, Microsoft SharePoint, or the Azure portal).
 
 If you’re using entitlement management, you can also scope access packages to a subset of your partners by using the Specific connected organizations setting as shown below.
 
-![Screenshot of allowlisting or deny listing in creating a new access package.](media/secure-external-access/2-new-access-package.png)
+![Screenshot of allowlisting or block listing in creating a new access package.](media/secure-external-access/2-new-access-package.png)
 
 ## Find access being granted to external users
 
