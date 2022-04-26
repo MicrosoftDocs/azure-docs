@@ -72,7 +72,7 @@ The below table lists the properties supported by a delta sink. You can edit the
 | Vacuum | Specify retention threshold in hours for older versions of table. A value of 0 or less defaults to 30 days | yes | Integer | vacuum |
 | Update method | Specify which update operations are allowed on the delta lake. For methods that aren't insert, a preceding alter row transformation is required to mark rows. | yes | `true` or `false` | deletable <br> insertable <br> updateable <br> merge |
 | Optimized Write | Achieve higher throughput for write operation via optimizing internal shuffle in Spark executors. As a result, you may notice fewer partitions and files that are of a larger size | no | `true` or `false` | optimizedWrite: true |
-| Auto Compact | After any write operation has completed, Spark will automatically execute the ```OPTIMIZE``` command to re-organize the data, resulting in more partitions if necessary, for better reading performance in the future | no | `true` or `false` |    autoCompact: true |
+| Auto Compact | After any write operation has completed, Spark will automatically execute the ```OPTIMIZE``` command to re-organize the data, resulting in more partitions if necessary, for better reading performance in the future | no | `true` or `false` |    autoCompact: true | 
 
 ### Delta sink script example
 
@@ -98,6 +98,38 @@ moviesAltered sink(
            folderPath: $tempPath + '/delta'
            ) ~> movieDB
 ```
+### Delta Sink with Partition Pruning
+With this option under Update method above (i.e. update/upsert/delete), you can limit the number of partitions that are inspected. Only partitions satisfying this condition will be fetched from the target store.  You can specify fixed set of values that a partition column may take.
+
+### Delta sink script example with Partition Pruning
+
+A sample script is given as below.
+
+```
+DerivedColumn1 sink( 
+ input(movieId as integer,
+       title as string
+ ), 
+ allowSchemaDrift: true,
+ validateSchema: false,
+ format: 'delta',
+ container: 'deltaContainer',
+ folderPath: 'deltaPath',
+ mergeSchema: false,
+ autoCompact: false,
+ optimizedWrite: false,
+ vacuum: 0,
+ deletable:false,
+ insertable:true,
+ updateable:true,
+ upsertable:false,
+ keys:['movieId'],
+ pruneCondition:['part_col' -> ([5, 8])],
+ skipDuplicateMapInputs: true,
+ skipDuplicateMapOutputs: true) ~> sink2
+ 
+```
+Delta will only read 2 partitions where **part_col == 5 and 8**  from the target delta store instead of all partitions. *part_col* is a column that the target delta data is partitioned by. It need not be present in the source data.
 
 ### Known limitations
 
