@@ -2,10 +2,10 @@
 title: Email as Service Overview in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services Email concepts.
-author: author
-manager: author
+author: bashan-git
+manager: sphenry
 services: azure-communication-services
-ms.author: author
+ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
