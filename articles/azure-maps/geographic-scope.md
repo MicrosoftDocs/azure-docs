@@ -32,7 +32,7 @@ The table below describes the mapping between geography and supported Azure geog
 
 ### URL example for geographic mapping
 
-The following is the [Search - Get Search Address](/rest/api/maps/search/get-search-address) command:
+The following is the [Search - Get Search Address](/rest/api/maps/search/get-search-address) request:
 
 ```http
 GET https://{geography}.atlas.microsoft.com/search/address/{format}?api-version=1.0&query={query}
