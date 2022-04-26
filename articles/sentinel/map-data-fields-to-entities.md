@@ -30,7 +30,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. Select the **Set rule logic** tab. 
 
-1. In the **Alert enrichment (Preview)** section, expand **Entity mapping**.
+1. In the **Alert enrichment** section, expand **Entity mapping**.
 
     :::image type="content" source="media/map-data-fields-to-entities/alert-enrichment.png" alt-text="Expand entity mapping":::
 
