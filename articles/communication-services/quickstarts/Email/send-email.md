@@ -2,10 +2,10 @@
 title: Quickstart - Send an email
 titleSuffix: An Azure Communication Services Quickstart
 description: Learn how to send an email message using Azure Communication Services.
-author: author
-manager: author
+author: bashan-git
+manager: sphenry
 services: azure-communication-services
-ms.author: author
+ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
