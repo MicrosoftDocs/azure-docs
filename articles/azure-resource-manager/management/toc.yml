@@ -94,7 +94,7 @@
         - name: Azure Storage
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure SQL DB & MI
-          href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/azure-sql/database/move-resources-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Stream Analytics
           items:
           - name: Move Stream Analytics jobs
@@ -114,7 +114,7 @@
         - name: Site Recovery (Recovery Services vaults)
           href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: SQL Server on Azure VM
-          href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region?toc=/azure/azure-resource-manager/management/toc.json
   - name: Tags
     items:
     - name: Decision guide

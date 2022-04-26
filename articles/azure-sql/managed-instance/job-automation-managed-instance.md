@@ -24,7 +24,7 @@ Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQ
 
 ### SQL Agent job limitations in SQL Managed Instance
 
-It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent). 
+It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#sql-server-agent). 
 
 Some of the SQL Agent features that are available in SQL Server are not supported in SQL Managed Instance:
 
@@ -78,7 +78,7 @@ SQL Agent enables you to create different types of job steps, such as Transact-S
 > [!Note]
 > For more information on leveraging the Azure SSIS Integration Runtime with SSISDB hosted by SQL Managed Instance, see [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
-[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
+[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/replication-between-two-instances-configure-tutorial). 
 
 Other types of job steps are not currently supported in SQL Managed Instance, including:
 
@@ -208,8 +208,9 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 
 - [What is Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [What's new in Azure SQL Managed Instance?](doc-changes-updates-release-notes-whats-new.md)
-- [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
-- [Features comparison: Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/features-comparison.md)
+- [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#sql-server-agent)
+- [Features comparison: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/features-comparison)
+
 
 ## Next steps
 

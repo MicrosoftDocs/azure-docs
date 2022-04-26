@@ -64,7 +64,7 @@ Conversation summarization feature would simplify the text into the following:
 
 ## Get started with conversation summarization
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use conversation summarization:
+To use this feature, you submit raw text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use conversation summarization:
 
 
 |Development option  |Description  | Links | 
