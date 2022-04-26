@@ -243,9 +243,11 @@ public class ValuesController : Controller
 ```
 ## Recursive Queries
 
-For DNS names that DNS Service cannot resolve on its own (e.g. for a public DNS name), it will forward the query to pre-existing recursive DNS servers on the nodes. 
+For DNS names that the DNS service can't resolve on its own (for example, a public DNS name), it will forward the query to pre-existing recursive DNS servers on the nodes. 
 
-Prior to Service Fabric 9.0, these servers were queried serially with a fixed timeout period of 5 seconds in between. If a server did not respond within the timeout period, the next server (if available) would be queried. In the case that these DNS servers were encountering any issues, completion of DNS queries would take longer than 5 seconds - which is not ideal. 
+
+Prior to Service Fabric 9.0, these servers were queried serially with a fixed timeout period of 5 seconds in between. If a server didn't respond within the timeout period, the next server (if available) would be queried. In the case that these DNS servers were encountering any issues, completion of DNS queries would take longer than 5 seconds, which is not ideal. 
+
 
 Beginning in Service Fabric 9.0, support for parallel recursive queries was added. With parallel queries, all recursive DNS servers can be contacted at once, where the first response wins. This will result in quicker responses in the scenario previously mentioned. 
 
