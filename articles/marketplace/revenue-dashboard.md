@@ -165,7 +165,7 @@ In this section, you will find the information for top customers who contribute 
 
 Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
 
-[ ![Screenshot of the Customer leader board section of the Revenue dashboard.](./media/revenue-dashboard/revenue-customer-leader-board.png) ](./media/revenue-dashboard/revenue-customer-leader-board.png#lightbox)
+[ ![Screenshot of the Customer leader board section of the Revenue dashboard.](./media/revenue-dashboard/revenue-customer-leaderboard.png) ](./media/revenue-dashboard/revenue-customer-leaderboard.png#lightbox)
 
 ### Geographical spread
 
