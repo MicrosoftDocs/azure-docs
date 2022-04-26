@@ -60,11 +60,11 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 login 
 
 
 **Type:** New feature  
-**Service category:** User Experience and Management
-**Product capability:** Identity Security & Protection
+**Service category:** User Access Management 
+**Product capability:** AuthZ/Access Delegation  
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
-Microsoft 365 App Certification offers assurance that an app is compliant with cloud app security best practices and that data and privacy are adequately secured and protected when a third-party Microsoft 365 application is integrated into your Microsoft 365 environment. Applications that pass validation will be designated Microsoft 365 Certified. Microsoft 365 Certification status for an app is now available in Azure AD consent UX, and custom app consent policies. The status will subsequently be displayed in several other Identity-owned interfaces such as enterprise apps. For more information, see: [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md).
+Microsoft 365 Certification status for an app is now available in Azure AD consent UX, and custom app consent policies. The status will subsequently be displayed in several other Identity-owned interfaces such as enterprise apps. For more information, see: [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md).
 
 ---
 
@@ -136,7 +136,7 @@ Added functionality to session controls allowing admins to require primary and/o
 
 We are delighted to announce a new security protection that prevents bypassing of cloud Azure MFA when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account cannot bypass Azure MFA by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values). 
 
-We highly recommend enabling this new protection when using Azure MFA as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure MFA when federated with Azure AD](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+We highly recommend enabling this new protection when using Azure MFA as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure MFA when federated with Azure AD](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad).
 
 ---
 
