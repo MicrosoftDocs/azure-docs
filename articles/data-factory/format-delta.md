@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 04/24/2022
 ms.author: makromer
 ---
 
@@ -107,26 +107,26 @@ A sample script is given as below.
 
 ```
 DerivedColumn1 sink( 
- input(movieId as integer,
-       title as string
- ), 
- allowSchemaDrift: true,
- validateSchema: false,
- format: 'delta',
- container: 'deltaContainer',
- folderPath: 'deltaPath',
- mergeSchema: false,
- autoCompact: false,
- optimizedWrite: false,
- vacuum: 0,
- deletable:false,
- insertable:true,
- updateable:true,
- upsertable:false,
- keys:['movieId'],
- pruneCondition:['part_col' -> ([5, 8])],
- skipDuplicateMapInputs: true,
- skipDuplicateMapOutputs: true) ~> sink2
+      input(movieId as integer,
+            title as string
+           ), 
+      allowSchemaDrift: true,
+      validateSchema: false,
+      format: 'delta',
+      container: 'deltaContainer',
+      folderPath: 'deltaPath',
+      mergeSchema: false,
+      autoCompact: false,
+      optimizedWrite: false,
+      vacuum: 0,
+      deletable:false,
+      insertable:true,
+      updateable:true,
+      upsertable:false,
+      keys:['movieId'],
+      pruneCondition:['part_col' -> ([5, 8])],
+      skipDuplicateMapInputs: true,
+      skipDuplicateMapOutputs: true) ~> sink2
  
 ```
 Delta will only read 2 partitions where **part_col == 5 and 8**  from the target delta store instead of all partitions. *part_col* is a column that the target delta data is partitioned by. It need not be present in the source data.
