@@ -55,7 +55,36 @@ In addition to configuring the Health check options, you can also configure the 
 
 Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No additional settings are required if these security features are enabled.
 
-If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. You can secure the Health check endpoint by requiring the `User-Agent` of the incoming request matches `HealthCheck/1.0`. The User-Agent can't be spoofed since the request would already be secured by prior security features.
+If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. Once you have those features in-place, you can authenticate the health check request by inspecting the header, `x-ms-auth-internal-token`, and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRPYTION_KEY`. If they match, then the health check request is valid and originating from App Service. 
+
+##### [.NET](#tab/dotnet)
+
+```dotnet
+using (var sha = System.Security.Cryptography.SHA256.Create())
+  {
+    Console.WriteLine(System.Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes("ENV_VAR"))));
+  }
+```
+
+##### [Python](#tab/python)
+
+```python
+from hashlib import sha256
+import base64
+import os
+
+def header_matches_env_var(header_value):
+    """
+    Returns true if SHA256 of header_value matches WEBSITE_AUTH_ENCRYPTION_KEY.
+    
+    :param header_value: Value of the x-ms-auth-internal-token header.
+    """
+    
+    env_var = os.getenv('WEBSITE_AUTH_ENCRYPTION_KEY')
+    hash = base64.b64encode(sha256(env_var.encode('utf-8')).digest()).decode('utf-8')
+    return hash == header_value
+```
+
 
 ## Monitoring
 
