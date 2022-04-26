@@ -50,7 +50,7 @@ If you've newly enabled Profiler, you can run a short [load test](/vsts/load-tes
 1. From the Application Insights overview page, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
-   :::image type="content" source="./media/profiler-overview/profiler-button.png" alt-text="Screenshot of the Profiler button from the Performance blade":::
+   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade" lightbox="media/profiler-settings/profiler-button.png":::
 
 1. Once the Profiler settings page loads, select **Profile Now**. 
 
@@ -60,7 +60,7 @@ If you've newly enabled Profiler, you can run a short [load test](/vsts/load-tes
 1. After the Profiler sessions finish running, return to the **Performance** pane. 
 1. Under **Drill into...**, select **Profiler traces** to view the traces.
 
-   :::image type="content" source="./media/profiler-overview/trace-explorer.png" alt-text="Screenshot of trace explorer page":::
+   :::image type="content" source="./media/profiler-overview/trace-explorer-inline.png" alt-text="Screenshot of trace explorer page" lightbox="media/profiler-settings/trace-explorer.png":::
 
 The trace explorer displays the following information:
 

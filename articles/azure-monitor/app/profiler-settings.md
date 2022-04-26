@@ -13,7 +13,7 @@ ms.reviewer: mbullwin
 
 To open the Azure Application Insights Profiler settings pane, select **Performance** from the left menu within your Application Insights page.
 
-:::image type="content" source="./media/profiler-settings/performance-blade.png" alt-text="Link to open performance blade":::
+:::image type="content" source="./media/profiler-settings/performance-blade-inline.png" alt-text="Link to open performance blade" lightbox="media/profiler-settings/performance-blade.png":::
 
 View profiler traces across your Azure resources via two methods: 
 
@@ -21,19 +21,19 @@ View profiler traces across your Azure resources via two methods:
 
 Select the **Profiler** button from the top menu.
 
-  :::image type="content" source="./media/profiler-settings/profiler-button.png" alt-text="Profiler button option for viewing profiler traces":::
+:::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot of the Profiler button from the Performance blade" lightbox="media/profiler-settings/profiler-button.png":::
 
 **By operation**
 
 1. Select an operation from the **Operation name** list ("Overall" is highlighted by default).
 1. Select the **Profiler traces** button.
    
-   :::image type="content" source="./media/profiler-settings/operation-entry.png" alt-text="Select operation and Profiler traces to view all profiler traces":::
+   :::image type="content" source="./media/profiler-settings/operation-entry-inline.png" alt-text="Select operation and Profiler traces to view all profiler traces" lightbox="media/profiler-settings/operation-entry.png":::
 
 1. Select one of the requests from the list to the left.
 1. Select **Configure Profiler**.
 
-   :::image type="content" source="./media/profiler-settings/configure-profiler.png" alt-text="Overall selection and clicking Profiler traces to view all profiler traces":::
+   :::image type="content" source="./media/profiler-settings/configure-profiler-inline.png" alt-text="Overall selection and clicking Profiler traces to view all profiler traces" lightbox="media/profiler-settings/configure-profiler.png":::
 
 Once within the Profiler, you can configure and view the Profiler. The **Application Insights Profiler** page has these features:
 
