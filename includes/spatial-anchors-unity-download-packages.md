@@ -10,7 +10,7 @@ The next step is to download the Azure Spatial Anchors packages for Unity.
 
 To use Azure Spatial Anchors in Unity, you need to download **both** the **core package** (`com.microsoft.azure.spatial-anchors-sdk.core`) and a **platform-specific package** for each platform that you plan to support.
 
-| Platform | Required Package names                                    |
+| Platform | Required package names                                    |
 |----------|-------------------------------------------------|
 | HoloLens | `com.microsoft.azure.spatial-anchors-sdk.core@<version_number>`<br>`com.microsoft.azure.spatial-anchors-sdk.windows@<version_number>` |
 | Android  | `com.microsoft.azure.spatial-anchors-sdk.core@<version_number>`<br>`com.microsoft.azure.spatial-anchors-sdk.android@<version_number>` |
