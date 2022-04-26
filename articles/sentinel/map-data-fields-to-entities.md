@@ -60,14 +60,13 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 ## Notes on the new version
 
-- As the new version is now generally available (GA), the feature flag workaround to use the old version is no longer available. 
+- As the new version is now generally available (GA), the feature-flag workaround to use the old version is no longer available. 
 
-- If you had previously defined entity mappings for this analytics rule using the old version - those mappings which appear in the query code - those will no longer work.
-
-- You must migrate your old entity mappings to the new version.
+- If you had previously defined entity mappings for this analytics rule using the old version, they will be automatically converted to the new version.
 
 ## Next steps
 
 In this document, you learned how to map data fields to entities in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
+
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).
