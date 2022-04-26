@@ -2,10 +2,10 @@
 title: Quickstart - Create and manage Email resources in Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to create and manage your first Azure Email Communication Services resource.
-author: author
-manager: author
+author: bashan-git
+manager: sphenry
 services: azure-communication-services
-ms.author: author
+ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
