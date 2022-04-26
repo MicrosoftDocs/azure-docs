@@ -175,7 +175,7 @@ conceptualContent:
         - url: ../storage/common/azure-defender-storage-configure.md
           itemType: concept
           text:  Microsoft Defender for Storage
-        - url: ../azure-sql/database/threat-detection-overview.md
+        - url: /azure/azure-sql/database/threat-detection-overview
           itemType: concept
           text:  Microsoft Defender for SQL
       footerLink:
