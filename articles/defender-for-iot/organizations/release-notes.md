@@ -11,7 +11,7 @@ ms.date: 04/10/2022
 
 This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
-Features released earlier than nine months ago are listed in [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
+Features released earlier than nine months ago are listed in [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md).
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -53,6 +53,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
+- [Refreshed Protocols DPI (Horizon Plugins) page for plugin management](#refreshed-protocols-dpi-horizon-plugins-page-for-plugin-management)
 
 ### Active discovery scans (Public preview)
 
@@ -131,23 +132,14 @@ For more information, see:
 - [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 
-## April 2022
 
-- [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
+### Refreshed Protocols DPI (Horizon Plugins) page for plugin management
 
-### Extended device property data in the Device inventory
+This version of the sensor provides a refreshed page for managing proprietary plugins you've created using the Horizon SDK.
 
-**Sensor software version**: 22.1.4
+:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page.":::
 
-Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
-
-- **Description**
-- **Tags**
-- **Protocols**
-- **Scanner**
-- **Last Activity**
-
-For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
 ### Documentation improvements
 
@@ -178,6 +170,23 @@ Check out our new structure to follow though viewing devices and assets, managin
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
 >
+## April 2022
+
+- [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
+
+### Extended device property data in the Device inventory
+
+**Sensor software version**: 22.1.4
+
+Starting for sensors updated to version 22.1.4, the **Device inventory** page on the Azure portal shows extended data for the following fields:
+
+- **Description**
+- **Tags**
+- **Protocols**
+- **Scanner**
+- **Last Activity**
+
+For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 ## March 2022
 
