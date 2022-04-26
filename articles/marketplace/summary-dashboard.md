@@ -47,7 +47,7 @@ To download of the data for this dashboard, select **Download as PDF** from the 
 
 :::image type="content" source="./media/summary-dashboard/download-as-pdf.png" alt-text="Screenshot of the Download as PDF link in the Download list.":::
 
-Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/en-us/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
+Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
 
 ### Share
 
@@ -131,7 +131,7 @@ Select the ellipsis (three dots) to copy the widget image, download aggregated w
 
 [![Illustrates the Page visit count widget on the summary dashboard.](./media/summary-dashboard/marketplace-insights-elipsis.png)](./media/summary-dashboard/marketplace-insights-elipsis.png#lightbox)
 
-You can also go to the Marketplace Insights report by selecting the [Marketplace insights dashboard](https://partner.microsoft.com/en-us/dashboard/insights/commercial-marketplace/analytics/marketplaceinsights) link in the lower-left corner of the widget.
+You can also go to the Marketplace Insights report by selecting the [Marketplace insights dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/marketplaceinsights) link in the lower-left corner of the widget.
 
 ### Geographical spread
 
