@@ -17,7 +17,7 @@ Dapr APIs, also referred to as building blocks, are built on best practice indus
 - Seamlessly fit with your preferred language or framework.
 - Are incrementally adoptable; you can use one, several, or all of the building blocks depending on your needs.
 
-Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you, while adhering to industry best practices.
+Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you.
 
 ## Dapr building blocks in Container Apps
 
@@ -52,14 +52,6 @@ Define Dapr sidecars or control plane settings for your container app using a YA
 | `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
 
-# [Dapr OSS](#tab/oss)
-
-In the Dapr CLI, you'll point to the component path that holds the `<component>.yml` spec you've defined. By default, Dapr points to the Redis YAML file that was created with `dapr init`. For the Pub/sub example, you'd the following command:
-
-```bash
-dapr run --app-id nodeapp --components-path ../../../components/ --app-port 3000
-```
-
 # [YAML](#tab/yaml)
 
 When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI using the following command:
@@ -93,12 +85,6 @@ dapr: {
     "appId": "nodeapp",
 }
 ```
-
-# [Azure Service Bus](#tab/asb)
-
-
-
-
 ---
 
 Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
@@ -112,25 +98,6 @@ Dapr components are scoped to a Container App environment and are pluggable modu
 - Can be easily swapped out at the environment level of your Container App.
 
 Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, view the various schemas you can define for a Dapr component in Azure Container Apps and compare with the schema provided with Dapr OSS.
-
-# [Dapr OSS](#tab/oss)
-
-In Dapr OSS, running `dapr init` generates the following default Redis `<component>.yml` spec in the Dapr components directory.
-
-```yml
-apiVersion: dapr.io/v1alpha1
-kind: Component
-metadata:
-  name: pubsub
-spec:
-  type: pubsub.redis
-  version: v1
-  metadata:
-  - name: redisHost
-    value: localhost:6379
-  - name: redisPassword
-    value: ""
-```
 
 # [YAML](#tab/yaml)
 
@@ -230,17 +197,30 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
   ]
 }
 ```
+# [Dapr OSS](#tab/oss)
 
-# [Azure Service Bus](#tab/asb)
+In Dapr OSS, running `dapr init` generates the following default Redis `<component>.yml` spec in the Dapr components directory.
 
-
-
+```yml
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub
+spec:
+  type: pubsub.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: localhost:6379
+  - name: redisPassword
+    value: ""
+```
 
 ---
 
 By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes.
 
-Scope the Dapr component to particular Container Apps by adding the `scopes` property and providing the necessary app IDs. 
+ 
 
 > [!NOTE]
 > Since Dapr components and settings aren't revisionable, all running instances of a revision share the same set of Dapr components. 
@@ -249,7 +229,7 @@ Scope the Dapr component to particular Container Apps by adding the `scopes` pro
 
 :::image type="content" source="media/dapr-overview/sidecar_architecture.png" alt-text="Visualization of Dapr sidecar architecture":::
 
-The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. The Dapr sidecar is named `daprd` and is launched in different ways depending on the hosting environment. By leveraging the Dapr sidecar architecture, you don't need to add any Dapr runtime code in your Container App code.
+The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. These APIs are available through HTTP and gRPC protocols.
 
 ## Current supported Dapr version
 
@@ -271,7 +251,7 @@ Version upgrades are handled transparently by the Container Apps platform. You c
    While we don't currently expose the ability for you to customize your tracing backend, you are able to use Application Insights as your tracing backend.  
 - **Pub/sub**  
    Currently, Container Apps supports Dapr's programmatic subscription model, but not Dapr's declarative Subscription spec.  
-- **ACL policies**
+- **ACL policies**  
   Setting ACL policies on the Dapr sidecar configuration is currently not supported.
 
 ## Next Steps
