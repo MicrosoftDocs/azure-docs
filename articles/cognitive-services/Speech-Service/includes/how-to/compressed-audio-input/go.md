@@ -16,8 +16,6 @@ Speech SDK can use [GStreamer](https://gstreamer.freedesktop.org) to handle comp
 
 [!INCLUDE [Linux](gstreamer-linux.md)]
 
-For more information, see [Installing on Linux](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c). Go language is only supported in the Speech SDK on the Linux platform. To get started with the Speech SDK for Go, see [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
-
 ## Example
 
 To configure the Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream.

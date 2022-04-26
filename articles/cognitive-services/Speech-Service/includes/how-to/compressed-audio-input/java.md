@@ -15,15 +15,15 @@ ms.author: eur
 
 Choose a platform for installation instructions.
 
-### [Android](#tab/android)
+### [Android](#tab/java-android)
 
 [!INCLUDE [Android](gstreamer-android.md)]
 
-### [Linux](#tab/linux)
+### [Linux](#tab/java-linux)
 
 [!INCLUDE [Linux](gstreamer-linux.md)]
 
-### [Windows](#tab/windows)
+### [Windows](#tab/java-windows)
 
 [!INCLUDE [Windows](gstreamer-windows.md)]
 
