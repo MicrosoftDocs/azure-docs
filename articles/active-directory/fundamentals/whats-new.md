@@ -46,16 +46,6 @@ Identity Protection now integrates a signal from Microsoft Defender for Endpoint
 ---
 
 
-### General Availability - Full Access Review configurations now available in Access Packages
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Identity Governance   
-**Clouds impacted:** Public (Microsoft 365,GCC)
-You can now configure your Access Review within Entitlement Management to take actions when reviewers do not respond, configure showing reviewer decision helper and configure requiring reviewer justification.
-
----
-
 ### Public Preview - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
 
 **Type:** New feature  
