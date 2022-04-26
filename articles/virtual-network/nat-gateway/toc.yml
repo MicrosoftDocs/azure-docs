@@ -27,7 +27,9 @@ items:
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md
-  - name: Security
+  - name: Resource health
+    href: resource-health.md
+- name: Security
     items:
     - name: Virtual network NAT security baseline
       href: nat-security-baseline.md
