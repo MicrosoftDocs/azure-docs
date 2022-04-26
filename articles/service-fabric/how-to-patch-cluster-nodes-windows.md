@@ -32,10 +32,9 @@ When enabling automatic OS updates, you'll also need to disable Windows Update i
 
 
 1. Enable automatic OS image upgrades and disable Windows Updates in the deployment template:
-    
- ```json
-    
-"properties": {    
+
+  ```json    
+ "properties": {    
     "upgradePolicy": {          
       "mode": "Automatic",          
         "automaticOSUpgradePolicy": {          
