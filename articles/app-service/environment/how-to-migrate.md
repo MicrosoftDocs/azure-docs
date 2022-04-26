@@ -107,7 +107,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 1. Validate migration is supported
 
-From the [Azure portal](https://portal.azure.com), navigate to the **Migration** page for the App Service Environment you'll be migrating. You can do this by clicking on the banner at the top of the **Overview** page for you App Service Environment or by clicking the **Migration** item on the left-hand side.
+From the [Azure portal](https://portal.azure.com), navigate to the **Migration** page for the App Service Environment you'll be migrating. You can do this by clicking on the banner at the top of the **Overview** page for your App Service Environment or by clicking the **Migration** item on the left-hand side.
 
 ![migration access points](./media/migration/portal-overview.png)
 
@@ -115,7 +115,7 @@ On the migration page, the platform will validate if migration is supported for 
 
 ![migration not supported sample](./media/migration/migration-not-supported.png)
 
-If migration is supported for your App Service Environment, you'll be able to proceed to the next step in the process.The migration page will guide you through the series of steps to complete the migration.
+If migration is supported for your App Service Environment, you'll be able to proceed to the next step in the process. The migration page will guide you through the series of steps to complete the migration.
 
 ![migration page sample](./media/migration/migration-ux-pre.png)
 
