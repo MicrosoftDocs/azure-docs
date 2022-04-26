@@ -1549,6 +1549,8 @@ items:
         href: app/data-model-event-telemetry.md
       - name: Metric
         href: app/data-model-metric-telemetry.md
+      - name: PageView
+        href: app/data-model-pageview-telemetry.md
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
