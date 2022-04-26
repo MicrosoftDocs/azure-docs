@@ -26,7 +26,9 @@ If you develop your scripts locally, it's recommended to have the same module ve
 > [!NOTE]
 > A new Automation account might not contain the latest modules.
 
-## Az modules through the portal (recommended) or runbook
+## Update Az modules
+
+You can update Az modules through the portal (recommended) or through the runbook.
 
 ### Update Az modules through portal 
 
@@ -48,7 +50,7 @@ You can verify the update operation by checking the Module version and Status pr
 
 The Azure team will regularly update the module version and provide an option to update the **default** Az modules by selecting the module version from the drop-down list.  
 
-### Update Az modules through runbook 
+### Update Az modules through runbook  
 
 To update the Azure modules in your Automation account, you must use the [Update-AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook, available as open source. To start using this runbook to update your Azure modules, download it from the GitHub repository. You can then import it into your Automation account or run it as a script. To learn how to import a runbook in your Automation account, see [Import a runbook](manage-runbooks.md#import-a-runbook). In case of any runbook failure, we recommend that you modify the parameters in the runbook according to your specific needs, as the runbook is available as open-source and provided as a reference.
 
