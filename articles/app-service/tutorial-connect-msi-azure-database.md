@@ -378,7 +378,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     # [Azure SQL Database](#tab/sqldatabase)
 
-    ```terminal
+    ```dotnetcli
     dotnet add package Microsoft.Data.SqlClient
     ```
 
