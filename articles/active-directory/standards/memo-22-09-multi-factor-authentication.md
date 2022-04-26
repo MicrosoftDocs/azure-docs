@@ -31,33 +31,43 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 - **[FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)** are, according to the [Cybersecurity & Infrastructure Security Agency (CISA)](https://www.cisa.gov/mfa) the gold standard of multifactor authentication.
 
-- **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers native support for certificate use, including smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV). These methods are in use throughout the US Department of Defense (DoD) & US Federal Civilian agencies as well as derived credentials (Such as derived CAC/PIV) on mobile devices or security keys
+- **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers cloud native  certificate based authentication (without dependency on a federated identity provider). This includes smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV) as well as derived PIV credentials deployed to mobile devices or security keys
 
 - **[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multifactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
 
 ### Protection from external phishing
 
-**[Microsoft Authenticator](../authentication/concept-authentication-authenticator-app.md) and conditional access policies that enforce managed devices**. managed devices are hybrid Azure AD joined or compliant.**
+**[Microsoft Authenticator](../authentication/concept-authentication-authenticator-app.md) and conditional access policies that enforce managed devices**. Managed devices are Hybrid Azure AD joined device or device marked as compliant.
 
-> [!NOTE]
+Microsoft Authenticator can be installed on the device accessing the application protected by Azure AD or on a separate device.
+
+>[!Important]
 >
-> Today, Microsoft Authenticator by itself is **not** phishing-resistant. You must additionally secure the authentication with the phishing resistant properties gained from conditional access policy enforcement of managed devices. This approach protects against phishing threats from the most significant vector of phishing threats from malicious external actors.
+>To meet the phishing-resistant requirement with this approach:
 >
->**Microsoft Authenticator native phishing resistance is in development.** Once available, Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
+>- Only the device accessing the protected application needs to be managed
+>- All users allowed to use Microsoft Authenticator must be in scope for conditional access policy requiring managed device for access to all applications. 
+>
+>This conditional access policy effectively prevents both:
+>
+>- The most significant vector of phishing threats from malicious external actors.
+>- A malicious actor's ability to phish Microsoft Authenticator and then use it to register a new credential or device.
 
-Two scenarios for using Microsoft Authenticator on a mobile device:
-
-- If the mobile devices is used to access the application in addition to hosting Microsoft Authenticator, it musts be managed.
-- If Microsoft Authenticator resides on the mobile device, but the application is accessed from a separate managed device, the mobile device does not need to be managed.
-
-For more information on using this method, see the following resources:
+For more information on deploying this method, see the following resources:
 - [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
- 
+
 - [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
+
+>[!NOTE]
+>
+> Today, Microsoft Authenticator by itself is **not** phishing-resistant. You must additionally secure the authentication with the phishing resistant properties gained from conditional access policy enforcement of managed devices.
+>
+>**Microsoft Authenticator native phishing resistance is in development.** Once available, Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join device or device marked as compliant.
 
 ### Legacy
 
-**Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication** are legacy solutions we recommend you move away from. However, if you cannot move to modern methods, the following resources will be useful:
+**Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication** While agencies can achieve phishing resistance via federated IdP, adopting or continuing to use a federated IdP adds significant cost, complexity and risk. Microsoft encourages agencies to realize the security benefits of Azure AD as a cloud based identity provider, mitigating associated risk of a federated Idp.
+
 - [Deploying Active Directory Federation Services in Azure](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 - [Configuring AD FS for user certificate authentication](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
@@ -74,18 +84,6 @@ Consider the following when evaluating phishing-resistant MFA methods:
 - Logistics of distributing, configuring, and registering MFA methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips.
 
 - Need for FIPS 140 validation at a specific [authenticator assurance level](nist-about-authenticator-assurance-levels.md). For example, some FIDO security keys are FIPS 140 validated at levels required for [AAL3](nist-authenticator-assurance-level-3.md), as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
-
-> [!IMPORTANT]
-
-> Microsoft recommends you secure both registration of MFA credentials such as FIDO2 security keys and Microsoft Authenticator App, and device registration.
-
-
-For more information on securing registrations, see the following resources:
-- [Conditional Access: Securing security info registration](../conditional-access/howto-conditional-access-policy-registration.md)
-
-- [Conditional Access: Securing Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions)
-
-
 
 ## Implementation considerations for phishing-resistant MFA
 
