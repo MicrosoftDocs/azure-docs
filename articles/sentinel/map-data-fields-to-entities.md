@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 > [!IMPORTANT]
 >
-> - See [Notes on the new version](#notes-on-the-new-version) at the end of this document for important information about backward compatibility and differences between the new and old versions of entity mapping.
+> - See "[Notes on the new version](#notes-on-the-new-version)" at the end of this document for important information about backward compatibility and differences between the new and old versions of entity mapping.
 
 ## Introduction
 
@@ -60,18 +60,11 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 ## Notes on the new version
 
-- If you had previously defined entity mappings for this analytics rule using the old version, those mappings appear in the query code. Entity mappings defined under the new version **do not appear in the query code**. Analytics rules can only support one version of entity mappings at a time, and the new version takes precedence. Therefore, any single mapping you define here will cause **any and all** mappings defined in the query code to be **disregarded** when the query runs. 
+- As the new version is now generally available (GA), the feature flag workaround to use the old version is no longer available. 
 
-- As the new version is now generally available (GA), the feature flag workaround to use the old version is no longer available. You must migrate your old entity mappings to the new version.
+- If you had previously defined entity mappings for this analytics rule using the old version - those mappings which appear in the query code - those will no longer work.
 
-<!-- - If you still need to use the **old version** of entity mapping (as long as the new version is still in preview), you can still access it using a feature flag in the URL. Place your cursor between `https://portal.azure.com/` and `#blade`, and insert the text `?feature.EntityMapping=false`.
-
-  - The limits of the old version will continue to apply. You can map only the user, host, IP address, URL, and file hash entities, and only one of each.
-
-  - You must **remove** any entity mappings created using the new version **before** you return to the old version, otherwise any entity mappings that use the old version **will not work**.
-
-- Once the new version of entity mapping is in General Availability, it will no longer be possible to use the old version. It is highly recommended that you migrate your old entity mappings to the new version.
--->
+- You must migrate your old entity mappings to the new version.
 
 ## Next steps
 
