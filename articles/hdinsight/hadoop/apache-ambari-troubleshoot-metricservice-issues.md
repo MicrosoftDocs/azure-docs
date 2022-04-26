@@ -14,7 +14,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Scenario: OutOfMemoryError or Unresponsive Apache Ambari Metrics Collector
 
-### Backgournd
+### Background
 
 The Ambari Metrics Collector is a daemon that runs on a specific host in the cluster and receives data from the registered publishers, Monitors, and Sinks.
 
