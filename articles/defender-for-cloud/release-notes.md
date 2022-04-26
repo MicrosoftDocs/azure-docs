@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/13/2022
+ms.date: 04/26/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -32,16 +32,16 @@ Updates in April include:
 
 ### New Defender for Servers plans
 
-Microsoft Defender for Servers is now offered in two incremental plans.
+Microsoft Defender for Servers is now offered in two incremental plans:
 
-- Microsoft Defender for Servers Plan 2, formerly Defender for Servers
-- Microsoft Defender for Servers Plan 1, including support for Defender for Endpoint only
+- Defender for Servers Plan 2, formerly Defender for Servers
+- Defender for Servers Plan 1, provides support for Microsoft Defender for Endpoint only
 
-While Microsoft Defender for Servers Plan 2 continues to provide,  complete protections from threats and vulnerabilities to your cloud and on-premises workloads, Microsoft Defender for Servers Plan 1 provides endpoint protection only, powered by Microsoft Defender for Endpoint and natively integrated with Defender for Cloud. Read more about the [Microsoft Defender for Servers plans](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
+While Defender for Servers Plan 2 continues to provide protections from threats and vulnerabilities to your cloud and on-premises workloads, Defender for Servers Plan 1 provides endpoint protection only, powered by the natively integrated Defender for Endpoint. Read more about the [Defender for Servers plans](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
 
-If you have been using Defender for Servers until now – no action is required.
- 
-In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads, and will start deploying the unified agent soon.
+If you have been using Defender for Servers until now no action is required.
+
+In addition, Defender for Cloud also begins gradual support for the [Defender for Endpoint unified agent for Windows Server 2012 R2 and 2016](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292). Defender for Servers Plan 1 deploys the new unified agent to Windows Server 2012 R2 and 2016 workloads. Defender for Servers Plan 2 deploys the legacy agent to Windows Server 2012 R2 and 2016 workloads and will start deploying the unified agent soon.
 
 ### Relocation of custom recommendations
 
