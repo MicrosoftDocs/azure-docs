@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/29/2022
+ms.date: 02/22/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -108,6 +108,18 @@ When a task replicates from Service Bus to Event Hubs, the task maps only the `U
 For Event Hubs, replication between the same number of [partitions](../event-hubs/event-hubs-features.md#partitions) creates 1:1 clones with no changes in the events, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates. For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
 For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
+
+> [!IMPORTANT]
+> Replication tasks don't track which messages have already been processed when the source experiences 
+> a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to 
+> track the already processed messages so that processing resumes only with the unprocessed messages.
+>
+> For example, you can set up a database that stores the proccessing state for each message. 
+> When a message arrives, check the message's state and process only when the message is unprocessed. 
+> That way, no processing happens for an already processed message. 
+>
+> This pattern demonstrates the *idempotence* concept where repeating an action on an input produces 
+> the same result without other side effects or won't change the input's value. 
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 

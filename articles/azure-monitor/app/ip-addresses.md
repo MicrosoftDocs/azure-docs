@@ -3,7 +3,6 @@ title: IP addresses used by Azure Monitor
 description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-
 ---
 
 # IP addresses used by Azure Monitor

@@ -79,7 +79,7 @@ All the data is under one root element, for which the path is `"/document"`. The
 ## Simple paths
 
 Simple paths through the internal enriched document can be expressed with simple tokens separated by slashes.
-This syntax is similar to [the JSON Pointer specification](https://datatracker.ietf.org/doc/html/rfc6901.htmlhttps://datatracker.ietf.org/doc/html/rfc6901.html).
+This syntax is similar to [the JSON Pointer specification](https://datatracker.ietf.org/doc/html/rfc6901.html).
 
 ### Object properties
 

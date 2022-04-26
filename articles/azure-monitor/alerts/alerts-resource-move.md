@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 02/14/2021
+ms.date: 2/23/2022
 ---
 # How to update alert rules or alert processing rules when their target resource moves to a different Azure region
 

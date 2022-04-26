@@ -1,13 +1,14 @@
 ---
 # Mandatory fields.
-title: Create an app registration (CLI)
+title: Create an app registration with Azure Digital Twins access (CLI)
 titleSuffix: Azure Digital Twins
-description: Learn how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
+description: Use the CLI to create an Azure AD app registration that can access Azure Digital Twins resources.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/24/2022
+ms.date: 2/24/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -19,17 +20,11 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-This article describes how to create an app registration to use with Azure Digital Twins using the CLI. It includes instructions for creating a manifest file containing service information, creating the app registration, verifying success, collecting important values, and other possible steps that your organization may require.
+This article describes how to use the Azure CLI to create an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins.
 
-When working with an Azure Digital Twins instance, it's common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
+When working with Azure Digital Twins, it's common to interact with your instance through client applications. Those applications need to authenticate with Azure Digital Twins, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an app registration.
 
-The app registration isn't required for all authentication scenarios. However, if you're using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli). It also covers how to [collect important values](#collect-important-values) that you'll need to use the app registration to authenticate.
-
-## Azure AD app registrations
-
-[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's cloud-based identity and access management service. Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
-
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](concepts-apis-sdks.md). Later, client apps can authenticate against the app registration using the registration's **client and tenant ID values**, and as a result be granted the configured access permissions to the APIs.
+The app registration isn't required for all authentication scenarios. However, if you're using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up and grant it permissions to the Azure Digital Twins APIs. It also covers how to collect important values that you'll need to use the app registration when authenticating.
 
 >[!TIP]
 > You may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.

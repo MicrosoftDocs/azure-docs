@@ -4,7 +4,6 @@ description: Learn about the steps required to upgrade your Azure Monitor Applic
 ms.topic: conceptual
 ms.date: 09/23/2020 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Migrate to workspace-based Application Insights resources

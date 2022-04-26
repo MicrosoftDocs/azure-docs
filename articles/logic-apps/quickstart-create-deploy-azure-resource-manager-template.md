@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Create and deploy logic app workflow by using Azure Resource Manager templates
-description: How to create and deploy a logic app using Azure Resource Manager templates
+description: How to create and deploy a logic app using Azure Resource Manager templates.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/01/2021

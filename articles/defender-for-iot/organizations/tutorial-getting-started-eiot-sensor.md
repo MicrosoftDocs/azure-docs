@@ -28,11 +28,11 @@ An Azure subscription is required for this tutorial.
 
 If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+If you already have a subscription that is onboarded for Microsoft Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
-There is a minimum security level needed to access different parts of Azure Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
+There is a minimum security level needed to access different parts of Microsoft Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
 
-The following table describes user access permissions to Azure Defender for IoT portal tools:
+The following table describes user access permissions to Microsoft Defender for IoT portal tools:
 
 | Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|

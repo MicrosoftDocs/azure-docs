@@ -32,7 +32,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
-1. Select **Virtual network**.
+1. Select **Network**.
 1. Select the **External** access type.
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select VNet in Azure portal.":::
 
@@ -43,7 +43,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
         :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="VNet settings in the portal.":::
 
-1. Select **Apply**. The **Virtual network** page of your API Management instance is updated with your new VNet and subnet choices.
+1. Select **Apply**. The **Network** page of your API Management instance is updated with your new VNet and subnet choices.
 
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 

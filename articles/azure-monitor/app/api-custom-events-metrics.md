@@ -183,7 +183,7 @@ appInsights.trackMetric({name: "queueLength", average: 42});
 ```csharp
 var sample = new MetricTelemetry();
 sample.Name = "queueLength";
-sample.Value = 42.3;
+sample.Sum = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
 

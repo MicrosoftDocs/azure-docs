@@ -333,6 +333,12 @@ When you choose to deploy a security partner provider to protect Internet access
 
 For more information regarding the available options third-party security providers and how to set this up, see [Deploy a security partner provider](../firewall-manager/deploy-trusted-security-partner.md).
 
+### Why am I seeing a message and button called "Update router to latest software version" in portal?
+
+The Virtual WAN team has been working on upgrading virtual routers from their current cloud service infrastructure to Virtual Machine Scale Sets (VMSS) based deployments. This will enable the virtual hub router to now be availability zone aware and have enhanced scaling out capabilities during high CPU usage. If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the lastest version by clicking on the button. 
+
+Please note that you’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNET connections) in your hub are in a succeeded state. Additionally, as this operation requires deployment of new VMSS based virtual hub routers, you’ll face an expected downtime of 30 minutes per hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating.   
+
 ## Next steps
 
 * For more information about Virtual WAN, see [About Virtual WAN](virtual-wan-about.md).

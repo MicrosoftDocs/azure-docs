@@ -1,10 +1,10 @@
 ---
-title: Monitor B2B messages by using Azure Monitor
-description: Troubleshoot AS2, X12, and EDIFACT messages by setting up Azure Monitor logs and collecting diagnostics data for Azure Logic Apps
+title: Monitor B2B messages with Azure Monitor
+description: Troubleshoot AS2, X12, and EDIFACT messages with Azure Monitor logs and collecting diagnostics data for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: divswa, logicappspm
-ms.topic: article
+ms.reviewer: divswa, azla
+ms.topic: how-to
 ms.date: 01/30/2020
 ---
 

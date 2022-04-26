@@ -18,7 +18,7 @@ ms.author: eur
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/quickstarts/speech-sdk.md?pivots=programming-language-csharp#get-the-speech-sdk) for any more requirements.
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
@@ -46,10 +46,10 @@ Follow these steps to create a new console application and install the Speech SD
     
     class Program 
     {
-        static var YourSubscriptionKey = "YourSubscriptionKey";
-        static var YourServiceRegion = "YourServiceRegion";
+        static string YourSubscriptionKey = "YourSubscriptionKey";
+        static string YourServiceRegion = "YourServiceRegion";
 
-        static void OutputSpeechRecognitionResult(SpeechRecognitionResult result)
+        static void OutputSpeechRecognitionResult(SpeechRecognitionResult speechRecognitionResult)
         {
             switch (speechRecognitionResult.Reason)
             {
@@ -114,4 +114,3 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
-

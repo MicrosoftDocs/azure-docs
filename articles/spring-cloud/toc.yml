@@ -31,8 +31,6 @@ items:
       href: quickstart-setup-application-configuration-service-enterprise.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
-    - name: Set up Service Registry
-      href: quickstart-setup-service-registry-enterprise.md
   - name: Set up Log Analytics
     href: quickstart-setup-log-analytics.md
   - name: Use logs, metrics and tracing

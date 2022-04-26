@@ -77,7 +77,10 @@ Automated machine learning automatically tries different models and algorithms a
 
 ### Configuration settings
 
-Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. Forecasting tasks require the `time_column_name` and `forecast_horizon` parameters to configure your experiment. If the data includes multiple time series, such as sales data for multiple stores or energy data across different states, automated ML automatically detects this and sets the `time_series_id_column_names` parameter for you. You can also include additional parameters to better configure your run, see the [optional configurations](#optional-configurations) section for more detail on what can be included.
+Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. Forecasting tasks require the `time_column_name` and `forecast_horizon` parameters to configure your experiment. If the data includes multiple time series, such as sales data for multiple stores or energy data across different states, automated ML automatically detects this and sets the `time_series_id_column_names` parameter (preview) for you. You can also include additional parameters to better configure your run, see the [optional configurations](#optional-configurations) section for more detail on what can be included.
+
+> [!IMPORTANT]
+> Automatic time series identification is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 | Parameter&nbsp;name | Description |
 |-------|-------|

@@ -115,4 +115,4 @@ WHERE shardid = 102027;
 
 ## Next steps
 
-- Learn how to [choose a distribution column](concepts-choose-distribution-column.md) for distributed tables.
+- Learn how to [choose a distribution column](howto-choose-distribution-column.md) for distributed tables.

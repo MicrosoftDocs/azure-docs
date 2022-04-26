@@ -457,7 +457,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
 
-    In the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command, the *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) command to deploy from a different image.
+    In the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command, the *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) command to deploy from a different image. NOTE: If you are using a custom container registry then the *deployment-container-image-name* parameter will refer to the registry URL.
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
@@ -465,7 +465,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     ```
     ---
     
-    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your DockerHub ID.    
+    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your DockerHub ID. When deploying from a custom container registry, use the `deployment-container-image-name` parameter to indicate the URL of the registry.   
     
     > [!TIP]  
     > You can use the [`DisableColor` setting](functions-host-json.md#console) in the host.json file to prevent ANSI control characters from being written to the container logs. 

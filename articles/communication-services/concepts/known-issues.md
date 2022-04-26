@@ -29,7 +29,7 @@ Chrome version 98 introduced a regression with anormal generation of video keyfr
 
 ### Some Android devices failing to join calls and meetings.
 
-A number of specific Android devices fail to start, join or accept calls and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung moodel A devices, particularly models A326U, A125U and A215U.
+A number of specific Android devices fail to start, join or accept calls and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.
 - This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
 
 ### iOS 15.1 users joining group calls or Microsoft Teams meetings.

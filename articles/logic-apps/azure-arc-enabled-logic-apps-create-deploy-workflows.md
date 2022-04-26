@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, reylons, archidda, sopai, azla
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 #Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 

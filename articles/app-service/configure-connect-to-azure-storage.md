@@ -89,6 +89,9 @@ The following features are supported for Linux containers:
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
+> [!NOTE]
+> Ensure ports 80 and 445 are open when using Azure Files with VNET integration.
+> 
 ::: zone-end
 
 ::: zone pivot="container-linux"
@@ -101,6 +104,11 @@ The following features are supported for Linux containers:
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
+> [!NOTE]
+> When VNET integration is used, ensure the following ports are open:
+> * Azure Files: 80 and 445.
+> * Azure Blobs: 80 and 443.
+> 
 ::: zone-end
 
 ::: zone pivot="container-windows"

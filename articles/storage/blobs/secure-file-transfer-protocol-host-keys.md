@@ -1,5 +1,5 @@
 ---
-title: Host keys for SFTP support in Azure Blob Storage (preview) | Microsoft Docs
+title: Host keys for SFTP support for Azure Blob Storage (preview) | Microsoft Docs
 description: Find a list of valid host keys when using an SFTP client to connect with Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
@@ -15,7 +15,7 @@ ms.reviewer: ylunagaria
 
 This article contains a list of valid host keys used to connect to Azure Blob Storage from SFTP clients.
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management. For more information, see [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management. For more information, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 When you connect to Blob Storage by using an SFTP client, you might be prompted to trust a host key. During the public preview, you can verify the host key by finding that key in the list presented in this article. 
 
@@ -225,4 +225,4 @@ When you connect to Blob Storage by using an SFTP client, you might be prompted 
 
 ## See also
 
-- [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)

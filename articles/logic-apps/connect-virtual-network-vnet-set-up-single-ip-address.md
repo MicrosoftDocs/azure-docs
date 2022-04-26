@@ -1,10 +1,10 @@
 ---
 title: Set up a public outbound IP address for ISEs
-description: Learn how to set up a single public outbound IP address for integration service environments (ISEs) in Azure Logic Apps
+description: Learn how to set up a single public outbound IP address for integration service environments (ISEs) in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 05/06/2020
 ---
 

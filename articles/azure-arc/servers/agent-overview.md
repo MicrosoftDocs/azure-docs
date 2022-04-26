@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/19/2022
+ms.date: 02/28/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -100,10 +100,10 @@ The following versions of the Windows and Linux operating system are officially 
 * Oracle Linux 7 (x64)
 
 > [!WARNING]
-> The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
+> The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
 
 > [!NOTE]
-> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distro:
+> While Azure Arc-enabled servers supports Amazon Linux, the following features are not support by this distribution:
 >
 > * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
@@ -135,7 +135,7 @@ Azure Arc-enabled servers depend on the following Azure resource providers in yo
 * **Microsoft.GuestConfiguration**
 * **Microsoft.HybridConnectivity**
 
-If they are not registered, you can register them using the following commands:
+If these resource providers are not already registered, you can register them using the following commands:
 
 Azure PowerShell:
 
@@ -156,7 +156,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 az provider register --namespace 'Microsoft.HybridConnectivity'
 ```
 
-You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+You can also register the resource providers in the [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ### Transport Layer Security 1.2 protocol
 
@@ -188,36 +188,46 @@ Service Tags:
 
 URLs:
 
-| Agent resource | Description |
-|---------|---------|
-|`azgn*.servicebus.windows.net`|Notification service for extensions|
-|`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
-|`login.microsoftonline.com`|Azure Active Directory|
-|`pas.windows.net`|Azure Active Directory|
-|`*.guestconfiguration.azure.com` |Extension and guest configuration services|
-|`*.his.arc.azure.com`|Metadata and hybrid identity services|
-|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
-|`dc.services.visualstudio.com`|Agent telemetry|
-|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service|
+| Agent resource | Description | When required| Endpoint used with private link |
+|---------|---------|--------|---------|
+|`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
+|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
+|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
+|`login.windows.net`|Azure Active Directory|Always| Public |
+|`login.microsoftonline.com`|Azure Active Directory|Always| Public |
+|`pas.windows.net`|Azure Active Directory|Always| Public |
+|`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
+|`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
+|`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
+|`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
+|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
+|`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
-For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
-For more information, review [Service tags overview](../../virtual-network/service-tags-overview.md).
+For more information, see [Virtual network service tags](../../virtual-network/service-tags-overview.md).
 
 ## Installation and configuration
 
-Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
-
-> [!IMPORTANT]
-> The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
+Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods, depending on your requirements and the tools you prefer to use. The following table highlights each method so that you can determine which works best for your deployment.
 
 | Method | Description |
 |--------|-------------|
-| Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
-| At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](onboard-service-principal.md).<br> This method creates a service principal to connect machines non-interactively.|
-| At scale | Install and configure the agent for multiple machines following the method [Connect hybrid machines to Azure from Automation Update Management](onboard-update-management-machines.md).<br> This method creates a service principal, and installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
-| At scale | Install and configure the agent for multiple machines following the method [Using Windows PowerShell DSC](onboard-dsc.md).<br> This method uses a service principal to connect machines non-interactively with PowerShell DSC. |
+| Interactively | Manually install the agent on a single or small number of machines by [connecting machines using a deployment script](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
+| Interactively | [Connect machines from Windows Admin Center](onboard-windows-admin-center.md) |
+| Interactively or at scale | [Connect machines using PowerShell](onboard-powershell.md) |
+| Interactively or at scale | [Connect machines using Windows PowerShell Desired State Configuration (DSC)](onboard-dsc.md) |
+| At scale | [Connect machines using a service principal](onboard-service-principal.md) to install the agent at scale non-interactively.|
+| At scale | [Connect machines by running PowerShell scripts with Configuration Manager](onboard-configuration-manager-powershell.md)
+| At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
+| At scale | [Connect machines from Automation Update Management](onboard-update-management-machines.md) to create a service principal that installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
+
+
+
+
+> [!IMPORTANT]
+> The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
 
 ## Connected Machine agent technical overview
 
@@ -225,7 +235,7 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 
 The Connected Machine agent for Windows can be installed by using one of the following three methods:
 
-* Double-click the file `AzureConnectedMachineAgent.msi`.
+* Running the file `AzureConnectedMachineAgent.msi`.
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
 

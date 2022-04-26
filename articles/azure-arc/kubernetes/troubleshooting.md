@@ -75,9 +75,11 @@ Connecting clusters to Azure requires both access to an Azure subscription and `
 
 If you are using Helm version >= 3.7.0, you will run into the following error when `az connectedk8s connect` is run to connect the cluster to Azure Arc:
 
-```console
-$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
+```azurecli
+az connectedk8s connect -n AzureArcTest -g AzureArcTest
+```
 
+```output
 Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
 Run 'helm --help' for usage.
 ```
@@ -89,7 +91,10 @@ In this case, you'll need to install a prior version of [Helm 3](https://helm.sh
 If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error.
 
 ```azurecli
-$ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
+az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
+```
+
+```output
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 
@@ -116,7 +121,10 @@ If `az connectedk8s connect` is timing out and failing when connecting an OpenSh
 Connecting a Kubernetes cluster to Azure Arc-enabled Kubernetes requires installation of Azure Arc agents on the cluster. If the cluster is running over a slow internet connection, the container image pull for agents may take longer than the Azure CLI timeouts.
 
 ```azurecli
-$ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
+az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
+```
+
+```output
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
@@ -125,8 +133,11 @@ This operation might take a while...
 
 Helm `v3.3.0-rc.1` version has an [issue](https://github.com/helm/helm/pull/8527) where helm install/upgrade (used by `connectedk8s` CLI extension) results in running of all hooks leading to the following error:
 
-```console
-$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
+```azurecli
+az connectedk8s connect -n AzureArcTest -g AzureArcTest
+```
+
+```output
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
@@ -154,14 +165,14 @@ To recover from this issue, follow these steps:
 
 To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
 
-```console
+```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8s-configuration create <parameters> --debug
 ```
 
 To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
 
-```console
+```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8s-configuration flux create <parameters> --debug
 ```
@@ -222,11 +233,11 @@ If you experience an error during installation or if the extension is in a faile
 
 One example:
 
-```console
+```azurecli
 az k8s-extension show -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <connectedClusters or managedClusters>
-flux
+```
 
-...
+```output
 "statuses": [
     {
       "code": "InstallationFailed",
@@ -240,9 +251,11 @@ flux
 
 Another example:
 
-```console
+```azurecli
 az k8s-extension show -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <connectedClusters or managedClusters>
+```
 
+```output
 "statuses": [
     {
       "code": "InstallationFailed",
@@ -267,8 +280,11 @@ Reason: Bad Request'}]}
 
 For all these cases, possible remediation actions are to force delete the extension, uninstall the Helm release, and delete the `flux-system` namespace from the cluster.
 
-```console
+```azurecli
 az k8s-extension delete --force -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <managedClusters OR connectedClusters>
+```
+
+```console
 helm uninstall flux -n flux-system
 kubectl delete namespaces flux-system
 ```
@@ -277,9 +293,9 @@ Some other aspects to consider:
     
 * For AKS cluster, assure that the subscription has the following feature flag enabled: `Microsoft.ContainerService/AKS-ExtensionManager`.
 
-     ```console
+     ```azurecli
      az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
-    ```
+     ```
 
 * Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
 
@@ -328,9 +344,11 @@ juju config kubernetes-worker allow-privileged=true
 
 Usage of older version of agents where Cluster Connect feature was not yet supported will result in the following error:
 
-```console
-$ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+```azurecli
+az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+```
 
+```output
 Hybrid connection for the target resource does not exist. Agent might not have started successfully.
 ```
 
@@ -340,9 +358,11 @@ When this occurs, ensure that you are using `connectedk8s` Azure CLI extension o
 
 If the Cluster Connect feature is disabled on the cluster, then `az connectedk8s proxy` will fail to establish a session with the cluster.
 
-```console
-$ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+```azurecli
+az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+```
 
+```output
 Cannot connect to the hybrid connection because no agent is connected in the target arc resource.
 ```
 
@@ -360,20 +380,20 @@ The above warning is observed when you have used a service principal to log into
 
 1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
-    ```console
+    ```azurecli
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
 1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
     - If you are enabling custom locations feature as part of connecting the cluster to Arc, run the following command:
 
-        ```console
+        ```azurecli
         az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
         ```
 
     - If you are enabling custom locations feature on an existing Azure Arc-enabled Kubernetes cluster, run the following command:
 
-        ```console
+        ```azurecli
         az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
         ```
 

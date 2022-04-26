@@ -52,6 +52,7 @@ After creating a Communication Services resource you can start building client s
 |**[Join your calling app to a Teams meeting](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.|
 |**[Get started with chat](./quickstarts/chat/get-started.md)**|The Azure Communication Services Chat SDK is used to add rich real-time text chat into your applications.|
 |**[Connect a Microsoft Bot to a phone number](https://github.com/microsoft/botframework-telephony)**|Telephony channel is a channel in Microsoft Bot Framework that enables the bot to interact with users over the phone. It leverages the power of Microsoft Bot Framework combined with the Azure Communication Services and the Azure Speech Services.  |
+| **[Add visual communication experiences](https://aka.ms/acsstorybook)** | The UI Library for Azure Communication Services enables you to easily add rich, visual communication experiences to your applications for both calling and chat. |
 
 ## Samples
 
@@ -75,6 +76,7 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
+|**[UI Library overview](https://aka.ms/acsstorybook))**| Review the UI Library for the Communication Services |
 
 ## Other Microsoft Communication Services
 

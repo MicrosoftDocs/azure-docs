@@ -4,7 +4,6 @@ description: Sample Azure Resource Manager templates to deploy an Azure App Serv
 ms.topic: sample
 ms.custom: devx-track-dotnet
 ms.date: 08/06/2020
-
 ---
 
 # Resource Manager template samples for creating Azure App Services web apps with Application Insights monitoring

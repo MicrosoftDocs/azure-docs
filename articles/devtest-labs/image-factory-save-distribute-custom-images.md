@@ -19,7 +19,7 @@ The following items should already be in place:
 If needed, follow steps in the [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md) to create or set up these items. 
 
 ## Save VMs as generalized VHDs
-Save the existing VMs as generalized VHDs.  There's a sample PowerShell script to save the existing VMs as generalized VHDs. To use it, first, add another **Azure Powershell** task to the build definition as shown in the following image:
+Save the existing VMs as generalized VHDs.  There's a sample PowerShell script to save the existing VMs as generalized VHDs. To use it, first, add another **Azure PowerShell** task to the build definition as shown in the following image:
 
 ![Add Azure PowerShell step](./media/save-distribute-custom-images/powershell-step.png)
 

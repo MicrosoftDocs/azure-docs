@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 12/07/2021
+ms.date: 02/21/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,32 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2022-02-28
+
+### Azure Machine Learning SDK for Python v1.39.0
+  + **azureml-automl-core**
+    +  Fix incorrect form displayed in PBI for integration with AutoML regression models
+    +  Adding min-label-classes check for both classification tasks (multi-class and multi-label). It will throw an error for the customer's run if the unique number of classes in the input training dataset is fewer than 2. It is meaningless to run classification on fewer than two classes.
+  + **azureml-automl-runtime**
+    +  Converting decimal type y-test into float to allow for metrics computation to proceed without errors.   
+    +  Automl training now supports numpy version 1.8.    
+  + **azureml-contrib-automl-dnn-forecasting**
+    +  Fixed a bug in the TCNForecaster model where not all training data would be used when cross-validation settings were provided.
+    +  TCNForecaster wrapper's forecast method that was corrupting inference-time predictions. Also fixed an issue where the forecast method would not use the most recent context data in train-valid scenarios.
+  + **azureml-interpret**
+    +  For azureml-interpret package, remove shap pin with packaging update. Remove numba and numpy pin after CE env update.
+  + **azureml-responsibleai**
+    +  azureml-responsibleai package to raiwidgets and responsibleai 0.17.0 release
+  + **azureml-synapse**
+    +  Fix the issue that magic widget is disappeared.
+  + **azureml-train-automl-runtime**
+    +  Updating AutoML dependencies to support python 3.8. This change will break compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
+    +  Automl training now supports numpy version 1.19
+    +  Fix automl reset index logic for ensemble models in automl_setup_model_explanations API
+    +  In automl, use lightgbm surrogate model instead of linear surrogate model for sparse case after latest lightgbm version upgrade
+    +  All internal intermediate artifacts that are produced by AutoML are now stored transparently on the parent run (instead of being sent to the default workspace blob store). Users should be able to see the artifacts that AutoML generates under the 'outputs/` directory on the parent run.
+
+ 
 ## 2022-01-24 
 
 ### Azure Machine Learning SDK for Python v1.38.0 

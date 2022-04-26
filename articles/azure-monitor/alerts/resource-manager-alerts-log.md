@@ -4,7 +4,7 @@ description: Sample Azure Resource Manager templates to deploy Azure Monitor log
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 07/12/2021
+ms.date: 2/23/2022
 
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: Microsoft Sentinel SAP data connector expert configuration options, on-premises deployment, and SAPControl log sources  | Microsoft Docs
 description: Learn how to deploy the Microsoft Sentinel data connector for SAP environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
-author: batamig
-ms.author: bagol
+author: MSFTandrelom
+ms.author: andrelom
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 02/22/2022
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
@@ -352,6 +352,33 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
 |**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
+
+### Configuring User Master data collection
+
+To ingest tables directly from your SAP system with details about your users and role authorizations, configure your **systemconfig.ini** file with a `True`/`False` statement for each table. 
+
+For example:
+
+```python
+[ABAP Table Selector] 
+USR01_FULL = True
+USR02_FULL = True
+USR02_INCREMENTAL = True
+UST04_FULL = True
+AGR_USERS_FULL = True
+AGR_USERS_INCREMENTAL = True
+USR21_FULL = True
+AGR_1251_FULL = True
+ADR6_FULL = True
+AGR_TCODES_FULL = True 
+DEVACCESS_FULL = True
+AGR_DEFINE_FULL = True
+AGR_DEFINE_INCREMENTAL = True
+AGR_PROF_FULL = True
+PAHI_FULL = True
+```
+
+For more information, see [Tables retrieved directly from SAP systems](sap-solution-log-reference.md#tables-retrieved-directly-from-sap-systems).
 
 ## Next steps
 

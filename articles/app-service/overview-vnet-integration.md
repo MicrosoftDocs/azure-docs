@@ -91,6 +91,20 @@ Learn [how to configure application routing](./configure-vnet-integration-routin
 
 We recommend that you use the **Route All** configuration setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing WEBSITE_VNET_ROUTE_ALL app setting can still be used, and you can enable all traffic routing with either setting.
 
+#### Configuration routing
+
+When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, the mentioned configurations will go directly to the internet unless you actively configure it to be routed through the virtual network integration.
+
+##### Content storage
+
+Bringing you own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
+
+To route content storage traffic through the virtual network integration, you need to add an app setting named `WEBSITE_CONTENTOVERVNET` with the value `1`. In addition to adding the app setting, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
+
+##### Container image pull
+
+When using custom containers for Linux, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must add an app setting named `WEBSITE_PULL_IMAGE_OVER_VNET` with the value `true`.
+
 #### Network routing
 
 You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. When **Route All** is disabled in [application routing](#application-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests.

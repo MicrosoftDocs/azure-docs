@@ -12,7 +12,7 @@ ms.author: pgibson
 This article shows you how to install the OSM add-on on an AKS cluster and verify it is installed and running.
 
 > [!IMPORTANT]
-> The OSM add-on installs version *0.11.1* of OSM on your cluster.
+> The OSM add-on installs version *1.0.0* of OSM on your cluster.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster  --query 'addon
 
 ## Verify the OSM mesh is running on your cluster
 
-In addition to verifying the OSM add-on has been enabled on you cluster, you can also verify the version, status, and configuration of the OSM mesh running on your cluster.
+In addition to verifying the OSM add-on has been enabled on your cluster, you can also verify the version, status, and configuration of the OSM mesh running on your cluster.
 
 To verify the version of the OSM mesh running on your cluster, use `kubectl` to display the image version of the *osm-controller* deployment. For example:
 
@@ -162,7 +162,7 @@ Alternatively, you can uninstall the OSM add-on and the related resources from y
 
 ## Next steps
 
-This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed an running. With the the OSM add-on on your cluster you can [Deploy a sample application][osm-deploy-sample-app] or [Onboard an existing application][osm-onboard-app] to work with your OSM mesh.
+This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed and running. With the OSM add-on on your cluster you can [Deploy a sample application][osm-deploy-sample-app] or [Onboard an existing application][osm-onboard-app] to work with your OSM mesh.
 
 [aks-ephemeral]: cluster-configuration.md#ephemeral-os
 [osm-sample]: open-service-mesh-deploy-new-application.md

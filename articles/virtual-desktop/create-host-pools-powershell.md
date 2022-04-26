@@ -5,7 +5,8 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 07/23/2021
 ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+
 manager: femila
 ---
 # Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI

@@ -42,7 +42,7 @@ through PgBouncer, follow these steps:
    >
    > If the checkbox does not exist, PgBouncer isn't enabled for your server
    > group yet. Managed PgBouncer is being rolled out to all [supported
-   > regions](concepts-configuration-options.md#regions).  Once
+   > regions](resources-regions.md).  Once
    > enabled in a region, it'll be added to existing server groups in the
    > region during a [scheduled
    > maintenance](concepts-maintenance.md) event.
@@ -51,5 +51,5 @@ through PgBouncer, follow these steps:
 
 ## Next steps
 
-Discover more about the [limits and limitations](concepts-limits.md)
+Discover more about the [limits and limitations](reference-limits.md)
 of Hyperscale (Citus).

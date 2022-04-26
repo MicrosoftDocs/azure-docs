@@ -50,6 +50,8 @@ To set up a service principal, [create a registered application from the Azure C
 
 Communication services support Azure AD authentication but do not support managed identity for Communication services resources. You can find more details, about the managed identity support in the [Azure Active Directory documentation](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
+Use our [Trusted authentication service hero sample](../samples/trusted-auth-sample.md) to map Azure Communication Services access tokens with your Azure Active Directory.
+
 ### User Access Tokens
 
 User access tokens are generated using the Identity SDK and are associated with users created in the Identity SDK. See an example of how to [create users and generate tokens](../quickstarts/access-tokens.md). Then, user access tokens are used to authenticate participants added to conversations in the Chat or Calling SDK. For more information, see [add chat to your app](../quickstarts/chat/get-started.md). User access token authentication is different compared to access key and Azure AD authentication in that it is used to authenticate a user rather than a secured Azure resource.
@@ -62,8 +64,15 @@ The user identity is intended to act as a primary key for logs and metrics colle
 
 > [!div class="nextstepaction"]
 > [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
+
+> [!div class="nextstepaction"]
 > [Create an Azure Active Directory service principal application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md)
-> [Create User Access Tokens](../quickstarts/access-tokens.md)
+
+> [!div class="nextstepaction"]
+> [Create user access tokens](../quickstarts/access-tokens.md)
+
+> [!div class="nextstepaction"]
+> [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
 For more information, see the following articles:
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)

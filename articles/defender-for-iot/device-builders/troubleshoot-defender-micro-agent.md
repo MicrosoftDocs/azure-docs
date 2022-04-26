@@ -54,7 +54,7 @@ If an issue occurs when the micro agent is run, you can run the micro agent in a
 
 ```bash
 sudo systectl stop defender-iot-micro-agent
-cd /var/defender_iot_micro_agent/
+cd /etc/defender_iot_micro_agent/
 sudo ./defender_iot_micro_agent
 ```
 

@@ -126,7 +126,7 @@ DevTest Labs is well-suited for transient activities like workshops, hands-on la
 
 Lab owners can manage costs by deleting labs and VMs when they're no longer needed.
 
-- Set [expiration dates](devtest-lab-set-lab-policy.md#set-expiration-date) on VMs.
+- Set [expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) on VMs.
 - [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all related resources.
 - [Delete all lab VMs by running a single PowerShell script](./devtest-lab-faq.yml#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab-).
 

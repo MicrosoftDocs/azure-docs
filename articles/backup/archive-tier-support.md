@@ -2,7 +2,7 @@
 title: Azure Backup - Archive Tier overview 
 description: Learn about Archive Tier Support for Azure Backup.
 ms.topic: overview
-ms.date: 10/23/2021
+ms.date: 02/28/2022
 ms.custom: references_regions
 author: v-amallick
 ms.service: backup
@@ -79,8 +79,8 @@ You can view the archive tier pricing from our [pricing page](azure-backup-prici
 
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona. |
-| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South. | None |
+| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona, UAE North, Germany West Central, China East 2, China North 2, Norway East. |
+| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South, UAE North, Germany West Central, Norway East. | None |
 
 
 ## Frequently asked questions

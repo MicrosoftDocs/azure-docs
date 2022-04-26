@@ -1,7 +1,7 @@
 ---
 title: Set up SNMP MIB monitoring
 description: You can perform sensor health monitoring by using SNMP. The sensor responds to SNMP queries sent from an authorized monitoring server.
-ms.date: 11/09/2021
+ms.date: 01/31/2022
 ms.topic: how-to
 ---
 
@@ -11,9 +11,7 @@ You can perform sensor health monitoring by using Simple Network Management Prot
 
 The SNMP supported versions are SNMP v2 or SNMP v3. SNMP uses UDP as its transport protocol with port 161 (SNMP).
 
-Before you begin configuring SNMP monitoring, you need to open the port UDP 161 in the firewall.
-
-## OIDs
+## Sensor OIDs
 
 | Management console and sensor | OID | Format | Description |
 |--|--|--|--|
@@ -30,50 +28,30 @@ Before you begin configuring SNMP monitoring, you need to open the port UDP 161 
 | Locally/cloud connected | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
 | License status | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
 
+Note that:
+- Non-existing keys respond with null, HTTP 200. 
+- Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
+- You can download the log that contains all the SNMP queries that the sensor receives, including the connection data and raw data.
 
-   - Non-existing keys respond with null, HTTP 200.
+
+
+## Set up SNMP monitoring
+
+1. Before you begin configuring SNMP monitoring, you need to open the port UDP 161 in the firewall.
+1. On the side menu, select **System Settings**.
+2. Expand **Sensor Management**, and select **SNMP MIB Monitoring** :
+3. Select **Add host** and enter the IP address of the server that performs the system health monitoring. You can add multiple servers.
+4. In **Authentication** section, select the SNMP version.
+    - If you select V2, type the string in **SNMP v2 Community String**. You can enter up to 32 characters, and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces aren't allowed.
+    - If you select V3, specify the following:
     
-   - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be not applicable.
-
-You can download the log that contains all the SNMP queries that the sensor receives, including the connection data and raw data.
-
-To define SNMP v2 health monitoring:
-
-1. On the side menu, select **System Settings**.
-
-2. In the **Active Discovery** pane, select **SNMP MIB Monitoring** :::image type="icon" source="media/how-to-set-up-snmp-mib-monitoring/snmp-icon.png" border="false":::.
-
-    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/edit-snmp.png" alt-text="Edit your SNMP window.":::
-
-3. In the **Allowed Hosts** section, select **Add host** and enter the IP address of the server that performs the system health monitoring.
-
-    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-allowed-ip-addess.png" alt-text="Enter the IP address for allowed hosts.":::
-
-4. In the **Authentication** section, in the **SNMP v2 Community String** box, enter the string. The SNMP community string can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed.
-
-5. Select **Save**.
-
-To define SNMP v3 health monitoring:
-
-1. On the side menu, select **System Settings**.
-
-2. On the **Active Discovery** pane, select **SNMP MIB Monitoring** :::image type="icon" source="media/how-to-set-up-snmp-mib-monitoring/snmp-icon.png" border="false":::.
-
-    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/edit-snmp.png" alt-text="Edit your SNMP window.":::
-
-3. In the **Allowed Hosts** section, select **Add host** and enter the IP address of the server that performs the system health monitoring.
-
-    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-allowed-ip-addess.png" alt-text="Enter the IP address for the allowed hosts.":::
-
-4. In the **Authentication** section, set the following parameters:
-
-    | Parameter | Description |
-    |--|--|
-    | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
-    | **Password** | Enter a case-sensitive authentication password. The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). <br /> <br/>The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
-    | **Auth Type** | Select MD5 or SHA. |
-    | **Encryption** | Select DES or AES. |
-    | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). |
+        | Parameter | Description |
+        |--|--|
+        | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
+        | **Password** | Enter a case-sensitive authentication password. The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). <br /> <br/>The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
+        | **Auth Type** | Select MD5 or SHA. |
+        | **Encryption** | Select DES or AES. |
+        | **Secret Key** | The key must contain exactly eight characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). |
 
 5. Select **Save**.
 

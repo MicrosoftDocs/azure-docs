@@ -60,8 +60,14 @@ The **roleDefinitionIds** property uses the full resource identifier and doesn't
 following code:
 
 ```azurecli-interactive
-az role definition list --name 'Contributor'
+az role definition list --name "Contributor"
 ```
+
+> [!IMPORTANT]
+> Permissions should be restricted to the smallest possible set when defining **roleDefinitionIds**
+> within a policy definition or assigning permissions to a managed identity manually. See
+> [managed identity best practice recommendations](../../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md)
+> for more best practices.
 
 ## Manually configure the managed identity
 
@@ -228,7 +234,7 @@ To create a **remediation task**, follow these steps:
 
 1. On the **New remediation task** page, optional remediation settings are shown: 
 
-    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
+    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
     - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number of is 50,000 resources.
     - **Parallel Deployments** - Determines how many resources to remediate at the same time. The allowed values are 1 to 30 resources at a time. The default value is 10.
 

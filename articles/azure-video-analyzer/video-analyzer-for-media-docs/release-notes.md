@@ -3,7 +3,7 @@ title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | M
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 01/04/2022
+ms.date: 02/18/2022
 ms.author: juliako
 ---
 
@@ -18,6 +18,12 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## February 2022
+
+### Leverage open-source code to create ARM based account
+
+Added new code samples including HTTP calls to use Video Analyzer for Media create, read, update and delete (CRUD) ARM API for solution developers. See [this sample](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account
+).
 ## January 2022
 
 ### Improved audio effects detection
@@ -53,7 +59,12 @@ When indexing a video through our advanced video settings, you can view the new 
  
 ### Public preview of Video Analyzer for Media account management based on ARM
 
-Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and delete an account from the Azure portal.
+Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based Video Analyzer for Media APIs to create, edit, and delete an account from the [Azure portal](https://portal.azure.com/#home).
+
+> [!NOTE]
+> The Government cloud includes support for CRUD ARM based accounts from Video Analyzer for Media API and from the Azure portal. 
+>  
+> There is currently no support from the Video Analyzer for Media [website](https://www.videoindexer.ai).
 
 For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
 

@@ -3,7 +3,7 @@ title: 'Securely connect to Azure resources'
 description: Your app service may need to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
 
 ms.topic: tutorial
-ms.date: 01/26/2022
+ms.date: 02/16/2022
 ---
 # Securely connect to Azure services and databases from Azure App Service
 
@@ -11,9 +11,9 @@ Your app service may need to connect to other Azure services such as a database,
 
 |Connection method|When to use|
 |--|--|
-|[Direct connection from App Service managed identity](#connect-to-azure-services-with-managed-identity)|Dependent service [supports managed identity](../active-directory/managed-identities-azure-resources/managed-identities-status.md)<br><br>* Best for enterprise-level security<br>* Connection to dependent service is secured with managed identity<br>* Large team or automated connection string and secret management<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.|
-|[Connect using Key Vault secrets from App Service managed identity](#connect-to-key-vault-with-managed-identity)|Dependent service doesn't support managed identity<br><br>* Best for enterprise-level security<br>* Connection includes non-Azure services such as GitHub, Twitter, Facebook, Google<br>* Large team or automated connection string and secret management<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* Manage connection information with environment variables.|
-|[Connect with app settings](#connect-with-app-settings)|* Best for small team or individual owner of Azure resources.<br>* Stage 1 of multi-stage migration to Azure<br>* Temporary or proof-of-concept applications<br>* Manually manage connection information with environment variables|
+|[Direct connection from App Service managed identity](#connect-to-azure-services-with-managed-identity)|Dependent service [supports managed identity](../active-directory/managed-identities-azure-resources/managed-identities-status.md)<br><br>* Best for enterprise-level security.<br>* Connection to dependent service is secured with managed identity.<br>* Large team or automated connection string and secret management.<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* An Azure Active Directory Identity is required to access. Services include Microsoft Graph or Azure management SDKs.|
+|[Connect using Key Vault secrets from App Service managed identity](#connect-to-key-vault-with-managed-identity)|Dependent service doesn't support managed identity.<br><br>* Best for enterprise-level security.<br>* Connection includes non-Azure services such as GitHub, Twitter, Facebook, Google<br>* Large team or automated connection string and secret management<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* Manage connection information with environment variables.|
+|[Connect with app settings](#connect-with-app-settings)|* Best for small team or individual owner of Azure resources.<br>* Stage 1 of multi-stage migration to Azure.<br>* Temporary or proof-of-concept applications.<br>* Manually manage connection information with environment variables.|
 
 ## Connect to Azure services with managed identity
 

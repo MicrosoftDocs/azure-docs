@@ -37,7 +37,7 @@ disabled.
 
 ## Limits and limitations
 
-See Hyperscale (Citus) [limits and limitations](concepts-limits.md)
+See Hyperscale (Citus) [limits and limitations](reference-limits.md)
 page.
 
 ## Next steps

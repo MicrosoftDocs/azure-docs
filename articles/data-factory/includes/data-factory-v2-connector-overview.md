@@ -2,7 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 01/10/2022
+ms.date: 02/25/2022
 ms.author: jianleishen
 ---
 
@@ -96,6 +96,7 @@ ms.author: jianleishen
 |                       | [SharePoint Online List](../connector-sharepoint-online-list.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Shopify (Preview)](../connector-shopify.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Square (Preview)](../connector-square.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [TeamDesk (Preview)](../connector-teamdesk.md) |                                                          | ✓/−                                                              |                                                            |                                                              |                                                              |
 | &nbsp;                | [Web Table (HTML table)](../connector-web-table.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Xero](../connector-xero.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Zoho (Preview)](../connector-zoho.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

@@ -26,6 +26,7 @@ At this time, IPv6 is not supported. Azure Bastion supports IPv4 only. This mean
 Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select does not overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following in the name:
 * core.windows.net
 * azure.com
+* vault.azure.net 
 
 Note that if you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion is *not* supported with these setups.
 

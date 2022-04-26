@@ -52,6 +52,9 @@ Domains that aren’t previously used in O365 must be provisioned.
 
 An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
+ >[!NOTE]
+ > SBC FQDN in Azure Communication Services direct routing must be different from SBC FQDN in Teams Direct Routing.
+
 >[!IMPORTANT]
 >During Public Preview only: if you plan to use a wildcard certificate for the domain that is not registered in Teams, please raise a support ticket, and our team will add it as a trusted domain.
 

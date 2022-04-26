@@ -7,33 +7,34 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 09/15/2021
+ms.date: 02/10/2022 
 ---
 
 # List and change server parameters of an Azure Database for MySQL - Flexible Server using Azure CLI
 
 This sample CLI script lists all available [server parameters](../concepts-server-parameters.md) as well as their allowable values for Azure Database for MySQL - Flexible Server, and sets the *max_connections* and global *time_zone* parameters to values other than the default ones.
 
-[!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment](../../../../includes/azure-cli-prepare-your-environment.md)]
-
-- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-Edit the highlighted lines in the script with your values for variables.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/manage-server/change-server-parameters.sh?highlight=7,10-11 "Change server parameters for Azure Database for MySQL - Flexible Server.")]
+### Run the script
 
-## Clean up deployment
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/manage-server/change-server-parameters.sh" range="4-58":::
 
-After the sample script has been run, the following code snippet can be used to clean up the resources.
+## Clean up resources
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/manage-server/clean-up-resources.sh?highlight=4 "Clean up resources.")]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
+```azurecli
+az group delete --name $resourceGroup
+```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

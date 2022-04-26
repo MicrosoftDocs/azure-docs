@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/04/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -34,21 +34,9 @@ In this tutorial, you learn how to:
 
 ## Create a custom NER project through Language studio
 
-1. Sign in to [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step.
+[!INCLUDE [Create custom NER project](../includes/create-project.md)]
 
-2. Under the **Extract information** section of Language Studio, select **custom named entity recognition** from the available services, and select it.
-    
-3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
-
-4. If you’ve created your resource using the steps above in this [guide](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../how-to/create-project.md#required-roles-for-your-storage-account) before connecting it to your resource
-
-5. Enter project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later.
-    >[!TIP]
-    > Your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages. If your dataset contains files of different languages or if you expect different languages during runtime, select **enable multi-lingual dataset** when you enter the basic information for your project.
-
-6. Select the container where you’ve uploaded your data. For this tutorial we’ll use the tags file you downloaded from the sample data.
-
-7. Review the data you entered and select **Create Project**.
+Select the container where you’ve uploaded your data. For this tutorial we’ll use the tags file you downloaded from the sample data. Review the data you entered and select **Create Project**.
 
 ## Train your model
 
@@ -56,9 +44,9 @@ In this tutorial, you learn how to:
 
 ## Deploy your model
 
-1. Select **Deploy model** from the left side menu.
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
-2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
+If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  

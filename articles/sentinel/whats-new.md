@@ -27,6 +27,73 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## February 2022
+
+- [View MITRE support coverage (Public preview)](#view-mitre-support-coverage-public-preview)
+- [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
+- [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
+
+### View MITRE support coverage (Public preview)
+
+Microsoft Sentinel now provides a new **MITRE** page, which highlights the MITRE tactic and technique coverage you currently have, and can configure, for your organization.
+
+Select items from the **Active** and **Simulated** menus at the top of the page to view the detections currently active in your workspace, and the simulated detections available for you to configure.
+
+For example:
+
+:::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
+
+For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
+- [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
+- [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
+
+### View Azure Purview data in Microsoft Sentinel (Public Preview)
+
+Microsoft Sentinel now integrates directly with Azure Purview by providing an out-of-the-box solution.
+
+The Azure Purview solution includes the Azure Purview data connector, related analytics rule templates, and a workbook that you can use to visualize sensitivity data detected by Azure Purview, together with other data ingested in Microsoft Sentinel.
+
+:::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Azure Purview workbook in Microsoft Sentinel.":::
+
+For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md).
+
+### Manually run playbooks based on the incident trigger (Public preview)
+
+While full automation is the best solution for many incident-handling, investigation, and mitigation tasks, there may often be cases where you would prefer your analysts have more human input and control over the situation. Also, you may want your SOC engineers to be able to test the playbooks they write before fully deploying them in automation rules.
+
+For these and other reasons, Microsoft Sentinel now allows you to [**run playbooks manually on-demand for incidents**](automate-responses-with-playbooks.md#run-a-playbook-manually) as well as alerts.
+
+Learn more about [running incident-trigger playbooks manually](tutorial-respond-threats-playbook.md#run-a-playbook-manually-on-an-incident).
+
+### Search across long time spans in large datasets (public preview)
+
+Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
+
+Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your Log Analytics workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So search jobs don't impact the workspace's performance or availability.
+
+Use search to find events in any of the following log types:
+
+- [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
+- [Basic logs (preview)](../azure-monitor/logs/basic-logs-configure.md)
+
+You can also search analytics or basic log data stored in [archived logs (preview)](../azure-monitor/logs/data-retention-archive.md).
+
+For more information, see:
+
+- [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md)
+- [Search across long time spans in large datasets (preview)](search-jobs.md)
+
+For information about billing for basic logs or log data stored in archived logs, see [Plan costs for Microsoft Sentinel](billing.md#understand-the-full-billing-model-for-microsoft-sentinel).
+
+### Restore archived logs from search (public preview)
+
+When you need to do a full investigation on data stored in archived logs, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
+
+For more information, see:
+
+- [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md)
+- [Restore archived logs from search (preview)](restore.md)
+
 ## January 2022
 
 - [Support for MITRE ATT&CK techniques (Public preview)](#support-for-mitre-attck-techniques-public-preview)

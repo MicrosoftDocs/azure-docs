@@ -41,7 +41,7 @@ The methods for defining data collection for the existing agents are distinctly 
 - The Log Analytics agent gets its configuration from a Log Analytics workspace. It's easy to centrally configure but difficult to define independent definitions for different virtual machines. It can only send data to a Log Analytics workspace.
 - Diagnostic extension has a configuration for each virtual machine. It's easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open-source Telegraf agent is required to send data to Azure Monitor Metrics.
 
-The Azure Monitor agent uses [data collection rules](data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They're independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](data-collection-rule-azure-monitor-agent.md).
+The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They're independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](data-collection-rule-azure-monitor-agent.md).
 
 ## Should I switch to the Azure Monitor agent?
 The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-overview.md). To start transitioning your VMs off the current agents to the new agent, consider the following factors:
@@ -94,7 +94,7 @@ The following table shows the current support for the Azure Monitor agent with A
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
-| [Connect using private links](data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent) | Public preview | No sign-up needed |
+| [Connect using private links](azure-monitor-agent-data-collection-endpoint.md) | Public preview | No sign-up needed |
 | [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
 | [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
@@ -120,7 +120,7 @@ There's no cost for the Azure Monitor agent, but you might incur charges for the
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via private links, direct proxies and Log Analytics gateway as described below.
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
 
 ### Proxy configuration
 If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
@@ -130,36 +130,48 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 > [!IMPORTANT]
 > Proxy configuration is not supported for [Azure Monitor Metrics (preview)](../essentials/metrics-custom-overview.md) as a destination. As such, if you are sending metrics to this destination, it will use the public internet without any proxy.
 
-1. Use this flowchart to determine the values of the *setting* and *protectedSetting* parameters first.
+1. Use this flowchart to determine the values of the *settings* and *protectedSettings* parameters first.
 
-    ![Flowchart to determine the values of setting and protectedSetting parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
+    ![Flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
-2. After the values for the *setting* and *protectedSetting* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
+2. After the values for the *settings* and *protectedSettings* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
 
     | Parameter | Value |
     |:---|:---|
-    | Setting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
-    | ProtectedSetting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"username": "[username]","password": "[password]"}}. |
+    | settingsHashtable | A JSON object from the preceding flowchart converted to a hashtable. Skip if not applicable. An example is {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
+    | protectedSettingsHashtable | A JSON object from the preceding flowchart converted to a hashtable. Skip if not applicable. An example is {"proxy":{"username": "[username]","password": "[password]"}}. |
 
 # [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Setting <settingString> -ProtectedSetting <protectedSettingString>
+$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
+$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
 ```
 
 # [Linux VM](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Setting <settingString> -ProtectedSetting <protectedSettingString>
+$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
+$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
 ```
 
 # [Windows Arc enabled server](#tab/PowerShellWindowsArc)
 ```powershell
-New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
+$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
+$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
 ```
 
 # [Linux Arc enabled server](#tab/PowerShellLinuxArc)
 ```powershell
-New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
+$settingsHashtable = @{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}};
+$protectedSettingsHashtable = @{"proxy":{"username": "[username]","password": "[password]"}};
+
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Settings <settingsHashtable> -ProtectedSettings <protectedSettingsHashtable>
 ```
 
 ---
@@ -169,16 +181,15 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 2. Add the **configuration endpoint URL** to fetch data collection rules to the allow list for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  
-   (If using private links on the agent, you must also add the [dce endpoints](./data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
+   (If using private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
 3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
    `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`  
 3. Restart the **OMS Gateway** service to apply the changes  
    `Stop-Service -Name <gateway-name>`  
-   `Start-Service -Name <gateway-name>`  
+   `Start-Service -Name <gateway-name>` 
 
-
-### Private link configuration
-To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](./data-collection-endpoint-overview.md) to enable required network isolation. [View steps to configure network isolation for the agent](./data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent)
+## Private link configuration
+To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md) to enable required network isolation. 
 
 ## Next steps
 

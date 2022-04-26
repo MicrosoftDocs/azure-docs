@@ -168,7 +168,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 For additional information, review the following articles:
 
-- [Microsoft DFP samples](https://github.com/Microsoft/Dynamics-365-Fraud-Protection-Samples)
+- [Microsoft DFP samples](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection)
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 

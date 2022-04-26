@@ -100,7 +100,7 @@
       href: core/overview-iot-central-operator.md
     - name: Data integration guide
       href: core/overview-iot-central-solution-builder.md
-    - name: Application management guide
+    - name: Application administration guide
       href: core/overview-iot-central-admin.md
     - name: FAQ
       href: core/howto-faq.yml

@@ -117,7 +117,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.DevTestLab](#microsoftdevtestlab) |
 | [Microsoft.LabServices](#microsoftlabservices) |
 | [Microsoft.VisualStudio](#microsoftvisualstudio) |
-| **Migrate** |
+| **Migration** |
 | [Microsoft.Migrate](#microsoftmigrate) |
 | [Microsoft.OffAzure](#microsoftoffazure) |
 | **Monitor** |
@@ -126,7 +126,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.OperationalInsights](#microsoftoperationalinsights) |
 | [Microsoft.OperationsManagement](#microsoftoperationsmanagement) |
 | [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor) |
-| **Management + governance** |
+| **Management and governance** |
 | [Microsoft.Advisor](#microsoftadvisor) |
 | [Microsoft.Authorization](#microsoftauthorization) |
 | [Microsoft.Automation](#microsoftautomation) |
@@ -154,8 +154,9 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Subscription](#microsoftsubscription) |
 | **Intune** |
 | [Microsoft.Intune](#microsoftintune) |
-| **Other** |
+| **Virtual desktop infrastructure** |
 | [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization) |
+| **Other** |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 | [Microsoft.ServicesHub](#microsoftserviceshub) |
 
@@ -9333,7 +9334,7 @@ Azure service: [Azure DevOps](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Delete Project |
 > | Microsoft.VisualStudio/Project/Read | Read Project |
 
-## Migrate
+## Migration
 
 ### Microsoft.Migrate
 
@@ -10661,7 +10662,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.WorkloadMonitor/monitors/history/read | Gets the history of health changes of a specific monitor |
 > | Microsoft.WorkloadMonitor/operations/read | Gets a list of the supported operations |
 
-## Management + governance
+## Management and governance
 
 ### Microsoft.Advisor
 
@@ -12085,7 +12086,7 @@ Azure service: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Deleting a diagnostic setting |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Reading a diagnostic setting categories |
 
-## Other
+## Virtual desktop infrastructure
 
 ### Microsoft.DesktopVirtualization
 
@@ -12152,6 +12153,8 @@ Azure service: [Windows Virtual Desktop](../virtual-desktop/index.yml)
 > | Microsoft.DesktopVirtualization/workspaces/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
 > | **DataAction** | **Description** |
 > | Microsoft.DesktopVirtualization/applicationgroups/useapplications/action | Use ApplicationGroup |
+
+## Other
 
 ### Microsoft.DigitalTwins
 

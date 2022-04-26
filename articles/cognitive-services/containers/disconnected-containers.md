@@ -17,6 +17,7 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
 
 * [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
 * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
+* [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
     * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
     * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)

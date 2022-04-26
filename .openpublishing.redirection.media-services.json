@@ -629,6 +629,11 @@
             "source_path_from_root": "/articles/media-services/latest/asset-create-asset-upload-portal-quickstart.md",
             "redirect_url": "/azure/media-services/latest/video-on-demand-simple-portal-quickstart",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/media-services/latest/architecture-design-multi-drm-system.md",
+            "redirect_url": "/azure/media-services/latest/drm-content-protection-concept",
+            "redirect_document_id": true
           },     
         {
             "source_path_from_root": "/articles/media-services/latest/latest/questions-collection.md",

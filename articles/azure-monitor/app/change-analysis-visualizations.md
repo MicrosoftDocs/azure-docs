@@ -2,10 +2,7 @@
 title: Visualizations for Application Change Analysis - Azure Monitor
 description: Learn how to use visualizations in Application Change Analysis in Azure Monitor.
 ms.topic: conceptual
-author: cawams
-ms.author: cawa
 ms.date: 01/11/2022
-
 ---
 
 # Visualizations for Application Change Analysis (preview)

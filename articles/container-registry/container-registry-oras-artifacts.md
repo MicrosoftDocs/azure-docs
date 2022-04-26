@@ -6,7 +6,7 @@ manager: gwallace
 ms.topic: article
 ms.date: 11/11/2021
 ms.author: stevelas
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Push and pull supply chain artifacts, using a private container registry in Azure (Preview)

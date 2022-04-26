@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-
 ---
 
 # System performance counters in Application Insights

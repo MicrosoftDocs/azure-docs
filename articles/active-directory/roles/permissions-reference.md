@@ -917,7 +917,7 @@ Users with this role have access to all administrative features in Azure Active 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
+> | microsoft.directory/accessReviews/allProperties/allTasks | (Deprecated) Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
 > | microsoft.directory/accessReviews/definitions/allProperties/allTasks | Manage access reviews of all reviewable resources in Azure AD |
 > | microsoft.directory/adminConsentRequestPolicy/allProperties/allTasks | Manage admin consent request policies in Azure AD |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
@@ -1062,7 +1062,7 @@ Users in this role can read settings and administrative information across Micro
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/read | Read all properties of access reviews |
+> | microsoft.directory/accessReviews/allProperties/read | (Deprecated) Read all properties of access reviews |
 > | microsoft.directory/accessReviews/definitions/allProperties/read | Read all properties of access reviews of all reviewable resources in Azure AD |
 > | microsoft.directory/adminConsentRequestPolicy/allProperties/read | Read all properties of admin consent request policies in Azure AD |
 > | microsoft.directory/administrativeUnits/allProperties/read | Read all properties of administrative units, including members |
@@ -1275,7 +1275,7 @@ Users with this role can manage Azure AD identity governance configuration, incl
 > | microsoft.directory/accessReviews/definitions.groups/allProperties/update | Update all properties of access reviews for membership in Security and Microsoft 365 groups, excluding role-assignable groups. |
 > | microsoft.directory/accessReviews/definitions.groups/create | Create access reviews for membership in Security and Microsoft 365 groups. |
 > | microsoft.directory/accessReviews/definitions.groups/delete | Delete access reviews for membership in Security and Microsoft 365 groups. |
-> | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
+> | microsoft.directory/accessReviews/allProperties/allTasks | (Deprecated) Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |

@@ -19,6 +19,11 @@
             "source_path_from_root": "/articles/azure-monitor/insights/service-bus-insights.md",
             "redirect_url": "/azure/service-bus-messaging/service-bus-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-overview.md",
+            "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
+            "redirect_document_id": false
         }
     ]
 }

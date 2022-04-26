@@ -3,7 +3,6 @@ title: Azure Application Insights Telemetry Data Model - Telemetry Context | Mic
 description: Application Insights telemetry context data model
 ms.topic: conceptual
 ms.date: 05/15/2017
-
 ms.reviewer: sergkanz
 ---
 

@@ -1,10 +1,10 @@
 ---
-title: Monitor logic apps by using Azure Monitor logs
-description: Troubleshoot logic apps by setting up Azure Monitor logs and collecting diagnostics data for Azure Logic Apps
+title: Monitor logic apps with Azure Monitor logs
+description: Troubleshoot logic apps using Azure Monitor logs and collecting diagnostics data for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: divswa, logicappspm
-ms.topic: article
+ms.reviewer: divswa, azla
+ms.topic: how-to
 ms.date: 09/24/2020
 ---
 

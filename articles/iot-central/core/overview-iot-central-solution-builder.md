@@ -63,7 +63,7 @@ Built-in features of IoT Central you can use to extract business value include:
   - [Tutorial: Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
   - [Configure rules](howto-configure-rules.md)
   
-  IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use analytics to analyze device data](howto-create-analytics.md).
+  IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use data explorer to analyze device data](howto-create-analytics.md).
 
 Scenarios that process IoT data outside of IoT Central to extract business value include:
 

@@ -8,7 +8,7 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/18/2022
 ms.author: caoling
 ms.custom: references_regions
 ---
@@ -17,13 +17,16 @@ ms.custom: references_regions
 
 After you've successfully created and trained your voice model, you deploy it to a custom neural voice endpoint. Use the custom neural voice endpoint instead of the usual text-to-speech endpoint for requests with the REST API. Use the speech studio to create a custom neural voice endpoint. Use the REST API to suspend or resume a custom neural voice endpoint. 
 
+> [!NOTE]
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects. This article focuses on the creation of a professional Custom Neural Voice using the Pro project.
+
 ## Create a custom neural voice endpoint
 
 To create a custom neural voice endpoint:
 
 1. On the **Deploy model** tab, select **Deploy model**. 
+1. Select a voice model that you want to associate with this endpoint.  
 1. Enter a **Name** and **Description** for your custom endpoint.
-1. Select a voice model that you want to associate with this endpoint. 
 1. Select **Deploy** to create your endpoint.
 
 In the endpoint table, you now see an entry for your new endpoint. It might take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.

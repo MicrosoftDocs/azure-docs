@@ -8,7 +8,7 @@ ms.subservice: disk
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
 

@@ -5,7 +5,7 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 09/09/2021
+ ms.date: 02/25/2022
  ms.author: duau
  ms.custom: include file
 ---
@@ -30,7 +30,7 @@
 | Web application firewall cookie name length | 256 |
 | Web application firewall exclusion limit | 100 |
 | Web application firewall HTTP request body size inspected | 128 KB |
-| Web application firewall custom response body length | 2 KB |
+| Web application firewall custom response body length | 32 KB |
 
 ### Azure Front Door Standard/Premium (Preview) Service Limits
 
@@ -57,7 +57,7 @@
 | Web application firewall HTTP header name length | 256 | 256 |
 | Web application firewall cookie name length | 256 | 256|
 | Web application firewall HTTP request body size inspected | 128 KB | 128 KB |
-| Web application firewall custom response body length | 2 KB | 2 KB |
+| Web application firewall custom response body length | 32 KB | 32 KB |
 
 #### Timeout values
 ##### Client to Front Door

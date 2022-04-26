@@ -74,11 +74,6 @@ A Windows device with the following minimum requirements:
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
-## Supported versions
-Azure IoT Edge for Linux on Windows supports the following versions:
-- 1.1 LTS using [Azure IoT Edge 1.1 LTS](./version-history.md)
-- Continuous Release (CR) using [Azure IoT Edge 1.2](./version-history.md) currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
 ## Platform support
 Azure IoT Edge for Linux on Windows supports the following architectures:
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 02/28/2022
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -35,9 +35,11 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 Azure NetApp Files standard network features are supported for the following regions:
 
+*	France Central
 *	North Central US
 *	South Central US
-*   West US 3
+*	West Europe
+*	West US 3 
 
 ## Considerations  
 

@@ -52,7 +52,7 @@ The following types of changes do not create a new revision:
 
 - Changes to [traffic splitting rules](revisions-manage.md#traffic-splitting)
 - Turning [ingress](ingress.md) on or off
-- Changes to [secret values](secure-app.md)
+- Changes to [secret values](manage-secrets.md)
 - Any change outside the `template` section of the configuration
 
 While changes to secrets are an application-scope change, revisions must be [restarted](revisions.md) before a container recognizes new secret values.

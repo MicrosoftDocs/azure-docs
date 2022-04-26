@@ -2,13 +2,13 @@
 author: memildin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 01/10/2022
+ms.date: 02/27/2022
 ms.author: memildin
 ---
 ## Protect Amazon Elastic Kubernetes Service clusters
 
 > [!IMPORTANT]
-> If you haven't already connected an AWS account, do so now using the instructions in [Connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md) and skip to step 3 below.
+> If you haven't already connected an AWS account, do so now using the instructions in [Connect your AWS accounts to Microsoft Defender for Cloud](../quickstart-onboard-aws.md).
 
 To protect your EKS clusters, enable the Containers plan on the relevant account connector:
 
@@ -27,9 +27,14 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
 1. Continue through the remaining pages of the connector wizard.
 
-1. Azure Arc-enabled Kubernetes and the Defender extension should be installed and running on your EKS clusters. A dedicated Defender for Cloud recommendation deploys the extension (and Arc if necessary):
+1. Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There are 2 dedicated Defender for Cloud recommendations to install these extensions (and Azure Arc if necessary):
+    - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
+    - `EKS clusters should have the Azure Policy extension installed`
+    
+    For each of the recommendations, follow follow the steps below to install the required extensions.
 
-    1. From Defender for Cloud's **Recommendations** page, search for **EKS clusters should have Azure Defender's extension for Azure Arc installed**.
+    **To install the required extensions**:
+    1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.
     1. Select an unhealthy cluster.
 
         > [!IMPORTANT]
@@ -40,7 +45,8 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
     1. Select **Fix**.
     1. Defender for Cloud generates a script in the language of your choice: select Bash (for Linux) or PowerShell (for Windows).
     1. Select **Download remediation logic**.
-    1. Run the generated script on your cluster. 
+    1. Run the generated script on your cluster.
+    1. Repeat steps *"a" through "f"* for the second recommendation.
 
     :::image type="content" source="../media/defender-for-kubernetes-intro/generate-script-defender-extension-kubernetes.gif" alt-text="Video of how to use the Defender for Cloud recommendation to generate a script for your EKS clusters that enables the Azure Arc extension. ":::
 

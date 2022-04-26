@@ -19,6 +19,11 @@ Event-driven architecture (EDA) is a common data integration pattern that involv
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more information, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the `Microsoft.EventGrid/eventSubscriptions/` action. This action is part of the [EventGrid EventSubscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) built-in role.
 
+
+> [!IMPORTANT]
+> If you are using this feature in Azure Synapse Analytics, please ensure that your subscription is also registered with Data Factory resource provider, or otherwise you will get an error stating that _the creation of an "Event Subscription" failed_.
+
+
 If you combine pipeline parameters and a custom event trigger, you can parse and reference custom `data` payloads in pipeline runs. Because the `data` field in a custom event payload is a free-form, JSON key-value structure, you can control event-driven pipeline runs.
 
 > [!IMPORTANT]
@@ -146,6 +151,9 @@ To successfully create or update a custom event trigger, you need to sign in to 
 Data Factory doesn't require special permission to your Event Grid. You also do *not* need to assign special Azure RBAC role permission to the Data Factory service principal for the operation.
 
 Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission on `/subscriptions/####/resourceGroups//####/providers/Microsoft.EventGrid/topics/someTopics`.
+
+- When authoring in the data factory (in the development environment for instance), the Azure account signed in needs to have the above permission
+- When publishing through [CI/CD](continuous-integration-delivery.md), the account used to publish the ARM template into the testing or production factory needs to have the above permission.
 
 ## Next steps
 

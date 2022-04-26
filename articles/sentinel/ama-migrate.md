@@ -48,7 +48,7 @@ The following tables show gap analyses for the log types that currently rely on 
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
-|**Syslog**     |  Local Collection only      |   [Syslog data connector](connect-syslog.md)      |
+|**Syslog**     |  Collection only      |   [Syslog data connector](connect-syslog.md)      |
 |**Common Event Format (CEF)**     |  Collection only       |  [CEF data connector](connect-common-event-format.md)       |
 |**Sysmon**     |   Collection only    |  Collection only      |
 |**Custom logs**     |   -       |  Collection only       |

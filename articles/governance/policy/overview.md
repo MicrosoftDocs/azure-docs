@@ -116,12 +116,16 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
 role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and
 **Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
-remediation, but can't _create_ definitions or assignments. **User Access Administrator** is
+remediation, but can't _create_ or _update_ definitions and assignments. **User Access Administrator** is
 necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
 permissions. All policy objects will be readable to all roles over the scope.
 
 If none of the Built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
+
+Azure Policy operations can have a significant impact on your Azure environment. Only the minimum set of 
+permissions necessary to perform a task should be assigned and these permissions should not be granted
+to users who do not need them.
 
 > [!NOTE]
 > The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
@@ -157,11 +161,15 @@ Here are a few pointers and tips to keep in mind:
   _initiativeDefC_. If you create another policy definition later for _policyDefB_ with goals
   similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
 
-- Once you've created an initiative assignment, policy definitions added to the initiative also
+    - Once you've created an initiative assignment, policy definitions added to the initiative also
   become part of that initiative's assignments.
-
-- When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
+  
+  - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
   If you need to evaluate a policy individually, it's better to not include it in an initiative.
+
+- Manage Azure Policy resources as code with manual reviews on changes to policy definitions,
+  initiatives, and assignments. To learn more about suggested patterns and tooling, see
+  [Design Azure Policy as Code Workflows](./concepts/policy-as-code.md).
 
 ## Azure Policy objects
 
@@ -264,7 +272,7 @@ To learn more about the structures of initiative definitions, review
 
 ### Assignments
 
-An assignment is a policy definition or initiative that has been assigned to take place within a
+An assignment is a policy definition or initiative that has been assigned to a
 specific scope. This scope could range from a [management group](../management-groups/overview.md)
 to an individual resource. The term _scope_ refers to all the resources, resource groups,
 subscriptions, or management groups that the definition is assigned to. Assignments are inherited by
@@ -283,6 +291,10 @@ Azure Policy is an explicit deny system. Instead, you need to exclude the child 
 subscription from the management group-level assignment. Then, assign the more permissive definition
 on the child management group or subscription level. If any assignment results in a resource getting
 denied, then the only way to allow the resource is to modify the denying assignment.
+
+Policy assignments always use the latest state of their assigned definition or initiative when
+evaluating resources. If a policy definition that is already assigned is changed all existing
+assignments of that definition will use the updated logic when evaluating.
 
 For more information on setting assignments through the portal, see [Create a policy assignment to
 identify non-compliant resources in your Azure environment](./assign-policy-portal.md). Steps for

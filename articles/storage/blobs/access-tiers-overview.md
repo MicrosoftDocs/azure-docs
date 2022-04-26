@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: tamram
 
 ms.author: tamram
-ms.date: 11/01/2021
+ms.date: 02/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -69,8 +69,11 @@ The following operations are supported for blobs in the Archive tier:
 - [Set Blob Tags](/rest/api/storageservices/set-blob-tags)
 - [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 
-> [!NOTE]
-> The Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is supported as long as no blobs were moved to the Archive tier while the account was set to LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the Archive tier while the account was set to LRS.
+Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving blobs to the Archive tier. The Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. For more information about redundancy configurations for Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
+
+To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming.
+
+Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the Archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the Archive tier while the account was set to LRS.
 
 ## Default account access tier setting
 

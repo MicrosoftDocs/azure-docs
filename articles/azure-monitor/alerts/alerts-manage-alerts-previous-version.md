@@ -3,7 +3,7 @@ title: View and manage log alert rules created in previous versions| Microsoft D
 description: Use the Azure Monitor portal to manage log alert rules created in earlier versions
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 2/23/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Manage alert rules created in previous versions

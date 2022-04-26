@@ -2,10 +2,10 @@
 metadata:
   title: Frequently asked questions
   description: FAQs about the Azure Spatial Anchors service.
-  author: msftradford
+  author: pamistel
   manager: MehranAzimi-msft
   services: azure-spatial-anchors
-  ms.author: parkerra
+  ms.author: pamistel
   ms.date: 11/20/2020
   ms.topic: faq
   ms.service: azure-spatial-anchors

@@ -133,7 +133,7 @@ When you configure customer-managed keys with the Azure portal, you can select a
 To authorize access to the key vault with a user-assigned managed identity, you will need the resource ID and principal ID of the user-assigned managed identity. Call [Get-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) to get the user-assigned managed identity, then save the resource ID and principal ID to variables. You will need these values in subsequent steps:
 
 ```azurepowershell
-$userIdentityId = (Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>).Id
+$userIdentityId = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
 $principalId = $userIdentity.PrincipalId
 ```
 

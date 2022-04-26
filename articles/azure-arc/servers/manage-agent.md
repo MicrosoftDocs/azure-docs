@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 02/17/2022
+ms.date: 02/28/2022
 ms.topic: conceptual
 ---
 
@@ -91,15 +91,21 @@ To change a configuration property, run the following command:
 
 `azcmagent config set <propertyName> <propertyValue>`
 
+If the property you're changing supports a list of values, you can use the `--add` and `--remove` flags to add or remove specific items without having to re-type the entire list.
+
+`azcmagent config set <propertyName> <propertyValue> --add`
+
+`azcmagent config set <propertyName> <propertyValue> --remove`
+
 To clear a configuration property's value, run the following command:
 
 `azcmagent config clear <propertyName>`
 
 ## Upgrading agent
 
-The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It won't notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
+The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements.
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, and uninstalling the Azure Connected Machine Agent will not require you to restart your server.
 
 The following table describes the methods supported to perform the agent upgrade.
 
@@ -375,6 +381,39 @@ azcmagent config clear proxy.url
 ```
 
 You do not need to restart any services when reconfiguring the proxy settings with the `azcmagent config` command.
+
+### Proxy bypass for private endpoints
+
+Starting with agent version 1.15, you can also specify services which should **not** use the specified proxy server. This can help with split-network designs and private endpoint scenarios where you want Azure Active Directory and Azure Resource Manager traffic to go through your proxy server to public endpoints but want Arc traffic to skip the proxy and communicate with a private IP address on your network.
+
+The proxy bypass feature does not require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that should not use the proxy server.
+
+| Proxy bypass value | Affected endpoints |
+| --------------------- | ------------------ |
+| AAD | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
+| ARM | `management.azure.com` |
+| Arc | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
+
+To send Azure Active Directory and Azure Resource Manager traffic through a proxy server but skip the proxy for Arc traffic, run the following command:
+
+```bash
+azcmagent config set proxy.url "http://ProxyServerFQDN:port"
+azcmagent config set proxy.bypass "Arc"
+```
+
+To provide a list of services, separate the service names by commas:
+
+```bash
+azcmagent config set proxy.bypass "ARM,Arc"
+```
+
+To clear the proxy bypass, run the following command:
+
+```bash
+azcmagent config clear proxy.bypass
+```
+
+You can view the effective proxy server and proxy bypass configuration by running `azcmagent show`.
 
 ### Windows environment variables
 

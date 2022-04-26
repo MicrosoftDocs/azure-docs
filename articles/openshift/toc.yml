@@ -26,7 +26,7 @@
           href: howto-upgrade.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
-    - name: Networking
+    - name: Networking 
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
@@ -119,6 +119,8 @@
       href: concepts-networking.md
     - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md
+    - name: Overview of egress lockdown
+      href: concepts-egress-lockdown.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI

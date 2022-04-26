@@ -53,7 +53,7 @@
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
             - name: Object detection with AutoML 
-              displayName: automl, automated, auto ml, computer vision, images
+              displayName: automl, automated, auto ml, computer vision, images, image model
               href: tutorial-auto-train-image-models.md
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
@@ -525,13 +525,13 @@
             displayName: time series
             href: how-to-auto-train-forecast.md
           - name: Prep image data for computer vision models (Python)
-            displayName: SDK, automl, image, datasets, conversion scripts, schema
+            displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
             href: how-to-prepare-datasets-for-automl-images.md
           - name: Auto-train computer vision models (Python)
-            displayName: SDK, automl, image
+            displayName: SDK, automl, image, image model
             href: how-to-auto-train-image-models.md
           - name: Auto-train a small object detection model
-            displayName: computer vision, image
+            displayName: computer vision, image, image model
             href: how-to-use-automl-small-object-detect.md
           - name: Data splits & cross-validation (Python)
             displayName: automl, feature engineering, feature importance
@@ -547,6 +547,7 @@
             href: how-to-use-automl-onnx-model-dotnet.md
           - name: Inference image models with ONNX model 
             href: how-to-inference-onnx-automl-image-models.md
+            displayName: automl, image, image model, computer vision
           - name: Troubleshoot automated ML
             href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
@@ -615,9 +616,6 @@
           href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
-        - name: Azure Functions
-          displayName: functions app
-          href: how-to-deploy-functions.md
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
       - name: Prebuilt Docker images
@@ -660,9 +658,6 @@
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
-      - name: No code deployment
-        displayName: no code
-        href: how-to-deploy-no-code-deployment.md
       - name: Package models
         displayName: docker file download
         href: how-to-deploy-package-models.md
@@ -815,10 +810,10 @@
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
     - name: Image data schemas for AutoML
-      displayName: automl, schema, data
+      displayName: automl, schema, data, computer vision, image model
       href: reference-automl-images-schema.md
     - name: Hyperparameters for AutoML computer vision tasks
-      displayName: automl, yolo-5
+      displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio

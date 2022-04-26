@@ -6,14 +6,14 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 10/21/2021
+ms.date: 01/21/2022
 ms.author: danlep
 ms.custom: ignite-fall-2021
 ---
 
 # API Management policy to validate and authorize GraphQL requests (preview)
 
-This article provides a reference for a new API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
+This article provides a reference for an API Management policy to validate and authorize requests to a [GraphQL API](graphql-api.md) imported to API Management.
 
 For more information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
@@ -40,10 +40,10 @@ Because GraphQL queries use a flattened schema:
     * Interfaces
     * The schema element   
 
-**Authorization elements**  
-You can use multiple authorization elements. The most specific path is used to select the appropriate authorization rule for each leaf node in the query. 
-* Each authorization can optionally provide a different action.
-* `if` clauses allow the admin to specify conditional actions. 
+**Authorize element**  
+Configure the `authorize` element to set an appropriate authorization rule for one or more paths. 
+* Each rule can optionally provide a different action.
+* Use policy expressions to specify conditional actions. 
 
 **Introspection system**   
 The policy for path=`/__*` is the [introspection](https://graphql.org/learn/introspection/) system. You can use it to reject introspection requests (`__schema`, `__type`, etc.).   
@@ -51,23 +51,40 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 ### Policy statement
 
 ```xml
-<validate-graphql-request error-variable-name="variable name" max-size="size in bytes" max-depth="query depth">
-    <authorize-path="query path, for example: /Query/list Users or /__*" action="allow|remove|reject" />
-        <if condition="policy expression" action="allow|remove|reject" />
+<validate-graphql-request error-variable-name="variable name" max-size="size in bytes" max-depth="query depth">
+    <authorize>
+        <rule path="query path, for example: '/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
+    </authorize>
 </validate-graphql-request>
 ```
 
-### Example
+### Example: Query validation
 
-In the following example, we validate a GraphQL query and reject:
-* Requests larger than 100 kb or with query depth greater than 4. 
-* Access to the introspection system and the `list Users` query. 
+This example applies the following validation and authorization rules to a GraphQL query:
+* Requests larger than 100 kb or with query depth greater than 4 are rejected. 
+* Requests to the introspection system are rejected. 
+* The `/Missions/name` field is removed from requests containing more than two headers. 
 
 ```xml
 <validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
-    <authorize path="/" action="allow" /> 
-    <authorize path="/__*" action="reject" /> 
-    <authorize path="/Query/list Users" action="reject" /> 
+    <authorize>
+        <rule path="/__*" action="reject" /> 
+        <rule path="/Missions/name" action="@(context.Request.Headers.Count > 2 ? "remove" : "allow")" />
+    </authorize>
+</validate-graphql-request> 
+```
+
+### Example: Mutation validation
+
+This example applies the following validation and authorization rules to a GraphQL mutation:
+* Requests larger than 100 kb or with query depth greater than 4 are rejected. 
+* Requests to mutate the `deleteUser` field are denied except when the request is from IP address `198.51.100.1`. 
+
+```xml
+<validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
+    <authorize>
+        <rule path="/Mutation/deleteUser" action="@(context.Request.IpAddress <> "198.51.100.1" ? "deny" : "allow")" />
+    </authorize>
 </validate-graphql-request> 
 ```
 
@@ -76,8 +93,8 @@ In the following example, we validate a GraphQL query and reject:
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `validate-graphql-request` | Root element.                                                                                                                               | Yes      |
-| `authorize` | Add one or more of these elements to provides field-level authorization with both request- and field-level errors.   | Yes |
-| `if` | Add one or more of these elements for conditional changes to the action for a field-level authorization. | No |
+| `authorize` | Add this element to provide field-level authorization with both request- and field-level errors.   | No |
+| `rule` | Add one or more of these elements to authorize specific query paths. Each rule can optionally specify a different [action](#request-actions). | No |
 
 ### Attributes
 
@@ -86,9 +103,8 @@ In the following example, we validate a GraphQL query and reject:
 | `error-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | `max-size` | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
 | `max-depth` | An integer. Maximum query depth. | No | 6 |
-| `path` | Query path to execute authorization validation on. | Yes | N/A |
-| `action` | [Action](#request-actions) to perform for the matching field. May be changed if a matching condition is specified. |  Yes     | N/A   |
-| `condition` | Boolean value that determines if the [policy expression](api-management-policy-expressions.md) matches. The first matching condition is used. | No | N/A |
+| `path` | Path to execute authorization validation on. It must follow the pattern: `/type/field`. | Yes | N/A |
+| `action` | [Action](#request-actions) to perform if the rule applies. May be specified conditionally using a policy expression. |  No     | allow   |
 
 ### Request actions
 
@@ -96,9 +112,10 @@ Available actions are described in the following table.
 
 |Action |Description  |
 |---------|---------|
-|`reject`     | A request error happens, and the request is not sent to the back end.     |
+|`reject`     | A request error happens, and the request is not sent to the back end. Additional rules if configured are not applied.   |
 |`remove`     | A field error happens, and the field is removed from the request.         |
 |`allow`     | The field is passed to the back end.        |
+|`ignore`     | The rule is not valid for this case and the next rule is applied.        |
 
 ### Usage
 

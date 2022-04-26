@@ -289,7 +289,7 @@ Use the following header to authenticate your request.
 
 ### Request body
 
-Use the following JSON in your request. Use the name of the model you wan to deploy.  
+Use the following JSON in your request. Use the name of the model you want to deploy.  
 
 ```json
 {

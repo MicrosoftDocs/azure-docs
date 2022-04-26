@@ -55,6 +55,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Application Gateway |[Using Key Vault certificates for HTTPS-enabled listeners](../../application-gateway/key-vault-certs.md)
 |Azure Front Door|[Using Key Vault certificates for HTTPS](../../frontdoor/front-door-custom-domain-https.md#prepare-your-azure-key-vault-account-and-certificate)
 |Azure Purview|[Using credentials for source authentication in Azure Purview](../../purview/manage-credentials.md)
+|Azure Machine Learning|[Secure Azure Machine Learning in a virtual network](../../machine-learning/how-to-secure-workspace-vnet.md)|
 
 > [!NOTE]
 > You must set up the relevant Key Vault access policies to allow the corresponding services to get access to Key Vault.

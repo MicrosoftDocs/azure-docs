@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
 
-This article provides guidance on how to mount a container in Azure Blob Storage from a Linux-based Azure virtual machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob Storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md).
+This article provides guidance on how to mount a container in Azure Blob Storage from a Linux-based Azure virtual machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob Storage, see [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-support.md).
 
 ## Step 1: Create an Azure virtual network 
 
@@ -103,5 +103,5 @@ Create a directory on your Linux system, and then mount the container in the sto
 
 ## See also
 
-- [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-support.md)
-- [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
+- [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-support.md)
+- [Known issues with Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-known-issues.md)

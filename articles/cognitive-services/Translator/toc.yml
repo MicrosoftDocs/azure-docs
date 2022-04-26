@@ -67,6 +67,8 @@ items:
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
+    - name: Use managed identities to access Azure storage
+      href: /azure/app-service/scenario-secure-app-access-storage?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Create a Translator workflow
       href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator
@@ -218,6 +220,9 @@ items:
     href: custom-translator/faq.md
 - name: Resources
   items:
+  - name: Sovereign Clouds
+    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+    href: sovereign-clouds.md
   - name: Compliance and certification
     href: https://www.microsoft.com/translator/business/notrace/
   - name: Code samples on GitHub

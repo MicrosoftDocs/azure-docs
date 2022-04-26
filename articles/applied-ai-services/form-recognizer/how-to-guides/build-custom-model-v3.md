@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/16/2022
-ms.author: vikurpad
+ms.author: lajanuar
 ---
 
 # Build your training dataset for a custom model
@@ -83,7 +83,7 @@ You now have all the documents in your dataset labeled. If you look at the stora
 
 With your dataset labeled, you're now ready to train your model. Select the train button in the upper-right corner.
 
-1. On the train model dialog, provide a unique model ID and, optionally, a description.
+1. On the train model dialog, provide a unique model ID and, optionally, a description. The model ID accepts a string data type.
 
 1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 

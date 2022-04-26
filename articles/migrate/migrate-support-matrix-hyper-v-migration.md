@@ -40,7 +40,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.  |
 | **UEFI - Secure boot**         | Not supported for migration.|
-| **Disk size**                  | up to 2 TB OS disk, 4 TB for the data disks.|
+| **Disk size**                  | Up to 2 TB OS disk, 4 TB for the data.|
 | **Disk number** | A maximum of 16 disks per VM.|
 | **Encrypted disks/volumes**    | Not supported for migration.|
 | **RDM/passthrough disks**      | Not supported for migration.|
@@ -52,6 +52,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **NIC teaming** | Not supported.|
 | **Azure Site Recovery** | You can't replicate using Azure Migrate Server Migration if the VM is enabled for replication with Azure Site Recovery.|
 | **Ports** | Outbound connections on HTTPS port 443 to send VM replication data.|
+
 
 ### URL access (public cloud)
 

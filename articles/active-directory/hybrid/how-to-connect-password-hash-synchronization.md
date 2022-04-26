@@ -119,7 +119,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> For hybrid users that have a PasswordPolicies value set to `DisablePassordExpiration`, this value switches to `None` after a password change is executed on-premises.
+> For hybrid users that have a PasswordPolicies value set to `DisablePasswordExpiration`, this value switches to `None` after a password change is executed on-premises.
 
 > [!NOTE]
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
