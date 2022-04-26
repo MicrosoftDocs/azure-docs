@@ -1,7 +1,7 @@
 ---
 title: Best Practices for Sender Authentication Support in Azure Communication Services Email
 titleSuffix: An Azure Communication Services concept document
-description: Learn about the Azure Communication Services Email Domains and Sender Authentication.
+description: Learn about the best practices for Sender Authentication Support.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
