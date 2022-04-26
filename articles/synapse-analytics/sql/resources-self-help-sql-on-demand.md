@@ -515,13 +515,13 @@ The field HRESULT contains the result code, below are the most common error code
 
 ### [0x80070002](#tab/x80070002)
 
-This error code means the source file is not in storage.
+This error code means the source file isn't in storage.
 
-There are reasons why this can happen:
+There are reasons why this error code can happen:
 
 - The file was deleted by another application.
- - A common scenario: the query execution starts, it enumerates the files and the files are found. Later, during the query execution, a file is deleted (for example by Databricks, Spark or ADF). The query fails because the file is not found.
- - This issue can also occur with delta format. The query might succeed on retry because there is a new version of the table and the deleted file is not queried again.
+ - A common scenario: the query execution starts, it enumerates the files and the files are found. Later, during the query execution, a file is deleted (for example by Databricks, Spark or ADF). The query fails because the file isn't found.
+ - This issue can also occur with delta format. The query might succeed on retry because there's a new version of the table and the deleted file isn't queried again.
 
 - Invalid execution plan cached
   - As a temporary mitigation, run the command `DBCC FREEPROCCACHE`. If the problem persists create a support ticket.
@@ -537,9 +537,9 @@ The error message might also resemble:
 File {path} cannot be opened because it does not exist or it is used by another process.
 ```
 
-- If an Azure AD login has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails. This includes querying storage using Azure AD pass-through and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This affects tools that keep connections open, like in query editor in SSMS and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
+- If an Azure AD user has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails, including queries that access storage using Azure AD pass-through authentication, and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This issue frequently affects tools that keep connections open, like in query editor in SSMS and ADS. Tools that open new connections to execute a query, like Synapse Studio, aren't affected.
 
-- Azure AD authentication token might be cached by the client applications. For example Power BI caches Azure Active Directory token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
+- Azure AD authentication token might be cached by the client applications. For example, Power BI caches Azure Active Directory token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
 
 Consider the following mitigations:
 
@@ -563,7 +563,7 @@ This error message can occur when the serverless SQL pool is experiencing resour
   - One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. For more information, see [Concurrency limits for Serverless SQL Pool](resources-self-help-sql-on-demand.md#constraints).  
   - Try reducing the number of queries executing simultaneously or the query complexity. 
 
-If the issue is non-transient or you confirmed the problem is not related to high concurrency or query complexity, create a support ticket.
+If the issue is non-transient or you confirmed the problem isn't related to high concurrency or query complexity, create a support ticket.
 
 
 ### [0x8007000C](#tab/x8007000C)
@@ -594,11 +594,11 @@ More information about syntax and usage:
 
 ### Parquet files
 
-When reading Parquet files, the query will not recover automatically. It needs to be retried by the client application.
+When the file format is Parquet, the query won't recover automatically. It needs to be retried by the client application.
 
 ### Synapse Link for Dataverse
 
-This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this.
+This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior.
 
 
 ### [0x800700A1](#tab/x800700A1)
@@ -607,22 +607,22 @@ Confirm the storage account accessed is using the "Archive" access tier.
 
 The `archive access` tier is an offline tier. While a blob is in the `archive access` tier, it can't be read or modified.
 
-To read or download a blob in the Archive tier, rehydrate it to an online tier: [Archive access tier](/azure/storage/blobs/access-tiers-overview.md#archive-access-tier)
+To read or download a blob in the Archive tier, rehydrate it to an online tier: [Archive access tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier)
 
 
 ### [0x80070057](#tab/x80070057)
 
 This error can occur when the authentication method is User Identity, also known as "Azure AD pass-through" and the Azure Active Directory access token expires.
 
-The error message might also resemble the following:
+The error message might also resemble the following pattern:
 
 ```
 File {path} cannot be opened because it does not exist or it is used by another process.
 ```
 
-- If an Azure AD login has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails. This includes querying storage using Azure AD pass-through and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This affects tools that keep connections open, like the query editor in SQL Server Management Studio (SSMS) and ADS. Tools that open new connections to execute a query, like Synapse Studio, are not affected.
+- If an Azure AD user has a connection open for more than 1 hour during query execution, any query that relies on Azure AD fails, including queries that access storage using Azure AD pass-through authentication and statements that interact with Azure AD (like CREATE EXTERNAL PROVIDER). This issue frequently affects tools that keep connections open, like the query editor in SQL Server Management Studio (SSMS) and Azure Data Studio (ADS). Client tools that open new connections to execute a query, like Synapse Studio, aren't affected.
 
-- Azure AD authentication token might be cached by the client applications. For example Power BI caches an Azure AD token and reuses it for one hour. The long-running queries might fail if the token expires in the middle of execution.
+- Azure AD authentication token might be cached by the client applications. For example, Power BI caches an Azure AD token and reuses it for one hour. The long-running queries might fail if the token expires in the middle of execution.
 
 Consider the following mitigations to resolve the issue:
 
@@ -635,7 +635,7 @@ Consider the following mitigations to resolve the issue:
 
 ### [0x80072EE7](#tab/x80072EE7)
 
-This error code can occur when there is a transient issue in the serverless SQL pool.
+This error code can occur when there's a transient issue in the serverless SQL pool.
 It happens infrequently and is temporary by nature. Retry the query.
 
 If the issue persists create a support ticket.
