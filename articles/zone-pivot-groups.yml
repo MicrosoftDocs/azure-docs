@@ -537,12 +537,12 @@ groups:
   pivots:
   - id: devlang-dotnet-core
     title: .NET Core
-  - id: devlang-python
-    title: Python
-  - id: devlang-nodejs
-    title: Node.js
   - id: devlang-java
     title: Java
+  - id: devlang-nodejs
+    title: Node.js
+  - id: devlang-python
+    title: Python
 ############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
 - id: runtime-version-programming-functions
@@ -1624,6 +1624,21 @@ groups:
     title: Single node device
   - id: two-node
     title: Two node cluster
+# Owner: alkohli
+- id: data-box-shipping
+  title: Data Box shipping
+  prompt: Choose shipping location
+  pivots:
+  - id: north-america
+    title: North America
+  - id: europe
+    title: Europe
+  - id: asia-australia
+    title: Asia, Australia
+  - id: Africa
+    title: Africa
+  - id: self-managed
+    title: Self-managed
 # Owner: timlt
 - id: iot-develop-toolset
   title: IoT Devices

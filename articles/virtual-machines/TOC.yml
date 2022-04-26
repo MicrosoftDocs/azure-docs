@@ -148,7 +148,7 @@
   - name: Azure Confidential Compute
     href: ../confidential-computing/overview.md
   - name: SQL on Virtual Machines
-    href: ../azure-sql/virtual-machines/index.yml
+    href: /azure/azure-sql/virtual-machines/index
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
 - name: Instances
@@ -765,6 +765,8 @@
     items:
     - name: Linux
       items:
+      - name: Connect to a Linux VM
+        href: linux-vm-connect.md
       - name: Create and manage SSH keys locally
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
@@ -2030,7 +2032,7 @@
     href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
-  - name: Azure Quickstart templates
+  - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux

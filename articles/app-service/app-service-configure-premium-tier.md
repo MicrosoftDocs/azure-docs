@@ -83,8 +83,7 @@ If your app runs in an App Service deployment where **PremiumV3** isn't availabl
     ![Screenshot showing how to clone your app.](media/app-service-configure-premium-tier/clone-app.png)
 
     In the **Clone app** page, you can create an App Service plan using **PremiumV3** in the region you want, and specify the app settings and configuration that you want to clone.
-
-If you are 
+ 
 
 ## Moving from Premium Container to Premium V3 SKU
 
