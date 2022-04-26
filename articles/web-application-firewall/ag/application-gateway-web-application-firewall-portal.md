@@ -52,7 +52,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    - **WAF Policy**: Select **Create new**, type a name for the new policy, and then select **OK**.
      This creates a basic WAF policy with a managed Default Rule Set (DRS).
 
-     ![Screenshot of Create new application gateway: Basics tab](../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png)
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png" alt-text="Screenshot of Create new application gateway: Basics tab." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png":::
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
