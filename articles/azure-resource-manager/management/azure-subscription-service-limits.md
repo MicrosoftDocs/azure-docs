@@ -370,9 +370,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Azure Purview limits
+## Microsoft Purview limits
 
-The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md).
+The latest values for Microsoft Purview quotas can be found in the [Microsoft Purview quota page](../../purview/how-to-manage-quotas.md).
 
 ## Service Bus limits
 
@@ -384,7 +384,7 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 
 ## SQL Database limits
 
-For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](/azure/azure-sql/database/resource-limits-vcore-single-databases), [SQL Database resource limits for elastic pools and pooled databases](/azure/azure-sql/database/resource-limits-vcore-elastic-pools), and [SQL Database resource limits for SQL Managed Instance](/azure/azure-sql/managed-instance/resource-limits).
 
 The maximum number of private endpoints per Azure SQL Database logical server is 250.
 

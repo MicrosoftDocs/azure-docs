@@ -27,7 +27,7 @@ Once you start using Video Analyzer for Media, all your stored data and uploaded
 
 ### Supported file formats for Video Analyzer for Media
 
-See the [input container/file formats](/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Video Analyzer for Media.
+See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Video Analyzer for Media.
 
 ### Upload a video
 

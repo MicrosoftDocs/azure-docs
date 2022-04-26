@@ -76,7 +76,7 @@ In many twin queries, the `$` character is used to reference the `$dtId` propert
 Here is an example of querying for a twin with a CLI command in the Cloud Shell Bash environment:
 
 ```azurecli
-az dt twin query -n <instance-name> -q "SELECT * FROM DigitalTwins T Where T.\$dtId = 'room0'"
+az dt twin query --dt-name <instance-hostname-or-name> --query-command "SELECT * FROM DigitalTwins T Where T.\$dtId = 'room0'"
 ```
 
 ### PowerShell
@@ -90,7 +90,7 @@ Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), a
 Here is an example of creating a twin with a CLI command in PowerShell:
 
 ```azurecli
-az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0}'
+az dt twin create --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0}'
 ```
 
 >[!TIP]
@@ -102,7 +102,7 @@ In many twin queries, the `$` character is used to reference the `$dtId` propert
 
 Here is an example of querying for a twin with a CLI command in PowerShell:
 ```azurecli
-az dt twin query -n <instance-name> -q "SELECT * FROM DigitalTwins T Where T.`$dtId = 'room0'"
+az dt twin query --dt-name <instance-hostname-or-name> --query-command "SELECT * FROM DigitalTwins T Where T.`$dtId = 'room0'"
 ```
 
 ### Windows CMD
@@ -116,7 +116,7 @@ Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), a
 Here is an example of creating a twin with a CLI command in the local Windows CMD:
 
 ```azurecli
-az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties "{\"Temperature\": 0.0}"
+az dt twin create --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties "{\"Temperature\": 0.0}"
 ```
 
 >[!TIP]

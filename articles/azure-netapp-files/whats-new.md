@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 04/04/2022
+ms.date: 04/12/2022
 ms.author: anfdocs
 ---
 
@@ -21,6 +21,15 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 * [Re-establish deleted volume replication](reestablish-deleted-volume-relationships.md) public preview
+
+## April 2022
+
+* Features that are now generally available (GA)   
+
+    The following features are now GA. You no longer need to register the features before using them.   
+    * [Dynamic change of service level](dynamic-change-volume-service-level.md)
+    * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)    
+
 
 ## March 2022
 

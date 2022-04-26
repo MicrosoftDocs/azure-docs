@@ -89,6 +89,6 @@ Regulations around the maintenance of personal data require the ability to expor
 Currently, Azure Communication Services Call Recording APIs are available in C# and Java.
 
 ## Next steps
-Check out the [Call Recoding Quickstart](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
+Check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
 
 Learn more about [Call Automation APIs](./call-automation-apis.md).

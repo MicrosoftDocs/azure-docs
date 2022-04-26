@@ -56,4 +56,6 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 > [!TIP]
 > The `fr-FR` Speech service phone set doesn't support the following French liasions, `n‿`, `t‿`, and `z‿`. If they are needed, you should consider using the IPA directly.
+
+> [!NOTE]
 > `fr-CA`, `fr-CH` locales don't support SAPI phones now.

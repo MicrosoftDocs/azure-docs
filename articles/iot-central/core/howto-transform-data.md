@@ -470,7 +470,7 @@ Before you set up this scenario, you need to get some connection settings from y
 
 1. Sign in to your IoT Central application.
 
-1. Navigate to **Administration > Device connection**.
+1. Navigate to **Permissions > Device connection groups**.
 
 1. Make a note of the **ID scope**. You use this value later.
 

@@ -70,7 +70,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 ### Create and configure a Media Services account
 
-1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/media-services/previous/media-services-portal-create-account).
+1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/azure/media-services/previous/media-services-portal-create-account).
 
      Make sure the Media Services account was created with the classic APIs.
 
@@ -89,10 +89,10 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
     ![Streaming endpoints](./media/create-account/create-ams-account-se.png)
-4. For Video Analyzer for Media to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/media-services/previous/media-services-portal-get-started-with-aad):
+4. For Video Analyzer for Media to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/media-services/previous/media-services-portal-get-started-with-aad):
 
     1. In the new Media Services account, select **API access**.
-    2. Select [Service principal authentication method](/media-services/previous/media-services-portal-get-started-with-aad).
+    2. Select [Service principal authentication method](/azure/media-services/previous/media-services-portal-get-started-with-aad).
     3. Get the client ID and client secret
 
         After you select **Settings**->**Keys**, add **Description**, press **Save**, and the key value gets populated.

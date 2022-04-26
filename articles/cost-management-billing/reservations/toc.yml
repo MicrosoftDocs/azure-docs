@@ -53,6 +53,8 @@
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines
       href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Virtual machine software
+      href: understand-vm-software-reservation-discount.md
   - name: Windows and SQL costs not included
     href: reserved-instance-windows-software-costs.md
   - name: Usage data for individual subscriptions
@@ -105,13 +107,15 @@
     - name: Software plans
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
-      href: ../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: /azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Synapse Analytics - data warehouse
       href: prepay-sql-data-warehouse-charges.md
     - name: Synapse Analytics - Pre-Purchase
       href: synapse-analytics-pre-purchase-plan.md
     - name: Virtual machines
       href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Virtual machine software
+      href: buy-vm-software-reservation.md
   - name: Permissions, View and Manage
     items:
     - name: Permissions to view and manage
@@ -128,6 +132,8 @@
       href: reservation-utilization.md
     - name: View reservation transactions
       href: view-purchase-refunds.md
+    - name: View amortized reservation costs
+      href: reservation-amortization.md
     - name: Charge back reservation costs
       href: charge-back-usage.md
   - name: Exchange and refund
