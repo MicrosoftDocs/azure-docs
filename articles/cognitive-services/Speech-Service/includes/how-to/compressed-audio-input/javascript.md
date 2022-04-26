@@ -9,4 +9,4 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Header](../../common/javascript.md)]
 
-The Speech SDK for JavaScript does support compressed audio, but we haven't yet included a guide here. Please select another programming language to get started and learn about the concepts, or see the JavaScript reference and samples linked from the beginning of this article. 
+The Speech SDK for JavaScript does not support compressed audio. The default audio streaming format is WAV (16 kHz or 8 kHz, 16-bit, and mono PCM). See [How to use the audio input stream](../../../how-to-use-audio-input-streams.md).
