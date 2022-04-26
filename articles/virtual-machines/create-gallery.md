@@ -111,7 +111,7 @@ During the preview, make sure that you create your gallery, image definitions, a
 > 
 > To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
 
-When creating a to share with the community, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing:
+When creating an image to share with the community, you will need to provide contact information. This information will be shown **publicly**, so be careful when providing:
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
