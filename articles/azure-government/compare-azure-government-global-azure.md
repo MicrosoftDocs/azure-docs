@@ -212,7 +212,7 @@ The following Azure Database for PostgreSQL **features are not currently availab
   - Advanced Threat Protection
   - Backup with long-term retention
 
-### [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 
 The following Azure SQL Managed Instance **features are not currently available** in Azure Government:
 
