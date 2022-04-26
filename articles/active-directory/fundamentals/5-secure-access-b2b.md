@@ -64,34 +64,34 @@ Also note that limiting to a single domain may inadvertently prevent authorized 
 
 There are circumstances in which you would want to only allow specific collaboration partners for a subset of users. For example, a university may want to restrict student accounts from accessing external tenants but need to allow faculty to collaborate with external organizations.
 
-### Using allow and deny lists with External Collaboration Settings
+### Using allow and blocklists with External Collaboration Settings
 
-You can use an allow list or deny list to [restrict invitations to B2B users](../external-identities/allow-deny-list.md) from specific organizations. You can use only an allow or a deny list, not both.
+You can use an allowlist or blocklist to [restrict invitations to B2B users](../external-identities/allow-deny-list.md) from specific organizations. You can use only an allow or a blocklist, not both.
 
-* An [allow list](../external-identities/allow-deny-list.md) limits collaboration to only those domains listed; all other domains are effectively on the deny list.
+* An [allowlist](../external-identities/allow-deny-list.md) limits collaboration to only those domains listed; all other domains are effectively on the blocklist.
 
-* A [deny list](../external-identities/allow-deny-list.md) allows collaboration with any domain not on the deny list.
+* A [blocklist](../external-identities/allow-deny-list.md) allows collaboration with any domain not on the blocklist.
 
 > [!NOTE]
 > Limiting to a predefined  domain may inadvertently prevent authorized collaboration with organizations, which have other domains for their users. For example, if doing business with an organization Contoso, the initial point of contact with Contoso might be one of their US-based employees who has an email with a ".com" domain. However, if you only allow the ".com" domain you may inadvertently omit their Canadian employees who have ".ca" domain.
 
 > [!IMPORTANT]
-> These lists do not apply to users who are already in your directory. By default, they also do not apply to OneDrive for Business and SharePoint allow deny lists which are separate unless you enable the [SharePoint/OneDrive B2B integration](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration).  
+> These lists do not apply to users who are already in your directory. By default, they also do not apply to OneDrive for Business and SharePoint allow/blocklists which are separate unless you enable the [SharePoint/OneDrive B2B integration](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration).  
 
-Some organizations use a list of known ‘bad actor’ domains provided by their managed security provider for their deny list. For example, if the organization is legitimately doing business with Contoso and using a .com domain, there may be an unrelated organization that has been using the Contoso .org domain and attempting a phishing attack to impersonate Contoso employees. 
+Some organizations use a list of known ‘bad actor’ domains provided by their managed security provider for their blocklist. For example, if the organization is legitimately doing business with Contoso and using a .com domain, there may be an unrelated organization that has been using the Contoso .org domain and attempting a phishing attack to impersonate Contoso employees. 
 
 ### Using Cross Tenant Access Settings
 
 You can control both inbound and outbound access using Cross Tenant Access Settings. In addition, you can trust MFA, Compliant device, and hybrid Azure Active Directory joined device (HAADJ) claims from all or a subset of external Azure AD tenants. When you configure an organization specific policy, it applies to the entire Azure AD tenant and will cover all users from that tenant regardless of the user’s domain suffix. 
 
-If you wish to allow inbound access to only specific tenants (allow list), you can set the default policy to block access and then create organization policies to granularly allow access on a per user, group, and application basis.
+If you wish to allow inbound access to only specific tenants (allowlist), you can set the default policy to block access and then create organization policies to granularly allow access on a per user, group, and application basis.
 
-If you wish to deny access to specific tenants (deny list), you can set the default policy as allow and then create organization policies that block access to those specific tenants. 
+If you wish to block access to specific tenants (blocklist), you can set the default policy as allow and then create organization policies that block access to those specific tenants. 
 
 > [!NOTE]
 > Cross Tenant Access Settings Inbound Access does not prevent the invitations from being sent or redeemed. However, it does control what applications can be accessed and whether a token is issued to the guest user or not. Even if the guest can redeem an invitation, if the policy blocks access to all applications, the user will not have access to anything.
 
-If you wish to control what external organizations your users can access, you can configure outbound access policies following the same pattern as inbound access – allow/deny list. Configure the default and organization-specific policies as desired. [Learn more about configuring inbound and outbound access policies](../external-identities/cross-tenant-access-settings-b2b-collaboration.md). 
+If you wish to control what external organizations your users can access, you can configure outbound access policies following the same pattern as inbound access – allow/blocklist. Configure the default and organization-specific policies as desired. [Learn more about configuring inbound and outbound access policies](../external-identities/cross-tenant-access-settings-b2b-collaboration.md). 
 
 > [!NOTE]
 > Cross Tenant Access Settings only applies to Azure AD tenants. If you need to control access to partners who do not use Azure AD, you must use External Collaboration Settings.
@@ -113,7 +113,7 @@ There are many ways to collaborate with external partners using Azure AD B2B. To
 When you enable Azure AD B2B, you enable the ability to invite guest users via direct links and email invitations by default. Self Service sign-up and publishing Access Packages to the My Access portal require additional configuration. 
 
 > [NOTE]
-> Self Service sign-up does not enforce the allow/deny list in External Collaboration Settings. Cross Tenant Access Settings will apply. You can also integrate your own allow/deny list with Self Service sign-up using [custom API connectors](../external-identities/self-service-sign-up-add-api-connector.md).
+> Self Service sign-up does not enforce the allow/blocklist in External Collaboration Settings. Cross Tenant Access Settings will apply. You can also integrate your own allow/blocklist with Self Service sign-up using [custom API connectors](../external-identities/self-service-sign-up-add-api-connector.md).
 
 ### Control who can invite guest users
 
@@ -137,7 +137,7 @@ If you use a self-service portal, you can use [API connectors](../external-ident
 
 There are three instances when invited guest users from a collaboration partner using Azure AD will have trouble redeeming an invitation.
 
-* If using an allow list and the user’s domain isn't included in an allow list.
+* If using an allowlist and the user’s domain isn't included in an allowlist.
 
 * If the collaboration partner’s home tenant has tenant restrictions that prevent collaboration with external users..
 
