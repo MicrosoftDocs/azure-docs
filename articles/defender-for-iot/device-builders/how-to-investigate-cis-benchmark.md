@@ -9,6 +9,9 @@ ms.topic: how-to
 
 Perform basic and advanced investigations based on OS baseline recommendations.
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+
 ## Basic OS baseline security recommendation investigation
 
 You can investigate OS baseline recommendations by navigating to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).

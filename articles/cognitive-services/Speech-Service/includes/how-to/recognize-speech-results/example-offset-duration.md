@@ -9,7 +9,7 @@ ms.author: eur
 
 ### Example offset and duration
 
-The following table shows potential offset and duration in ticks when a speaker says "Welcome to Applied Mathematics course 201." For each utterance, the offset doesn't change throughout the `Recognized` and `Recognized` events. The duration of speech recognized so far is calculated as an offset from the beginning of the utterance.
+The following table shows potential offset and duration in ticks when a speaker says "Welcome to Applied Mathematics course 201." For each utterance, the offset doesn't change throughout the `Recognizing` and `Recognized` events. The duration of speech recognized so far is calculated as an offset from the beginning of the utterance.
 
 |Event  |Text  |Offset (in ticks)  |Duration (in ticks) |
 |---------|---------|---------|---------|
