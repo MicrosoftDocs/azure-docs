@@ -47,6 +47,10 @@ For event hosts and organizers, they can join a virtual experience that enables 
 
 - Teams Client (Web or Desktop): Presenters can join using the fully fledged Teams client for web or mobile. The Teams client provides presenters a full set of capabilities to deliver their content. Learn more about [presenter capabilities for Teams](https://support.microsoft.com/office/present-in-a-live-event-in-teams-d58fc9db-ff5b-4633-afb3-b4b2ddef6c0a). 
 
+## Sample solution architecture
+
+![image](https://user-images.githubusercontent.com/43075365/165207054-003fc326-1955-475b-b2de-05e39b357970.png)
+
 ## Leveraging Microsoft Graph to schedule events and register attendees
 
 Microsoft Graph enables event management platforms to empower organizers to schedule and manage their events directly through the event management platform. For attendees, event management platforms can build custom registration flows right on their platform that register the attendee for the event and generates unique credentials for them to join the Teams hosted event.
