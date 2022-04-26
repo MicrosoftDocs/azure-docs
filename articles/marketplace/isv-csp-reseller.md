@@ -185,3 +185,7 @@ The payout amount and agency fee that Microsoft charges is based on the price af
 ## Next steps
 
 - [Frequently Asked Questions](./isv-csp-faq.yml) about configuring ISV to CSP partner private offers
+- Video series (YouTube):
+  - [Private Offers for CSP Partners Overview](https://youtu.be/UYOsdTPiPnQ)
+  - [Private Offer Creation by ISVs for CSP Partners](https://youtu.be/rwp8eDfmYb8)
+  - [The CSP Partner Private Offer Purchase Process](https://youtu.be/_Zqphs6ZG6A)

@@ -88,7 +88,9 @@ Within your selected organization, create a _project_. If you don't have any pro
 
 1. Select the name of your container registry.
 
-1. You can leave the image name and the service port set to the defaults.
+1. You can leave the image name set to the default.
+
+1. Set the service port to 8080.
 
 1. Set the **Enable Review App for Pull Requests** checkbox for [review app](/azure/devops/pipelines/process/environments-kubernetes) related configuration to be included in the pipeline YAML auto-generated in subsequent steps.
 
