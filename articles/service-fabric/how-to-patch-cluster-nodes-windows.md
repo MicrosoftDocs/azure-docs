@@ -46,11 +46,9 @@ When enabling automatic OS updates, you'll also need to disable Windows Update i
    
     
     ```json
-    "virtualMachineProfile": { 
-        "osProfile": { 
-            "windowsConfiguration": { 
-                "enableAutomaticUpdates": false 
-            }
+    "osProfile": { 
+       "windowsConfiguration": { 
+         "enableAutomaticUpdates": false 
         }
     }
     ```
