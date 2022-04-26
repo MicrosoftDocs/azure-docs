@@ -47,8 +47,6 @@ Email Communication Service resources are designed to enable domain validation s
 
 ## Next steps
 
-> [Configure Email Authentication for your domain in Azure Communication Services Email](../../quickstarts/Email/setup-email-authentication.md)
-> 
 > [Best Practices for Sender Authentication Support in Azure Communication Services Email](./email-authentication-bestpractice.md)
 
 > [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
