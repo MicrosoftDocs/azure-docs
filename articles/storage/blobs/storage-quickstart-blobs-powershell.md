@@ -139,7 +139,10 @@ Remove-AzResourceGroup -Name $ResourceGroup
 
 ## Next steps
 
-In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, explore Azure PowerShell samples for Blob storage.
+In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, select an option below.
+
+> [!div class="nextstepaction"]
+> [Manage block blobs with PowerShell](blob-powershell.md)
 
 > [!div class="nextstepaction"]
 > [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

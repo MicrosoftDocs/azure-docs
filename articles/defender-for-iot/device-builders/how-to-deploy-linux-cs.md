@@ -7,11 +7,6 @@ ms.date: 03/28/2022
 
 # Deploy Defender for IoT C# based security agent for Linux
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
->
-
-
 This guide explains how to install and deploy the Defender for IoT C#-based security agent on Linux.
 
 In this guide, you learn how to:

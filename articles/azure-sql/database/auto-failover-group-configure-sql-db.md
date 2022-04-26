@@ -420,6 +420,7 @@ The following table lists specific permission scopes for Azure SQL Database:
 ## Remarks
 
 - Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after it's been removed. Failing to do either may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group.
+- Auto-failover group name is subject to [naming restrictions](../../azure-resource-manager/management/resource-name-rules.md).
 
 ## Next steps
 
