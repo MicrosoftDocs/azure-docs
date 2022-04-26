@@ -11,6 +11,8 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: private_preview
 ---
+# Quickstart: How to connect a verified Email Domain with Communication Services Resource
+
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
@@ -20,28 +22,28 @@ ms.custom: private_preview
 - [Create a Communication Services Resources](../create-communication-resource.md) to connect to a verified domain.
 - In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
 
-    :::image type="content" source="./media/email-acs-domains.png" alt-text="image":::
+    :::image type="content" source="./media/email-acs-domains.png" alt-text="Email Domains":::
 
 - Select one of the options below
     - Click **Connect domain** in the upper navigation bar.
     - Click **Connect domain** in the splash screen.
      
-        :::image type="content" source="./media/email-acs-domains-connect.png" alt-text="image":::
+        :::image type="content" source="./media/email-acs-domains-connect.png" alt-text="Connect your email domains":::
 - Select a one of the verified domains by filtering 
     - Subscription
     - Resource Group
     - Email Service
     - Verified Domain
     
-    :::image type="content" source="./media/email-acs-domains-connect-select.png" alt-text="image":::
+    :::image type="content" source="./media/email-acs-domains-connect-select.png" alt-text="Connect email domains":::
 - Click Connect
  
-    :::image type="content" source="./media/email-acs-domains-connected.png" alt-text="image":::
+    :::image type="content" source="./media/email-acs-domains-connected.png" alt-text="Domain Connected":::
 
 ## Disconnect an email domain from the Communication Service Resource
 
 -  In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
 -  Select the Connected Domains click the ... and click Disconnect.  
 
-    :::image type="content" source="./media/email-acs-domains-connect-disconnect.png" alt-text="image":::
+    :::image type="content" source="./media/email-acs-domains-connect-disconnect.png" alt-text="Disconnected Domains":::
 
