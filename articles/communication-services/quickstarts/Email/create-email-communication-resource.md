@@ -42,7 +42,7 @@ Create the Email Communications Service Resource using Portal
 4. Wait for the validation to pass. Click **Create**. 
 5. Wait for the Deployment to complete. Click **Go to Resource** will land on Email Communication Service Overview Page.
 
-   :::image type="content" source="./media/email-comm-create-overview.png" alt-text="Overview of Email Communication Service":::
+   :::image type="content" source="./media/email-comm-overview.png" alt-text="Overview of Email Communication Service":::
 
 
 ## Next steps
