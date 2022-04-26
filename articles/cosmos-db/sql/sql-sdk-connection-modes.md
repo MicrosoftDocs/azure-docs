@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 04/26/2022
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
@@ -55,7 +55,7 @@ When an Azure Cosmos DB SDK on Direct mode is performing an operation, it needs 
 
 Each replica set contains one primary replica and three secondaries. Write operations are always routed to primary replica nodes while read operations can be served from primary or secondary nodes.
 
-:::image type="content" source="./media/performance-tips/sdk-direct-mode.png" alt-text="SDKs in direct mode fetch the container and routing information from Gateway before opening the TCP connections to the backend nodes" border="false":::
+:::image type="content" source="./media/performance-tips/sdk-direct-mode.png" alt-text="Diagram that shows how S D Ks in direct mode fetch the container and routing information from Gateway before opening the T C P connections to the backend nodes" border="false":::
 
 Because the container and routing information don't change often, it's cached locally on the SDKs so subsequent operations can benefit from this information. The TCP connections already established are also reused across operations. Unless otherwise configured through the SDKs options, connections are permanently maintained during the lifetime of the SDK instance.
 
