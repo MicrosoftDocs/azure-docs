@@ -52,7 +52,7 @@ Identity Protection now integrates a signal from Microsoft Defender for Endpoint
 **Service category:** Authentications (Logins)
 **Product capability:** User Authentication
 
-Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
+Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
 
 ---
 
@@ -64,7 +64,7 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 login 
 **Product capability:** Identity Security & Protection
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
-Microsoft 365 App Certification offers assurance that an app is compliant with cloud app security best practices and that data and privacy are adequately secured and protected when a third-party Microsoft 365 application is integrated into your Microsoft 365 environment. Applications that pass validation will be designated Microsoft 365 Certified. Microsoft 365 Certification status for an app is now available in Azure AD consent UX, and custom app consent policies. The status will subsequently be displayed in several other Identity-owned interfaces such as enterprise apps. For more information, see [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md).
+Microsoft 365 App Certification offers assurance that an app is compliant with cloud app security best practices and that data and privacy are adequately secured and protected when a third-party Microsoft 365 application is integrated into your Microsoft 365 environment. Applications that pass validation will be designated Microsoft 365 Certified. Microsoft 365 Certification status for an app is now available in Azure AD consent UX, and custom app consent policies. The status will subsequently be displayed in several other Identity-owned interfaces such as enterprise apps. For more information, see: [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md).
 
 ---
 
@@ -74,7 +74,7 @@ Microsoft 365 App Certification offers assurance that an app is compliant with c
 **Service category:** Authentications (Logins)
 **Product capability:** User Authentication
 
-Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
+Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
 
 ---
 
@@ -84,7 +84,7 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 login 
 **Type:** New feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
-Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels. For more information, see [Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)](../governance/create-access-review.md#include-b2b-direct-connect-users-and-teams-accessing-teams-shared-channels-in-access-reviews-preview).
+Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels. For more information, see: [Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)](../governance/create-access-review.md#include-b2b-direct-connect-users-and-teams-accessing-teams-shared-channels-in-access-reviews-preview).
 
 ---
 
@@ -96,7 +96,7 @@ Use Azure AD access reviews to review access of B2B direct connect users in Team
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
 
-We are delighted to announce the public preview of following MS Graph APIs and PowerShell cmdlets for configuring federated settings when federated with Azure AD:
+We are announcing the public preview of following MS Graph APIs and PowerShell cmdlets for configuring federated settings when federated with Azure AD:
 
 
 |Action  |MS Graph API  |PowerShell cmdlet  |
@@ -109,6 +109,8 @@ We are delighted to announce the public preview of following MS Graph APIs and P
 
 
 If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0) and [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
+
+
 For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta).
 
 
