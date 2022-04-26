@@ -307,7 +307,51 @@ Now that you have a user journey, add the new identity provider to the user jour
 
 5. Select **Upload Custom Policy**, and then upload the files in the **LocalAccounts** starter pack in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
 
-## Step 6: Test your custom policy
+## Step 7: Configure the relying party policy
+
+The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/main/LocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. Find the **DefaultUserJourney** element within relying party. Update the **ReferenceId** to match the user journey ID, in which you added the identity provider.
+
+In the following example, for the `X-IDSignUpOrSignIn` user journey, the **ReferenceId** is set to `X-IDSignUpOrSignIn`:
+
+```xml
+   <RelyingParty>
+        <DefaultUserJourney ReferenceId="X-IDSignUpOrSignIn" />
+        <TechnicalProfile Id="PolicyProfile">
+          <DisplayName>PolicyProfile</DisplayName>
+          <Protocol Name="OpenIdConnect" />
+          <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+          <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+          <OutputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
+          <OutputClaim ClaimTypeReferenceId="issuerUserId" />
+          <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
+          <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="last_name" />
+          <OutputClaim ClaimTypeReferenceId="previous_name" />
+          <OutputClaim ClaimTypeReferenceId="year" />
+          <OutputClaim ClaimTypeReferenceId="month" />
+          <OutputClaim ClaimTypeReferenceId="date" />
+          <OutputClaim ClaimTypeReferenceId="prefecture" />
+          <OutputClaim ClaimTypeReferenceId="city" />
+          <OutputClaim ClaimTypeReferenceId="address" />
+          <OutputClaim ClaimTypeReferenceId="sub_char_common_name" />
+          <OutputClaim ClaimTypeReferenceId="sub_char_previous_name" />
+          <OutputClaim ClaimTypeReferenceId="sub_char_address" />
+          <OutputClaim ClaimTypeReferenceId="gender" />
+          <OutputClaim ClaimTypeReferenceId="verified_at" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="sid" />
+          <OutputClaim ClaimTypeReferenceId="userdataid" />
+          <OutputClaim ClaimTypeReferenceId="xid_verified" />
+          <OutputClaim ClaimTypeReferenceId="email_verified" />
+          </OutputClaims>
+          <SubjectNamingInfo ClaimType="sub" />
+        </TechnicalProfile>
+      </RelyingParty>
+
+```
+
+
+## Step 8: Test your custom policy
 
 1. In your Azure AD B2C tenant blade, and under **Policies**, select **Identity Experience Framework**.
 
