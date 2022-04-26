@@ -11,71 +11,60 @@ This article describes an on-premises management console deployment on a virtual
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md). |
-|**Performance** | 	 As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md). |
+|**Hardware profile** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
+|**Performance** | 	 As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
-### Prerequisites
+## Prerequisites
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
 - VMware (ESXi 5.5 or later) installed and operational
 
-- Available hardware resources for the virtual machine
+- Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- ISO installation file for the Microsoft Defender for IoT sensor
+- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal)
 
 Make sure the hypervisor is running.
 
-### Create the virtual machine (ESXi)
+## Create the virtual machine
 
-To create a virtual machine (ESXi):
+This procedure describes how to create a virtual machine for your on-premises management console using VMWare ESXi.
+
+**To create the virtual machine**:
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
 1. Upload the image and select **Close**.
 
-1. Go to **Virtual Machines**.
+1. Go to **Virtual Machines** > **Create/Register VM** > **Create new virtual machine** > **Next**.
 
-1. Select **Create/Register VM**.
+1. Add a sensor name and select:
 
-1. Select **Create new virtual machine** and select **Next**.
+   - **Compatibility**: \<latest ESXi version>
 
-1. Add a sensor name and choose:
+   - **Guest OS family**: Linux
 
-   - Compatibility: \<latest ESXi version>
+   - **Guest OS version**: Ubuntu Linux (64-bit)
 
-   - Guest OS family: Linux
+    When you're done, select **Next**.
 
-   - Guest OS version: Ubuntu Linux (64-bit)
+1. Select the relevant datastore > **Next**.
 
-1. Select **Next**.
+1. Change the virtual hardware parameters [according to your organization's needs](../ot-appliance-sizing.md).
 
-1. Choose relevant datastore and select **Next**.
-
-1. Change the virtual hardware parameters according to the required architecture.
-
-1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
+1. For **CD/DVD Drive 1**, select **Datastore ISO file** and then select the ISO file that you uploaded earlier.
 
 1. Select **Next** > **Finish**.
 
-
 ### Software installation
 
-This section describes the ESXi software installation.
+1. To start installing the on-premises management console software, open the virtual machine console.
 
-To install:
+    The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Open the virtual machine console.
-
-1. The VM will start from the ISO image, and the language selection screen will appear.
-
-1. Continue by installing OT sensor or on-premises management software. For more information, see [Install the software](#install-defender-for-iot-software).
-
-The installation process takes about 20 minutes. After the installation, the system is restarted several times.
-
-During the installation process, you can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](../how-to-install-software.md#add-a-secondary-nic) at a later time.
+1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-software.md#install-on-premises-management-console-software).
 
 
 ## Next steps

@@ -5,80 +5,58 @@ ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# On-premises management console as a virtual appliance with Microsoft Hyper-V
-
-This article describes an on-premises management console deployment on a virtual appliance using Microsoft Hyper-V.
-
 # On-premises management console (Microsoft Hyper-V hypervisor)
 
-This article describes an on-premises management console deployment on a virtual appliance using the Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise)
+This article describes an on-premises management console deployment on a virtual appliance using the Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise).
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md). |
-|**Performance** |  As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md). |
+|**Hardware profile** | As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
+|**Performance** |  As required for your organization. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) |
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
-### Prerequisites
+## Prerequisites
 
-The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
+Before you begin the installation, make sure you have the following items:
 
 - Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
 
-- Available hardware resources for the virtual machine
+- Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- ISO installation file for the Microsoft Defender for IoT sensor
+- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal)
 
 Make sure the hypervisor is running.
 
-### Create the virtual machine (Hyper-V)
+## Create the virtual machine
 
-To create a virtual machine by using Hyper-V:
+This procedure describes how to create a virtual machine for your on-premises management console using Microsoft Hyper-V.
+
+**To create a virtual machine**:
 
 1. Create a virtual disk in Hyper-V Manager.
 
-1. Select the format **VHDX**.
+1. Select the format **VHDX** > **Next**.
 
-1. Select **Next**.
+1. Select the type **Dynamic expanding** > **Next**.
 
-1. Select the type **Dynamic expanding**.
+1. Enter the name and location for the VHD and then select **Next**.
 
-1. Select **Next**.
-
-1. Enter the name and location for the VHD.
-
-1. Select **Next**.
-
-1. Enter the required size (according to the architecture).
-
-1. Select **Next**.
+1. Enter the [required size for your organization's needs](../ot-appliance-sizing.md), and then select **Next**.
 
 1. Review the summary and select **Finish**.
 
-1. On the **Actions** menu, create a new virtual machine.
+1. On the **Actions** menu, create a new virtual machine and select **Next**.
 
-1. Select **Next**.
+1. Enter a name for the virtual machine and select **Next**.
 
-1. Enter a name for the virtual machine.
+1. Select **Generation** and set it to **Generation 1**, and tehn select **Next**.
 
-1. Select **Next**.
+1. Specify the [memory allocation for your organization's needs](../ot-appliance-sizing.md), and then select **Next**.
 
-1. Select **Generation** and set it to **Generation 1**.
+1. Configure the network adaptor according to your server network topology and then select **Next**.
 
-1. Select **Next**.
-
-1. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
-
-1. Select **Next**.
-
-1. Configure the network adaptor according to your server network topology.
-
-1. Select **Next**.
-
-1. Connect the VHDX created previously to the virtual machine.
-
-1. Select **Next**.
+1. Connect the VHDX created previously to the virtual machine, and then select **Next**.
 
 1. Review the summary and select **Finish**.
 
@@ -88,31 +66,19 @@ To create a virtual machine by using Hyper-V:
 
 1. For **Virtual Switch**, select the switch that will connect to the sensor management network.
 
-1. Allocate CPU resources (according to the architecture).
+1. Allocate [CPU resources for your organization's needs](../ot-appliance-sizing.md), and then select **Next**. 
 
-1. Connect the management console's ISO image to a virtual DVD drive.
-
-1. Start the virtual machine.
+1. Connect the management console's ISO image to a virtual DVD drive and start the virtual machine.
 
 1. On the **Actions** menu, select **Connect** to continue the software installation.
 
-### Software installation
+## Software installation
 
-This section describes the ESXi software installation.
+1. To start installing the on-premises management console software, open the virtual machine console.
 
-To install:
+    The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Open the virtual machine console.
-
-1. The VM will start from the ISO image, and the language selection screen will appear.
-
-1. Continue by installing OT sensor or on-premises management software. For more information, see [Defender for IoT software installation](../how-to-install-software.md).
-
-The installation process takes about 20 minutes. After the installation, the system is restarted several times.
-
-During the installation process, you can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](../how-to-install-software.md#add-a-secondary-nic) at a later time.
-
-
+1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-software.md#install-on-premises-management-console-software).
 
 ## Next steps
 

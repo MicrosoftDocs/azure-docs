@@ -10,30 +10,33 @@ ms.topic: how-to
 This article describes how to install software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're re-installing software on a preconfigured appliance, or if you've chosen to install software on your own appliances.
 
 
+## Pre-installation configuration
 
-## Prerequisites
+Each appliance type comes with it's own set of instructions that are required before installing Defender for IoT software.
 
-- **Pre-installation configuration**. Each appliance type comes with it's own set of instructions that are required before installing Defender for IoT software.
+Make sure that you've completed the procedures as instructed in the **Reference > OT monitoring appliance** section of our documentation before installing Defender for IoT software.
 
-    Make sure that you've completed the procedures as instructed in the **Reference > OT monitoring appliance** section of our documentation before installing Defender for IoT software.
+For more information, see:
 
-    For more information, see:
+- [Which appliances do I need?](ot-appliance-sizing.md)
+- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), including the catalog of available appliances
+- [OT monitoring with virtual appliances](ot-virtual-appliances.md)
 
-    - [Which appliances do I need?](ot-appliance-sizing.md)
-    - [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), including the catalog of available appliances
-    - [OT monitoring with virtual appliances](ot-virtual-appliances.md)
+## Download software files from the Azure portal
 
-- **Software files to install**. Make sure that you've downloaded the relevant software file.
+Make sure that you've downloaded the relevant software file for the sensor or on-premises management console.
 
-    You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal, on the Defender for IoT > **Getting started** page. Select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
+You can obtain the latest versions of our OT sensor and on-premises management console software from the Azure portal, on the Defender for IoT > **Getting started** page. Select the **Sensor**, **On-premises management console**, or **Updates** tab and locate the software you need.
 
-    Mount the ISO file using one of the following options;
+Mount the ISO file using one of the following options:
 
-    - Physical media – burn the ISO file to a DVD, or USB, and boot from the media.
+- **Physical media** – burn the ISO file to a DVD or USB, and boot from the media.
 
-    - Virtual mount – use iLO for HPE, or iDRAC for Dell to boot the iso file.
+- **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-## Install sensor software
+## Install OT sensor software
+
+This procedure describes how to install OT sensor software on a physical or virtual appliance.
 
 > [!Note]
 > At the end of this process you will be presented with the usernames, and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
@@ -88,9 +91,11 @@ This article describes how to install software for OT sensors and on-premises ma
 
 ## Install on-premises management console software
 
+This procedure describes how to install on-premises management console software on a physical or virtual appliance.
+
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-During the installation process, you can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic) at a later time.
+During the installation process, you can add a secondary NIC. If you choose not to install the secondary NIC during installation, you can [add a secondary NIC](#add-a-secondary-nic-optional) at a later time.
 
 **To install the software**:
 
@@ -128,7 +133,7 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
 1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
 
-   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::  
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they will not be presented again.":::
 
    Save the usernames, and passwords, you'll need these credentials to access the platform the first time you use it.
 
@@ -136,15 +141,17 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
 For information on how to find the physical port on your appliance, see [Find your port](#find-your-port).
 
-### Add a secondary NIC
+### Add a secondary NIC (optional)
 
-You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
+You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. By adding a secondary NIC, the first will be dedicated for end-users, and the secondary will support the configuration of a gateway for routed networks.
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
 
 Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
 
-If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
+This procedure describes how to add a secondary NIC if you've already installed your on-premises management console.
+
+**To add a secondary NIC**:
 
 1. Use the network reconfigure command:
 
@@ -154,7 +161,7 @@ If you have already configured your on-premises management console, and would li
 
 1. Enter the following responses to the following questions:
 
-    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Enter the following answers to configure your appliance.":::
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Screenshot of the required answers to configure your appliance. ":::
 
     | Parameters | Response to enter |
     |--|--|
@@ -162,10 +169,10 @@ If you have already configured your on-premises management console, and would li
     | **Subnet mask** | `N` |
     | **DNS** | `N` |
     | **Default gateway IP Address** | `N` |
-    | **Sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information, see the Installation instructions)**| `Y`, **select a possible value** |
-    | **An IP address for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer**|
-    | **A subnet mask for the sensor monitoring interface (accessible by the sensors)** | `Y`, **IP address provided by the customer** |
-    | **Hostname** | **provided by the customer** |
+    | **Sensor monitoring interface** <br>Optional. Relevant when sensors are on a different network segment.| `Y` and select a possible value** |
+    | **An IP address for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
+    | **A subnet mask for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
+    | **Hostname** | Enter the hostname |
 
 1. Review all choices, and enter `Y` to accept the changes. The system reboots.
 
