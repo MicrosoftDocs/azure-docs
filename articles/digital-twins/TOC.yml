@@ -107,8 +107,8 @@
     items:
     - name: Use Azure Digital Twins Explorer
       href: how-to-use-azure-digital-twins-explorer.md
-    - name: Get started with 3D Scene Studio
-      href: how-to-get-started-3d-scene-studio.md
+    - name: Get started with 3D Scenes Studio
+      href: how-to-get-started-3d-scenes-studio.md
   - name: Develop client apps
     items:
     - name: Make API requests with Postman
