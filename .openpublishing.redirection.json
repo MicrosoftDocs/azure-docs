@@ -426,6 +426,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -3229,6 +3234,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/scenario-secure-app-clean-up-resources.md",
+      "redirect_url": "/azure/app-service/scenario-secure-app-access-storage#clean-up-resources",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs",
       "redirect_document_id": false
@@ -4540,17 +4550,32 @@
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-onetime.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-onetime",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-onetime.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-restore.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-restore",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-restore.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-scheduled.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-scheduled",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-scheduled.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
@@ -18000,7 +18025,7 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_url": "/azure/lab-services/lab-services-overview",
       "redirect_document_id": false
     },
     {
@@ -18250,11 +18275,11 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md",
-      "redirect_url": "/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",
+      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",      
       "redirect_url": "/azure/lab-services/tutorial-setup-classroom-lab",
       "redirect_document_id": true
     },
@@ -37969,6 +37994,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/tutorial-tenant-model.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/custom-speech-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
@@ -41261,7 +41291,7 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
       "redirect_url": "/azure/storage/files/files-nfs-protocol",
-      "redireect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
@@ -42987,6 +43017,31 @@
       "source_path_from_root": "/articles/azure/sentinel/connect-windows-virtual-desktop.md",
       "redirect_url": "/azure/sentinel/connect-azure-virtual-desktop",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/how-to-use-classroom-lab.md",
+      "redirect_url": "/azure/lab-services/how-to-use-lab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-setup-classroom-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-connect-virtual-machine-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/how-to-use-remote-desktop-linux-student.md",
+      "redirect_url": "/azure/lab-services/connect-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/get-started-manage-labs.md",
+      "redirect_url": "/azure/lab-services/quick-create-lab-portal",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
