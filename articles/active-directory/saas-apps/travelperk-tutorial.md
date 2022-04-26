@@ -125,7 +125,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure TravelPerk SSO
 
-To configure single sign-on on **TravelPerk** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [TravelPerk support team](mailto:trex@travelperk.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **TravelPerk** side, you need to set up the integration in the TravelPerk app.
+
+Go to https://app.travelperk.com as an Admin user, and under Account Settings -> Intgrations, open "Single sign-on (SSO)"
+Choose SAML as the option, and click "New Integration".
+
+Provide the following information:
+
+**IdP entity ID**: the Azure AD Identifier
+**IdP SSO service URL**: the Login URL
+**IdP x509 cert**: the Certificate information from the Federation Metadata XML (Without the <X509Certificate> tag) 
+
+Save and proceed with testing.
 
 ### Create TravelPerk test user
 
