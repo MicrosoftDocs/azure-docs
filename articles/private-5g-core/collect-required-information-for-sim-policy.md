@@ -17,7 +17,7 @@ SIM policies allow you to define different sets of policies and interoperability
 In this how-to guide, we'll collect all the required information to configure a SIM policy.
 
 - You can use this information to configure a SIM policy through the Azure portal. You'll enter each value you collect into its corresponding field (given in the **Field name in Azure portal** columns in the tables below) as part of the procedure in [Configure a SIM policy for Azure Private 5G Core Preview - Azure portal](configure-sim-policy-azure-portal.md).
-- Alternatively, you can use the information to create a simple service and SIM policy using the Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). This template only requires a subset of information, and uses default values for all other settings. The **Included in example ARM template** column indicates which settings you'll need to collect.
+- Alternatively, you can use the information to create a simple service and SIM policy using the example Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). The example template uses default values for all settings, but you can choose to replace a subset of the default settings with your own values. The **Included in example ARM template** columns in the tables below indicate which settings can be changed.
 
 ## Prerequisites
 
