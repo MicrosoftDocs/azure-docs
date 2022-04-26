@@ -30,7 +30,7 @@ The Application Insights agents and/or SDKs for .NET, .NET Core, Java, Node.js, 
 * [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
 * [Node.js](../app/nodejs.md)
-* [JavaScript](./javascript.md)
+* [JavaScript](./javascript.md#enable-correlation)
 * [Python](opencensus-python.md)
 
 With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in [the Dependency auto-collection documentation](./auto-collect-dependencies.md).

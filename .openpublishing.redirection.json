@@ -3229,6 +3229,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/scenario-secure-app-clean-up-resources.md",
+      "redirect_url": "/azure/app-service/scenario-secure-app-access-storage#clean-up-resources",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs",
       "redirect_document_id": false
