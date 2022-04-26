@@ -26,17 +26,16 @@ First create a new Application Gateway as you would usually through the portal -
 
 ## Set up a listener-specific SSL policy
 
-To set up a listener-specific SSL policy, you'll need to first go to the **SSL settings** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is to configure a listener-specific SSL policy. The **Client Authentication** tab is where to upload a client certificate(s) for mutual authentication - for more information, check out [Configuring a mutual authentication](./mutual-authentication-portal.md).
+Before you proceed, here are some important points related to listener-specific SSL policy.
 
-> [!NOTES]
-> - We recommend using TLS 1.2 as this version will be mandated in the future.
->
-> - You don't have to configure client authentication on an SSL profile to associate it to a listener. You can have only client authentication configure, or only listener specific SSL policy configured, or both configured in your SSL profile.
-> 
-> - Using a new Predefined or Customv2 policy enhances SSL security and performance for the entire gateway (SSL Policy and SSL Profile). Therefore, at a given point, you cannot have listeners on both older as well as new SSL (predefined or custom) policies. 
-> 
->   Example: If you are using SSL Policy and SSL Profile with older policies/ciphers, selecting a new Predefined or Customv2 policy for one of them will automatically apply the same policy for the other configuration too. You can, however, customize a specific one later within the realm of the new policies such that only the new 
-> predefined policies, or customv2 policies, or combination of these co-exist on a gateway. 
+- We recommend using TLS 1.2 as this version will be mandated in the future.
+- You don't have to configure client authentication on an SSL profile to associate it to a listener. You can have only client authentication or listener-specific SSL policy configured, or both configured in your SSL profile.
+- Using a new Predefined or Customv2 policy enhances SSL security and performance for the entire gateway (SSL Policy and SSL Profile). Therefore, you cannot have different listeners on both old as well as new SSL (predefined or custom) policies. Consider this example,
+  
+  You are currently using SSL Policy and SSL Profile with &#34;older&#34; policies/ciphers. Selecting a &#34;new&#34; Predefined or Customv2 policy for any one of them will automatically apply the same new policy for the other configuration too. However, you can customize a specific one later within the realm of the new policies such that only the new 
+predefined policies, or customv2 policy, or combination of these co-exist on a gateway.
+
+To set up a listener-specific SSL policy, you'll need to first go to the **SSL settings** tab in the Portal and create a new SSL profile. When you create an SSL profile, you'll see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is to configure a listener-specific SSL policy. The **Client Authentication** tab is where to upload a client certificate(s) for mutual authentication - for more information, check out [Configuring a mutual authentication](./mutual-authentication-portal.md).
 
 1. Search for **Application Gateway** in portal, select **Application gateways**, and click on your existing Application Gateway.
 
