@@ -13,7 +13,7 @@ ms.custom: template-concept; references_regions
 
 # Trusted launch for Azure virtual machines
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets :heavy_check_mark: Flexible scale sets
 
 Azure offers trusted launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
@@ -37,20 +37,28 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - DCsv2-series
 - Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
 - Ddv4-series, Ddsv4-series
-- Fsv2-series
+- Dv5-series, Dsv5-series
+- Ddv5-series, Ddsv5-series
+- Dasv5-series, Dadsv5-series
+- Ev5-series, Esv5-series
+- Edv5-series, Edsv5-series
+- Easv5-series, Eadsv5-series
+- Ebsv5-series, Ebdsv5-series
 - Eav4-series, Easv4-series
 - Ev4-series, Esv4-series, Esv3-series
 - Edv4-series, Edsv4-series
+- Fsv2-series
 - Lsv2-series
 
 **OS support**:
-- Redhat Enterprise Linux 8.3
-- SUSE 15 SP2
-- Ubuntu 20.04 LTS
-- Ubuntu 18.04 LTS
+- Redhat Enterprise Linux 8.3, 8.4, 8.5 LVM
+- SUSE Enterprise Linux 15 SP3
+- Ubuntu Server 22.04 LTS
+- Ubuntu Server 20.04 LTS
+- Ubuntu Server 18.04 LTS
 - Debian 11
-- CentOS 8.4
-- Oracle Linux 8.3
+- CentOS 8.3, 8.4
+- Oracle Linux 8.3 LVM
 - CBL-Mariner
 - Windows Server 2022
 - Windows Server 2019
@@ -104,7 +112,7 @@ Trusted launch is integrated with Azure Defender for Cloud to ensure your VMs ar
 - **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
 - **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it.
 - **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.
-- **Attestation health assessment** - If your VM has vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as remote attestation. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation.
+- **Attestation health assessment or Boot Integrity Monitoring** - If your VM has Secure Boot and vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as boot integrity monitoring. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation. Currently boot integrity monitoring is supported for both Windows and Linux singe virtual machines and uniform scale sets.
 
 
 ## Microsoft Defender for Cloud integration
