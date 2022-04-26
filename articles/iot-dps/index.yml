@@ -37,7 +37,10 @@ landingContent:
             url: quick-setup-auto-provision.md
           - text: Provision a simulated symmetric key device
             url: quick-create-simulated-device-symm-key.md
-          - text: PRovision a simulated X.509 certificate device
+          - text: Provision a simulated X.509 certificate device
+            url: quick-create-simulated-device-x509.md
+          - text: Provision a simulated TPM device
+            url: quick-create-simulated-device-tpm.md
 
   - title: Manage devices for multiple IoT hubs
     linkLists:
@@ -68,7 +71,7 @@ landingContent:
             url: https://github.com/Azure/azure-iot-sdk-csharp
           - text: REST API
             url: /rest/api/iot-dps
-            
+
   - title: Secure your IoT solution
     linkLists:
       - linkListType: concept
