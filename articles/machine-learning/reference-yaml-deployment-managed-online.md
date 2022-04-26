@@ -10,8 +10,8 @@ ms.custom: cliv2
 
 author: rsethur
 ms.author: seramasu
-ms.date: 04/08/2022
-ms.reviewer: nibaccam
+ms.date: 04/26/2022
+ms.reviewer: larryfr
 ---
 
 # CLI (v2) managed online deployment YAML schema
@@ -46,6 +46,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
 | `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
+| `egress_public_network_access` | string | This flag secures the deployment by restricting communication between the deployment and the Azure resources used by it. Set to `disabled` to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. This flag is applicable only for managed online endpoints. | `enabled`, `disabled` | `enabled` |
 
 ### RequestSettings
 
