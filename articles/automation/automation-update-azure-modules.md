@@ -28,7 +28,7 @@ If you develop your scripts locally, it's recommended to have the same module ve
 
 ## Update Az modules
 
-You can update Az modules through the portal (recommended) or through the runbook.
+You can update Az modules through the portal **(recommended)** or through the runbook.
 
 ### Update Az modules through portal 
 
