@@ -8,7 +8,7 @@ ms.date: 09/20/2019
 
 # KeyVaultReference support for Azure-deployed Service Fabric Applications
 
-A common challenge when building cloud applications is figuring out how to securely distribute secrets to your applications and manage them. Service Fabric KeyVaultReference support makes it easy. Once configured, you can reference the URL of the secret that is stored in Key Vault in your application definition and Service Fabric will handle fetching that secret and activating your application with it. Using Managed KeyVaultReference, Service Fabric can also monitor your Key Vault and automatically trigger rolling application parameter upgrades as your secrets rotate in the vault.
+A common challenge when building cloud applications is figuring out how to securely distribute secrets to your applications and manage them. Service Fabric KeyVaultReference support makes it easy. Once configured, you can reference the URL of the secret that is stored in Key Vault in your application definition and Service Fabric will handle fetching that secret and activating your application with it. When using the "SF-managed" version of the feature, Service Fabric can also monitor your Key Vault and automatically trigger rolling application parameter upgrades as your secrets rotate in the vault.
 
 ## Options for delivering secrets to applications in Service Fabric
 
@@ -20,12 +20,6 @@ The recommendation today is to reduce the reliance on secrets wherever possible 
 
 When it isn't possible to use Managed Identity as a client, we recommend using KeyVaultReferences. You should use KeyVaultReferences rather than using Managed Identity to go directly to Key Vault. KeyVaultReferences help increase the availability of your application because it enforces that secret changes happen during rolling upgrades. It also scales better as secrets are cached and served from within the cluster. If your application uses Encrypted Parameters today, there are only minimal changes needed in your application code to use KeyVaultReferences. Your application can continue to expect to come up with a single secret, and for that secret to be the same for the lifetime of the process.
 
-> [!NOTE]
-> KeyVaultReference support for Service Fabric Applications is Generally Available starting with Service Fabric version 7.2 CU5. It is recommended that you upgrade to this version before using this feature.
-
-> [!NOTE]
-> Managed KeyVaultReference support for Service Fabric Applications is Generally Available starting with Service Fabric version 9.0. 
-
 ## Prerequisites
 
 - Managed Identity for Service Fabric Applications
@@ -34,7 +28,7 @@ When it isn't possible to use Managed Identity as a client, we recommend using K
 
 - Central Secrets Store (CSS).
 
-    Central Secrets Store (CSS) is Service Fabric's encrypted local secrets cache. This feature uses CSS to protect and persist secrets after they are fetched from Key Vault. Enabling this system service is required to use KeyVaultReferences. Follow this [document](service-fabric-application-secret-store.md) to enable and configure CSS.
+    Central Secrets Store (CSS) is Service Fabric's encrypted local secrets cache. This feature uses CSS to protect and persist secrets after they're fetched from Key Vault. Enabling this system service is required to use KeyVaultReferences. Follow this [document](service-fabric-application-secret-store.md) to enable and configure CSS.
 
 - Grant application's managed identity access permission to the Key Vault
 
@@ -42,7 +36,13 @@ When it isn't possible to use Managed Identity as a client, we recommend using K
 
 ## KeyVaultReferences vs. Managed KeyVaultReferences
 
-The basic idea of KeyVaultReferences is rather than setting the value of your application parameter as your secret, you set it to the Key Vault URL, which will then be resolved to the secret value upon activation of your application. In Key Vault, a single secret, for example, `https://my.vault.azure.net/secrets/MySecret/` can have multiple versions, for example, `https://my.vault.azure.net/secrets/MySecret/<oid1>` and `<oid2>`. When you use a KeyVaultReference, the value should be a versioned reference (`https://my.vault.azure.net/secrets/MySecret/<oid1>`). If you rotate that secret in the vault, for example, to `<oid2>`, you should trigger an application upgrade to the new reference. When you use a ManagedKeyVaultReference, the value should be a version-less reference (`https://my.vault.azure.net/secrets/MySecret/`). Service Fabric will resolve the latest instance `<oid1>` and activate the application with that secret. If you rotate the secret in the vault to `<oid2>`, Service Fabric will automatically trigger an application upgrade to move to `<oid2>` on your behalf.
+The basic idea of KeyVaultReferences is rather than setting the value of your application parameter as your secret, you set it to the Key Vault URL, which will then be resolved to the secret value upon activation of your application. In Key Vault, a single secret, for example, `https://my.vault.azure.net/secrets/MySecret/` can have multiple versions, for example, `https://my.vault.azure.net/secrets/MySecret/<oid1>` and `<oid2>`. When you use a KeyVaultReference, the value should be a versioned reference (`https://my.vault.azure.net/secrets/MySecret/<oid1>`). If you rotate that secret in the vault, for example, to `<oid2>`, you should trigger an application upgrade to the new reference. When you use a ManagedKeyVaultReference, the value should be a version-less reference (`https://my.vault.azure.net/secrets/MySecret/`). Service Fabric will resolve the latest instance `<oid1>` and activate the application with that secret. If you rotate the secret in the vault to `<oid2>`, Service Fabric will automatically trigger an application parameter upgrade to move to `<oid2>` on your behalf.
+
+> [!NOTE]
+> KeyVaultReference (versioned secrets) support for Service Fabric Applications is Generally Available starting with Service Fabric version 7.2 CU5. It is recommended that you upgrade to this version before using this feature.
+
+> [!NOTE]
+> Managed KeyVaultReference (version-less secrets) support for Service Fabric Applications is Generally Available starting with Service Fabric version 9.0.
 
 ## Use KeyVaultReferences in your application
 
@@ -137,7 +137,7 @@ First, you must enable secret monitoring by upgrading your cluster definition:
 > [!NOTE]
 > The default may become `true` in the future
 
-Anywhere a KeyVaultReference can be used, a ManagedKeyVaultReference can also be used, for example,
+After the cluster upgrade has finished, your user application can be upgraded. Anywhere a KeyVaultReference can be used, a ManagedKeyVaultReference can also be used, for example,
 
 ```xml
     <Section Name="MySecrets">
