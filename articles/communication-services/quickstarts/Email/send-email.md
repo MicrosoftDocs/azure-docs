@@ -30,3 +30,8 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 In this quick start, you learned how to send emails using Azure Communication Services.
+
+You may also want to:
+
+ - Learn about [email concepts](../../concepts/email/email-overview.md)
+ - Familiarize yourself with [email client library](../../concepts/email/sdk-features.md)
