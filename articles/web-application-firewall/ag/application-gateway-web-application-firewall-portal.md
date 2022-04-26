@@ -50,7 +50,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
    - **Tier**: select **WAF V2**.
    - **WAF Policy**: Select **Create new**, type a name for the new policy, and then select **OK**.
-     This creates a basic WAF policy with a managed Default Rule Set (DRS).
+     This creates a basic WAF policy with a managed Core Rule Set (CRS).
 
      :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png" alt-text="Screenshot of Create new application gateway: Basics tab." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png":::
 
