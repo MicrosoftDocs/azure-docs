@@ -14,22 +14,27 @@ After setting up a local remote share with the Connected Machine Agent and defin
 
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
 
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare a remote share
 
-The Group Policy to onboard Azure Arc-enabled servers will leverage a remote share with the Connected Machine Agent. You will need to: 1. <!-- Step 1 -->
+The Group Policy to onboard Azure Arc-enabled servers utilizes a remote share with the Connected Machine Agent. You will need to:
 
-1. Prepare a remote share to host the Azure Connected Machine agent package for windows and the configuration file. You need to be able to add files to the distributed location.
-1. Download the Connected Machine Agent to the remote share. Download [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share. 
+1. Prepare a remote share to host the Azure Connected Machine agent package for Windows and the configuration file. You need to be able to add files to the distributed location.
+
+1. Download [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share. 
 
 ## Generate an onboarding script and configuration file from Azure Portal
 
 Before you can run the script to connect your machines, you'll need to do the following:
 
-1. Follow the steps to [create a service principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale). Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone. Make a note of the Service Principal Secret, as you'll need this value later.
-1. Modify and save the following configuration file to the remote share as "ArcConfig.json". Edit the file with your Azure subscription, resource group, and location details. Insert the service principal details from Step 1 into the last two fields. Note, the group policy will land assigned machines to the subscription, resource group, and region specified in this configuration file.
+1. Follow the steps to [create a service principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
+
+    * Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone.
+
+    * Make a note of the Service Principal Secret; you'll need this value later.
+
+1. Modify and save the following configuration file to the remote share as **ArcConfig.json**. Edit the file with your Azure subscription, resource group, and location details. Use the service principal details from step 1 into for last two fields.
 
 ```
 { 
@@ -42,13 +47,17 @@ Before you can run the script to connect your machines, you'll need to do the fo
     } 
 ```
 
+The group policy will land assigned machines to the subscription, resource group, and region specified in this configuration file.
+
 ## Modify and save the onboarding script
 
 Before you can run the script to connect your machines, you'll need to modify and save the onboarding script:
 
-1. Edit the field for remotePath to reflect the distributed share location with the configuration file and Connected Machine Agent.
-1. Edit the localPath with the local path where the logs generated from the onboarding to Azure Arc-enabled servers will be saved per machine.
-1. Save the modified onboarding script locally and note its location since this will be referenced in authoring the Group Policy Object.
+1. Edit the field for `remotePath` to reflect the distributed share location with the configuration file and Connected Machine Agent.
+
+1. Edit the `localPath` with the local path where the logs generated from the onboarding to Azure Arc-enabled servers will be saved per machine.
+
+1. Save the modified onboarding script locally and note its location. This will be referenced when authoring the Group Policy Object.
 
 ```azurecli
 [string] $remotePath = "\\dc-01.contoso.lcl\Software\Arc"
@@ -93,63 +102,72 @@ function Deploy-Agent {
 Deploy-Agent
 ```
 
+## Create a Group Policy Object
 
-
-## Create a group policy object
-
-Next, create a new Group Policy Object (GPO) to run the onboarding script using the configuration file details. 
+Create a new Group Policy Object (GPO) to run the onboarding script using the configuration file details: 
 
 1. Open the Group Policy Management Console (GPMC). 
-1. Navigate to the Organization Unit (OU), Domain, or Security Group in your AD forest that contains the machines, which you would like to onboard to Azure Arc-enabled servers. 
-1. Right click on this set of resources, and select "Create a GPO in this domain, and Link it here."  
-1. Assign the name “Onboard servers to Azure Arc-enabled servers” to this new Group Policy Object (GPO) 
 
+1. Navigate to the Organization Unit (OU), Domain, or Security Group in your AD forest that contains the machines you want to onboard to Azure Arc-enabled servers. 
+
+1. Right-click on this set of resources and select **Create a GPO in this domain, and Link it here.**  
+
+1. Assign the name “Onboard servers to Azure Arc-enabled servers” to this new Group Policy Object (GPO).
 
 ## Create a scheduled task
 
-We must edit the newly created GPO to run the onboarding script at the appropriate cadence. We will leverage Group Policy’s built-in Scheduled Task capabilities for our use case. 
+The newly created GPO needs to be modified to run the onboarding script at the appropriate cadence. Use Group Policy’s built-in Scheduled Task capabilities to do so: 
 
-1. To edit the GPO, navigate to the following location: Computer Configuration -> Preferences -> Control Panel Settings -> Scheduled Tasks.
-1. Next, right-click in the blank area, and select New -> Scheduled Task. 
+1. Select **Computer Configuration > Preferences > Control Panel Settings > Scheduled Tasks**.
 
-Note, your workstation must be running Windows 7 or higher to be able to create a Scheduled Task from Group Policy Management Console. 
+1. Right-click in the blank area and select **New > Scheduled Task**. 
+
+Your workstation must be running Windows 7 or higher to be able to create a Scheduled Task from Group Policy Management Console. 
 
 ### Assign the appropriate general information
 
 Follow the next steps for the different parameters under Security options: 
 
-1. For the field ‘When running the task, use the following user account:’, enter "NT AUTHORITY\System". 
-1. Select the option to ‘Run whether user is logged on or not’ 
-1. Select the checkbox to ‘Run with highest privileges’ 
+1. In the field **When running the task, use the following user account:**, enter "NT AUTHORITY\System". 
 
-In the field ‘Configure for’, select the option ‘Choose Windows Vista or Window 2008’. 
+1. Select **Run whether user is logged on or not**. 
+
+1. Check the box for **Run with highest privileges**. 
+
+1. In the field **Configure for**, select **Choose Windows Vista or Window 2008**. 
 
 :::image type="content" source="media/onboard-group-policy/st-general.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
 
-### Assign the appropriate triggers information
+### Assign the appropriate triggers parameters
 
-Select the new button in the Triggers tab. Within the New Trigger window, follow the next steps for the different parameters: 
+In the **Triggers** tab, select **New**, then enter the following parameters in the **New Triggers** window:
 
-1. In the field ‘Begin the task’, select the option ‘On a schedule’. 
-1. Under Settings, select ‘One time’ and enter the date and time to schedule the task for.  
-1. Under Advanced Settings, select the checkbox next to Enabled.  
+1. In the field **Begin the task**, select **On a schedule**. 
 
-Upon specifying the trigger parameters, click on the ‘OK’ button. 
+1. Under Settings, select **One time** and enter the date and time for the task to run.  
+
+1. Under Advanced Settings, check the box for **Enabled**.  
+
+1. Once you've set the trigger parameters, select **OK**. 
 
 :::image type="content" source="media/onboard-group-policy/new-trigger.png" alt-text="Screenshot of the New Trigger window." :::
 
+### Assign the appropriate actions parameters
 
-### Assign the appropriate actions information
+In the **Actions** tab, select **New**, then enter the follow parameters in the **New Actions** window: 
 
-Select the new button in the Actions tab. Within the New Action window, follow the next steps for the different parameters: 
+1. For Action, select **Start a program** from the dropdown.  
 
-1. For Action, select ‘Start a program’ from the dropdown.  
-1. For Program/script under settings, enter "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" 
-1. For Add Arguments (optional) under settings, enter  
--ExecutionPolicy Bypass -command “INSERT PATH TO DEPLOYMENT SCRIPT”. Note that you must enter the location of the deployment script, modified earlier with the DeploymentPath and LocalPath, instead of the placeholder “INSERT PATH TO DEPLOYMENT SCRIPT”. 
-1. For Start In (Optional), enter ‘C:\’ 
+1. For **Program/script**, enter `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`.
 
-Upon specifying the action parameters, click on the ‘OK’ button. 
+1. For **Add Arguments (optional)**, enter  
+`-ExecutionPolicy Bypass -command <Insert Path to Deployment Script>`. 
+
+    Note that you must enter the location of the deployment script, modified earlier with the `DeploymentPath` and `LocalPath`, instead of the placeholder <Insert Path to Deployment Script>. 
+
+1. For Start In (Optional), enter `C:\`. 
+
+1. Once you've set the action parameters, select **OK**
 
 :::image type="content" source="media/onboard-group-policy/new-action.png" alt-text="Screenshot of the New Action window." :::
 
