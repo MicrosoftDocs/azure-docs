@@ -74,6 +74,14 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
 - x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
 
+For example, for the subnet with addressing 172.16.1.128/26:
+
+- 172.16.1.128: Network address
+- 172.16.1.129: Reserved by Azure for the default gateway
+- 172.16.1.130, 172.16.1.131: Reserved by Azure to map the Azure DNS IPs to the VNet space
+- 172.16.1.191: Network broadcast address
+
+
 ### How small and how large can VNets and subnets be?
 The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
 
