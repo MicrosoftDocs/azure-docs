@@ -45,31 +45,31 @@ To download a snapshot of the dashboard, select **Download as PDF**. Alternative
 
 ### Share
 
-:::image type="content" source="./media/license-dashboard/button-share.png" alt-text="Screenshot of the Share function in the License dashboard.":::
+:::image type="content" source="./media/license-dashboard/button-share.png" alt-text="Screenshot shows the Email window option of the Share function on the Insights screen of the License dashboard":::
 
 To email dashboard widgets data, select **Share** and provide the email information. Share report URLs using **Copy link** and **Share to Teams**, or **Copy as image** to send a snapshot of chart data.
 
-:::image type="content" source="./media/license-dashboard/email-window.png" alt-text="Screenshot of the email function in the License dashboard.":::
+:::image type="content" source="./media/license-dashboard/email-window.png" alt-text="Screenshot of the email function on the Insights screen of the License dashboard.":::
 
 ### What’s new
 
-:::image type="content" source="./media/license-dashboard/button-what-new.png" alt-text="Screenshot of the What's New function in the License dashboard.":::
+:::image type="content" source="./media/license-dashboard/button-what-new.png" alt-text="Screenshot of the What's New function on the Insights screen of the License dashboard.":::
 
 Use this to check on changes and enhancements.
 
 ### Data refresh details
 
-:::image type="content" source="./media/license-dashboard/button-data.png" alt-text="Screenshot of the What's New function in the License dashboard.":::
+:::image type="content" source="./media/license-dashboard/button-data.png" alt-text="Screenshot of the Data function on the Insights screen of the License dashboard.":::
 
 View the data source and the data refresh details, such as frequency of the data refresh.
 
-### Feedback
+### Got feedback?
 
-:::image type="content" source="./media/license-dashboard/button-feedback.png" alt-text="Screenshot of the What's New function in the License dashboard.":::
+:::image type="content" source="./media/license-dashboard/button-feedback.png" alt-text="Screenshot of the Got Feedback function in the License dashboard.":::
 
 Submit feedback about the report/dashboard along with an optional screenshot.
 
-:::image type="content" source="./media/license-dashboard/feedback.png" alt-text="Screenshot of the What's New function in the License dashboard.":::
+:::image type="content" source="./media/license-dashboard/feedback.png" alt-text="Screenshot shows the Got Feedback window for the Share function on the Insights screen of the License dashboard.":::
 
 ## Month range filter
 
@@ -79,7 +79,7 @@ A month range selection is at the top-right corner of each page. Customize the o
 
 ### License page dashboard filters
 
-:::image type="content" source="./media/license-dashboard/button-filters.png" alt-text="Screenshot of filter selections on the License dashboard in Partner Center.":::
+:::image type="content" source="./media/license-dashboard/button-filters.png" alt-text="Screenshot of filter selections on the Insights screen of the License dashboard.":::
 
 The page has different dashboard-level filters for the following:
 
@@ -95,7 +95,7 @@ Each filter is expandable with multiple options that are dynamic based on the se
 
 The _Customers widget_ shows the current number of customers. The trend chart shows the month-over-month number of customers.
 
-![Screenshot of the Customers widget on the License dashboard in Partner Center.](./media/license-dashboard/customers-widget.png)
+![Screenshot of the Customers widget on the Insights screen of the License dashboard.](./media/license-dashboard/customers-widget.png)
 
 Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
 
@@ -103,7 +103,7 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 This widget shows the current number of provisioned and assigned licenses. The trend chart shows the month-over-month number of provisioned and assigned licenses. View the data for the last **six** or **12** months, or choose a **custom** date range.
 
-![Screenshot of the License widget on the License dashboard in Partner Center.](./media/license-dashboard/license-widget.png)
+![Screenshot of the License widget on the Insights screen of the License dashboard.](./media/license-dashboard/license-widget.png)
 
 Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
 
@@ -111,7 +111,7 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 The _Analysis widget_ shows the number and percentage of provisioned and assigned licenses per offer and plan. The trend chart shows the month-over-month number of provisioned and assigned licenses. Using this widget, you can filter the data by Customers or Products.
 
-![Screenshot of the Analysis widget on the License dashboard in Partner Center.](./media/license-dashboard/analysis-widget.png)
+![Screenshot of the Analysis widget on the Insights screen of the License dashboard.](./media/license-dashboard/analysis-widget.png)
 
 Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
 
@@ -119,7 +119,7 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 The _License Distribution_ widget shows the distribution of licenses across different countries and regions. The colored regions show where the user licenses are distributed. To revert to the default view, select the **Reset zoom** button (Home icon) in the widget.
 
-![Screenshot of the License Distribution widget on the License dashboard in Partner Center.](./media/license-dashboard/license-distribution.png)
+![Screenshot of the License Distribution widget on the Insights screen of the License dashboard.](./media/license-dashboard/license-distribution.png)
 
 Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
 
