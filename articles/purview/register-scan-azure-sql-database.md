@@ -103,7 +103,7 @@ For more information about the Azure SQL Firewall, see the [SQL Database firewal
 
 #### Allow Azure Connections
 
-Enabling Azure connections will allow Microsoft Purview to reach and connect the server without updating the firewall itself. You can follow the How-to guide for [Connections from inside Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
+Enabling Azure connections will allow Microsoft Purview to reach and connect the server without updating the firewall itself. You can follow the How-to guide for [Connections from inside Azure](/azure/azure-sql/database/firewall-configure#connections-from-inside-azure).
 
 1. Navigate to your database account
 1. Select the server name in the **Overview** page
@@ -134,7 +134,7 @@ The following options are supported:
 
 * **Service Principal**- A service principal is an application that can be assigned permissions like any other group or user, without being associated directly with a person. Their authentication has an expiration date, and so can be useful for temporary projects. For more information, see the [service principal documenatation](/active-directory/develop/app-objects-and-service-principals).
 
-* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documenation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
+* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
     > [!NOTE]
     > Be sure to select the Azure SQL Database option on the page.
 
@@ -178,8 +178,8 @@ Select your chosen method of authentication from the tabs below for steps to aut
 
 The managed identity needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
 
-- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- Create Azure AD user in Azure SQL Database with the exact Microsoft Purview's managed identity by following tutorial on [create the user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+- If you haven't already, [configure Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Create Azure AD user in Azure SQL Database with the exact Microsoft Purview's managed identity by following tutorial on [create the user in Azure SQL Database](/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -222,8 +222,8 @@ If you don't have a service principal, you can [follow the service principal gui
 
 The service principal needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
 
-- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- Create Azure AD user in Azure SQL Database with your service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+- If you haven't already, [configure Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Create Azure AD user in Azure SQL Database with your service principal by following tutorial on [Create the service principal user in Azure SQL Database](/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
