@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 04/26/2022
 ---
 
 # Azure Cosmos DB service quotas
@@ -22,15 +22,14 @@ After you create an Azure Cosmos account under your subscription, you can manage
 
 You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database. Storage refers to the combined amount of data and index storage.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
 | Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
 | Maximum RUs per partition (logical & physical) | 10,000 |
-| Maximum storage across all items per (logical) partition | 20 GB |
+| Maximum storage across all items per (logical) partition | 20 GB **refer note below**|
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
-| Maximum storage per database | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
 | Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** this minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
 
@@ -71,7 +70,7 @@ Example: Suppose you have a database provisioned with 400 RU/s, 15 GB of storage
 
 In summary, here are the minimum provisioned RU limits when using manual throughput. 
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. |
@@ -82,25 +81,24 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 ### Serverless
 
-[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database.
+[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database. These limits cannot be increased and its recommended to provision additional serverless accounts for additional storage needs.
 
 | Resource | Limit |
 | --- | --- |
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container | 50 GB * |
+| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB  |
+| Maximum storage per container (Cassandra)| 30 GB * |
 
-> [!NOTE]
-> * Maximum storage limit is 30GB for Cassandra API. 
 
 ## Control plane operations
 
 You can [provision and manage your Azure Cosmos account](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. The following table lists the limits per subscription, account, and number of operations.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
-| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) up to 1,000 max.|
+| Maximum accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) up to 1,000 max.|
 | Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 
 > [!NOTE]
@@ -112,9 +110,9 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 ### Provisioned throughput
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
-| Maximum number of databases | 500 |
+| Maximum number of databases per account | 500 |
 | Maximum number of containers per database with shared throughput |25 |
 | Maximum number of containers per account | 500 |
 | Maximum number of regions | No limit (All Azure regions) |
@@ -130,7 +128,7 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 Depending on which API you use, an Azure Cosmos container can represent either a collection, a table, or graph. Containers support configurations for [unique key constraints](unique-keys.md), [stored procedures, triggers, and UDFs](stored-procedures-triggers-udfs.md), and [indexing policy](how-to-manage-indexing-policy.md). The following table lists the limits specific to configurations within a container. 
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum length of database or container name | 255 |
 | Maximum stored procedures per container | 100 <sup>*</sup>|
@@ -146,7 +144,7 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 
 Depending on which API you use, an Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the limits per item in Cosmos DB. 
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) <sup>*</sup> |
 | Maximum length of partition key value | 2048 bytes |
@@ -167,7 +165,7 @@ There are no restrictions on the item payloads like number of properties and nes
 
 Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum execution time for a single operation (like a stored procedure execution or a single query page retrieval)| 5 sec |
 | Maximum request size (for example, stored procedure, CRUD)| 2 MB |
@@ -178,7 +176,7 @@ Once an operation like query reaches the execution timeout or response size limi
 
 Cosmos DB uses HMAC for authorization. You can use either a primary key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum primary token expiry time | 15 min  |
 | Minimum resource token expiry time | 10 min  |
@@ -191,7 +189,7 @@ Cosmos DB supports execution of triggers during writes. The service supports a m
 
 Azure Cosmos DB maintains system metadata for each account. This metadata allows you to enumerate collections, databases, other Azure Cosmos DB resources, and their configurations for free of charge.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 |Maximum collection create rate per minute|    100|
 |Maximum Database create rate per minute|    100|
@@ -202,7 +200,7 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 
 See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article and [FAQ](autoscale-faq.yml#lowering-the-max-ru-s) for more detailed explanation of the throughput and storage limits with autoscale.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum RU/s the system can scale to |  `Tmax`, the autoscale max RU/s set by user|
 | Minimum RU/s the system can scale to | `0.1 * Tmax`|
@@ -215,7 +213,7 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 
 Cosmos DB supports querying items using [SQL](./sql-query-getting-started.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum length of SQL query| 256 KB |
 | Maximum JOINs per query| 10 <sup>*</sup>|
@@ -233,7 +231,7 @@ Cosmos DB supports the MongoDB wire protocol for applications written against Mo
 
 The following table lists the limits specific to MongoDB feature support. Other service limits mentioned for the SQL (core) API also apply to the MongoDB API.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum MongoDB query memory size (This limitation is only for 3.2 server version) | 40 MB |
 | Maximum execution time for MongoDB operations (for 3.2 server version)| 15 seconds|
@@ -247,7 +245,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 
 The following table lists the limits for the [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) trial.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Duration of the trial | 30 days (a new trial can be requested after expiration) <br> After expiration, the information stored is deleted. |
 | Maximum containers per subscription (SQL, Gremlin, Table API) | 1 |
@@ -262,7 +260,7 @@ Try Cosmos DB supports global distribution in only the Central US, North Europe,
 
 The following table lists the limits for [Azure Cosmos DB free tier accounts.](optimize-dev-test.md#azure-cosmos-db-free-tier)
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Number of free tier accounts per Azure subscription | 1 |
 | Duration of free-tier discount | Lifetime of the account. Must opt-in during account creation. |
