@@ -2,14 +2,14 @@
 title: Resource health for Azure Virtual Network NAT
 titleSuffix: Azure Virtual Network
 description: Understand how to use Resource health for Virtual Network NAT.
-author: alittleton
-manager: anavin
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
 # Customer intent: As an IT administrator, I want to understand how to use Resource health to monitor Virtual Network NAT.
 ms.topic: conceptual
 ms.date: 04/25/2022
-ms.author: aimee-littleton
+ms.author: allensu
 ---
 # Azure Virtual Network NAT Resource health
 
