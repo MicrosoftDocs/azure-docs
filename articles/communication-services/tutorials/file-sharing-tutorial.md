@@ -52,11 +52,60 @@ You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Fun
 
 Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we will assume you have generated the function using the tutorial for Azure Blob Storage linked above.
 
-## Configuring Chat Composite to Enable File Sharing
+UI Library requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
+
+### Set Up React App
+
+We'll use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
+
+```bash
+
+npx create-react-app ui-library-quickstart-composites --template typescript
+
+cd ui-library-quickstart-composites
+
+```
+
+At the end of this process, you should have a full application inside of the folder `ui-library-quickstart-composites`.
+For this quickstart, we'll be modifying files inside of the `src` folder.
+
+### Install the Package
+
+Use the `npm install` command to install the Azure Communication Services UI Library for JavaScript.
+
+```bash
+
+npm install @azure/communication-react
+
+```
+
+`@azure/communication-react` specifies core Azure Communication Services as `peerDependencies` so that
+you can most consistently use the API from the core libraries in your application. You need to install those libraries as well:
+
+```bash
+
+npm install @azure/communication-calling@1.4.4
+npm install @azure/communication-chat@1.2.0
+
+```
+
+### Run Create React App
+
+Let's test the Create React App installation by running:
+
+```bash
+
+npm run start
+
+```
+
+## Configuring Chat Composite to enable File Sharing
 
 You will need to replace the variable values for both common variable required to initialize the chat composite.
 
-```tsx
+`App.tsx`
+
+```javascript
 import { FileUploadHandler, FileUploadManager } from '@azure/communication-react';
 import { initializeFileTypeIcons } from '@fluentui/react-file-type-icons'; 
 
@@ -158,6 +207,8 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 
 To enable Azure Blob Storage upload, we will modify the `uploadFileToAzureBlob` method we declared above with the following code. You will need to replace the Azure Function information below to enable to upload.
 
+`App.tsx`
+
 ```javascript
 
 const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
@@ -213,7 +264,9 @@ When an upload fails, the UI Library Chat Composite will display an error messag
 
 Here is sample code showcasing how you can fail an upload due to a size validation error by changing the `fileUploadHandler` above.
 
-```tsx
+`App.tsx`
+
+```javascript
 import { FileUploadHandler } from from '@azure/communication-react';
 
 const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
@@ -231,7 +284,9 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 
 By default, the file `url` provided through `notifyUploadCompleted` method will be used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Below we will modify the `fileDownloadHandler` that we declared above to check for an authorized user before allowing to download the file.
 
-```tsx
+`App.tsx`
+
+```javascript
 import { FileDownloadHandler } from "communication-react";
 
 const isUnauthorizedUser = (userId: string): boolean => {
