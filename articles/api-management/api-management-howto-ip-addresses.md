@@ -88,7 +88,7 @@ API Management uses a public IP address for a connection outside the VNet or a p
 
     Therefore, if IP restriction lists secure resources within the VNet or a peered VNet, it is recommended to use the whole API Management [subnet range](virtual-network-concepts.md#subnet-size) with an IP rule - and (in internal mode) not just the private IP address associated with the API Management resource.
 
-* When a request is sent from API Management to a public-facing (internet-facing) backend, a public IP address will always be visible as the origin of the request.
+* When a request is sent from API Management to a public (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
 ## IP addresses of Consumption tier API Management service
 
