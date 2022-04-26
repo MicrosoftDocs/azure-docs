@@ -20,7 +20,7 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 ## April
 
-From April 25th, 2022 the Verifiable Credentials service is available to more Azure tenants. This important update requires any tenant created prior to April 25, 2022 to make a 15 minutes reconfiguration of the service to ensure ongoing operation. Verifiable Credentials service Administrators must perform the [following steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to avoid service disruptions.
+The Verifiable Credentials service is available to more Azure tenants. Due to the changes introduced in this update, administrators need a small configuration change to ensure ongoing operation. Verifiable Credentials service Administrators must perform the [following steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to avoid service disruptions before May 9, 2022.
 
 >[!IMPORTANT]
 > When the configuration on your tenant has not been updated, there will be errors on issuance and presentation flows of verifiable credentials from/to your tenant. [Service configuration instructions](verifiable-credentials-faq.md?#updating-the-vc-service-configuration).
