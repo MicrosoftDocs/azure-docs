@@ -14,7 +14,7 @@ zone_pivot_groups: iot-develop-toolset
 #  prompt: Choose a build environment
 #  - id: iot-toolset-mplab
 #    title: MPLAB
-ms.custom: mode-other
+ms.custom: mode-other, contperf-fy22q3
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -581,6 +581,9 @@ Select **About** tab from the device page.
 :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
 :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about-iar.png" alt-text="Screenshot of device information in IoT Central":::
 :::zone-end
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot and debug
 

@@ -3,13 +3,14 @@ title: 'Custom Commands concepts and definitions - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn about concepts and definitions for Custom Commands applications.
 services: cognitive-services
-author: singhsaumya
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.author: sausin
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Custom Commands concepts and definitions
@@ -123,7 +124,6 @@ The post-execution state is the dialog state after processing the current input 
 * **Complete the command**: Complete the command and no additional rules of the command will be processed.
 * **Execute completion rules**: Execute all the valid completion rules.
 * **Wait for user's input**: Wait for the next user input.
-
 
 
 ## Next steps

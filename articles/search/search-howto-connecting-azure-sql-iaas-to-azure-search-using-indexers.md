@@ -14,7 +14,7 @@ ms.date: 03/19/2021
 
 # Indexer connections to SQL Server on an Azure virtual machine
 
-When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
+When configuring an [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) to extract content from a database on an Azure virtual machine, additional steps are required for secure connections. 
 
 A connection from Azure Cognitive Search to SQL Server on a virtual machine is a public internet connection. In order for secure connections to succeed, complete the following steps:
 
@@ -54,7 +54,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
 After you set up the encrypted connection required by Azure Cognitive Search, there are additional configuration steps intrinsic to SQL Server on Azure VMs. If you haven't done so already, the next step is to finish configuration using either one of these articles:
 
-+ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
++ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql). 
 
 + For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 

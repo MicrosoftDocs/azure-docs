@@ -1,11 +1,12 @@
 ---
 title: Azure Database for PostgreSQL Single Server
 description: Provides an overview of Azure Database for PostgreSQL Single Server.
-author: sunilagarwal
-ms.author: sunila
-ms.custom: mvc
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: overview
+ms.author: sunila
+author: sunilagarwal
+ms.custom: mvc
 ms.date: 11/30/2021
 ---
 # Azure Database for PostgreSQL Single Server
@@ -92,7 +93,7 @@ For any questions or suggestions you might have about working with Azure Databas
 In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps

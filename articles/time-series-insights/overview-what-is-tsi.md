@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # What is Azure Time Series Insights Gen2
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Azure Time Series Insights Gen2 is an open and scalable end-to-end IoT analytics service featuring best-in-class user experiences and rich APIs to integrate its powerful capabilities into your existing workflow or application.
 
 You can use it to collect, process, store, query and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.

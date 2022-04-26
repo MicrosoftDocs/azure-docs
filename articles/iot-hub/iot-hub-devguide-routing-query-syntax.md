@@ -163,10 +163,15 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
 > [!NOTE]
-> To filter a twin notification payload based on what changed, run your query on the message body:
+> To filter a twin notification payload based on what changed, run your query on the message body. For example, to filter when there is a desire property change on `sendFrequency` and the value is bigger than 10:
 >
 > ```sql
-> $body.properties.desired.telemetryConfig.sendFrequency
+> $body.properties.desired.telemetryConfig.sendFrequency > 10
+> ```
+> To filter messages that contains a property change, no matter the value of the property, you can use the `is_defined()` function (when the value is a primitive type):
+>
+> ```sql
+> is_defined($body.properties.desired.telemetryConfig.sendFrequency)
 > ```
 
 > [!NOTE]
@@ -228,7 +233,10 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-Routing query on body or device twin with a period in the payload or property name is not supported.
+## Limitations
+
+Routing queries don't support using whitespace or any of the following characters in property names, the message body path, or the device/module twin path: `()<>@,;:\"/?={}`.
+
 
 ## Next steps
 

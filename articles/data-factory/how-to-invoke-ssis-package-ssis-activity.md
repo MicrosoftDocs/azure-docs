@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.date: 02/15/2022
 ---
 
-# Run an SSIS package with the Execute SSIS Package activity in the Azure Data Factory Studio portal
+# Run an SSIS package with the Execute SSIS Package activity in Azure portal
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity and the Azure Data Factory Studio portal UI. 
+This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity in Azure Data Factory and Synapse Pipelines portal. 
 
 ## Prerequisites
 
@@ -24,6 +24,7 @@ Create an Azure-SSIS integration runtime (IR) if you don't have one already by f
 ## Create a pipeline with an Execute SSIS Package activity
 In this step, you use the Data Factory UI or app to create a pipeline. You add an Execute SSIS Package activity to the pipeline and configure it to run your SSIS package. 
 
+# [Azure Data Factory](#tab/data-factory)
 1. On your Data Factory overview or home page in the Azure portal, select the **Author & Monitor** tile to start the Data Factory UI or app in a separate tab. 
 
    :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Data Factory home page":::
@@ -31,6 +32,14 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
    On the home page, select **Orchestrate**. 
 
    :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+
+# [Synapse Analytics](#tab/synapse-analytics)
+
+Navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then create a new pipeline.
+
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui-synapse.png" alt-text="Screenshot of shows the steps to create a new pipeline using Synapse Studio.":::
+
+---
 
 1. In the **Activities** toolbox, expand **General**. Then drag an **Execute SSIS Package** activity to the pipeline designer surface. 
 

@@ -6,10 +6,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.date: 01/31/2022
+ms.date: 02/15/2022
 ---
 
 # Run SSIS packages by using Azure SQL Managed Instance Agent
+
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed Instance Agent. This feature provides behaviors that are similar to when you schedule SSIS packages by using SQL Server Agent in your on-premises environment.
 
@@ -100,6 +102,9 @@ In this procedure, you use SQL Managed Instance Agent to run an SSIS package tha
 1. Start the agent job to run the SSIS package.
 
 ## Run an SSIS package in the package store
+
+> [!NOTE] 
+> Package store is not supported in Azure-SSIS IR in Azure Synapse.
 
 In this procedure, you use SQL Managed Instance Agent to run an SSIS package that's stored in the  Azure-SSIS IR package store.
 

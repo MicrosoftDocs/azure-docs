@@ -180,7 +180,7 @@ The above code will disable adaptive sampling. Follow the steps below to add sam
 Use extension methods of `TelemetryProcessorChainBuilder` as shown below to customize sampling behavior.
 
 > [!IMPORTANT]
-> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](pricing.md#set-the-daily-cap) to help control your costs.
+> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](../logs/daily-cap.md) to help control your costs.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility
@@ -309,8 +309,8 @@ By default no sampling is enabled in the Java auto-instrumentation and SDK. Curr
 
 #### Configuring Java auto-instrumentation
 
-* To configure sampling overrides that override the defaulr sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
-* To configure fixed-rate samping that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).
+* To configure sampling overrides that override the default sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
+* To configure fixed-rate sampling that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).
 
 #### Configuring Java 2.x SDK
 
@@ -404,6 +404,7 @@ Insert a line like `samplingPercentage: 10,` before the instrumentation key:
     appInsights.trackPageView(); 
 </script>
 ```
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
 
@@ -443,7 +444,7 @@ In general, for most small and medium size applications you don't need sampling.
 The main advantages of sampling are:
 
 * Application Insights service drops ("throttles") data points when your app sends a very high rate of telemetry in a short time interval. Sampling reduces the likelihood that your application will see throttling occur.
-* To keep within the [quota](pricing.md) of data points for your pricing tier. 
+* To keep within the [quota](../logs/daily-cap.md) of data points for your pricing tier. 
 * To reduce network traffic from the collection of telemetry. 
 
 ### Which type of sampling should I use?
@@ -487,6 +488,31 @@ The sampling decision is based on the operation ID of the request, which means t
 When presenting telemetry back to you, the Application Insights service adjusts the metrics by the same sampling percentage that was used at the time of collection, to compensate for the missing data points. Hence, when looking at the telemetry in Application Insights, the users are seeing statistically correct approximations that are very close to the real numbers.
 
 The accuracy of the approximation largely depends on the configured sampling percentage. Also, the accuracy increases for applications that handle a large volume of generally similar requests from lots of users. On the other hand, for applications that don't work with a significant load, sampling is not needed as these applications can usually send all their telemetry while staying within the quota, without causing data loss from throttling. 
+
+## Log query accuracy and high sample rates
+
+As the application is scaled up, it may be processing dozens, hundreds, or thousands of work items per second. Logging an event for each of them is not resource nor cost effective. Application Insights uses sampling to adapt to growing telemetry volume in a flexible manner and to control resource usage and cost.
+                
+However, sampling can affect the accuracy of query results gained from sampled telemetry. For example, 25 different users made a single request to a web application and each of those requests generated 1 Request telemetry record, 1 Dependency telemetry record, 1 Trace Message telemetry record and 1 Exception telemetry record. This adds up to a total of 100 raw telemetry records displayed in the image below. 
+
+![Sample rate at 0 percent and the itemCount is 1](./media/sampling/records-with-legend-0-sampled.png) **Sample Rate 0% 25 Requests (itemCount=1) 25 Dependencies (itemCount=1) 25 Traces (itemCount=1) 25 Exceptions (itemCount=1)** 
+
+If the Application Insights SDK did **not** need to throttle the telemetry, the application would send all 100 records to the ingestion endpoint. This is the equivalent of a sample rate of 0%. The SDK would package all of the telemetry records into JSON payloads and send them to the ingestion service. Every one of those 100 telemetry records would have the `itemCount` field set to 1, that is because we don’t need to drop any records for sampling and each single telemetry record represents a count of 1. Running a query of `sum(itemCount)` for the requests telemetry would return 25, which matches the 25 requests and is 25% of the 100 telemetry records produced by the web application.
+
+When the SDK **does** throttle the telemetry through sampling the `itemCount` is less representative of the amount of telemetry records stored. For example, if the decision was made to keep 1% of all the records and the sample rate was 99% for the 100 telemetry records in the above example. That would mean only a single record out of all the items would be stored. To illustrate this, if the SDK picks one of the request telemetry records it will have to drop all of the other 99 records (24 requests, 25 dependencies, 25 traces, 25 exceptions). Although only 1 record is stored the SDK sets the `itemCount` field for the request as 100. This is because the single ingested record represents 100 total telemetry records that executed within the web application.
+
+![Sample rate at 99 percent and the itemCount is 100 visualized](./media/sampling/sampling-with-legend-99-sampled.png) 
+![Sample rate at 99 percent and the itemCount is 100 in percentages](./media/sampling/sample-rate-99.png) **Sample Rate 99% 1 Request (itemCount=100) 0 Dependencies 0 Traces 0 Exceptions**
+
+
+One caveat for this example is that App Insights SDK samples based on operation ID, meaning that an `operation_Id` is selected and **all** of the telemetry for that single operation are ingested and saved (not random individual records). This can also result in fluctuations based on application operation telemetry counts. If one operation has a higher amount of records and that operation is sampled it would show up as a spike in adjusted sample rates. For example if one operation produces 4000 telemetry records and the other operations only produce 1 to 3 telemetry records. The sampling based on `operation_Id` is done to enable an end-to-end view for failing operations. All telemetry for an operation can be reviewed, including exception details, to precisely diagnose application code errors.
+
+> [!WARNING]
+> A distributed operation's end-to-end view integrity may be impacted if any application in the distributed operation has turned on sampling. Different sampling decisions are made by each application in a distributed operation, so telemetry for one Operation ID may be saved by one application while other applications may decide to not sample the telemetry for that same Operation ID.
+
+As sampling rates increase log based queries accuracy decrease and are usually inflated. This only impacts the accuracy of log-based queries when sampling is enabled and the sample rates are in a higher range (~ 60%). The impact varies based on telemetry types, telemetry counts per operation as well as other factors.
+
+To address the problems introduced by sampling pre-aggregated metrics are used in the SDKs. Additional details about these metrics, log-based and pre-aggregated, can be referenced in [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-pre-aggregated-metrics-table). Relevant properties of the logged data are identified and statistics extracted before sampling occurs. To avoid resource and cost issues, metrics are aggregated. The resulting aggregate data is represented by only a few metric telemetry items per minute, instead of potentially thousands of event telemetry items. These metrics calculate the 25 requests from the example and send a metric to the MDM account reporting “this web app processed 25 requests”, but the sent request telemetry record will have an `itemCount` of 100. These pre-aggregated metrics report the correct numbers and can be relied upon when sampling affects the log-based queries results. They can be viewed on the Metrics blade of the Application Insights portal.
 
 ## Frequently asked questions
 

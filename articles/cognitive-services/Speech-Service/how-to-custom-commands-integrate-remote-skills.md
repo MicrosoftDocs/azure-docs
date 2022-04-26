@@ -3,13 +3,14 @@ title: 'How To: Export Custom Commands application as a remote skill - Speech se
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn how to export Custom Commands application as a skill
 services: cognitive-services
-author: singhsaumya
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: sausin
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Export Custom Commands application as a remote skill

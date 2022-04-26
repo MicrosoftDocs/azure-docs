@@ -80,6 +80,8 @@ items:
       href: hpc-cache-blob-firewall-fix.md
     - name: Recover from a regional outage
       href: hpc-region-recovery.md
+    - name: Move a cache
+      href: move-resource.md
 
   - name: Storage options
     items:

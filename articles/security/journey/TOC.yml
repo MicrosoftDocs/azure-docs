@@ -80,6 +80,11 @@
   - name: Governance or compliance strategy
     href: /azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
+- name: Security posture management
+  items:
+  - name: Zero Trust
+    href: ../fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
 - name: Secure and protect
   items:
   - name: Security best practices
@@ -152,9 +157,9 @@
     - name: Database security
       items:
       - name: Overview
-        href: ../../azure-sql/database/security-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-overview?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Best practices
-        href: ../../azure-sql/database/security-best-practice.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-best-practice?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security checklist
         href: ../fundamentals/database-security-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Storage security guide

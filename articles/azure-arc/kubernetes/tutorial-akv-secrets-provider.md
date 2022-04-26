@@ -24,6 +24,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
     - Google Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Canonical Kubernetes Distribution
+    - Elastic Kubernetes Service
 
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]

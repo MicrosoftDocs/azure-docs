@@ -4,8 +4,7 @@ description: Learn how to store and restore automated backups for Azure SQL Data
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: devx-track-azurepowershell
-ms.devlang: 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 author: SudhirRaparla
 ms.author: nvraparl
@@ -90,7 +89,7 @@ You can configure SQL Database to [retain automated backups](long-term-retention
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the [az sql db ltr-policy set](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_policy_set) command to create an LTR policy. The following example sets a long-term retention policy for 12 weeks for the weekly backup.
+Run the [az sql db ltr-policy set](/cli/azure/sql/db/ltr-policy#az-sql-db-ltr-policy-set) command to create an LTR policy. The following example sets a long-term retention policy for 12 weeks for the weekly backup.
 
 ```azurecli
 az sql db ltr-policy set \
@@ -172,7 +171,7 @@ View the backups that are retained for a specific database with an LTR policy, a
 
 ### View LTR policies
 
-Run the [az sql db ltr-policy show](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_policy_show) command to view the LTR policy for a single database on your server.
+Run the [az sql db ltr-policy show](/cli/azure/sql/db/ltr-policy#az-sql-db-ltr-policy-show) command to view the LTR policy for a single database on your server.
 
 ```azurecli
 az sql db ltr-policy show \
@@ -183,7 +182,7 @@ az sql db ltr-policy show \
 
 ### View LTR backups
 
-Use the [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_list) command to list the LTR backups for a database. You can use this command to find the `name` parameter for use in other commands.
+Use the [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az-sql-db-ltr-backup-list) command to list the LTR backups for a database. You can use this command to find the `name` parameter for use in other commands.
 
 ```azurecli
 az sql db ltr-backup list \
@@ -194,7 +193,7 @@ az sql db ltr-backup list \
 
 ### Delete LTR backups
 
-Run the [az sql db ltr-backup delete](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_delete) command to remove an LTR backup. You can use [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_list) to find the backup `name`.
+Run the [az sql db ltr-backup delete](/cli/azure/sql/db/ltr-backup#az-sql-db-ltr-backup-delete) command to remove an LTR backup. You can use [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az-sql-db-ltr-backup-list) to find the backup `name`.
 
 ```azurecli
 az sql db ltr-backup delete \
@@ -209,7 +208,7 @@ az sql db ltr-backup delete \
 
 ### Restore from LTR backups
 
-Run the [az sql db ltr-backup restore](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_restore) command to restore your database from an LTR backup. You can run [az sql db ltr-backup show](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_show) to get the `backup-id`.
+Run the [az sql db ltr-backup restore](/cli/azure/sql/db/ltr-backup#az-sql-db-ltr-backup-restore) command to restore your database from an LTR backup. You can run [az sql db ltr-backup show](/cli/azure/sql/db/ltr-backup#az-sql-db-ltr-backup-show) to get the `backup-id`.
 
 1. Create a variable for the `backup-id` with the command `az sql db ltr-backup show' for future use.
 

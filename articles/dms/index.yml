@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: Migrate using Azure Data Studio
             url: migration-using-azure-data-studio.md
+          - text: Get Azure recommendation for migration using Azure Data Studio
+            url: ads-sku-recommend.md
           - text: Database migration scenario status
             url: resource-scenario-status.md
           - text: Overview of prerequisites

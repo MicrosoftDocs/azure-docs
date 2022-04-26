@@ -92,3 +92,7 @@ await client.upsertClassificationPolicy({
 ```
 
 ::: zone-end
+
+## Next steps
+
+- [Azure Function Rule How To](../../how-tos/router-sdk/azure-function.md)

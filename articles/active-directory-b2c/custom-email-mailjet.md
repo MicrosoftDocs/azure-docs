@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 04/25/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -37,7 +37,7 @@ If you don't already have one, start by setting up a Mailjet account (Azure cust
 
 1. Follow the setup instructions at [Create a Mailjet Account](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
 1. To be able to send email, [register and validate](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) your Sender email address or domain.
-2. Navigate to the [API Key Management page](https://app.mailjet.com/account/api_keys). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.
+2. Navigate to the [API Key Management page](https://dev.mailjet.com/email/guides/senders-and-domains/#use-a-sender-on-all-api-keys-(metasender)). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.
 
 > [!IMPORTANT]
 > Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
@@ -273,11 +273,12 @@ A verification display control is used to verify the email address with a verifi
 This example display control is configured to:
 
 1. Collect the `email` address claim type from the user.
-1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
-1. Return the `email` to the self-asserted technical profile that has a reference to this display control.
 1. Using the `SendCode` action, generate an OTP code and send an email with the OTP code to the user.
 
    ![Send verification code email action](media/custom-email-mailjet/display-control-verification-email-action-01.png)
+   
+1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
+1. Return the `email` to the self-asserted technical profile that has a reference to this display control.
 
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 

@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Set up IoT Hub Device Provisioning Service in the Microsoft Azure portal
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) in the Microsoft Azure portal
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 manager: lizross
 ms.date: 08/06/2021
 ms.topic: quickstart
@@ -35,7 +35,7 @@ You'll need an Azure subscription to begin with this article. You can create a [
 
 1. In the Azure portal, select **+ Create a resource** .
 
-2. *Search the Marketplace* for the **Device Provisioning Service**. Select **IoT Hub Device Provisioning Service**.
+1. From the **Categories** menu, select **Internet of Things** then **IoT Hub Device Provisioning Service**.
 
 3. Select **Create**.
 

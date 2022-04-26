@@ -97,7 +97,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Enable distributed tracing in the Azure portal.
 > * Add Spring Cloud Sleuth to your application.
-> * View dependency maps for your microservice applications.
+> * View dependency maps for your Spring applications.
 > * Search tracing data with different filters.
 
 ## Prerequisites

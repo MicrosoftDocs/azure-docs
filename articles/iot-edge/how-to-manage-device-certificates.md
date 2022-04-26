@@ -1,9 +1,9 @@
 ---
 title: Manage device certificates - Azure IoT Edge | Microsoft Docs
 description: Create test certificates, install, and manage them on an Azure IoT Edge device to prepare for production deployment. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -95,7 +95,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
       trusted_ca_certs: "file:///<path>/<root CA cert>"
    ```
 
-1. Make sure that the user **iotedge** has read permissions for the directory holding the certificates.
+1. Make sure that the user **iotedge** has read/write permissions for the directory holding the certificates.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
 

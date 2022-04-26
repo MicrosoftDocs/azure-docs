@@ -27,7 +27,7 @@ There are many ways end users can get invited to access resource tenant resource
 
 * [Application-based invitations](../external-identities/o365-external-user.md). Microsoft applications may enable invitation of guest users. B2B invitation settings must be configured both in Azure AD B2B and in the relevant application or applications.
 
-* [MyApps]../user-help/my-apps-portal-end-user-access). Users invite and assign a guest user to an application using MyApps. The user account must have [application self-service sign up](../manage-apps/manage-self-service-access.md) approver permissions. They can invite guest users to a group if they're a group owner.
+* [MyApps](../manage-apps/my-apps-deployment-plan.md). Users invite and assign a guest user to an application using MyApps. The user account must have [application self-service sign up](../manage-apps/manage-self-service-access.md) approver permissions. They can invite guest users to a group if they're a group owner.
 
 * [Entitlement Management](../governance/entitlement-management-overview.md): Enables admins or resource owners to tie resources, allowed external organizations, guest user expiration, and access policies together in access packages. Access packages can be published to enable self-service sign-up for resource access by guest users.
 

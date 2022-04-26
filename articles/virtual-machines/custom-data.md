@@ -22,7 +22,7 @@ To use custom data, you must Base64-encode the contents before passing the data 
 
 In the CLI, you can pass your custom data as a file, as the following example shows. The file will be converted to Base64.
 
-```bash
+```azurecli
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
@@ -84,7 +84,7 @@ Azure currently supports two provisioning agents:
 
 ## FAQ
 ### Can I update custom data after the VM has been created?
-For single VMs, you can't update custom data in the VM model. But for virtual machine scale sets, you can update custom data via the [REST API](/rest/api/compute/virtualmachinescalesets/update), the [Azure CLI](/cli/azure/vmss#az_vmss_update), or [Azure PowerShell](/powershell/module/az.compute/update-azvmss). When you update custom data in the model for a virtual machine scale set:
+For single VMs, you can't update custom data in the VM model. But for virtual machine scale sets, you can update custom data via the [REST API](/rest/api/compute/virtualmachinescalesets/update), the [Azure CLI](/cli/azure/vmss#az-vmss-update), or [Azure PowerShell](/powershell/module/az.compute/update-azvmss). When you update custom data in the model for a virtual machine scale set:
 
 * Existing instances in the scale set won't get the updated custom data until they're reimaged.
 * Existing instances in the scale set that are upgraded won't get the updated custom data.

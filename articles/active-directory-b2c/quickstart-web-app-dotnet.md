@@ -31,7 +31,7 @@ In this quickstart, you use an ASP.NET application to sign in using a social ide
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
     ```
 
-    There are two projects are in the sample solution:
+    There are two projects in the sample solution:
 
     - **TaskWebApp** - A web application that creates and edits a task list. The web application uses the **sign-up or sign-in** user flow to sign up or sign in users.
     - **TaskService** - A web API that supports the create, read, update, and delete task list functionality. The web API is protected by Azure AD B2C and called by the web application.

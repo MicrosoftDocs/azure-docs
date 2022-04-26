@@ -7,10 +7,9 @@ metadata:
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 01/11/2022
   ms.author: aahi
-    
 title: FAQ for Azure Cognitive Services containers
 summary: |
 sections:
@@ -155,7 +154,7 @@ sections:
 
       - question: Are these containers currently supported on Windows?
         answer: | 
-          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://www.docker.com/blog/preview-linux-containers-on-windows/).
       
       - question:  How do Cognitive Services containers compare to AWS and Google offerings?
         answer: | 

@@ -12,9 +12,16 @@ In this article, we cover some of the common issues that you might face while in
 
 ## Check the self-diagnostic log file
 
-By default, Application Insights Java 3.x produces a log file named `applicationinsights.log` in the same directory that holds the `applicationinsights-agent-3.2.2.jar` file.
+By default, Application Insights Java 3.x produces a log file named `applicationinsights.log` in the same directory
+that holds the `applicationinsights-agent-3.2.11.jar` file.
 
 This log file is the first place to check for hints to any issues you might be experiencing.
+
+If no log file is generated, check that your Java application has write permission to the directory that holds the
+`applicationinsights-agent-3.2.11.jar` file.
+
+If still no log file is generated, check the stdout log from your Java application. Application Insights Java 3.x
+should log any errors to stdout that would prevent it from logging to its normal location.
 
 ## JVM fails to start
 
@@ -170,5 +177,8 @@ In this case, the server side is the Application Insights ingestion endpoint or 
 
 #### How to add the missing cipher suites:
 
-If using Java 9 or later, please check if the JVM has `jdk.crypto.cryptoki` module included in the jmods folder. Also if you are building a custom java runtime using `jlink` please make sure to include the same module.
+If using Java 9 or later, please check if the JVM has `jdk.crypto.cryptoki` module included in the jmods folder. Also if you are building a custom Java runtime using `jlink` please make sure to include the same module.
 
+Otherwise, these cipher suites should already be part of modern Java 8+ distributions,
+so it is recommended to check where you installed your Java distribution from, and investigate why the security
+providers in that Java distribution's `java.security` configuration file differ from standard Java distributions.

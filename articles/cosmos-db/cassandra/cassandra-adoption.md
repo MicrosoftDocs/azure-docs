@@ -6,8 +6,8 @@ ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 11/30/2021
-
+ms.date: 03/24/2022
+ms.reviewer: wiassaf
 ---
 
 # From Apache Cassandra to Cassandra API
@@ -34,7 +34,7 @@ For information about offline migration, see [Migrate data from Cassandra to an 
 
 ### Consistency
 
-Although the approaches to replication consistency in Apache Cassandra and Azure Cosmos DB are similar, it's important to understand how they are different. A [mapping document](apache-cassandra-consistency-mapping.md) compares Apache Cassandra and Azure Cosmos DB approaches to replication consistency. However, we highly recommend that you specifically review [Azure Cosmos DB consistency settings](../consistency-levels.md) or watch a brief [video guide to understanding consistency settings in the Azure Cosmos DB platform](https://www.youtube.com/watch?v=t1--kZjrG-o).
+Although the approaches to replication consistency in Apache Cassandra and Azure Cosmos DB are similar, it's important to understand how they are different. A [mapping document](apache-cassandra-consistency-mapping.md) compares Apache Cassandra and Azure Cosmos DB approaches to replication consistency. However, we highly recommend that you specifically review [Azure Cosmos DB consistency settings](../consistency-levels.md) or watch a brief [video guide to understanding consistency settings in the Azure Cosmos DB platform](https://aka.ms/docs.consistency-levels).
 
 ## Recommended client configurations
 

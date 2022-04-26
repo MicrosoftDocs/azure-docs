@@ -2,8 +2,6 @@
 title: Azure Application Insights Agent - getting started | Microsoft Docs
 description: A quickstart guide for Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: TimothyMothra
-ms.author: tilee
 ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
 ---

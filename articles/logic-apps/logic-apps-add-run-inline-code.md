@@ -1,10 +1,10 @@
 ---
 title: Add and run code snippets by using inline code
-description: Learn how to create and run code snippets by using inline code actions for automated tasks and workflows that you create with Azure Logic Apps
+description: Learn how to create and run code snippets by using inline code actions for automated tasks and workflows that you create with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, logicappspm
-ms.topic: article
+ms.reviewer: deli, estfan, azla
+ms.topic: how-to
 ms.date: 05/25/2021
 ms.custom: devx-track-js
 ---
@@ -21,7 +21,7 @@ When you want to run a piece of code inside your logic app workflow, you can add
 
 * Doesn't require working with the [**Variables** actions](../logic-apps/logic-apps-create-variables-store-values.md), which are not yet supported.
 
-* Uses Node.js version 8.11.1 for [multi-tenant based logic apps](logic-apps-overview.md) or [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/) for [single-tenant based logic apps](single-tenant-overview-compare.md).
+* Uses Node.js version 8.11.1 for [multi-tenant based logic apps](logic-apps-overview.md) or [Node.js versions 12.x.x or 14.x.x](https://nodejs.org/en/download/releases/) for [single-tenant based logic apps](single-tenant-overview-compare.md).
 
   For more information, see [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
@@ -36,7 +36,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The logic app workflow where you want to add your code snippet, including a trigger. The example in this topic uses the Office 365 Outlook trigger that's named **When a new email arrives**.
 

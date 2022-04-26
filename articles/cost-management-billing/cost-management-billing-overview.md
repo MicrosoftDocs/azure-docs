@@ -1,10 +1,11 @@
 ---
-title: Overview of Azure Cost Management + Billing
+title: Overview of Cost Management + Billing
+titleSuffix: Azure Cost Management + Billing
 description: You use Cost Management + Billing features to conduct billing administrative tasks and manage billing access to costs. You also use the features to monitor and control Azure spending and to optimize Azure resource use.
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 04/08/2022
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
@@ -50,7 +51,7 @@ The Azure portal currently supports the following types of billing accounts:
 
 Although related, billing differs from cost management. Billing is the process of invoicing customers for goods or services and managing the commercial relationship.
 
-Cost Management shows organizational cost and usage patterns with advanced analytics. Reports in Cost Management show the usage-based costs consumed by Azure services and third-party Marketplace offerings. Costs are based on negotiated prices and factor in reservation and Azure Hybrid Benefit discounts. Collectively, the reports show your internal and external costs for usage and Azure Marketplace charges. Other charges, such as reservation purchases, support, and taxes aren't yet shown in reports. The reports help you understand your spending and resource use and can help find spending anomalies. Predictive analytics are also available. Cost Management uses Azure management groups, budgets, and recommendations to show clearly how your expenses are organized and how you might reduce costs.
+Cost Management shows organizational cost and usage patterns with advanced analytics. Reports in Cost Management show the usage-based costs consumed by Azure services and third-party Marketplace offerings. Costs are based on negotiated prices and factor in reservation and Azure Hybrid Benefit discounts. Collectively, the reports show your internal and external costs for usage and Azure Marketplace charges. **Other charges, such as reservation purchases, support, and taxes aren't yet shown in reports**. The reports help you understand your spending and resource use and can help find spending anomalies. Predictive analytics are also available. Cost Management uses Azure management groups, budgets, and recommendations to show clearly how your expenses are organized and how you might reduce costs.
 
 You can use the Azure portal or various APIs for export automation to integrate cost data with external systems and processes. Automated billing data export and scheduled reports are also available.
 

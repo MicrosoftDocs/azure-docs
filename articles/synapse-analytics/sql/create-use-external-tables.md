@@ -1,7 +1,6 @@
 ---
 title: Create and use external tables in Synapse SQL pool
 description: In this section, you'll learn how to create and use external tables in Synapse SQL pool.
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -28,7 +27,7 @@ The following table lists the data formats supported:
 
 |Data format (Native external tables)  |Serverless SQL pool |Dedicated SQL pool |
 |---------|---------|---------|
-|Paraquet |  Yes (GA)  | Yes (public preview)  |
+|Parquet |  Yes (GA)  | Yes (public preview)  |
 |CSV  |  Yes  |  No (Alternatively, use [Hadoop external tables](develop-tables-external-tables.md?tabs=hadoop)) |
 |delta  |  Yes  |  No  |
 |Spark  |  Yes  | No |

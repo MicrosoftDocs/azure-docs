@@ -3,7 +3,7 @@ title: Azure API Management support for monetization
 description: Learn how Azure API Management supports monetization strategies for your API products.
 author: dlepow
 ms.author: danlep
-ms.date: 08/23/2021
+ms.date: 02/10/2022
 ms.topic: article
 ms.service: api-management
 ---
@@ -145,6 +145,15 @@ In example projects, the Azure Resource Manager scripts are augmented by a JSON 
 API Management can be deployed either through:
 * The Azure portal UI, or
 * An "infrastructure as code" approach using [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates). 
+
+## Videos
+
+### Integrate API Management with Adyen payment gateway
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWSSq2]
+
+### Integrate API Management with Stripe payment gateway
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWSTfp]
+
 
 ## Next steps
 

@@ -5,12 +5,13 @@ description: Learn how to specify a blob's access tier when you upload it, or ho
 author: tamram
 
 ms.author: tamram
-ms.date: 10/25/2021
+ms.date: 03/02/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: fryu
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Set a blob's access tier
@@ -132,7 +133,7 @@ Get-ChildItem -Path "C:\sample-blobs" -File -Recurse |
 
 ### [Azure CLI](#tab/azure-cli)
 
-To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage blob upload \
@@ -144,7 +145,7 @@ az storage blob upload \
     --auth-mode login
 ```
 
-To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli
 az storage blob upload-batch \
@@ -259,7 +260,7 @@ $blob.BlobClient.SetAccessTier("Cool", $null, "Standard")
 
 #### [Azure CLI](#tab/azure-cli)
 
-To change a blob's tier from Hot to Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
+To change a blob's tier from Hot to Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob set-tier \
@@ -298,7 +299,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Copy the source blob to a new destination blob in Hot tier with Standard priority.
+# Copy the source blob to a new destination blob in Hot tier.
 Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
     -SrcBlob $srcBlobName `
     -DestContainer $destContainerName `
@@ -309,7 +310,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To copy a blob from Cool to Hot with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
+To copy a blob from Cool to Hot with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob copy start \

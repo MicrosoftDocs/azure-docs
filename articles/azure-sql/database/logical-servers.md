@@ -5,8 +5,7 @@ description: Learn about logical SQL servers used by Azure SQL Database and Azur
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
-ms.custom: 
-ms.devlang: 
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
@@ -16,7 +15,7 @@ ms.date: 03/12/2019
 # What is a logical SQL server in Azure SQL Database and Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-In Azure SQL Database and Azure Synapse Analytics, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../azure-sql/database/auditing-overview.md), [threat detection policies](threat-detection-configure.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse Analytics. All databases managed by a single server are created within the same region as the server.
+In Azure SQL Database and Azure Synapse Analytics, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](/azure/azure-sql/database/auditing-overview), [threat detection policies](threat-detection-configure.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse Analytics. All databases managed by a single server are created within the same region as the server.
 
 This server is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, there are no guarantees regarding location of the databases or data warehouse database in relation to the server that manages them. Furthermore, neither Azure SQL Database nor Azure Synapse expose any instance-level access or features. In contrast, the instance databases in a managed instance are all physically co-located - in the same way that you are familiar with SQL Server in the on-premises or virtual machine world.
 
@@ -108,25 +107,25 @@ To create and manage servers, databases, and firewalls with the [Azure CLI](/cli
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Creates a database|
-|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Lists all databases managed by a server, or all databases in an elastic pool|
-|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Returns database usages|
-|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Gets a database
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Updates a database|
-|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Removes a database|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Creates a server|
-|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lists servers|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Returns  server usages|
-|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Gets a server|
-|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Updates a server|
-|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Deletes a server|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Creates a server firewall rule|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lists the firewall rules on a server|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Creates a database|
+|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Lists all databases managed by a server, or all databases in an elastic pool|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Lists available service objectives and storage limits|
+|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Returns database usages|
+|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Gets a database
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Updates a database|
+|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Removes a database|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Creates a server|
+|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|Lists servers|
+|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Returns  server usages|
+|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|Gets a server|
+|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|Updates a server|
+|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Deletes a server|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Creates a server firewall rule|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Lists the firewall rules on a server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Shows the detail of a firewall rule|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Updates a firewall rule|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Deletes a firewall rule|
 
 > [!TIP]
 > For an Azure CLI quickstart, see [Create a database in Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use the CLI to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use Azure CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
@@ -150,7 +149,7 @@ To create and manage servers, databases, and firewalls with Transact-SQL, use th
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, IO, and memory consumption for a database in Azure SQL Database. One row exists for every 15 seconds, even if there is no activity in the database.|
 |[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Returns CPU usage and storage data for a database in Azure SQL Database. The data is collected and aggregated within five-minute intervals.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contains statistics for database connectivity events for Azure SQL Database, providing an overview of database connection successes and failures. |
-|[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Returns successful Azure SQL Database database connections, connection failures, and deadlocks for Azure SQL Database. You can use this information to track or troubleshoot your database activity.|
+|[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Returns successful database connections and connection failures for Azure SQL Database. You can use this information to track or troubleshoot your database activity.|
 |[sp_set_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Creates or updates the server-level firewall settings for your server. This stored procedure is only available in the master database to the server-level principal login. A server-level firewall rule can only be created using Transact-SQL after the first server-level firewall rule has been created by a user with Azure-level permissions|
 |[sys.firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Returns information about the server-level firewall settings associated with a server.|
 |[sp_delete_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Removes server-level firewall settings from a server. This stored procedure is only available in the master database to the server-level principal login.|

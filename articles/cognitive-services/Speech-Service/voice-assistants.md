@@ -1,5 +1,5 @@
 ---
-title: Voice assistants - Speech service
+title: Voice assistants overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for voice assistants with the Speech SDK.
 services: cognitive-services
@@ -7,9 +7,10 @@ author: trrwilson
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/11/2020
 ms.author: travisw
+ms.custom: cogserv-non-critical-speech
 ---
 
 # What is a voice assistant?
@@ -75,7 +76,6 @@ Voice assistants that you build by using Speech service can use a full range of 
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Learn more about Custom Commands](custom-commands.md)
 * [Learn more about Direct Line Speech](direct-line-speech.md)
 * [Get the Speech SDK](speech-sdk.md)

@@ -60,6 +60,9 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 
 The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration, as long as the prerequisites set-up remain the same without any action required from you. All the associated bindings will be updated with the renewed certificate. You create the certificate and bind it to a custom domain, and let App Service do the rest.
 
+> [!IMPORTANT]
+> Because Azure fully manages the certificates on your behalf, any aspect of the managed certificate, including the root issuer, can be changed at anytime. These changes are outside of your control. You should avoid having a hard dependency or practice certificate "pinning" to the managed certificate, or to any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
+
 The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
@@ -414,6 +417,18 @@ Because an App Service Certificate is a [Key Vault secret](../key-vault/general/
 > [!NOTE]
 > The exported certificate is an unmanaged artifact. For example, it isn't synced when the App Service Certificate is [renewed](#renew-an-app-service-certificate). You must export the renewed certificate and install it where you need it.
 
+# [Azure portal](#tab/portal)
+
+1. Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Export Certificate** from the left navigation.
+
+1. Select **Open in Key Vault**.
+
+1. Select the current version of the certificate.
+
+1. Select **Download as a certificate**.
+
+# [Azure CLI](#tab/cli)
+
 To export the App Service Certificate as a PFX file, run the following commands in the [Cloud Shell](https://shell.azure.com). You can also run it locally if you [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names you used when you [created the App Service certificate](#start-certificate-order).
 
 ```azurecli-interactive
@@ -431,7 +446,9 @@ az keyvault secret download \
     --encoding base64
 ```
 
-The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. In each prompt, use an empty string for the import password and the PEM pass phrase.
+-----
+
+The downloaded PFX file is a raw PKCS12 file that contains both the public and private certificates, and its import password is an empty string. You can install it locally by leaving the password field empty. Notable is the fact that it can't be [uploaded into App Service](#upload-a-private-certificate) as-is because it's not [password protected](#private-certificate-requirements).
 
 ### Delete certificate 
 

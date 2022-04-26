@@ -1,7 +1,6 @@
 ---
 title: What is dedicated SQL pool (formerly SQL DW)?
 description: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics is the enterprise data warehousing functionality in Azure Synapse Analytics.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics

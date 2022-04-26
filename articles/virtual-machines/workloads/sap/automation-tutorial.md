@@ -15,7 +15,7 @@ ms.service: virtual-machines-sap
 
 This tutorial shows how to do enterprise scaling for deployments using the [SAP deployment automation framework on Azure](automation-deployment-framework.md). This example uses Azure Cloud Shell to deploy the control plane infrastructure. The deployer virtual machine (VM) creates the remaining infrastructure and SAP HANA configurations. 
 
-You will perform the following tasks during this lab:
+You'll perform the following tasks during this lab:
 
 > [!div class="checklist"]
 > * Deploy the Control Plane (Deployer Infrastructure & Library)
@@ -51,7 +51,7 @@ The SAP on Azure deployment automation framework has two main components:
 
 The following diagram shows the dependency between the control plane and the application plane.
 
-:::image type="content" source="./media/automation-deployment-framework/control-plane-sap-infrastructure.png" alt-text="Dependency between the control plane and the application plane":::
+ :::image type="content" source="media/automation-devops/automation-devops-tutorial-design.png" alt-text="DevOps tutorial infrastructure design":::
 
 The framework uses Terraform for infrastructure deployment, and Ansible for the operating system and application configuration. The following diagram shows the logical separation of the control plane and workload zone.
 
@@ -113,7 +113,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
 1. Go to [Azure Cloud Shell](https://shell.azure.com)
 
-1. Log in to your Azure account.
+1. Sign in your Azure account.
 
     ```cloudshell-interactive
     az login
@@ -135,7 +135,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
     az account list --output=table | grep True
     ```
 
-1. If required, change your active subscription.
+1. If necessary, change your active subscription.
   
     ```cloudshell-interactive
     az account set --subscription <Subscription ID>
@@ -145,6 +145,15 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     ```cloudshell-interactive
     az account list --query "[?isDefault].{Name: name, CloudName: cloudName, SubscriptionId: id, State: state, IsDefault: isDefault}" --output=table
+    ```
+
+1. Optionally remove all the deployment artifacts. Use when you want to remove all remnants of previous deployment artifacts.
+
+    ```cloudshell-interactive
+    
+    cd ~
+
+    rm -rf Azure_SAP_Automated_Deployment .sap_deployment_automation .terraform.d
     ```
 
 1. Create the deployment folder and clone the repository.
@@ -167,7 +176,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     - `az` version 2.28.0 or higher
 
-    - `terraform` version 1.0.8 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
+    - `terraform` version 1.1.4 or higher. [Upgrade using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html) as necessary.
 
 
 ## Create service principal
@@ -217,7 +226,8 @@ The SAP automation deployment framework uses service principals for deployment. 
     export appId="<appId>"
 
     az role assignment create --assignee ${appId} \
-      --role "User Access Administrator"
+      --role "User Access Administrator" \
+      --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
     ```
 
 
@@ -373,7 +383,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
 - If you have authentication issues directly after running the script `prepare_region.sh`, run:
 
-    ```bash
+    ```azurecli
     az logout
 
     az login
@@ -382,7 +392,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
 ## Connect to deployer VM
 
-After preparing the region, the Terraform state file moves to a remote backend, `azurerm`. All secrets for connecting to the deployer VM are available in a key vault within the deployer's resource group.
+After the control plane is deployed, the Terraform state is stored using a remote backend, `azurerm`. All secrets for connecting to the deployer VM are available in a key vault in the deployer's resource group.
 
 Make sure you can connect to your deployer VM:
 
@@ -411,13 +421,54 @@ Make sure you can connect to your deployer VM:
 
 - Once connected to the deployer VM, you can now download the SAP software using the Bill of Materials (BOM).
 
+## Connect to deployer VM when not using a public IP
+
+For deployments without public IPs connectivity direct connectivity over the internet is not allowed. In these cases you may use either Azure Bastion, a jump box or perform the next step from a computer that has connectivity to the Azure virtual network.
+
+The following example uses Azure Bastion.
+
+Connect to the deployer by following these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to the resource group containing the deployer virtual machine.
+
+1. Connect to the virtual machine using Azure Bastion.
+
+1. The default username is *azureadm*
+
+1. Choose *SSH Private Key from Azure Key Vault* 
+
+1. Select the subscription containing the control plane.
+
+1. Select the deployer key vault.
+
+1. From the list of secrets choose the secret ending with *-sshkey*.
+
+1. Connect to the virtual machine.
+
+Run the following script to configure the deployer.
+
+```bash
+mkdir -p ~/Azure_SAP_Automated_Deployment
+
+cd ~/Azure_SAP_Automated_Deployment
+
+git clone https://github.com/Azure/sap-automation.git
+
+cd sap-automation/deploy/scripts
+
+./configure_deployer.sh
+```
+
+The script will install Terraform and Ansible and configure the deployer.
 
 > [!IMPORTANT]
 > The rest of the tasks need to be executed on the Deployer
 
 ## Get SAP software using the Bill of Materials (BOM)
 
-The Automation Framework gives you tools to download software from SAP using the SAP Bill Of Materials (BOM). The software will be downloaded to the SAP library which acts as the archive for all media required to deploy SAP.
+The Automation Framework gives you tools to download software from SAP using the SAP Bill Of Materials (BOM). The software will be downloaded to the SAP library, which acts as the archive for all media required to deploy SAP.
 
 The SAP Bill of Materials (BOM) mimics the SAP maintenance planner. There are relevant product identifiers and a set of download URLs. 
 
@@ -426,7 +477,7 @@ A sample extract of a BOM file looks like:
 ```yaml
 
 ---
-name:    'S41909SPS03_v0007ms'
+name:    'S41909SPS03_v0010'
 target:  'S/4 HANA 1909 SPS 03'
 version: 7
 
@@ -478,7 +529,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     > [!NOTE]
     > The use of single quotes when setting `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results!
 
-    ```bash
+    ```azurecli
     sap_user_password='<sap-password>'
 
     az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
@@ -510,17 +561,17 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0007ms
+    bom_base_name:                 S41909SPS03_v0010ms
 
     ```
     
-1. Replace `<Deployer KeyVault Name>` with the name of the deployer resource group key vault
+1. Replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault
   
     Your file should look similar to the following example configuration:
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0007ms
+    bom_base_name:                 S41909SPS03_v0010ms
     kv_name:                       <Deployer KeyVault Name> 
 
     ```
@@ -531,7 +582,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0007ms
+    bom_base_name:                 S41909SPS03_v0010
     kv_name:                       <Deployer KeyVault Name> 
     check_storage_account:         false
 
@@ -572,11 +623,11 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
 1. Additionally, the following piece of information needs to be collected.
 
-    1. The name of deployer state file, can be found under Library resource group
+    1. The name of deployer state file can be found under Library resource group
         - Library resource group -> state storage account -> containers -> tfstate -> Copy the **name** of the Deployer state file.
         - Following from the example above, the name of the blob will be: *MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate*
 
-1. If required, register the SPN
+1. If necessary, register the SPN
 
     > [!IMPORTANT]
     > The first time an Environment is instantiated, a SPN must be registered. In this tutorial the Control Plane is in the MGMT environment, and the Workload Zone is in DEV, therefore an SPN must be registered for DEV at this time.
@@ -612,7 +663,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     git pull
     ```
 
-1. Go into the *WORKSPACES/LANDSCAPE* folder and copy the sample configuration files that you will be using from from the repository.
+1. Go into the *WORKSPACES/LANDSCAPE* folder and copy the sample configuration files that you'll be using from the repository.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE
@@ -676,7 +727,7 @@ Use the [install_workloadzone](bash/automation-install_workloadzone.md) script t
 
 1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
-1. Go into the *WORKSPACES/SYSTEM* folder and copy the sample configuration files that you will be using from from the repository.
+1. Go into the *WORKSPACES/SYSTEM* folder and copy the sample configuration files that you'll be using from the repository.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM
@@ -754,7 +805,7 @@ This playbook does the generic OS configuration setup on all the machines, which
 
 ### Playbook: SAP-Specific OS config
 
-This playbook does the SAP OS configuration setup on all the machines, which includes creation of volume groups, file systems, configuring of software repositories, packages, and services.
+This playbook does the SAP OS configuration setup on all the machines. The steps include creation of volume groups, file systems, configuring of software repositories, packages, and services.
 
 ### Playbook: BOM Processing
 
@@ -766,7 +817,7 @@ This playbook will install the HANA database instances.
 
 ### Playbook: SCS Install
   
-This playbook will install SAP Central Services. If, high availability is configured the playbook will also install the ERS instance and configure Pacemaker.
+This playbook will install SAP Central Services. For highly available configurations, the playbook will also install the SAP ERS instance and configure Pacemaker.
 
 ### Playbook: DB Load
 
@@ -778,7 +829,7 @@ This playbook will install the primary application server.
   
 ### Playbook: APP Install
 
-This playbook will install the additional application servers.
+This playbook will install the application servers.
 
 You've now deployed and configured a stand-alone HANA system, if you need to configure a highly available SAP HANA database run the HANA HA playbook
 
@@ -800,7 +851,7 @@ To remove the entire SAP infrastructure you deployed, you need to:
 
 Execute the removal of your SAP infrastructure resources and workload zones from the deployer VM. Execute the removal of the control plane from Cloud Shell.
 
-Before you begin, log in to your Azure account. Then, check that you're in the correct subscription.
+Before you begin, sign in your Azure account. Then, check that you're in the correct subscription.
 
 ### Remove SAP infrastructure
 

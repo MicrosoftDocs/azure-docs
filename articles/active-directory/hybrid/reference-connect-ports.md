@@ -33,7 +33,7 @@ This table describes the ports and protocols that are required for communication
 | LDAP |389 (TCP/UDP) |Used for data import from AD. Data is encrypted with Kerberos Sign & Seal. |
 | SMB | 445 (TCP) |Used by Seamless SSO to create a computer account in the AD forest and during password writeback. For more information, see [Change a user account's password](/openspecs/windows_protocols/ms-adod/d211aaba-d188-4836-8007-8c62f7c9402d). |
 | LDAP/SSL |636 (TCP/UDP) |Used for data import from AD. The data transfer is signed and encrypted. Only used if you are using TLS. |
-| RPC |49152- 65535 (Random high RPC Port)(TCP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. If the dynamic port has been changed, you need to open that port. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
+| RPC |49152- 65535 (Random high RPC Port) (TCP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. If the dynamic port has been changed, you need to open that port. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
 |WinRM  | 5985 (TCP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard|
 |AD DS Web Services | 9389 (TCP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard |
 | Global Catalog | 3268 (TCP) | Used by Seamless SSO to query the global catalog in the forest before creating a computer account in the domain. |
@@ -44,7 +44,7 @@ This table describes the ports and protocols that are required for communication
 | Protocol | Ports | Description |
 | --- | --- | --- |
 | HTTP |80 (TCP) |Used to download CRLs (Certificate Revocation Lists) to verify TLS/SSL certificates. |
-| HTTPS |443(TCP) |Used to synchronize with Azure AD. |
+| HTTPS |443 (TCP) |Used to synchronize with Azure AD. |
 
 For a list of URLs and IP addresses you need to open in your firewall, see [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) and [Troubleshooting Azure AD Connect connectivity](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
@@ -54,7 +54,7 @@ This table describes the ports and protocols that are required for communication
 | Protocol | Ports | Description |
 | --- | --- | --- |
 | HTTP |80 (TCP) |Used to download CRLs (Certificate Revocation Lists) to verify TLS/SSL certificates. |
-| HTTPS |443(TCP) |Used to synchronize with Azure AD. |
+| HTTPS |443 (TCP) |Used to synchronize with Azure AD. |
 | WinRM |5985 |WinRM Listener |
 
 ## Table 4 - WAP and Federation Servers
@@ -62,32 +62,32 @@ This table describes the ports and protocols that are required for communication
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-| HTTPS |443(TCP) |Used for authentication. |
+| HTTPS |443 (TCP) |Used for authentication. |
 
 ## Table 5 - WAP and Users
 This table describes the ports and protocols that are required for communication between users and the WAP servers.
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-| HTTPS |443(TCP) |Used for device authentication. |
+| HTTPS |443 (TCP) |Used for device authentication. |
 | TCP |49443 (TCP) |Used for certificate authentication. |
 
 ## Table 6a & 6b - Pass-through Authentication with Single Sign On (SSO) and Password Hash Sync with Single Sign On (SSO)
 The following tables describes the ports and protocols that are required for communication between the Azure AD Connect and Azure AD.
 
 ### Table 6a - Pass-through Authentication with SSO
-|Protocol|Port Number|Description
-| --- | --- | ---
-|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL. Also needed for the connector auto-update capability to function properly.
-|HTTPS|443|	Enable outbound HTTPS traffic for operations such as enabling and disabling of the feature, registering connectors, downloading connector updates, and handling all user sign-in requests.
+| Protocol | Ports | Description |
+| --- | --- | --- |
+| HTTP |80 (TCP)|Used to download CRLs (Certificate Revocation Lists) to verify TLS/SSL certificates. Also needed for the connector auto-update capability to function properly. |
+| HTTPS |443 (TCP)|Used to enable and disable the feature, register connectors, download connector updates, and handle all user sign-in requests. |
 
 In addition, Azure AD Connect needs to be able to make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Table 6b - Password Hash Sync with SSO
 
-|Protocol|Port Number|Description
-| --- | --- | ---
-|HTTPS|443|	Enable SSO registration (required only for the SSO registration process).
+| Protocol | Ports | Description |
+| --- | --- | --- |
+| HTTPS |443 (TCP)|Used to enable SSO registration (required only for the SSO registration process).
 
 In addition, Azure AD Connect needs to be able to make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Again, this is only required for the SSO registration process.
 
@@ -99,11 +99,11 @@ This table describes the following outbound ports and protocols that are require
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
-| HTTPS |443(TCP) |Outbound |
-| Azure Service Bus |5671 (TCP) |Outbound |
+| Azure Service Bus |5671 (TCP) | Used to send health information to Azure AD. (recommended but not required in latest versions)|
+| HTTPS |443 (TCP) |Used to send health information to Azure AD. (failback)|
 
-Azure Service Bus port 5671 is no longer required for the latest version of agent. The latest Azure AD Connect Health agent version only required port 443.
+If 5671 is blocked, the agent falls back to 443, but using 5671 is recommended. This endpoint isn't required in the latest version of the agent.
+The latest Azure AD Connect Health agent versions only require port 443.
 
 ### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](how-to-connect-health-agent-install.md#requirements).
-
