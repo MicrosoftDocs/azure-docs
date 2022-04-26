@@ -82,10 +82,10 @@ Semantic search and spell check are available on services that meet the criteria
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (rank, captions, highlights, answers) | Standard tier (S1, S2, S3) | [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page | Required | [Cognitive Search Pricing](https://azure.microsoft.com/pricing/details/search/) page <sup>1</sup>|
+| Semantic search (rank, captions, highlights, answers) | Standard tier (S1, S2, S3) | [Region availability page](https://azure.microsoft.com/global-infrastructure/services/?products=search) page | Required | [Pricing page](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
 | Spell check | Basic<sup>2</sup> and above  | All | None | None (free) |
 
-<sup>1</sup> At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt-in to the standard pricing plan. The pricing page shows you the standard pricing billing rate for different currencies and intervals.
+<sup>1</sup> At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the standard pricing plan. The pricing page shows you the pricing billing rate for the standard plan for different currencies and intervals.
 
 <sup>2</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
 
