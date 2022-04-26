@@ -11,83 +11,83 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Communications Inspector
+# Real-time Inspection Tool for Azure Communication Services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Communications Inspector enables Azure Communication Services developers to inspect the state of the `Call` to debug or monitor their solution. When building a solution, developers might need visibility for debugging into general call information such as the `Call ID` or advanced states, such as did a user facing diagnostic fire. The Communication Inspector provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `azure/communication-tools`.
+The Real-time Inspection Tool enables Azure Communication Services developers to inspect the state of the `Call` to debug or monitor their solution. For developers building an Azure Communication Services solution, they might need visibility for debugging into general call information such as the `Call ID` or advanced states, such as did a user facing diagnostic fire. The Real-time Inspection Tool provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `azure/communication-tools`.
 
 >[!NOTE]
->Find the open-source repository for the tool [here](https://github.com/Azure/communication-inspector).
+>Find the open-source repository for the tool [here](https://github.com/Azure/communication-inspection).
 
 ## Capabilities
 
-The Communications Inspector provides developers three categories of information that can be used for debugging purposes:
+The Real-time Inspection Tool provides developers three categories of information that can be used for debugging purposes:
 
 | Category                       | Descriptions                      |
 |--------------------------------|-----------------------------------|
 | General Call Information       | Includes call id, participants, devices and user agent information (browser, version, etc.) |
-| Media Quality Stats            | Metrics and statistics provided by [Media Quality APIs](../voice-video-calling/media-quality-sdk.md). Metrics are clickable for timeseries view.|
+| Media Quality Stats            | Metrics and statistics provided by [Media Quality APIs](../voice-video-calling/media-quality-sdk.md). Metrics are clickable for time series view.|
 | User Facing Diagnostics        | List of [user facing diagnostics](../voice-video-calling/user-facing-diagnostics.md).|
 
 Data collected by the tool is only kept locally and temporarily. It can be downloaded from within the interface. 
 
-Communications Inspector is compatible with the same browsers as the Calling SDK [here](../voice-video-calling/calling-sdk-features.md?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
+Real-time Inspection Tool is compatible with the same browsers as the Calling SDK [here](../voice-video-calling/calling-sdk-features.md?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
 
-## Get started with Communications Inspector
+## Get started with Real-time Inspection Tool
 
-The tool can be accessed through an npm package `azure/communication-tools`. There developers can find the `CommunicationsInspector` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
+The tool can be accessed through an npm package `azure/communication-inspection`. The package contains the `InspectionTool` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
 
-### Installing Communications Inspector
+### Installing Real-time Inspection Tool
 
 ```bash
-npm i  @azure/communication-inspector
+npm i  @azure/communication-inspection
 ```
 
-### Initialize Communications Inspector
+### Initialize Real-time Inspection Tool
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { CommunicationsInspector } from "@azure/communication-tools";
+import { InspectionTool } from "@azure/communication-tools";
 
 const callClient = new callClient();
 const callAgent = await callClient.createCallAgent({INSERT TOKEN CREDENTIAL});
 const call = callAgent.startCall({INSERT CALL INFORMATION});
 
-const communicationsInspector =  new CommunicationsInspector(call, {HTMLDivElement});
+const inspectionTool =  new InspectionTool(call, {HTMLDivElement});
 
 ```
 ## Usage
 
-`start`: enable the `CommunicationsInspector` to start reading data from the call object and storing it locally for visualization.
+`start`: enable the `InspectionTool` to start reading data from the call object and storing it locally for visualization.
 
 ```javascript
 
-CommunicationsInspector.start()
+inspectionTool.start()
 
 ```
 
-`stop`: disable the `CommunicationsInspector` from reading data from the call object.
+`stop`: disable the `InspectionTool` from reading data from the call object.
 
 ```javascript
 
-CommunicationsInspector.stop()
+inspectionTool.stop()
 
 ```
 
-`open`: Open the `CommunicationsInspector` in the UI.
+`open`: Open the `InspectionTool` in the UI.
 
 ```javascript
 
-CommunicationsInspector.open()
+inspectionTool.open()
 
 ```
 
-`close`: Dismiss the `CommunicationsInspector` in the UI.
+`close`: Dismiss the `InspectionTool` in the UI.
 
 ```javascript
 
-CommunicationsInspector.close()
+inspectionTool.close()
 
 ```
 
@@ -95,5 +95,5 @@ CommunicationsInspector.close()
 
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- [Levearge Network Diagnostic Tool](./network-diagnostic.md)
+- [Leverage Network Diagnostic Tool](./network-diagnostic.md)
 - [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
