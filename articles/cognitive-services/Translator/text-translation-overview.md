@@ -21,7 +21,7 @@ keywords: translator, text translation, machine translation, translation service
 Text translation documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](translator-how-to-signup.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**How-to guides**](how-to-create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Text translation features
@@ -65,9 +65,9 @@ Add Text Translation to your projects and applications using the following resou
 
 Ready to begin?
 
-* [**Create a Translator resource**](translator-how-to-signup.md "Go to the Azure portal.") in the Azure portal.
+* [**Create a Translator resource**](how-to-create-translator-resource.md "Go to the Azure portal.") in the Azure portal.
 
-* [**Get your access keys and API endpoint**](translator-how-to-signup.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
+* [**Get your access keys and API endpoint**](how-to-create-translator-resource.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
 
 * Explore our [**Quickstart**](quickstart-translator.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
   * [**C#/.NET**](quickstart-translator.md?tabs=csharp)

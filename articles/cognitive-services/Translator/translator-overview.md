@@ -20,7 +20,7 @@ Translator is a cloud-based neural machine translation service that is part of t
 Translator documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-translator.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](translator-how-to-signup.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**How-to guides**](how-to-create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Translator features and development options
@@ -39,7 +39,7 @@ First, you'll need a Microsoft account; if you do not have one, you can sign up 
 
 Next, you'll need to  have an Azure account—navigate to the [**Azure sign-up page**](https://azure.microsoft.com/free/ai/), select the **Start free** button, and create a new Azure account using your Microsoft account credentials.
 
-Now, you're ready to get started! [**Create a Translator service**](translator-how-to-signup.md "Go to the Azure portal."), [**get your access keys and API endpoint**](translator-how-to-signup.md#authentication-keys-and-endpoint-url "An endpoint URL and read-only key are required for authentication."), and try our [**quickstart**](quickstart-translator.md "Learn to use Translator via REST.").
+Now, you're ready to get started! [**Create a Translator service**](how-to-create-translator-resource.md "Go to the Azure portal."), [**get your access keys and API endpoint**](how-to-create-translator-resource.md#authentication-keys-and-endpoint-url "An endpoint URL and read-only key are required for authentication."), and try our [**quickstart**](quickstart-translator.md "Learn to use Translator via REST.").
 
 ## Next steps
 

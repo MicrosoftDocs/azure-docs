@@ -29,7 +29,7 @@ To use the [Custom Translator](https://portal.customtranslator.azure.ai/) previe
 
     :::image type="content" source="../../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-  See [how to create a Translator resource](../../translator-how-to-signup.md).
+  See [how to create a Translator resource](../../how-to-create-translator-resource.md).
 
 Once you have the above prerequisites, sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) preview portal to create workspaces, build projects, upload files, train models, and publish your custom solution.
 

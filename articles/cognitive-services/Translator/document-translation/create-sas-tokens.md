@@ -1,14 +1,14 @@
 ---
-title: Generate shared access signature (SAS) tokens for containers and blobs with Microsoft Storage Explorer 
-description: How to generate Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
+title: Create shared access signature (SAS) tokens for containers and blobs with Microsoft Storage Explorer 
+description: How to create Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 12/06/2021
+ms.date: 04/26/2022
 ---
 
-# Generate SAS tokens for your storage containers
+# Create SAS tokens for your storage containers
 
 In this article, you'll learn how to create shared access signature (SAS) tokens using the Azure Storage Explorer or the Azure portal. An SAS token provides secure, delegated access to resources in your Azure storage account.
 
