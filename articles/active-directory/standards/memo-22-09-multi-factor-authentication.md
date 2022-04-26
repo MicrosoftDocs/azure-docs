@@ -33,31 +33,37 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 - **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers native support for certificate use, including smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV). These methods are in use throughout the US Department of Defense (DoD) & US Federal Civilian agencies as well as derived credentials (Such as derived CAC/PIV) on mobile devices or security keys
 
-- **[Windows Hello for Business](.../windows/security/identity-protection/hello-for-business/hello-overview)** offers....NEED A STATEMENT HERE. For more information, see the [Windows Hello for Business Deployment Overview](.../windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+- **[Windows Hello for Business](.../windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multfactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](.../windows/security/identity-protection/hello-for-business/hello-deployment-guide)
 
-### Protection from external fishing
+### Protection from external phishing
 
-**[Microsoft Authenticator](../authentication/concept-authentication-authenticator-app.md) and conditional access policies that enforce Hybrid join or compliant devices to access the application or service.**
+**[Microsoft Authenticator](../authentication/concept-authentication-authenticator-app.md) and conditional access policies that enforce managed devices**. managed devices are hybrid Azure AD joined or compliant.**
 
-  Additional configuration steps for this method:
+> [!NOTE]
+>
+> Today, Microsoft Authenticator by itself is **not** phishing-resistant. You must additionally secure the authentication with the phishing resistant properties gained from conditional access policy enforcement of managed devices. This approach protects against phishing threats from the most significant vector of phishing threats from malicious external actors.
+>
+>**Microsoft Authenticator native phishing resistance is in development.** Once available, Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
 
-   1. [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
+Two scenarios for using Microsoft Authenticator on a mobile device:
+
+- If the mobile devices is used to access the application in addition to hosting Microsoft Authenticator, it musts be managed.
+- If Microsoft Authenticator resides on the mobile device, but the application is accessed from a separate managed device, the mobile device does not need to be managaged. 
+
+For more information on using this method, see the following resources:
+- [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
  
-   1. [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
+- [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
 
   This method requires that the device being used to access the application that is protected by Azure AD is either Hybrid joined or compliant device. The mobile device with the Microsoft Authenticator app only needs to itself be managed/compliant if it is the device being used to access the application protected by Azure AD. For this reason if the organization/agency intends to allow access to applications **from unmanaged devices** this method is not feasible.
 
-> [!NOTE]
 
-> Today, Microsoft Authenticator by itself is **not** phishing-resistant. This approach works around a current limitation with Microsoft Authenticator by additionally securing the authentication with the phishing resistant properties gained from conditional access policy enforcement of Hybrid join or compliant device. This approach protects against phishing threats from the most significant vector of phishing threats from malicious external actors.
->
->**Microsoft Authenticator native phishing resistance is in development.** Once available, Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join or compliant device.
 
 ### Legacy
 
 **Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication** are legacy solutions we recommend you move away from. HOwever, if you cannot move to modern methods, the follwoing resources will be useful:
-- [Deploying Active Directory Federation Services in Azure](.../windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
-- [Configuring AD FS for user certificate authentication](.../windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
+- [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+- [Configuring AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
 ### Additional phishing-resistant method considerations
 
