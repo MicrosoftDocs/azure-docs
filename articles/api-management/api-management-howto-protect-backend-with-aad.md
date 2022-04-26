@@ -6,18 +6,15 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 04/21/2022
+ms.date: 04/25/2022
 ms.author: danlep
 ms.custom: contperf-fy21q1
 ---
 
 # Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory 
 
-In this article, you'll learn a basic scenario to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
+In this article, you'll learn high level steps to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
-> [!NOTE]
-> This feature is available in the **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.  
-> 
 ## Prerequisites
 
 Prior to following the steps in this article, you must have:
@@ -28,21 +25,23 @@ Prior to following the steps in this article, you must have:
 
 ## Overview
 
-This article includes the following high-level steps to configure Azure AD to represent the API and to configure a policy to validate the OAuth token. Details about OAuth authorization flows and generating OAuth tokens for use in calling APIs in API Management are beyond the scope of this article. 
+This article describes the following steps to configure Azure AD to represent the API and to configure a policy to validate an OAuth token presented in each incoming request. 
+
+1. Register an application (backend-app) in Azure AD to represent the API or APIs. 
+
+    Clients and services must obtain and present a valid AD token granting access to this app with each API request.
+
+1. Configure the **validate-jwt** policy at an appropriate scope in API Management to validate the OAuth token presented in each incoming API request. Valid requests can be passed to the backend.
+
+Details about OAuth authorization flows and generating the required OAuth tokens are beyond the scope of this article. Typically, you would configure a separate client app to acquire tokens from Azure AD that authorize access to the backend.
 
 * Learn more about [OAuth grant types](https://oauth.net/2/grant-types/).
 
 * For information about the authorization code flow with Azure AD, see [Microsoft identity platform and OAuth 2.0 authorization code flow](../active-directory/develop/v2-oauth2-auth-code-flow.md). 
 
-* For an end-to-end example of configuring OAuth 2.0 authorization in the API Management developer portal, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
+* For an end-to-end example of configuring OAuth 2.0 user authorization in the API Management developer portal, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
 
-:::image type="content" source="media/api-management-howto-protect-backend-with-aad/overview-graphic-2021.png" alt-text="Overview graphic to visually conceptualize the following flow.":::
-
-1. Register an application (backend-app) in Azure AD to represent the API.
-
-1. Add the **validate-jwt** policy to validate the OAuth token for every incoming request.
-
-## 1. Register an application in Azure AD to represent the API
+## Register an application in Azure AD to represent the API
 
 Using the Azure portal, protect an API with Azure AD by registering an application that represents the API in Azure AD. 
 
@@ -63,7 +62,7 @@ For details about app registration, see [Quickstart: Configure an application to
 
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
 
-1. Under the **Manage** section of the side menu, select **Expose an API** and set the **Application ID URI** with the default value. Record this value for later.
+1. Under the **Manage** section of the side menu, select **Expose an API** and set the **Application ID URI** with the default value. If you're developing a separate client app to obtain OAuth 2.0 tokens for access to the backend-app, record this value for later.
 
 1. Select the **Add a scope** button to display the **Add a scope** page:
     1. Enter a new **Scope name**, **Admin consent display name**, and **Admin consent description**.
@@ -75,47 +74,27 @@ For details about app registration, see [Quickstart: Configure an application to
 
 1. Once the scopes are created, make a note of them for use later. 
 
-## 2. Configure a JWT validation policy to pre-authorize requests
+## Configure a JWT validation policy to pre-authorize requests
 
-Users or services will acquire an access token from Azure AD (not shown) and send the token in the authorization header. In the inbound policy the token can be validated. 
+To enable OAuth 2.0 authorization to the backend API:
 
-Pre-authorize requests in API Management with the [validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy, by validating the access tokens of each incoming request. If a request does not have a valid token, API Management blocks it. 
+1. A user or service acquires a token from Azure AD granting access to the backend-app at the appropriate scope (steps not shown).
 
-The following example policy, when added to the `<inbound>` policy section, checks the value of the audience claim in an access token obtained from Azure AD, and returns an error message if the token is not valid. 
+1. A token is sent in the authorization header of API requests to API Management. 
 
+1. API Management validates the token by using the [validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy. 
 
-```xml
-<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration" />
-    <required-claims>
-        <claim name="aud">
-            <value>{backend-api-application-client-id}</value>
-        </claim>
-    </required-claims>
-</validate-jwt>
-```
+    If a request doesn't have a valid token, API Management blocks it. If a request is accompanied by a valid token, the request can be forwarded by the gateway to the backend. 
 
-> [!NOTE]
-> The above `openid-config` URL corresponds to the v2 endpoint. For the v1 `openid-config`endpoint, use `https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration`.
-
-> [!TIP] 
-> Find the **{aad-tenant}** value as your Azure AD tenant ID in the Azure portal, either on:
-> * The overview page of your Azure AD resource, or
-> * The **Manage > Properties** page of your Azure AD resource.
-
-For information on how to configure policies, see [Set or edit policies](./set-edit-policies.md).
-
-## Build an application to call the API
-
-This article did not provide guidance about creating a client application to call an API in API Management protected by OAuth 2.0.
-
-* To learn more about how to build an application and implement OAuth* 2.0, see [Azure AD code samples](../active-directory/develop/sample-v2-code.md).
-
-* For an end-to-end example, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
-
+[!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
 ## Next steps
 
+* To learn more about how to build an application and implement OAuth 2.0, see [Azure AD code samples](../active-directory/develop/sample-v2-code.md).
+
+* For an end-to-end example, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
+
 - Learn more about [Azure AD and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-- For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
+
+- For other ways to secure your back-end service, see [Mutual certificate authentication](./api-management-howto-mutual-certificates.md).
 

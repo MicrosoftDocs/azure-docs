@@ -16,21 +16,37 @@ ms.author: danlep
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
 
-Configuring OAuth 2.0 user authorization in the test console of the developer portal provides developers with a convenient way to acquire an OAuth 2.0 access token. From the test console, the token is simply passed to the backend with the API call. Token validation must be configured separately - either using a [JWT validation policy](api-management-access-restriction-policies.md#ValidateJWT), or in the backend service.
-
+Configuring OAuth 2.0 user authorization in the test console of the developer portal provides developers with a convenient way to acquire an OAuth 2.0 access token. From the test console, the token is then passed to the backend with the API call. Token validation must be configured separately - either using a [JWT validation policy](api-management-access-restriction-policies.md#ValidateJWT), or in the backend service.
 
 ## Prerequisites
 
-This guide shows you how to configure your API Management service instance to use OAuth 2.0 authorization for developer accounts, but does not show you how to configure an OAuth 2.0 provider. 
+This guide shows you how to configure your API Management service instance to use OAuth 2.0 authorization for developer accounts, but doesn't show you how to configure an OAuth 2.0 provider. 
 
-The configuration for each OAuth 2.0 provider is different, although the steps are similar, and the required pieces of information used to configure OAuth 2.0 in your API Management service instance are the same. This topic shows examples using Azure Active Directory as an OAuth 2.0 provider.
-
-If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
-
-> [!NOTE]
-> For more information on configuring OAuth 2.0 using Azure Active Directory, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](api-management-howto-protect-backend-with-aad.md).
+If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+## Scenario overview
+
+The configuration for each OAuth 2.0 provider is different, although the steps are similar, and the required pieces of information used to configure OAuth 2.0 in your API Management service instance are the same. This article shows examples using Azure Active Directory as an OAuth 2.0 provider.
+
+> [!NOTE]
+> Configuring OAuth 2.0 user authorization in API Management only configures the **developer portal’s test console** as a client to acquire a token from the server. Typically, you will have a different client app that will need to be configured to get a valid OAuth 2.0 token.
+
+
+:::image type="content" source="media/api-management-howto-oauth2/overview-graphic-azure-ad.png" alt-text="Overview graphic to visually conceptualize the following flow.":::
+
+1. Register an application (backend-app) in Azure AD to represent the API.
+
+1. Register another application (client-app) in Azure AD to represent a client application that needs to call the API.
+
+    In Azure AD, grant permissions to allow the client-app to call the backend-app.
+
+1. Configure the test console in the developer portal to call an API using OAuth 2.0 user authorization.
+
+1. Configure an API to use OAuth 2.0 user authorization.
+
+1. Add the **validate-jwt** policy to pre-authorize the OAuth 2.0 token for every incoming request.
 
 ## Authorization grant types
  
@@ -42,9 +58,9 @@ The following is a high level summary. For more information about grant types, s
 |Grant type  |Description  |Scenarios  |
 |---------|---------|---------|
 |Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
-|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it is received by client     |
+|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it's received by client     |
 |Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows can't be used        |
-|Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine applications that do not require a specific user's permissions to access data, such as CLIs, daemons, or services running on your backend       |
+|Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine applications that don't require a specific user's permissions to access data, such as CLIs, daemons, or services running on your backend       |
 
 ### Security considerations
 
@@ -59,13 +75,13 @@ When configuring OAuth 2.0 user authorization in the test console of the develop
 
 ## Register applications with the OAuth server
 
-You'll need to register two applications with your OAuth 2.0provider: one to represent the backend API to be protected, and a second to represent the client application that calls the API - in this case, the developer portal.
+You'll need to register two applications with your OAuth 2.0 provider: one represents the backend API to be protected, and a second represents the client application that calls the API - in this case, the developer portal.
 
-The following are example steps using Azure AD as the OAuth provider.
+The following are example steps using Azure AD as the OAuth 2.0 provider.
 
-### 1. Register an application in Azure AD to represent the API
+### Register an application in Azure AD to represent the API
 
-Using the Azure portal, protect an API with Azure AD by registering an application that represents the API in Azure AD. 
+Using the Azure portal, register an application that represents the backend API in Azure AD. 
 
 For details about app registration, see [Quickstart: Configure an application to expose a web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
@@ -92,15 +108,15 @@ For details about app registration, see [Quickstart: Configure an application to
 
 1. Select the **Add scope** button to create the scope. 
 
-1. Repeat steps 8 and 9 to add all scopes supported by your API.
+1. Repeat the previous two steps to add all scopes supported by your API.
 
 1. Once the scopes are created, make a note of them for use in a subsequent step. 
 
-### 2. Register another application in Azure AD to represent a client application
+### Register another application in Azure AD to represent a client application
 
-Register every client application that calls the API as an application in Azure AD. In this example, the client application is the **thst console** in the API Management developer portal. 
+Register every client application that calls the API as an application in Azure AD. In this example, the client application is the **test console** in the API Management developer portal. 
 
-To register another application in Azure AD to represent the client application:
+To register an application in Azure AD to represent the client application:
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
 
@@ -124,11 +140,11 @@ To register another application in Azure AD to represent the client application:
    1. Under **Add a client secret**, provide a **Description** and choose when the key should expire.
    1. Select **Add**.
 
-When the secret is created, note the key value for use in a subsequent step. 
+When the secret is created, note the key value for use in a subsequent step. You can't access it again in the portal.
 
-### 3. Grant permissions in Azure AD
+### Grant permissions in Azure AD
 
-Now that you have registered two applications to represent the API and the test console, grant permissions to allow the client-app to call the backend-app.  
+Now that you've registered two applications to represent the API and the test console, grant permissions to allow the client-app to call the backend-app.  
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
 
@@ -143,7 +159,7 @@ Now that you have registered two applications to represent the API and the test 
 1. Select **Add permissions**.
 
 Optionally:
-1. Navigate to your client app's **API permissions** page.
+1. Navigate to your client-app's **API permissions** page.
 
 1. Select **Grant admin consent for \<your-tenant-name>** to grant consent on behalf of all users in this directory. 
 
@@ -154,7 +170,7 @@ Optionally:
 
 1. Under the Developer portal section in the side menu, select **OAuth 2.0 + OpenID Connect**.
 
-1. Under the **OAuth 2.0 tab**, select **+Add**.
+1. Under the **OAuth 2.0 tab**, select **+ Add**.
 
    :::image type="content" source="media/api-management-howto-oauth2/oauth-01.png" alt-text="OAuth 2.0 menu":::
 
@@ -165,7 +181,7 @@ Optionally:
 
 1. Enter the **Client registration page URL** - for example, `https://contoso.com/login`. This page is where users can create and manage their accounts, if your OAuth 2.0 provider supports user management of accounts. The page varies depending on the OAuth 2.0 provider used. 
 
-   If your OAuth 2.0 provider does not have user management of accounts configured, enter a placeholder URL here such as the URL of your company, or a URL such as `http://localhost`.
+   If your OAuth 2.0 provider doesn't have user management of accounts configured, enter a placeholder URL here such as the URL of your company, or a URL such as `http://localhost`.
 
     :::image type="content" source="media/api-management-howto-oauth2/oauth-02.png" alt-text="OAuth 2.0 new server":::
 
@@ -187,9 +203,9 @@ Optionally:
 
         `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    * The default setting for **Client authentication methods** is **In the body**, and  **Access token sending method** is **Authorization header**. These values are configured on this section of the form, along with the **Default scope**.
+    * The default setting for **Client authentication methods** is **In the body**, and **Access token sending method** is **Authorization header**. These values are configured on this section of the form, along with the **Default scope**.
 
-6. The **Client credentials** section contains the **Client ID** and **Client secret**, which are obtained during the creation and configuration process of your OAuth 2.0 server. 
+1. The **Client credentials** section contains the **Client ID** and **Client secret**, which you obtained during the creation and configuration process of your OAuth 2.0 server. 
   
     After the **Client ID** and **Client secret** are specified, the **redirect_uri** for the **authorization code** is generated. This URI is used to configure the reply URL in your OAuth 2.0 server configuration.
 
@@ -204,7 +220,7 @@ Optionally:
 
 1. Select **Create** to save the API Management OAuth 2.0 authorization server configuration. 
 
-After the server configuration is saved, you can configure APIs to use this configuration, as shown in the next section.
+After savomg the server configuration, you can configure APIs to use this configuration, as shown in the next section.
 
 ## Configure an API to use OAuth 2.0 user authorization
 
@@ -225,7 +241,7 @@ After the server configuration is saved, you can configure APIs to use this conf
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-Once you have configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API. Click **Developer portal (legacy)** in the top menu from your Azure API Management instance **Overview** page.
+Once you've configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the developer portal and calling an API. Click **Developer portal (legacy)** in the top menu from your Azure API Management instance **Overview** page.
 
 Click **APIs** in the top menu and select **Echo API**.
 
@@ -238,22 +254,30 @@ Select the **GET Resource** operation, click **Open Console**, and then select *
 
 ![Open console][api-management-open-console]
 
-When **Authorization code** is selected, a pop-up window is displayed with the sign-in form of the OAuth 2.0 provider. In this example the sign-in form is provided by Azure Active Directory.
+When **Authorization code** is selected, a pop-up window is displayed with the sign-in form of the OAuth 2.0 provider. In this example, the sign-in form is provided by Azure Active Directory.
 
 > [!NOTE]
 > If you have pop-ups disabled, you'll be prompted to enable them by the browser. After you enable them, select **Authorization code** again and the sign-in form will be displayed.
 
 ![Sign in][api-management-oauth2-signin]
 
-Once you have signed in, the **Request headers** are populated with an `Authorization : Bearer` header that authorizes the request.
+Once you've signed in, the **Request headers** are populated with an `Authorization : Bearer` header that authorizes the request.
 
 ![Request header token][api-management-request-header-token]
 
 At this point you can configure the desired values for the remaining parameters, and submit the request.
 
+## Configure a JWT validation policy to pre-authorize requests
+
+In the preceding section, API Management does not validate the access token. It simply passes the token in the authorization header to the backend API.
+
+To pre-authorize requests, configure a [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it.
+
+[!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
+
 ## Next steps
 
-For more information about using OAuth 2.0 and API Management, see the following video and accompanying [article](api-management-howto-protect-backend-with-aad.md).
+
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
