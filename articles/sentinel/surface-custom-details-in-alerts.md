@@ -28,7 +28,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. Click the **Set rule logic** tab.
 
-1. In the **Alert enrichment (Preview)** section, expand **Custom details**.
+1. In the **Alert enrichment** section, expand **Custom details**.
 
     :::image type="content" source="media/surface-custom-details-in-alerts/alert-enrichment.png" alt-text="Find and select custom details":::
 
@@ -54,6 +54,8 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
     > - The size limit for all custom details, collectively, is **2 KB**.
 
 ## Next steps
+
 In this document, you learned how to surface custom details in alerts using Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
+
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).
