@@ -11,7 +11,7 @@ This article shows how to index videos stored on OneDrive by using the Azure Vid
 
 ## Supported file formats
 
-For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Index a video by using the website
 
@@ -108,7 +108,7 @@ When you're using the [Upload Video](https://api-portal.videoindexer.ai/api-deta
 After the indexing and encoding jobs are done, the video is published so you can also stream your video. The streaming endpoint from which you want to stream the video must be in the **Running** state.
 
 For `SingleBitrate`, the standard encoder cost will apply for the output. If the video height is greater than or equal to 720, Video Analyzer for Media encodes it as 1280 x 720. Otherwise, it's encoded as 640 x 468.
-The default setting is [content-aware encoding](/media-services/latest/encode-content-aware-concept).
+The default setting is [content-aware encoding](/azure/media-services/latest/encode-content-aware-concept).
 
 If you only want to index your video and not encode it, set `streamingPreset` to `NoStreaming`.
 

@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 08/17/2021
+ms.date: 04/12/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
@@ -13,6 +13,6 @@ ms.topic: include
 
 1. On the **Create virtual hub** page **Basics** tab, complete the following fields:
 
-   * **Region**: This setting was previously referred to as location. It is the region in which you want to create your virtual hub.
+   * **Region**: This setting was previously referred to as location. It's the region in which you want to create your virtual hub.
    * **Name**: The name by which you want the virtual hub to be known.
    * **Hub private address space**: The minimum address space is /24 to create a hub.

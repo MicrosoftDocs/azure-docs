@@ -4,23 +4,17 @@ description: View the overview of Azure Activity logs of your resources
 author: osalzberg
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 03/14/2021
+ms.date: 04/14/2022
 ms.author: guywild
 
 #Customer intent: As an IT administrator, I want to track changes to resource groups or specific resources in a subscription and to see which administrators or services make these changes. 
 ---
  
 # Activity logs insights (Preview)
+Activity logs insights let you view information about changes to resources and resource groups in your Azure subscription. It uses information from the [Activity log](activity-log.md) to also present data about which users or services performed particular activities in the subscription. This includes which administrators deleted, updated or created resources, and whether the activities failed or succeeded. This article explains how to enable and use Activity log insights. 
 
-Activity logs insights let you view information about changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to view Activity log insights in the Azure portal.
-
-Before using Activity log insights, you'll have to [enable sending logs to your Log Analytics workspace](./diagnostic-settings.md).
-
-## How does Activity logs insights work?
-
-Activity logs you send to a [Log Analytics workspace](/articles/azure-monitor/logs/log-analytics-workspace-overview.md) are stored in a table called AzureActivity. 
-
-Activity logs insights are a curated [Log Analytics workbook](/articles/azure-monitor/visualize/workbooks-overview.md) with dashboards that visualize the data in the AzureActivity table. For example, which administrators deleted, updated or created resources, and whether the activities failed or succeeded.
+## Enable Activity log insights
+The only requirement to enable Activity log insights is to [configure the Activity log to export to a Log Analytics workspace](activity-log.md#send-to-log-analytics-workspace). Pre-built [workbooks](../visualize/workbooks-overview.md) curate this data, which is stored in the [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) table in the workspace. 
 
 :::image type="content" source="media/activity-log/activity-logs-insights-main.png" lightbox="media/activity-log/activity-logs-insights-main.png" alt-text="A screenshot showing Azure Activity logs insights dashboards":::
 
@@ -52,7 +46,7 @@ To view Activity logs insights on a resource level:
 1. At the top of the **Activity Logs Insights** page, select:
     
     1. A time range for which to view data from the **TimeRange** dropdown.
-    * **Azure Activity Logs Entries** shows the count of Activity log records in each [activity log category](/articles/azure-monitor/essentials/activity-log-schema#categories).
+    * **Azure Activity Logs Entries** shows the count of Activity log records in each [activity log category](./activity-log-schema.md#categories).
      
         :::image type="content" source="media/activity-log/activity-logs-insights-category-value.png" lightbox= "media/activity-log/activity-logs-insights-category-value.png" alt-text="Azure Activity Logs by Category Value":::
     

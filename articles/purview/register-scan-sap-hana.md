@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage SAP HANA
-description: This guide describes how to connect to SAP HANA in Azure Purview, and how to use Azure Purview to scan and manage your SAP HANA source.
+description: This guide describes how to connect to SAP HANA in Microsoft Purview, and how to use Microsoft Purview to scan and manage your SAP HANA source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 01/11/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP HANA in Azure Purview (Preview)
+# Connect to and manage SAP HANA in Microsoft Purview (Preview)
 
-This article outlines how to register SAP HANA, and how to authenticate and interact with SAP HANA in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register SAP HANA, and how to authenticate and interact with SAP HANA in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -22,7 +22,7 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No |
 
-When scanning SAP HANA source, Azure Purview supports extracting technical metadata including:
+When scanning SAP HANA source, Microsoft Purview supports extracting technical metadata including:
 
 - Server
 - Databases
@@ -40,9 +40,9 @@ When setting up scan, you can choose to scan an entire SAP HANA database, or sco
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* You must have an active [Azure Purview account](create-catalog-portal.md).
+* You must have an active [Microsoft Purview account](create-catalog-portal.md).
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.13.8013.1.
 
@@ -57,7 +57,7 @@ When setting up scan, you can choose to scan an entire SAP HANA database, or sco
 
 ### Required permissions for scan
 
-Azure Purview supports basic authentication (username and password) for scanning SAP HANA. 
+Microsoft Purview supports basic authentication (username and password) for scanning SAP HANA. 
 
 The SAP HANA user you specified must have the permission to select metadata of the schemas you want to import.
 
@@ -77,9 +77,9 @@ GRANT SELECT ON SCHEMA _SYS_BIC TO <user>;
 
 ## Register
 
-This section describes how to register a SAP HANA in Azure Purview by using [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register a SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
-1. Go to your Azure Purview account.
+1. Go to your Microsoft Purview account.
 
 1. Select **Data Map** on the left pane.
 
@@ -89,7 +89,7 @@ This section describes how to register a SAP HANA in Azure Purview by using [Azu
 
 1. On the **Register sources (SAP HANA)** screen, do the following:
 
-   1. For **Name**, enter a name that Azure Purview will list as the data source.
+   1. For **Name**, enter a name that Microsoft Purview will list as the data source.
 
    1. For **Server**, enter the host name or IP address used to connect to a SAP HANA source. For example, `MyDatabaseServer.com` or `192.169.1.2`.
 
@@ -103,7 +103,7 @@ This section describes how to register a SAP HANA in Azure Purview by using [Azu
 
 ## Scan
 
-Use the following steps to scan SAP HANA databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Azure Purview](concept-scans-and-ingestion.md).
+Use the following steps to scan SAP HANA databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
 
 ### Authentication for a scan
 
@@ -131,7 +131,7 @@ The supported authentication type for a SAP HANA source is **Basic authenticatio
       * Provide the user name used to connect to the database server in the User name input field.
       * Store the user password used to connect to the database server in the secret key.
 
-      For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
+      For more information, see [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
 
     1. **Database**: Specify the name of the database instance to import.
 
@@ -161,8 +161,8 @@ The supported authentication type for a SAP HANA source is **Basic authenticatio
 
 ## Next steps
 
-Now that you've registered your source, use the following guides to learn more about Azure Purview and your data:
+Now that you've registered your source, use the following guides to learn more about Microsoft Purview and your data:
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search the data catalog](how-to-search-catalog.md)

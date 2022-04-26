@@ -5,7 +5,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 04/18/2022
 ---
 
 # What's new in the Microsoft commercial marketplace
@@ -16,6 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Offers | ISVs can now offer custom prices, terms, conditions, and pricing for a specific customer through private offers. See [ISV to customer private offers](isv-customer.md) and the [FAQ](isv-customer-faq.yml). | 2022-04-06 |
 | Offers | An ISV can now specify time-bound margins for CSP partners to incentivize them to sell it to their customers. When their partner makes a sale to a customer, Microsoft will pay the ISV the wholesale price. See [ISV to CSP Partner private offers](./isv-csp-reseller.md) and [the FAQs](./isv-csp-faq.yml). | 2022-02-15 |
 | Analytics | We added a new [Customer Retention Dashboard](./customer-retention-dashboard.md) that provides vital insights into customer retention and engagement. See the [FAQ article](./analytics-faq.yml). | 2022-02-15 |
 | Analytics | We added a Quality of Service (QoS) report query to the [List of system queries](./analytics-system-queries.md) used in the Create Report API. | 2022-01-27 |
@@ -27,21 +28,22 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Offers | While [private plans](private-plans.md) were previously only available on the Azure portal, they are now also available on Microsoft AppSource. | 2021-09-10 |
 | Analytics | Publishers of Azure application offers can view offer deployment health in the Quality of service (QoS) reports. QoS helps publishers understand the reasons for offer deployment failures and provides actionable insights for their remediation. For details, see [Quality of service (QoS) dashboard](quality-of-service-dashboard.md). | 2021-09-07 |
 | Policy | The SaaS customer [refund window](/marketplace/refund-policies) is now [72 hours](./marketplace-faq-publisher-guide.yml) for all offers. | 2021-09-01 |
-|
 
 ## Tax updates
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Taxation | Updated the [Tax details](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context) for Brazil, Georgia, Ukraine, Kazakhstan, Cambodia, and Vietnam. | 2022-04-01 |
 | Taxation | - Kenya, Moldova, Tajikistan, and Uzbekistan were moved from the Publisher/Developer managed list to the [End-customer taxation with differences in marketplace](/partner-center/tax-details-marketplace) list to show the difference in treatment between the two Marketplaces. <br> - Rwanda and Qatar were added to the [Publisher/Developer managed countries](/partner-center/tax-details-marketplace) list.  <br> -  Barbados was moved from the [Publisher/Developer managed countries](/partner-center/tax-details-marketplace) list to [Microsoft Managed country](/partner-center/tax-details-marketplace) list. | 2022-02-10 |
 | Payouts | We've updated the external tax form page, including instructions on how to reconcile 1099-k forms; see questions about tax forms at [Understand IRS tax forms issued by Microsoft](/partner-center/understand-irs-tax-forms). | 2022-01-06 |
 | Taxation | Nigeria and Thailand are now [Microsoft-managed countries](/partner-center/tax-details-marketplace) in Azure Marketplace. | 2021-09-13 |
-|
 
 ## Documentation updates
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
+| Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Change history for Microsoft Publisher Agreement version 8.0 – May 2022 update](/legal/marketplace/mpa-change-history-may-2022). | 2022-04-15 |
+| Offers | Added new articles to lead you step-by-step through the process of [testing a SaaS offer](test-saas-overview.md). | 2022-03-30 |
 | Payouts | We updated the payment schedule for [Payout schedules and processes](/partner-center/payout-policy-details). | 2022-01-19 |
 | Analytics | Added questions and answers to the [Commercial marketplace analytics FAQ](./analytics-faq.yml), such as enrolling in the commercial marketplace, where to create a marketplace offer, getting started with programmatic access to commercial marketplace analytics reports, and more. | 2022-01-07 |
 | Offers | Added a new article, [Troubleshooting Private Plans in the commercial marketplace](azure-private-plan-troubleshooting.md). | 2021-12-13 |
@@ -53,4 +55,3 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Offers | We moved the list of categories and industries from our [Marketing Best Practices](gtm-offer-listing-best-practices.md) topic to their [own page](marketplace-categories-industries.md). | 2021-08-20 |
 | Offers | The [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md) topic now includes a flowchart to help you determine the appropriate transactable offer type and pricing plan to sell your software in the commercial marketplace. | 2021-08-18 |
 | Policy | Updated [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) policy; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-08-06 |
-|

@@ -60,7 +60,7 @@ The key differences between these two product offerings are detailed below:
 |Built-in Collaboration     | No         | Yes        |
 |Pre-installed Tools     |  Jupyter(lab), RStudio Server, VSCode,<br> Visual Studio, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab)<br> RStudio Server   |
 
-## Sample Use Cases
+## Sample use cases
 
 Below we illustrate some common use cases for DSVM customers.
 
