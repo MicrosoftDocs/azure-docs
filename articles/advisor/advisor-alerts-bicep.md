@@ -94,7 +94,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group.
 
 # [CLI](#tab/CLI)
 
