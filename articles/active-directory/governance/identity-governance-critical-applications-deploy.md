@@ -31,20 +31,21 @@ ms.collection: M365-identity-device-management
 
 In this section, you'll establish the Conditional Access policies that are in scope for determining whether an authorized user is able to sign into the app, based on factors like the user's authentication strength or device status.
 
-1. <!-- TODO TOU -->
-1. For most business critical applications integrated via federation, there should be a policy that requires the user to have met a multi-factor authentication requirement prior to Azure AD permitting them to sign into the application.
-1. Some organizations may also block access by locations, or [require the user to access from a registered device](../conditional-access/howto-conditional-access-policy-compliant-device.md).
-1. You can see what policies would apply for a user, with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
+1. If you require users to accept a terms of use (TOU) prior to accessing the application, then create and [upload the TOU document](../conditional-access/terms-of-use.md) so that it can be included in a conditional access policy.
+1. For most business critical applications integrated via federation, there should be a policy that requires the user to have met a multi-factor authentication requirement prior to Azure AD permitting them to sign into the application.  Some organizations may also block access by locations, or [require the user to access from a registered device](../conditional-access/howto-conditional-access-policy-compliant-device.md).  If there is not a suitable policy already which includes the necessary conditions for MFA, location, device and TOU, then [add a policy to your conditional access deployment](../conditional-access/plan-conditional-access.md).
+1. Bring the application into scope of that policy.  You can see what policies would apply for a user, with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
 1. If it is necessary to exclude one or more users from the CA policy and allow them access, then configure an access review for the [users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).
 
 ## Deploy policies for automating access assignment in entitlement management
+
+In this section, you'll configure Azure AD entitlement management for users to be able to request access to your application's roles, or to groups used by the application.  In order to perform these tasks, you'll need to be in either the `Global Administrator` or `Identity Governance Administrator` role, or be [delegated as a catalog creator](entitlement-management-delegate-catalog.md) and owner of the application.
 
 1. If you don't already have a catalog for your application governance scenario, [create a catalog](../governance/entitlement-management-catalog-create.md) in Azure AD entitlement management.
 1. Add the application, as well as any Azure AD groups which the application relies upon, [as resources in that catalog](../governance/entitlement-management-catalog-create.md).
 
 1. For each of the applications' roles or groups, [create an access package](../governance/entitlement-management-access-package-create.md) that includes that role or group as its resource. At this stage of configuring  that access package, configure the policy for direct assignment, so that only administrators can create assignments.  In that policy, set the access review requirements for existing users, if any, so that they don't retain access indefinitely.
 1. If you have [separation of duties](entitlement-management-access-package-incompatible.md) requirements, then configure the incompatible access packages or existing groups for your access package.  If your scenario requires the ability to override a separation of duties check, then you can also [set up additional access packages for those override scenarios](entitlement-management-access-package-incompatible.md#configuring-multiple-access-packages-for-override-scenarios).
-1. For each access package, assign existing users of the application in that role, or members of that group, to the access package.
+1. For each access package, assign existing users of the application in that role, or members of that group, to the access package. <!-- TODO -->
 1. In each access package, [create additional policies](..//governance/entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings) for users to request access.  Configure the approval and recurring access review requirements in that policy.
 
 ## Monitor to adjust policies and access as needed
