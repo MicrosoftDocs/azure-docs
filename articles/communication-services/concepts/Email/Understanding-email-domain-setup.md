@@ -37,7 +37,7 @@ SPF [RFC 7208](https://tools.ietf.org/html/rfc7208) is a mechanism that allows d
 **DKIM (Domain Keys Identified Mail)**
 DKIM [RFC 6376](https://tools.ietf.org/html/rfc6376) allows an organization to claim responsibility for transmitting a message in a way that can be validated by the recipient. Azure Commuication Services allows you to configure the required DKIM records that needs to be added to your DNS via Portal experience or through Control Plane operations for your custom domains.
 
-Please follow the steps [to configure email authentication for your domain.](../../quickstarts/Email/setup-email-authentication.md) 
+Please follow the steps [to setup sender authentication for your domain.](../../quickstarts/Email/add-custom-verified-domains.md) 
 
 ### Choosing the Domain type
 You can choose the experience that works best for your business. You can start with development by using the Azure managed domain and switch to a custom domain when you are ready to launch your applications. 
