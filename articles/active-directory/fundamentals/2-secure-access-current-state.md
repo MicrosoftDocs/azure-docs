@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Discover the current state of external collaboration in your organization
 
-Before discovering the current state of your external collaboration, you should [determine your desired security posture](1-secure-access-posture.md). You'll considered your organization’s needs for centralized vs. delegated control, and any relevant governance, regulatory, and compliance targets.
+Before discovering the current state of your external collaboration, you should [determine your desired security posture](1-secure-access-posture.md). You'll consider your organization’s needs for centralized vs. delegated control, and any relevant governance, regulatory, and compliance targets.
 
 Individuals in your organization are probably already collaborating with users from other organizations. Collaboration can be through features in productivity applications like Microsoft 365, by emailing, or by otherwise sharing resources with external users. The pillars of your governance plan will form as you discover:
 
