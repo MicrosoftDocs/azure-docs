@@ -23,6 +23,9 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 To learn more about organizations in IoT Central Application, see [Manage IoT Central organizations](howto-create-organizations.md).
 
+> [!TIP]
+> You can use [Postman](https://www.postman.com/downloads/) to try out the REST API calls described in this article. Download the [IoT Central Postman collection](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/postman-collection/IoT%20Central.postman_collection.json) and import it into Postman. In the collection, you'll need to set variables such as your app subdomain and admin token.
+
 ## Organizations REST API
 
 The IoT Central REST API lets you:

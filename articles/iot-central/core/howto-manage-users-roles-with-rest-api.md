@@ -21,6 +21,9 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 > [!TIP]
 > The [preview API](/rest/api/iotcentral/1.2-previewdataplane/users) includes support for the new [organizations feature](howto-create-organizations.md).
 
+> [!TIP]
+> You can use [Postman](https://www.postman.com/downloads/) to try out the REST API calls described in this article. Download the [IoT Central Postman collection](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/postman-collection/IoT%20Central.postman_collection.json) and import it into Postman. In the collection, you'll need to set variables such as your app subdomain and admin token.
+
 ## Manage roles
 
 The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of role IDs from your application:
