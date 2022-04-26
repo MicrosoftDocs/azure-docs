@@ -5,7 +5,7 @@ services: database-migration
 author: mokabiru
 ms.author: mokabiru
 manager: 
-ms.reviewer: cheryl.adams
+ms.reviewer: randolphwest
 ms.service: dms
 ms.workload: data-services
 ms.topic: conceptual
