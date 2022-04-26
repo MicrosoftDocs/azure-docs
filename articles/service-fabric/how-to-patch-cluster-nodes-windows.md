@@ -2,7 +2,7 @@
 title: Patch the Windows operating system in your Service Fabric cluster 
 description: Here's how to enable automatic OS image upgrades to patch Service Fabric cluster nodes running on Windows.
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 04/26/2022
 ---
 
 # Patch the Windows operating system in your Service Fabric cluster
@@ -46,11 +46,9 @@ When enabling automatic OS updates, you'll also need to disable Windows Update i
     ```
     
     ```json
-    "virtualMachineProfile": { 
-        "osProfile": { 
-            "windowsConfiguration": { 
-                "enableAutomaticUpdates": false 
-            }
+    "osProfile": { 
+       "windowsConfiguration": { 
+         "enableAutomaticUpdates": false 
         }
     }
     ```
