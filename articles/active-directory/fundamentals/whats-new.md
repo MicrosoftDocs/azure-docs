@@ -74,7 +74,7 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 login 
 **Product capability:** Identity Security & Protection
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
-Microsoft 365 App Certification offers assurance that an app is compliant with cloud app security best practices and that data and privacy are adequately secured and protected when a third-party Microsoft 365 application is integrated into your Microsoft 365 environment. Applications that pass validation will be designated Microsoft 365 Certified. Microsoft 365 Certification status for an app is now available in Azure AD consent UX, and custom app consent policies. The status will subsequently be displayed in several other Identity-owned interfaces such as enterprise apps. For more information, see [Understanding Azure AD application consent experiences](../develop/application-consent-experience).
+Microsoft 365 App Certification offers assurance that an app is compliant with cloud app security best practices and that data and privacy are adequately secured and protected when a third-party Microsoft 365 application is integrated into your Microsoft 365 environment. Applications that pass validation will be designated Microsoft 365 Certified. Microsoft 365 Certification status for an app is now available in Azure AD consent UX, and custom app consent policies. The status will subsequently be displayed in several other Identity-owned interfaces such as enterprise apps. For more information, see [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md).
 
 ---
 
@@ -94,7 +94,7 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 login 
 **Type:** New feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
-Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels. For more information, see [Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)]( create-access-review.md#include-b2b-direct-connect-users-and-teams-accessing-teams-shared-channels-in-access-reviews-preview).
+Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels. For more information, see [Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)](../governance/create-access-review.md#include-b2b-direct-connect-users-and-teams-accessing-teams-shared-channels-in-access-reviews-preview).
 
 ---
 
@@ -111,15 +111,15 @@ We are delighted to announce the public preview of following MS Graph APIs and P
 
 |Action  |MS Graph API  |PowerShell cmdlet  |
 |---------|---------|---------|
-|Get federation settings for a federated domain        | [Get internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/internaldomainfederation-get?view=graph-rest-beta)           | [Get-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryfederationconfiguration?view=graph-powershell-beta)        |
-|Create federation settings for a federated domain     | [Create internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/domain-post-federationconfiguration?view=graph-rest-beta)        | [New-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryfederationconfiguration?view=graph-powershell-beta)        |
-|Remove federation settings for a federated domain     | [Delete internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/internaldomainfederation-delete?view=graph-rest-beta)        | [Remove-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdirectoryfederationconfiguration?view=graph-powershell-beta)     |
-|Update federation settings for a federated domain     | [Update internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/internaldomainfederation-update?view=graph-rest-beta)        | [Update-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryfederationconfiguration?view=graph-powershell-beta)     |
+|Get federation settings for a federated domain        | [Get internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-beta)           | [Get-MgDirectoryFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryfederationconfiguration?view=graph-powershell-beta)        |
+|Create federation settings for a federated domain     | [Create internalDomainFederation](https://docs.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-beta)        | [New-MgDirectoryFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryfederationconfiguration?view=graph-powershell-beta)        |
+|Remove federation settings for a federated domain     | [Delete internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-beta)        | [Remove-MgDirectoryFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdirectoryfederationconfiguration?view=graph-powershell-beta)     |
+|Update federation settings for a federated domain     | [Update internalDomainFederation](https://docs.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-beta)        | [Update-MgDirectoryFederationConfiguration](https://docs.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryfederationconfiguration?view=graph-powershell-beta)     |
 
 
 
 If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0) and [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
-For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](https://docs.microsoft.com/en-us/graph/api/resources/internaldomainfederation?view=graph-rest-beta).
+For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta).
 
 
 ---
@@ -142,9 +142,9 @@ Added functionality to session controls allowing admins to require primary and/o
 **Product capability:** Identity Security & Protection
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
-We are delighted to announce a new security protection that prevents bypassing of cloud Azure MFA when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account cannot bypass Azure MFA by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](https://docs.microsoft.com/en-us/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values). 
+We are delighted to announce a new security protection that prevents bypassing of cloud Azure MFA when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account cannot bypass Azure MFA by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values). 
 
-We highly recommend enabling this new protection when using Azure MFA as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure MFA when federated with Azure AD](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+We highly recommend enabling this new protection when using Azure MFA as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure MFA when federated with Azure AD](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
 
 ---
 
