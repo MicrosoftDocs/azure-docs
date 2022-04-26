@@ -37,7 +37,7 @@ Select the **Profiler** button from the top menu.
 
 Once within the Profiler, you can configure and view the Profiler. The **Application Insights Profiler** page has these features:
 
-:::image type="content" source="./media/profiler-settings/configureBlade.png" alt-text="Profiler page features and settings":::
+:::image type="content" source="./media/profiler-settings/configure-blade.png" alt-text="Profiler page features and settings":::
 
 | Feature | Description |
 |-|-|
@@ -58,7 +58,7 @@ Select the Triggers button on the menu bar to open the CPU, Memory, and Sampling
 
 You can set up a trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
 
-:::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for CPU and Memory triggers":::
+:::image type="content" source="./media/profiler-settings/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for C P U and Memory triggers":::
 
 | Setting | Description |
 |-|-|

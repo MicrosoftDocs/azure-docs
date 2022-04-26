@@ -47,20 +47,20 @@ Suppose you're running a web performance test. You'll need traces to help you un
 If you've newly enabled Profiler, you can run a short [load test](/vsts/load-test/app-service-web-app-performance-test). If your web app already has incoming traffic or if you just want to manually generate traffic, skip the load test and start a Profiler on-demand session.
 
 ### Start a Profiler on-demand session
-1. From the Application Insights overview page, select **Performance**. 
+1. From the Application Insights overview page, select **Performance** from the left menu. 
 1. On the **Performance** pane, select **Profiler** from the top menu for Profiler settings.
 
    :::image type="content" source="./media/profiler-overview/profiler-button.png" alt-text="Screenshot of the Profiler button from the Performance blade":::
 
 1. Once the Profiler settings page loads, select **Profile Now**. 
 
-   :::image type="content" source="./media/profiler-overview/configureBlade.png" alt-text="Screenshot of the Profiler Now button for manually loading a session":::
+   :::image type="content" source="./media/profiler-overview/configure-blade.png" alt-text="Screenshot of the Profiler Now button for manually loading a session":::
 
 ### View traces
 1. After the Profiler sessions finish running, return to the **Performance** pane. 
 1. Under **Drill into...**, select **Profiler traces** to view the traces.
 
-:::image type="content" source="./media/profiler-overview/trace-explorer.png" alt-text="Screenshot of trace explorer page":::
+   :::image type="content" source="./media/profiler-overview/trace-explorer.png" alt-text="Screenshot of trace explorer page":::
 
 The trace explorer displays the following information:
 
