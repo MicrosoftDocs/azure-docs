@@ -7,7 +7,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 04/24/2022
+ms.date: 04/26/2022
 ms.reviewer: cynthn
 ---
 
@@ -265,6 +265,11 @@ az vmss create \
    --generate-ssh-keys
 ```
 
+When using a community image, you'll be prompted to accept the legal terms. The message will look like this: 
+
+```output
+To create the scale set from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
+```
 ### [Portal](#tab/portal2)
 
 Creating a scale set using an image from the community gallery is the same as creating a scale set using a Marketplace image, except when you select an image, select **See all images**.

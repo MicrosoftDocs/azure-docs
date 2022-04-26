@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 04/24/2022
+ms.date: 04/26/2022
 ms.reviewer: cynthn
 
 ---
@@ -111,6 +111,8 @@ You [create a gallery resource](create-gallery.md#create-a-community-gallery-pre
 When you are ready, you flag your gallery as ready to be shared publicly. Only the  owner of a subscription, or a user or service principal with the `Compute Gallery Sharing Admin` role at the subscription or gallery level, can enable a gallery to go public to the community. At this point, the Azure infrastructure creates proxy read-only regional resources, under `Microsoft.Compute/CommunityGalleries`, which are public.
 
 The end-users can only interact with the proxy resources, they never interact with your private resources. As the publisher of the private resource, you should consider the private resource as your handle to the public proxy resources. The `prefix` you provide when you create the gallery will be used, along with a unique GUID, to create the public facing name for your gallery.
+
+Azure users can see the latest image versions shared to the community in the portal, or query for them using the CLI. Only the latest version of an image is listed in the community gallery.
 
 When creating a community gallery, you will need to provide contact information for your images. This information will be shown **publicly**, so be careful when providing it:
 - Community gallery prefix

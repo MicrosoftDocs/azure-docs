@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/24/2022
+ms.date: 04/26/2022
 ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -395,21 +395,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 >
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
 
-### [Portal](#tab/portal2)
-
-1. Type **virtual machines** in the search.
-1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
-1. Under **Instance details**, type a name for the **Virtual machine name**.
-1. For **Security type**, make sure *Standard* is selected.
-1. For your **Image**, select **See all images**. The **Select an image** page will open.
-   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
-1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
-   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
-1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
-1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
-1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
 ### [CLI](#tab/cli2)
 
@@ -418,6 +403,8 @@ To create a VM using an image shared to a community gallery, use the unique ID o
 ```
 /CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
 ```
+
+As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 In this example, we are creating a VM from a Linux image and creating SSH keys for authentication.
 
@@ -441,9 +428,24 @@ az vm create\
 When using a community image, you'll be prompted to accept the legal terms. The message will look like this: 
 
 ```output
-To create the VM/VMSS from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
+To create the VM from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
 ```
 
+### [Portal](#tab/portal2)
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Security type**, make sure *Standard* is selected.
+1. For your **Image**, select **See all images**. The **Select an image** page will open.
+   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
+1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
+1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
 
 
 ### [REST](#tab/rest2)

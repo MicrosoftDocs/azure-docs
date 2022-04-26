@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/24/2022
+ms.date: 04/26/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: 
@@ -41,9 +41,21 @@ Image definition names can be made up of uppercase or lowercase letters, digits,
 
 Allowed characters for the image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-If you will be sharing your images using a [community gallery (preview)](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region in order to share your gallery publicly. Also, information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
-
 When working through this article, replace the resource names where needed.
+
+## Community gallery (preview)
+
+> [!IMPORTANT]
+> Azure Compute Gallery – community gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> To share images in the community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs and scale sets from images shared the community gallery is open to all Azure users.
+>
+> Information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
+
+If you will be sharing your images using a [community gallery (preview)](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region. 
+
+When users search for community gallery images, only the latest version of an image are shown.
+
 
 ## Create an image 
 
