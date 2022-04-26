@@ -74,7 +74,6 @@ The output is similar to the following example.
 { 
 
   "appId": "", 
-  "appId": "<appId>", 
 
   "displayName": "myAROClusterServicePrincipal", 
 
