@@ -166,7 +166,8 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
     "contentOffset": 0,
     "blobType": "BlockBlob",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
-    "sequencer": "00000000000004420000000000028963",  
+    "sequencer": "00000000000004420000000000028963",
+    "identity":"user",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -252,7 +253,6 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
 
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
-
 ```json
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
@@ -270,6 +270,7 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
     "blobType": "BlockBlob",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",  
+    "identity":"user",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -424,6 +425,40 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
     "url": "https://my-storage-account.dfs.core.windows.net/my-file-system/directory-to-delete",
     "recursive": "true", 
     "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.DirectoryDeleted event (SFTP)
+
+If the blob storage account uses SFTP to delete a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRemoveDir`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/directory-to-delete",
+  "eventType": "Microsoft.Storage.DirectoryDeleted",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRemoveDir",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "blobType": "BlockBlob",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/directory-to-delete",
+    "recursive": "false", 
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"user",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
