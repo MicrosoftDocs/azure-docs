@@ -11,9 +11,9 @@ ms.date: 09/27/2021
 
 # Create resource set pattern rules
 
-At-scale data processing systems typically store a single table in storage as multiple files. This concept is represented in Azure Purview by using resource sets. A resource set is a single object in the data catalog that represents a large number of assets in storage. To learn more, see [Understanding resource sets](concept-resource-sets.md).
+At-scale data processing systems typically store a single table in storage as multiple files. This concept is represented in Microsoft Purview by using resource sets. A resource set is a single object in the data catalog that represents a large number of assets in storage. To learn more, see [Understanding resource sets](concept-resource-sets.md).
 
-When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. Resource set pattern rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog.
+When scanning a storage account, Microsoft Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Microsoft Purview's resource set grouping may not accurately reflect your data estate. Resource set pattern rules allow you to customize or override how Microsoft Purview detects which assets are grouped as resource sets and how they are displayed within the catalog.
 
 Pattern rules are currently supported in the following source types:
 - Azure Data Lake Storage Gen2

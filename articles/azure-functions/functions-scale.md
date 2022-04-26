@@ -3,7 +3,7 @@ title: Azure Functions scale and hosting
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 03/24/2022
 
 ms.custom: H1Hack27Feb2017
 

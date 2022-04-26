@@ -17,7 +17,7 @@ The following sections provide an overview of what's involved with migrating an 
 
 ## Overview
 
-Before you begin your migration, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that aren't difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it's more cost-effective to use [SQL Server](/sql/sql-server/) or [Azure SQL Database](../../azure-sql/index.yml).
+Before you begin your migration, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that aren't difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it's more cost-effective to use [SQL Server](/sql/sql-server/) or [Azure SQL Database](/azure/azure-sql/index).
 
 Consider using Azure Synapse Analytics when you:
 
