@@ -187,7 +187,7 @@ If you are not going to use your deployments, delete them:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
 
