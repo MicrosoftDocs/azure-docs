@@ -88,13 +88,13 @@ To avoid these issues, consider using one of the following options:
 
 For Kafka cluster, if the above solutions do not help, consider the following solutions.
 
-- Ambari Metrics Service needs to deal with lots of kafka metrics, so it's a good idea to enable only whitelisted metrics. Go to **Ambari** > **Ambari Metrics** > **CONFIGS** > **Advanced ams-env** > **Enable only whitelisted metrics** and set this value to true. After this modification, need to restart the impacted services in Ambari as required.
+- Ambari Metrics Service needs to deal with lots of kafka metrics, so it's a good idea to enable only metrics in the allowlist. Go to **Ambari** > **Ambari Metrics** > **CONFIGS** > **Advanced ams-env** > **Enable only whitelisted metrics** and set this value to true. After this modification, need to restart the impacted services in Ambari UI as required.
 
-  :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-whitelisted-metrics-ambari.png" alt-text="Screenshot of editing Ambari Metric Service configuration properties." border="true":::
+  :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-whitelisted-metrics-ambari.png" alt-text="Screenshot of editing Ambari Metric Service allowlisted metrics properties." border="true":::
   
-- Handling lots of metrics for standalone HBase with limited memory would impact HBase response time. Hence metrics would be unavailable. If Kafka cluster has many topics and still generates a lot of whitelisted metrics,  increase the heap memory for HMaster and RegionServer in Ambari Metrics Service. Go to **Ambari** > **Ambari Metrics** > **CONFIGS** > **Advanced hbase-env** > **HBase Master Maximum Memory** and **HBase RegionServer Maximum Memory** and increase the values.
+- Handling lots of metrics for standalone HBase with limited memory would impact HBase response time. Hence metrics would be unavailable. If Kafka cluster has many topics and still generates a lot of whitelisted metrics,  increase the heap memory for HMaster and RegionServer in Ambari Metrics Service. Go to **Ambari** > **Ambari Metrics** > **CONFIGS** > **Advanced hbase-env** > **HBase Master Maximum Memory** and **HBase RegionServer Maximum Memory** and increase the values. Restart the required services in Ambari UI.
   
-  :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-hbase-memory-ambari.png" alt-text="Screenshot of editing Ambari Metric Service configuration properties." border="true":::
+  :::image type="content" source="./media/apache-ambari-troubleshoot-ams-issues/editing-hbase-memory-ambari.png" alt-text="Screenshot of editing Ambari Metric Service hbase memory properties." border="true":::
 
 ## Next steps
 
