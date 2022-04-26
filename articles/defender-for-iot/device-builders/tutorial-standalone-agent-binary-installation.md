@@ -1,7 +1,7 @@
 ---
 title: Install the Microsoft Defender for IoT micro agent (Preview)
 description: Learn how to install and authenticate the Defender for IoT micro agent.
-ms.date: 03/29/2022
+ms.date: 04/26/2022
 ms.topic: tutorial
 ms.custom: mode-other
 #Customer intent: As an Azure admin I want to install the Defender for IoT agent on devices connected to an Azure IoT Hub
@@ -107,6 +107,8 @@ This procedure describes how you can connect the Defender for IoT micro-agent to
         "IothubModule_ProxyConfig": "<proxy_ipv4>,<port>",
         "IothubModule_TransportProtocol": "MQTT_WebSocket_Protocol"
     }
+
+1. Delete any cached file at **/var/lib/defender_iot_micro_agent/cache.json**.
 
 1. Restart the micro-agent. Run:
 

@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 04/13/2022
+ms.date: 04/26/2022
 ---
 
 # What's new
@@ -28,7 +28,6 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 - **Login collector via UTMP**: The Login collector now supports UTMP to catch SSH interactive events, telnet events, and terminal logins, including failed login events. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
 - **SBoM collector known issue**: The SBOM collector currently only collects the first 1,000 packages ingested. For more information, see [SBoM (trigger based)](concept-event-aggregation.md#sbom-trigger-based) collection.
-
 
 ## February 2022
 
