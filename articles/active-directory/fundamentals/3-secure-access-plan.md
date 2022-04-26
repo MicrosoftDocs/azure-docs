@@ -90,7 +90,7 @@ Sign-in conditions are configured in [Azure AD Conditional Access](../conditiona
 | High risk| Require MFA always for external users |
 
 
-Today, you can [enforce multi-factor authentication for B2B users in your tenant](../external-identities/b2b-tutorial-require-mfa.md). You can also trust the MFA from external tenants to satisfy your MFA requirements using [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration#modify-inbound-access-settings.md).
+Today, you can [enforce multi-factor authentication for B2B users in your tenant](../external-identities/b2b-tutorial-require-mfa.md). You can also trust the MFA from external tenants to satisfy your MFA requirements using [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings).
 
 **User- and device-based sign in conditions**.
 
