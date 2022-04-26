@@ -2,10 +2,10 @@
 title: Connecting Email Domain with Communication Services Resource
 titleSuffix: An Azure Communication Services quick start guide
 description: Learn about how to connect verified email domains with Azure Communication Services Resource.
-author: author
-manager: author
+author: bashan-git
+manager: sphenry
 services: azure-communication-services
-ms.author: author
+ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
