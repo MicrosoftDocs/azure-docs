@@ -11,6 +11,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Develop Custom Commands applications

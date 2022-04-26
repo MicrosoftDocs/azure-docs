@@ -27,7 +27,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 ## Data extraction
 
-| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-by-read)** |
+| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-read-api)** |
 | --- | --- | --- | 
 prebuilt-read  | ✓  |✓  |
 
@@ -81,7 +81,7 @@ Read API extracts text from documents and images with multiple text angles and c
 
 ### Language detection (v3.0 preview)
 
-Read API in v3.0 preview 2 adds [language detection](language-support.md#detected-languages-by-read) as a new feature for text lines. Read will predict the language at the text line level along with the confidence score.
+Read API in v3.0 preview 2 adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the language at the text line level along with the confidence score.
 
 ### Handwritten classification for text lines (Latin only)
 

@@ -1,4 +1,4 @@
-- name: Azure CLI (v1) Machine Learning Documentation
+- name: Azure SDK & CLI v1 Machine Learning Documentation
   href: introduction.md
 - name: Switch to current version documentation
   href: ../index.yml
@@ -21,6 +21,10 @@
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  
+  - name: Train models
+    items: 
+      - name: Train with SDK v1
+        href: how-to-attach-compute-targets.md
   - name: Deploy models
     items:
     - name: Azure Kubernetes Service
