@@ -43237,6 +43237,16 @@
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-view-edit.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-view-edit",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/translator-how-to-signup.md",
+      "redirect_url": "/azure/cognitive-services/translator/how-to-create-translator-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms.md",
+      "redirect_document_id": false
     }
   ]
 }

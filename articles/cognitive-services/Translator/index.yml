@@ -107,7 +107,7 @@ landingContent:
           - text: Create SAS tokens
             url: document-translation/create-sas-tokens.md
           - text: Create and use managed identities
-            href: document-translation/managed-identity.md
+            url: document-translation/managed-identity.md
   # Card 5
   - title: Custom Translator (preview)
     linkLists:
