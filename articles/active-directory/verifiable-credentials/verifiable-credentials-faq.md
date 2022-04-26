@@ -38,7 +38,7 @@ Individuals owning and controlling their identities are able to exchange verifia
 
 ### What is a Verifiable Credential? 
 
-Credentials are a part of our daily lives; driver's licenses are used to assert that we're capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. Verifiable Credentials provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable. [The W3C Verifiable Credentials spec](https://www.w3.org/TR/vc-data-model//) explains this in further detail.
+Credentials are a part of our daily lives; driver's licenses are used to assert that we're capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. Verifiable Credentials provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable. [The W3C Verifiable Credentials spec](https://www.w3.org/TR/vc-data-model/) explains this in further detail.
 
 
 ## Conceptual questions
@@ -89,7 +89,7 @@ The following instructions will take 15 mins to complete and are only required i
 1. Run the following PowerShell command to connect to your Azure AD tenant. Replace ```<your tenant ID>``` with your [Azure AD tenant ID](../fundamentals/active-directory-how-to-find-tenant.md)
 
     ```azurepowershell
-    connect-azaccount -tenantID \<your tenant ID>
+    connect-azaccount -tenantID <your tenant ID>
     ```
 1. Check if of the following Service principals have been added to your tenant by running the following command:
 
