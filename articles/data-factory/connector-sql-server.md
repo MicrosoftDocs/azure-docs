@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/10/2022
+ms.date: 03/22/2022
 ---
 
 # Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse Analytics
@@ -561,7 +561,7 @@ Appending data is the default behavior of this SQL Server sink connector. the se
 
 ### Upsert data
 
-Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data.
+Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data. To learn more about upsert settings in copy activities, see [SQL Server as a sink](#sql-server-as-a-sink).
 
 ### Overwrite the entire table
 
@@ -754,7 +754,7 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
-1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)
+1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
 
 2. Make sure to grant access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults) for required permissions.
 

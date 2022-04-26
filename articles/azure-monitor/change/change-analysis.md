@@ -1,20 +1,20 @@
 ---
-title: Use Application Change Analysis in Azure Monitor to find web-app issues | Microsoft Docs
-description: Use Application Change Analysis in Azure Monitor to troubleshoot application issues on live sites on Azure App Service.
+title: Use Change Analysis in Azure Monitor to find web-app issues | Microsoft Docs
+description: Use Change Analysis in Azure Monitor to troubleshoot issues on live sites.
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 03/11/2022 
+ms.date: 03/21/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use Application Change Analysis in Azure Monitor (preview)
+# Use Change Analysis in Azure Monitor (preview)
 
 While standard monitoring solutions might alert you to a live site issue, outage, or component failure, they often don't explain the cause. For example, your site worked five minutes ago, and now it's broken. What changed in the last five minutes? 
 
-We've designed Application Change Analysis to answer that question in Azure Monitor.
+We've designed Change Analysis to answer that question in Azure Monitor.
 
 Building on the power of [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis:
 - Provides insights into your Azure application changes.
@@ -42,7 +42,7 @@ The following diagram illustrates the architecture of Change Analysis:
 
 ## Supported resource types
 
-Application Change Analysis service supports resource property level changes in all Azure resource types, including common resources like:
+Azure Monitor Change Analysis service supports resource property level changes in all Azure resource types, including common resources like:
 - Virtual Machine
 - Virtual machine scale set
 - App Service
@@ -60,7 +60,7 @@ Application Change Analysis service supports resource property level changes in 
 
 ## Data sources
 
-Application Change Analysis queries for:
+Azure Monitor's Change Analysis queries for:
 - Azure Resource Manager tracked properties.
 - Proxied configurations.
 - Web app in-guest changes. 
@@ -125,16 +125,16 @@ Change Analysis detects related resources. Common examples are:
 
 - Network Security Group
 - Virtual Network
-- Application Gateway
+- Azure Monitor Gateway
 - Load Balancer related to a Virtual Machine.
 
 Network resources are usually provisioned in the same resource group as the resources using it. Filter the changes by resource group to show all changes for the virtual machine and its related networking resources.
 
 :::image type="content" source="./media/change-analysis/network-changes.png" alt-text="Screenshot of Networking changes":::   
 
-## Application Change Analysis service enablement
+## Azure Monitor's Change Analysis service enablement
 
-The Application Change Analysis service:
+The Change Analysis service:
 - Computes and aggregates change data from the data sources mentioned earlier. 
 - Provides a set of analytics for users to:
     - Easily navigate through all resource changes.
@@ -150,9 +150,12 @@ If you don't see changes within 30 minutes, refer to [the troubleshooting guide]
 
 
 ## Cost
-Application Change Analysis is a free service. Once enabled, the Change Analysis **Diagnose and solve problems** tool does not:
+Azure Monitor's Change Analysis is a free service. Once enabled, the Change Analysis **Diagnose and solve problems** tool does not:
 - Incur any billing cost to subscriptions. 
 - Have any performance impact for scanning Azure Resource properties changes. 
+
+## Data retention
+Change Analysis provides 14 days of data retention.
 
 ## Enable Change Analysis at scale for Web App in-guest file and environment variable changes
 

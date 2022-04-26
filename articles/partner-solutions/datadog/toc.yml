@@ -28,4 +28,5 @@
   items:
   - name: Azure CLI
     href: /cli/azure/datadog
-  
+  - name: REST API
+    href: /rest/api/datadog

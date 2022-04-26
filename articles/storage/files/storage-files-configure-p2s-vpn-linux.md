@@ -124,7 +124,7 @@ Remember to replace `<desired-vpn-name-here>` with the name you would like for t
 >
 > P2S IKEv2/OpenVPN connections are not supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway, accordingly.
 
-```bash
+```azurecli
 vpnName="<desired-vpn-name-here>"
 publicIpAddressName="$vpnName-PublicIP"
 
@@ -159,7 +159,7 @@ az network vnet-gateway root-cert create \
 ## Configure the VPN client
 The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Linux machine. The following script will place the certificates you created in the correct spot and configure the `ipsec.conf` file with the correct values from the configuration file in the downloadable package.
 
-```bash
+```azurecli
 vpnClient=$(az network vnet-gateway vpn-client generate \
     --resource-group $resourceGroupName \
     --name $vpnName \

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/25/2022
 ms.author: jasteppe
 ---
 
@@ -21,7 +21,7 @@ MedTech service is important because health data collected from patients and hea
 
 MedTech service transforms device data into Fast Healthcare Interoperability Resources (FHIR®)-based Observation resources and then persists the transformed messages into Azure Health Data Services FHIR service. Allowing for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects.
 
-Below is an overview of each step MedTech service does once IoMT device data is received. Each step will be further explained in the [MedTech service data flow](./iot-data-flow.md) article.
+Below is an overview of what the MedTech service does after IoMT device data is received. Each step will be further explained in the [MedTech service data flow](./iot-data-flow.md) article.
 
 > [!NOTE]
 > Learn more about [Azure Event Hubs](../../event-hubs/index.yml) use cases, features and architectures.

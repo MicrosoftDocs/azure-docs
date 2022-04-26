@@ -7,18 +7,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 03/24/2022
 ms.custom: cosmos-db-video
+ms.reviewer: wiassaf
 ---
 # Data modeling in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-📺 <B><a href="https://aka.ms/cosmos-db-video-data-modeling-best-practices" target="_blank">Video: Data modeling best practices</a></b>
-
-
 While schema-free databases, like Azure Cosmos DB, make it super easy to store and query unstructured and semi-structured data, you should spend some time thinking about your data model to get the most of the service in terms of performance and scalability and lowest cost.
 
 How is data going to be stored? How is your application going to retrieve and query data? Is your application read-heavy, or write-heavy?
+
+>
+> [!VIDEO https://aka.ms/docs.modeling-data]
 
 After reading this article, you'll be able to answer the following questions:
 
@@ -27,7 +28,7 @@ After reading this article, you'll be able to answer the following questions:
 * How do I express data relationships in a non-relational database?
 * When do I embed data and when do I link to data?
 
-## Embedding data
+## <a id="embedding-data"></a>Embed data
 
 When you start modeling data in Azure Cosmos DB try to treat your entities as **self-contained items** represented as JSON documents.
 
@@ -176,7 +177,7 @@ This could represent a person's stock portfolio. We have chosen to embed the sto
 
 Stock *zaza* may be traded many hundreds of times in a single day and thousands of users could have *zaza* on their portfolio. With a data model like the above we would have to update many thousands of portfolio documents many times every day leading to a system that won't scale well.
 
-## Referencing data
+## <a id="referencing-data"></a>Reference data
 
 Embedding data works nicely for many cases but there are scenarios when denormalizing your data will cause more problems than it's worth. So what do we do now?
 
@@ -278,7 +279,7 @@ Publisher document:
 Book documents:
 {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
 {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
-{"id": "3","name": "Taking over the world one JSON doc at a time"}
+{"id": "3","name": "Taking over the world one JSON doc at a time", "pub-id": "mspress"}
 ...
 {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
 ...
@@ -287,7 +288,7 @@ Book documents:
 
 In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a reference to the publisher on each book document.
 
-### How do I model many:many relationships?
+### How do I model many to many relationships?
 
 In a relational database *many:many* relationships are often modeled with join tables, which just join records from other tables together.
 
@@ -336,9 +337,9 @@ Now, if I had an author, I immediately know which books they've written, and con
 
 ## Hybrid data models
 
-We've now looked at embedding (or denormalizing) and referencing (or normalizing) data which, each have their upsides and compromises as we've seen.
+We've now looked at embedding (or denormalizing) and referencing (or normalizing) data. Each approach has upsides and compromises.
 
-It doesn't always have to be either or, don't be scared to mix things up a little.
+It doesn't always have to be either-or, don't be scared to mix things up a little.
 
 Based on your application's specific usage patterns and workloads there may be cases where mixing embedded and referenced data makes sense and could lead to simpler application logic with fewer server round trips while still maintaining a good level of performance.
 
@@ -397,7 +398,7 @@ In the example, there are **pre-calculated aggregates** values to save expensive
 
 The ability to have a model with pre-calculated fields is made possible because Azure Cosmos DB supports **multi-document transactions**. Many NoSQL stores can't do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation. With Azure Cosmos DB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction. Now you don't **have** to embed everything into one document just to be sure that your data remains consistent.
 
-## Distinguishing between different document types
+## Distinguish between different document types
 
 In some scenarios, you may want to mix different document types in the same collection; this is usually the case when you want multiple, related documents to sit in the same [partition](../partitioning-overview.md). For example, you could put both books and book reviews in the same collection and partition it by `bookId`. In such situation, you usually want to add to your documents with a field that identifies their type in order to differentiate them.
 
@@ -435,7 +436,7 @@ With Synapse Link, you can now directly connect to your Azure Cosmos DB containe
 
 ### Analytical store automatic schema inference
 
-While Azure Cosmos DB transactional store is considered row-oriented semi-structured data, analytical store has columnar and structured format. This conversion is automatically made for customers, using the schema inference rules described [here](../analytical-store-introduction.md). There are limits in the conversion process: maximum number of nested levels, maximum number of properties, unsupported data types, and more. 
+While Azure Cosmos DB transactional store is considered row-oriented semi-structured data, analytical store has columnar and structured format. This conversion is automatically made for customers, using [the schema inference rules for the analytical store](../analytical-store-introduction.md). There are limits in the conversion process: maximum number of nested levels, maximum number of properties, unsupported data types, and more. 
 
 > [!NOTE]
 > In the context of analytical store, we consider the following structures as property:
@@ -506,7 +507,7 @@ Azure Synapse Link allows you to reduce costs from the following perspectives:
 
  * Fewer queries running in your transactional database.
  * A PK optimized for data ingestion and point reads, reducing data footprint, hot partition scenarios, and partitions splits.
- * Data tiering since analytical ttl (attl) is independent from transactional ttl (tttl). You can keep your transactional data in transactional store for a few days, weeks, months, and keep the data in analytical store for years or for ever. Analytical store columnar format brings a natural data compression, from 50% up to 90%. And its cost per GB is ~10% of transactional store actual price. Please check the [analytical store overview](../analytical-store-introduction.md) to read about the current backup limitations.
+ * Data tiering since [analytical time-to-live (attl)](../analytical-store-introduction.md#analytical-ttl) is independent from transactional time-to-live (tttl). You can keep your transactional data in transactional store for a few days, weeks, months, and keep the data in analytical store for years or for ever. Analytical store columnar format brings a natural data compression, from 50% up to 90%. And its cost per GB is ~10% of transactional store actual price. For more information about the current backup limitations, see [analytical store overview](../analytical-store-introduction.md).
  * No ETL jobs running in your environment, meaning that you don't need to provision RUs for them.
 
 ### Controlled redundancy
