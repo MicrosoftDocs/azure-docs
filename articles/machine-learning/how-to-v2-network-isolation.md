@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 04/30/2022
+ms.date: 04/26/2022
 ---
 
 # Network Isolation Change with Our New API Platform on Azure Resource Manager
