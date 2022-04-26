@@ -126,7 +126,7 @@ For details on restoring users, see the following documentation:
 
 * See [Restore or permanently remove recently deleted user](active-directory-users-restore.md) for restoring in the Azure portal.
 
-* See [Restore deleted item – Microsoft Graph v1.0](%20/graph/api/directory-deleteditems-restore?tabs=http) for restoring with Microsoft Graph.
+* See [Restore deleted item – Microsoft Graph v1.0](/graph/api/directory-deleteditems-restore?tabs=http) for restoring with Microsoft Graph.
 
 ### Groups
 
