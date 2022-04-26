@@ -24,7 +24,6 @@ Saving images to a compute gallery and replicating those images incurs additiona
 
 Here are a couple of scenarios supported by attaching a compute gallery.
 
-
 - A lab plan admin attaches a compute gallery to the lab plan. An image is uploaded to the compute gallery outside the context of a lab. The image is enabled on the lab plan by the lab plan admin. Then, lab creators can use that image from the compute gallery to create labs.
 - A lab plan admin attaches a compute gallery to the lab plan. A lab creator (educator) saves the customized image of their lab to the compute gallery. Then, other lab creators can select this image from the compute gallery to create a template for their labs.
 

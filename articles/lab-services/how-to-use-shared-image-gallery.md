@@ -55,12 +55,7 @@ After you save the image to the compute gallery, you can use that image from the
 
 ## Use a custom image from the compute gallery
 
-<<<<<<< HEAD
-## Use a custom image from the shared image gallery
-An educator can pick a custom image available in the shared image gallery for the template VM that is created when you set up a new lab.
-=======
 An educator can pick a custom image available in the compute gallery for the template VM when creating a new lab.  Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
->>>>>>> 1457179f6bb86b0911baabe60376ed3f742ca958
 
 ![Use virtual machine image from the gallery](./media/how-to-use-shared-image-gallery/use-shared-image.png)
 
