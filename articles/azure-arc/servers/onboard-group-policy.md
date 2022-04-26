@@ -12,7 +12,8 @@ You can onboard Active Directory joined Windows machines to Azure Arc-enabled se
 
 After setting up a local remote share with the Connected Machine Agent and defining a configuration file on their landing zone within Azure, you can define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering, native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
 
-Before you get started, be sure to review the prerequisites and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see supported Azure regions. Also review the at-scale planning guide to understand the design and deployment criteria, as well as our management and monitoring recommendations. 
+Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
+
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -21,14 +22,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The Group Policy to onboard Azure Arc-enabled servers will leverage a remote share with the Connected Machine Agent. You will need to: 1. <!-- Step 1 -->
 
 1. Prepare a remote share to host the Azure Connected Machine agent package for windows and the configuration file. You need to be able to add files to the distributed location.
-1. Download the Connected Machine Agent to the remote share. Download Windows agent Windows Installer package from the Microsoft Download Center and save it to the remote share. 
+1. Download the Connected Machine Agent to the remote share. Download [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share. 
 
 ## Generate an onboarding script and configuration file from Azure Portal
 
 Before you can run the script to connect your machines, you'll need to do the following:
 
-1. Follow the steps to create a service principal for onboarding at scale. Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone. Make a note of the Service Principal Secret, as you'll need this value later.
+1. Follow the steps to [create a service principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale). Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone. Make a note of the Service Principal Secret, as you'll need this value later.
 1. Modify and save the following configuration file to the remote share as "ArcConfig.json". Edit the file with your Azure subscription, resource group, and location details. Insert the service principal details from Step 1 into the last two fields. Note, the group policy will land assigned machines to the subscription, resource group, and region specified in this configuration file.
+
+```
+{ 
+        "tenant-id": "INSERT AZURE TENANTID", 
+        "subscription-id": "INSERT AZURE SUBSCRIPTION ID", 
+        "resource-group": "INSERT RESOURCE GROUP NAME", 
+        "location": "INSERT REGION", 
+        "service-principal-id": "INSERT SPN ID", 
+        "service-principal-secret": "INSERT SPN Secret" 
+    } 
+```
 
 ## Modify and save the onboarding script
 
@@ -37,6 +49,51 @@ Before you can run the script to connect your machines, you'll need to modify an
 1. Edit the field for remotePath to reflect the distributed share location with the configuration file and Connected Machine Agent.
 1. Edit the localPath with the local path where the logs generated from the onboarding to Azure Arc-enabled servers will be saved per machine.
 1. Save the modified onboarding script locally and note its location since this will be referenced in authoring the Group Policy Object.
+
+```azurecli
+[string] $remotePath = "\\dc-01.contoso.lcl\Software\Arc"
+[string] $localPath = "$env:HOMEDRIVE\ArcDeployment"
+
+[string] $RegKey = "HKLM\SOFTWARE\Microsoft\Azure Connected Machine Agent"
+[string] $logFile = "installationlog.txt"
+[string] $InstallationFolder = "ArcDeployment"
+[string] $configFilename = "ArcConfig.json"
+
+if (!(Test-Path $localPath) ) {
+    $BitsDirectory = new-item -path C:\ -Name $InstallationFolder -ItemType Directory 
+    $logpath = new-item -path $BitsDirectory -Name $logFile -ItemType File
+}
+else{
+    $BitsDirectory = "C:\ArcDeployment"
+ }
+
+function Deploy-Agent {
+    [bool] $isDeployed = Test-Path $RegKey
+    if ($isDeployed) {
+        $logMessage = "Azure Arc Serverenabled agent is deployed , exit process"
+        $logMessage >> $logpath
+        exit
+    }
+    else { 
+        Copy-Item -Path "$remotePath\*" -Destination $BitsDirectory -Recurse -Verbose
+        $exitCode = (Start-Process -FilePath msiexec.exe -ArgumentList @("/i", "$BitsDirectory\AzureConnectedMachineAgent.msi" , "/l*v", "$BitsDirectory\$logFile", "/qn") -Wait -Passthru).ExitCode
+        
+        if($exitCode -eq 0){
+            Start-Sleep -Seconds 120
+            $x=   & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --config "$BitsDirectory\$configFilename"
+            $msg >> $logpath 
+            }
+        else {
+             $message = (net helpmsg $exitCode)
+             $message >> $logpath 
+            }
+        }
+}
+
+Deploy-Agent
+```
+
+
 
 ## Create a group policy object
 
@@ -98,9 +155,9 @@ Upon specifying the action parameters, click on the ‘OK’ button.
 
 ## Apply the Group Policy Object 
 
-On the Group Policy Management Console, you need to right-click on the desired Organizational Unit and select the option to link an existent GPO. Choose the Group Policy Object defined in the Scheduled Task. After 10 or 20 minutes, the Group Policy Object will be replicated to the respective domain controllers. Learn more about creating and managing group policy in Azure AD Domain Services. 
+On the Group Policy Management Console, you need to right-click on the desired Organizational Unit and select the option to link an existent GPO. Choose the Group Policy Object defined in the Scheduled Task. After 10 or 20 minutes, the Group Policy Object will be replicated to the respective domain controllers. Learn more about [creating and managing group policy in Azure AD Domain Services](../../active-directory-domain-services/manage-group-policy). 
 
-After you have successfully installed the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your Organizational Unit have successfully connected. View your machines in the Azure portal. 
+After you have successfully installed the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your Organizational Unit have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal). 
 
 ## Next steps
 
