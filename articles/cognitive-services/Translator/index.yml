@@ -139,6 +139,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Translator in sovereign clouds
+            url: sovereign-clouds.md
           - text: Text translation code samples on GitHub
             url: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
           - text: Compliance and certification
