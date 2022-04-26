@@ -3,7 +3,7 @@ title: Surface custom details in Microsoft Sentinel alerts | Microsoft Docs
 description: Extract and surface custom event details in alerts in Microsoft Sentinel analytics rules, for better and more complete incident information
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 04/26/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -11,10 +11,6 @@ ms.custom: ignite-fall-2021
 # Surface custom event details in alerts in Microsoft Sentinel 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-> [!IMPORTANT]
->
-> - The custom details feature is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Introduction
 
