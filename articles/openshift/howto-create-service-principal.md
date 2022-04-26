@@ -71,21 +71,19 @@ az ad sp create-for-rbac --name myAROClusterServicePrincipal
 
 The output is similar to the following example.
 
-```
 { 
 
-  "appId": "<appId.", 
+  "appId": "<appId>", 
 
   "displayName": "myAROClusterServicePrincipal", 
 
   "name": "http://myAROClusterServicePrincipal", 
 
-  "password": "\<password>", 
+  "password": "<password>", 
 
-  "tenant": "\<tenant-id>" 
+  "tenant": "<tenant-id>" 
 
 } 
-```
 
 Retain your `appId` and `password`. These values are used when you create an Azure Red Hat OpenShift cluster in the next section. 
 
