@@ -171,7 +171,7 @@ The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains i
 
 ### Audit logs
 
-The Audit Log always records a “Delete <object>” event when an object in the tenant is removed from an active state (either from active to soft-deleted or active to hard-deleted).
+The Audit Log always records a "Delete \<object\>" event when an object in the tenant is removed from an active state (either from active to soft-deleted or active to hard-deleted).
 
 :::image type="content" source="media/recoverability/deletions-audit-log.png" alt-text="Screenshot of audit log detail." lightbox="media/recoverability/deletions-audit-log.png":::
 
