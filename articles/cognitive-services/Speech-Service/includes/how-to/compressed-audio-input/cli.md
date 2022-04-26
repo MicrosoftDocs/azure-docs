@@ -26,3 +26,37 @@ Choose a platform for installation instructions.
 
 ***
 
+## Example
+
+The `--format` option specifies the container format for the audio file being recognized. For an mp4 file, set the format to `any` as shown in the following command:
+
+# [Terminal](#tab/terminal)
+
+```console
+spx recognize --file YourAudioFile.mp4 --format any
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+spx --% recognize --file YourAudioFile.mp4 --format any
+```
+
+***
+
+To get a list of supported audio formats, run the following command:
+
+# [Terminal](#tab/terminal)
+
+```console
+spx help recognize format
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+spx help recognize format
+```
+
+***
+
