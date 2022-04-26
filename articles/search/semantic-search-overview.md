@@ -82,10 +82,10 @@ Semantic search and spell check are available on services that meet the criteria
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (rank, captions, highlights, answers) | Standard tier (S1, S2, S3) | [Region availability page](https://azure.microsoft.com/global-infrastructure/services/?products=search) page | Required | [Pricing page](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
-| Spell check | Basic<sup>2</sup> and above  | All | None | None (free) |
+| Semantic search | Standard tier (S1, S2, S3) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
+| Spell check | Basic <sup>2</sup> and above  | All | None | None (free) |
 
-<sup>1</sup> At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the standard pricing plan. The pricing page shows you the pricing billing rate for the standard plan for different currencies and intervals.
+<sup>1</sup> At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
 
 <sup>2</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
 
@@ -97,7 +97,7 @@ By default, semantic search is disabled on all services. To enable semantic sear
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Navigate to your Standard tier search service.
-1. Verify that the region of your search service supports semantic search. The region of your search is noted on the overview page. Regions that support semantic search are noted on the [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
+1. Determine whether the service region supports semantic search. Search service region is noted on the overview page. Semantic search regions are noted on the [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
 1. On the left-nav pane, select **Semantic Search (Preview)**.
 1. Select either the **Free plan** or the **Standard plan**. You can switch between the free plan and the standard plan at any time.
 
