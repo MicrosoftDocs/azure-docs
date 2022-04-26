@@ -58,7 +58,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
 1. Select **Next** > **Finish**.
 
-### Software installation
+## Software installation
 
 1. To start installing the on-premises management console software, open the virtual machine console.
 
