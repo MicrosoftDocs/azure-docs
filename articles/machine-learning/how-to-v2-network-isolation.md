@@ -1,7 +1,7 @@
 ---
 title: Network Isolation Change with Our New API Platform on Azure Resource Manager
 titleSuffix: Azure Machine Learning
-description: 'Explain network isolation changes with our new API platfrom on Azure Resource Manager and how to maintain network isolation'
+description: 'Explain network isolation changes with our new API platform on Azure Resource Manager and how to maintain network isolation'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -18,26 +18,33 @@ In this article, you'll learn about network isolation changes with our new API p
 
 ## What is the New API platform on Azure Resource Manager (ARM)
 
-Our legacy v1 API platform relied on two services which are ARM/Control Plane and Workspace/Data Plane. Workspace and Compute CRUD use ARM/Control Plane, and all other operations use Workspace/Data Plane. Our new v2 API platform uses only ARM/Control Plane. You can enjoy consistent API in one plance and ARM benefits such as granular RBAC, Policy control, and integration with Azure Resource Graph. Azure Machine Learning CLI v2 and SDK v2 use our new API platform. New services such as Managed Online Endpoint uses our new API platform.
+Our legacy v1 API platform relies on two services, which are __ARM/Control Plane__ and __Workspace/Data Plane__. Workspace and compute create/update/delete (CRUD) operations use ARM/Control Plane, and all other operations use Workspace/Data Plane. 
+
+Our new v2 API platform uses only ARM/Control Plane. It provides a consistent API in one place, and the following Azure Resource Manager benefits:
+* Azure role-based access control (Azure RBAC)
+* Azure Policy
+* Integration with Azure Resource Graph
+
+Azure Machine Learning CLI v2 and SDK v2 use our new v2 API platform. New features such as [managed online endpoint](concept-endpoints.md) are only available using the v2 API platform.
 
 |API Platform|ARM/Control Plane|Workspace/Data Plane|
 |---|---|---|
 |Legacy V1|Workspace and Compute CRUD|All Other Operations|
 |New V2|All Operations|N/A|
-|Network Isolation Method|ARM Private Link|Azure ML Workspace Private Link|
+|Network Isolation Method|Azure Resource Manager Private Link|Azure ML Workspace Private Link|
 
 ## What are the Network Isolation Changes with V2
 
-Workspace Private Link works only for Workspace/Data Plane operations. Our new API Platform uses ARM/Control Plane, which means Workspace Private Link cannot provide network isolation for our new API Platform. You must be curious about what data is exposed to the internet to access our new API Platform on ARM. Metadata such as your resource ID and Parameters related to your machine learning operations are included in the ARM communication. You can find Metadata example [here](/rest/api/azureml/jobs/create-or-update) and Parameters example [here](/azure/machine-learning/reference-yaml-job-command). 
+Workspace Private Link works only for Workspace/Data Plane operations. Our new API Platform uses ARM/Control Plane, which means Workspace Private Link can't provide network isolation for our new API Platform. You must be curious about what data is exposed to the internet to access our new API Platform on Azure Resource Manager. Metadata such as your resource ID and Parameters related to your machine learning operations are included in the ARM communication. You can find Metadata example [here](/rest/api/azureml/jobs/create-or-update) and Parameters example [here](/azure/machine-learning/reference-yaml-job-command). 
 
-It is acceptable for most of you because it does not include your data for training and scoring inside your storage accounts, and it is encrypted with TLS 1.2. Public ARM access is a widely accepted practice for all Azure services. However, Azure Machine Learning will provide additional parameter to keep using only v1 legacy API platform.
+It's acceptable for most of you because it doesn't include your data for training and scoring inside your storage accounts, and it's encrypted with TLS 1.2. Public ARM access is a widely accepted practice for all Azure services. However, Azure Machine Learning will provide additional parameter to keep using only v1 legacy API platform.
 
 ## Scenarios and Required Actions
 
 >[!WARNING]
 >This parameter is not implemented yet. It will be implemented in **XXXXXXXXXXXXXXXXXX**.
 
-We provide a new workspace level parameter called v1_legacy_mode. If you use a public workspace, no action is required. If you want to use v2 API platform with a private link enabled workspace, you need to disable v1_legacy_mode parameter by yourself. If you enable it, you cannot use CLI v2, SDK v2, new features available only on v2 such as managed online endpoint.
+We provide a new workspace level parameter called v1_legacy_mode. If you use a public workspace, no action is required. If you want to use v2 API platform with a private link enabled workspace, you need to disable v1_legacy_mode parameter by yourself. If you enable it, you can't use CLI v2, SDK v2, new features available only on v2 such as managed online endpoint.
 
 |Scenario|v1_legacy_mode parameter default value|Required Actions|
 |---|---|---|
