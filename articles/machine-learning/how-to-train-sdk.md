@@ -18,7 +18,7 @@ ms.custom: sdkv2
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](v1/how-to-attach-compute-targets.md)
-> * [v2 (preview)](how-to-attach-compute-targets.md)
+> * [v2 (preview)](how-to-train-sdk.md)
 
 In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training     job. Then use one of the [example notebooks](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk) to find the full end-to-end working examples.
 
