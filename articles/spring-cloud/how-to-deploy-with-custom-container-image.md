@@ -1,5 +1,5 @@
 ---
-title: Deploy applications in Azure Spring Cloud with custom container image
+title: Deploy applications in Azure Spring Cloud with custom container image (Preview)
 description: How to deploy applications in Azure Spring Cloud with custom container image
 author: xiangy
 ms.author: xiangy
@@ -8,7 +8,7 @@ ms.service: spring-cloud
 ms.date: 3/20/2022
 ---
 
-# Deploy with custom container image
+# Deploy with custom container image (Preview)
 
 You can deploy Spring Boot applications with container image, and enjoy almost the same feature support as the JAR deployment.
 
@@ -29,14 +29,19 @@ For the applications not listening on any port. You can disable the probe by CLI
 ## Deploy your application 
 
 ### CLI
-Deploy a container image on the public Docker Hub to an app.
+Deploy a container image `contoso/your-app:v1` on the public Docker Hub to an app.
 ```
 az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image contoso/your-app:v1
 ```
 
-Deploy a container image on a private registry such as ACR to an app.
+Or deploy a container image `myacr.azurecr.io/your-app:v1` from ACR to an app.
 ```
-az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image contoso/your-app:v1 --container-registry myacr.azurecr.io --registry-username <username> --registry-password <password>
+az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image your-app:v1 --container-registry myacr.azurecr.io --registry-username myacr --registry-password <password>
+```
+
+Or deploy a container image `registry.consoto.com/your-app:v1` from other private registry to an app.
+```
+az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image your-app:v1 --container-registry registry.consoto.com --registry-username <username> --registry-password <password>
 ```
 
 If the entrypoint of the image needs to be overwrite, then the two arguments can be added:
@@ -74,7 +79,7 @@ You need to also specify the `Language Framework`, which is the web framework of
 | Spring Cloud Gateway for VMware Tanzu®                          | Y | Y | Enterprise tier only  |
 | Application Configuration Service for VMware Tanzu®             | Y | N | Enterprise tier only  |
 | VMware Tanzu® Service Registry                                  | Y | N | Enterprise tier only  |
-| VNET                                                            | Y | Y |   |
+| VNET                                                            | Y | Y | Need to [whitelist the registry in NSG or Azure Firewall](#why-cant-connect-to-the-container-registry-in-vnet)  |
 | Outgoing IP Address                                             | Y | Y |   |
 | E2E TLS                                                         | Y | Y | Trust a self-signed CA is supported by [manual installation](#how-to-trust-a-ca-in-the-image)  |
 | Liveness and readiness settings                                 | Y | Y |   |
@@ -96,25 +101,38 @@ Note: Polyglot includes non-Spring Boot Java apps and NodeJS, AngularJS, Python,
 ## Common Issues 
 
 ### How to trust a CA in the image?
-Add the following lines into your `Dockerfile`:
+For the `Java` application, you need to import it into the trust store by adding the following lines into your `Dockerfile`:
+```
+ADD EnterpriseRootCA.crt /opt/
+RUN keytool -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias EnterpriseRootCA -file /opt/EnterpriseRootCA.crt
+```
+
+For the `Node.js` application, you will have to set the `NODE_EXTRA_CA_CERTS` environment variable:
+```
+ADD EnterpriseRootCA.crt /opt/
+ENV NODE_EXTRA_CA_CERTS="/opt/EnterpriseRootCA.crt"
+```
+
+For the application in `python` or other language relying on the system CA store:
 ```
 # Debian / Ubuntu based image
 ADD EnterpriseRootCA.crt /usr/local/share/ca-certificates/
 RUN /usr/sbin/update-ca-certificates
-``` 
 
-For Java application, you also need to import it into the truststore:
-```
-RUN keytool -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias EnterpriseRootCA -file /usr/local/share/ca-certificates/EnterpriseRootCA.crt
-```
+# CentOS / Fedora based image
+ADD EnterpriseRootCA.crt /etc/pki/ca-trust/source/anchors/
+RUN /usr/bin/update-ca-trust
+``` 
 
 
 ### Don't use `latest` tag or overwrite a image without tag change
 When your application is restarted or scaled out, the latest image will be always pulled. If the image has been changed during this period, the newly started application instances will use the new image while the old instances will use the old image, which may lead to unexpected application behavior.
 
+### Why can't connect to the container registry in VNet?
+If you deployed the instance into a VNet, please ensure to allow the network traffic to your container registry in the NSG or Azure Firewall (if used). You may follow [this guide](https://docs.microsoft.com/azure/spring-cloud/vnet-customer-responsibilities) to add the security rules.
 
 ### How to install an APM into the image manually?
-The installation steps vary on different APM and languages. Take `AppDynamics` with Java application as the example, modify the `Dockerfile` with the following steps:
+The installation steps vary on different APM and languages. Take `New Relic` with Java application as the example, modify the `Dockerfile` with the following steps:
 1. Download and install the agent file into the image: `ADD newrelic-agent.jar /opt/agents/newrelic/java/newrelic-agent.jar`
 1. Add the environment variables required by the APM: 
     ```
@@ -123,11 +141,25 @@ The installation steps vary on different APM and languages. Take `AppDynamics` w
     ``` 
 1. Modify the image entrypoint: `java -javaagent:/opt/agents/newrelic/java/newrelic-agent.jar`
 
-For more infomation, please see the following docs:
-* https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/spring-cloud/how-to-new-relic-monitor.md#activate-the-new-relic-java-in-process-agent
-* https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/spring-cloud/how-to-appdynamics-java-agent-monitor.md
-* https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/spring-cloud/how-to-dynatrace-one-agent-monitor.md
+For more information about how to install the agents for the Java apps, please see the following docs:
 
+* https://docs.microsoft.com/azure/spring-cloud/how-to-new-relic-monitor
+* https://docs.microsoft.com/azure/spring-cloud/how-to-dynatrace-one-agent-monitor
+* https://docs.microsoft.com/azure/spring-cloud/how-to-appdynamics-java-agent-monitor
+
+To install the agents for other languages, you can refer to the official documents:
+
+New Relic:
+* Python: https://docs.newrelic.com/docs/apm/agents/python-agent/installation/standard-python-agent-install/
+* Node.js: https://docs.newrelic.com/docs/apm/agents/nodejs-agent/installation-configuration/install-nodejs-agent/
+
+Dynatrace:
+* Python: https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-traces/opentelemetry-ingest/opent-python
+* Node.js: https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-traces/opentelemetry-ingest/opent-nodejs
+
+AppDynamics:
+* Python: https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/python-agent/install-the-python-agent
+* Node.js: https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/node-js-agent/install-the-node-js-agent#InstalltheNode.jsAgent-install_nodejsInstallingtheNode.jsAgent
 
 ### Troubleshooting the container logs
 The check the console logs of your container application, the following CLI subcommand can be used:
@@ -163,3 +195,6 @@ Also it's supported to create another deployment with a existing JAR deployment.
 ```
 az spring-cloud app deployment create --app MyApp -s MyCluster -g MyResourceGroup -n greenDeployment --container-image contoso/your-app:v1
 ```
+
+### Can I automate the deployment by Azure Pipelines Task or GitHub Action?
+No. They're not supported yet.
