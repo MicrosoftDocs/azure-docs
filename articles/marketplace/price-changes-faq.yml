@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about changing the prices of offers in the commercial marketplace
+  title: Frequently asked questions about changing the prices of offers in the commercial marketplace (Partner Center)
   description: Frequently asked questions about changing the prices of offers in the commercial marketplace using Partner Center.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ metadata:
   ms.author: keferna
   ms.reviewer: keferna
   ms.date: 04/01/2022
-title: Frequently Asked Questions about changing offer prices in the commercial marketplace
+title: Frequently Asked Questions about changing offer prices in the commercial marketplace (Partner Center)
 summary: Use the following questions and answers to better understand the price change feature in the commercial marketplace.
 
 sections:
@@ -66,7 +66,7 @@ sections:
       - question: |
           Is changing a price of an offer supported via APIs?
         answer: |
-          Not currently. The price change must be made in Partner Center. |
+          Not currently. The price change must be made in Partner Center.
 
       - question: |
           Can I customize the email notification sent to customers?
@@ -101,7 +101,7 @@ sections:
       - question: |
           How can I see when my customer’s contracts expire?
         answer: |
-          The [Orders dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/order) displays the current orders for all your Software as a Service (SaaS) and Azure app offers. [Learn more about understanding order data](https://docs.microsoft.com/en-us/azure/marketplace/orders-dashboard).
+          The [Orders dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/order) displays the current orders for all your Software as a Service (SaaS) and Azure app offers. See [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
 
       - question: |
           How can I see which customers are using my offer?

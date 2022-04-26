@@ -19,7 +19,7 @@ Complete these steps when you are notified that new core sizes are now supported
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. On the Home page, select the **Marketplace offers** tile.
 
-    [ ![Shows the marketplace offers tile on the Partner Center home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [![Screenshot shows the marketplace offers tile on the Partner Center home page.](./media/workspaces/partner-center-home.png)](./media/workspaces/partner-center-home.png#lightbox)
 
 1. On the **Overview** page, select your VM offer.
 1. On the **Offer overview** page, under **Plan overview**, select a plan within your offer.

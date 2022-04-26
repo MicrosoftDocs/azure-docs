@@ -1,5 +1,5 @@
 ---
-title: Learn about changing the prices of offers in the commercial marketplace
+title: Learn about changing the prices of offers in the commercial marketplace (Partner Center)
 description: Learn about changing the prices of offers in the commercial marketplace using Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -12,8 +12,6 @@ ms.date: 04/01/2022
 
 # Changing prices in active commercial marketplace offers
 
-## Overview
-
 The price change feature allows publishers to change the prices of marketplace offers transacted through Microsoft. This article describes how to change the price of an offer.
 
 Publishers can update the prices of previously published plans and publish the price changes to the marketplace. Microsoft schedules price changes in the future to align with future billing cycles.
@@ -24,24 +22,24 @@ Once the price change becomes effective, customers will be billed at the new pri
 
 The price change experience for publishers and customers:
 
-:::image type="content" source="media/price-change-experience.png" lightbox="media/price-change-experience.png" alt-text="Shows the price change experience for ISVs and new and existing customers.":::
+:::image type="content" source="media/price-change-experience.png" lightbox="media/price-change-experience.png" alt-text="Screenshot shows the price change experience for ISVs and new and existing customers.":::
 
 ### Feature benefits
 
 The price change feature provides the following benefits:
 
-1. **Easy to change prices** – Publishers can increase or decrease the prices of offers without having to create a new plan with the new price and retire the previous plan, including offers published solely to the preview phase.
-2. **Automatic billing of the new price** – Once the price change becomes effective, existing customers will automatically be billed the new price without any action needed on their part.
-3. **Customer notifications** – Customers will be notified of price increases through email and on the product listing page of the marketplace.
+- **Easy to change prices** – Publishers can increase or decrease the prices of offers without having to create a new plan with the new price and retire the previous plan, including offers published solely to the preview phase.
+- **Automatic billing of the new price** – Once the price change becomes effective, existing customers will automatically be billed the new price without any action needed on their part.
+- **Customer notifications** – Customers will be notified of price increases through email and on the product listing page of the marketplace.
 
 ### Sample scenarios
 
 The price change feature supports the following scenarios:
 
-1. Increase or decrease the [monthly/yearly flat fee](#changing-the-flat-fee-of-a-saas-or-azure-app-offer).
-2. Increase or decrease the [per-user monthly/yearly SaaS fee](#changing-the-per-user-fee-of-a-saas-offer).
-3. Increase or decrease the [price per unit of a meter dimension](#changing-the-meter-dimension-of-a-saas-or-azure-app-offer).
-4. Increase or decrease the [price per core or per core size](#changing-the-core-price-of-a-virtual-machine).
+- Increase or decrease the [monthly/yearly flat fee](#changing-the-flat-fee-of-a-saas-or-azure-app-offer).
+- Increase or decrease the [per-user monthly/yearly SaaS fee](#changing-the-per-user-fee-of-a-saas-offer).
+- Increase or decrease the [price per unit of a meter dimension](#changing-the-meter-dimension-of-a-saas-or-azure-app-offer).
+- Increase or decrease the [price per core or per core size](#changing-the-core-price-of-a-virtual-machine).
 
 ### Supported offer types
 
@@ -51,12 +49,12 @@ The ability to change prices is available for both public and private plans of a
 
 The price change feature does not support the following scenarios:
 
-1. Price changes on hidden plans.
-2. Price changes on plans available in Azure Government cloud.
-3. Price increase and decrease on the same plan. To make both changes, first schedule the price decrease. Once it becomes effective, publish the price increase. See [Plan for a price change](#plan-a-price-change).
-4. Cancelling and modifying a price change through Partner Center. To cancel a price update, contact [support](https://go.microsoft.com/fwlink/?linkid=2056405).
-5. Changing prices from free or $0 to paid.
-6. Changing prices via APIs.
+- Price changes on hidden plans.
+- Price changes on plans available in Azure Government cloud.
+- Price increase and decrease on the same plan. To make both changes, first schedule the price decrease. Once it becomes effective, publish the price increase. See [Plan for a price change](#plan-a-price-change) below.
+- Canceling and modifying a price change through Partner Center. To cancel a price update, contact [support](https://go.microsoft.com/fwlink/?linkid=2056405).
+- Changing prices from free or $0 to paid.
+- Changing prices via APIs.
 
 Price changes will go through full certification. To avoid delays in scheduling it, don't make other changes to the offer along with the price change.
 
@@ -67,14 +65,14 @@ When planning a price change, consider the following:
 | Consideration | Impact | Behavior |
 | --- | --- | --- |
 | Type of price change | This dictates how far into the future the price will be scheduled. | <ol><li>Price decreases are scheduled for the first of the next month.<li>Price increases are scheduled for the first of a future month, at least 90 days after the price change is published.</ul> |
-| Offer type | This dictates when you need to publish the price change via Partner Center. | Price changes must be published before the cut-off times below to be scheduled for the next month (based on type of price change):<ol><li>Software as a service offer: 4&nbsp;days before the end of the month.<li>Virtual machine offer: 6&nbsp;days before the end of the month.<li>Azure application offer: 14&nbsp;days before the end of the month.</ul> |
+| Offer type | This dictates when you need to publish the price change via Partner Center. | Price changes must be published before the cut-off times below to be scheduled for the next month (based on type of price change):<ol><li>Software as a service offer: Four days before the end of the month.<li>Virtual machine offer: Six days before the end of the month.<li>Azure application offer: 14&nbsp;days before the end of the month.</ul> |
 |
 
 #### Examples
 
 For a price decrease to a Software as a service offer to take effect on the first of the next month, publish the price change at least four days before the end of the current month.
 
-For a price increase to a Software as a service offer to take effect on the 1st of a future month, 90 days out, publish the price change at least four days before the end of the current month.
+For a price increase to a Software as a service offer to take effect on the first of a future month, 90 days out, publish the price change at least four days before the end of the current month.
 
 ## Changing the flat fee of a SaaS or Azure app offer
 
@@ -185,22 +183,23 @@ To update the price per core or per core size of a VM offer.
 3. Select the plan to update from the **Plan Overview** page.
 4. Select the plan's **Pricing and Availability** page.
 5. Scroll to the **Pricing** section of the page.
-6. To change prices specific for a market:<br>
-    <br>**Option 1**: You do the currency conversion:
+6. To change prices specific for a market:
+
+    **Option 1**: You do the currency conversion:
     1. Under **Select a price entry**, select the **Per market and core size** option.
     2. Under **Select a market to customize prices**, select the **market** you want to change the price for.
     3. Update the price per hour for each core size.
     4. Repeat if you want to update prices for several markets.
-   
-    <br>**Option 2**: Export to a spreadsheet:
+
+    **Option 2**: Export to a spreadsheet:
     1. Export the prices using **Export pricing data**.
     2. Update the market and core size prices in the downloaded spreadsheet and save it.
     3. Import the spreadsheet using **Import pricing data**.
+
 7. To change prices across all markets:
 
     > [!NOTE]
     > If the plan is available in multiple markets, the new price for each market is calculated according to current exchange rates.
-
 
     1. **Per core**: Edit the price per core in the **USD/hour** box.
     2. **Per core size**: Edit each core size in the **Price per hour in USD** box.
@@ -218,13 +217,13 @@ Once publishing is complete, you will receive an email with the effective date o
 
 Customers are billed the new price for consumption of the resource that happens after the new price is in effect.
 
-## Cancelling or modifying a price change
+## Canceling or modifying a price change
 
 To modify an already scheduled price change, request the cancellation by submitting a [support request](https://partner.microsoft.com/support/?stage=1) that includes the Plan ID, price, and the market (if the change was market-specific).
 
-If the price change was an increase, we will email customers a second time to inform them the price increase has been cancelled.
+If the price change was an increase, we will email customers a second time to inform them the price increase has been canceled.
 
-After the price change is cancelled, follow the steps in the appropriate part of this document to schedule a new price change with the needed modifications.
+After the price change is canceled, follow the steps in the appropriate part of this document to schedule a new price change with the needed modifications.
 
 ## Next steps
 
