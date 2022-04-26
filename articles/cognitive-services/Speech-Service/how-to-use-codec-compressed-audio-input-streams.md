@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-speech-services
 ---
 
-# How to use compressed audio files
+# How to use compressed input audio
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/how-to/compressed-audio-input/csharp.md)]
