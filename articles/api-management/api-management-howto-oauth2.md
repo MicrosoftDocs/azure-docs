@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/16/2021
+ms.date: 04/26/2022
 ms.author: danlep
 ---
 
@@ -220,7 +220,7 @@ Optionally:
 
 1. Select **Create** to save the API Management OAuth 2.0 authorization server configuration. 
 
-After savomg the server configuration, you can configure APIs to use this configuration, as shown in the next section.
+After saving the server configuration, you can configure APIs to use this configuration, as shown in the next section.
 
 ## Configure an API to use OAuth 2.0 user authorization
 

@@ -1,7 +1,7 @@
 ---
 title: Authorize developer accounts by using Azure Active Directory
 titleSuffix: Azure API Management
-description: Learn how to authorize users of the developer portal by using Azure Active Directory in API Management.
+description: Learn how to authorize users by using Azure Active Directory in API Management.
 services: api-management
 documentationcenter: API Management
 author: dlepow
@@ -16,7 +16,7 @@ ms.date: 09/20/2021
 ms.author: danlep
 ---
 
-# Authorize developer accounts to access the developer portal by using Azure Active Directory in Azure API Management
+# Authorize developer accounts by using Azure Active Directory in Azure API Management
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
@@ -33,11 +33,13 @@ In this article, you'll learn how to:
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
-[!INCLUDE api-management-navigate-to-instance.md]
-
 ## Authorize developer accounts by using Azure AD
 
-1. In the left menu, under **Developer portal**, select **Identities**.
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Select ![Arrow icon.](./media/api-management-howto-aad/arrow.png).
+1. Search for and select **API Management services**.
+1. Select your API Management service instance.
+1. Under **Developer portal**, select **Identities**.
 1. Select **+Add** from the top to open the **Add identity provider** pane to the right.
 1. Under **Type**, select **Azure Active Directory** from the drop-down menu.
     * Once selected, you'll be able to enter other necessary information. 
@@ -86,7 +88,7 @@ In this article, you'll learn how to:
     * You can separate multiple domains with newlines, spaces, or commas.
 
     > [!NOTE]
-    > You can specify multiple domains in the **Allowed Tenants** section. A global administrator must grant the application access to directory data before users can sign in from a different domain than the original app registration domain. To grant permission, the global administrator should:
+    > You can specify multiple domains in the **Allowed Tenants** section. A global administration must grant the application access to directory data before users can sign in from a different domain than the original app registration domain. To grant permission, the global administrator should:
     > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, `https://contoso.portal.azure-api.net/aadadminconsent`).
     > 1. Enter the domain name of the Azure AD tenant to which they want to grant access.
     > 1. Select **Submit**. 
