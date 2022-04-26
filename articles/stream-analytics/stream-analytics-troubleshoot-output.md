@@ -90,9 +90,9 @@ When a Stream Analytics job with SQL output receives the first batch of events, 
 
 During these steps, the SQL output can experience following types of errors:
 
-* Transient [errors](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) that are retried using an exponential backoff retry strategy. The minimum retry interval depends on the individual error code, but the intervals are typically less than 60 seconds. The upper limit can be at most five minutes. 
+* Transient [errors](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) that are retried using an exponential backoff retry strategy. The minimum retry interval depends on the individual error code, but the intervals are typically less than 60 seconds. The upper limit can be at most five minutes. 
 
-   [Login failures](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) and [firewall issues](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) are retried at least 5 minutes after the previous try and are retried until they succeed.
+   [Login failures](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) and [firewall issues](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) are retried at least 5 minutes after the previous try and are retried until they succeed.
 
 * Data errors, such as casting errors and schema constraint violations, are handled with output error policy. These errors are handled by retrying binary split batches until the individual record causing the error is handled by skip or retry. Primary Unique key constraint violation is [always handled](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
 

@@ -70,7 +70,7 @@ Datastores currently support storing connection information to the storage servi
 [Azure&nbsp;File&nbsp;Share](../storage/files/storage-files-introduction.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](../data-lake-store/index.yml)| Service principal| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](../storage/blobs/data-lake-storage-introduction.md)| Service principal| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;SQL&nbsp;Database](../azure-sql/database/sql-database-paas-overview.md)| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓|
+[Azure&nbsp;SQL&nbsp;Database](/azure/azure-sql/database/sql-database-paas-overview)| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;PostgreSQL](../postgresql/overview.md) | SQL authentication| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](../mysql/overview.md) | SQL authentication|  | ✓* | ✓* |✓*|
 [Databricks&nbsp;File&nbsp;System](/azure/databricks/data/databricks-file-system)| No authentication | | ✓** | ✓ ** |✓** |
