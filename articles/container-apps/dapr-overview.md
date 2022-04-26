@@ -99,6 +99,8 @@ Dapr components are scoped to a Container App environment and are pluggable modu
 
 Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, view the various schemas you can define for a Dapr component in Azure Container Apps and compare with the schema provided with Dapr OSS.
 
+**Dapr in Azure Container Apps**
+
 # [YAML](#tab/yaml)
 
 When defining a component via the `<component>.yml` spec, you'll pass it to the Azure CLI.
@@ -197,7 +199,10 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
   ]
 }
 ```
-# [Dapr OSS](#tab/oss)
+
+---
+
+**Dapr OSS**
 
 In Dapr OSS, running `dapr init` generates the following default Redis `<component>.yml` spec in the Dapr components directory.
 
@@ -216,11 +221,13 @@ spec:
     value: ""
 ```
 
----
+By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes:
 
-By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes.
-
- 
+```yml
+scopes:
+- app1
+- app2
+```
 
 > [!NOTE]
 > Since Dapr components and settings aren't revisionable, all running instances of a revision share the same set of Dapr components. 
