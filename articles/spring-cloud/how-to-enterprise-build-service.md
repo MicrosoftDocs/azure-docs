@@ -36,7 +36,10 @@ The Build Agent Pool scale set sizes available are:
 
 The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance.
 
+You can also update the configured agent pool size.
+
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Build Service page with 'General info' highlighted.":::
+
 
 ## Default Builder and Tanzu Buildpacks
 
@@ -82,6 +85,19 @@ az spring-cloud app deploy \
 ```
 
 If the builder isn't specified, the `default` builder will be used.
+
+You can also config the build env and build resource in the command:
+```azurecli
+az spring-cloud app deploy \
+    --name <app-name> \
+    --build-env <key1=value1>, <key2=value2> \
+    --build-cpu <build-cpu-size> \
+    --build-memory <build-memory-size> \
+    --builder <builder-name> \
+    --artifact-path <path-to-your-JAR-file>
+```
+
+If you are using `tanzu-buildpacks/java-azure` Buildpack, it's RECOMMEND to set `BP_JVM_VERSION` env in build-env.
 
 ## Real-time build logs
 
