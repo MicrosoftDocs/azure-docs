@@ -36,13 +36,21 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+   [ ![Illustrates selecting the Usage option on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) (./media/workspaces/partner-center-insights-tile.png#lightbox) ]
 
 1. In the left menu, select **Usage**.
+
+ [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/usage-dashboard/usage-select.png) ]
 
 ## Elements of the Usage dashboard
 
 The following sections describe how to use the Usage dashboard and how to read the data.
+
+### Download
+
+You can download data for this dashboard by clicking on the Download option. To download snapshot of the dashboard, click on ‘Download as PDF’ option.
+
+Alternatively, you can also navigate to the [Downloads](https://partner.microsoft.com/en-us/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
 
 ### Month range
 
