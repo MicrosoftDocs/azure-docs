@@ -88,7 +88,7 @@ resource agent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
@@ -164,7 +164,7 @@ resource agent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
@@ -185,7 +185,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure Arc-ena
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "vmName": {
@@ -215,7 +215,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure Arc-ena
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "vmName": {
@@ -285,7 +285,7 @@ resource agent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-preview'=
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
@@ -420,7 +420,7 @@ resource logAnalyticsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
@@ -555,7 +555,7 @@ resource logAnalyticsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
@@ -602,7 +602,7 @@ param storageAccountId string
 @description('Resource ID of the workspace.')
 param workspaceResourceId string
 
-resource vm 'Microsoft.Compute/virtualMachines@2018-10-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
   name: vmName
   location: location
 }
@@ -664,7 +664,7 @@ resource vmDiagnosticsSettings 'Microsoft.Compute/virtualMachines/extensions@202
     }
     protectedSettings: {
       storageAccountName: storageAccountName
-      storageAccountKey: listkeys(storageAccountId, '2015-05-01-preview').key1
+      storageAccountKey: listkeys(storageAccountId, '2021-08-01').key1
       storageAccountEndPoint: 'https://${environment().suffixes.storage}'
     }
   }
@@ -728,7 +728,7 @@ resource managedIdentity 'Microsoft.Compute/virtualMachines/extensions@2021-11-0
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2021-11-01",
       "name": "[parameters('vmName')]",
       "location": "[parameters('location')]"
     },
@@ -790,7 +790,7 @@ resource managedIdentity 'Microsoft.Compute/virtualMachines/extensions@2021-11-0
         },
         "protectedSettings": {
           "storageAccountName": "[parameters('storageAccountName')]",
-          "storageAccountKey": "[listkeys(parameters('storageAccountId'), '2015-05-01-preview').key1]",
+          "storageAccountKey": "[listkeys(parameters('storageAccountId'), '2021-08-01').key1]",
           "storageAccountEndPoint": "[format('https://{0}', environment().suffixes.storage)]"
         }
       },
@@ -826,7 +826,7 @@ resource managedIdentity 'Microsoft.Compute/virtualMachines/extensions@2021-11-0
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "vmName": {
@@ -1199,7 +1199,7 @@ resource vmDiagnosticsSettings 'Microsoft.Compute/virtualMachines/extensions@202
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
