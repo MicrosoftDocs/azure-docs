@@ -50,7 +50,7 @@ For Ubuntu 20.04 LTS:
     - **vmImage** property being set to "Ubuntu20_04"
 - [AzureDeploy.Parameters.json][parameters3]
 
-These templates deploys a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The AzureDeploy.json deploys a number resources, including the following.
+These templates deploy a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The AzureDeploy.json deploys a number of resources, including the following.
 
 ### Service Fabric cluster
 
