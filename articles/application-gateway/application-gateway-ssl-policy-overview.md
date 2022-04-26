@@ -115,7 +115,7 @@ Application Gateway supports the following cipher suites from which you can choo
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 ## Known issue
-Application Gateway v2 does not support the following DHE ciphers and these won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.
+Application Gateway v2 does not support the following DHE ciphers. These won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.
 
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_128_CBC_SHA
