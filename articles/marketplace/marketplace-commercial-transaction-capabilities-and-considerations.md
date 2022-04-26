@@ -62,7 +62,7 @@ Depending on the transaction option used, subscription charges are as follows:
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
+To change the prices associated with an active transactable offer, see [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ### Determine offer type and pricing plan
 
