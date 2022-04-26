@@ -101,7 +101,7 @@ Today, you can [enforce multi-factor authentication for B2B users in your tenant
 | Identity protection shows high risk| Require user to change password |
 | Network location| Require sign in from a specific IP address range to highly confidential projects |
 
-Today, to use device state as an input to a policy, the device must be either be registered or joined to your tenant or [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration#modify-inbound-access-settings.md) must be configured to trust the device claims from the home tenant.  
+Today, to use device state as an input to a policy, the device must be either be registered or joined to your tenant or [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings) must be configured to trust the device claims from the home tenant.  
 
 [Identity Protection risk-based policies](../conditional-access/howto-conditional-access-policy-risk.md) can be used. However, issues must be mitigated in the user’s home tenant.
 
