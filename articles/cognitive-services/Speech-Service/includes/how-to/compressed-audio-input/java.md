@@ -2,9 +2,34 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/25/2022
+ms.date: 03/11/2020
+ms.custom: devx-track-java
 ms.author: eur
 ---
+
+[!INCLUDE [Header](../../common/java.md)]
+
+[!INCLUDE [Introduction](intro.md)]
+
+## GStreamer configuration
+
+Choose a platform for installation instructions.
+
+### [Android](#tab/android)
+
+[!INCLUDE [Android](android.md)]
+
+### [Linux](#tab/linux)
+
+[!INCLUDE [Linux](linux.md)]
+
+### [Windows](#tab/windows)
+
+[!INCLUDE [Windows](windows.md)]
+
+***
+
+## Example
 
 To configure the Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream. Find related sample code in [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/WavStream.java).
 
