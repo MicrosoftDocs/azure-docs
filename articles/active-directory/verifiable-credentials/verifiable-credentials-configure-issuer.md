@@ -7,7 +7,7 @@ author: barclayn
 manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 04/26/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -46,7 +46,7 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ## Create a storage account
 
-Azure Blob Storage is an object storage solution for the cloud. Azure AD Verifiable Credentials uses [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) to store the configuration files when the service is issuing verifiable credentials.
+Azure Blob Storage is an object storage solution for the cloud. Azure AD Verifiable Credentials use [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) to store the configuration files when the service is issuing verifiable credentials.
 
 Create and configure Blob Storage by following these steps:
 
@@ -61,7 +61,7 @@ Create and configure Blob Storage by following these steps:
 
 ### Upload the configuration files
 
-Azure AD Verifiable Credentials uses two JSON configuration files, the rules file and the display file. 
+Azure AD Verifiable Credentials service uses two JSON configuration files, the rules file and the display file. 
 
 - The *rules* file describes important properties of verifiable credentials. In particular, it describes the claims that subjects (users) need to provide before a verifiable credential is issued for them. 
 - The *display* file controls the branding of the credential and styling of the claims.
@@ -148,7 +148,7 @@ In this step, you create the verified credential expert card by using Azure AD V
 
     1. For **Subscription**, select your Azure AD subscription where you created Blob Storage.
 
-    1. Under the **Display file**, select **Select display file**. In the Storage accounts section, select **vc-container**. Then select the **VerifiedCredentialExpertDisplay.json** file and click **Select**.
+    1. Under the **Display file**, select **Select display file**. In the Storage accounts section, select **vc-container**. Then select the **VerifiedCredentialExpertDisplay.json** file and select **Select**.
 
     1. Under the **Rules file**, **Select rules file**. In the Storage accounts section, select the **vc-container**. Then select the **VerifiedCredentialExpertRules.json** file, and choose **Select**.
 

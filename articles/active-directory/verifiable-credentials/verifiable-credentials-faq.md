@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 04/26/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -77,7 +77,7 @@ The following instructions will take 15 mins to complete and are only required i
 1. Update the Key Vault access policies
 1. Update the access to your storage container
 1. Update configuration on your Apps using the Request API
-1. Cleanup configuartion (after May 6, 2022) 
+1. Cleanup configuration (after May 6, 2022) 
 
 #### **1. Register new service principals for the Azure AD Verifiable Service**
 1. Run the following PowerShell commands. These commands install and import the Azure PowerShell module. For more information, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps#installation).
@@ -98,7 +98,7 @@ The following instructions will take 15 mins to complete and are only required i
     get-azADServicePrincipal -applicationID "3db474b9-6a0c-4840-96ac-1fceb342124f"
    ```
   
-1. If you don't get any results, run the commands below to create the new service principals, if the above command results in one of the service principal is already in your tenant, you don't need to recreate it. If you try to add it through the command below, you will get an error saying the service principle already exists.
+1. If you don't get any results, run the commands below to create the new service principals, if the above command results in one of the service principals is already in your tenant, you don't need to recreate it. If you try to add it through the command below, you'll get an error saying the service principle already exists.
 
    ```azurepowershell
    new-azADServicePrincipal -applicationID "bb2a64ee-5d29-4b07-a491-25806dc854d3"
@@ -150,7 +150,7 @@ Grant the new service principal permissions to get access tokens
 
 1. In your application. Select **API permissions** > **Add a permission**.
 1. Select **APIs my organization uses**.
-1. Search for **Verifiable Credentials Service Request** and select it. Make sure you are not selecting the **Verifiable Credential Request Service**. Before proceeding, confirm that the **Application Client ID** is ```3db474b9-6a0c-4840-96ac-1fceb342124f```
+1. Search for **Verifiable Credentials Service Request** and select it. Make sure you aren't selecting the **Verifiable Credential Request Service**. Before proceeding, confirm that the **Application Client ID** is ```3db474b9-6a0c-4840-96ac-1fceb342124f```
 1. Choose **Application Permission**, and expand **VerifiableCredential.Create.All**.
 1. Select **Add permissions**.
 1. Select **Grant admin consent for** ```<your tenant name>```.
@@ -170,7 +170,7 @@ For the Request API the new scope for your application or Postman is now:
 
 ### How do I reset the Azure AD Verifiable credentials service?
 
-Reseting requires that you opt out and opt back into the Azure Active Directory Verifiable Credentials service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID to use during issuance and presentation.
+Resetting requires that you opt out and opt back into the Azure Active Directory Verifiable Credentials service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID to use during issuance and presentation.
 
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
 1. Go over the Azure Active Directory Verifiable credentials [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
@@ -218,7 +218,7 @@ Reseting requires that you opt out and opt back into the Azure Active Directory 
     ],
 ```
 
-### If I reconfigure the Azure AD Verifiable Credentials service, do I need to re-link my DID to my domain?
+### If I reconfigure the Azure AD Verifiable Credentials service, do I need to relink my DID to my domain?
 
 Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](how-to-dnsbind.md) with your domain.
 
