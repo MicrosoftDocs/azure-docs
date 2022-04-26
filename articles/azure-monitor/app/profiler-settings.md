@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 04/26/2022
 ms.reviewer: mbullwin
 ---
 
@@ -72,8 +72,6 @@ Cooldown | Sets the length of time the profiler will wait before checking for th
 Unlike CPU or memory triggers, the Sampling trigger isn't triggered by an event. Instead, it's triggered randomly to get a truly random sample of your application's performance. You can:
 - Turn this trigger off to disable random sampling.
 - Set how often profiling will occur and the duration of the profiling session. 
-
-  
 
 :::image type="content" source="./media/profiler-settings/sampling-trigger-settings.png" alt-text="Screenshot of trigger settings pane for Sampling trigger":::
 
