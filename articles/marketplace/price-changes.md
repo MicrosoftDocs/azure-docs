@@ -64,8 +64,8 @@ When planning a price change, consider the following:
 
 | Consideration | Impact | Behavior |
 | --- | --- | --- |
-| Type of price change | This dictates how far into the future the price will be scheduled. | <ol><li>Price decreases are scheduled for the first of the next month.<li>Price increases are scheduled for the first of a future month, at least 90 days after the price change is published.</ul> |
-| Offer type | This dictates when you need to publish the price change via Partner Center. | Price changes must be published before the cut-off times below to be scheduled for the next month (based on type of price change):<ol><li>Software as a service offer: Four days before the end of the month.<li>Virtual machine offer: Six days before the end of the month.<li>Azure application offer: 14&nbsp;days before the end of the month.</ul> |
+| Type of price change | This dictates how far into the future the price will be scheduled. | - Price decreases are scheduled for the first of the next month.<br> - Price increases are scheduled for the first of a future month, at least 90 days after the price change is published.<br> |
+| Offer type | This dictates when you need to publish the price change via Partner Center. | Price changes must be published before the cut-off times below to be scheduled for the next month (based on type of price change):<br> - Software as a service offer: Four days before the end of the month.<br> - Virtual machine offer: Six days before the end of the month.<br> - Azure application offer: 14 days before the end of the month.<br> |
 |
 
 #### Examples
