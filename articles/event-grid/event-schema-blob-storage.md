@@ -360,6 +360,39 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
 }]
 ```
 
+### Microsoft.Storage.BlobRenamed event (SFTP)
+
+If the blob storage account uses SFTP to rename a blob, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRename`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-renamed-file.txt",
+  "eventType": "Microsoft.Storage.BlobRenamed",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRename",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-file.txt",
+    "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-file.txt",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"user",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
 ### Microsoft.Storage.DirectoryCreated event
 
 ```json
@@ -384,6 +417,40 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
 }]
 ```
 
+### Microsoft.Storage.DirectoryCreated event (SFTP)
+
+If the blob storage account uses SFTP to create a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `dataVersion` key is set to a value of `2`.
+
+* The `data.api` key is set to the string `SftpMakeDir`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-new-directory",
+  "eventType": "Microsoft.Storage.DirectoryCreated",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpMakeDir",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/my-new-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"user",
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1"
+}]
+```
+
 ### Microsoft.Storage.DirectoryRenamed event
 
 ```json
@@ -400,6 +467,39 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
     "destinationUrl": "https://my-storage-account.dfs.core.windows.net/my-file-system/my-renamed-directory",
     "sourceUrl": "https://my-storage-account.dfs.core.windows.net/my-file-system/my-original-directory",
     "sequencer": "00000000000004420000000000028963",  
+    "storageDiagnostics": {
+    "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
+    }
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+### Microsoft.Storage.DirectoryRenamed event (SFTP)
+
+If the blob storage account uses SFTP to rename a directory, then the data looks similar to the previous example with an exception of these changes:
+
+* The `data.api` key is set to the string `SftpRename`.
+
+* The `clientRequestId` key is not included.
+
+* The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
+  "subject": "/blobServices/default/containers/testcontainer/blobs/my-renamed-directory",
+  "eventType": "Microsoft.Storage.DirectoryRenamed",
+  "eventTime": "2022-04-25T19:13:00.1522383Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "api": "SftpRename",
+    "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-directory",
+    "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-directory",
+    "sequencer": "00000000000004420000000000028963",  
+    "identity":"user",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -454,7 +554,6 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
   "data": {
     "api": "SftpRemoveDir",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "blobType": "BlockBlob",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/directory-to-delete",
     "recursive": "false", 
     "sequencer": "00000000000004420000000000028963",  
@@ -739,6 +838,7 @@ The data object has the following properties:
 | `url` | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: `<storage-account-name>.blob.core.windows.net\<container-name>\<file-name>`. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: `<storage-account-name>.dfs.core.windows.net/<file-system-name>/<file-name>`. |
 | `recursive` | string | `True` to run the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | `sequencer` | string | An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name. |
+| `identity` | string | A string value representing the identity associated with the event. For SFTP, this is the local user name.|
 | `storageDiagnostics` | object | Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers. |
 
 ## Tutorials and how-tos
