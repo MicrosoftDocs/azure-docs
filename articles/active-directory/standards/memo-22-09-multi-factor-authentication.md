@@ -68,6 +68,8 @@ For more information on deploying this method, see the following resources:
 
 **Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication** While agencies can achieve phishing resistance via federated IdP, adopting or continuing to use a federated IdP adds significant cost, complexity and risk. Microsoft encourages agencies to realize the security benefits of Azure AD as a cloud based identity provider, mitigating associated risk of a federated Idp.
 
+For more information on deploying this method, see the following resources:
+
 - [Deploying Active Directory Federation Services in Azure](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 - [Configuring AD FS for user certificate authentication](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
