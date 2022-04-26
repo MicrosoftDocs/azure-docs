@@ -13,7 +13,7 @@ ms.reviewer: ktuckerdavis, aniket.adnaik
 
 ## Introduction
 
-The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library within Azure Synapse environment - workspace Notebook and Serverless Spark Pool runtime. To use the Connector with other notebook language choices, use the Spark magic command - `%%spark`.
+The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library with Azure Synapse Workspace. To use the Connector with other notebook language choices, use the Spark magic command - `%%spark`.
 
 At a high-level, the connector provides the following capabilities:
 
@@ -46,7 +46,7 @@ At a high-level, the connector provides the following capabilities:
 
 ## Pre-requisites
 
-This section details necessary pre-requisite steps include Azure Resource setup and Configurations including authentication and authorization requirements for using the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
+Pre-requisites such as setting up required Azure resources and steps to configure them are discussed in this section.
 
 ### Azure Resources
 
@@ -145,7 +145,7 @@ Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation
 
 To successfully bootstrap and orchestrate the read or write operation, the Connector expects certain configuration parameters. The object definition - `com.microsoft.spark.sqlanalytics.utils.Constants` provides a list of standardized constants for each parameter key.
 
-Following table describes the essential configuration options that must be set for each usage scenario:
+The following table describes the essential configuration options that must be set for each usage scenario:
 
 |Usage Scenario| Options to configure |
 |--------------|----------------------------------|
@@ -504,7 +504,7 @@ Upon completion, the read response snippet is displayed in the cell's output. Fa
 
 By default, a write response is printed to the cell output. On failure, the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
 
-## Things to Note
+## Additional Considerations
 
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
   * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
