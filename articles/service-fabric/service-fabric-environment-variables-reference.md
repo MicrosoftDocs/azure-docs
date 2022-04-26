@@ -33,6 +33,8 @@ Internal Environment Variables Used by Service Fabric Runtime:
 - Fabric_ApplicationId
 - Fabric_CodePackageInstanceId
 - Fabric_CodePackageInstanceSeqNum
+- Fabric_InstanceId
+- Fabric_ReplicaId
 - Fabric_RuntimeConnectionAddress
 - Fabric_ServicePackageActivationGuid
 - Fabric_ServicePackageInstanceId
