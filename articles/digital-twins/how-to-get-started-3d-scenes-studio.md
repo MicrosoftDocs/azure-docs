@@ -151,21 +151,26 @@ Next, you'll create a set of *behaviors* for the element. These behaviors allow 
 1. For **Display name**, enter *InFlow*. Under **Elements**, select *PasteurizationMachine_A01* (it may already be selected).
 
     :::image type="content" source="media/how-to-get-started-3d-scenes-studio/new-behavior-elements.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Elements options." lightbox="media/how-to-get-started-3d-scenes-studio/new-behavior-elements.png":::
-1. Switch to **Status**. *States* are data-driven overlays on your elements to indicate the health or status of the element. Here, you'll set value ranges for a property on the element to identify its ideal range.
+1. Switch to view the **Twins** tab. Here, you can set up aliased twins to leverage more data in your behaviors. After adding an aliased twin to a behavior, you can define the associated digital twins that map to each of your targeted elements. Once you've configured your aliased twins, you'll be able to use properties from those twins in your behavior expressions.
+
+    :::image type="content" source="media/how-to-get-started-3d-scenes-studio/new-behavior-twins.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Twins options." lightbox="media/how-to-get-started-3d-scenes-studio/new-behavior-twins.png"::: 
+
+    You don't need to do anything in the **Twins** tab for this tutorial.
+1. Switch to the **Status** tab. *States* are data-driven overlays on your elements to indicate the health or status of the element. Here, you'll set value ranges for a property on the element to identify its ideal range.
 
     1. The **Property** dropdown list contains names of all the properties on the twin that's linked to the *PasteurizationMachine_A01* element. Select *LinkedTwin.InFlow*.
  
     1. Set two value ranges so that values *0-100* appear in blue, and *100-Infinity* appear in red (the min range value is inclusive and the max value is exclusive).
 
     :::image type="content" source="media/how-to-get-started-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Status options." lightbox="media/how-to-get-started-3d-scenes-studio/new-behavior-status.png":::
-1. Switch to **Badges**. *Badges* help grab your attention to quickly understand that a scenario is active for the associated element. Here, you'll create a badge to identify when the element is receiving more flow than it's able to output.
+1. Switch to the **Alerts** tab. *Alerts* help grab your attention to quickly understand that a scenario is active for the associated element. Here, you'll create an alert badge to identify when the element is receiving more flow than it's able to output.
 
     1. For the **Trigger expression**, enter *LinkedTwin.InFlow > LinkedTwin.OutFlow*
  
     1. Set the **Badge icon** and **Badge color**. Enter some **Notification text**.
 
-    :::image type="content" source="media/how-to-get-started-3d-scenes-studio/new-behavior-badges.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Badges options." lightbox="media/how-to-get-started-3d-scenes-studio/new-behavior-badges.png":::
-1. Switch to **Widgets**. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add visual widgets that the element will use to report on its status. First, you'll add a *gauge widget*.
+    :::image type="content" source="media/how-to-get-started-3d-scenes-studio/new-behavior-badges.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Alerts options." lightbox="media/how-to-get-started-3d-scenes-studio/new-behavior-badges.png":::
+1. Switch to the **Widgets** tab. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add visual widgets that the element will use to report on its status. First, you'll add a *gauge widget*.
 
     1. Select **Add widget**.
 
