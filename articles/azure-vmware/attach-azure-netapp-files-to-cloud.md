@@ -7,8 +7,6 @@ ms.date: 04/20/2022
 
 # Attach Azure NetApp Files datastores to a private cloud (Preview)
 
-## Overview
-
 [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) documentation. 
 
 [Azure VMware Solution](/azure/azure-vmware/introduction) supports attaching Network File System (NFS) datastores as a continual storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
@@ -18,7 +16,7 @@ ms.date: 04/20/2022
 
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware environments for the secondary site. 
 
-Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in the virtual network connected to it using an ExpressRoute. Make sure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, no other permissions configured via vSphere are needed.
+Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in the virtual network connected to it using an ExpressRoute. Ensure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, no other permissions configured via vSphere are needed.
 
 For best performance, create multiple datastores. Create your VMs with VMDKs from those datastores and stripe your logical volumes across the disks.
 
@@ -161,6 +159,10 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
     It's recommended to use the Premium or Ultra tier for optimal performance.
 
+- **How many datastores are we supporting with Azure VMware Solution?**
+
+    The default is eight but it can be increased up to 256 through submitting a support request.
+
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 
     We're currently validating and working on benchmarking. For now, create multiple datastores of 4-TB size for better performance. 
@@ -186,6 +188,6 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
     Azure NetApp Files NFS volumes that are used as datastores will be billed following the [capacity pool based billing model](/azure/azure-netapp-files/azure-netapp-files-cost-model). Billing will depend on the service level. There's no extra charge for using Azure NetApp Files NFS volumes as datastores. 
 
-- **How many datastores are we supporting with Azure VMware Solution?**
+- **Is connectivity to Azure NetApp Files datastores over Virtual WAN (vWAN) supported?** 
 
-    The default is eight but it can be changed.
+    No, connectivity to Azure NetApp Files over vWAN is currently not supported. For supported connectivity patterns, refer to [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)
