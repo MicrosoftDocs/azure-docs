@@ -31,6 +31,156 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
+
+## April 2022
+
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection  
+ 
+
+Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
+ 
+
+---
+
+
+### General Availability - Full Access Review configurations now available in Access Packages
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Identity Governance   
+**Clouds impacted:** Public (Microsoft 365,GCC)
+You can now configure your Access Review within Entitlement Management to take actions when reviewers do not respond, configure showing reviewer decision helper and configure requiring reviewer justification.
+
+---
+
+### Public Preview - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)
+**Product capability:** User Authentication
+
+Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
+
+---
+
+### Public Preview - Integration of M365 App Certification details into AAD UX and Consent Experiences
+
+
+**Type:** New feature  
+**Service category:** User Experience and Management
+**Product capability:** Identity Security & Protection
+**Clouds impacted:** Public (Microsoft 365,GCC)
+
+Microsoft 365 App Certification offers assurance that an app is compliant with cloud app security best practices and that data and privacy are adequately secured and protected when a third-party Microsoft 365 application is integrated into your Microsoft 365 environment. Applications that pass validation will be designated Microsoft 365 Certified. Microsoft 365 Certification status for an app is now available in Azure AD consent UX, and custom app consent policies. The status will subsequently be displayed in several other Identity-owned interfaces such as enterprise apps. For more information, see [Understanding Azure AD application consent experiences](../develop/application-consent-experience).
+
+---
+
+### Public Preview - Organizations can replace all references to Microsoft on the AAD auth experience
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)
+**Product capability:** User Authentication
+
+Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
+
+---
+
+### Public preview - Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels
+
+
+**Type:** New feature  
+**Service category:** Access Reviews  
+**Product capability:** Identity Governance
+Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels. For more information, see [Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)]( create-access-review.md#include-b2b-direct-connect-users-and-teams-accessing-teams-shared-channels-in-access-reviews-preview).
+
+---
+
+### Public Preview - New MS Graph APIs to configure federated settings when federated with Azure AD
+
+**Type:** New feature  
+**Service category:** MS Graph
+**Product capability:** Identity Security & Protection
+**Clouds impacted:** Public (Microsoft 365,GCC)
+
+
+We are delighted to announce the public preview of following MS Graph APIs and PowerShell cmdlets for configuring federated settings when federated with Azure AD:
+
+
+|Action  |MS Graph API  |PowerShell cmdlet  |
+|---------|---------|---------|
+|Get federation settings for a federated domain        | [Get internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/internaldomainfederation-get?view=graph-rest-beta)           | [Get-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryfederationconfiguration?view=graph-powershell-beta)        |
+|Create federation settings for a federated domain     | [Create internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/domain-post-federationconfiguration?view=graph-rest-beta)        | [New-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryfederationconfiguration?view=graph-powershell-beta)        |
+|Remove federation settings for a federated domain     | [Delete internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/internaldomainfederation-delete?view=graph-rest-beta)        | [Remove-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/remove-mgdirectoryfederationconfiguration?view=graph-powershell-beta)     |
+|Update federation settings for a federated domain     | [Update internalDomainFederation](https://docs.microsoft.com/en-us/graph/api/internaldomainfederation-update?view=graph-rest-beta)        | [Update-MgDirectoryFederationConfiguration](https://docs.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryfederationconfiguration?view=graph-powershell-beta)     |
+
+
+
+If using older MSOnline cmdlets ([Get-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0) and [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)), we highly recommend transitioning to the latest MS Graph APIs and PowerShell cmdlets. 
+For more information, see [internalDomainFederation resource type - Microsoft Graph beta | Microsoft Docs](https://docs.microsoft.com/en-us/graph/api/resources/internaldomainfederation?view=graph-rest-beta).
+
+
+---
+
+### Public Preview – Ability to force re-authentication on Intune enrollment, risky sign-ins, and risky users
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** AuthZ/Access Delegation  
+**Clouds impacted:** Public (Microsoft 365,GCC)
+
+Added functionality to session controls allowing admins to require primary and/or secondary authentication on every sign-in if a user or particular sign-in event is deemed risky, or when enrolling a device in Intune. For more information, see [Configure authentication session management with conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+
+---
+
+###  Public Preview – Protect against by-passing of cloud Azure MFA when federated with Azure AD
+
+**Type:** New feature  
+**Service category:** MS Graph
+**Product capability:** Identity Security & Protection
+**Clouds impacted:** Public (Microsoft 365,GCC)
+
+We are delighted to announce a new security protection that prevents bypassing of cloud Azure MFA when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account cannot bypass Azure MFA by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](https://docs.microsoft.com/en-us/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values). 
+
+We highly recommend enabling this new protection when using Azure MFA as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure MFA when federated with Azure AD](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - April 2022
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In April 2022 we added the following 24 new applications in our App gallery with Federation support
+[X-1FBO](https://www.x1fbo.com/), [Click Armor](https://app.clickarmor.ca/), [Smint.io Portals for SharePoint](https://www.smint.io/portals-for-sharepoint/), [Pluto](../saas-apps/pluto-tutorial.md), [ADEM](../saas-apps/adem-tutorial.md), [Smart360](../saas-apps/smart360-tutorial.md), [MessageWatcher SSO](https://messagewatcher.com/), [Beatrust](../saas-apps/beatrust-tutorial.md), [AeyeScan](https://aeyescan.com/azure_sso), [ABa Customer](https://abacustomer.com/), [Twilio Sendgrid](../saas-apps/twilio-sendgrid-tutorial.md), [Vault Platform](../saas-apps/vault-platform-tutorial.md), [Speexx](../saas-apps/speexx-tutorial.md), [Clicksign](https://app.clicksign.com/signin), [Per Angusta](../saas-apps/per-angusta-tutorial.md), [EruditAI](https://dashboard.erudit.ai/login), [MetaMoJi ClassRoom](https://business.metamoji.com/), [Numici](https://app.numici.com/), [MCB.CLOUD](https://identity.mcb.cloud/Identity/Account/Manage), [DepositLink](https://depositlink.com/external-login), [Last9](https://auth.last9.io/auth), [ParkHere Corporate](../saas-apps/parkhere-corporate-tutorial.md), [Keepabl](../saas-apps/keepabl-tutorial.md), [Swit](../saas-apps/swit-tutorial.md)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+
+---
+
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - April 2022
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+**Clouds impacted:** Public (Microsoft 365,GCC)
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+- [Adobe Identity Management (OIDC)](../saas-apps/adobe-identity-management-provisioning-oidc-tutorial.md)
+- [embed signage](../saas-apps/embed-signage-provisioning-tutorial.md)
+- [KnowBe4 Security Awareness Training](../saas-apps/knowbe4-security-awareness-training-provisioning-tutorial.md)
+- [NordPass](../saas-apps/nordpass-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md)
+
+
+---
+
 ## March 2022
  
 
