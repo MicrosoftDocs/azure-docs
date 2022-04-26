@@ -32,18 +32,20 @@ When enabling automatic OS updates, you'll also need to disable Windows Update i
 
 
 1. Enable automatic OS image upgrades and disable Windows Updates in the deployment template:
- 
-    ```json
-    "virtualMachineProfile": { 
-        "properties": {
-          "upgradePolicy": {
-            "automaticOSUpgradePolicy": {
-              "enableAutomaticOSUpgrade":  true
-            }
-          }
-        }
-      }
-    ```
+    
+ ```json
+  "apiVersion":"[variables('vmssApiVersion')]",         "type":"Microsoft.Compute/virtualMachineScaleSets",          "name":"variables'vmNodeType0Name')]",
+"location":"variables'computeLocation')]",    
+"properties": {
+ "overprovision":                             "[parameters ('overProvision')]",      
+    "upgradePolicy": {          
+      "mode": "Automatic",          
+        "automaticOSUpgradePolicy": {          
+            "enableAutomaticOSUpgrade": true
+                    }
+                },
+              ```
+   
     
     ```json
     "virtualMachineProfile": { 
