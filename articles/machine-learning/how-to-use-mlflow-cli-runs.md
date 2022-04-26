@@ -31,7 +31,7 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLflow and Azure Machine Learning functionality including MLflow Project support (preview) and model deployment.
 
 > [!IMPORTANT]
-> When using the Azure Machine Learning SDK v2, no native logging is provided. Instead, use MLflow's tracking capabilities. For more information, see [How to log and view metrics](how-to-log-and-view-metrics.md).
+> When using the Azure Machine Learning SDK v2, no native logging is provided. Instead, use MLflow's tracking capabilities. For more information, see [How to log and view metrics (v2)](how-to-log-and-view-metrics.md).
  
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).

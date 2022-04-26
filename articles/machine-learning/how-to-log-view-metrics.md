@@ -84,6 +84,10 @@ You can then log information using a method such as `mlflow.log_metric()`, `mlfl
 
 To end the current run, use `mlflow.end_run()`.
 
+### Log a model
+
+To save the model from a training run, use the `log_model()` API for the framework you are working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model)
+
 ## View run metrics
 
 You can view the logged information using MLflow through the [MLflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) object. After a training job completes, you can retrieve it using the MlFlowClient().
