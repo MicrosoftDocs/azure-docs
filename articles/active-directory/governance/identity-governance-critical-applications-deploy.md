@@ -22,7 +22,22 @@ ms.collection: M365-identity-device-management
 > [!div class="step-by-step"]
 > [« Integrate the application with Azure AD](identity-governance-critical-applications-integrate.md)
 
-## Deploy policies for automating access assignments
+## Prepare users to have the necessary schema to support the policies
+
+1. Be ready to have the user objects in Azure AD populated with attributes necessary for reference in your policies.
+<!-- TODO: do you have the data in your AAD? Might need to sync more users attributes -->
+
+## Deploy conditional access policies
+
+In this section, you'll establish the Conditional Access policies that are in scope for determining whether an authorized user is able to sign into the app, based on factors like the user's authentication strength or device status.
+
+1. <!-- TODO TOU -->
+1. For most business critical applications integrated via federation, there should be a policy that requires the user to have met a multi-factor authentication requirement prior to Azure AD permitting them to sign into the application.
+1. Some organizations may also block access by locations, or [require the user to access from a registered device](../conditional-access/howto-conditional-access-policy-compliant-device.md).
+1. You can see what policies would apply for a user, with the [Conditional Access what if tool](../conditional-access/troubleshoot-conditional-access-what-if.md).
+1. If it is necessary to exclude one or more users from the CA policy and allow them access, then configure an access review for the [users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).
+
+## Deploy policies for automating access assignment in entitlement management
 
 1. If you don't already have a catalog for your application governance scenario, [create a catalog](../governance/entitlement-management-catalog-create.md) in Azure AD entitlement management.
 1. Add the application, as well as any Azure AD groups which the application relies upon, [as resources in that catalog](../governance/entitlement-management-catalog-create.md).
@@ -45,6 +60,7 @@ At regular intervals, such as weekly, monthly or quarterly, based on the volume 
 1. Also, monitor recurring access reviews for those access packages, to ensure reviewers are participating and making decisions to approve or deny user's continued need for access.
 
 <!-- TODO Should this link to an access review article that shows how you can alert on this? Mby this is something that could be done through Azure Monitor? -->
+
 
 ## Next steps
 
