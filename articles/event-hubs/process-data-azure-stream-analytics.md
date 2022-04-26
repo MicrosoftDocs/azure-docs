@@ -76,7 +76,7 @@ Option 1: The user who wants to preview incoming data needs to be added as a Con
 
 Option 2: The user needs to be added as Stream Analytics Query tester role on Subscription. Navigate to Access control for the subscription. Add a new role assignment for the user as "Stream Analytics Query Tester" role.
 
-Option 3: The user can create Azure Stream Analytics job. Set input as Event Hub and navigate to "Query" to preview incoming data from Event Hub.
+Option 3: The user can create Azure Stream Analytics job. Set input as Event Hubs and navigate to "Query" to preview incoming data from Event Hubs.
 
 Option 4: The admin can create a custom role on the subscription. Add the following permissions to the custom role and then add user to the new custom role.
 ![Add permissions to custom role](./media/process-data-azure-stream-analytics/custom-role.png)
