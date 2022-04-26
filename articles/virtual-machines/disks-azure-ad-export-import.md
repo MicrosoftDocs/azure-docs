@@ -15,9 +15,9 @@ You can use Azure Active Directory (Azure AD) to secure the export and import of
 
 ## Pre-requisites
 
-1. Email AzureDisks@microsoft .com to have the feature enabled on your subscription.
-1. Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
-1. Install the [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
+- Email AzureDisks@microsoft .com to have the feature enabled on your subscription.
+- Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
+- Install the [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
 
 ## Restrictions
 
