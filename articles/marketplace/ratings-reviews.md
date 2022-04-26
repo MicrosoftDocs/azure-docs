@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 12/03/2021
+ms.date: 04/26/2022
 ---
 
 # Ratings and Reviews dashboard in commercial marketplace analytics
@@ -61,7 +61,7 @@ To respond to a review, follow these steps:
 
 1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating.
 
-    [![Illustrates the ratings and review page.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png)](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png#lightbox)
+    ![Illustrates the ratings and review page.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png)
 
 1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
 
