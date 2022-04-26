@@ -174,7 +174,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Install custom extension](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. Set the location parameter for you environment, and then run the following command to install IIS on the virtual machine: 
+2. Set the location parameter for your environment, and then run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
