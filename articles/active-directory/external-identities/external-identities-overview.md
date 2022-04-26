@@ -105,9 +105,8 @@ For more information, see [Cross-tenant access in Azure AD External Identities](
 
 Microsoft Azure cloud services are available in separate national clouds, which are physically isolated instances of Azure. Increasingly, organizations are finding the need to collaborate with organizations and users across global cloud and national cloud boundaries. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
 
-- Microsoft Azure global cloud
-- Microsoft Azure Government
-- Microsoft Azure China 21Vianet
+- Microsoft Azure global cloud and Microsoft Azure Government
+- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
 
 To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. See [Microsoft cloud settings](cross-cloud-settings.md) for details.
 ### External collaboration settings

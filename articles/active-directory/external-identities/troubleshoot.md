@@ -165,6 +165,18 @@ Within the Azure US Government cloud, B2B collaboration is enabled between tenan
 
 If you need to collaborate with an Azure AD organization that's outside of the Azure US Government cloud, you can use [Microsoft cloud settings](cross-cloud-settings.md) to enable B2B collaboration.
 
+## Invitation is blocked due to cross-tenant access policies
+
+When you try to invite a B2B collaboration user in another Microsoft Azure cloud, this error message will appear if B2B collaboration is supported between the two clouds but is blocked by cross-tenant access settings. The settings that are blocking collaboration could be either in the B2B collaboration user’s home tenant or in your tenant. Check your cross-tenant access settings to make sure you’ve added the B2B collaboration user’s home tenant to your Organizational settings and that your settings allow B2B collaboration with the user. Then make sure an admin in the user’s tenant does the same.
+
+## Invitation is blocked due to disabled Microsoft B2B Cross Cloud Worker application
+
+Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Please ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Azure portal. In the portal, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
+
+## Redemption is blocked due to cross-tenant access settings
+
+A B2B collaboration user could see this message when they try to redeem a B2B collaboration invitation: “This invitation is blocked by cross-tenant access settings. Admins in both your organization and the inviter’s organization must configure cross-tenant access settings to allow the invitation.” This error can occur when cross-tenant policies are changed between the time the invitation was sent to the user and the time the user redeems it. Check your cross-tenant access settings to make sure B2B collaboration is properly configured, and make sure an admin in the user’s tenant does the same.
+
 ## I receive the error that Azure AD can't find the aad-extensions-app in my tenant
 
 When you're using self-service sign-up features, like custom user attributes or user flows, an app called `aad-extensions-app. Do not modify. Used by AAD for storing user data.` is automatically created. It's used by Azure AD External Identities to store information about users who sign up and custom attributes collected.

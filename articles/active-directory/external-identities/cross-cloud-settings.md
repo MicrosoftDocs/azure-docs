@@ -21,9 +21,8 @@ ms.collection: M365-identity-device-management
 
 When Azure AD organizations in separate Microsoft Azure clouds need to collaborate, they can use Microsoft cloud settings to enable Azure AD B2B collaboration. B2B collaboration is available between the following global and sovereign Microsoft Azure clouds:
 
-- Microsoft Azure global cloud
-- Microsoft Azure Government
-- Microsoft Azure China 21Vianet
+- Microsoft Azure global cloud and Microsoft Azure Government
+- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
 
 To set up B2B collaboration between partner organizations in different Microsoft Azure clouds, each partner mutually agrees to configure B2B collaboration with each other. In each organization, an admin completes the following steps:
 

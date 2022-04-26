@@ -61,9 +61,8 @@ You can configure organization-specific settings by adding an organization and m
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
-- Microsoft Azure global cloud
-- Microsoft Azure Government
-- Microsoft Azure China 21Vianet
+- Microsoft Azure global cloud and Microsoft Azure Government
+- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
 
 To set up B2B collaboration, both organizations configure their Microsoft cloud settings to enable the partner's cloud. Then each organization uses the partner's tenant ID to find and add the partner to their organizational settings. From there, each organization can allow their default cross-tenant access settings apply to the partner, or they can configure partner-specific inbound and outbound settings. After you establish B2B collaboration with a partner in another cloud, you'll be able to:
 
