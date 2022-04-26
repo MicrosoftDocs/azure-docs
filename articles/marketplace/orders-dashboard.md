@@ -83,7 +83,7 @@ This widget represents the following:
 Use the month range selections and filters to change the data in this widget.
 
 > [!NOTE]
-> Information on quantity is displayed only if a purchase was recorded against your published offer with a [VM software reservation](/marketplace-virtual-machines.md#reservation-pricing-optional).
+> Information on quantity is displayed only if a purchase was recorded against your published offer with a [VM software reservation](marketplace-virtual-machines.md#reservation-pricing-optional).
 
 Each monthly data point on the line graph represents the total count of seats or sites. The widget includes data for only active subscriptions in the selected month range.
 
