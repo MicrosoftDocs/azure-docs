@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020 
+ms.date: 05/24/2022 
 ---
 
 # Backup and restore in Azure Database for MySQL Flexible Server

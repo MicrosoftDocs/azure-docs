@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 05/24/2022
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server
 

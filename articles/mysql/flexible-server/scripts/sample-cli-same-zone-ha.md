@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 02/10/2022
+ms.date: 05/24/2022
 ---
 
 # Configure same-zone high availability in an Azure Database for MySQL - Flexible Server using Azure CLI

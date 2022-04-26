@@ -5,8 +5,8 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
+ms.date: 05/24/2022
 ---
 
 # Manage zone redundant high availability in Azure Database for MySQL Flexible Server with Azure CLI

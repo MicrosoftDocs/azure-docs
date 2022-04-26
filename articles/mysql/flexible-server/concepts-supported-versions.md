@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 05/24/2022
 ---
 
 # Supported versions for Azure Database for MySQL - Flexible Server

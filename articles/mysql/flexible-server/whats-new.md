@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 05/24/2022
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server?

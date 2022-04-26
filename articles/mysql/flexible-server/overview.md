@@ -6,7 +6,7 @@ ms.topic: overview
 author: savjani
 ms.author: pariks
 ms.custom: mvc, references_regions
-ms.date: 03/23/2022
+ms.date: 05/24/2022
 ---
 
 # Azure Database for MySQL - Flexible Server

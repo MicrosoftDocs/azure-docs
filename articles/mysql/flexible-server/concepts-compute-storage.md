@@ -5,7 +5,7 @@ author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/28/2021
+ms.date: 05/24/2022
 ---
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server
