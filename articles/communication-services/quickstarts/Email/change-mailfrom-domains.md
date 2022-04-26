@@ -2,10 +2,10 @@
 title: Setting up Email Authentication for Email domains in Email Communication Services
 titleSuffix: An Azure Communication Services quick start guide
 description: Learn about setting up email authentication protocols for Email Communication Services.
-author: author
-manager: author
+author: bashan-git
+manager: sphenry
 services: azure-communication-services
-ms.author: author
+ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
