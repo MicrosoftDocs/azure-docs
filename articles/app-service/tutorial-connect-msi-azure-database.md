@@ -391,7 +391,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 
-    ```powershell
+    ```dotnetcli
     dotnet add package Azure.Identity
     dotnet add package Npgsql
     ```
