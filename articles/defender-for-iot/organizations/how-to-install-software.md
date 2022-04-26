@@ -114,10 +114,10 @@ During the installation process, you can add a secondary NIC. If you choose not 
    | Parameter | Configuration |
    |--|--|
    | **configure management network interface** | For Dell: **eth0, eth1** <br /> For HP: **enu1, enu2** <br>  Or <br />**possible value** |
-   | **configure management network IP address:** | **IP address provided by the customer** |
-   | **configure subnet mask:** | **IP address provided by the customer** |
-   | **configure DNS:** | **IP address provided by the customer** |
-   | **configure default gateway IP address:** | **IP address provided by the customer** |
+   | **configure management network IP address** | Enter an IP address |
+   | **configure subnet mask:** | Enter an IP address|
+   | **configure DNS:** | Enter an IP address |
+   | **configure default gateway IP address:** | Enter an IP address|
 
 1. **(Optional)** If you would like to install a secondary Network Interface Card (NIC), define the following appliance profile, and network properties:
 
@@ -125,9 +125,9 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
    | Parameter | Configuration |
    |--|--|
-   | **configure sensor monitoring interface (Optional):** | **eth1**, or **possible value** |
-   | **configure an IP address for the sensor monitoring interface:** | **IP address provided by the customer** |
-   | **configure a subnet mask for the sensor monitoring interface:** | **IP address provided by the customer** |
+   | **configure sensor monitoring interface** (Optional) | **eth1** or **possible value** |
+   | **configure an IP address for the sensor monitoring interface:** | Enter an IP address |
+   | **configure a subnet mask for the sensor monitoring interface:** | Enter an IP address |
 
 1. Accept the settlings and continue by typing `Y`.
 
@@ -169,7 +169,7 @@ This procedure describes how to add a secondary NIC if you've already installed 
     | **Subnet mask** | `N` |
     | **DNS** | `N` |
     | **Default gateway IP Address** | `N` |
-    | **Sensor monitoring interface** <br>Optional. Relevant when sensors are on a different network segment.| `Y` and select a possible value** |
+    | **Sensor monitoring interface** <br>Optional. Relevant when sensors are on a different network segment.| `Y` and select a possible value |
     | **An IP address for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
     | **A subnet mask for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
     | **Hostname** | Enter the hostname |
@@ -368,12 +368,6 @@ Verify that you can access the console web GUI:
     :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
 
 For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
-
-## Configure a SPAN port
-
-A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, and a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
-
-:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
 
 ## Access sensors from the on-premises management console
