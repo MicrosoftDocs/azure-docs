@@ -10,7 +10,11 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
+
+### Language Detection
+
+If your application supports localization, the UI Library will be displayed based on user's system preferred langauge if its part of the `Available Languages` listed below. Otherwise will default our predefined English (`en`) strings.
 
 ### Available Languages
 
@@ -18,20 +22,34 @@ The following table of `languageCode` with out of the box translations. If you w
 
 |         Language         | LanguageCode (Enum)       |    rawValue  |
 |:------------------------:|:------------------:|:------------:|
-|          German          |         de        |      de      |
-|         Japanese         |         ja        |      ja      |
-|          English         |         en        |      en      |
-|   Chinese (Traditional)  |         zhHant    |    zh-Hant   |
-|          Spanish         |         es        |      es      |
-|   Chinese (Simplified)   |         zhHans    |    zh-Hans   |
-|          Italian         |         it        |      it      |
-| English (United Kingdom) |         enGB      |     en-GB    |
-|          Korean          |         ko        |      ko      |
-|          Turkish         |         tr        |      tr      |
-|          Russian         |         ru        |      ru      |
-|          French          |         fr        |      fr      |
-|           Dutch          |         nl        |      nl      |
-|        Portuguese        |         pt        |      pt      |
+| Chinese, Simplified | zh | zh |
+| Chinese, Simplified | zhHans | zh-Hans |
+| Chinese, Simplified (China mainland) | zhHansCN | zh-Hans-CN |
+| Chinese, Traditional | zhHant | zh-Hant |
+| Chinese, Traditional (Taiwan) | zhHantTW | zh-Hant-TW |
+| Dutch | nl | nl |
+| Dutch (Netherlands) | nlNL | nl-NL |
+| English | en | en |
+| English (United Kingdom) | enGB | en-GB |
+| English (United States) | enUS | en-US |
+| French | fr | fr |
+| French (France) | frFR | fr-FR |
+| German | de | de |
+| German (Germany) | deDE | de-DE |
+| Italian | it | it |
+| Italian (Italy) | itIT | it-IT |
+| Japanese | ja | ja |
+| Japanese (Japan) | jaJP | ja-JP |
+| Korean | ko | ko |
+| Korean (South Korea) | koKR | ko-KR |
+| Portuguese | pt | pt |
+| Portuguese (Brazil) | ptBR | pt-BR |
+| Russian | ru | ru |
+| Russian (Russia) | ruRU | ru-RU |
+| Spanish | es | es |
+| Spanish (Spain) | esES | es-ES |
+| Turkish | tr | tr |
+| Turkish (Turkey) | trTR | tr-TR |
 
 You can also obtain list of `languageCode` by the static function `LocalizationConfiguration.supportedLanguages`.
 
@@ -39,19 +57,29 @@ You can also obtain list of `languageCode` by the static function `LocalizationC
 let languageCodes: [String] = LocalizationConfiguration.supportedLanguages
 print(languageCodes)
 
-// ["de", "ja", "en", "zh-Hant", "es", "zh-Hans", "it", "en-GB", "ko", "tr", "ru", "fr", "nl", "pt"]
+// ["de", "de-DE", "en", "en-GB", "en-US", "es", "es-ES", "fr", "fr-FR", "it", "it-IT", "ja", "ja-JP", "ko", "ko-KR", "nl", "nl-NL", "pt", "pt-BR", "ru", "ru-RU", "tr", "tr-TR", "zh", "zh-Hans", "zh-Hans-CN", "zh-Hant", "zh-Hant-TW"]
 ```
 
 ### LocalizationConfiguration
 
-`LocalizationConfiguration` is an options wrapper that sets all the strings for UI Library components using a `languageCode`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `languageCode`. Out of the box, the UI library includes a set of `languageCode` usable with the UI components and composites.
+`LocalizationConfiguration` is an options wrapper that sets all the strings for UI Library components using a `languageCode` or `locale`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `languageCode` or `locale`. Out of the box, the UI library includes a set of `languageCode` usable with the UI components and composites.
 
-#### Usage
+#### Usage - `languageCode` initializer
 
 To use the `LocalizationConfiguration`, specify a `languageCode` and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French (`fr`).
 
 ```swift
 let localizationConfig = LocalizationConfiguration(languageCode: "fr")
+let callCompositeOptions = CallCompositeOptions(localization: localizationConfig)
+let callComposite = CallComposite(withOptions: callCompositeOptions)
+```
+
+#### Usage - `languageCode` initializer
+
+To use the `LocalizationConfiguration`, specify a `locale` Swift Locale struct (with or without a region code), and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French for France (`fr-FR`).
+
+```swift
+let localizationConfig = LocalizationConfiguration(locale: Locale(identifier: "fr-FR"))
 let callCompositeOptions = CallCompositeOptions(localization: localizationConfig)
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
@@ -65,11 +93,11 @@ Certain cultures (Arabic, Hebrew, etc.) may need  for localization to have right
 ```swift
 var localizationConfig: LocalizationConfiguration
 
-// Initializer with langaugeCode and layoutDirection
+// Initializer with langaugeCode and layoutDirection (or equivalent initializer with locale)
 localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.en,
                                                layoutDirection: .rightToLeft)
 
-// Initializer with langaugeCode, localizableFilename, and layoutDirection
+// Initializer with langaugeCode, localizableFilename, and layoutDirection (or equivalent initializer with locale)
 localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.en,
                                                localizableFilename: "Localizable",
                                                layoutDirection: .rightToLeft)
@@ -97,7 +125,7 @@ Enable Localization in the Project, below for the `languageCode` you want to ove
 
 :::image type="content" source="media/ios-setup-project.png" alt-text="iOS setup project":::
 
-To specify you're overriding with Localization.strings, create a `LocalizationConfiguration` object to specify the `languageCode` and `localizationFilename`.
+To specify you're overriding with Localization.strings, create a `LocalizationConfiguration` object to specify the `languageCode` and `localizationFilename`. Or when using the `locale` initializer, will look keys in Localizable.strings for `locale.collatorIdentifier` as the language in your project.
 
 ```swift
 let localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.fr.rawValue,
