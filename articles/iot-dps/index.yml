@@ -55,22 +55,12 @@ landingContent:
           - text: Create custom allocation policies
             url: how-to-use-custom-allocation-policies.md
 
-  - title: Develop with SDKs and tools
+  - title: Develop with SDKs
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure IoT SDK for C
-            url: https://github.com/Azure/azure-iot-sdk-c
-          - text: Azure IoT SDK for Python
-            url: https://github.com/Azure/azure-iot-sdk-python
-          - text: Azure IoT SDK for Node.js
-            url: https://github.com/Azure/azure-iot-sdk-node
-          - text: Azure IoT SDK for Java
-            url: https://github.com/Azure/azure-iot-sdk-java
-          - text: Azure IoT SDK for .NET
-            url: https://github.com/Azure/azure-iot-sdk-csharp
-          - text: REST API
-            url: /rest/api/iot-dps
+          - text: Libraries and SDKs
+            url: libraries-sdks.md
 
   - title: Secure your IoT solution
     linkLists:
