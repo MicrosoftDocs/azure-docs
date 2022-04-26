@@ -10,7 +10,7 @@ metadata:
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page
-  ms.date: 04/18/2022
+  ms.date: 04/26/2022
   ms.author: kgremban
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -26,8 +26,8 @@ landingContent:
             url: about-iot-dps.md
       - linkListType: concept
         links:
-          - text: Understand auto-provisioning concepts for Azure IoT
-            url: ./concepts-roles-operations.md
+          - text: Understand the roles and operations of auto-provisioning
+            url: concepts-roles-operations.md
 
   - title: Get started
     linkLists:
@@ -37,6 +37,7 @@ landingContent:
             url: quick-setup-auto-provision.md
           - text: Provision a simulated symmetric key device
             url: quick-create-simulated-device-symm-key.md
+          - text: PRovision a simulated X.509 certificate device
 
   - title: Manage devices for multiple IoT hubs
     linkLists:
@@ -50,21 +51,6 @@ landingContent:
         links:
           - text: Create custom allocation policies
             url: how-to-use-custom-allocation-policies.md
-
-  - title: Secure your IoT solution
-    linkLists:
-      - linkListType: concept
-        links:
-        - text: Security practices for device manufacturers
-          url: concepts-device-oem-security-practices.md
-      - linkListType: how-to-guide
-        links:
-        - text: Configure verified CA certificates
-          url: how-to-verify-certificates.md
-        - text: Roll X.509 device certificates
-          url: how-to-roll-certificates.md
-        - text: Control access to DPS
-          url: how-to-control-access.md
 
   - title: Develop with SDKs and tools
     linkLists:
@@ -82,3 +68,18 @@ landingContent:
             url: https://github.com/Azure/azure-iot-sdk-csharp
           - text: REST API
             url: /rest/api/iot-dps
+            
+  - title: Secure your IoT solution
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: Security practices for device manufacturers
+          url: concepts-device-oem-security-practices.md
+      - linkListType: how-to-guide
+        links:
+        - text: Configure verified CA certificates
+          url: how-to-verify-certificates.md
+        - text: Roll X.509 device certificates
+          url: how-to-roll-certificates.md
+        - text: Control access to DPS
+          url: how-to-control-access.md
