@@ -776,48 +776,42 @@ items:
   items:
   - name: Overview
     href: conversation-summarization/overview.md
-  - name: Quickstart
-    href: conversation-summarization/quickstart.md
-  - name: Language support
-    href: conversation-summarization/language-support.md
-  - name: Responsible use of AI
-    items: 
-    - name: Transparency note for text summarization
-      href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
-      displayName: Data privacy, logging, data retention
-  - name: How-to guides
-    items:
-    - name: Call the conversation summarization API
-      href: conversation-summarization/how-to/call-api.md
+  
 - name: Text summarization (preview)
   items:
   - name: Overview
     href: text-summarization/overview.md
-  - name: Quickstart
-    href: text-summarization/quickstart.md
-  - name: Language support
-    href: text-summarization/language-support.md
-  - name: Responsible use of AI
-    items: 
-    - name: Transparency note for text summarization
-      href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
-      displayName: Data privacy, logging, data retention
-  - name: How-to guides
+  - name: Document summarization
     items:
-    - name: Call the Text Summarization API
-      href: text-summarization/how-to/call-api.md
+    - name: Quickstart
+      href: text-summarization/quickstart.md
+    - name: Language support
+      href: text-summarization/language-support.md
+    - name: Responsible use of AI
+      items: 
+      - name: Transparency note for text summarization
+        href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
+        displayName: Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI
+      - name: Integration and responsible use
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+        displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+      - name: Data, privacy, and security  
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+        displayName: Data privacy, logging, data retention
+    - name: How-to guides
+      items:
+      - name: Call the Text Summarization API
+        href: text-summarization/how-to/call-api.md
+  - name: Conversation summarization
+    items:
+    - name: Quickstart
+      href: conversation-summarization/quickstart.md
+    - name: Language support
+      href: conversation-summarization/language-support.md
+    - name: How-to guides
+      items:
+      - name: Call the conversation summarization API
+        href: conversation-summarization/how-to/call-api.md
   - name: Reference
     items:
     - name: REST API
