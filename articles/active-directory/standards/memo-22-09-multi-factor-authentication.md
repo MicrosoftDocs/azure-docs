@@ -29,7 +29,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 ### Modern approaches
 
-- **[FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)** are, according to the [Cybersecurity & Infrastructure Security Agency (CISA)](https://www.cisa.gov/mfa) the most secure multifactor authentication method.
+- **[FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)** are, according to the [Cybersecurity & Infrastructure Security Agency (CISA)](https://www.cisa.gov/mfa) the gold standard of multifactor authentication.
 
 - **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers native support for certificate use, including smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV). These methods are in use throughout the US Department of Defense (DoD) & US Federal Civilian agencies as well as derived credentials (Such as derived CAC/PIV) on mobile devices or security keys
 
@@ -48,20 +48,16 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 Two scenarios for using Microsoft Authenticator on a mobile device:
 
 - If the mobile devices is used to access the application in addition to hosting Microsoft Authenticator, it musts be managed.
-- If Microsoft Authenticator resides on the mobile device, but the application is accessed from a separate managed device, the mobile device does not need to be managaged. 
+- If Microsoft Authenticator resides on the mobile device, but the application is accessed from a separate managed device, the mobile device does not need to be managaged.
 
 For more information on using this method, see the following resources:
 - [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
  
 - [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
 
-  This method requires that the device being used to access the application that is protected by Azure AD is either Hybrid joined or compliant device. The mobile device with the Microsoft Authenticator app only needs to itself be managed/compliant if it is the device being used to access the application protected by Azure AD. For this reason if the organization/agency intends to allow access to applications **from unmanaged devices** this method is not feasible.
-
-
-
 ### Legacy
 
-**Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication** are legacy solutions we recommend you move away from. HOwever, if you cannot move to modern methods, the follwoing resources will be useful:
+**Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication** are legacy solutions we recommend you move away from. However, if you cannot move to modern methods, the following resources will be useful:
 - [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 - [Configuring AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
