@@ -80,19 +80,23 @@ Complete these steps to update available images in a plan for an offer that you'
 
 ## Offer a virtual machine plan at a new price
 
-After a virtual machine plan is published, its price can’t be changed. To offer the same plan at a different price, you must hide the plan and create a new one with the updated price. First, hide the plan with the price you want to change:
+See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+
+To change the price of a plan that is hidden or in Azure Government, hide the old plan and create a new one with the updated price.
+
+To hide the plan with the old price:
 
 1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
 1. Select the **Hide plan** checkbox. Save the draft before you continue.
 
-Now that you have hidden the plan with the old price, create a copy of that plan with the updated price:
+Now create a copy of that plan but with the updated price:
 
 1. In Partner Center, go back to **Plan overview**.
-2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
+1. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
 1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](azure-vm-plan-overview.md) to learn more.
     > [!IMPORTANT]
     > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop distribution of the parent plan later. Don’t use this option if you want to stop distribution of the parent plan.
-3. Complete all the required sections for the new plan, including the new price.
+1. Complete all the required sections for the new plan, including the new price.
 1. Select **Save draft**.
 1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](review-publish-offer.md) for more details.
 
