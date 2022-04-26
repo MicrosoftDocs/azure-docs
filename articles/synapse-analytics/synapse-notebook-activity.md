@@ -104,12 +104,16 @@ You can reference other notebooks in a Synapse notebook activity via calling [%r
 Go to **Pipeline runs** under the **Monitor** tab, you'll see the pipeline you have triggered. Open the pipeline that contains notebook activity to see the run history. 
 
 You can see the latest notebook run snapshot including both cells input and output by selecting the **open notebook** button. 
+
 ![see-notebook-activity-history](./media/synapse-notebook-activity/input-output-open-notebook.png)
 
+Open notebook snapshot:
+
+![screenshot open notebook snapshot](./media/synapse-notebook-activity/open-notebook-snapshot.png)
 
 You can see the notebook activity input or output by selecting the **input** or **Output** button. If your pipeline failed with a user error, select the **output** to check the **result** field to see the detailed user error traceback.
 
-![screenshot-showing-see-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+![screenshot showing see output user error](./media/synapse-notebook-activity/notebook-output-user-error.png)
 
 
 ## Synapse notebook activity definition
