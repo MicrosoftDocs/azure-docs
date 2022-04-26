@@ -41,8 +41,8 @@ The lifecycle of a stateless service is fairly straightforward. Here's the order
 1. The service is constructed.
 2. `StatelessService.createServiceInstanceListeners()` is invoked, and any returned listeners are opened. `CommunicationListener.openAsync()` is called on each listener.
 3. Then in parallel:
-  - The service's `runAsync` method (`StatelessService.runAsync()`) is called.
-  - If present, the service's own `onOpenAsync` method is called. Specifically, `StatelessService.onOpenAsync()` is called. This is an uncommon override, but it is available.
+    - The service's `runAsync` method (`StatelessService.runAsync()`) is called.
+    - If present, the service's own `onOpenAsync` method is called. Specifically, `StatelessService.onOpenAsync()` is called. This is an uncommon override, but it is available.
 
 ## Stateless service shutdown
 When shutting down a stateless service, the same pattern is followed, but in reverse:
@@ -61,8 +61,8 @@ Stateful services have a pattern that is similar to stateless services, with a f
       - If the service is a primary service, all returned listeners are opened. `CommunicationListener.openAsync()` is called on each listener.
       - If the service is a secondary service, only listeners marked as `listenOnSecondary = true` are opened. Having listeners that are open on secondaries is less common.
 4. Then in parallel:
-  - If the service is currently a primary, the service's `StatefulServiceBase.runAsync()` method is called.
-  - `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
+    - If the service is currently a primary, the service's `StatefulServiceBase.runAsync()` method is called.
+    - `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
 
   > [!NOTE]
@@ -96,8 +96,8 @@ Similarly, Service Fabric needs the secondary replica that's promoted to start l
 1. `CommunicationListener.closeAsync()` is called for all the opened listeners (marked with listenOnSecondary = true)
 2. All the communication listeners are opened. `CommunicationListener.openAsync()` is called on each listener.
 3. Then in parallel:
-  - The service's `StatefulServiceBase.runAsync()` method is called.
-  - `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
+    - The service's `StatefulServiceBase.runAsync()` method is called.
+    - `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
   > [!NOTE]
   > `createServiceReplicaListeners` is called only once and is not called again during the replica promotion or demotion process; the same `ServiceReplicaListener` instances are used but new `CommunicationListener` instances are created (by calling the `ServiceReplicaListener.createCommunicationListener` method) after the previous instances are closed.

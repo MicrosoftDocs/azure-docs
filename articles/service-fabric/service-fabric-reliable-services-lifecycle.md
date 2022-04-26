@@ -33,9 +33,9 @@ The lifecycle of a stateless service is straightforward. Here's the order of eve
 
 1. The service is constructed.
 2. `StatelessService.CreateServiceInstanceListeners()` is invoked and any returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
-3. Then, in parallel, two things happen-
-  - The service's `StatelessService.RunAsync()` method is called.
-  - If present, the service's `StatelessService.OnOpenAsync()` method is called. This call is an uncommon override, but it is available. Extended service initialization tasks can be started at this time.
+3. Then, in parallel, two things happen -
+    - The service's `StatelessService.RunAsync()` method is called.
+    - If present, the service's `StatelessService.OnOpenAsync()` method is called. This call is an uncommon override, but it is available. Extended service initialization tasks can be started at this time.
 
 ## Stateless service shutdown
 For shutting down a stateless service, the same pattern is followed, just in reverse:
@@ -54,8 +54,8 @@ Stateful services have a similar pattern to stateless services, with a few chang
       - If the service is a Primary service, all returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
       - If the service is a Secondary service, only those listeners marked as `ListenOnSecondary = true` are opened. Having listeners that are open on secondaries is less common.
 4. Then in parallel:
-  - If the service is currently a Primary, the service's `StatefulServiceBase.RunAsync()` method is called.
-  - `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
+    - If the service is currently a Primary, the service's `StatefulServiceBase.RunAsync()` method is called.
+    - `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
 
    > [!NOTE]  
@@ -90,8 +90,8 @@ Similarly, Service Fabric needs the Secondary replica that's promoted to start l
 1. `ICommunicationListener.CloseAsync()` is called for all the opened listeners (marked with ListenOnSecondary = true).
 2. All the communication listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
 3. Then in parallel:
-  - The service's `StatefulServiceBase.RunAsync()` method is called.
-  - `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
+    - The service's `StatefulServiceBase.RunAsync()` method is called.
+    - `StatefulServiceBase.OnChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
   > [!NOTE]
   > `CreateServiceReplicaListeners` is called only once and is not called again during the replica promotion or demotion process; the same `ServiceReplicaListener` instances are used but new `ICommunicationListener` instances are created (by calling the `ServiceReplicaListener.CreateCommunicationListener` method) after the previous instances are closed.
