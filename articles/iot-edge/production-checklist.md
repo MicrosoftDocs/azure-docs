@@ -283,7 +283,7 @@ When you're testing an IoT Edge deployment, you can usually access your devices 
 
 ### Set up default logging driver
 
-By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. If you have not already set up your logging mechanism during the Moby Engine installation step, we recommend that you configure the setting to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. `Local` logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent from disk space exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limit based on your need.
+By default, the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space.  We recommend that you configure the log driver setting to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. `Local` logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk space exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limits based on your need.
 
 #### Option: Configure the default logging driver for all container modules
 
