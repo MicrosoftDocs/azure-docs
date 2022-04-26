@@ -21,17 +21,17 @@ Choose a platform for installation instructions.
 
 ### [Linux](#tab/linux)
 
-[!INCLUDE [Linux](linux.md)]
+[!INCLUDE [Linux](gstreamer-linux.md)]
 
 ### [Windows](#tab/windows)
 
-[!INCLUDE [Windows](windows.md)]
+[!INCLUDE [Linux](gstreamer-windows.md)]
 
 ***
 
 ## Example
 
-To configure the Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream. Find related sample code snippets in [About the Speech SDK audio input stream API](../../../../how-to-use-audio-input-streams.md).
+To configure the Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream. Find related sample code snippets in [About the Speech SDK audio input stream API](../../../how-to-use-audio-input-streams.md).
 
 Let's assume that you have an input stream class called `pullStream` and are using OPUS/OGG. Your code might look like this:
 

@@ -18,11 +18,11 @@ Choose a platform for installation instructions.
 
 ### [Linux](#tab/linux)
 
-[!INCLUDE [Linux](linux.md)]
+[!INCLUDE [Linux](gstreamer-linux.md)]
 
 ### [Windows](#tab/windows)
 
-[!INCLUDE [Windows](windows.md)]
+[!INCLUDE [Linux](gstreamer-windows.md)]
 
 ***
 

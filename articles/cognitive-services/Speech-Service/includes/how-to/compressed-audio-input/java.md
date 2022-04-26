@@ -17,11 +17,11 @@ Choose a platform for installation instructions.
 
 ### [Android](#tab/android)
 
-[!INCLUDE [Android](android.md)]
+[!INCLUDE [Android](gstreamer-android.md)]
 
 ### [Linux](#tab/linux)
 
-[!INCLUDE [Linux](linux.md)]
+[!INCLUDE [Linux](gstreamer-linux.md)]
 
 ### [Windows](#tab/windows)
 
