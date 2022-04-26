@@ -33,7 +33,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 - **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers native support for certificate use, including smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV). These methods are in use throughout the US Department of Defense (DoD) & US Federal Civilian agencies as well as derived credentials (Such as derived CAC/PIV) on mobile devices or security keys
 
-- **[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multfactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+- **[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multifactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
 
 ### Protection from external phishing
 
@@ -48,7 +48,7 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 Two scenarios for using Microsoft Authenticator on a mobile device:
 
 - If the mobile devices is used to access the application in addition to hosting Microsoft Authenticator, it musts be managed.
-- If Microsoft Authenticator resides on the mobile device, but the application is accessed from a separate managed device, the mobile device does not need to be managaged.
+- If Microsoft Authenticator resides on the mobile device, but the application is accessed from a separate managed device, the mobile device does not need to be managed.
 
 For more information on using this method, see the following resources:
 - [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
@@ -58,8 +58,8 @@ For more information on using this method, see the following resources:
 ### Legacy
 
 **Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with certificate-based authentication** are legacy solutions we recommend you move away from. However, if you cannot move to modern methods, the following resources will be useful:
-- [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
-- [Configuring AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
+- [Deploying Active Directory Federation Services in Azure](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+- [Configuring AD FS for user certificate authentication](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
 ### Additional phishing-resistant method considerations
 
