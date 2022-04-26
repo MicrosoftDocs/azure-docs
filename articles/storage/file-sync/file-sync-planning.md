@@ -69,7 +69,7 @@ Azure File Sync is supported with the following versions of Windows Server:
 
 | Version | Supported SKUs | Supported deployment options |
 |---------|----------------|------------------------------|
-| Windows Server 2022 | Datacenter, Standard, and IoT | Full and Core |
+| Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
 | Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |

@@ -47,7 +47,7 @@ import azure.cognitiveservices.speech as speechsdk
 def from_mic():
     speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
-    
+
     print("Speak into your microphone.")
     result = speech_recognizer.recognize_once_async().get()
     print(result.text)
@@ -68,7 +68,7 @@ def from_file():
     speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
     audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
-    
+
     result = speech_recognizer.recognize_once_async().get()
     print(result.text)
 
@@ -93,6 +93,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
     if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
+        print("Did you set the speech resource key and region values?")
 ```
 
 ## Use continuous recognition

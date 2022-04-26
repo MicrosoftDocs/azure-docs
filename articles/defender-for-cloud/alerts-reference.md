@@ -12,7 +12,7 @@ ms.date: 03/30/2022
 
 This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
-At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
+At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
 
 [Learn how to respond to these alerts](managing-and-responding-alerts.md).
 
@@ -607,7 +607,7 @@ Understanding the intention of an attack can help you investigate and report the
 
 The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration is often referred to as a "kill chain". 
 
-Defender for Cloud's supported kill chain intents are based on [version 7 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/) and described in the table below.
+Defender for Cloud's supported kill chain intents are based on [version 9 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/) and described in the table below.
 
 | Tactic                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
