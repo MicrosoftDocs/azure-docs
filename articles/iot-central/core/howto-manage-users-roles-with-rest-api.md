@@ -19,7 +19,7 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 > [!TIP]
-> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/users) includes support for the new [organizations feature](howto-create-organizations.md).
+> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/users) includes support for the new [organizations feature](howto-create-organizations.md).
 
 ## Manage roles
 
