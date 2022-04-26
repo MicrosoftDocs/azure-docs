@@ -156,6 +156,19 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 ---
 
+### General Availability - Customer data storage for Japan customers in Japanese data centers
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** GoLocal
+**Clouds impacted:** Public (Microsoft 365,GCC)
+
+From April 15, 2022, Microsoft began storing Azure AD’s Customer Data for new tenants with a Japan billing address within the Japanese data centers.  For more information, see: [Customer data storage for Japan customers in Azure Active Directory](active-directory-data-storage-japan.md).
+
+
+---
+
+
 
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - April 2022
 
