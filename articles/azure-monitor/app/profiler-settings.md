@@ -37,7 +37,7 @@ Select the **Profiler** button from the top menu.
 
 Once within the Profiler, you can configure and view the Profiler. The **Application Insights Profiler** page has these features:
 
-:::image type="content" source="./media/profiler-settings/configure-blade.png" alt-text="Profiler page features and settings":::
+:::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Profiler page features and settings" lightbox="media/profiler-settings/configure-blade.png":::
 
 | Feature | Description |
 |-|-|

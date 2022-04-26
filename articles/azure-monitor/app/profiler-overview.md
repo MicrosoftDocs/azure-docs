@@ -54,7 +54,7 @@ If you've newly enabled Profiler, you can run a short [load test](/vsts/load-tes
 
 1. Once the Profiler settings page loads, select **Profile Now**. 
 
-   :::image type="content" source="./media/profiler-overview/configure-blade.png" alt-text="Screenshot of the Profiler Now button for manually loading a session":::
+   :::image type="content" source="./media/profiler-settings/configure-blade-inline.png" alt-text="Profiler page features and settings" lightbox="media/profiler-settings/configure-blade.png":::
 
 ### View traces
 1. After the Profiler sessions finish running, return to the **Performance** pane. 
