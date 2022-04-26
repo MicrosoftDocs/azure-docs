@@ -64,7 +64,7 @@ To email dashboard widgets data, select **Share** and provide the email informat
 
 ### What’s new
 
-:::image type="content" source="media/customer-dashboard/button-what-new.png" alt-text="Screenshot shows the Email window option of the Share function on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/button-what-new.png" alt-text="Screenshot shows the What's New option on the Insights screen of the Customers dashboard.":::
 
 Use this to check on changes and enhancements.
   
@@ -74,7 +74,7 @@ Use this to check on changes and enhancements.
 
 View the data source and the data refresh details, such as frequency of the data refresh.
 
-### Feedback
+### Got feedback?
 
 :::image type="content" source="media/customer-dashboard/button-feedback.png" alt-text="Screenshot shows the Feedback menu option on the Insights screen of the Customers dashboard.":::
 
