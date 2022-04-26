@@ -434,7 +434,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
 
     // Set MySQL user depending on the environment
-    String user;
+    string user;
     if (String.IsNullOrEmpty(Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT")))
         user = "<aad-user-name>@<server-name>";
     else user = "<mysql-user-name>@<server-name>";
