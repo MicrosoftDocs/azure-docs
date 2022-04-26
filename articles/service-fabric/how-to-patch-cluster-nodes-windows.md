@@ -41,7 +41,7 @@ When enabling automatic OS updates, you'll also need to disable Windows Update i
         "enableAutomaticOSUpgrade": true
       }
     }
-  },
+  }
   ```
    
     
