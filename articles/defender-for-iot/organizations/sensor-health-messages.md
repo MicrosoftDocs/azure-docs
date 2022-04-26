@@ -5,7 +5,7 @@ ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-## Sensor health message reference
+# Sensor health message reference
 
 This article lists the sensor health messages displayed in the **Sites and sensors** page in the Azure portal.
 

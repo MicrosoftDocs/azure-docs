@@ -214,7 +214,7 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
 
 **To upload a diagnostics report**:
 
-1. Make sure you have the diagnostics report available for upload. For more information, see [Download a support diagnostics for support](how-to-manage-individual-sensors.md#download-a-support-diagnostics-for-support).
+1. Make sure you have the diagnostics report available for upload. For more information, see [Download a support diagnostics for support](how-to-manage-individual-sensors.md#download-diagnostics-for-support).
 
 1. In Defender for IoT in the Azure portal, go to the **Sites and sensors** page and select the locally-managed sensor that's related to your support ticket.
 
