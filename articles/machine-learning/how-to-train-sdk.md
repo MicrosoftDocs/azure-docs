@@ -33,7 +33,7 @@ In this article, you learn how to configure and submit Azure Machine Learning jo
 To run the training examples, first clone the examples repository and change into the `sdk` directory:
 
 ```bash
-git clone --depth 1 https://github.com/Azure/azureml-examples
+git clone --depth 1 https://github.com/Azure/azureml-examples --branch sdk-preview
 cd azureml-examples/sdk
 ```
 
@@ -51,7 +51,9 @@ Start by running a script, which trains a model using `lightgbm`. The script fil
 Run this script file as follows
 
 ```bash
-python main.py --iris-csv https://azuremlexamples.blob.core.windows.net/datasets/iris.csv  --learning-rate 0.9 --boosting gbdt
+cd jobs/single-step/lightgbm/iris
+
+python src/main.py --iris-csv https://azuremlexamples.blob.core.windows.net/datasets/iris.csv  --learning-rate 0.9 --boosting gbdt
 ```
 
 The output expected is as follows:
@@ -82,6 +84,8 @@ Let us tackle these steps below
 
 To connect to the workspace, you need identifier parameters - a subscription, resource group and workspace name. You'll use these details in the `MLClient` from `azure.ml` to get a handle to the required Azure Machine Learning workspace. To authenticate, you use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python). Check this [example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
+
 ```python
 #import required libraries
 from azure.ml import MLClient
@@ -101,7 +105,7 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 You'll create a compute called `cpu-cluster` for your job, with this code:
 
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
+[!notebook-python[] (~/azureml-examples-sdk-preview/sdk-preview/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
 
 ```python
 from azure.ml.entities import AmlCompute
@@ -152,8 +156,10 @@ command_job=command(
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
 
 ```python
-#submit the command
-returned_job = ml_client.create_or_update(command_job)
+# submit the command
+returned_job = ml_client.jobs.create_or_update(command_job)
+# get a URL for the status of the job
+returned_job.services["Studio"].endpoint
 ```
 
 In the above, you configured:
@@ -202,8 +208,10 @@ sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=10, timeout=7200
 [!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-sweep)]
 
 ```python
-#submit the sweep job
+# submit the sweep
 returned_sweep_job = ml_client.create_or_update(sweep_job)
+# get a URL for the status of the job
+returned_sweep_job.services["Studio"].endpoint
 ```
 
 As seen above, the `sweep` function allows user to configure the following key aspects:
