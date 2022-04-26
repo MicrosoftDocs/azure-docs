@@ -60,7 +60,7 @@ If you've newly enabled Profiler, you can run a short [load test](/vsts/load-tes
 1. After the Profiler sessions finish running, return to the **Performance** pane. 
 1. Under **Drill into...**, select **Profiler traces** to view the traces.
 
-   :::image type="content" source="./media/profiler-overview/trace-explorer-inline.png" alt-text="Screenshot of trace explorer page" lightbox="media/profiler-settings/trace-explorer.png":::
+   :::image type="content" source="./media/profiler-overview/trace-explorer-inline.png" alt-text="Screenshot of trace explorer page" lightbox="media/profiler-overview/trace-explorer.png":::
 
 The trace explorer displays the following information:
 
