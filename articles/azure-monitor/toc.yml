@@ -1016,8 +1016,10 @@ items:
         href: app/profiler-servicefabric.md
       - name: Enable Profiler for an Azure VM
         href: app/profiler-vm.md
-      - name: Profiler for Linux App services (preview)
+      - name: Enable Profiler for Linux App services (preview)
         href: app/profiler-aspnetcore-linux.md
+      - name: Enable Profiler for a Container
+        href: app/profiler-containers.md
       - name: Profiler Settings
         href: app/profiler-settings.md
       - name: Track Requests for Profiling
