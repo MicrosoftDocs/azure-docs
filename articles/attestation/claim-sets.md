@@ -134,6 +134,7 @@ Azure Attestation includes the below claims in the attestation token for all att
 - **x-ms-attestation-type**: String value representing attestation type 
 - **x-ms-policy-hash**: Hash of Azure Attestation evaluation policy computed as BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
 - **x-ms-policy-signer**: JSON object with a "jwk” member representing the key a customer used to sign their policy. This is applicable when customer uploads a signed policy
+- **x-ms-runtime**: JSON object containing “claims” that are defined and generated within the attested environment.  This is a specialization of the “enclave held data” concept, where the “enclave held data” is specifically formatted as a UTF-8 encoding of well formed JSON. 
 
 Below claim names are used from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
 
@@ -156,6 +157,7 @@ tee | x-ms-attestation-type
 policy_hash | x-ms-policy-hash
 maa-policyHash | x-ms-policy-hash
 policy_signer  | x-ms-policy-signer
+rp_data  | nonce
 
 ### SGX attestation 
 
@@ -174,7 +176,8 @@ Below claims are generated and included in the attestation token by the service 
     - **quotehash**: SHA256 value of the evaluated quote
     - **tcbinfocertshash**: SHA256 value of the TCB Info issuing certs
     - **tcbinfocrlhash**: SHA256 value of the TCB Info issuing certs CRL list
-    - **tcbinfohash**: SHA256 value of the TCB Info collateral
+    - **tcbinfohash**: SHA256 value of the TCB Info collateral 
+- **x-ms-sgx-report-data**: SGX enclave report data field (usually SHA256 hash of x-ms-sgx-ehd) 
 
 Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
 
