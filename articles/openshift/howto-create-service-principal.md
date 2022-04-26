@@ -73,25 +73,16 @@ The output is similar to the following example.
 
 { 
 
-<<<<<<< HEAD
   "appId": "", 
-=======
   "appId": "<appId>", 
->>>>>>> 87431ce41d1cc94f5a5e5e832c3e9c0d259e298b
 
   "displayName": "myAROClusterServicePrincipal", 
 
   "name": "http://myAROClusterServicePrincipal", 
 
-<<<<<<< HEAD
   "password": "", 
 
   "tenant": "" 
-=======
-  "password": "<password>", 
-
-  "tenant": "<tenant-id>" 
->>>>>>> 87431ce41d1cc94f5a5e5e832c3e9c0d259e298b
 
 } 
 
