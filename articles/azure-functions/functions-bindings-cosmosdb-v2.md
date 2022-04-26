@@ -52,7 +52,7 @@ The process for installing the extension varies depending on the extension versi
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x.
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 3.x.
 
 # [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
 

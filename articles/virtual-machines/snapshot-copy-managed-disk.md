@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 04/22/2022
 ---
 
 # Create a snapshot of a virtual hard disk
@@ -126,7 +126,7 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
 
 ## Next steps
 
-Deploy a virtual machine from a snapshot. Create a managed disk from a snapshot and then attach the new managed disk as the OS disk.
+To recover using a snapshot, you must create a new disk from the snapshot, then either deploy a new VM, and use the managed disk as the OS disk, or attach the disk as a data disk to an existing VM.
 
 # [Portal](#tab/portal)
 

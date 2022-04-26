@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 04/25/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -103,6 +103,7 @@ Field definitions are streamlined: [SearchableField](/dotnet/api/azure.search.do
 |------------|-----------------------|
 | [IndexAction](/dotnet/api/microsoft.azure.search.models.indexaction) | [IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) |
 | [IndexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
+| [IndexBatchException.FindFailedActionsToRetry()](/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) | [SearchIndexingBufferedSender](/dotnet/api/azure.search.documents.searchindexingbufferedsender-1) |
 
 ### Query requests and responses
 

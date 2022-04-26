@@ -459,6 +459,14 @@ In the following tables, the term alphanumeric refers to:
 > | /clusters / databases / dataConnections | database | 1-40 | Alphanumerics, hyphens, spaces, and periods. |
 > | /clusters / databases / eventhubconnections | database | 1-40 | Alphanumerics, hyphens, spaces, and periods. |
 
+## Microsoft.LabServices
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | labplans | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
+> | labs | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
+
 ## Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
@@ -719,7 +727,7 @@ In the following tables, the term alphanumeric refers to:
 > | servers / databases | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / databases / syncGroups | database | 1-150 | Alphanumerics, hyphens, and underscores. |
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
-> | servers / failoverGroups | global |  1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
+> | servers / failoverGroups | global |  1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. <br><br> Can't have hyphen twice in both third and fourth place. For example, `ab--cde` is not allowed. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
 > | servers / keys | server |  | Must be in format:<br>`VaultName_KeyName_KeyVersion`. |
 
@@ -771,7 +779,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | workspaces | global | 1-50 | Lowercase letters, hyphens, and numbers.<br><br>Start and end with letter or number.<br><br>Can't contain `-ondemand` |
 > | workspaces / bigDataPools | workspace | 1-15 | Letters and numbers.<br><br>Start with letter. End with letter or number.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
-> | workspaces / sqlPools | workspace | 1-15  |  Can contain only letters, numbers, or underscore.<br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
+> | workspaces / sqlPools | workspace | 1-60 | Can't contain `<>*%&:\/?@-` or control characters. <br><br>Can't end with `.` or space. <br><br>Can't contain [reserved word](../troubleshooting/error-reserved-resource-name.md). |
 
 ## Microsoft.TimeSeriesInsights
 
