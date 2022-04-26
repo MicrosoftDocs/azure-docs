@@ -56,7 +56,7 @@ To update the Azure modules in your Automation account, you must use the [Update
 
 The **Update-AutomationAzureModulesForAccount** runbook supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az.Automation modules with this runbook. There are additional important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Manage modules in Azure Automation](shared-resources/modules.md).
 
-### Use the update runbook code as a regular PowerShell script
+#### Use the update runbook code as a regular PowerShell script
 
 You can use the runbook code as a regular PowerShell script instead of a runbook. To do this, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet first, then pass `-Login $false` to the script.
 
