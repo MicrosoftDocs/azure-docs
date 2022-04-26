@@ -20,7 +20,7 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 | Workload                                        | HBv3                                                              |
 |-------------------------------------------------|-------------------------------------------------------------------|
-| STREAM Triad                                    | 330-350 GB/s (~82-86 GB/s per NUMA)                                     |
+| STREAM Triad                                    | 330-350 GB/s (amplified up to 630 GB/s)                                     |
 | High-Performance Linpack (HPL)                  | 4 TF (Rpeak, FP64), 8 TF (Rpeak, FP32) for 120-core VM size               |
 | RDMA latency & bandwidth                        | 1.2 microseconds (1-byte), 192 Gb/s (one-way)                                        |
 | FIO on local NVMe SSDs (RAID0)                  | 7 GB/s reads, 3 GB/s writes; 186k IOPS reads, 201k IOPS writes |

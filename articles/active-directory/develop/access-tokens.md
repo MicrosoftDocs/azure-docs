@@ -123,18 +123,16 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
 
 ```JSON
 {
-  ...
-  "_claim_names": {
-   "groups": "src1"
+    ...
+    "_claim_names": {
+        "groups": "src1"
     },
-    {
-  "_claim_sources": {
-    "src1": {
-        "endpoint":"[Url to get this user's group membership from]"
-        }
-       }
-     }
-  ...
+    "_claim_sources": {
+        "src1": {
+            "endpoint": "[Url to get this user's group membership from]"
+        }   
+    }
+    ...
 }
 ```
 
