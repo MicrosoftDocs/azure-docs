@@ -17,8 +17,7 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 Azure AD Connect was released several years ago.  Since this time, several of the components that Azure AD Connect uses have been scheduled for deprecation and updated to newer versions.  To attempt to update all of these components individually would take time and planning. 
 
-> [!NOTE]
-> Azure AD Connect Health is not available in the China sovereign cloud 
+
 
 To address this, we have bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This is a new version of the same software used to accomplish your hybrid identity goals that is built using the latest foundational components. 
 
