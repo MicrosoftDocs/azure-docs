@@ -6,7 +6,7 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 04/27/2022
 ---
 
 # How to request quota increase for Azure Cosmos DB resources
