@@ -49,7 +49,7 @@ This template defines 4 parameters:
 
 3. Select **Use this template**. 
 
-  :::image type="content" source="solution-template-extract-data-from-pdf/extract-data-from-pdf3.png" alt-text="Use this template":::
+  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf3.png" alt-text="Use this template":::
 
 4. You should see the following pipeline: 
 
