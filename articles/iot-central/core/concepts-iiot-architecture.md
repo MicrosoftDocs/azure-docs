@@ -81,13 +81,15 @@ Secure your IIoT solution by using the following IoT Central features:
 
 ## Patterns
 
+:::image type="content" source="media/concepts-iiot-architecture/automation-pyramid.svg" alt-text="Diagram that shows the five levels of the automation pyramid." border="false":::
+
 The automation pyramid represents the layers of automation in a typical factory:
 
-- Production floor (layer 5) represents sensors and related technologies such as flow meters, valves, pumps which keep variables such as flow, heat and pressure under allowable parameters.
+- Production floor (level one) represents sensors and related technologies such as flow meters, valves, pumps which keep variables such as flow, heat and pressure under allowable parameters.
 
-- Control or programmable logic controller (PLC) layer (layer 4) is the brains behind shop floor processes which help monitor the sensors and maintain parameters throughout the production lines.
+- Control or programmable logic controller (PLC) layer (level two) is the brains behind shop floor processes which help monitor the sensors and maintain parameters throughout the production lines.
 
-- Supervisory control and data acquisition layer, SCADA (layer 3) provides human machine interfaces (HMI) as process data is monitored and controlled through human interactions and stored in databases.
+- Supervisory control and data acquisition layer, SCADA (level three) provides human machine interfaces (HMI) as process data is monitored and controlled through human interactions and stored in databases.
 
 You can adapt the following architecture patterns to implement your IIoT solutions:
 
@@ -99,9 +101,9 @@ Azure IoT first-party edge modules connect to OPC UA Servers and publish OPC UA 
 
 ### Connectivity partner OT solutions with direct connectivity to Azure IoT Central
 
-Connectivity partner solutions from manufacturing specific solution providers can simplify and speed up connecting manufacturing equipment to the cloud. Connectivity partner solutions may include software to support layer two, layer three and connectivity into layer four of the automatic pyramid.
+Connectivity partner solutions from manufacturing specific solution providers can simplify and speed up connecting manufacturing equipment to the cloud. Connectivity partner solutions may include software to support level four, level three and connectivity into level two of the automatic pyramid.
 
-Connectivity partner solutions provide driver software to connect into layer 4 of the automation pyramid to help connect to your manufacturing equipment and retrieve meaningful data.
+Connectivity partner solutions provide driver software to connect into level two of the automation pyramid to help connect to your manufacturing equipment and retrieve meaningful data.
 
 Connectivity partner solutions may do protocol translation to enable data to be sent to the cloud. For example, from Ethernet IP or Modbus TCP into OPCUA or MQTT.
 
