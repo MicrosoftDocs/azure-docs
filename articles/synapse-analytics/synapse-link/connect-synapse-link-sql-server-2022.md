@@ -15,7 +15,7 @@ ms.reviewer: sngun
 This article provides a step-by-step guide for getting started with Azure Synapse Link for SQL Server 2022.
 
 > [!IMPORTANT]
-> Synapse Link for Azure SQL Database is currently in PREVIEW.
+> Synapse Link for SQL Server 2022 is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
@@ -178,9 +178,6 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Select **Start** and wait a few minutes for the data to be replicated.
 
-   > [!NOTE]
-   > When you complete the steps in this article, select **Stop** from the same screen. For now, continue with the rest of the guide.
-
 ## Monitor Synapse Link for SQL Server 2022
 
 You may monitor the status of your Synapse Link connection, see which tables are being initially copied over (Snapshotting), and see which tables are in continuous replication mode (Replicating).
@@ -215,7 +212,7 @@ You can add/remove tables on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Select **+New** table to add tables on Synapse Studio or remove the existing tables.
+1. Select **+New** table to add tables on Synapse Studio or remove the existing tables. You can add or remove tables when the link connection is running.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Link connection add table.":::
 
@@ -227,7 +224,7 @@ You can stop the Synapse link connection on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Select **Stop** to stop the Synapse link for SQL 2022.
+1. Select **Stop** to stop the link connection, and it will stop replicating your data.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop link.":::
 
@@ -259,7 +256,7 @@ The following is the list of known limitations for Synapse Link for SQL Server 2
 * Synapse Link for SQL Server 2022 CANNOT be enabled for source tables in SQL Server 2022 in following conditions:
   * Source tables do not have primary keys.
   * The PK columns in source tables contain the unsupported data types including real, float, hierarchyid, sql_variant and timestamp.  
-  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row. For more information, see [Large Row Support](https://docs.microsoft.com/sql/relational-databases/pages-and-extents-architecture-guide?view=sql-server-ver15#large-row-support).
+  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row.
 
 * When SQL Server 2022 database owner does not have a mapped login, Synapse link for SQL Server 2022 will run into error when enabling a link connection. User can set database owner to sa to fix this.
 * The computed columns and the column containing unsupported data types by Synapse SQL Pool including image, text, xml, timestamp, sql_variant, UDT, geometry, geography in source tables in SQL Server 2022 will be skipped, and not to replicate to the Synapse SQL Pool.

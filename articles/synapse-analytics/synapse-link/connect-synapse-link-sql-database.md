@@ -74,11 +74,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Enter a unique pool name, use the default settings, and create the dedicated pool.
 
-1. From the **Data** hub, under **Workspace**, you should see your new Synapse SQL database listed under **Databases**. From your new Synapse SQL database, select **New SQL script**, then **Empty script**.
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-empty-sql-script.png" alt-text="Create a new empty SQL script from Synapse Studio.":::
-
-1. You need to write scripts and select **Run** to create a schema if your expected schema is not available in target Synapse SQL database. If your schema is dbo, you can skip this step.
+1. You need to create a schema if your expected schema is not available in target Synapse SQL database. If your schema is dbo, you can skip this step.
 
 
 ## Create the Synapse Link connection
@@ -133,9 +129,6 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Select **Start** and wait a few minutes for the data to be replicated.
 
-   > [!NOTE]
-   > When you complete the steps in this article, select **Stop** from the same screen. For now, continue with the rest of the guide.
-
 ## Monitor the status of the Synapse Link connection
 
 You may monitor the status of your Synapse Link connection, see which tables are being initially copied over (Snapshotting), and see which tables are in continuous replication mode (Replicating).
@@ -168,7 +161,7 @@ You can add/remove tables on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Select **+New** table to add tables on Synapse Studio or remove the existing tables.
+1. Select **+New** table to add tables on Synapse Studio or remove the existing tables. You can add or remove tables when the link connection is running.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Link connection add table.":::
 
@@ -180,7 +173,7 @@ You can stop the Synapse link connection on Synapse Studio as following:
 
 1. Select the **Link connection** you want to edit and open it.  
 
-1. Select **Stop** to stop the Synapse link for SQL 2022.
+1. Select **Stop** to stop the link connection, and it will stop replicating your data.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop link.":::
 
@@ -203,7 +196,7 @@ The following is the list of known limitations for Synapse Link for Azure SQL Da
 
   * Source tables do not have primary keys.
   * The PK columns in source tables contain the unsupported data types including real, float, hierarchyid, sql_variant and timestamp.  
-  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row. For more information, see [Large Row Support](https://docs.microsoft.com/sql/relational-databases/pages-and-extents-architecture-guide?view=sql-server-ver15#large-row-support).
+  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row.
 
 * When SQL DB owner does not have a mapped login, Synapse link for SQL DB will run into error when enabling a link connection. User can set database owner to sa to fix this.
 
