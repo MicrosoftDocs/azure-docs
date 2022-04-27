@@ -31,7 +31,7 @@ To [install](https://velero.io/docs/main/basic-install/) Velero on your system, 
 
 This step will create a resource group outside of the ARO cluster's resource group.  This resource group will allow the backups to persist and can restore applications to new clusters.
 
-```bash
+```azurecli
 AZURE_BACKUP_RESOURCE_GROUP=Velero_Backups
 az group create -n $AZURE_BACKUP_RESOURCE_GROUP --location eastus
 
@@ -60,13 +60,13 @@ export AZURE_RESOURCE_GROUP=$(az aro show --name <name of cluster> --resource-gr
 ```
 
 
-```bash
+```azurecli
 AZURE_SUBSCRIPTION_ID=$(az account list --query '[?isDefault].id' -o tsv)
 
 AZURE_TENANT_ID=$(az account list --query '[?isDefault].tenantId' -o tsv)
 ```
 
-```bash
+```azurecli
 AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --name "velero" --role "Contributor" --query 'password' -o tsv \
 --scopes  /subscriptions/$AZURE_SUBSCRIPTION_ID)
 AZURE_CLIENT_ID=$(az ad sp list --display-name "velero" --query '[0].appId' -o tsv)
