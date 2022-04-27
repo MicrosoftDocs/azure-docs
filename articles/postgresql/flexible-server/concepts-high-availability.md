@@ -81,7 +81,7 @@ After the failover, while a new standby server is being provisioned, application
 
 ## On-demand failover
 
-Flexible server provides two methods for you to perform on-demand failover to the standby server. These are useful if you want to test the failover time and downtime impact for your applications and if you want to failover to the preferred availability zone. 
+Flexible server provides two methods for you to perform on-demand failover to the standby server. These are useful if you want to test the failover time and downtime impact for your applications and if you want to fail over to the preferred availability zone. 
 
 ### Forced failover
 
