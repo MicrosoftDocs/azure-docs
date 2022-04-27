@@ -456,6 +456,11 @@ sections:
 
           Learn more about [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context).
 
+      - question: |
+          How are my trained custom models stored and utilized in Form Recognizer?
+        answer: |
+          The Custom model feature allows customers to build custom models from training data stored in customer’s Azure blob storage locations. The interim outputs after analysis and labeling are stored in the same location. The trained custom models are stored in Azure storage in the same region and logically isolated with their Azure subscription and API credentials.
+
   - name: More help and support
     questions:
       - question: |
