@@ -6,8 +6,8 @@ ms.date: 03/30/2022
 ms.custom: devx-track-csharp
 ---
 # Overview
-BinaryFormatter based serialization is not secure and Microsoft strongly recommends not to use BinaryFormatter for data processing. More details on the security implications can be found [here](https://docs.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide).
-Service Fabric had been using BinaryFormatter for serializing Exceptions. Starting ServiceFabric v9.0, [Data Contract based serialization](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.datacontractserializer?view=net-6.0) is made available as an opt-in feature. It is strongly recommended to opt for DataContract remoting exception serializationby following the below mentioned steps.
+BinaryFormatter based serialization is not secure and Microsoft strongly recommends not to use BinaryFormatter for data processing. More details on the security implications can be found [here](https://docs.microsoft.com/dotnet/standard/serialization/binaryformatter-security-guide).
+Service Fabric had been using BinaryFormatter for serializing Exceptions. Starting ServiceFabric v9.0, [Data Contract based serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?view=net-6.0) for remoting exceptions is made available as an opt-in feature. It is strongly recommended to opt for DataContract remoting exception serializationby following the below mentioned steps.
 
 Support for BinaryFormatter based remoting exception serialization will be deprecated in the future.
 
@@ -80,7 +80,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 If the original exception has multiple levels of inner exceptions, then you can control the number of levels of inner exceptions to be serialized by setting `FabricTransportRemotingListenerSettings.RemotingExceptionDepth`.
 
-2. Enable DataContract remoting exception serialization on the **Client** by using `FabricTransportRemotingSettings.ExceptionSerializationTechnique` while creating the Client Factory
+2. Enable DataContract remoting exception serialization on the **Client** by using `FabricTransportRemotingSettings.ExceptionDeserializationTechnique` while creating the Client Factory
   - ServiceProxyFactory creation
 ```csharp
 var serviceProxyFactory = new ServiceProxyFactory(
@@ -111,8 +111,8 @@ var actorProxyFactory = new ActorProxyFactory(
 3. DataContract remoting exception serialization converts Exception to Data Transfer Object(DTO) on the service side and the DTO is converted back to Exception on the client side. Users need to register `ExceptionConvertor` for converting desired exceptions to DTO objects and vice versa.
 Framework implements Convertors for the below list of the exceptions. If user service code depends on exceptions outside the below list for retry implementation, exception handling, etc., then user needs to implement and register convertors for such exceptions.
 
-  * All service fabric exceptions(derived from `FabricException`)
-  * SystemExceptions
+  * All service fabric exceptions(derived from `System.Fabric.FabricException`)
+  * SystemExceptions(derived from `System.SystemException`)
     * System.AccessViolationException
     * System.AppDomainUnloadedException
     * System.ArgumentException
