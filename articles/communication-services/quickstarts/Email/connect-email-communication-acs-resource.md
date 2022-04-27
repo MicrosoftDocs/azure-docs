@@ -45,5 +45,5 @@ ms.custom: private_preview
 -  In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
 -  Select the Connected Domains click the ... and click Disconnect.  
 
-    :::image type="content" source="./media/email-acs-domains-connect-disconnect.png" alt-text="Disconnected Domains":::
+    :::image type="content" source="./media/email-acs-domains-connect-disconnect.png" alt-text="Disconnect Domains":::
 
