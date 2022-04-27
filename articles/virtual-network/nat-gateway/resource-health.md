@@ -16,7 +16,7 @@ This article provides guidance on how to use Azure Resource Health to monitor an
 
 ## Resource health status
 
-[Azure Resource Health](/azure/service-health/overview) provides information about the health of your NAT gateway resource. You can use resource health and Azure monitor notifications to keep you informed on the availability and health status of your NAT gateway resource. Resource health can help you quickly assess whether an issue is due to a problem in your Azure infrastructure or because of an Azure platform event.  The resource health of your NAT gateway is evaluated by measuring the data-path availability of your NAT gateway endpoint.
+[Azure Resource Health](/azure/service-health/overview) provides information about the health of your NAT gateway resource. You can use resource health and Azure monitor notifications to keep you informed on the availability and health status of your NAT gateway resource. Resource health can help you quickly assess whether an issue is due to a problem in your Azure infrastructure or because of an Azure platform event. The resource health of your NAT gateway is evaluated by measuring the data-path availability of your NAT gateway endpoint.
 
 You can view the status of your NAT gateway’s health status on the **Resource Health** page, found under **Support + troubleshooting** for your NAT gateway resource.  
 
