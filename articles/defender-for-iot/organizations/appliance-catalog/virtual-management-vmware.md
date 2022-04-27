@@ -1,13 +1,13 @@
 ---
-title: On-premises management console (VMWare ESXi) - Microsoft Defender for IoT
-description: Learn about deploying a Microsoft Defender for IoT on-premises management console as a virtual appliance using VMWare ESXi.
+title: On-premises management console (VMware ESXi) - Microsoft Defender for IoT
+description: Learn about deploying a Microsoft Defender for IoT on-premises management console as a virtual appliance using VMware ESXi.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# On-premises management console (VMWare ESXi)
+# On-premises management console (VMware ESXi)
 
-This article describes an on-premises management console deployment on a virtual appliance using VMWare ESXi.
+This article describes an on-premises management console deployment on a virtual appliance using VMware ESXi.
 
 | Appliance characteristic |Details |
 |---------|---------|
@@ -30,7 +30,7 @@ Make sure the hypervisor is running.
 
 ## Create the virtual machine
 
-This procedure describes how to create a virtual machine for your on-premises management console using VMWare ESXi.
+This procedure describes how to create a virtual machine for your on-premises management console using VMware ESXi.
 
 **To create the virtual machine**:
 

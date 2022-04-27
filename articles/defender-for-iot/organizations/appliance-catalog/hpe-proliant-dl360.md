@@ -118,7 +118,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 1. In the **Create Array** form, select all the options.
 
 
-### Install iLO remotely from from a virtual drive
+### Install iLO remotely from a virtual drive
 
 This procedure describes how to install iLO software remotely from a virtual drive.
 
