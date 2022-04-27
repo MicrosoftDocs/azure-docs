@@ -21,7 +21,7 @@ This Azure CLI script example deploys a custom domain name and TLS certificate o
 
 ## Before you begin
 
-[Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md) and create a public zone.
+This script requites that an Azure DNS public zone already exists for domain name. For a tutorial, see [ost your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
 
 ## Sample script
 
