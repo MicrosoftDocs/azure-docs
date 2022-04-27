@@ -719,7 +719,7 @@ items:
       href: alerts/alerts-resource-move.md
     - name: IT Service Management
       items:
-      - name: ITSM Connector Overview
+      - name: Integrate with ITSM Providers
         href: alerts/itsmc-overview.md
       - name: Connect using a Secure Webhook action
         items:
