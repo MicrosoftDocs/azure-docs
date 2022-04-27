@@ -150,6 +150,8 @@ The following example shows two secure parameters.
   }
 }
 ```
+> [!NOTE] 
+> Secure strings and objects aren't recommended to be used as an output type because they're not stored in the deployment history.
 
 ## Next steps
 
