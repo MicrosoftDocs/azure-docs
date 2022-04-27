@@ -147,7 +147,7 @@ To get started, enable SFTP support, create a local user, and assign permissions
 
 ## Service availability
 
-SFTP is available in all regions where Blob Storage with Hierarchical Namespace (HNS) or Azure Data Lake Storage (ADLS) Gen2 is available, see [Azure Products by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage) for more information. 
+SFTP is available in all regions where Blob Storage with Hierarchical Namespace (HNS) or Azure Data Lake Storage (ADLS) Gen2 is available, see [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) for more information. 
 
 ## Limitations and known issues
 
