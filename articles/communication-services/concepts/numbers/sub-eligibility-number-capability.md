@@ -45,12 +45,14 @@ The tables below summarize current availability:
 
 ## Customers with UK Azure billing addresses
 
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| UK                | Toll-Free | Not Available        | Not Available        | Public Preview | Public Preview\* |
-| UK                | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
+| :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
+| UK                 | Toll-Free      | Not Available        | Not Available        | Public Preview   | Public Preview\* |
+| UK                 | Local          | Not Available        | Not Available        | Public Preview   | Public Preview\* |
+| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | Public Preview   | Public Preview\* |
+| USA & Puerto Rico  | Local          | Not Available        | Not Available        | Public Preview   | Public Preview\* |
+| Canada | Toll-Free | Public Preview | Public Preview       | Public Preview       | Public Preview\* | Public Preview\* |
+| Canada | Local     | Not Available  | Not Available        | Public Preview       | Public Preview\* | Public Preview\* |
 
 \* Available through Azure Bot Framework and Dynamics only
 
@@ -58,17 +60,64 @@ The tables below summarize current availability:
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------------- |
+| Ireland           | Toll-Free | Not Available        | Not Available        | Public Preview       | Public Preview\*       |
+| Ireland           | Local     | Not Available        | Not Available        | Public Preview       | Public Preview\*       |
 | USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local     | Not Available        | Not Available        | General Availability | General Availability\* |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview       | Public Preview\* |
+| Canada            | Local     | Not Available        | Not Available        | Public Preview       | Public Preview\* |
+| UK                | Toll-Free | Not Available        | Not Available        | Public Preview       | Public Preview\* |
+| UK                | Local     | Not Available        | Not Available        | Public Preview       | Public Preview\* |
+
 
 \* Available through Azure Bot Framework and Dynamics only
 
 ## Customers with Denmark Azure Billing Addresses
 
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Denmark           | Toll-Free | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| Denmark           | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
+| Canada            | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| UK                | Toll-Free | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| UK                | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+
+\* Available through Azure Bot Framework and Dynamics only
+
+## Customers with Canada Azure Billing Addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
+| Canada            | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
+| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| UK                | Toll-Free | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| UK                | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+
+
+\* Available through Azure Bot Framework and Dynamics only
+
+## Customers with Italy Azure Billing Addresses
+
 | Number  | Type      | Send SMS      | Receive SMS   | Make Calls     | Receive Calls    |
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
-| Denmark | Toll-Free | Not Available | Not Available | Public Preview | Public Preview\* |
-| Denmark | Local     | Not Available | Not Available | Public Preview | Public Preview\* |
+| Italy   | Toll-Free | Not Available | Not Available | Public Preview | Public Preview\* |
+| Italy   | Local     | Not Available | Not Available | Public Preview | Public Preview\* |
+
+\* Available through Azure Bot Framework and Dynamics only
+
+## Customers with Sweden Azure Billing Addresses
+
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Sweden            | Toll-Free | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| Sweden            | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
+| Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview | Public Preview\* |
+| Canada            | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
 | USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview | Public Preview\* |
 | USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview | Public Preview\* |
 
