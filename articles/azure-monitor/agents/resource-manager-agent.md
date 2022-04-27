@@ -256,6 +256,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure Arc-enabl
 
 # [Bicep](#tab/bicep)
 
+```bicep
 param vmName string
 param location string
 
@@ -268,6 +269,7 @@ resource linuxAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-prev
     autoUpgradeMinorVersion: true
   }
 }
+```
 
 # [JSON](#tab/json)
 
