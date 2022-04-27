@@ -83,7 +83,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Synapse Analytics - data warehouse](prepay-sql-data-warehouse-charges.md)
 - [Synapse Analytics - Pre-purchase](synapse-analytics-pre-purchase-plan.md)
 - [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)

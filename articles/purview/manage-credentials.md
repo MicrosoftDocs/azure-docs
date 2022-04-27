@@ -31,10 +31,7 @@ In Microsoft Purview, there are few options to use as authentication method to s
 - Service Principal (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
 - Consumer Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
 
-Before creating any credentials, consider your data source types and networking requirements to decide which authentication method you need for your scenario. Review the following decision tree to find which credential is most suitable:
-
-   :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Manage credentials decision tree" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
-
+Before creating any credentials, consider your data source types and networking requirements to decide which authentication method you need for your scenario.
 ## Use Microsoft Purview system-assigned managed identity to set up scans
 
 If you're using the Microsoft Purview system-assigned managed identity (SAMI) to set up scans, you won't need to create a credential and link your key vault to Microsoft Purview to store them. For detailed instructions on adding the Microsoft Purview SAMI to have access to scan your data sources, refer to the data source-specific authentication sections below:

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: tracych
-ms.author: tracych
+author: blackmist
+ms.author: larryfr
 ms.reviewer: larryfr
 ms.date: 03/31/2022
 ms.custom: how-to, devplatv2
