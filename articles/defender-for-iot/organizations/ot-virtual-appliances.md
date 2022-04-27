@@ -18,9 +18,9 @@ The virtualized hardware used to run guest operating systems is supplied by virt
 
 Learn more:
 
-- [OT sensor as a virtual appliance with VMWare ESXi](appliance-catalog/virtual-sensor-vmware.md)
+- [OT sensor as a virtual appliance with VMware ESXi](appliance-catalog/virtual-sensor-vmware.md)
 - [OT sensor as a virtual appliance with Microsoft Hyper-V](appliance-catalog/virtual-sensor-hyper-v.md)
-- [On-premises management console as a virtual appliance with VMWare ESXi](appliance-catalog/virtual-management-vmware.md)
+- [On-premises management console as a virtual appliance with VMware ESXi](appliance-catalog/virtual-management-vmware.md)
 - [On-premises management console as a virtual appliance with Microsoft Hyper-V](appliance-catalog/virtual-management-hyper-v.md)
 
 > [!IMPORTANT]
