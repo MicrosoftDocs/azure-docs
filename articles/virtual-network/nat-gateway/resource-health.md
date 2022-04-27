@@ -39,7 +39,7 @@ To view the health of your NAT gateway resource:
 
 3. Select the **+ Add resource health alert** at the top of the page to set up an alert for a specific health status of your NAT gateway resource. 
 
-## Next Steps
+## Next steps
 
 - Learn about [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview)
 - Learn about [metrics and alerts for NAT gateway](/azure/virtual-network/nat-gateway/nat-metrics)
