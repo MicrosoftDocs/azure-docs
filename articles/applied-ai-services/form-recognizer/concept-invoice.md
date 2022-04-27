@@ -144,7 +144,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
-| VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in european countries | &euro;20.00 | |
+| VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
 
