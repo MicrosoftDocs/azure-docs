@@ -252,6 +252,14 @@
   - name: IoT Glossary
     href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
 
+  - name: Industrial connectivity partners
+    items:
+    - name: CloudRAIL
+      href: https://devices.cloudrail.com/documentation?service=AzureIoTCentral#azureiotcentral1
+    - name: Ignition
+      href: https://docs.chariot.io/display/CLD80/Publishing+Data+to+Azure+IoT+Central
+    - name: Omnio
+      href: https://www.omnio.net/contact
   - name: Azure IoT services
     items:
     - name: IoT Hub

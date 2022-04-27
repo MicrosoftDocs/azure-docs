@@ -1,104 +1,138 @@
 ---
-title: Architectural concepts in Azure IoT Central | Microsoft Docs
-description: This article introduces key concepts relating the architecture of Azure IoT Central
+title: Industrial IoT patterns with Azure IoT Central | Microsoft Docs
+description: This article introduces common Industrial IoT patterns that you can implement using Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/31/2021
+ms.date: 04/27/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 
 ---
 
-# Azure IoT Central architecture
+# Industrial IoT (IIoT) architecture patterns with Azure IoT Central
 
-IoT Central is a ready-made environment for IoT solution development. It's an application platform as a service (aPaaS) IoT solution and its primary interface is a web UI. There's also a [REST API](#extend-with-rest-api) that lets you interact with your application programmatically.
+:::image type="content" source="media/concepts-iiot-architecture/industrial-iot-architecture.svg" alt-text="Diagram of high-level industrial I O T architecture." border="false":::
 
-This article provides an overview of the key elements in an IoT Central solution architecture.
+IoT Central enables you to implement your IIoT scenario by using the following built-in capabilities:
 
-:::image type="content" source="media/concepts-architecture/architecture.png" alt-text="Diagram that shows the high-level architecture of an I o T Central solution." border="false" lightbox="media/concepts-architecture/architecture.png":::
+- Connect industrial assets either directly or through a gateway device
+- Collect data at scale from your industrial assets
+- Manage your connected industrial assets in bulk using jobs
+- Model and organize the data from your industrial assets and use the built-in analytics and monitoring capabilities
+- Integrate and extend your solution by connecting to first and third party applications and services
 
-Key capabilities in an IoT Central application include:
+IoT Central enables you to build highly available, scalable, and secure solutions.
 
-### Manage devices
+## Connect your industrial assets
 
-IoT Central lets you manage the fleet of [IoT devices](#devices) that are sending data to your solution. For example, you can:
+:::image type="content" source="media/concepts-iiot-architecture/iiot-connections.png" alt-text="iiot-connection-options" border="false":::
 
-- Control which devices can [connect](overview-iot-central-developer.md#how-devices-connect) to your application and how they authenticate.
-- Use [device templates](concepts-device-templates.md) to define the types of device that can connect to your application.
-- Manage devices by setting properties or calling commands on connected devices. For example, set a target temperature property for a thermostat device or call a command to trigger a device to update its firmware. You can set properties and call commands on:
-  - Individual devices through a [customizable](concepts-device-templates.md#views) web UI.
-  - Multiple devices with scheduled or on-demand [jobs](howto-manage-devices-in-bulk.md).
-- Maintain [device metadata such](concepts-device-templates.md#cloud-properties) as customer address or last service date.
+Operational technology (OT) is the hardware and software that monitors and controls the equipment and infrastructure in industrial facilities. There are four ways to connect your industrial assets to Azure IoT Central:
 
-### View and analyze data
+- Proxy through on-premises partner solutions that have built-in support to connect to Azure IoT Central.
 
-In an IoT Central application, you can view and analyze data for individual devices or for aggregated data from multiple devices:
+- Use IoT Plug and Play support to simplify the connectivity and asset modelling experience in Azure IoT Central.
 
-- Use [mapping](howto-map-data.md) to transform complex device telemetry into structured data inside IoT Central.
-- Use device templates to define [custom views](howto-set-up-template.md#views) for individual devices of specific types. For example, you can plot temperature over time for an individual thermostat or show the live location of a delivery truck.
-- Use the built-in [analytics](tutorial-use-device-groups.md) to view aggregate data for multiple devices. For example, you can see the total occupancy across multiple retail stores or identifying the stores with the highest or lowest occupancy rates.
-- Create custom [dashboards](howto-manage-dashboards.md) to help you manage your devices. For example, you can add maps, tiles, and charts to show device telemetry.  
+- Proxy through on-premises Microsoft solutions from the Azure IoT Edge marketplace that have built-in support to connect to Azure IoT Central.
 
-### Secure your solution
+- Proxy through on-premises partner solutions from the Azure IoT Edge marketplace that have built-in support to connect to Azure IoT Central.
 
-In IoT Central, you can configure and manage security in the following areas:
+## Manage your industrial assets
 
-- User access to your application.
-- Device access to your application.
-- Programmatic access to your application.
-- Authentication to other services from your application.
+Manage industrial assets and perform software updates to OT using features such as Azure IoT Central jobs. Jobs enable you to remotely:
 
-To learn more, see the [IoT Central security guide](overview-iot-central-security.md).
+- Update asset configurations.
+- Manage asset properties.
+- Command and control your assets.
+- Update Microsoft-provided, partner-provided, or custom software modules that run on Azure IoT Edge devices
 
-## Devices
+## Monitor and analyze your industrial assets
 
-Devices collect data from sensors to send as a stream of telemetry to an IoT Central application. For example, a refrigeration unit sends a stream of temperature values or a delivery truck streams its location.
+View the health of your industrial assets in real-time with customizable dashboards:
 
-A device can use properties to report its state, such as whether a valve is open or closed. An IoT Central application can also use properties to set device state, for example setting a target temperature for a thermostat.
+:::image type="content" source="media/concepts-iiot-architecture/iiot-dashboard.png" alt-text="Screenshot of an I I O T dashboard in I O T Central.":::
 
-IoT Central can also control devices by calling commands on the device. For example, instructing a device to download and install a firmware update.
+Drill in telemetry using queries in the IoT Central **Data Explorer**:
 
-The [telemetry, properties, and commands](concepts-telemetry-properties-commands.md) that a device implements are collectively known as the device capabilities. You define these capabilities in a model that's shared between the device and the IoT Central application. In IoT Central, this model is part of the device template that defines a specific type of device. To learn more, see [Assign a device to a device template](concepts-device-templates.md#assign-a-device-to-a-device-template).
+:::image type="content" source="media/concepts-iiot-architecture/iiot-analytics.png" alt-text="Screenshot of an I I O T data explorer query in I O T Central.":::
 
-The [device implementation](tutorial-connect-device.md) should follow the [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot-develop/libraries-sdks.md).
+## Integrate data into applications
 
-Devices connect to IoT Central using one the supported protocols: [MQTT, AMQP, or HTTP](../../iot-hub/iot-hub-devguide-protocols.md).
+Extend your IIoT solution by using the following IoT Central features:
 
-## Gateways
+- Use IoT Central rules to deliver instant alerts and insights. Enable industrial assets operators to take actions based on the condition of your industrial assets by using IoT Central rules and alerts.
 
-Local gateway devices are useful in several scenarios, such as:
+- Use the REST APIs to extend your solution in companion experiences and to automate interactions.
 
-- Devices can't connect directly to IoT Central because they can't connect to the internet. For example, you may have a collection of Bluetooth enabled occupancy sensors that need to connect through a gateway device.
-- The quantity of data generated by your devices is high. To reduce costs, combine or aggregate the data in a local gateway before you send it to your IoT Central application.
-- Your solution requires fast responses to anomalies in the data. You can run rules on a gateway device that identify anomalies and take an action locally without the need to send data to your IoT Central application.
+- Use data export to stream data from your industrial assets to other services. Data export can enrich messages, use filters, and transform the data. These capabilities can deliver business insights to industrial operators. For example, see the [IoT Central sample for calculating overall equipment effectiveness (OEE) of industrial equipment](https://github.com/Azure/iot-central-industrial-OEE).
 
-Gateway devices typically require more processing power than a standalone device. One option to implement a gateway device is to use [Azure IoT Edge and apply one of the standard IoT Edge gateway patterns](concepts-iot-edge.md). You can also run your own custom gateway code on a suitable device.
+:::image type="content" source="media/concepts-iiot-architecture/iiot-export.png" alt-text="Diagram that shows the I O T Central data export process." border="false":::
 
-## Export data
+## Secure your solution
 
-Although IoT Central has built-in analytics features, you can export data to other services and applications.
+Secure your IIoT solution by using the following IoT Central features:
 
-[Transformations](howto-transform-data-internally.md) in an IoT Central data export definition let you manipulate the format and structure of the device data before it's exported to a destination.
+- Use organizations to create boundaries around industrial assets. Organizations let you control which assets and data an operator can view.
 
-Reasons to export data include:
+- Create private endpoints to limit and secure industrial assets/gateway connectivity to your Azure IoT Central application with Private Link.
 
-### Storage and analysis
+- Ensure safe, secure data exports with Azure Active Directory managed identities.
 
-For long-term storage and control over archiving and retention policies, you can [continuously export your data](howto-export-data.md) to other storage destinations. Use of separate storage also lets you use other analytics tools to derive insights and view the data in your solution.
+## Patterns
 
-### Business automation
+The automation pyramid represents the layers of automation in a typical factory:
 
-[Rules](howto-configure-rules-advanced.md) in IoT Central let your trigger external actions, such as to send an email or fire an event, in response to conditions within IoT Central. For example, you can notify an engineer if the ambient temperature for a device reaches a threshold.
+- Production floor (layer 5) represents sensors and related technologies such as flow meters, valves, pumps which keep variables such as flow, heat and pressure under allowable parameters.
 
-### Additional computation
+- Control or programmable logic controller (PLC) layer (layer 4) is the brains behind shop floor processes which help monitor the sensors and maintain parameters throughout the production lines.
 
-You may need to [transform or do computations](howto-transform-data.md) on your data before it can be used either in IoT Central or another service. For example, you could add local weather information to the location data reported by a delivery truck.
+- Supervisory control and data acquisition layer, SCADA (layer 3) provides human machine interfaces (HMI) as process data is monitored and controlled through human interactions and stored in databases.
 
-## Extend with REST API
+You can adapt the following architecture patterns to implement your IIoT solutions:
 
-Build integrations that let other applications and services manage your application. For example, programmatically [manage the devices](howto-control-devices-with-rest-api.md) in your application or synchronize [user information](howto-manage-users-roles-with-rest-api.md) with an external system.
+### Azure IoT first-party connectivity solutions that run as Azure IoT Edge modules that connect to Azure IoT Central
+
+Azure IoT first-party edge modules connect to OPC UA Servers and publish OPC UA data values in OPC UA Pub/Sub compatible format. These modules enable customers to connect to existing OPC UA servers to IoT Central. These modules publish data from these servers to IoT Central in an OPC UA pub/sub JSON format.
+
+:::image type="content" source="media/concepts-iiot-architecture/first-party-connectivity.svg" alt-text="Diagram that shows first-party connectivity option." border="false":::
+
+### Connectivity partner OT solutions with direct connectivity to Azure IoT Central
+
+Connectivity partner solutions from manufacturing specific solution providers can simplify and speed up connecting manufacturing equipment to the cloud. Connectivity partner solutions may include software to support layer two, layer three and connectivity into layer four of the automatic pyramid.
+
+Connectivity partner solutions provide driver software to connect into layer 4 of the automation pyramid to help connect to your manufacturing equipment and retrieve meaningful data.
+
+Connectivity partner solutions may do protocol translation to enable data to be sent to the cloud. For example, from Ethernet IP or Modbus TCP into OPCUA or MQTT.
+
+:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-1.svg" alt-text="Diagram that shows the standard third-party connectivity option." border="false":::
+
+Alternate versions include:
+
+:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-2.svg" alt-text="Diagram that shows the first alternate third-party connectivity option." border="false":::
+
+:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-3.svg" alt-text="Diagram that shows the second alternate third-party connectivity option." border="false":::
+
+### Connectivity partner OT solutions that run as Azure IoT Edge modules that connect to Azure IoT Central
+
+Connectivity partner third-party IoT Edge modules help connect to PLCs and publish JSON data to Azure IoT Central:
+
+:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-modules.svg" alt-text="Diagram that shows the third-party I O T Edge module connectivity option." border="false":::
+
+### Connectivity partner OT solutions that connect to Azure IoT Central through an Azure IoT Edge device
+
+Connectivity partner third-party solutions help connect to PLCs and publish JSON data through IoT Edge to Azure IoT Central:
+
+:::image type="content" source="media/concepts-iiot-architecture/third-party-connectivity-iot-edge.svg" alt-text="Diagram that shows the third-party I O T Edge connectivity option." border="false":::
+
+## Industrial network protocols
+
+Industrial networks are crucial to the working of a manufacturing facility. With thousands of end nodes aggregated for control and monitoring, often operating under harsh environments, the industrial network is characterized by strict requirements for connectivity and communication. The stringent demands of industrial networks have historically driven the creation of a wide variety of proprietary and application specific protocols. Wired and wireless networks each have their own protocol sets. Examples include:
+
+- **Wired (Fieldbus)**: Profibus, Modbus, DeviceNET, CC-Link, AS-I, InterBus, ControlNet.
+- **Wired (Industrial Ethernet)**: Profinet, Ethernet/IP, Ethernet CAT, Modbus TCP.
+- **Wireless**: 802.15.4, 6LoWPAN, Bluetooth/LE, Cellular, LoRA, Wi-Fi, WirelessHART, ZigBee.
 
 ## Next steps
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
+Now that you've learned about IIoT architecture patterns with Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
