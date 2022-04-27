@@ -33,7 +33,7 @@ Some endpoints don't support Azure Active Directory authentication, or its clien
 
 ## Creating a managed identity
 
-There are two types of managed identity; system-assigned and user-assigned. System-assigned identities are directly linked to a single Azure resource. When the Azure resource is deleted, so is the identity. A user-assigned identity can be associated with multiple Azure resources, and its lifecycle is independent of those resources. This article will explain how to create and configure a user-assigned identity. Read [this page](managed-identity-best-practice-recommendations.md) to see which type of managed identity is best for your scenario.
+There are two types of managed identity; system-assigned and user-assigned. System-assigned identities are directly linked to a single Azure resource. When the Azure resource is deleted, so is the identity. A user-assigned identity can be associated with multiple Azure resources, and its lifecycle is independent of those resources. This article will explain how to create and configure a user-assigned identity. Read [our best practice recommendations](managed-identity-best-practice-recommendations.md) to see which type of managed identity is best for your scenario.
 
 ### Creating a user-assigned managed identity
 
@@ -82,42 +82,42 @@ Your resource now has a user-assigned identity that it can use to interact with 
 Now your App service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Key Vault, you'll use the Azure RBAC (Role Based Access Control) system.
 
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
-2. Select the "Access Control (IAM)" link in the left hand navigation
+2. Select the "Access Control (IAM)" link in the left hand navigation.
 :::image type="content" source="media/overview-for-developers/KeyVault-Summary-Screen.png" alt-text="Key Vault Summary screen":::
-3. Select the "Add" button near the top of the screen and select "Add role assignment"
+3. Select the "Add" button near the top of the screen and select "Add role assignment".
 :::image type="content" source="media/overview-for-developers/KeyVault-Add-Role-Assignment-Dropdown.png" alt-text="Add Role assignment navigation":::
-4. A list of Roles will be displayed. You can see the specific permissions that a role has by selecting the "View" link. Select the role that you want to grant to the identity and select the "Next" button
+4. A list of Roles will be displayed. You can see the specific permissions that a role has by selecting the "View" link. Select the role that you want to grant to the identity and select the "Next" button.
 :::image type="content" source="media/overview-for-developers/KeyVault-Select-Role.png" alt-text="Select a Role":::
-5. You'll be prompted to select who the role should be granted to. Select the "Managed identity" option and then the "Add members" link
+5. You'll be prompted to select who the role should be granted to. Select the "Managed identity" option and then the "Add members" link.
 :::image type="content" source="media/overview-for-developers/KeyVault-SelectMember.png" alt-text="Select the identity type":::
-6. A context pane will appear on the right where you can search by the type of the managed identity. Select "User-assigned managed identity" from the "Managed identity" option
+6. A context pane will appear on the right where you can search by the type of the managed identity. Select "User-assigned managed identity" from the "Managed identity" option.
 :::image type="content" source="media/overview-for-developers/KeyVault-SelectIdentity.png" alt-text="Select the managed identity":::
-7. Select the identity that you created earlier and the "Select" button. The context pane will close, and the identity will be added to the list
+7. Select the identity that you created earlier and the "Select" button. The context pane will close, and the identity will be added to the list.
 :::image type="content" source="media/overview-for-developers/KeyVault-IdentityAdded.png" alt-text="Identity added to resource":::
 8. Select the "Review + assign" button to view the summary of the role assignment, and then once more to confirm.
-9. A list of the role assignments for the Key Vault will be displayed
+9. A list of the role assignments for the Key Vault will be displayed.
 :::image type="content" source="media/overview-for-developers/KeyVault-Role-Assignment-Added.png" alt-text="Role assignment added":::
 
-Your managed identity now has the correct permissions to read a secret from the Key Vault. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview).
+Your managed identity now has the correct permissions to read a secret from the Key Vault. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview.md).
 
 ## Using the identity in your code
 
 Your App service now has an identity with permissions, so now you can use the identity in your code to interact with Azure Key Vault, instead of needing to store credentials in your code.
 
-The recommended method is to use the Azure Identity library, which is available for C#, Java, Python and other things. The library acquires access tokens for you, making it simple to connect to target endpoints.
+The recommended method is to use the Azure Identity library, which is available for C#, Java, Python, JavaScript, and Go. The library acquires access tokens for you, making it simple to connect to target endpoints.
 
 The library will automatically attempt to authenticate via multiple mechanisms. This means that it can be used in your development using your own credentials, and your production environment using a Managed identity with no changes required when you deploy your code. 
 
-You can also specify that you wish to use a Managed identity, by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
+You can also explicitly specify that you wish to use a certain Managed identity, by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
 
-:::image type="content" source="media/overview-for-developers/IdentityClientID.png" alt-text="Client ID for the identity":::\
+:::image type="content" source="media/overview-for-developers/IdentityClientID.png" alt-text="Client ID for the identity":::
 
 You can read more about the Azure Identity library below:
-* [Azure Identity client library for .NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme)
-* [Azure Identity client library for Java](https://docs.microsoft.com/en-us/java/api/overview/azure/identity-readme?view=azure-java-stable)
-* [Azure Identity client library for Python](https://docs.microsoft.com/en-us/python/api/overview/azure/identity-readme?view=azure-python)    
-* [Azure authentication with the Azure SDK for Go](https://docs.microsoft.com/en-us/azure/developer/go/azure-sdk-authentication?tabs=bash)
-* [Azure Identity client library for JavaScript](https://docs.microsoft.com/en-us/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
+* [Azure Identity client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+* [Azure Identity client library for Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
+* [Azure Identity client library for Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python)    
+* [Azure authentication with the Azure SDK for Go](https://docs.microsoft.com/azure/developer/go/azure-sdk-authentication?tabs=bash)
+* [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
 
 ### Accessing a secret stored in Azure Key Vault
 ```aspx-csharp
@@ -137,9 +137,7 @@ SecretClientOptions options = new SecretClientOptions()
     };
 
 var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(), options);
-
 KeyVaultSecret secret = client.GetSecret("<my secret>");
-
 string secretValue = secret.Value;
 ```
 
