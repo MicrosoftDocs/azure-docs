@@ -84,7 +84,7 @@ To deploy an application to a custom container image, use the following steps:
 1. Select **Apps** from left the menu, then select **Create App**.
 1. Name your app, and in the **Runtime platform** pulldown list, select **Custom Container**.
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of where to select Custom Container in Create App section.":::
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of where to select Custom Container in Create App section." lightbox="how-to-deploy-with-custom-container-image/create-app-custom-container.png":::
 
 1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
 
