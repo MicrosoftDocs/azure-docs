@@ -24,7 +24,7 @@ Choose a platform for installation instructions.
 
 ### [Windows](#tab/windows)
 
-[!INCLUDE [Linux](gstreamer-windows.md)]
+[!INCLUDE [Windows](gstreamer-windows.md)]
 
 ***
 
