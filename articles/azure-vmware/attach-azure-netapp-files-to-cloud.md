@@ -26,7 +26,7 @@ The diagram below demonstrates a typical architecture of Azure NetApp Files back
 
 ## Supported Regions
 
-Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany West Central, Japan West, North Central US, North Europe, Southeast Asia, Switzerland West, UK South, UK West, US South Central, and West US are currently supported and will be expanded to other Azure VMware Solution regions later in the preview. 
+The following regions are currently supported: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany West Central, Japan West, North Central US, North Europe, Southeast Asia, Switzerland West, UK South, UK West, US South Central, and West US. 
 
 ## Performance best practices
 
@@ -125,7 +125,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
 ## Disconnect an Azure NetApp Files-based datastore from your private cloud
 
-You can use the instructions provided to disconnect an Azure NetApp Files-based (ANF) datastore using either Azure Portal or Azure CLI. There's no maintenance window required for this operation. The disconnect action only disconnects the ANF volume as a datastore, it doesn't delete the data or the ANF volume.
+You can use the instructions provided to disconnect an Azure NetApp Files-based (ANF) datastore using either Azure portal or Azure CLI. There's no maintenance window required for this operation. The disconnect action only disconnects the ANF volume as a datastore, it doesn't delete the data or the ANF volume.
 
 **Disconnect an ANF datastore using the Azure Portal**
 
