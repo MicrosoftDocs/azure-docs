@@ -394,8 +394,10 @@
     href: https://www.youtube.com/hashtag/mdfcinthefield
   - name: Microsoft Defender for Cloud in the Field
     items:
-    - name: Episode 1 New AWS Connector
+    - name: Episode 1 - New AWS Connector
       href: episode-one.md
+    - name: Episode 2 - Integrate with Azure Purview
+      href: episode-two.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Regional availability
