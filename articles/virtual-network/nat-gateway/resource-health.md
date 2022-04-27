@@ -27,7 +27,7 @@ The health of your NAT gateway resource is displayed as one of the following sta
 | Available | Your NAT gateway resource is healthy and available. |
 | Degraded | Your NAT gateway resource has platform or user initiated events impacting the health of your NAT gateway. The metric for the data-path availability has reported less than 80% but greater than 25% health for the last fifteen minutes. |
 | Unavailable | Your NAT gateway resource is not healthy. The metric for the data-path availability has reported less than 25% for the past 15 minutes. You may experience unavailability of your NAT gateway resource for outbound connectivity. |
-| Unknown | Health status for your NAT gateway resource hasn’t been updated or hasn’t received information for data path availability for more than 5 minutes. This state should be transient and will reflect the correct status as soon as data is received. |
+| Unknown | Health status for your NAT gateway resource hasn’t been updated or hasn’t received information for data-path availability for more than 5 minutes. This state should be transient and will reflect the correct status as soon as data is received. |
 
 For more information about Azure Resource Health, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
