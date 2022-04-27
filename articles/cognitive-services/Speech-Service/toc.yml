@@ -45,14 +45,14 @@ items:
       displayName: stt
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
-    - name: Speech recognition
-      items:
-      - name: How to recognize speech
-        href: how-to-recognize-speech.md
-      - name: Change recognition source language
-        href: how-to-specify-source-language.md
-      - name: Get speech recognition results
-        href: get-speech-recognition-results.md
+    - name: How to recognize speech
+      href: how-to-recognize-speech.md
+    - name: Set recognition source language
+      href: how-to-specify-source-language.md
+    - name: Get speech recognition results
+      href: get-speech-recognition-results.md
+    - name: How to use batch transcription
+      href: batch-transcription.md
     - name: Improve recognition with Custom Speech
       items:
         - name: Custom Speech overview
@@ -77,10 +77,6 @@ items:
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
-    - name: Transcribe audio in batches
-      href: batch-transcription.md
-    - name: Ingestion Client
-      href: ingestion-client.md
     - name: Speech-to-text FAQ
       displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
       href: faq-stt.yml
@@ -175,8 +171,12 @@ items:
     - name: Captioning with speech to text
       href: captioning-concepts.md
     - name: Handle call center scenarios
-      displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-      href: call-center-transcription.md
+      items:
+      - name: Telephony data
+        displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
+        href: call-center-transcription.md
+      - name: Ingestion Client
+        href: ingestion-client.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
