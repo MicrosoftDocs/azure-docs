@@ -110,7 +110,7 @@ Use the following steps to add xID as a claims provider:
 
 4. Add a new **ClaimsProvider** similar to the one shown below:
 
-   "`xml
+   ```xml
 
     <ClaimsProvider>
       <Domain>X-ID</Domain>
@@ -225,7 +225,7 @@ Now that you have a user journey add the new identity provider to the user journ
 
    The following XML demonstrates the orchestration steps of a user journey with the identity provider:
 
-   "`xml
+  ```xml
 
     <UserJourney Id="X-IDSignUpOrSignIn">
       <OrchestrationSteps>
