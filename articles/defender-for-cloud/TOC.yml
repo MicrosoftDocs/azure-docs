@@ -392,7 +392,7 @@
     href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
   - name: MDfCinTheField YouTube videos
     href: https://www.youtube.com/hashtag/mdfcinthefield
-  - name: Microsoft Defender for Cloud in the MDfCinTheField
+  - name: Microsoft Defender for Cloud in the Field
     items:
     - name: Episode 1 New AWS Connector
       href: episode-one.md
