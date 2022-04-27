@@ -52,26 +52,26 @@ The following table lists the supported actions and suboperations for conditions
 > [!div class="mx-tableFixed"]
 > | Display name | Description | DataAction |
 > | --- | --- | --- |
-> | Delete a blob | DataAction for deleting blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
 > | All read operations | All Blob read operations. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 > | List blobs | List blobs operation. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blob.List` |
 > | Read a blob | All blob read operations excluding list. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**NOT Suboperation**<br/>`Blob.List` |
 > | Read content from a blob with tag conditions  | Read blobs with tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br/>**Suboperation**<br/>`Blob.Read.WithTagConditions` |
+> | Read blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
+> | Find blobs by tags | DataAction for finding blobs by index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` |
 > | Write to a blob | DataAction for writing to blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
 > | Sets the access tier on a blob | REST operations: Set Blob Tier. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blob.Write.Tier` |
 > | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` |
 > | Create a blob or snapshot, or append data | DataAction for creating blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |
-> | Write content to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` |
-> | Delete a version of a blob | DataAction for deleting a version of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
-> | Find blobs by tags | DataAction for finding blobs by index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` |
-> | Changes ownership of a blob | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
-> | Modify permissions of a blob | DataAction for modifying permissions of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
-> | Rename file or directory | DataAction for renaming files or directories. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` |
-> | Permanently delete a blob overriding soft-delete | DataAction for permanently deleting a blob overriding soft-delete. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
-> | All data operations for accounts with hierarchical namespace enabled | DataAction for all data operations on storage accounts with hierarchical namespace enabled. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
-> | Read blob index tags | DataAction for reading blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
+> | Write to a blob with blob index tags | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`<br/>**Suboperation**<br/>`Blob.Write.WithTagHeaders` |
 > | Write blob index tags | DataAction for writing blob index tags. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |
 > | Write Blob legal hold and immutability policy | DataAction for writing Blob legal hold and immutability policy. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action` |
+> | Delete a blob | DataAction for deleting blobs. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
+> | Delete a version of a blob | DataAction for deleting a version of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action` |
+> | Permanently delete a blob overriding soft-delete | DataAction for permanently deleting a blob overriding soft-delete. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
+> | Modify permissions of a blob | DataAction for modifying permissions of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action` |
+> | Changes ownership of a blob | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
+> | Rename file or directory | DataAction for renaming files or directories. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` |
+> | All data operations for accounts with hierarchical namespace enabled | DataAction for all data operations on storage accounts with hierarchical namespace enabled. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
 
 ## Attributes
 
