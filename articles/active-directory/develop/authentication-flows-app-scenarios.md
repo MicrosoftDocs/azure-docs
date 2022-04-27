@@ -308,5 +308,8 @@ For more information, see [Microsoft identity platform authentication libraries]
 
 ## Next steps
 
-* Learn more about [authentication basics](./authentication-vs-authorization.md) and [access tokens in the Microsoft identity platform](access-tokens.md).
-* Learn more about [securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).
+For information about authentication, see:
+
+- [Authentication vs. authorization](./authentication-vs-authorization.md)
+- [Microsoft identity platform access tokens](access-tokens.md).
+- [Securing access to IoT apps.](/azure/architecture/example-scenario/iot-aad/iot-aad#securit).
