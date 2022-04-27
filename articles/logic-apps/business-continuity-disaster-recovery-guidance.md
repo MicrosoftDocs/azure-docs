@@ -350,7 +350,7 @@ To provide resiliency and distributed availability, at least three separate avai
 
 Currently, this capability is preview and available for new Consumption logic apps in specific regions. For more information, see the following documentation:
 
-* [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availabilty-zones.md)
+* [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md)
 * [Azure regions and availability zones](../availability-zones/az-overview.md)
 
 <a name="collect-diagnostic-data"></a>
