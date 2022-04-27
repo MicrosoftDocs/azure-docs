@@ -104,5 +104,5 @@ The following sections describe common errors that appear in the connector statu
 
 **Cause**: There can be one of 2 options either the token need to be refreshed or there is missing integration user rights.
 
-**Resolution**:If the integration worked for you in the past, it might be that the refresh token has expired. Then sync ITSMC to generate a new refresh token, as explained in [How to manually fix sync problems](./itsmc-resync-servicenow.md). If it never worked, it might be missing integration user rights, Please check it [here ](./itsmc-connections-servicenow#install-the-user-app-and-create-the-user-role.md)
+**Resolution**:If the integration worked for you in the past, it might be that the refresh token has expired. Then sync ITSMC to generate a new refresh token, as explained in [How to manually fix sync problems](./itsmc-resync-servicenow.md). If it never worked, it might be missing integration user rights, Please check it [here ](./itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role)
 
