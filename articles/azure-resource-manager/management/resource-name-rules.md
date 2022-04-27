@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/13/2022
+ms.date: 04/26/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -657,7 +657,7 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Alphanumerics, underscores, parentheses, hyphens, and periods. |
-> | resourcegroups | subscription | 1-90 | Alphanumerics, underscores, parentheses, hyphens, periods, and unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate).<br><br>Can't end with period. |
+> | resourcegroups | subscription | 1-90 | Letters or digits as defined by the [Char.IsLetterOrDigit](/dotnet/api/system.char.isletterordigit) function.<br><br>Valid characters are members of the following categories in [UnicodeCategory](/dotnet/api/system.globalization.unicodecategory):<br>**UppercaseLetter**,<br>**LowercaseLetter**,<br>**TitlecaseLetter**,<br>**ModifierLetter**,<br>**OtherLetter**,<br>**DecimalDigitNumber**.<br><br>Can't end with period. |
 > | tagNames | resource | 1-512 | Can't use:<br>`<>%&\?/` or control characters |
 > | tagNames / tagValues | tag name | 1-256 | All characters. |
 > | templateSpecs | resource group | 1-90 | Alphanumerics, underscores, parentheses, hyphens, and periods. |

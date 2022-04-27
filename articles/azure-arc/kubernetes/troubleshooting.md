@@ -127,8 +127,46 @@ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
+### Helm timeout error
 
-### Helm issue
+```azurecli
+az connectedk8s connect -n AzureArcTest -g AzureArcTest
+```
+
+```output
+Unable to install helm release: Error: UPGRADE Failed: time out waiting for the condition
+```
+
+If you get the above helm timeout issue, you can troubleshoot as follows:
+
+  1. Run the following command:
+
+      ```console
+      kubectl get pods -n azure-arc
+      ```
+  2. Check if the `clusterconnect-agent` or the `config-agent` pods are showing crashloopbackoff, or not all containers are running:
+    
+      ```output
+      NAME                                        READY   STATUS             RESTARTS   AGE
+      cluster-metadata-operator-664bc5f4d-chgkl   2/2     Running            0          4m14s
+      clusterconnect-agent-7cb8b565c7-wklsh       2/3     CrashLoopBackOff   0          1m15s
+      clusteridentityoperator-76d645d8bf-5qx5c    2/2     Running            0          4m15s
+      config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
+      ```
+  3. If the below certificate isn't present, the system assigned managed identity didn't get installed.
+    
+      ```console
+      kubectl get secret -n azure-arc -o yaml | grep name:
+      ```
+      
+      ```output
+      name: azure-identity-certificate
+      ```
+      This could be a transient issue. You can try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If you're consistently facing this, it could be an issue with your proxy settings. Please follow [these steps](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy.
+  4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
+  
+
+### Helm validation error
 
 Helm `v3.3.0-rc.1` version has an [issue](https://github.com/helm/helm/pull/8527) where helm install/upgrade (used by `connectedk8s` CLI extension) results in running of all hooks leading to the following error:
 
