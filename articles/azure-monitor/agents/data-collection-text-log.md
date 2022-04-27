@@ -235,7 +235,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
                         }
                     },
                     "dataSources": {
-                        "logFiles   ": [
+                        "logFiles": [
                             {
                                 "streams": [
                                     "Custom-MyLogFileFormat"

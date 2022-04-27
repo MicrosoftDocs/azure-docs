@@ -62,7 +62,7 @@ See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## geo-replication
 The process of automatically replicating content such as blobs, tables, and queues within a regional pair.  
-See [Active Geo-Replication for Azure SQL Database](./azure-sql/database/auto-failover-group-overview.md)
+See [Active Geo-Replication for Azure SQL Database](/azure/azure-sql/database/auto-failover-group-overview)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## image

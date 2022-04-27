@@ -54,7 +54,7 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
 
     The right pane includes the **Alert details** tab containing further details of the alert to help you investigate the issue: IP addresses, files, processes, and more.
      
-    ![Suggestions for what to do about security alerts.](./media/managing-and-responding-alerts/security-center-alert-remediate.png)
+    :::image type="content" source="./media/managing-and-responding-alerts/security-center-alert-remediate.png" alt-text="Suggestions for what to do about security alerts.":::
 
     Also in the right pane is the **Take action** tab. Use this tab to take further actions regarding the security alert. Actions such as:
     - *Inspect resource context* - sends you to the resource's activity logs that support the security alert
@@ -63,7 +63,7 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
     - *Trigger automated response* - provides the option to trigger a logic app as a response to this security alert
     - *Suppress similar alerts* - provides the option to suppress future alerts with similar characteristics if the alert isn’t relevant for your organization
 
-    ![Take action tab.](./media/managing-and-responding-alerts/alert-take-action.png)
+    :::image type="content" source="./media/managing-and-responding-alerts/alert-take-action.png" alt-text="Take action tab.":::
 
 ## Change the status of multiple security alerts at once
 
