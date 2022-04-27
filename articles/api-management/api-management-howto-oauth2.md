@@ -20,7 +20,7 @@ Configuring OAuth 2.0 user authorization in the test console of the developer po
 
 ## Prerequisites
 
-This guide shows you how to configure your API Management service instance to use OAuth 2.0 authorization for developer accounts, but doesn't show you how to configure an OAuth 2.0 provider. 
+This article shows you how to configure your API Management service instance to use OAuth 2.0 authorization for developer accounts, but doesn't show you how to configure an OAuth 2.0 provider. 
 
 If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
@@ -28,7 +28,7 @@ If you haven't yet created an API Management service instance, see [Create an AP
 
 ## Scenario overview
 
-Configuring OAuth 2.0 user authorization in API Management only enables the developer portal’s test console as a client to acquire a token from the authorization server. The configuration for each OAuth 2.0 provider is different, although the steps are similar, and the required pieces of information used to configure OAuth 2.0 in your API Management service instance are the same. This article shows examples using Azure Active Directory as an OAuth 2.0 provider.
+Configuring OAuth 2.0 user authorization in API Management only enables the developer portal’s test console as a client to acquire a token from the authorization server. The configuration for each OAuth 2.0 provider is different, although the steps are similar, and the required pieces of information used to configure OAuth 2.0 in your API Management service instance are the same. This article shows an example using Azure Active Directory as an OAuth 2.0 provider.
 
 :::image type="content" source="media/api-management-howto-oauth2/overview-graphic-azure-ad.png" alt-text="Overview graphic to visually conceptualize the following flow.":::
 
@@ -186,7 +186,7 @@ Optionally:
 
     * Enter the **Authorization endpoint URL**. For Azure AD, this URL will be similar to one of the following URLs, where `<tenant_id>` is replaced with the ID of your Azure AD tenant. You can obtain the endpoint URL from the **Endpoints** page of one of your app registrations. 
 
-        Using the v2 endpoint is recommended; however, API Managdment supports both v1 and v2 endpoints.
+        Using the v2 endpoint is recommended; however, API Management supports both v1 and v2 endpoints.
 
         `https://login.microsoftonline.com/<tenant_id>/oauth2/v2.0/authorize` (v2)
 
