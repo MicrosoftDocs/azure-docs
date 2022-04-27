@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 An example of this scenario is an inventory assortment update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments. This tutorial shows how to implement this scenario using subscriptions and filters. First, you create a topic with 3 subscriptions, add some rules and filters, and then send and receive messages from the topic and subscriptions.
 
-:::image type="content" source="./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png" alt-text="Image showing a sender, a topic with three subscriptions, and three recevers.":::
+:::image type="content" source="./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png" alt-text="Image showing a sender, a topic with three subscriptions, and three receivers.":::
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
