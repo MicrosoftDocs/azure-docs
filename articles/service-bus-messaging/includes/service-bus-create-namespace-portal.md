@@ -11,7 +11,7 @@
 ---
 
 ## Create a namespace in the Azure portal
-To begin using Service Bus messaging entities in Azure, you must first create a namespace with a name that is unique across Azure. A namespace provides a scoping container for addressing Service Bus resources within your application.
+To begin using Service Bus messaging entities in Azure, you must first create a namespace with a name that is unique across Azure. A namespace provides a scoping container for Service Bus resources within your application.
 
 To create a namespace:
 
@@ -27,7 +27,7 @@ To create a namespace:
         - The name length is at least 6 and at most 50 characters.
         - The name can contain only letters, numbers, hyphens “-“.
         - The name must start with a letter and end with a letter or number.
-        - The name does not end with “-sb“ or “-mgmt“.
+        - The name doesn't end with “-sb“ or “-mgmt“.
     1. For **Location**, choose the region in which your namespace should be hosted.
     1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. For this quickstart, select **Standard**. 
     
@@ -53,7 +53,7 @@ To copy the primary connection string for your namespace, follow these steps:
 
 1. On the **Service Bus Namespace** page, select **Shared access policies** on the left menu.
 3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
-4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
+4. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
     :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an S A S policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
 
