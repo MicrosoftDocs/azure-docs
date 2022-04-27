@@ -6,42 +6,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 04/26/2022
 ---
 
-# Build scalable apps with Hyperscale (Citus)
+# Fundamental concepts for scaling
 
-> [!NOTE]
-> This article is for you if:
->
-> * You are building an app on the [Basic Tier](concepts-server-group.md#tiers)
->   with distributed tables, to be ready for the future. (Later, you can add
->   more nodes and scale out as workload grows.)
-> * You are starting with the [Standard Tier](concepts-server-group.md#tiers)
->   and deploying Hyperscale (Citus) across multiple nodes.
-> * You are already running on Hyperscale (Citus), but aren't using distributed
->   tables.
+Before we investigate the steps of building a new app, it's helpful to see a
+quick overview of the terms and concepts involved.
 
-This section covers how to build scalable relational apps with Hyperscale (Citus).
-
-If you're building an app that a single node database node (8vcore, 32GB RAM
-and 512GB storage) can handle for the near future (~6 months), then you can
-start with the Hyperscale (Citus) **Basic Tier**. Later, you can add more
-nodes, rebalance your, data and scale out seamlessly.
-
-If your app needs requires multiple database nodes in the short term, start
-with the Hyperscale (Citus) **Standard Tier**.
-
-> [!TIP]
->
-> If you choose the Basic Tier, you can treat Hyperscale (Citus) just like
-> standard PostgreSQL, and achieve full feature parity. You don’t need any
-> distributed data modeling techniques while building your app. If you decide
-> to go that route, you can skip this section.
-
-## Simple concepts and terminology
-
-### Architectural overview
+## Architectural overview
 
 Hyperscale (Citus) gives you the power to distribute tables across multiple
 machines in a server group and transparently query them the same you query
@@ -70,7 +43,7 @@ your data. In our example, because we distributed `campaigns` by `company_id`,
 the shards hold campaigns, where the campaigns of different companies are
 assigned to different shards.
 
-### Distribution column (a.k.a. shard key)
+## Distribution column (a.k.a. shard key)
 
 `create_distributed_table()` is the magic function that Hyperscale (Citus)
 provides to distribute tables and leverage resources across multiple machines.
@@ -108,7 +81,7 @@ applications.
   common shard key across large tables. More about this in
   [colocation](#colocation).
 
-### Colocation
+## Colocation
 
 Another concept closely related to shard key is *colocation*. Tables sharded by
 the same distribution column values are colocated - The shards of colocated
@@ -126,20 +99,10 @@ Colocation helps optimize JOINs across these tables. If you join the two tables
 on `site_id`, Hyperscale (Citus) can perform the join locally on worker nodes
 without shuffling data between nodes.
 
-## The three steps for building highly scalable apps
+## Next steps
 
-There are three steps involved in building scalable apps with Hyperscale
-(Citus):
-
-1. Classify your application workload. There are use-case where Hyperscale
-   (Citus) shines: multi-tenant SaaS, real-time operational analytics, and high
-   throughput OLTP. Determine whether your app falls into one of these categories.
-2. Based on the workload, classify your tables as reference, distributed, or
-   local. Identify the optimal shard key for the distributed tables.
-3. Update the database schema and application queries to make them go fast
-   across nodes.
-
-Let's look at each of the steps in detail.
+> [!div class="nextstepaction"]
+> [Classify application workload >](howto-build-scalable-apps-classify.md)
 
 ## Classifying application workload
 

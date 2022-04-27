@@ -682,7 +682,13 @@
   - name: How-to guides
     items:
     - name: Build scalable apps
-      href: hyperscale/howto-build-scalable-apps.md
+      items:
+        name: Overview
+        href: hyperscale/howto-build-scalable-apps-overview.md
+        name: Fundamental concepts
+        href: hyperscale/howto-build-scalable-apps-concepts.md
+        name: Classify workload
+        href: hyperscale/howto-build-scalable-apps-workload.md
     - name: Server group size
       items:
       - name: Pick initial size
