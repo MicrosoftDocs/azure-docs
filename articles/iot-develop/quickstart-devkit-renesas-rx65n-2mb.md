@@ -64,9 +64,9 @@ The cloned repo contains a setup script that installs and configures the require
 
 To install the tools:
 
-1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
+1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain-rx.bat*:
 
-    *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain-rx.bat*
 
 1. Add the RX compiler to the Windows Path:
 
