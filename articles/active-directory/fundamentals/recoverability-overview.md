@@ -177,7 +177,7 @@ The Audit Log always records a "Delete \<object\>" event when an object in the t
 
 A Delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type it's a hard delete.
 
-| Source | Activity in log| Result |
+| Object Type | Activity in log| Result |
 | - | - | - |
 | Application| Delete application| Soft deleted |
 | Application| Hard delete application| Hard deleted |
