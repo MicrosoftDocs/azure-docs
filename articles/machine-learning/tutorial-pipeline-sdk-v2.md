@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 (preview)"
+title: "Tutorial: ML pipelines with Python SDK v2 (preview)"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure ML Python SDK V2 (preview). 
 services: machine-learning
@@ -75,7 +75,7 @@ First you'll install the v2 SDK on your compute instance:
 
 1. Now, on the left, Select the **Files**
 
-    :::image type="content" source="media/clone-tutorials-users-files.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
+    :::image type="content" source="media/tutorial-pipeline-sdk/clone-tutorials-users-files.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
 
 1. A list of folders shows each user who accesses the workspace. Select your folder, you'll find **azure-samples** is cloned.
 
@@ -85,7 +85,7 @@ First you'll install the v2 SDK on your compute instance:
     
 1. Select the **e2e-ml-workflow-part-I.ipynb** file from your **azureml-examples/tutorials/e2e-ds-experience/** folder. 
 
-    :::image type="content" source="media/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
+    :::image type="content" source="media/tutorial-pipeline-sdk/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
 
 1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to use for running the notebook.
 
@@ -103,7 +103,8 @@ The image below shows the pipeline as you'll see it in the AzureML portal once s
 
 The two steps are first data preparation and second training. 
 
-   ![Screenshot that shows the AML Pipeline](media/tutorial-pipeline-sdk/pipeline-overview.jpg "ML Pipeline")
+:::image type="content" source="media/tutorial-pipeline-sdk/pipeline-overview.jpg" alt-text="Overview of the pipeline.":::
+
 
 ## Set up the pipeline resources
 
@@ -150,7 +151,7 @@ The data you use for training is usually in one of the locations below:
 
 * Local machine
 * Web
-* Big Data Storage services (for example, Azure Blob, Azure Data Lake Storage, SQL... )
+* Big Data Storage services (for example, Azure Blob, Azure Data Lake Storage, SQL)
  
 Azure ML uses a `Dataset` object to register a reusable definition of data, and consume data within a pipeline. A `Dataset` object is a pointer to a data storage service and a path. In the section below, you'll consume some data from web url as one example. Datasets from other sources can be created as well.
 
@@ -228,8 +229,7 @@ print(
 
 ## Create a job environment for pipeline steps
 
-So far, in the requirements section, you've created a development environment on the compute instance, your development machine. You'll also need an environment to use for each step of the pipeline. Each step can have its own environment, or you can use some common environments for multiple steps.
-
+So far, you've created a development environment on the compute instance, your development machine. You'll also need an environment to use for each step of the pipeline. Each step can have its own environment, or you can use some common environments for multiple steps.
 
 In this example, you'll create a conda environment for your jobs, using a conda yaml file.
 First, create a directory to store the file in.
