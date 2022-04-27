@@ -20,12 +20,12 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Azure (Coremark) TOC
 | Type | Families |
 | ---- | -------- |
-| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage) [FXMDVS](#fxmdvs) |
-| [General purpose](#general-purpose) | [B](#b---burstable) [DADSv5](#dadsv5) [DASv5](#dasv5) [DDSv5](#ddsv5) [DDv5](#ddv5) [DSv5](#dsv5) [Dv5](#dv5) [Dasv4](#dasv4) [Dav4](#dav4) [Ddsv4](#ddsv4) [Ddv4](#ddv4) [Dsv4](#dsv4) [Dv4](#dv4) [Dsv3](#dsv3---general-compute--premium-storage) [Dv3](#dv3---general-compute) [DSv2](#dsv2---general-purpose--premium-storage) [Dv2](#dv2---general-compute)   |
-| [High performance compute](#high-performance-compute) | [HBv3](#hbv3) [HBv2](#hbrsv2) [HB](#hbs---memory-bandwidth-amd-epyc) [HC](#hcs---dense-computation-intel-xeon-platinum-8168)  |
-| [Memory optimized](#memory-optimized) | [EADSv5](#eadsv5) [EASv5](#easv5) [EDSv5](#edsv5) [EDv5](#edv5) [ESv5](#esv5) [Ev5](#ev5) [Easv4](#easv4) [Eav4](#eav4) [Edsv4](#edsv4)  [Edv4](#edv4) [Esv4](#esv4) [Ev4](#ev4) [DSv2][Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized) (#dsv2---memory-optimized--premium-storage) [Dv2](#dv2---memory-optimized-compute)  [Msv2](#msv2-high-memory) [Ms](#m-series-medium-memory)  |
+| [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage), [FXMDVS](#fxmdvs) |
+| [General purpose](#general-purpose) | [B](#b---burstable), [DADSv5](#dadsv5), [DASv5](#dasv5), [DDSv5](#ddsv5), [DDv5](#ddv5), [DSv5](#dsv5), [Dv5](#dv5), [Dasv4](#dasv4), [Dav4](#dav4), [Ddsv4](#ddsv4), [Ddv4](#ddv4), [Dsv4](#dsv4), [Dv4](#dv4), [Dsv3](#dsv3---general-compute--premium-storage), [Dv3](#dv3---general-compute), [DSv2](#dsv2---general-purpose--premium-storage), [Dv2](#dv2---general-compute)   |
+| [High performance compute](#high-performance-compute) | [HBv3](#hbv3), [HBv2](#hbrsv2), [HB](#hbs---memory-bandwidth-amd-epyc), [HC](#hcs---dense-computation-intel-xeon-platinum-8168)  |
+| [Memory optimized](#memory-optimized) | [EADSv5](#eadsv5), [EASv5](#easv5), [EDSv5](#edsv5), [EDv5](#edv5), [ESv5](#esv5), [Ev5](#ev5), [Easv4](#easv4), [Eav4](#eav4), [Edsv4](#edsv4),  [Edv4](#edv4), [Esv4](#esv4), [Ev4](#ev4), [DSv2](#dsv2---memory-optimized--premium-storage), [Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized), [Dv2](#dv2---memory-optimized-compute),  [Msv2](#msv2-high-memory), [Ms](#m-series-medium-memory)  |
 | [Storage optimized](#storage-optimized) | [Lsv2](#lsv2---storage-optimized)  |
-| [Confidential Compute](#confidential-compute) | [DC](#dcs---confidential-compute-series) [DCSv3](#dcsv3) [DCDSv3](#dcdsv3) [DCv2](#dcsv2)  |
+| [Confidential Compute](#confidential-compute) | [DC](#dcs---confidential-compute-series), [DCSv3](#dcsv3), [DCDSv3](#dcdsv3), [DCv2](#dcsv2)  |
 
 ## Compute optimized
 
