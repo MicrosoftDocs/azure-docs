@@ -380,31 +380,31 @@ This section lists the most common service limits you might encounter as you use
 
 ### Analytics rule limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-analytics-rules.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-analytics-rules.md)]
 
 ### Incident limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-incidents.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-incidents.md)]
 
 ### Machine learning-based limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-machine-learning.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
 
 ### Notebook limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-notebooks.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
 
 ### Threat intelligence limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-threat-intelligence.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
 
 ### Watchlist limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-watchlists.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
 
 ### User and Entity Behavior Analytics (UEBA) limits
 
-[!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-ueba.md)]
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
 
 ## Service Bus limits
 
