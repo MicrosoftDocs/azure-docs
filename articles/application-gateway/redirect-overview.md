@@ -29,6 +29,8 @@ A redirect type sets the response status code for the clients to understand the 
    
    Redirects from one listener to another listener. Listener redirection is commonly used to enable HTTP to HTTPS redirection.
    
+   When configuring redirects with a multi-site target listener, it is required that all the host names (with or without wildcard characters) are defined as part of the source listener are also part of the destination listener. This ensures that no traffic is dropped due to missing host names on the destination listener while configuring HTTP to HTTPS redirection.
+   
 - **Path-based redirection**
 
    This type of redirection enables redirection only on a specific site area, for example, redirecting HTTP to HTTPS requests for a shopping cart area denoted by /cart/\*.

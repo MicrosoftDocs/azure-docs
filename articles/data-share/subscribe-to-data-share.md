@@ -102,7 +102,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Run the [az datashare consumer invitation list](/cli/azure/datashare/consumer/invitation#az-datashare-consumer-invitation-list) command to see your current invitations:
+Run the [az datashare consumer invitation list](/cli/azure/datashare/invitation#az-datashare-invitation-list) command to see your current invitations:
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
@@ -164,7 +164,7 @@ Copy your invitation ID for use in the next section.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az datashare consumer share-subscription create](/cli/azure/datashare/consumer/share-subscription#az-datashare-consumer-share-subscription-create) command to create the Data Share.
+Use the [az datashare consumer share-subscription create](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-create) command to create the Data Share.
 
 ```azurecli
 az datashare consumer share-subscription create --resource-group share-rg \
@@ -207,7 +207,7 @@ Follow the steps below to configure where you want to receive data.
 
 Use these commands to configure where you want to receive data.
 
-1. Run the [az datashare consumer share-subscription list-source-dataset](/cli/azure/datashare/consumer/share-subscription#az-datashare-consumer-share-subscription-list-source-dataset) command to get the data set ID:
+1. Run the az datashare consumer share-subscription list-source-dataset command to get the data set ID:
 
    ```azurecli
    az datashare consumer share-subscription list-source-dataset \
@@ -253,7 +253,7 @@ Use these commands to configure where you want to receive data.
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Use the [az datashare consumer dataset-mapping create](/cli/azure/datashare/consumer/dataset-mapping#az-datashare-consumer-dataset-mapping-create) command to create the dataset mapping:
+1. Use the [az datashare consumer dataset-mapping create](/cli/azure/datashare/data-set-mapping#az-datashare-data-set-mapping-create) command to create the dataset mapping:
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -262,7 +262,7 @@ Use these commands to configure where you want to receive data.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Run the [az datashare consumer share-subscription synchronization start](/cli/azure/datashare/consumer/share-subscription/synchronization#az-datashare-consumer-share-subscription-synchronization-start) command to start dataset synchronization.
+1. Run the az datashare consumer share-subscription synchronization start command to start dataset synchronization.
 
    ```azurecli
    az datashare consumer share-subscription synchronization start \
@@ -271,7 +271,7 @@ Use these commands to configure where you want to receive data.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Run the [az datashare consumer share-subscription synchronization list](/cli/azure/datashare/consumer/share-subscription/synchronization#az-datashare-consumer-share-subscription-synchronization-list) command to see a list of your synchronizations:
+   Run the az datashare consumer share-subscription synchronization list command to see a list of your synchronizations:
 
    ```azurecli
    az datashare consumer share-subscription synchronization list \
@@ -280,7 +280,7 @@ Use these commands to configure where you want to receive data.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Use the [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/consumer/share-subscription#az-datashare-consumer-share-subscription-list-source-share-synchronization-setting) command to see synchronization settings set on your share.
+   Use the [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/share-subscription#az-datashare-share-subscription-list-source-share-synchronization-setting) command to see synchronization settings set on your share.
 
    ```azurecli
    az datashare consumer share-subscription list-source-share-synchronization-setting \
@@ -371,7 +371,7 @@ These steps only apply to snapshot-based sharing.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az datashare consumer trigger create](/cli/azure/datashare/consumer/trigger#az-datashare-consumer-trigger-create) command to trigger a snapshot:
+Run the [az datashare consumer trigger create](/cli/azure/datashare/trigger#az-datashare-trigger-create) command to trigger a snapshot:
 
 ```azurecli
 az datashare consumer trigger create --resource-group "share-rg" \

@@ -39,7 +39,7 @@ When setting up scan, you can choose to scan one or more MongoDB database(s) ent
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.16.8093.1.
 
@@ -49,13 +49,13 @@ When setting up scan, you can choose to scan one or more MongoDB database(s) ent
 
 ## Register
 
-This section describes how to register MongoDB in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register MongoDB in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new MongoDB source in your data catalog, do the following:
 
-1. Navigate to your Microsoft Purview account in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **MongoDB**. Select **Continue**.

@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 01/31/2022
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
@@ -246,6 +246,9 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
 * **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
+
+  > [!NOTE]
+  > IoT Hub queries used in [Message Routing](./iot-hub-devguide-routing-query-syntax.md) don't support whitespace or any of the following characters as part of a key name: `()<>@,;:\"/?={}`.
 
 * **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 

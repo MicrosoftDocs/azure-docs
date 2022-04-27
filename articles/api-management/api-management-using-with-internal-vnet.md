@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 # Connect to a virtual network in internal mode using Azure API Management 
 With Azure virtual networks (VNets), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
-This article explains how to set up VNet connectivity for your API Management instance in the *internal* mode, In this mode, you can only access the following service endpoints within a VNet whose access you control.
+This article explains how to set up VNet connectivity for your API Management instance in the *internal* mode. In this mode, you can only access the following service endpoints within a VNet whose access you control.
 * The API gateway
 * The developer portal
 * Direct management
@@ -142,25 +142,11 @@ The load-balanced public and private IP addresses can be found on the **Overview
 
 For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
 
-The load-balanced public and private IP addresses can be found on the **Overview** blade in the Azure portal.
-
-> [!NOTE]
-> The VIP address(es) of the API Management instance will change when:
-> * The VNet is enabled or disabled. 
-> * API Management is moved from **External** to **Internal** virtual network mode, or vice versa.
-> * [Zone redundancy](zone-redundancy.md) settings are enabled, updated, or disabled in a location for your instance (Premium SKU only).
->
-> You may need to update DNS registrations, routing rules, and IP restriction lists within the VNet.
-
-### VIP and DIP addresses
-
-Dynamic IP (DIP) addresses will be assigned to each underlying virtual machine in the service and used to access resources *within* the VNet. The API Management service's public virtual IP (VIP) address will be used to access resources *outside* the VNet. If IP restriction lists secure resources within the VNet, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
-
-Learn more about the [recommended subnet size](virtual-network-concepts.md#subnet-size).
+[!INCLUDE [api-management-virtual-network-vip-dip](../../includes/api-management-virtual-network-vip-dip.md)]
 
 #### Example
 
-if you deploy 1 [capacity unit](api-management-capacity.md) of API Management in the Premium tier in an internal VNet, 3 IP addresses will be used: 1 for the private VIP and one each for the DIPs for two VMs. If you scale out to 4 units, more IPs will be consumed for additional DIPs from the subnet.  
+If you deploy 1 [capacity unit](api-management-capacity.md) of API Management in the Premium tier in an internal VNet, 3 IP addresses will be used: 1 for the private VIP and one each for the DIPs for two VMs. If you scale out to 4 units, more IPs will be consumed for additional DIPs from the subnet.  
 
 If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures will result if you add new units in the future. For this reason and since the subnet is entirely in your control, we recommend allow-listing the entire subnet in the backend.
 

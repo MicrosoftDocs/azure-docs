@@ -107,7 +107,7 @@ For more information about database alert rules, see [Receive Alert Notification
 
 ### Enable auditing
 
-If auditing is required to access your database, you need to enable Auditing after the database recovery. For more information, see [Database auditing](../../azure-sql/database/auditing-overview.md).
+If auditing is required to access your database, you need to enable Auditing after the database recovery. For more information, see [Database auditing](/azure/azure-sql/database/auditing-overview).
 
 ## Next steps
 

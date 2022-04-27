@@ -16,34 +16,17 @@ The steps in this article focus on setting up nested virtualization for Windows 
 
 ## Run script
 
-1. If you're using Internet Explorer, you may have to add `https://github.com` to the trusted sites list.
-    1. Open Internet Explorer.
-    1. Select the gear icon, and choose **Internet options**.  
-    1. When the **Internet Options** dialog appears, select **Security**, select **Trusted Sites**, click **Sites** button.
-    1. When the **Trusted sites** dialog appears, add `https://github.com` to the trusted websites list, and select **Close**.
-
-        ![Trusted sites](./media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
-
-1. Download the Git repository files as outlined in the following steps.
-    1. Go to https://github.com/Azure/azure-devtestlab/archive/refs/heads/master.zip or [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/).
-    1. Click the **Clone or Download** button.
-    1. Click **Download ZIP**.
-    1. Extract the ZIP file
-
-    >[!TIP]
-    >You can also clone the Git repository at [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git).
-
 1. Launch **PowerShell** in **Administrator** mode.
-1. In the PowerShell window, navigate to the folder with the downloaded script. If you're navigating from the top folder of the repository files, the script is located at `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\`.
 1. You may have to change the execution policy to successfully run the script. Run the following command:
 
     ```powershell
     Set-ExecutionPolicy bypass -force
     ```
 
-1. Run the script:
+1. Download and run the script:
 
     ```powershell
+    Invoke-WebRequest 'https://aka.ms/azlabs/scripts/hyperV-powershell' -Outfile SetupForNestedVirtualization.ps1
     .\SetupForNestedVirtualization.ps1
     ```
 
@@ -63,7 +46,7 @@ Now your template machine is ready to create Hyper-V virtual machines. See [Crea
 
 Next steps are common to setting up any lab.
 
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Set a schedule](tutorial-setup-lab.md#set-a-schedule-for-the-lab)
 - [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

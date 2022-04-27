@@ -16,13 +16,13 @@ ms.custom: devx-track-python, mode-api, devx-track-azurecli
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This quickstart shows how to access the Azure Cosmos DB [Table API](https://docs.microsoft.com/azure/cosmos-db/table/introduction) from a Python application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table. Python applications can access the Cosmos DB Table API using the [Azure Data Tables SDK for Python](https://pypi.org/project/azure-data-tables/) package.
+This quickstart shows how to access the Azure Cosmos DB [Table API](introduction.md) from a Python application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table. Python applications can access the Cosmos DB Table API using the [Azure Data Tables SDK for Python](https://pypi.org/project/azure-data-tables/) package.
 
 ## Prerequisites
 
 The sample application is written in [Python3.6](https://www.python.org/downloads/), though the principles apply to all Python3.6+ applications. You can use [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
 
-If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet) before you begin.
+If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet) before you begin.
 
 ## Sample application
 
@@ -53,11 +53,11 @@ Log in to the [Azure portal](https://portal.azure.com/) and follow these steps t
 
 ### [Azure CLI](#tab/azure-cli)
 
-Cosmos DB accounts are created using the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB. As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Cosmos DB account.
+Cosmos DB accounts are created using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB. As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Cosmos DB account.
 
 Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character. Cosmos DB account names must also be unique across Azure.
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 It typically takes several minutes for the Cosmos DB account creation process to complete.
 
@@ -79,11 +79,11 @@ az cosmosdb create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Cosmos DB.  As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
+Azure Cosmos DB accounts are created using the [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet. You must include the `-ApiKind "Table"` option to enable table storage within your Cosmos DB.  As all Azure resources must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
 
 Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
 
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
 
 It typically takes several minutes for the Cosmos DB account creation process to complete.
 
@@ -123,7 +123,7 @@ In the [Azure portal](https://portal.azure.com/), complete the following steps t
 
 ### [Azure CLI](#tab/azure-cli)
 
-Tables in Cosmos DB are created using the [az cosmosdb table create](https://docs.microsoft.com/cli/azure/cosmosdb/table#az-cosmosdb-table-create) command.
+Tables in Cosmos DB are created using the [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) command.
 
 ```azurecli
 COSMOS_TABLE_NAME='WeatherData'
@@ -137,7 +137,7 @@ az cosmosdb table create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Tables in Cosmos DB are created using the [New-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbtable) cmdlet.
+Tables in Cosmos DB are created using the [New-AzCosmosDBTable](/powershell/module/az.cosmosdb/new-azcosmosdbtable) cmdlet.
 
 ```azurepowershell
 $cosmosTableName = 'WeatherData'
@@ -164,7 +164,7 @@ To access your table(s) in Cosmos DB, your app will need the table connection st
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the primary connection string using Azure CLI, use the [az cosmosdb keys list](https://docs.microsoft.com/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`. This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
+To get the primary connection string using Azure CLI, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`. This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
 
 ```azurecli
 # This gets the primary connection string
@@ -178,7 +178,7 @@ az cosmosdb keys list \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To get the primary connection string using Azure PowerShell, use the [Get-AzCosmosDBAccountKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
+To get the primary connection string using Azure PowerShell, use the [Get-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
 
 ```azurepowershell
 # This gets the primary connection string
@@ -405,7 +405,7 @@ A resource group can be deleted using the [Azure portal](https://portal.azure.co
 
 ### [Azure CLI](#tab/azure-cli)
 
-To delete a resource group using the Azure CLI, use the [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
+To delete a resource group using the Azure CLI, use the [az group delete](/cli/azure/group#az-group-delete) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP_NAME
@@ -413,7 +413,7 @@ az group delete --name $RESOURCE_GROUP_NAME
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To delete a resource group using Azure PowerShell, use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
+To delete a resource group using Azure PowerShell, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $resourceGroupName
@@ -426,4 +426,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the Table API](https://docs.microsoft.com/azure/cosmos-db/table/table-import)
+> [Import table data to the Table API](table-import.md)
