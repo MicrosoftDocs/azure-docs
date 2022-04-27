@@ -25,11 +25,8 @@ items:
     href: tutorial-nat-gateway-load-balancer-internal-portal.md
   - name: Migrate outbound access
     href: tutorial-migrate-outbound-nat.md
-<<<<<<< HEAD
-=======
   - name: Migrate a virtual machine public IP address
     href: tutorial-migrate-ilip-nat.md
->>>>>>> c9d94b3df0f547122ad140ce8567202e6cbf7e44
   expanded: true
 - name: Concepts
   items:
