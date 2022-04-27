@@ -145,8 +145,6 @@ Each transaction represents a unique combination of purchase record ID and line-
 
 The growth rate denotes the percentage change of transactions between the end and the start of the selected month range.
 
-[ ![Screenshot of the Transactions section of the Revenue dashboard.](./media/revenue-dashboard/transactions-widget.png) ](./media/revenue-dashboard/transactions-widget.png#lightbox)
-
 Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
 
 [ ![Screenshot of the ellipsis menu of the transactions widget.](./media/revenue-dashboard/transactions-widget-ellipsis.png) ](./media/revenue-dashboard/transactions-widget-ellipsis.png#lightbox)
