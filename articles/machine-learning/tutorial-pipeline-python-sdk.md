@@ -7,7 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: msdpalam
-ms.author: msdpalam
+ms.author: meeral
+ms.reviewer: sgilley
 ms.date: 04/20/2022
 ms.custom: sdkv2
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic. 
@@ -40,7 +41,7 @@ You'll learn how to use the AzureML Python SDK v2 to:
 ## Prerequisites
 
 * A basic understanding of Machine Learning projects workflow
-* Complete the [Quickstart: Get started with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources) to:
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources) to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a cloud-based compute cluster to use for training your model.
@@ -132,8 +133,12 @@ from azure.ml import MLClient
 from azure.identity import DefaultAzureCredential
 ```
 
-In the next cell, enter your Subscription ID, Resource Group name and Workspace name. These parameters can be obtained during workspace creation, or by visiting the Azure ML Studio. The result is a handler to the workspace that you'll use to manage other resources and jobs.
+In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
+1. In the upper right Azure Machine Learning Studio toolbar, select your workspace name.
+1. At the bottom, select **View all properties in Azure Portal**
+1. Copy the values from Azure Portal into the code.
 
+:::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
 
 ```Python
 # get a handle to the workspace
@@ -144,6 +149,8 @@ ml_client = MLClient(
     workspace_name="<AML_WORKSPACE_NAME>",
 )
 ```
+
+The result is a handler to the workspace that you'll use to manage other resources and jobs.
 
 > [!IMPORTANT]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during dataset registration).
@@ -188,7 +195,7 @@ print(
 )
 ```
 
-In future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.datasets.get("<DATASET NAME>", version='<VERSION>').
+In future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.datasets.get("<DATASET NAME>", version='<VERSION>')`.
 
 
 ## Create a compute resource to run our pipeline
@@ -196,7 +203,7 @@ In future, you can fetch the same dataset from the workspace using `credit_datas
 
 Each step of an Azure ML pipeline can use a different compute resource for running the specific job of that step. The resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark on HDInsight.
 
-In this section, we provision a Linux compute cluster. You may want to check [full list on VM sizes and prices](https://azure.microsoft.com/en-ca/pricing/details/machine-learning/).
+In this section, we provision a Linux compute cluster. You may want to check [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 For this tutorial we only need a basic cluster, let's pick a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure ML Compute
 
@@ -727,7 +734,7 @@ This section shows the script run sdtout.
 * `Outputs+logs` > `Metric`
 This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
 
-    :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot of std_log.txt":::
+    :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt":::
 
 ## Deploy the model as an online endpoint
 

@@ -14,13 +14,13 @@ ms.custom: devx-track-python, sdkv1
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 For a tutorial that uses SDK v2 to build a pipeline, see[Tutorial: Use ML pipelines for production ML workflows with Python SDK v2 (preview) in a Jupyter Notebook](../tutorial-pipeline-python-sdk.md).
 
-In this tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
+In this tutorial, you learn how to build an [Azure Machine Learning pipeline](../concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
-The example trains a small [Keras](https://keras.io/) convolutional neural network to classify images in the [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset. 
+The example trains a small [Keras](https://keras.io/) convolutional neural network to classify images in the [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset.
 
 In this tutorial, you complete the following tasks:
 
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Prerequisites
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
+* Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
 * A Python environment in which you've installed both the `azureml-core` and `azureml-pipeline` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 
 > [!Important]
@@ -91,7 +91,7 @@ workspace = Workspace.from_config()
 ```
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](../how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
 
 ## Create the infrastructure for your pipeline 
 
@@ -136,7 +136,7 @@ if not found:
 ```
 
 > [!Note]
-> GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
+> GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](../how-to-manage-quotas.md).
 
 ### Create a dataset for the Azure-stored data
 
@@ -384,7 +384,7 @@ Don't complete this section if you plan to run other Azure Machine Learning tuto
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### Delete everything
 
@@ -409,11 +409,11 @@ In this tutorial, you used the following types:
     * The `Pipeline` that composes the `PythonScriptStep` steps into a whole
     * The `Model` that you registered after being satisfied with the training process
     
-The `Workspace` object contains references to other resources (notebooks, endpoints, and so on) that weren't used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
+The `Workspace` object contains references to other resources (notebooks, endpoints, and so on) that weren't used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](../concept-workspace.md).
 
-The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset. For more information on datasets and working with data, see [How to access data](./how-to-access-data.md).
+The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset. For more information on datasets and working with data, see [How to access data](../how-to-access-data.md).
 
-For more on compute targets and environments, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md) and [What are Azure Machine Learning environments?](concept-environments.md)
+For more on compute targets and environments, see [What are compute targets in Azure Machine Learning?](../concept-compute-target.md) and [What are Azure Machine Learning environments?](../concept-environments.md)
 
 The `ScriptRunConfig` associates a `ComputeTarget` and `Environment` with Python source files. A `PythonScriptStep` takes that `ScriptRunConfig` and defines its inputs and outputs, which in this pipeline was the file dataset built by the `OutputFileDatasetConfig`. 
 
