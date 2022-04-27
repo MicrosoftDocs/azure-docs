@@ -13,7 +13,7 @@ ms.author: dhruvinshah
 ms.reviewer: ashishj
 ---
 
-# Understanding Azure Active Directory Application Proxy Complex application scenario
+# Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)
 
 When applications are made up of multiple top-level domains the following problems arise.
 1.	Pre-authentication- The App Proxy service does not have a token acquired for the second domain and must redirect to pre-auth for this domain to successfully access the site.
