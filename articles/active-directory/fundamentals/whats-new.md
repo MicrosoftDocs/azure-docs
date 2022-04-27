@@ -34,6 +34,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## April 2022
 
+### General Availability- Microsoft Defender for Endpoint Signal in Identity Protection
+
 
 **Type:** New feature  
 **Service category:** Identity Protection  
@@ -41,6 +43,34 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
  
 
 Identity Protection now integrates a signal from Microsoft Defender for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
+ 
+
+---
+
+### General availability - Entitlement management 3 stages of approval
+
+
+**Type:** Changed feature 
+**Service category:** Identity Protection  
+**Product capability:** Entitlement Management  
+**Clouds impacted:** Public (Microsoft 365,GCC)
+ 
+
+This update extends the Azure AD entitlement management access package policy to allow a 3rd approval stage.  This will be able to be configured via the Azure portal or Microsoft Graph. For more information, see: [Change approval and requestor information settings for an access package in Azure AD entitlement management](../governance/entitlement-management-access-package-approval-policy.md).
+ 
+
+---
+
+### General Availability - Improvements to Azure AD Smart Lockout
+
+
+**Type:** Changed feature 
+**Service category:** Identity Protection  
+**Product capability:** User Management  
+**Clouds impacted:** Public (Microsoft 365,GCC), China, US Gov(GCC-H, DOD), US Nat, US Sec
+ 
+
+With a recent improvement, Smart Lockout now synchronizes the lockout state across Azure AD data centers, so the total number of failed sign-in attempts allowed before an account is locked out will match the configured lockout threshold. For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
  
 
 ---
