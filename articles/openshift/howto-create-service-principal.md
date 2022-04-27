@@ -71,6 +71,7 @@ az ad sp create-for-rbac --name myAROClusterServicePrincipal
 
 The output is similar to the following example.
 
+```
 { 
 
   "appId": "", 
@@ -83,7 +84,8 @@ The output is similar to the following example.
 
   "tenant": "" 
 
-} 
+}
+``` 
 
 Retain your `appId` and `password`. These values are used when you create an Azure Red Hat OpenShift cluster below. 
 
@@ -138,7 +140,7 @@ To grant permissions to an existing service principal with the Azure portal, see
 
 When deploying an Azure Red Hat OpenShift cluster using the Azure portal, configure the service principal on the **Authentication** page of the *Azure Red Hat OpenShift** dialog.
 
-[ ![Use the Azure Red Hat service principal with Azure portal to create a cluster.](./media/openshift-service-principal-portal.png)](./media/openshift-service-principal-portal.png#lightbox)
+[ ![Screenshot that shows how to use the Azure Red Hat service principal with Azure portal to create a cluster.](./media/openshift-service-principal-portal.png)](./media/openshift-service-principal-portal.png#lightbox)
 
 Specify the following values, and then select **Review + Create".
 
