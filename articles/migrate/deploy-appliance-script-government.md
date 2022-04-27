@@ -5,7 +5,7 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 04/27/2022 
 ---
 
 
@@ -13,9 +13,9 @@ ms.date: 11/02/2021
 
 Follow this article to deploy an [Azure Migrate appliance](./migrate-appliance-architecture.md) for Azure Government cloud to perform:
 
-- discovery, assessment and agentless replication of servers running in VMware environment
-- discovery and assessment of servers running in Hyper-V environment
-- discovery and assessment of physical servers or servers running on other clouds like AWS, GCP, Xen etc.
+- Discovery, assessment and agentless replication of servers running in VMware environment
+- Discovery and assessment of servers running in Hyper-V environment
+- Discovery and assessment of physical servers or servers running on other clouds like AWS, GCP, Xen etc.
 
 If you want to set up  an appliance in the public cloud, follow [this article](deploy-appliance-script.md).
 

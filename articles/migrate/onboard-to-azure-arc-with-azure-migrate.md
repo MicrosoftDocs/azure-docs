@@ -5,7 +5,7 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 04/27/2022
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   

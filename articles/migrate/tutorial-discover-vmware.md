@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 11/12/2021
+ms.date: 04/27/2022
 ms.custom: mvc, subject-rbac-steps
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
