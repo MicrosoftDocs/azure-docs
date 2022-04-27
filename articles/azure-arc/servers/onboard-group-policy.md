@@ -10,7 +10,7 @@ ms.custom: template-how-to
 
 You can onboard Active Directory joined Windows machines to Azure Arc-enabled servers at scale using Group Policy.
 
-After setting up a local remote share with the Connected Machine Agent and defining a configuration file on their landing zone within Azure, you can define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering, native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
+You'll first need to set up a local remote share with the Connected Machine Agent and define a configuration file on the landing zone within Azure. You will then define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
 
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
 
@@ -31,10 +31,9 @@ Before you can run the script to connect your machines, you'll need to do the fo
 1. Follow the steps to [create a service principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
     * Assign the Azure Connected Machine Onboarding role to your service principal and limit the scope of the role to the target Azure landing zone.
-
     * Make a note of the Service Principal Secret; you'll need this value later.
 
-1. Modify and save the following configuration file to the remote share as **ArcConfig.json**. Edit the file with your Azure subscription, resource group, and location details. Use the service principal details from step 1 into for last two fields.
+1. Modify and save the following configuration file to the remote share as `ArcConfig.json`. Edit the file with your Azure subscription, resource group, and location details. Use the service principal details from step 1 for the last two fields:
 
 ```
 { 
@@ -57,9 +56,9 @@ Before you can run the script to connect your machines, you'll need to modify an
 
 1. Edit the `localPath` with the local path where the logs generated from the onboarding to Azure Arc-enabled servers will be saved per machine.
 
-1. Save the modified onboarding script locally and note its location. This will be referenced when authoring the Group Policy Object.
+1. Save the modified onboarding script locally and note its location. This will be referenced when creating the Group Policy Object.
 
-```azurecli
+```
 [string] $remotePath = "\\dc-01.contoso.lcl\Software\Arc"
 [string] $localPath = "$env:HOMEDRIVE\ArcDeployment"
 
@@ -124,9 +123,9 @@ The newly created GPO needs to be modified to run the onboarding script at the a
 
 Your workstation must be running Windows 7 or higher to be able to create a Scheduled Task from Group Policy Management Console. 
 
-### Assign the appropriate general information
+### Assign general parameters for the task
 
-Follow the next steps for the different parameters under Security options: 
+In the **General** tab, set the following parameters under **Security Options**:
 
 1. In the field **When running the task, use the following user account:**, enter "NT AUTHORITY\System". 
 
@@ -138,42 +137,41 @@ Follow the next steps for the different parameters under Security options:
 
 :::image type="content" source="media/onboard-group-policy/st-general.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
 
-### Assign the appropriate triggers parameters
+### Assign trigger parameters for the task
 
-In the **Triggers** tab, select **New**, then enter the following parameters in the **New Triggers** window:
+In the **Triggers** tab, select **New**, then enter the following parameters in the **New Trigger** window:
 
 1. In the field **Begin the task**, select **On a schedule**. 
 
-1. Under Settings, select **One time** and enter the date and time for the task to run.  
+1. Under **Settings**, select **One time** and enter the date and time for the task to run.  
 
-1. Under Advanced Settings, check the box for **Enabled**.  
+1. Under **Advanced Settings**, check the box for **Enabled**.  
 
 1. Once you've set the trigger parameters, select **OK**. 
 
 :::image type="content" source="media/onboard-group-policy/new-trigger.png" alt-text="Screenshot of the New Trigger window." :::
 
-### Assign the appropriate actions parameters
+### Assign action parameters for the task
 
-In the **Actions** tab, select **New**, then enter the follow parameters in the **New Actions** window: 
+In the **Actions** tab, select **New**, then enter the follow parameters in the **New Action** window: 
 
-1. For Action, select **Start a program** from the dropdown.  
+1. For **Action**, select **Start a program** from the dropdown.  
 
 1. For **Program/script**, enter `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`.
 
-1. For **Add Arguments (optional)**, enter  
-`-ExecutionPolicy Bypass -command <Path to Deployment Script>`. 
+1. For **Add arguments (optional)**, enter `-ExecutionPolicy Bypass -command <Path to Deployment Script>`. 
 
-    Note that you must enter the location of the deployment script, modified earlier with the `DeploymentPath` and `LocalPath`, instead of the placeholder <Path to Deployment Script>. 
+    Note that you must enter the location of the deployment script, modified earlier with the `DeploymentPath` and `LocalPath`, instead of the placeholder "Path to Deployment Script". 
 
-1. For Start In (Optional), enter `C:\`. 
+1. For **Start In (Optional)**, enter `C:\`. 
 
-1. Once you've set the action parameters, select **OK**
+1. Once you've set the action parameters, select **OK**.
 
 :::image type="content" source="media/onboard-group-policy/new-action.png" alt-text="Screenshot of the New Action window." :::
 
 ## Apply the Group Policy Object 
 
-On the Group Policy Management Console, you need to right-click on the desired Organizational Unit and select the option to link an existent GPO. Choose the Group Policy Object defined in the Scheduled Task. After 10 or 20 minutes, the Group Policy Object will be replicated to the respective domain controllers. Learn more about [creating and managing group policy in Azure AD Domain Services](../active-directory-domain-services/manage-group-policy). 
+On the Group Policy Management Console, you need to right-click on the desired Organizational Unit and select the option to link an existent GPO. Choose the Group Policy Object defined in the Scheduled Task. After 10 or 20 minutes, the Group Policy Object will be replicated to the respective domain controllers. Learn more about [creating and managing group policy in Azure AD Domain Services](../../active-directory-domain-services/manage-group-policy.md). 
 
 After you have successfully installed the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your Organizational Unit have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal). 
 
