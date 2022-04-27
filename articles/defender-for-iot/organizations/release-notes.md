@@ -54,6 +54,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Refreshed Protocols DPI (Horizon Plugins) page for plugin management](#refreshed-protocols-dpi-horizon-plugins-page-for-plugin-management)
+- [Documentation improvements](#documentation-improvements)
 
 ### Active discovery scans (Public preview)
 
@@ -143,7 +144,7 @@ For more information, see [Manage proprietary protocols with Horizon plugins](re
 
 ### Documentation improvements
 
-**Release note tracking per version**
+#### Release note tracking per version
 
 Starting in May 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
 
@@ -151,7 +152,23 @@ Going forward, find the sensor software version released in a given month at the
 
 For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
 
-**Documentation reorganization for end-user organizations**
+#### New OT monitoring appliance catalog
+
+We've refreshed and revamped the catalog of supported appliances for OT monitoring systems, including both OT sensors and on-premises management consoles.
+
+Use the new pages as follows:
+
+1. **Understand which hardware model best fits your organization's needs.** For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
+
+1. **Learn about the preconfigured hardware appliances that are available to purchase, or system requirements for virtual machines.** For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md) and [OT monitoring with virtual appliances](ot-virtual-appliances.md).
+
+    For more information about each appliance type, use the linked reference page, or browse through our new **Reference > OT monitoring appliances** section.
+
+    :::image type="content" source="media/release-notes/appliance-catalog.png" alt-text="Screenshot of the new appliance catalog reference section.":::
+
+    Reference articles for each appliance type, including virtual appliances, include specific steps to configure the appliance for OT monitoring. Generic software installation and troubleshooting procedures are still documented in [Defender for IoT software installation](how-to-install-software.md).
+
+#### Documentation reorganization for end-user organizations
 
 We recently reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started.
 
