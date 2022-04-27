@@ -78,17 +78,18 @@ The following table lists the supported actions and suboperations for conditions
 The following table lists the descriptions for the supported attributes for conditions in Azure Storage.
 
 > [!div class="mx-tableFixed"]
-> | Display name | Description | Attribute |
-> | --- | --- | --- |
-> | Blob index tags [Keys] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&]` |
-> | Blob index tags [Values in key] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>` |
-> | Blob path | Path of a virtual directory, blob, folder or file resource. Use when you want to check the blob name or folders in a blob path. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path]` |
-> | Blob prefix |  | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix]` |
-> | Container name| Name of a storage container or file system. Use when you want to check the container name. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]` |
-> | Encryption scope name | Name of the encryption scope used to encrypt data. Available only for storage accounts where hierarchical namespace is not enabled. | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name]` |
-> | Is hierarchical namespace enabled | Indicates whether hierarchical namespace is enabled on a storage account. Available only at resource group or above scope. | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled]` |
-> | Snapshot | Snapshot identifier for a blob snapshot. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
-> | Version ID | Version ID of a version blob. Available only for storage accounts where hierarchical namespace is not enabled. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]` |
+> | Display name | Description | Attribute | Type |
+> | --- | --- | --- | --- |
+> | Account name | Name of a storage account. | `@Resource[Microsoft.Storage/storageAccounts:name]` | String |
+> | Blob index tags [Keys] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&]` | StringList |
+> | Blob index tags [Values in key] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>` | String |
+> | Blob path | Path of a virtual directory, blob, folder or file resource. Use when you want to check the blob name or folders in a blob path. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path]` | String |
+> | Blob prefix | Allowed prefix of blobs to be listed. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix]` | String |
+> | Container name| Name of a storage container or file system. Use when you want to check the container name. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]` | String |
+> | Encryption scope name | Name of the encryption scope used to encrypt data. Available only for storage accounts where hierarchical namespace is not enabled. | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name]` | String |
+> | Is hierarchical namespace enabled | Indicates whether hierarchical namespace is enabled on a storage account. Available only at resource group or above scope. | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled]` | Boolean |
+> | Snapshot | Snapshot identifier for a blob snapshot. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` | DateTime |
+> | Version ID | Version ID of a version blob. Available only for storage accounts where hierarchical namespace is not enabled. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]` | DateTime |
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
@@ -102,6 +103,15 @@ The following table lists the descriptions for the supported attributes for cond
 ## Attributes available for each action
 
 The following table lists which attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
+
+
+> [!div class="mx-tableFixed"]
+> | Action | Attribute |
+> | --- | --- |
+> | Delete a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot |
+> | All read operations | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
+> | Read content from a blob with tag conditions | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
+
 
 > [!div class="mx-tableFixed"]
 > | DataAction | Attribute | Type | Applies to |
