@@ -133,7 +133,7 @@ from azure.ml import MLClient
 from azure.identity import DefaultAzureCredential
 ```
 
-In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
+In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 1. In the upper right Azure Machine Learning Studio toolbar, select your workspace name.
 1. At the bottom, select **View all properties in Azure Portal**
 1. Copy the values from Azure Portal into the code.
