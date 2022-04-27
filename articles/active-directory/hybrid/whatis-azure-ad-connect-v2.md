@@ -19,7 +19,7 @@ Azure AD Connect was released several years ago.  Since this time, several of th
 
 
 
-To address this, we have bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals that is built using the latest foundational components. 
+To address this, we have bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components. 
 
 ## What are the major changes? 
 
@@ -81,13 +81,13 @@ Yes – upgrades from any previous version of Azure AD Connect to Azure AD Conne
 Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this [article](how-to-connect-import-export-config.md). 
 
 **I have enabled auto upgrade for Azure AD Connect – will I get this new version automatically?** </br> 
-Yes - your Azure AD Connect server will be upgraded to the latest release if you have enabled the auto-upgrade feature. Note that we have no yet release an autop upgrade version for Azure AD Connect.
+Yes - your Azure AD Connect server will be upgraded to the latest release if you have enabled the auto-upgrade feature. Note that we have no yet release an auto upgrade version for Azure AD Connect.
 
 **I am not ready to upgrade yet – how much time do I have?** </br>
 You should upgrade to Azure AD Connect V2 as soon as you can. **__All Azure AD Connect V1 versions will be retired on 31 August, 2022.__** For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
 
 **I use an external SQL database and do not use SQL 2012 LocalDb – do I still have to upgrade?** </br>
-Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. Note that SQL Server 2012 can still be used as an external SQL database with Azure AD Connect V2 - the SQL 2019 drivers in Azure AD Connect V2 are compatible with SQL Server 2012.
+Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. Note that SQL Server 2012 can still be used as an external SQL database with Azure AD Connect V2.  The SQL 2019 drivers in Azure AD Connect V2 are compatible with SQL Server 2012.
 
 **After the upgrade of my Azure AD Connect instance to V2, will the SQL 2012 components automatically get uninstalled?** </br>
 No, the upgrade to SQL 2019 does not remove any SQL 2012 components from your server. If you no longer need these components then you should follow [the SQL Server uninstallation instructions](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
@@ -100,7 +100,7 @@ We expect TLS 1.0/1.1 to be deprecated in 2022, and you need to make sure you ar
 In June 2022, ADAL is planned to go out of support. When ADAL goes out of support authentication may stop working unexpectedly and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2 before June 2022. You cannot upgrade to a supported authentication library with your current Azure AD Connect version. 
 
 **After upgrading to 2 the ADSync PowerShell cmdlets do not work?** </br>
-This is a known issue. To resolve this, restart your PowerShell session after installing or upgrading to version 2 and then re-import the module. Use the following instructions to import the module.
+This is a known issue. To resolve this, restart your PowerShell session after installing or upgrading to version 2 and then reimport the module. Use the following instructions to import the module.
  
  1.  Open Windows PowerShell with administrative privileges.
  1.  Type or copy and paste the following code: 
