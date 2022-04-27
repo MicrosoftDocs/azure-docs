@@ -20,7 +20,7 @@ Multiple Azure Data Factories can connect to a single Microsoft Purview to push 
 2. Under **Lineage connections**, select **Data Factory**.
 3. The Data Factory connection list appears.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection-inline.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection-expanded.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
 
 4. Notice the various values for connection **Status**:
 
@@ -47,8 +47,6 @@ Follow the steps below to connect an existing data factory to your Microsoft Pur
 3. On the **Data Factory connection** page, select **New**.
 
 4. Select your Data Factory account from the list and select **OK**. You can also filter by subscription name to limit your list.
-
-    :::image type="content" source="./media/how-to-link-azure-data-factory/connect-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-data-factory.png":::
 
     Some Data Factory instances might be disabled if the data factory is already connected to the current Microsoft Purview account, or the data factory doesn't have a managed identity.
 
