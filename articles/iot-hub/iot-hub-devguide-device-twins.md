@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 04/27/2022
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
