@@ -50,6 +50,8 @@ landingContent:
             url: collect-required-information-for-a-site.md
           - text: Create a site
             url: create-a-site.md
+          - text: Upgrade a packet core instance
+            url: upgrade-packet-core.md
   # Card                   
   - title: Customize quality of service (QoS) and traffic control
     linkLists:

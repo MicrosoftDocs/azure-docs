@@ -46,6 +46,8 @@ items:
       href: collect-required-information-for-a-site.md    
     - name: Create a site
       href: create-a-site.md
+    - name: Upgrade a packet core instance
+      href: upgrade-packet-core.md
   - name: Services
     items:
     - name: Collect the required information for a service
