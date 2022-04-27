@@ -128,7 +128,7 @@ A pre-upgrade validator is available to help identify potential issues when migr
 
 To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI or Azure PowerShell commands:
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
@@ -137,7 +137,7 @@ az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 
 az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -Force
