@@ -25,7 +25,8 @@ Several other features don't have a direct cost, but you instead pay for the ing
 | Web tests | There is a cost for [multi-step web tests](app/availability-multistep.md) in Application Insights, but this feature has been deprecated.
 
 ## Data transfer charges 
-Sending data to Azure Monitor can incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is typically very small compared to the costs for data ingestion and retention. Controlling costs for Log Analytics should focus on your ingested data volume.
+Sending data to Azure Monitor can incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate, although data sent to a different region via [Diagnostic Settings](essentials/diagnostic-settings.md) does not incur data transfer charges. Inbound data transfer is free. Data transfer charges are typically very small compared to the costs for data ingestion and retention. Controlling costs for Log Analytics should focus on your ingested data volume.
+
 
 ## Estimate Azure Monitor usage and costs
 If you're new to Azure Monitor, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate your costs. In the **Search** box, enter *Azure Monitor*, and then select the **Azure Monitor** tile. The pricing calculator will help you estimate your likely costs based on your expected utilization.

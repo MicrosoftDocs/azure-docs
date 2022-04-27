@@ -229,6 +229,12 @@ For the next test scenario, configure the authentication policy where the **poli
  
 - The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
+- There is a double prompt for iOS because iOS only supports pushing certificates to a device storage. When an organization pushes user certificates to an iOS device through Mobile Device Management (MDM) or when a user accesses first-party or native apps, there is no access to device storage. Only Safari can access device storage.
+
+  When an iOS client sees a client TLS challenge and the user clicks **Sign in with certificate**, iOS client knows it cannot handle it and sends a completely new authorization request using the Safari browser. The user clicks **Sign in with certificate** again, at which point Safari which has access to certificates for authentication in device storage. This requires users to click **Sign in with certificate** twice, once in app’s WKWebView and once in Safari’s System WebView.
+
+  We are aware of the UX experience issue and are working to fix this on iOS and to have a seamless UX experience.
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)

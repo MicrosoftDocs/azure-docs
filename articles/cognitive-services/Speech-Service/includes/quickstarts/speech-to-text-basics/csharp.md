@@ -78,8 +78,6 @@ Follow these steps to create a new console application and install the Speech SD
             var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
             speechConfig.SpeechRecognitionLanguage = "en-US";
 
-            //To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
-            //using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
@@ -106,10 +104,17 @@ Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
-This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
-
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
+
+Here are some additional considerations:
+
+- This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
+    ```csharp
+    using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
+    ```
+- For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Clean up resources
 
