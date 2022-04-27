@@ -35,7 +35,7 @@ Use the `nslookup` utility from your local client computer:
 nslookup <APP_NAME>.azurewebsites.net
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Use the `nslookup` utility from your local client computer:
 
@@ -65,7 +65,7 @@ az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query outb
 az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query possibleOutboundIpAddresses --output tsv
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $functionApp = Get-AzFunctionApp -ResourceGroupName <GROUP_NAME> -Name <APP_NAME>
@@ -176,7 +176,7 @@ To find out if your function app runs in an App Service Environment:
 az resource show --resource-group <GROUP_NAME> --name <APP_NAME> --resource-type Microsoft.Web/sites --query properties.sku --output tsv
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $functionApp = Get-AzResource -ResourceGroupName <GROUP_NAME> -ResourceName <APP_NAME> -ResourceType Microsoft.Web/sites 
