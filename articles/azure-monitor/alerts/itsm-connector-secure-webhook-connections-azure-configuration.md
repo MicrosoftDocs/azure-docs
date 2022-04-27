@@ -32,7 +32,7 @@ Follow these steps to register the application with Azure AD:
 
 ## Define service principal
 
-The Action Group service is a first party application therefore it has permission to acquire authentication tokens from your AAD application in order to authentication with Service now.
+The Action Group service is a first party application therefore it has permission to acquire authentication tokens from your AAD application in order to authentication with ServiceNow.
 As an optional step you can define application role in the created app’s manifest, which can allow you to further restrict, access in a way that only certain applications with that specific role can send messages. This role has to be then assigned to the Action Group service principal (Requires tenant admin privileges).
 
 This step can be done through the same [PowerShell commands](../alerts/action-groups.md#secure-webhook-powershell-script).
