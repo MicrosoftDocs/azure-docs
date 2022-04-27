@@ -143,15 +143,16 @@ There are some limitations for sharing your gallery to the community:
 ### Community-shared images FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**
-   **A**: There are no charges for using the service itself. However, content publishers would be charged for the following:
+
+**A**: There are no charges for using the service itself. However, content publishers would be charged for the following:
 - Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
 - Network egress charges for replication across regions.
 
 **Q: Is it safe to use images shared to the community?**
 
-Users should exercise caution while using images from non-verified sources, since these images are not subject to Azure certification.  
+**A**: Users should exercise caution while using images from non-verified sources, since these images are not subject to Azure certification.  
 
-**Q: If an image that is shared to the community doesn’t work, who do I contact for support?**
+**Q**: If an image that is shared to the community doesn’t work, who do I contact for support?**
 
 **A**: Azure is not responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Please look up the publisher contact information for the image and reach out to them for any support.  
 

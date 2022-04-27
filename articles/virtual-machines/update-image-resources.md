@@ -53,7 +53,7 @@ az sig image-version list --resource-group myGalleryRG --gallery-name myGallery 
 
 
 
-**Get a specific image version **
+**Get a specific image version**
 
 Get the ID of a specific image version in your gallery using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).  
 
