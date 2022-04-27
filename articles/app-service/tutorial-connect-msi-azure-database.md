@@ -490,7 +490,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
 # [Node.js](#tab/nodejs)
 
-1. Install the required NPM packages you need into your Node.js project:
+1. Install the required npm packages you need into your Node.js project:
 
     # [Azure SQL Database](#tab/sqldatabase)
 
