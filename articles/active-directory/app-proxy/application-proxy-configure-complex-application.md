@@ -65,9 +65,6 @@ If successful, this method returns a `204 No Content` response code and does not
 
 ##### Response
 
-<!-- {
-  "blockType": "response"
-} -->
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -76,32 +73,27 @@ Here is an example of the request.
 
 
 ```http
-<!-- {
-  "blockType": "request",
-  "name": "update_application"
-}-->
-```http
 PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app}
-
 Content-type: application/json
+
 {
     "onPremisesPublishing": {
 		"onPremisesApplicationSegments": [
 			{
-				"externalUrl": "https://home.cookie.contoso.net/",
+				"externalUrl": "https://home.contoso.net/",
 				"internalUrl": "https://home.test.com/",
 				"alternateUrl": "",
 				"corsConfigurations": []
 			},
 			{
-				"externalUrl": "https://assets.cookie.constoso.net/",
+				"externalUrl": "https://assets.constoso.net/",
 				"internalUrl": "https://assets.test.com",
 				"alternateUrl": "",
 				"corsConfigurations": [
 					{
 						"resource": "/",
 						"allowedOrigins": [
-							"https://home.cookie.contoso.net/"
+							"https://home.contoso.net/"
 						],
 						"allowedHeaders": [
 							"*"
