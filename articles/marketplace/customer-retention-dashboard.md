@@ -7,27 +7,75 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 02/15/2022
+ms.date: 04/28/2022
 ---
 
 # Customer retention dashboard
 
 This article describes the Customer retention dashboard in Partner Center. This dashboard displays information about your retained customers, including offer performance, valuable customers, and monthly cohort views, all presented in a graphical and downloadable format. It is currently only available for virtual machine offers.
 
-This dashboard uses the 18 months of data prior to the current system date to plot different widgets and a monthly cohort view. This same information can also be downloaded.
-
 The following illustration shows the offer usage timeline of two customers and introduces the concept of retention days (Day 0, Day 1, … Day _n_). Retention day is a normalized concept, meaning customer 1 can start their usage journey on Jan 1st (absolute date) and customer 2 can start theirs on March 1st (absolute date). Still, each specific date will be referred to as normalized "Day 0" for both customer 1 and 2. The same convention is extended to other customers. The following image illustrates customer offer usage across time:
 
-:::image type="content" source="media/retention/usage-across-time.png" lightbox="media/retention/usage-across-time.png" alt-text="Table shows customer usage across time.":::
+:::image type="content" source="media/customer-retention-dashboard/usage-across-time.png" lightbox="media/customer-retention-dashboard/usage-across-time.png" alt-text="Table shows customer usage across time.":::
 
 > [!NOTE]
 > This feature is currently only available for virtual machine offers. It includes data for both trial and paid VM offers. Filters to perform retention analysis on trial and paid customers will be available in the dashboard by June 2022.
 
 The dashboard uses the 18 months of data prior to the current system date to plot different widgets and a monthly cohort view. The raw data for these widgets can also be downloaded or accessed via programmatic API access.
 
+## Access the Customer retention dashboard
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Marketplace insights**.
+
+## Elements of the Customer retention dashboard
+
+The following sections describe how to use the Customer retention dashboard and how to read the data.
+
+### Download
+
+To download the data for this dashboard, in the upper-left of the page, select **Download as PDF** from the **Download** list.
+
+:::image type="content" source="./media/customer-retention-dashboard/download-as-pdf.png" alt-text="Screenshot of the Download list in the top menu.":::
+
+Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
+
+### Share
+
+To share the dashboard widgets data via email, in the top menu, select **Share**.
+
+:::image type="content" source="./media/customer-retention-dashboard/share.png" alt-text="Screenshot of the Share button in the top menu.":::
+
+In the dialog box that appears, provide the recipient email address and message. To share the report URL, select the **Copy link** or **Share to Teams** button. To take a snapshot of the charts data, select the **Copy as image** button.
+
+### What's new
+
+To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
+
+:::image type="content" source="./media/customer-retention-dashboard/whats-new.png" alt-text="Screenshot of the What's new button in the top menu.":::
+
+### About data refresh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Filters for category and marketplace offer
 
-:::image type="content" source="media/retention/category-selection.png" lightbox="media/retention/category-selection.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes.":::
+:::image type="content" source="media/customer-retention-dashboard/category-selection.png" lightbox="media/customer-retention-dashboard/category-selection.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes.":::
 
 Delect the **Category** for an offer from the left dropdown, then select one of your offers from the **Marketplace offer** dropdown.
 
@@ -36,7 +84,7 @@ Delect the **Category** for an offer from the left dropdown, then select one of 
 
 ## Granularity for retention analysis
 
-:::image type="content" source="media/retention/time-range-selection.png" alt-text="Shows the selection headings of Days, Weeks, and Months.":::
+:::image type="content" source="media/customer-retention-dashboard/time-range-selection.png" alt-text="Shows the selection headings of Days, Weeks, and Months.":::
 
 Select a time range to analyze customer retention across days, weeks, and months. This analysis uses the 18 months of usage data prior to the current system date to calculate retained customers and retention scores across daily, weekly, and monthly views.
 
@@ -51,7 +99,7 @@ This section shows the count of retained customers on a specific day (Day 0, Day
 - **Total** represents the customer count normalized at Day 45 of using the category offer.
 - Hover on the line graph to display the customer count on specific days since first usage.
 
-:::image type="content" source="media/retention/retained-customers.png" alt-text="Shows the count of retained customers on a specific day.":::
+:::image type="content" source="media/customer-retention-dashboard/retained-customers.png" alt-text="Shows the count of retained customers on a specific day.":::
 
 ## Offer performance by category
 
@@ -65,15 +113,15 @@ The right portion of the widget plots a line between the offer count on the Y-ax
 
 The offer rank, indicating the relative offer performance, has slipped by 9 ranks since the last data refresh happened for all partners in the marketplace. Hovering over the line graph shows the **Offer count**: the number of marketplace offers at different retention scores on the x-axis. In this example, **72 offers** have a retention score of **0.2**. The total offers (**608**) is the sum of all the offer counts (**Y-axis**) on the line graph at different retention score intervals (**X-axis**).
 
-:::image type="content" source="media/retention/category-selection-example.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes for a sample offer.":::
+:::image type="content" source="media/customer-retention-dashboard/category-selection-example.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes for a sample offer.":::
 
 #### Daily level analysis
 
-:::image type="content" source="media/retention/retained-customers-example.png" alt-text="Shows the offer performance by category for a sample offer.":::
+:::image type="content" source="media/customer-retention-dashboard/retained-customers-example.png" alt-text="Shows the offer performance by category for a sample offer.":::
 
 #### Weekly level analysis
 
-:::image type="content" source="media/retention/weekly-level-analysis-example.png" alt-text="Shows the weekly analysis for a sample offer.":::
+:::image type="content" source="media/customer-retention-dashboard/weekly-level-analysis-example.png" alt-text="Shows the weekly analysis for a sample offer.":::
 
 > [!NOTE]
 > A higher retention score indicates your offer is performing well in its marketplace category. A lower retention score and relative offer rank indicates the offer requires your attention.
@@ -103,7 +151,7 @@ The retention curve gives you an idea of major checkpoints at which a customer m
 - Hover over the bar graph to view the count of retained customers for specific days.
 - Hover over the line graph to view retention scores for specific days.
 
-:::image type="content" source="media/retention/daily-retention.png" lightbox="media/retention/daily-retention.png" alt-text="Shows offer retention scores at different days of customer usage and benchmarks it with aggregated retention scores.":::
+:::image type="content" source="media/customer-retention-dashboard/daily-retention.png" lightbox="media/customer-retention-dashboard/daily-retention.png" alt-text="Shows offer retention scores at different days of customer usage and benchmarks it with aggregated retention scores.":::
 
 ## Customers
 
@@ -121,11 +169,11 @@ View additional pages of data using the page links at the bottom right.
 
 #### Retained customer information
 
-:::image type="content" source="media/retention/retained-information-day-1.png" lightbox="media/retention/retained-information-day-1.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 1.":::
+:::image type="content" source="media/customer-retention-dashboard/retained-information-day-1.png" lightbox="media/customer-retention-dashboard/retained-information-day-1.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 1.":::
 
 #### Dormant customer information
 
-:::image type="content" source="media/retention/retained-information-day-5.png" lightbox="media/retention/retained-information-day-5.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 5.":::
+:::image type="content" source="media/customer-retention-dashboard/retained-information-day-5.png" lightbox="media/customer-retention-dashboard/retained-information-day-5.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 5.":::
 
 ## Active customers
 
@@ -137,7 +185,7 @@ This  widget displays the total count of active or retained customers based on t
 - The colored bar represents different buckets of active or retained customers.
 - Hover over the graph to see the active customer count on different days.
 
-:::image type="content" source="media/retention/active-customers.png" alt-text="Shows the total count of active or retained customers based on the number of marketplace offers used.":::
+:::image type="content" source="media/customer-retention-dashboard/active-customers.png" alt-text="Shows the total count of active or retained customers based on the number of marketplace offers used.":::
 <!--
 ## Widget 8 – Potential revenue
 
@@ -148,12 +196,12 @@ This widget shows the revenue that could have been generated for you by retainin
 - Potential revenue is on the Y-axis and normalized retention days is on the X-axis.
 - Graph displays the additional revenue if you retained customers for the corresponding normalized day.
 
-:::image type="content" source="media/retention/potential-revenue.png" alt-text="Shows the revenue that could have been generated for you by retaining dormant customers.":::
+:::image type="content" source="media/customer-retention-dashboard/potential-revenue.png" alt-text="Shows the revenue that could have been generated for you by retaining dormant customers.":::
 -->
 
 ## Recommendations
 
-:::image type="content" source="media/retention/recommendations.png" lightbox="media/retention/recommendations.png" alt-text="Shows the Click Here boxes for getting recommendations.":::
+:::image type="content" source="media/customer-retention-dashboard/recommendations.png" lightbox="media/customer-retention-dashboard/recommendations.png" alt-text="Shows the Click Here boxes for getting recommendations.":::
 
 This shows next steps. **Click here** opens the offer product description page in Microsoft AppSource or Azure marketplace.
 
@@ -179,7 +227,7 @@ Use this information to analyze the retention rates of an offer across months an
 - Hover over each cell of the heatmap to view the retention score in percentages.
 - Darker blue cells indicate higher retention score, lighter blue cells indicate lower retention scores.
 
-:::image type="content" source="media/retention/retention-heat-map.png" lightbox="media/retention/retention-heat-map.png" alt-text="Shows the retention scores of customers acquired in a cohort.":::
+:::image type="content" source="media/customer-retention-dashboard/retention-heat-map.png" lightbox="media/customer-retention-dashboard/retention-heat-map.png" alt-text="Shows the retention scores of customers acquired in a cohort.":::
 
 ## Customer retention details section
 
@@ -189,7 +237,7 @@ This table lists the 500 top orders by retained date.
 - The data can be exported to a .CSV or .TSV file if the number of records is less than 500.
 - If records number over 500, exported data is regularly placed in a downloads page for the next 30 days.
 
-:::image type="content" source="media/retention/retention-details.png" lightbox="media/retention/retention-details.png" alt-text="Shows a sample customer retention details table.":::
+:::image type="content" source="media/customer-retention-dashboard/retention-details.png" lightbox="media/customer-retention-dashboard/retention-details.png" alt-text="Shows a sample customer retention details table.":::
 
 ## Dictionary of data terms
 
