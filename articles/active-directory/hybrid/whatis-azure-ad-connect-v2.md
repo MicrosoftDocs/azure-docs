@@ -15,25 +15,25 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 # Introduction to Azure AD Connect V2.0 
 
-Azure AD Connect was released several years ago.  Since this time, several of the components that Azure AD Connect uses have been scheduled for deprecation and updated to newer versions.  To attempt to update all of these components individually would take time and planning. 
+Azure AD Connect was released several years ago.  Since this time, several of the components that Azure AD Connect uses have been scheduled for deprecation and updated to newer versions.  Attempting to update all of these components individually would take time and planning. 
 
 
 
-To address this, we have bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This is a new version of the same software used to accomplish your hybrid identity goals that is built using the latest foundational components. 
+To address this, we have bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals that is built using the latest foundational components. 
 
 ## What are the major changes? 
 
 ### SQL Server 2019 LocalDB 
 
-The previous versions of Azure AD Connect shipped with a SQL Server 2012 LocalDB. V2.0 ships with a SQL Server 2019 LocalDB, which promises enhanced stability and performance and has several security-related bug fixes. SQL Server 2012 will go out of extended support in July 2022. For more information see [Microsoft SQL 2019](https://www.microsoft.com/sql-server/sql-server-2019).
+The previous versions of Azure AD Connect shipped with a SQL Server 2012 LocalDB. V2.0 ships with a SQL Server 2019 LocalDB, which promises enhanced stability and performance and has several security-related bug fixes. SQL Server 2012 will go out of extended support in July 2022. For more information, see [Microsoft SQL 2019](https://www.microsoft.com/sql-server/sql-server-2019).
 
 ### MSAL authentication library 
 
-The previous versions of Azure AD Connect shipped with the ADAL authentication library. This library will be deprecated in June 2022. The V2 release ships with the newer MSAL library. For more information see [Overview of the MSAL library](../../active-directory/develop/msal-overview.md).
+The previous versions of Azure AD Connect shipped with the ADAL authentication library. This library will be deprecated in June 2022. The V2 release ships with the newer MSAL library. For more information, see [Overview of the MSAL library](../../active-directory/develop/msal-overview.md).
 
 ### Visual C++ Redist 14 
 
-SQL Server 2019 requires the Visual C++ Redist 14 runtime, so we are updating the C++ runtime library to use this version. This will be installed with the Azure AD Connect V2 package, so you do not have to take any action for the C++ runtime update. 
+SQL Server 2019 requires the Visual C++ Redist 14 runtime, so we are updating the C++ runtime library to use this version. This redistributable will be installed with the Azure AD Connect V2 package, so you do not have to take any action for the C++ runtime update. 
 
 ### TLS 1.2 
 
