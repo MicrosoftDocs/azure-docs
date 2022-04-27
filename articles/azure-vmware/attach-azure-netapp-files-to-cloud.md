@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 04/20/2022
 ---
 
-# Attach Azure NetApp Files datastores to a private cloud (Preview)
+# Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
 
 [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) documentation. 
 
