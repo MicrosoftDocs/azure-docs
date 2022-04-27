@@ -108,6 +108,20 @@ Role assignment is managed through the collections. Only a user with the [collec
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
 
+## Administrator change
+
+There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the Microsoft Purview account is automatically assigned collection admin to the root collection. To change this, there are three options:
+
+- You can [assign permissions through the portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
+
+- You can use the REST API to add a collection administrator. Instructions to use the REST API to add a collection admin can be found in our [REST API for collections documenation.](tutorial-metadata-policy-collections-apis.md#add-the-root-collection-administrator-role). For additional information, you can see our [REST API reference](/rest/api/purview/accounts/add-root-collection-admin).
+
+- You can also [the below Azure CLI command](/cli/azure/purview/account#az-purview-account-add-root-collection-admin). The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
+
+    ```azurecli
+    az purview account add-root-collection-admin --account-name [Microsoft Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
+    ```
+
 ## Next steps
 
 Now that you have a base understanding of collections, and access control, follow the guides below to create and manage those collections, or get started with registering sources into your Microsoft Purview Resource.
