@@ -689,6 +689,8 @@
         href: hyperscale/howto-build-scalable-apps-concepts.md
       - name: Classify workload
         href: hyperscale/howto-build-scalable-apps-workload.md
+      - name: Model multi-tenant apps
+        href: hyperscale/howto-build-scalable-apps-model-mt.md
     - name: Server group size
       items:
       - name: Pick initial size
