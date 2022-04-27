@@ -29,7 +29,7 @@ To check license usage of ISV apps in Partner Center, do the following:
 
     [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
-1. In the left menu, select **License**.
+1. In the left menu, select **[License](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/license)**.
 
     [ ![Screenshot of the License dashboard in Partner Center.](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
 
@@ -41,11 +41,11 @@ The following sections describe how to use the License dashboard and how to read
 
 :::image type="content" source="./media/license-dashboard/button-download.png" alt-text="Screenshot of the Download function in the License dashboard.":::
 
-To download a snapshot of the dashboard, select **Download as PDF**. Alternatively, go to the Downloads dashboard and download the report.
+To download a snapshot of the dashboard, select **Download as PDF**. Alternatively, go to the [Downloads](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
 
 ### Share
 
-:::image type="content" source="./media/license-dashboard/button-share.png" alt-text="Screenshot shows the Email window option of the Share function on the Insights screen of the License dashboard":::
+:::image type="content" source="./media/license-dashboard/button-share.png" alt-text="Screenshot showing the email window option of the Share function on the Insights screen of the License dashboard":::
 
 To email dashboard widgets data, select **Share** and provide the email information. Share report URLs using **Copy link** and **Share to Teams**, or **Copy as image** to send a snapshot of chart data.
 
@@ -69,7 +69,7 @@ View the data source and the data refresh details, such as frequency of the data
 
 Submit feedback about the report/dashboard along with an optional screenshot.
 
-:::image type="content" source="./media/license-dashboard/feedback.png" alt-text="Screenshot shows the Got Feedback window for the Share function on the Insights screen of the License dashboard.":::
+:::image type="content" source="./media/license-dashboard/feedback.png" alt-text="Screenshot showing the Got Feedback window for the Share function on the Insights screen of the License dashboard.":::
 
 ## Month range filter
 
@@ -81,7 +81,7 @@ A month range selection is at the top-right corner of each page. Customize the o
 
 :::image type="content" source="./media/license-dashboard/button-filters.png" alt-text="Screenshot of filter selections on the Insights screen of the License dashboard.":::
 
-The page has different dashboard-level filters for the following:
+The page has dashboard-level filters for the following:
 
 - Offer type
 - Offer name
@@ -97,7 +97,7 @@ The _Customers widget_ shows the current number of customers. The trend chart sh
 
 ![Screenshot of the Customers widget on the Insights screen of the License dashboard.](./media/license-dashboard/customers-widget.png)
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## License widget
 
@@ -105,7 +105,7 @@ This widget shows the current number of provisioned and assigned licenses. The t
 
 ![Screenshot of the License widget on the Insights screen of the License dashboard.](./media/license-dashboard/license-widget.png)
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## Analysis widget
 
@@ -113,7 +113,7 @@ The _Analysis widget_ shows the number and percentage of provisioned and assigne
 
 ![Screenshot of the Analysis widget on the Insights screen of the License dashboard.](./media/license-dashboard/analysis-widget.png)
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## License Distribution widget
 
@@ -121,7 +121,7 @@ The _License Distribution_ widget shows the distribution of licenses across diff
 
 ![Screenshot of the License Distribution widget on the Insights screen of the License dashboard.](./media/license-dashboard/license-distribution.png)
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ## Data terms in License report downloads
 
