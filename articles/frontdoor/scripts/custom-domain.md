@@ -19,9 +19,9 @@ This Azure CLI script example deploys a custom domain name and TLS certificate o
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
+## Before you begin
 
-[Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md) and create a public zone.
+[Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md) and create a public zone.
 
 ## Sample script
 
@@ -75,7 +75,3 @@ This script uses the following commands. Each command in the table links to comm
 ## Next steps
 
 For more information on Azure CLI, see [Azure CLI documentation](/cli/azure).
-
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../az-cli-script-samples-content-guide.md).
-
-
