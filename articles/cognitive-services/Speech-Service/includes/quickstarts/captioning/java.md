@@ -41,7 +41,7 @@ Usage options include:
 
 - `-m`: Replaces letters in profane words with asterisk (*) characters. This setting is overridden by `-f` if set.
 
-- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone.
+- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone. For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
 - `-l languages`: Enable language identification for specified *languages`.  The comma delimited phrases must be in quotes. Example: "en-US,ja-JP"
 
@@ -54,7 +54,6 @@ Usage options include:
 - `-s`: Emit SRT caption format instead of the default WebVTT format.
 
 - `-t`: Capitalize intermediate results
-
 
 ## Clean up resources
 
