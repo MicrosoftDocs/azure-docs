@@ -39,7 +39,7 @@ Use an HTTP-triggered Azure Function and the `SignalRConnectionInfo` input bindi
 
 With [class-based model](#class-based-model) in C#, you don't need the `SignalRConnectionInfo` input binding and can add custom claims much more easily. For more information, see [Negotiate experience in class-based model](#negotiate-experience-in-class-based-model).
 
-For more information about the `negotiate` function, see [Azure Functions development](signalr-concept-serverless-development-config#negotiate-function).
+For more information about the `negotiate` function, see [Azure Functions development](#negotiate-function).
 
 To learn how to create an authenticated token, refer to [Using App Service Authentication](#using-app-service-authentication).
 
