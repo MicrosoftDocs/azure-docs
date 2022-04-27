@@ -219,7 +219,7 @@ parameters.
     # ==============================================================================
     # Uncomment the next line to override the default hostname of this device.
     #
-    hostname = "parent-vm.westus.cloudapp.azure.com"
+    hostname = "10.0.0.4"
     ```
 
     Use a hostname shorter than 64 characters, which is the character limit for a server certificate
@@ -300,7 +300,7 @@ upstream device for connection.
     Example **parent configuration file**:
 
     ```toml
-    hostname = "parent-vm.westus.cloudapp.azure.com"
+    hostname = "10.0.0.4"
     trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
@@ -372,7 +372,7 @@ To verify the *hostname*, you need to inspect the environment variables of the *
 
     ```json
     "Env": [
-        "EdgeDeviceHostName=parent-vm.westus.cloudapp.azure.com",
+        "EdgeDeviceHostName=10.0.0.4",
     ```
 
 01. Verify the *EdgeDeviceHostName* parameter value matches the `config.toml` *hostname* setting. If it doesn't match, the *edgeHub* container was running when you modified and applied the configuration. To update the *EdgeDeviceHostName*, remove the *edgeAgent* container.
