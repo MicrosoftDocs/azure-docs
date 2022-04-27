@@ -1,6 +1,6 @@
 ---
 title: Model multi-tenant apps - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to build relational apps that scale
+description: Techniques for scalable multi-tenant SaaS apps
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql

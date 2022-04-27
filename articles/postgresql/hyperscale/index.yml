@@ -27,7 +27,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Building scalable apps
-            url: howto-build-scalable-apps.md
+            url: howto-build-scalable-apps-overview.md
 
   # Card
   - title: Scale

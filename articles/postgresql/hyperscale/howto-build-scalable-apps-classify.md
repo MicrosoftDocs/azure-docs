@@ -1,6 +1,6 @@
 ---
 title: Classify application workload - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to build relational apps that scale
+description: Classify workload for scalable application
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql

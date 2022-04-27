@@ -1,6 +1,6 @@
 ---
-title: Build scalable apps - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to build relational apps that scale
+title: Fundamental concepts for scaling - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Ideas you need to know to build relational apps that scale
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
@@ -35,8 +35,10 @@ run a simple command called `create_distributed_table()`.  Once you run this
 command, Hyperscale (Citus) transparently creates shards for the table across
 worker nodes. In the diagram, shards are represented as blue boxes.
 
-> [!NOTE] On the basic tier, shards of distributed tables are on the
-> coordinator node, not worker nodes.
+> [!NOTE]
+>
+> On the basic tier, shards of distributed tables are on the coordinator node,
+> not worker nodes.
 
 Shards are plain (but specially-named) PostgreSQL tables that hold slices of
 your data. In our example, because we distributed `campaigns` by `company_id`,
