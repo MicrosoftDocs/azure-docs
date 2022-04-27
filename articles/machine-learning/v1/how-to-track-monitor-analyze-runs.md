@@ -15,11 +15,11 @@ ms.custom: devx-track-python, devx-track-azurecli, cliv1
 
 # Start, monitor, and track run history
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-The [Azure Machine Learning SDK for Python v1](/python/api/overview/azure/ml/intro) and [Machine Learning CLI](v1/reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
+The [Azure Machine Learning SDK for Python v1](/python/api/overview/azure/ml/intro) and [Machine Learning CLI](reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
 
 > [!TIP]
 > For information on using studio, see [Track, monitor, and analyze runs with studio](../how-to-track-monitor-analyze-runs.md).
@@ -39,8 +39,8 @@ This article shows how to do the following tasks:
  
 
 > [!TIP]
-> If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
-> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+> If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](../monitor-azure-machine-learning.md).
+> If you're looking for information on monitoring models deployed as web services, see [Collect model data](../how-to-enable-data-collection.md) and [Monitor with Application Insights](../how-to-enable-app-insights.md).
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ You'll need the following items:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 * The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](/python/api/overview/azure/ml/install).
 
@@ -58,7 +58,7 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
-* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 
 ## Monitor run performance
@@ -67,7 +67,7 @@ You'll need the following items:
 
     # [Python](#tab/python)
 
-    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
     1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment), [Run](/python/api/azureml-core/azureml.core.run%28class%29), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) classes from the [azureml.core](/python/api/azureml-core/azureml.core) package.
     
@@ -89,7 +89,7 @@ You'll need the following items:
         
     # [Azure CLI](#tab/azure-cli)
     
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]   
+    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]   
     
     To start a run of your experiment, use the following steps:
     
@@ -133,7 +133,7 @@ You'll need the following items:
 
     # [Python](#tab/python)
 
-    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../../..]includes/machine-learning-sdk-v1.md)]
     
     * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
     
@@ -166,7 +166,7 @@ You'll need the following items:
     
     # [Azure CLI](#tab/azure-cli)
     
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
     
     * To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
     
@@ -198,7 +198,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     # [Python](#tab/python)
 
-    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
     To add searchable metadata to your runs, use the [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
     
@@ -235,7 +235,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     # [Azure CLI](#tab/azure-cli)
 
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
     
     > [!NOTE]
     > Using the CLI, you can only add or update tags.
@@ -256,7 +256,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     # [Python](#tab/python)
 
-    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
     ```Python
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
@@ -265,7 +265,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     # [Azure CLI](#tab/azure-cli)
 
-    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
     
     The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
     
@@ -287,7 +287,7 @@ If you notice a mistake or if your run is taking too long to finish, you can can
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
@@ -310,7 +310,7 @@ print(local_run.get_status())
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
@@ -324,7 +324,7 @@ For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az-ml-run-can
 
 ## Create child runs
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
 
@@ -360,7 +360,7 @@ Child runs can also be submitted from a parent run. This allows you to create hi
 You may wish your child runs to use a different run configuration than the parent run. For instance, you might use a less-powerful, CPU-based configuration for the parent, while using GPU-based configurations for your children. Another common wish is to pass each child different arguments and data. To customize a child run, create a `ScriptRunConfig` object for the child run. 
 
 > [!IMPORTANT]
-> To submit a child run from a parent run on a remote compute, you must sign in to the workspace in the parent run code first. By default, the run context object in a remote run does not have credentials to submit child runs. Use a service principal or managed identity credentials to sign in. For more information on authenticating, see [set up authentication](how-to-setup-authentication.md).
+> To submit a child run from a parent run on a remote compute, you must sign in to the workspace in the parent run code first. By default, the run context object in a remote run does not have credentials to submit child runs. Use a service principal or managed identity credentials to sign in. For more information on authenticating, see [set up authentication](../how-to-setup-authentication.md).
 
 The below code:
 
@@ -441,7 +441,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
     1. In the **Destination details**, select the **Send to Log Analytics workspace**  and specify the **Subscription** and **Log Analytics workspace**. 
 
     > [!NOTE]
-    > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md). 
+    > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace). 
     
     ![Where to save email notification](./media/how-to-track-monitor-analyze-runs/log-location.png)
 
