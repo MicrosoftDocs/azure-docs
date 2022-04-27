@@ -21,7 +21,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | ---- | -------- |
 | [Compute optimized](#compute-optimized) | [Fsv2](#fsv2---compute--premium-storage), [Fs](#fs---compute-optimized--premium-storage), [F](#f---compute-optimized), [GS](#gs---compute-optimized--premium-storage), [G](#g---compute-optimized) |
 | [General purpose](#general-purpose) |  [B](#b---burstable), [Dasv4](#dasv4), [Dav4](#dav4), [Ddsv4](#ddsv4), [Ddv4](#ddv4), [Dsv4](#dsv4), [Dv4](#dv4), [Dsv3](#dsv3---general-compute--premium-storage), [Dv3](#dv3---general-compute), [DSv2](#dsv2---general-purpose--premium-storage), [Dv2](#dv2---general-compute),  [Av2](#av2---general-compute) |
-| [High performance compute](#high-performance-compute) | [HB](#hbs---memory-bandwidth-amd-epyc), [HC](#hcs---dense-computation-intel-xeon-platinum-8168),  |
+| [High performance compute](#high-performance-compute) | [HB](#hbs---memory-bandwidth-amd-epyc), [HC](#hcs---dense-computation-intel-xeon-platinum-8168)  |
 | [Memory optimized](#memory-optimized) | [Easv4](#easv4), [Eav4](#eav4), [Edsv4](#edsv4), [Edv4](#edv4), [Esv4](#esv4), [Ev4](#ev4), [Esv3](#esv3---memory-optimized--premium-storage), [Ev3](#ev3---memory-optimized),  [DSv2](#dsv2---memory-optimized--premium-storage), [Dv2](#dv2---general-compute)  |
 | [Storage optimized](#storage-optimized) | [Lsv2](#lsv2---storage-optimized), [Ls](#ls---storage-optimized--premium-storage) |
 
