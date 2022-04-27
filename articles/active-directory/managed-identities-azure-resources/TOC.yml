@@ -4,6 +4,8 @@
   items:
   - name: About managed identities for Azure resources
     href: overview.md
+  - name: Using managed identities for developers
+    href: overview-for-developers.md
 - name: Quickstarts
   items:
   - name: Use a VM managed identity to access Azure Resource Manager

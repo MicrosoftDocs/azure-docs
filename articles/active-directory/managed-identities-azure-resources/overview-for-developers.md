@@ -89,7 +89,7 @@ Now your App service has a managed identity, you'll need to give the identity th
 4. A list of Roles will be displayed. You can see the specific permissions that a role has by selecting the "View" link. Select the role that you want to grant to the identity and select the "Next" button
 :::image type="content" source="media/overview-for-developers/KeyVault-Select-Role.png" alt-text="Select a Role":::
 5. You'll be prompted to select who the role should be granted to. Select the "Managed identity" option and then the "Add members" link
-:::image type="content" source="media/overview-for-developers/KeyVault-SelectMember.png" alt-text="Select a Role":::
+:::image type="content" source="media/overview-for-developers/KeyVault-SelectMember.png" alt-text="Select the identity type":::
 6. A context pane will appear on the right where you can search by the type of the managed identity. Select "User-assigned managed identity" from the "Managed identity" option
 :::image type="content" source="media/overview-for-developers/KeyVault-SelectIdentity.png" alt-text="Select the managed identity":::
 7. Select the identity that you created earlier and the "Select" button. The context pane will close, and the identity will be added to the list
