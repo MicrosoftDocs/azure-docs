@@ -59,7 +59,7 @@ CleanData
     split(
         year < 1960,
 	    year > 1980,
-	    disjoint: true
+	    disjoint: false
     ) ~> SplitByYear@(moviesBefore1960, moviesAfter1980, AllOtherMovies)
 ```
 

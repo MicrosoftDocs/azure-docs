@@ -40,7 +40,7 @@ The following fields are defined by ASIM for all schemas:
 |  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalType](#eventoriginaltype) field. |
 | <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalSubType](#eventoriginalsubtype) field. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | One of the following values: **Success**, **Partial**, **Failure**, **NA** (Not Applicable).<br> <br>The value might be provided in the source record by using different terms, which should be normalized to these values. Alternatively, the source might provide only the [EventResultDetails](#eventresultdetails) field, which should be analyzed to derive the EventResult value.<br><br>Example: `Success`|
-| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalResultDetails](#eventoriginalresultdetails) field.<br><br>Example: `NXDOMAIN`|
+| <a name="eventresultdetails"></a>**EventResultDetails** | Recommended | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalResultDetails](#eventoriginalresultdetails) field.<br><br>Example: `NXDOMAIN`|
 | <a name="eventoriginaluid"></a>**EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | <a name="eventoriginaltype"></a>**EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID. This value is used to derive [EventType](#eventtype), which should have only one of the values documented for each schema.<br><br>Example: `4624`|
 | <a name="eventoriginalsubtype"></a>**EventOriginalSubType**   | Optional    | String     |   The original event subtype or ID, if provided by the source. For example, this field will be used to store the original Windows logon type. This value is used to derive [EventSubType](#eventsubtype), which should have only one of the values documented for each schema.<br><br>Example: `2`|
@@ -87,10 +87,11 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | GCP | Cloud DNS | 
 | Infoblox | NIOS | 
 | Microsoft | - AAD<br> - Azure Firewall<br> - Azure File Storage<br>    - Azure NSG flows<br> -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
-| Okta | Okta | 
+| Okta | - Okta<BR> - Auth0<br> | 
 | Palo Alto | - PanOS<br> - CDL<br> |
 | Squid | Squid Proxy | 
 | Vectra AI | Vectra Steam |
+| WatchGuard | Fireware |
 | Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
 
 

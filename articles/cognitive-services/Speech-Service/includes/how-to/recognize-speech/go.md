@@ -10,14 +10,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
-
 ## Recognize speech-to-text from a microphone
 
 Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). Running the script will start a recognition session on your default microphone and output text.

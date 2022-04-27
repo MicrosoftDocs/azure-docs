@@ -11,22 +11,6 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK for Node.js. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs).
-
-Use the following `require` statement to import the SDK:
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
-
 ## Create a speech configuration
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
