@@ -42,7 +42,7 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 
 1. In the left menu, select **Customers**.
 
-    :::image type="content" source="media/customer-dashboard/menu-customer.png" alt-text="Screenshot shows the Customer option in the left-nav menu.":::
+    :::image type="content" source="media/customer-dashboard/menu-customer.png" alt-text="Screenshot showing the Customer option in the left-nav menu.":::
 
 ## Elements of the Customers dashboard
 
@@ -50,51 +50,51 @@ The following sections describe how to use the Customers dashboard and how to re
 
 ### Download
 
-:::image type="content" source="media/customer-dashboard/button-download.png" alt-text="Screenshot shows the Download option on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/button-download.png" alt-text="Screenshot showing the Download option on the Insights screen of the Customers dashboard.":::
 
-To download a snapshot of the dashboard, select **Download as PDF**. Alternatively, go to the Downloads dashboard and download the report.
+To download a snapshot of the dashboard, select **Download as PDF**. Alternatively, go to the [Downloads](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
 
 ### Share
 
-:::image type="content" source="media/customer-dashboard/button-share.png" alt-text="Screenshot shows the Share option on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/button-share.png" alt-text="Screenshot showing the Share option on the Insights screen of the Customers dashboard.":::
 
 To email dashboard widgets data, select **Share** and provide the email information. Share report URLs using **Copy link** and **Share to Teams**, or **Copy as image** to send a snapshot of chart data.
 
-:::image type="content" source="media/customer-dashboard/email-window.png" alt-text="Screenshot shows the Email window option of the Share function on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/email-window.png" alt-text="Screenshot showing the Email window option of the Share function on the Insights screen of the Customers dashboard.":::
 
 ### What’s new
 
-:::image type="content" source="media/customer-dashboard/button-what-new.png" alt-text="Screenshot shows the What's New option on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/button-what-new.png" alt-text="Screenshot showing the What's New option on the Insights screen of the Customers dashboard.":::
 
 Use this to check on changes and enhancements.
   
 ### About data refresh
 
-:::image type="content" source="media/customer-dashboard/button-data.png" alt-text="Screenshot shows the Data Refresh Details menu option on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/button-data.png" alt-text="Screenshot showing the Data Refresh Details menu option on the Insights screen of the Customers dashboard.":::
 
 View the data source and the data refresh details, such as frequency of the data refresh.
 
 ### Got feedback?
 
-:::image type="content" source="media/customer-dashboard/button-feedback.png" alt-text="Screenshot shows the Feedback menu option on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/button-feedback.png" alt-text="Screenshot showing the Feedback menu option on the Insights screen of the Customers dashboard.":::
 
 Submit feedback about the report/dashboard along with an optional screenshot.
 
-:::image type="content" source="media/customer-dashboard/feedback.png" alt-text="Screenshot shows the Feedback window for the Share function on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/feedback.png" alt-text="Screenshot showing the Feedback window for the Share function on the Insights screen of the Customers dashboard.":::
 
 ### Month range
 
-:::image type="content" source="media/customer-dashboard/month-range.png" alt-text="Screenshot shows the duration filter menu option on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/month-range.png" alt-text="Screenshot showing the duration filter menu option on the Insights screen of the Customers dashboard.":::
 
 A month range selection is at the top-right corner of each page. Customize the output of graphs by selecting a month range based on the last **six** or **12** months, or by selecting a **custom** month range with a maximum duration of 12 months. The default month range is six months.
 
 ### Customer page dashboard filters
 
-:::image type="content" source="media/customer-dashboard/button-filters.png" alt-text="Screenshot shows the Filters button on the Insights screen of the Customers dashboard.":::
+:::image type="content" source="media/customer-dashboard/button-filters.png" alt-text="Screenshot showing the Filters button on the Insights screen of the Customers dashboard.":::
 
 These filters are applied at the Customers page level. Select multiple filters to render the chart for what you want to see in the **Detailed orders data** export. Filters are applied on the data extracted for the month range you selected on the upper-right corner of the page.
 
-The page has different dashboard-level filters for the following:
+The page has dashboard-level filters for the following:
 
 - Sales Channel
 - Marketplace Subscription Id
@@ -107,9 +107,9 @@ Each filter is expandable with multiple options that you can select. Filter opti
 
 ### Active and churned customers’ trend
 
-This widget shows your customer's growth trend for the selected computation period. Metrics and growth trends are represented by a line chart and displays the value for each month by hovering over the line on the chart. The percentage value below **Active customers** in the widget represents the amount of growth during the selected computation period. For example, the following screenshot shows a decline of 1.93% in active customers for the selected computation period.
+This widget shows your customer's growth trend for the selected computation period. Metrics and growth trends are represented by a line chart and displays the value for each month by hovering over the line on the chart. The percentage value below **Active customers** in the widget represents the amount of growth during the selected computation period. For example, the following Screenshot showing a decline of 1.93% in active customers for the selected computation period.
 
-![Screenshot shows the Customers widget on the Customers page.](./media/customer-dashboard/customers-widget.png)
+![Screenshot showing the Customers widget on the Customers page.](./media/customer-dashboard/customers-widget.png)
 
 There are three customer types: new, existing, and churned.
 
@@ -117,7 +117,7 @@ There are three customer types: new, existing, and churned.
 - An **existing** customer has acquired one or more of your offers prior to the month selected.
 - A **churned** customer has canceled all offers previously purchased. Churned customers for VM offers are calculated as customers who didn’t show any VM usage for two days or more. Churned customers are represented in the negative axis in the Trend widget.
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 ### Customer growth trend including existing, new, and churned customers
 
@@ -131,13 +131,13 @@ This widget shows trend and count of all customers, including new, existing, and
 
 ![Illustrates the Customers trend widget on the Customers page.](./media/customer-dashboard/customers-trend.png)
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
 ### Orders by customers type
 
 This chart has tabs for Orders, Normalized usage, and Raw usage. Select **Orders** to show order details.
 
-![Screenshot shows the Orders tab on the Insights screen of the Customers dashboard.](./media/customer-dashboard/customers-by-orders-usage.png)
+![Screenshot showing the Orders tab on the Insights screen of the Customers dashboard.](./media/customer-dashboard/customers-by-orders-usage.png)
 
 - The Leader board presents details of the customers ranked by order count. After selecting a customer, the customer details are presented in the adjoining “Details”, “Orders by SKUs” and “SKUs by Seats” sections.
 - The Customer profile details are displayed in this space when publishers are signed in with an owner role. If publishers are signed in with a contributor role, the details in this section will not be available.
@@ -151,7 +151,7 @@ Select **Normalized usage** or **Raw usage** for those views.
 - The **Normalized usage by Offers** donut chart displays the breakdown of usage consumed by the offers. The top five plans with the highest usage count are displayed, while the rest of the offers are grouped under **Rest All**.
 - The **Normalized usage by VM Size(s)** donut chart displays the breakdown of usage consumed by different VM Size(s). The top five VM Sizes with the highest normalized usage are displayed, while the rest of the usage is grouped under **Rest All**.
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
 ### Top customers percentile
 
@@ -159,7 +159,7 @@ The **Top customers percentile** chart has three tabs, "Orders," "Normalized usa
 
 ![Illustrates the Orders tab of the Top Customer Percentile widget on the Customers page.](./media/customer-dashboard/top-customer-percentile.png)
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
 ### Customer type by orders and usage
 
@@ -172,7 +172,7 @@ This chart shows the following:
 
 ![Illustrates the Orders tab of the Orders by Customer Type widget on the Customers page.](./media/customer-dashboard/orders-by-customer-type.png)
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
 ### Customers by geography
 
@@ -185,13 +185,13 @@ For the selected computation period, the heatmap displays the total number of cu
 - The heatmap has a supplementary grid to view the details of customer count, order count, normalized usage hours in the specific location.
 - You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by selecting the **Home** button in the map.
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
 ### Customer details table
 
 The **Customer details** table displays a numbered list of the top 1,000 customers sorted by the date they first acquired one of your offers. You can expand a section by selecting the expansion icon in the details ribbon.
 
-![Screenshot shows the Customer Details table on the Insights screen of the Customers dashboard.](./media/customer-dashboard/customer-details-table.png)
+![Screenshot showing the Customer Details table on the Insights screen of the Customers dashboard.](./media/customer-dashboard/customer-details-table.png)
 
 - Customer personal information will only be available if the customer has provided consent. You can only view this information if you have signed in with an owner role level of permissions.
 - Each column in the grid is sortable.
@@ -201,7 +201,7 @@ The **Customer details** table displays a numbered list of the top 1,000 custome
 - When an offer is purchased by a protected customer, information in **Customer Detailed Data** will be masked (************).
 - Customer dimension details such as Company Name, Customer Name, and Customer Email are at an organization ID level, not at Azure Marketplace or Microsoft AppSource transaction level.
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
 _**Table 1: Dictionary of data terms**_
 
