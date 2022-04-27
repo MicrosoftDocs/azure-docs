@@ -735,8 +735,6 @@ items:
             href: alerts/itsmc-secure-webhook-connections-servicenow.md
       - name: Connect using an ITSM action
         items:
-          - name: Configure Azure for an ITSM Connector
-            href: alerts/itsmc-definition.md
           - name: ITSM Connector partners setup
             items:
             - name: ServiceNow ITSM
@@ -747,6 +745,8 @@ items:
                 href: alerts/itsmc-connections-scsm.md
               - name: Create a Service Manager web app
                 href: alerts/itsmc-service-manager-script.md
+          - name: Configure Azure for an ITSM Connector
+            href: alerts/itsmc-definition.md
           - name: Data Synced From Your ITSM Product
             href: alerts/itsmc-synced-data.md
           - name: Troubleshooting problems in ITSM Connector

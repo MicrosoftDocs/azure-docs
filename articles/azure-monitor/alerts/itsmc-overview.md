@@ -6,7 +6,6 @@ ms.date: 3/30/2022
 ms.custom: references_regions
 
 ---
-
 # IT Service Management (ITSM) Integration 
 
 :::image type="icon" source="media/itsmc-overview/itsmc-symbol.png":::
@@ -38,14 +37,10 @@ Depending on your integration, start connecting to your ITSM with these steps:
 
 -  For ServiceNow ITSM, use the ITSM action:
 
-    1. Connect to your ITSM.
-       - For ServiceNow ITSM, see [the ServiceNow connection instructions](./itsmc-connections-servicenow.md).
-       - For SCSM, see [the System Center Service Manager connection instructions](./itsmc-connections-scsm.md).
+    1. Connect to your ITSM. See [the ServiceNow connection instructions](./itsmc-connections-servicenow.md).
     1. (Optional) Set up the IP Ranges. In order to list the ITSM IP addresses to allow ITSM connections from partner ITSM tools, we recommend listing the whole public IP range of Azure region where their LogAnalytics workspace belongs. [details here](https://www.microsoft.com/en-us/download/details.aspx?id=56519). For regions EUS/WEU/EUS2/WUS2/US South Central the customer can list ActionGroup network tag only.)
-    1. [Configure your Azure ITSM Solution](./itsmc-definition.md#add-it-service-management-connector)
-    1. [Configure the Azure ITSM connector for your ITSM environment.](./itsmc-definition.md#create-an-itsm-connection)
+    1. [Configure your Azure ITSM Solution and create the ITSM connection](./itsmc-definition.md#add-it-service-management-connector)
     1. [Configure Action Group to leverage ITSM connector.](./itsmc-definition.md#define-a-template)
 
-## Next steps
-
-* [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
+## Next Steps
+- [ServiceNow connection instructions](./itsmc-connections-servicenow.md).

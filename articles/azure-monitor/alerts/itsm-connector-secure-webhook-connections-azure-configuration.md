@@ -9,7 +9,8 @@ ms.date: 03/30/2022
 # Configure Azure to connect ITSM tools using Secure Webhook
 
 This article provides information about how to configure the Azure in order to use "Secure Webhook".
-In order to use "Secure Webhook", follow these steps:
+
+To use "Secure Webhook", follow these steps:
 
 1. [Register your app with Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
 1. [Define Service principal.](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-service-principal)
