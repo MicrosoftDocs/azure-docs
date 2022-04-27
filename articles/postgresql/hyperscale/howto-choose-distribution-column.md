@@ -98,8 +98,7 @@ worker node, and blue shards are stored on another worker node. Notice how a
 join query between Accounts and Campaigns has all the necessary data together
 on one node when both tables are restricted to the same account\_id.
 
-![Multi-tenant
-colocation](../media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
+![Multi-tenantcolocation](../media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
 To apply this design in your own schema, identify what constitutes a tenant in
 your application. Common instances include company, account, organization, or
