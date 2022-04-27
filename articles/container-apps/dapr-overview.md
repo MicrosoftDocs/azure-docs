@@ -99,6 +99,9 @@ Dapr components are scoped to a Container App environment and are pluggable modu
 
 Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, view the various schemas you can define for a Dapr component in Azure Container Apps and compare with the schema provided with Dapr OSS.
 
+> [!NOTE]
+> By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes.
+
 **Dapr in Azure Container Apps**
 
 # [YAML](#tab/yaml)
@@ -117,6 +120,9 @@ When defining a component via the `<component>.yml` spec, you'll pass it to the 
     secretRef: storage-account-key
   - name: containerName
     value: mycontainer
+  # Application scope  
+  scopes:
+  - nodeapp
 ```
 
 # [Bicep](#tab/bicep)
@@ -149,6 +155,7 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
         secretRef: 'storageaccountkey'
       }
     ]
+    // Application scope
     scopes: [
       'nodeapp'
     ]
@@ -193,6 +200,7 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
             "secretRef": "storageaccountkey"
           }
         ],
+        // Application scope
         "scopes": ["nodeapp"]
       }
     }
@@ -204,7 +212,7 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 
 **Dapr OSS**
 
-In Dapr OSS, running `dapr init` generates the following default Redis `<component>.yml` spec in the Dapr components directory.
+In Dapr OSS, running `dapr init` generates the following default Redis `<component>.yml` spec in the Dapr components directory. 
 
 ```yml
 apiVersion: dapr.io/v1alpha1
@@ -219,14 +227,9 @@ spec:
     value: localhost:6379
   - name: redisPassword
     value: ""
-```
-
-By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes:
-
-```yml
+# Application scope
 scopes:
-- app1
-- app2
+- nodeapp
 ```
 
 > [!NOTE]
