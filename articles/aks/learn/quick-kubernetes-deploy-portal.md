@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 04/20/2022
+ms.date: 04/28/2022
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -16,7 +16,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Deploy an AKS cluster using the Azure portal.
 * Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
+:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -47,11 +47,11 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
     - **Primary node pool**:
         * Leave the default values selected.
     
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Create AKS cluster - provide basic information":::
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot of Create AKS cluster - provide basic information.:::
 
     > [!NOTE]
     > You can change the preset configuration when creating your cluster by selecting *Learn more and compare presets* and choosing a different option.
-    > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Create AKS cluster - portal preset options":::
+    > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options.":::
 
 5. Select **Next: Node pools** when complete.
 
@@ -70,7 +70,7 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
     * Selecting **Go to resource**, or
     * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
-      :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-portal-dashboard.png" alt-text="Example AKS dashboard in the Azure portal":::
+      :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-portal-dashboard.png" alt-text="Screenshot of AKS dashboard in the Azure portal.":::
 
 ## Connect to the cluster
 
@@ -78,7 +78,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 1. Open Cloud Shell using the `>_` button on the top of the Azure portal.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png" alt-text="Open the Azure Cloud Shell in the portal":::
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png" alt-text="Screenshot of Open the Azure Cloud Shell in the portal option.":::
 
     > [!NOTE]
     > To perform these operations in a local shell installation:
@@ -113,7 +113,7 @@ A Kubernetes manifest file defines a cluster's desired state, like which contain
 In this quickstart, you will use a manifest to create all objects needed to run the Azure Vote application. This manifest includes two Kubernetes deployments:
 
 * The sample Azure Vote Python applications.
-* A Redis instance. 
+* A Redis instance.
 
 Two Kubernetes Services are also created:
 
@@ -249,14 +249,13 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 
 Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
+:::image type="content" source="media/quick-kubernetes-deploy-portal/azure-voting-application.png" alt-text="Screenshot of browsing to Azure Vote sample application.":::
 
 ## Delete cluster
 
