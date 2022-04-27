@@ -31,7 +31,7 @@ ms.custom: private_preview
 
     - (Option 2) Click **Provision Domains** on the left navigation panel.
     
-    :::image type="content" source="./media/email-add-azuredomain-nav.png" alt-text="Provision Domains":::
+    :::image type="content" source="./media/email-add-azuredomain-nav.png" alt-text="Navigate to Provision Domains":::
 
     - Click **Add domain** on the upper navigation bar.
     - Select **Azure domain** from the dropdown.
@@ -45,7 +45,7 @@ ms.custom: private_preview
 
 5. Click the name of the provisioned domain. This will navigate you to the overview page for the domain resource type.
 
-    :::image type="content" source="./media/email-azuredomain-overview.png"  alt-text="Azure Managed Domain Overview":::
+    :::image type="content" source="./media/email-azuredomain-overview.png"  alt-text="Navigate to Azure Managed Domain Overview":::
 
 ## Sender Authentication for Azure Managed Domain
 
@@ -59,10 +59,10 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
 3. Click on the Azure Manged Domain link
  
-    :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Provision Domains":::
+    :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Click Azure Managed Domain link  in provisioned Domains":::
 4. The navigation lands in Azure Managed Domain Overview page where you will able to see Mailfrom and From attributes.
  
-   :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Azure Managed Domain Overview":::
+   :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Navigate to Azure Managed Domain Overview":::
 
 5. Click on edit link on MailFrom 
 
