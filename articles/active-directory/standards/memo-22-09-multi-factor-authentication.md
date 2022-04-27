@@ -46,12 +46,14 @@ Microsoft Authenticator can be installed on the device accessing the application
 >To meet the phishing-resistant requirement with this approach:
 >
 >- Only the device accessing the protected application needs to be managed
->- All users allowed to use Microsoft Authenticator must be in scope for conditional access policy requiring managed device for access to all applications. 
+>- All users allowed to use Microsoft Authenticator must be in scope for conditional access policy requiring managed device for access to all applications.
+>
+>Microsoft recommends that you use the same group(s) used to allow the Microsoft Authenticator App authentication method within the conditional access policy to ensure that once a user is enabled for the authentication method they are simultaneously in scope of the policy
 >
 >This conditional access policy effectively prevents both:
 >
 >- The most significant vector of phishing threats from malicious external actors.
->- A malicious actor's ability to phish Microsoft Authenticator and then use it to register a new credential or device.
+>- A malicious actor's ability to phish Microsoft Authenticator to register a new credential or join a device and enroll it in Intune such that it will be marked as compliant
 
 For more information on deploying this method, see the following resources:
 - [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
