@@ -8,7 +8,7 @@ ms.date: 04/22/2022
 
 # Monitor your Azure services in Grafana
 You can monitor Azure services and applications using [Grafana](https://grafana.com/) and the included [Azure Monitor data source plugin](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/). The plugin retrieves data from three Azure services:
-- Azure Monitor Metrics for numeric time series data from data from Azure resources. 
+- Azure Monitor Metrics for numeric time series data from Azure resources. 
 - Azure Monitor Logs for log and performance data from Azure resources that enables you to query using the powerful Kusto Query Language (KQL).
 - Azure Resource Graph to quickly query and identify Azure resources across subscriptions. 
 
@@ -34,7 +34,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 > [!IMPORTANT]
 > The Internet Explorer browser and older Microsoft Edge browsers are not compatible with Grafana, you must use a chromium-based browser including Microsoft Edge. See [supported browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
-1. Log in to Grafana using the endpoint URL of your Azure Managed Grafana workspace or your server's IP address.
+- Log in to Grafana using the endpoint URL of your Azure Managed Grafana workspace or your server's IP address.
 
 ## Configure Azure Monitor data source plugin
 
@@ -48,29 +48,29 @@ You can expand the resources that can be viewed by your Azure Managed Grafana wo
 
 1. Select **Add data source**, filter by name *Azure* and select the **Azure Monitor** data source.
 
-![Screenshot of Azure Monitor Data Source selection.](./media/grafana-plugin/azure-monitor-data-source-list.png)
+    ![Screenshot of Azure Monitor Data Source selection.](./media/grafana-plugin/azure-monitor-data-source-list.png)
 
 2. Pick a name for the data source and choose between Managed Identity or App Registration for authentication.
 
-If your are hosting Grafana on your own Azure VM or Azure App Service with managed identity enabled, you may use this approach for authentication. However, if your Grafana instance is not hosted on Azure or does not have managed identity enabled, you will need to use App Registration with an Azure service principal to setup authentication.
+If you are hosting Grafana on your own Azure VM or Azure App Service with managed identity enabled, you may use this approach for authentication. However, if your Grafana instance is not hosted on Azure or does not have managed identity enabled, you will need to use App Registration with an Azure service principal to setup authentication.
 
 ### Use Managed Identity
 
-3. Enable managed identity on your VM or App Service and change the Grafana server managed identity support setting to true.
+1. Enable managed identity on your VM or App Service and change the Grafana server managed identity support setting to true.
     * The managed identity of your hosting VM or App Service needs to have the [Monitoring reader role](../roles-permissions-security.md) assigned for the subscription, resource group or resources of interest.
     * Additionally, you will need to update the setting 'managed_identity_enabled = true' in the Grafana server config. See [Grafana Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/) for details. Once both steps are complete, you can then save and test access.
 
-4. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
+2. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
     
    ![Screenshot of Azure Monitor  datasource with config approved MI.](./media/grafana-plugin/managed-identity.png)
 
 ### Or use App Registration
 
-5. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
+1. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
     * See [these instructions](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
     * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
   
-6. Provide the connection details you'd like to use.
+2. Provide the connection details you'd like to use.
     * When configuring the plugin, you can indicate which Azure Cloud you would like the plugin to monitor (Public, Azure US Government, Azure Germany, or Azure China).
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
@@ -78,7 +78,7 @@ If your are hosting Grafana on your own Azure VM or Azure App Service with manag
         > * Client ID is the Azure Active Directory Application ID
         > * Client Secret is the Azure Active Directory Application key value
 
-7. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
+3. Select **Save & test**, and Grafana will test the credentials. You should see a message similar to the following one.  
     
    ![Screenshot of Azure Monitor datasource config with approved App Reg.](./media/grafana-plugin/app-registration.png)
 
@@ -106,9 +106,9 @@ If your are hosting Grafana on your own Azure VM or Azure App Service with manag
 5. Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
     ![Screenshot of Grafana dashboards with two panels.](media/grafana-plugin/grafana6.png)
 
-## Pin charts from the Azure Portal to Azure Managed Grafana
+## Pin charts from the Azure portal to Azure Managed Grafana
 
-In addition to building you panels in Grafana, you can also quickly pin Azure Monitor visualizations from the Azure Portal to new or existing Grafana dashboards by adding panels to your Grafana dashboard directly from Azure Monitor. Navigate to Metrics for your resource, create a chart and click **Save to dashboard**, followed by **Pin to Grafana**. Choose the workspace  and dashboard and click **Pin** to complete the operation.
+In addition to building your panels in Grafana, you can also quickly pin Azure Monitor visualizations from the Azure portal to new or existing Grafana dashboards by adding panels to your Grafana dashboard directly from Azure Monitor. Navigate to Metrics for your resource, create a chart and click **Save to dashboard**, followed by **Pin to Grafana**. Choose the workspace  and dashboard and click **Pin** to complete the operation.
 
 [ ![Screenshot Pin to Grafana option in Azure Monitor metrics explorer.](media/grafana-plugin/grafana-pin-to.png) ](media/grafana-plugin/grafana-pin-to-expanded.png#lightbox)
 
