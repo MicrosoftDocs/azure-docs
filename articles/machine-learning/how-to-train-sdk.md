@@ -15,15 +15,16 @@ ms.custom: sdkv2
 
 # Train models with the Azure ML Python SDK v2 (preview)
 
-> [!IMPORTANT]
-> Tools marked (preview) below are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](v1/how-to-attach-compute-targets.md)
 > * [v2 (preview)](how-to-train-sdk.md)
+
+
+> [!IMPORTANT]
+> SDK v2 is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training     job. Then use one of the [example notebooks](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk) to find the full end-to-end working examples.
 
