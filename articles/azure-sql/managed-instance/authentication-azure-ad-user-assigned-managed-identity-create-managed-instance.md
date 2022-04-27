@@ -96,7 +96,7 @@ Replace the following values in the example:
 az sql mi create --assign-identity --identity-type UserAssigned --user-assigned-identity-id /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managedIdentity> --primary-user-assigned-identity-id /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<primaryIdentity> --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <managedinstancename> --subnet /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/<VNetName>/subnets/<SubnetName>
 ```
 
-For more information, see [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create).
+For more information, see [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create).
 
 > [!NOTE]
 > The above example provisions a managed instance with only a user-assigned managed identity. You could set the `--identity-type` to be `UserAssigned,SystemAssigned` if you wanted both types of managed identities to be created with the instance.

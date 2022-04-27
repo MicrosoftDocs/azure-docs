@@ -143,7 +143,7 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 ```
 
 ## Create diagnostic setting via Azure CLI
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
+Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
 
 > [!Note]
 > If you are using SQL API, we recommend setting the **export-to-resource-specific** property to **true**.

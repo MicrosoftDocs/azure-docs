@@ -126,7 +126,9 @@ A pre-upgrade validator is available to help identify potential issues when migr
 
 1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**
 
-To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
+To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI or Azure PowerShell commands:
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
@@ -134,6 +136,17 @@ az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 
 # For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
 az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -Force
+
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+---
 
 ### Breaking changes between 3.x and 4.x
 
@@ -148,6 +161,8 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 - Azure Functions 4.x enforces [minimum version requirements](https://github.com/Azure/Azure-Functions/issues/1987) for extensions. Upgrade to the latest version of affected extensions. For non-.NET languages, [upgrade](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
+
+- Azure Functions 4.x uses Azure.Identity and Azure.Security.KeyVault.Secrets for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. See the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories) for more information on how to configure function app settings. ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
 
 - Function apps that share storage accounts will fail to start if their computed hostnames are the same. Use a separate storage account for each function app. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 

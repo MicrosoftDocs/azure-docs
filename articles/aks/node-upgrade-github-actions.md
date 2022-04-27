@@ -103,7 +103,7 @@ Download and sign in to the Azure CLI.
 1. From the Azure CLI, run the following command to generate a new username and password.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --role Contributor -o json
+    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/{subscriptionID} -o json
     ```
 
     The output should be similar to the following json:

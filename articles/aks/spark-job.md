@@ -37,7 +37,7 @@ az group create --name mySparkCluster --location eastus
 Create a Service Principal for the cluster. After it is created, you will need the Service Principal appId and password for the next command.
 
 ```azurecli
-az ad sp create-for-rbac --name SparkSP --role Contributor
+az ad sp create-for-rbac --name SparkSP --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
 Create the AKS cluster with nodes that are of size `Standard_D3_v2`, and values of appId and password passed as service-principal and client-secret parameters.

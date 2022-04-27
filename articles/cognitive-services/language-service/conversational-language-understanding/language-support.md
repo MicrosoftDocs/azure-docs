@@ -39,7 +39,7 @@ The supported languages for conversation projects are:
 | Czech | `cs` |
 | Welsh | `cy` |
 | Danish | `da` |
-| German | `de` 
+| German | `de` |
 | Greek | `el` |
 | English (US) | `en-us` |
 | English (Uk) | `en-gb` |
@@ -124,20 +124,6 @@ The supported languages for conversation projects are:
 #### Multilingual conversation projects
 
 When you enable multiple languages in a project, you can add data in multiple languages to your project. You can also train the project in one language and immediately predict it in other languages. The quality of predictions may vary between languages – and certain language groups work better than others with respect to multilingual predictions.
-
-
-## Supported languages for orchestration workflow projects
-
-|Language| Language code |
-|---|---|
-| Brazilian Portuguese | `pt-br` |
-| English | `en-us` |
-| French | `fr-fr` |
-| German | `de-de` |
-| Italian | `it-it` |
-| Spanish | `es-es` |
-
-Orchestration workflow projects are not available for use in multiple languages.
 
 ## Next steps
 

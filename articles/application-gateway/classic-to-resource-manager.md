@@ -44,7 +44,7 @@ Please refer to [Frequently asked questions about classic to Azure Resource Mana
 
 ### How do I report an issue?
 
-Post your issues and questions about migration to our [Microsoft Q&A page](https://aka.ms/AAflal1). We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [Microsoft Q&A page](/answers/topics/azure-virtual-network.html). We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## Next steps
 To get started see: [platform-supported migration of IaaS resources from classic to Resource Manager](../virtual-machines/migration-classic-resource-manager-ps.md)

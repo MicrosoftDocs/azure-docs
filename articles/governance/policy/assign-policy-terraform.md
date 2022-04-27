@@ -40,16 +40,24 @@ for Azure Policy use the
 
    ```hcl
    provider "azurerm" {
-       version = "~>2.0"
        features {}
    }
+   
+  terraform {
+    required_providers {
+      azurerm = {
+        source  = "hashicorp/azurerm"
+        version = ">= 2.96.0"
+      }
+    }
+  }
 
-   resource "azurerm_policy_assignment" "auditvms" {
-       name = "audit-vm-manageddisks"
-       scope = var.cust_scope
-       policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
-       description = "Shows all virtual machines not using managed disks"
-       display_name = "Audit VMs without managed disks Assignment"
+  resource "azurerm_resource_policy_assignment" "auditvms" {
+    name                 =  "audit-vm-manageddisks"
+    resource_id          =  var.cust_scope
+    policy_definition_id =  "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
+    description          =  "Shows all virtual machines not using managed disks"
+    display_name         =  "Audit VMs without managed disks assignment"
    }
    ```
 
@@ -73,7 +81,7 @@ for Azure Policy use the
 
    ```hcl
    output "assignment_id" {
-       value = azurerm_policy_assignment.auditvms.id
+       value = azurerm_resource_policy_assignment.auditvms.id
    }
    ```
 

@@ -1,11 +1,12 @@
 ---
 title: Choose the right PostgreSQL server option in Azure
 description: Provides guidelines for choosing the right PostgreSQL server option for your deployments.
-author: sunilagarwal
-ms.author: sunila
-ms.custom: mvc
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: overview
+ms.author: sunila
+author: sunilagarwal
+ms.custom: mvc
 ms.date: 12/01/2021
 ---
 # Choose the right PostgreSQL server option in Azure

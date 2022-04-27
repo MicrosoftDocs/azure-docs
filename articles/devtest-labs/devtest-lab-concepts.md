@@ -2,6 +2,8 @@
 title: Azure DevTest Labs concepts
 description: Learn definitions of some basic DevTest Labs concepts related to labs, virtual machines (VMs), and environments.
 ms.topic: conceptual
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/03/2022
 ---
 
@@ -35,7 +37,7 @@ For more information, see [Add an artifact repository to a lab](add-artifact-rep
 
 ### Roles
 
-[Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) defines DevTest Labs access and roles. DevTest Labs has three roles that define lab member permissions: Owner, Contributor, and DevTest Labs User. 
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) defines DevTest Labs access and roles. DevTest Labs has three roles that define lab member permissions: Owner, Contributor, and DevTest Labs User. 
 
 - Lab Owners can do all lab tasks, such as reading or writing to lab resources, managing users, setting policies and configurations, and adding repositories and base images.
   - Because Azure subscription owners have access to all resources in a subscription, which include labs, virtual networks, and VMs, a subscription owner automatically inherits the lab Owner role.
@@ -89,4 +91,3 @@ For more information about the differences between custom images and formulas, s
 In DevTest Labs, an environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm. You can create environments in labs by using ARM templates. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). For more information about ARM template structure and properties, see [Template format](../azure-resource-manager/templates/syntax.md#template-format).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

@@ -3,8 +3,8 @@ metadata:
   title: 'Microsoft Defender for Cloud FAQ - Questions about permissions'
   description: This FAQ answers questions about permissions in Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats.
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
   ms.topic: faq
   ms.date: 11/09/2021

@@ -1,8 +1,8 @@
 ---
 title: Regional availability – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Where you can run a Hyperscale (Citus) server group
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual

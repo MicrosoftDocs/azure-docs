@@ -41,6 +41,8 @@ landingContent:
             url: application-lifecycle-management.md
           - text: Microservices
             url: microservices.md
+          - text: Observability
+            url: observability.md
   - title: Common tasks
     linkLists:
       - linkListType: how-to-guide

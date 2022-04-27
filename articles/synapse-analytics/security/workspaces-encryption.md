@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 03/07/2022
+ms.date: 03/24/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
 
@@ -23,6 +23,9 @@ This article will describe:
 A complete Encryption-at-Rest solution ensures the data is never persisted in unencrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](../../key-vault/general/overview.md), which allows you to take ownership of key management and rotation.
 
 The first layer of encryption for Azure services is enabled with platform-managed keys. By default, Azure Disks, and data in Azure Storage accounts are automatically encrypted at rest. Learn more about how encryption is used in Microsoft Azure in the [Azure Encryption Overview](../../security/fundamentals/encryption-overview.md).
+
+> [!NOTE]
+> Some items considered customer content, such as table names, object names, and index names, may be transmitted in log files for support and troubleshooting by Microsoft.
 
 ## Azure Synapse encryption
 
@@ -97,6 +100,5 @@ SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in wo
 
 ## Next steps
 
-[Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
-
-[Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)
+- [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
+- [Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)

@@ -2,6 +2,8 @@
 title: File Integrity Monitoring in Microsoft Defender for Cloud
 description: Learn how to compare baselines with File Integrity Monitoring in Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 

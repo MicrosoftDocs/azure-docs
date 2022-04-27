@@ -19,10 +19,10 @@ This article uses Health check in the Azure portal to monitor App Service instan
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, the system determines it's unhealthy and removes it.
+- If an instance doesn't respond with a status code between 200-299 (inclusive) after ten requests, App Service determines it is unhealthy and removes it. (The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of 2 requests.)
 - After removal, Health check continues to ping the unhealthy instance. If the instance begins to respond with a healthy status code (200-299) then the instance is returned to the load balancer.
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
-- Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
+- When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
 >- Health check doesn't follow 302 redirects. 
@@ -59,7 +59,7 @@ If you're using your own authentication system, the Health check path must allow
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and option to create a new alert rule. Health check metrics will aggregate the successful pings & display failures only when the instance was deemed unhealthy based on the health check configuration. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
 
 ## Limitations
 

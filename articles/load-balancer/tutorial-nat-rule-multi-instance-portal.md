@@ -233,6 +233,9 @@ In this section, you'll create a multiple instance inbound NAT rule to the backe
 
 6. Leave the rest at the default and select **Add**.
 
+> [!NOTE]
+> To view the port mappings to the backend pool virtual machines, see [View port mappings](manage-inbound-nat-rules.md#view-port-mappings).
+
 ## Create a NAT gateway
 
 In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 

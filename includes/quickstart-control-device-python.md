@@ -36,7 +36,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 If you already have a device registered in your IoT hub, you can skip this section.
 
-1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command in Azure Cloud Shell to create the device identity.
+1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in Azure Cloud Shell to create the device identity.
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -46,7 +46,7 @@ If you already have a device registered in your IoT hub, you can skip this secti
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
-2. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+2. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 

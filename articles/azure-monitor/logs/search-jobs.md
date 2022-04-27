@@ -96,9 +96,7 @@ To run a search job, run the [az monitor log-analytics workspace table search-jo
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table search-job create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name HeartbeatByIp_SRCH --search-query 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 \ 
-   --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z" --no-wait
+az monitor log-analytics workspace table search-job create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --search-query 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z" --no-wait
 ```
 
 ---
@@ -175,8 +173,7 @@ To check the status and details of a search job table, run the [az monitor log-a
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name HeartbeatByIp_SRCH  --output table \
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --output table \
 ```
 
 ---
@@ -199,8 +196,7 @@ To delete a search table, run the [az monitor log-analytics workspace table dele
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name HeartbeatByIp_SRCH
+az monitor log-analytics workspace table delete --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH
 ```
 
 ---
@@ -225,7 +221,7 @@ Log queries in a search job are intended to scan very large sets of data. To sup
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
 - [project](/azure/data-explorer/kusto/query/projectoperator)
 - [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
-- [project-keep](/azure/data-explorer/kusto/query/projectkeepoperator)
+- [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
 - [parse](/azure/data-explorer/kusto/query/whereoperator)

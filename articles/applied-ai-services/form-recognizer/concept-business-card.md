@@ -62,7 +62,7 @@ See how data, including name, job title, address, email, and company name, is ex
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API v2.1)
 
 You'll need a business card document. You can use our [sample business card document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/businessCard.png).
 

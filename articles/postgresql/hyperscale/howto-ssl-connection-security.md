@@ -1,8 +1,8 @@
 ---
 title: Transport Layer Security (TLS) - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Instructions and information to configure Azure Database for PostgreSQL - Hyperscale (Citus) and associated applications to properly use TLS connections.
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual

@@ -7,7 +7,7 @@ ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 03/28/2022
 ---
 
 # Create a Power BI visual offer
@@ -37,18 +37,23 @@ Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will e
 
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
-- The Offer ID should be unique within the list of all other Power BI visual offers in Partner Center.
+    - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+    - The Offer ID can't be changed after you select **Create**.
+    - The Offer ID should be unique within the list of all other Power BI visual offers in Partner Center.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used in AppSource. It is different from the offer name and other values shown to customers.
+    - This name isn't used in AppSource. It is different from the offer name and other values shown to customers.
 
-Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
 
 ## Setup details
 

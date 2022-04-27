@@ -115,10 +115,17 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 
 Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
 role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and
-**Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
+**Reader** have access to all _read_ Azure Policy operations.
+
+**Contributor** may trigger resource
 remediation, but can't _create_ or _update_ definitions and assignments. **User Access Administrator** is
 necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
-permissions. All policy objects will be readable to all roles over the scope.
+permissions.
+
+> [!NOTE]
+> All Policy objects, including definitions, initatives, and assignments, will be readable to all
+> roles over its scope. For example, a Policy assignment scoped to an Azure subscription will be readable 
+> by all role holders at the subscription scope and below.
 
 If none of the Built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
@@ -223,8 +230,8 @@ For more information about policy parameters, see
 An initiative definition is a collection of policy definitions that are tailored toward achieving
 a singular overarching goal. Initiative definitions simplify managing and assigning policy
 definitions. They simplify by grouping a set of policies as one single item. For example, you could
-create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor
-all the available security recommendations in your Azure Security Center.
+create an initiative titled **Enable Monitoring in Microsoft Defender for Cloud**, with a goal to monitor
+all the available security recommendations in your Microsoft Defender for Cloud instance.
 
 > [!NOTE]
 > The SDK, such as Azure CLI and Azure PowerShell, use properties and parameters named **PolicySet**
@@ -232,11 +239,11 @@ all the available security recommendations in your Azure Security Center.
 
 Under this initiative, you would have policy definitions such as:
 
-- **Monitor unencrypted SQL Database in Security Center** - For monitoring unencrypted SQL databases
+- **Monitor unencrypted SQL Database in Microsoft Defender for Cloud** - For monitoring unencrypted SQL databases
   and servers.
-- **Monitor OS vulnerabilities in Security Center** - For monitoring servers that don't satisfy the
+- **Monitor OS vulnerabilities in Microsoft Defender for Cloud** - For monitoring servers that don't satisfy the
   configured baseline.
-- **Monitor missing Endpoint Protection in Security Center** - For monitoring servers without an
+- **Monitor missing Endpoint Protection in Microsoft Defender for Cloud** - For monitoring servers without an
   installed endpoint protection agent.
 
 Like policy parameters, initiative parameters help simplify initiative management by reducing

@@ -1,9 +1,11 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 03/08/2022
+ms.date: 04/25/2022
 ms.topic: sample
 ms.custom: generated
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy built-in policy definitions
 
@@ -13,7 +15,7 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 **Source** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
 **category** property in **metadata**. To jump to a specific **category**, use the menu on the right
-side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
+side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> (Windows) or <kbd>Cmd</kbd>-<kbd>F</kbd> (macOS) to use your browser's search feature.
 
 ## API for FHIR
 
@@ -63,7 +65,7 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
 
-## Azure Purview
+## Microsoft Purview
 
 [!INCLUDE [azure-policy-reference-policies-azure-purview](../../../../includes/policy/reference/bycat/policies-azure-purview.md)]
 

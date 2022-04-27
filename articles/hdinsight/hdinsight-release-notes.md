@@ -77,7 +77,7 @@ HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the c
 
 ### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
 
-Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters.  New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-scaling-best-practices)
+Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters.  New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
 
 ## HDInsight 3.6 end of support extension 
 
@@ -85,4 +85,4 @@ HDInsight 3.6 end of support is extended until September 30, 2022.
 
 Starting from September 30, 2022, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
-Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#support-options-for-hdinsight-versions) until September 30, 2022. After September 30, 2022 customers won't be able to create new HDInsight 3.6 clusters. 
+Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](./hdinsight-component-versioning.md#support-options-for-hdinsight-versions) until September 30, 2022. After September 30, 2022 customers won't be able to create new HDInsight 3.6 clusters.

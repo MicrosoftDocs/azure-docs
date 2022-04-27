@@ -43,8 +43,6 @@ The following table details the benefits unlocked by the extension:
 [!INCLUDE [SQL VM feature benefits](../../includes/sql-vm-feature-benefits.md)]
 
 
-
-
 ## Getting started
 
 To get started with SQL Server on Azure VMs, review the following resources:
@@ -56,6 +54,28 @@ To get started with SQL Server on Azure VMs, review the following resources:
 - **Performance**: Fine-tune the performance of your SQL Server on Azure VM by reviewing the [Performance best practices checklist](performance-guidelines-best-practices-checklist.md).
 - **Pricing**: For information about the pricing structure of your SQL Server on Azure VM, review the [Pricing guidance](pricing-guidance.md).
 - **Frequently asked questions**: For commonly asked questions, and scenarios, review the [FAQ](frequently-asked-questions-faq.yml).
+
+## Videos
+
+For videos about the latest features to optimize SQL Server VM performance and automate management, review the following Data Exposed videos:
+
+- [Caching and Storage Capping (Ep. 1)](/shows/data-exposed/azure-sql-vm-caching-and-storage-capping-ep-1-data-exposed)
+- [Automate Management with the SQL Server IaaS Agent extension (Ep. 2)](/shows/data-exposed/azure-sql-vm-automate-management-with-the-sql-server-iaas-agent-extension-ep-2)
+- [Use Azure Monitor Metrics to Track VM Cache Health (Ep. 3)](/shows/data-exposed/azure-sql-vm-use-azure-monitor-metrics-to-track-vm-cache-health-ep-3)
+- [Get the best price-performance for your SQL Server workloads on Azure VM](/shows/data-exposed/azure-sql-vm-get-the-best-price-performance-for-your-sql-server-workloads-on-azure-vm)
+- [Using PerfInsights to Evaluate Resource Health and Troubleshoot (Ep. 5)](/shows/data-exposed/azure-sql-vm-using-perfinsights-to-evaluate-resource-health-and-troubleshoot-ep-5)
+- [Best Price-Performance with Ebdsv5 Series (Ep.6)](/shows/data-exposed/azure-sql-vm-best-price-performance-with-ebdsv5-series)
+- [Optimally Configure SQL Server on Azure Virtual Machines with SQL Assessment (Ep. 7)](/shows/data-exposed/optimally-configure-sql-server-on-azure-virtual-machines-with-sql-assessment)
+- [New and Improved SQL Server on Azure VM deployment and management experience (Ep.8)](/shows/data-exposed/new-and-improved-sql-on-azure-vm-deployment-and-management-experience) 
+
+
+## High availability & disaster recovery
+
+On top of the built-in [high availability provided by Azure virtual machines](../../../virtual-machines/availability.md), you can also leverage the high availability and disaster recovery features provided by SQL Server. 
+
+To learn more, see the overview of [Always On availability groups](availability-group-overview.md), and [Always On failover cluster instances](failover-cluster-instance-overview.md). For more details, see the [business continuity overview](business-continuity-high-availability-disaster-recovery-hadr-overview.md). 
+
+To get started, see the tutorials for [availability groups](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) or [preparing your VM for a failover cluster instance](failover-cluster-instance-prepare-vm.md). 
 
 ## Licensing
 

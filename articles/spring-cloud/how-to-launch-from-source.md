@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-api
 
 Azure Spring Cloud enables Spring Boot applications on Azure.
 
-You can launch applications directly from java source code or from a pre-built JAR. This article explains the deployment procedures.
+You can launch applications directly from Java source code or from a pre-built JAR. This article explains the deployment procedures.
 
 This quickstart explains how to:
 

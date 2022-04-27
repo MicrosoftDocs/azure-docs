@@ -46,7 +46,7 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more in
     ```azurecli
     az group create --name exampleRG --location eastus
 
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters publisherEmail=<publisher-email> publishername=<publisher-name>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters publisherEmail=<publisher-email> publisherName=<publisher-name>
     ```
 
     # [PowerShell](#tab/PowerShell)

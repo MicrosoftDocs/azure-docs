@@ -69,7 +69,7 @@ The steps in this section guide you through creating an Azure Database for Postg
 
    An Azure resource group is a logical group in which Azure resources are deployed and managed.  
 
-   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az_group_create) command in the *eastus* location.
+   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location.
 
    ```bash
    RESOURCE_GROUP_NAME=java-liberty-project-postgresql
@@ -78,7 +78,7 @@ The steps in this section guide you through creating an Azure Database for Postg
 
 1. Create the PostgreSQL server
 
-   Use the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
+   Use the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
    
    > [!TIP]
    > To help ensure a globally unique name, prepend a disambiguation string such as your intitials and the MMDD of today's date.
@@ -287,7 +287,7 @@ The steps in this section deploy and test the application.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 az group delete --name <RESOURCE_GROUP_NAME> --yes --no-wait

@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: Designing virtual networks with NAT gateway resources
             url: nat-gateway-resource.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Network NAT
+            url: /learn/modules/intro-to-azure-virtual-network-nat
 
   # Card (optional)
   - title: Get started

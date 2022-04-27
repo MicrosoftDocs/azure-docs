@@ -142,7 +142,7 @@ cd C:\HDI
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Then copy and paste the java code below into the new file. Then close the file.
+    Then copy and paste the Java code below into the new file. Then close the file.
 
     ```java
     package com.microsoft.examples;

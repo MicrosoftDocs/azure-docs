@@ -48,7 +48,7 @@ SSH with Azure AD
 
 ## Implement SSH with Azure AD 
 
-* [Log in to a Linux® VM with Azure Active Directory credentials - Azure Virtual Machines ](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux) 
+* [Log in to a Linux® VM with Azure Active Directory credentials - Azure Virtual Machines ](../devices/howto-vm-sign-in-azure-ad-linux.md) 
 
 * [OAuth 2.0 device code flow - Microsoft identity platform ](../develop/v2-oauth2-device-code.md)
 

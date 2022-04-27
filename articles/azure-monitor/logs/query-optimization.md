@@ -4,7 +4,9 @@ description: Best practices for optimizing log queries in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/30/2019
+ms.reviewer: MeirMen
+ms.date: 03/22/2022
+
 
 ---
 

@@ -62,7 +62,7 @@ The following limitations apply when you integrate Azure Dedicated Host with Azu
 
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
 * It is not supported to update agent pool from host group A to host group B.
-* Fault domain count can only be 1.
+* Using ADH across subscriptions.
 
 ## Add a Dedicated Host Group to an AKS cluster
 
@@ -71,7 +71,7 @@ A host group is a resource that represents a collection of dedicated hosts. You 
 * Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 * Span across multiple fault domains, which are mapped to physical racks.
 
-In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
+In either case, you need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
 
 You can also decide to use both availability zones and fault domains.
 
@@ -96,7 +96,7 @@ az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
 -z 1\
---platform-fault-domain-count 1
+--platform-fault-domain-count 5
 --automatic-placement true
 ```
 
@@ -166,5 +166,5 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[dedicated-hosts]: /azure/virtual-machines/dedicated-hosts.md
+[dedicated-hosts]: ../virtual-machines/dedicated-hosts.md
 [az-vm-host-group-create]: /cli/azure/vm/host/group#az_vm_host_group_create

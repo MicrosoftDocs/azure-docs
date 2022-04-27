@@ -29,7 +29,7 @@ previous implementation of
 [DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
 or the "nx" providers included in that repository.
 
-Guest configuration operates in PowerShell 7.1.3 for Windows and PowerShell 7.2
+As of version 1.29.33, guest configuration operates in PowerShell 7.1.2 for Windows and PowerShell 7.2
 preview 6 for Linux. Starting with version 7.2, the `PSDesiredStateConfiguration`
 module moved from being part of the PowerShell installation and is instead
 installed as a

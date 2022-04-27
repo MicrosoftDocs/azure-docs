@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 02/28/2022
+ms.date: 04/20/2022
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 
@@ -64,22 +64,8 @@ Here is the JSON format for defining a Script activity:
             ] 
          }, 
          ... 
-      ], 
-      "scriptReference":{ 
-         "linkedServiceName":{ 
-            "referenceName": "<name>", 
-            "type": "<LinkedServiceReference>" 
-         }, 
-         "path": "<file path>", 
-         "parameters":[ 
-            { 
-               "name": "<name>", 
-               "value": "<value>", 
-               "type": "<type>", 
-               "direction": "<Input> or <Output> or <InputOutput> or <ReturnValue>", 
-               "size": 256 
-            }, 
-            ... 
+      ],     
+         ... 
          ] 
       }, 
       "logSettings": { 
@@ -114,15 +100,6 @@ The following table describes these JSON properties:
 |scripts.parameter.type     |The data type of the parameter. The type is logical type and follows type mapping of each connector.         |No         |
 |scripts.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type is not supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
 |scripts.parameter.size     |The max size of the parameter. Only applies to Output/InputOutput direction parameter of type string/byte[].          |No         |
-|scriptReference     |The reference to a remotely stored script file.           |No         |
-|scriptReference.linkedServiceName     |The linked service of the script location.           |No         |
-|scriptReference.path     |The file path to the script file. Only a single file is supported.         |No         |
-|scriptReference.parameter     |The array of parameters of the script.          |No         |
-|scriptReference.parameter.name     |The name of the parameter.          |No         |
-|scriptReference.parameter.value     |The value of the parameter.          |No         |
-|scriptReference.parameter.type     |The data type of the parameter. The type is logical type and follows type mapping of each connector.          |No         |
-|scriptReference.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type is not supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
-|scriptReference.parameter.size     |The max size of the parameter. Only applies to types that can be variable size.          |No         |
 |logSettings     |The settings to store the output logs. If not specified, script log is disabled.          |No         |
 |logSettings.logDestination     |The destination of log output. It can be ActivityOutput or ExternalStore. Default: ActivityOutput.          |No         |
 |logSettings.logLocationSettings     |The settings of the target location if logDestination is ExternalStore.          |No         |
@@ -187,12 +164,6 @@ Sample output:
 :::image type="content" source="media/transform-data-using-script/inline-script.png" alt-text="Screenshot showing the UI to configure an inline script.":::
 
 Inline scripts integrate well with Pipeline CI/CD since the script is stored as part of the pipeline metadata.
-
-### Script file reference
-
-:::image type="content" source="media/transform-data-using-script/script-file-reference.png" alt-text="Screenshot showing the UI to configure a script file reference.":::
-
-If you have you a custom process to generate scripts and would like to reference it in the pipeline rather than use an in-line script, you cam specify the file path on a storage.
 
 ### Logging
 

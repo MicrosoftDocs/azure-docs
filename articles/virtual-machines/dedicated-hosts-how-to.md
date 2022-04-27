@@ -64,7 +64,7 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
 
-In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group using both availability zones and fault domains.
+In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
 az vm host group create \
@@ -79,7 +79,7 @@ Add the `--automatic-placement true` parameter to have your VMs and scale set in
 
 **Other examples**
 
-You can also use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group in availability zone 1 (and no fault domains).
+You can also use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group in availability zone 1 (and no fault domains).
 
 ```azurecli-interactive
 az vm host group create \
@@ -89,7 +89,7 @@ az vm host group create \
    --platform-fault-domain-count 1
 ```
 
-The following uses [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported).
+The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported).
 
 ```azurecli-interactive
 az vm host group create \
@@ -144,7 +144,7 @@ If you set a fault domain count for your host group, you will need to specify th
 
 ### [CLI](#tab/cli)
 
-Use [az vm host create](/cli/azure/vm/host#az_vm_host_create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
+Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
 
 ```azurecli-interactive
 az vm host create \
@@ -195,7 +195,7 @@ It will take a few minutes for your VM to be deployed.
 
 ### [CLI](#tab/cli)
 
-Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az_vm_create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. Replace the values like image and host name with your own. If you are creating a Windows VM, remove `--generate-ssh-keys` to be prompted for a password.
+Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. Replace the values like image and host name with your own. If you are creating a Windows VM, remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vm create \
@@ -254,7 +254,7 @@ When you deploy a scale set, you specify the host group.
 
 ### [CLI](#tab/cli)
 
-When you deploy a scale set using [az vmss create](/cli/azure/vmss#az_vmss_create), you specify the host group using `--host-group`. In this example, we are deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
+When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we are deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vmss create \
@@ -370,7 +370,7 @@ If you need to know how much capacity is still available on a how, you can check
 
 ### [CLI](#tab/cli)
 
-You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view).
+You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
 ```azurecli-interactive
 az vm host get-instance-view \
@@ -568,19 +568,19 @@ You can only delete a host when there are no any longer virtual machines using i
 
 ### [CLI](#tab/cli)
 
- Delete the VMs using [az vm delete](/cli/azure/vm#az_vm_delete).
+ Delete the VMs using [az vm delete](/cli/azure/vm#az-vm-delete).
 
 ```azurecli-interactive
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az_vm_host_delete).
+After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az-vm-host-delete).
 
 ```azurecli-interactive
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost
 ```
 
-Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az_vm_host_group_delete).
+Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az-vm-host-group-delete).
 
 ```azurecli-interactive
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup

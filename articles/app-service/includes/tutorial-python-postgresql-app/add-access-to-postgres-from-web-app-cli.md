@@ -37,4 +37,4 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME `
 * *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-python-postgres-webapp-rg`)
 * *server* &rarr; Name of the server from **Step 1**. (`msdocs-python-postgres-webapp-db`)
 * *name* &rarr; Name for firewall rule. (use `AllowAllWindowsAzureIps`)
-* *start-ip-address, end-ip-address* &rarr; `0.0.0.0` signals that access will be from other Azure services. This is sufficient for a demonstration app, but for a production app you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
+* *start-ip-address, end-ip-address* &rarr; `0.0.0.0` signals that access will be from other Azure services. This is sufficient for a demonstration app, but for a production app you should use an [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md).

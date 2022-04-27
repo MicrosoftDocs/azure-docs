@@ -40,7 +40,7 @@ ms.author: erhopf
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Add a `dependencies` element, with Speech SDK version 1.19.0 as a dependency:
+   * Add a `dependencies` element, with Speech SDK version 1.21.0 as a dependency:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

@@ -44,11 +44,12 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
   * recoverylevel attribute set to **Recoverable** (this requires soft-delete enabled with retention period set to 90 days)
   * Purge protection enabled
 
-You can verify the above attributes of the key by using the following command:
+  You can verify the above attributes of the key by using the following command:
 
-```azurecli-interactive
-az keyvault key show --vault-name <key_vault_name> -n <key_name>
-```
+  ```azurecli-interactive
+  az keyvault key show --vault-name <key_vault_name> -n <key_name>
+  ```
+
 * The Azure Database for MySQL - Single Server should be on General Purpose or Memory Optimized pricing tier and on general purpose storage v2. Before you proceed further, refer limitations for [data encryption with customer managed keys](concepts-data-encryption-mysql.md#limitations).
 ## Set the right permissions for key operations
 
@@ -99,7 +100,7 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot of Azure Database for MySQL, with revalidation step highlighted":::
 
-   You will have to give the key vault access to the new server.
+   You will have to give the key vault access to the new server. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal).
 
 4. After registering the service principal, revalidate the key again, and the server resumes its normal functionality.
 

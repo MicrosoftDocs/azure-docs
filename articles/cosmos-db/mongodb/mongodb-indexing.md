@@ -5,17 +5,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 4/5/2022
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js
+ms.custom: devx-track-js, cosmos-db-video
 ---
 # Manage indexing in Azure Cosmos DB API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-📺 <B><a href="https://aka.ms/cosmos-db-video-indexing-best-practices-mongodb-api" target="_blank">Video: Explore indexing best practices for the Azure Cosmos DB API for MongoDB</a></b>
-
 Azure Cosmos DB API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB API for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
+
+>
+> [!VIDEO https://aka.ms/docs.mongo-indexing]
 
 ## Indexing for MongoDB server version 3.6 and higher
 
@@ -202,9 +203,6 @@ The following operations are common for accounts serving wire protocol version 4
 
 [Unique indexes](../unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for indexed fields.
 
-> [!IMPORTANT]
-> Unique indexes can be created only when the collection is empty (contains no documents).
-
 The following command creates a unique index on the field `student_id`:
 
 ```shell
@@ -242,6 +240,45 @@ globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {
 In the preceding example, omitting the ```"university":1``` clause returns an error with the following message:
 
 `cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }`
+
+#### Limitations
+
+Unique indexes need to be created while the collection is empty. 
+
+Support for unique index on existing collections with data is available in preview for accounts that do not use Synapse Link or Continuous backup. You can sign up for the feature “Azure Cosmos DB API for MongoDB New Unique Indexes in existing collection” through the [Preview Features blade in the portal](./../access-previews.md). 
+
+#### Unique partial indexes
+
+Unique partial indexes can be created by specifying a partialFilterExpression along with the 'unique' constraint in the index. This results in the unique constraint being applied only to the documents that meet the specified filter expression.
+
+The unique constraint will not be effective for documents that do not meet the specified criteria. As a result, other documents will not be prevented from being inserted into the collection.
+
+This feature is supported with the Cosmos DB API for MongoDB versions 3.6 and above.
+
+To create a unique partial index from Mongo Shell, use the command `db.collection.createIndex()` with the 'partialFilterExpression' option and 'unique' constraint.
+The partialFilterExpression option accepts a json document that specifies the filter condition using:
+
+* equality expressions (i.e. field: value or using the $eq operator),
+*'$exists: true' expression,
+* $gt, $gte, $lt, $lte expressions,
+* $type expressions,
+* $and operator at the top-level only
+
+The following command creates an index on collection `books` that specifies a unique constraint on the `title` field and a partial filter expression `rating: { $gte: 3 }`:
+
+```shell
+db.books.createIndex( 
+   { title: 1 }, 
+   { unique: true, partialFilterExpression: { rating: { $gte: 3 } } } 
+) 
+```
+
+To delete a partial unique index using from Mongo Shell, use the command `getIndexes()` to list the indexes in the collection.
+Then drop the index with the following command:
+
+```shell
+db.books.dropIndex("indexName")
+```
 
 ### TTL indexes
 

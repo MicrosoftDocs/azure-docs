@@ -179,10 +179,10 @@ You should see the device being registered and connected to IoT Hub, and then st
 
 ### Validate
 
-The flow you've set up in this article will result in the device automatically being registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az_dt_twin_show) command to find the twin of the device in the Azure Digital Twins instance you created.
+The flow you've set up in this article will result in the device automatically being registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az-dt-twin-show) command to find the twin of the device in the Azure Digital Twins instance you created. There's a placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance), and a placeholder for the device registration ID.
 
 ```azurecli-interactive
-az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
+az dt twin show --dt-name <instance-hostname-or-name> --twin-id "<device-registration-ID>"
 ```
 
 You should see the twin of the device being found in the Azure Digital Twins instance.
@@ -299,7 +299,7 @@ Once you've gone through this flow, everything is set to retire devices end-to-e
 
 To trigger the process of retirement, you need to manually delete the device from IoT Hub.
 
-You can manually delete the device from IoT Hub with an [Azure CLI command](/cli/azure/iot/hub/module-identity#az_iot_hub_module_identity_delete) or in the Azure portal. 
+You can manually delete the device from IoT Hub with an [Azure CLI command](/cli/azure/iot/hub/module-identity#az-iot-hub-module-identity-delete) or in the Azure portal. 
 Follow the steps below to delete the device in the Azure portal:
 
 1. Navigate to your IoT hub, and choose **IoT devices** in the menu options on the left. 
@@ -310,10 +310,10 @@ Follow the steps below to delete the device in the Azure portal:
 
 It might take a few minutes to see the changes reflected in Azure Digital Twins.
 
-Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az_dt_twin_show) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
+Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az-dt-twin-show) command to verify the twin of the device in the Azure Digital Twins instance was deleted. There's a placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance), and a placeholder for the device registration ID.
 
 ```azurecli-interactive
-az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
+az dt twin show --dt-name <instance-hostname-or-name> --twin-id "<device-registration-ID>"
 ```
 
 You should see that the twin of the device cannot be found in the Azure Digital Twins instance anymore.
@@ -324,7 +324,7 @@ You should see that the twin of the device cannot be found in the Azure Digital 
 
 If you no longer need the resources created in this article, follow these steps to delete them.
 
-Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az_group_delete) command. This command removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the Event Grid topic and associated subscriptions; the Event Hubs namespace and both Azure Functions apps, including associated resources like storage.
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the Event Grid topic and associated subscriptions; the Event Hubs namespace and both Azure Functions apps, including associated resources like storage.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 

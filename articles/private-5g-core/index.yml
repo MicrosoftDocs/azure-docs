@@ -78,18 +78,21 @@ landingContent:
         links:
           - text: Provision SIMs
             url: provision-sims-azure-portal.md
-          - text: Activate SIMs
-            url: activate-sims.md
   # Card
   - title: Monitor your private mobile network
     linkLists:
-      - linkListType: overview
-        links:
-          - text: Cloud monitoring with Azure Log Analytics
-            url: private-5g-core-overview.md#azure-centralized-monitoring
       - linkListType: concept
         links:
+          - text: Cloud monitoring with Azure Log Analytics
+            url: monitor-private-5g-core-with-log-analytics.md
           - text: Local monitoring with distributed tracing
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable Log Analytics for Azure Private 5G Core
+            url: enable-log-analytics-for-private-5g-core.md       
+          - text: Export, upload and share traces for diagnostics
+            url: distributed-tracing-share-traces.md
+            

@@ -301,7 +301,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 }
 ```
  
-For more information on Azure Resource Manager templates, see [Resource Manager template overview](/azure/azure-resource-manager/templates/overview)
+For more information on Azure Resource Manager templates, see [Resource Manager template overview](../../azure-resource-manager/templates/overview.md)
 
 ## Common questions
 

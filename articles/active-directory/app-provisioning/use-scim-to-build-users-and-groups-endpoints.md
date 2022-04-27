@@ -59,7 +59,7 @@ The steps here deploy the SCIM endpoint to a service by using [Visual Studio 201
 
    ![Screenshot that shows the Application settings window.](media/use-scim-to-build-users-and-groups-endpoints/app-service-settings.png)
 
-   When you test your endpoint with an enterprise application in the [Azure portal](use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client), you have two options. You can keep the environment in `Development` and provide the testing token from the `/scim/token` endpoint, or you can change the environment to `Production` and leave the token field empty.
+   When you test your endpoint with an enterprise application in the [Azure portal](use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-azure-ad-scim-client), you have two options. You can keep the environment in `Development` and provide the testing token from the `/scim/token` endpoint, or you can change the environment to `Production` and leave the token field empty.
 
 That's it! Your SCIM endpoint is now published, and you can use the Azure App Service URL to test the SCIM endpoint.
 
@@ -99,7 +99,7 @@ The default token validation code is configured to use an Azure AD token and req
 
 After you deploy the SCIM endpoint, you can test to ensure that it's compliant with SCIM RFC. This example provides a set of tests in Postman that validate CRUD (create, read, update, and delete) operations on users and groups, filtering, updates to group membership, and disabling users.
 
-The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP requests to interact with them. To modify the `/scim/` route, see *TokenController.cs* in **SCIMReferenceCode** > **Microsoft.SCIM.WebHostSample** > **Controllers**.
+The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP requests to interact with them. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
 
 > [!NOTE]
 > You can only use HTTP endpoints for local tests. The Azure AD provisioning service requires that your endpoint support HTTPS.

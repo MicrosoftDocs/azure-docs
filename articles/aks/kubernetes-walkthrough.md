@@ -293,6 +293,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
 
+This quickstart is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -317,3 +319,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
 [windows-container-cli]: windows-container-cli.md
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

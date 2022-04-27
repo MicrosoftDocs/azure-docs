@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller that uses your own certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/07/2022
 
 ---
 
@@ -121,6 +121,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
@@ -154,6 +155,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
     --set controller.image.tag=$ControllerTag `
     --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
     --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
@@ -359,10 +361,10 @@ metadata:
   name: hello-world-ingress
   namespace: ingress-basic
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - demo.azure.com
@@ -405,7 +407,7 @@ The example output shows the ingress resource is created.
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
-ingress.extensions/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress created
 ```
 
 ## Test the ingress configuration

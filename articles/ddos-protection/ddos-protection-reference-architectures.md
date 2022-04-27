@@ -16,7 +16,7 @@ ms.custom: fasttrack-edit
 DDoS Protection Standard is designed [for services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
 
 > [!NOTE]
-> Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). PaaS services (multitenant) are not supported at present. This includes Azure App Service Environment for Power Apps or API management in a virtual network with a public IP.
+> Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multitenant), which includes Azure App Service Environment for Power Apps or API management in a virtual network with a public IP, are not supported at present.
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -52,7 +52,7 @@ A standby region is set up for failover scenarios.
 
 Azure Traffic Manager routes incoming requests to Application Gateway in one of the regions. During normal operations, it routes requests to Application Gateway in the active region. If that region becomes unavailable, Traffic Manager fails over to Application Gateway in the standby region.
 
-All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](../application-gateway/application-gateway-web-app-overview.md) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
+All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](../application-gateway/configure-web-app.md) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
 
 We recommend that you configure the Application Gateway WAF SKU (prevent mode) to help protect against Layer 7 (HTTP/HTTPS/WebSocket) attacks. Additionally, web apps are configured to [accept only traffic from the Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP address.
 
