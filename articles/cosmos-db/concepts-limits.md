@@ -24,17 +24,24 @@ You can provision throughput at a container-level or a database-level in terms o
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
-| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
+| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 <sup>*</sup>  |
+| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 <sup>*</sup>|
 | Maximum RUs per partition (logical & physical) | 10,000 |
-| Maximum storage across all items per (logical) partition | 20 GB **refer note below**|
+| Maximum storage across all items per (logical) partition | 20 GB [<sup>\[1\]</sup>](#provisioned-throughput-table-note-1)|
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
-| Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** this minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
+| Minimum RU/s required per 1 GB | 10 RU/s [<sup>\[2\]</sup>](#provisioned-throughput-table-note-2) |
 
-> [!NOTE]
-> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20GB in production, it is recommended to re-architect your application with a different partition key as a long-term solution. To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Note this is intended as a temporary mitigation and not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have re-architected your application with a different partition key.
+<a id="provisioned-throughput-table-note-1"></a><sup>1</sup>
+To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20GB in production, it is recommended to re-architect your application with a different partition key as a long-term solution. To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Note this is intended as a temporary mitigation and not recommended as a long-term solution, as **SLA guarantees are not honored when the limit is increased**. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have re-architected your application with a different partition key.
+
+<a id="provisioned-throughput-table-note-2"></a><sup>2</sup>
+Minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program)
+<br>
+ 
+<sup>*</sup> You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) 
+
 
 ### Minimum throughput limits
 
@@ -89,7 +96,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB  |
-| Maximum storage per container (Cassandra)| 30 GB * |
+| Maximum storage per container (Cassandra API)| 30 GB  |
 
 
 ## Control plane operations
@@ -98,11 +105,13 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 | Resource | Limit |
 | --- | --- |
-| Maximum accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) up to 1,000 max.|
-| Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
+| Maximum accounts per subscription | 50 by default. <sup>*</sup> |
+| Maximum number of regional failovers | 1/hour by default. <sup>*</sup> [<sup>\[1\]</sup>](#control-plane-operation-table-note-1)|
 
-> [!NOTE]
-> Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
+
+<sup>*</sup> You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md). <br>
+<a id="control-plane-operation-table-note-1"></a><sup>1</sup>
+Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
 
 Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](online-backup-and-restore.md).
 
@@ -180,10 +189,12 @@ Cosmos DB uses HMAC for authorization. You can use either a primary key, or a [r
 | --- | --- |
 | Maximum primary token expiry time | 15 min  |
 | Minimum resource token expiry time | 10 min  |
-| Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
+| Maximum resource token expiry time | 24 h by default <sup>*</sup>|
 | Maximum clock skew for token authorization| 15 min |
 
 Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation.
+
+<sup>*</sup> You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)
 
 ## Metadata request limits
 
