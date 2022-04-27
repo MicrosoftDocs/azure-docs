@@ -37,9 +37,6 @@ This solution that allows user to:
 
 This article provides you with the information you need to configure wildcard application publishing in your environment.
 
-## Pre-requisites
-Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
-- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector. 
 
 ## Pre-requisites
 Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
@@ -48,7 +45,7 @@ Before you get started with single sign-on for header-based authentication apps,
 
 ## Configure application segment(s) for complex application. 
 
-To configure Application Segments for a complex app using the API, you first [Create a wildcard application](application-proxy-wildcard.md#create-a-wildcard-application), and then update the application's onPremisesPublishing property to configure the application segments and respective CORS settings.
+To configure Application Segments for a complex app using the API, you first [create a wildcard application](application-proxy-wildcard.md#create-a-wildcard-application), and then update the application's onPremisesPublishing property to configure the application segments and respective CORS settings.
 
 If successful, this method returns a `204 No Content` response code and does not return anything in the response body.
 ## Example
@@ -106,3 +103,4 @@ HTTP/1.1 204 No Content
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) 
 - [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
 - [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md)
+- [Understand and solve Azure Active Directory Application Proxy CORS issues](application-proxy-understand-cors-issues.md)
