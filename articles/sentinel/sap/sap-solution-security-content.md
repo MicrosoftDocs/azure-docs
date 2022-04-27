@@ -16,11 +16,6 @@ This article details the security content available for the SAP continuous threa
 
 Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
-> [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
-
 ## Built in workbooks
 
 Use the following built-in workbooks to visualize and monitor data ingested via the SAP data connector. After deploying the SAP solution, SAP workbooks are found in the **My workbooks** tab.

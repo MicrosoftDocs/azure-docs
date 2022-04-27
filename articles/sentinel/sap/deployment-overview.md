@@ -13,9 +13,6 @@ ms.date: 04/12/2022
 
 This article introduces you to the process of deploying the Microsoft Sentinel Continuous Threat Monitoring solution for SAP. The full process is detailed in a whole set of articles linked under [Deployment milestones](#deployment-milestones) below.
 
-> [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Overview
 
 **Continuous Threat Monitoring for SAP** is a [Microsoft Sentinel solution](../sentinel-solutions.md) that you can use to monitor your SAP systems and detect sophisticated threats throughout the business logic and application layers. The solution includes the following components:
