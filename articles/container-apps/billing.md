@@ -1,6 +1,6 @@
 ---
-title: Billing in Azure Container Apps preview
-description: Learn how billing is calculated in Azure Container Apps preview
+title: Billing in Azure Container Apps
+description: Learn how billing is calculated in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -9,7 +9,7 @@ ms.date: 03/09/2022
 ms.author: cshoe
 ---
 
-# Billing in Azure Container Apps preview
+# Billing in Azure Container Apps
 
 Azure Container Apps billing consists of two types of charges:
 

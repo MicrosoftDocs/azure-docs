@@ -1,5 +1,5 @@
 ---
-title: Set up HTTPS ingress in Azure Container Apps Preview
+title: Set up HTTPS ingress in Azure Container Apps
 description: Enable public and private endpoints in your app with Azure Container Apps
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
-# Set up HTTPS ingress in Azure Container Apps Preview
+# Set up HTTPS ingress in Azure Container Apps
 
 Azure Container Apps allows you to expose your container app to the public web by enabling ingress. When you enable ingress, you do not need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
 

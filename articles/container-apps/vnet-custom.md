@@ -1,5 +1,5 @@
 ---
-title: Provide a virtual network to an Azure Container Apps Preview environment
+title: Provide a virtual network to an Azure Container Apps environment
 description: Learn how to provide a VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
@@ -21,7 +21,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 

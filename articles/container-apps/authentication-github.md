@@ -1,5 +1,5 @@
 ---
-title: Enable authentication and authorization in Azure Container Apps Preview with GitHub
+title: Enable authentication and authorization in Azure Container Apps with GitHub
 description: Learn to use the built-in GitHub authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 04/20/2022
 ms.author: cshoe
 ---
 
-# Enable authentication and authorization in Azure Container Apps Preview with GitHub
+# Enable authentication and authorization in Azure Container Apps with GitHub
 
 This article shows how to configure Azure Container Apps to use GitHub as an authentication provider.
 

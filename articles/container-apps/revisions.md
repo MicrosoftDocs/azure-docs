@@ -1,5 +1,5 @@
 ---
-title: Revisions in Azure Container Apps Preview
+title: Revisions in Azure Container Apps
 description: Learn how revisions are created in Azure Container Apps
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
-# Revisions in Azure Container Apps Preview
+# Revisions in Azure Container Apps
 
 A revision is an immutable snapshot of a container app.
 

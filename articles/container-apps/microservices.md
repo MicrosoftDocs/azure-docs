@@ -1,5 +1,5 @@
 ---
-title: Microservices with Azure Containers Apps Preview
+title: Microservices with Azure Containers Apps
 description: Build a microservice in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
-# Microservices with Azure Containers Apps Preview
+# Microservices with Azure Containers Apps
 
 [Microservice architectures](https://azure.microsoft.com/solutions/microservice-applications/#overview) allow you to independently develop, upgrade, version, and scale core areas of functionality in an overall system. Azure Container Apps provides the foundation for deploying microservices featuring:
 
