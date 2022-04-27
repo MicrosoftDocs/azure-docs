@@ -187,6 +187,7 @@ You can't use gateway-required virtual network integration:
 * From a Linux app.
 * From a [Windows container](./quickstart-custom-container.md).
 * To access service endpoint-secured resources.
+* To resolve App Settings referencing a network protected Key Vault.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
 
 ### Set up a gateway in your Azure virtual network
