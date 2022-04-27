@@ -109,11 +109,11 @@ You can see the latest notebook run snapshot including both cells input and outp
 
 Open notebook snapshot:
 
-![screenshot open notebook snapshot](./media/synapse-notebook-activity/open-notebook-snapshot.png)
+![screenshot of open notebook snapshot](./media/synapse-notebook-activity/open-notebook-snapshot.png)
 
 You can see the notebook activity input or output by selecting the **input** or **Output** button. If your pipeline failed with a user error, select the **output** to check the **result** field to see the detailed user error traceback.
 
-![screenshot showing see output user error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+![screenshot of showing see output user error](./media/synapse-notebook-activity/notebook-output-user-error.png)
 
 
 ## Synapse notebook activity definition
