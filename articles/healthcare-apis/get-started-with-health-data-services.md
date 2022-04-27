@@ -39,7 +39,7 @@ To be guided through these steps, see [Deploy Azure Health Data Services workspa
 
 [![Screenshot of the Azure Health Data Services workspace.](media/health-data-services-workspace.png)](media/health-data-services-workspace.png#lightbox)
 
-With a deployed workspace, you can provision a FHIR service, DICOM service, and MedTech service.
+After you've created a workspace, you can deploy a FHIR service, DICOM service, and MedTech service.
 
 ### FHIR service
 
