@@ -81,7 +81,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 ### Serverless
 
-[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database. These limits cannot be increased and its recommended to provision additional serverless accounts for additional storage needs.
+[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database. These limits cannot be increased. It is recommended to provision additional serverless accounts for additional storage needs.
 
 | Resource | Limit |
 | --- | --- |
