@@ -6,7 +6,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 04/26/2022
+ms.date: 04/27/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -20,7 +20,7 @@ This article lists the latest features, improvements, and changes in the Azure A
 
 ## April
 
-Verifiable Credentials service Administrators must perform a small configuration change before **May 9, 2022** following [these steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to avoid service disruptions. On May 9, 2022 we'll rollout updates on our ervice that will result in errors on issuance and presentation on those tenants that have not applied the changes.
+Verifiable Credentials service Administrators must perform a small configuration change before **May 4, 2022** following [these steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to avoid service disruptions. On May 4, 2022 we'll roll out updates on our service that will result in errors on issuance and presentation on those tenants that haven't applied the changes.
 
 >[!IMPORTANT]
 > When the configuration on your tenant has not been updated, . [Service configuration instructions](verifiable-credentials-faq.md?#updating-the-vc-service-configuration).
