@@ -70,6 +70,17 @@ items:
   - name: FHIR operations
     expanded: true
     items:
+    - name: $convert-data
+      href: convert-data.md
+    - name: $export
+      expanded: true
+      items:
+      - name: Configure settings for export
+        href: configure-export-data.md
+      - name: Export FHIR data
+        href: export-data.md
+      - name: De-identified export
+        href: de-identified-export.md
     - name: $validate
       expanded: false
       items:
@@ -81,15 +92,6 @@ items:
       href: patient-everything.md
     - name: $member-match
       href: tutorial-member-match.md
-    - name: $export
-      expanded: true
-      items:
-      - name: Configure settings for export
-        href: configure-export-data.md
-      - name: Export FHIR data
-        href: export-data.md
-      - name: De-identified export
-        href: de-identified-export.md
   - name: Bulk-import data
     expanded: true
     items:
