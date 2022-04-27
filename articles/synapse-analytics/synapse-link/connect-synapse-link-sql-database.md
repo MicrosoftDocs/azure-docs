@@ -178,7 +178,7 @@ You can stop the Synapse link connection on Synapse Studio as following:
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop link.":::
 
 
-## <a name="known-issues"></a>Known limiations
+## <a name="known-issues"></a>Known limitations
 
 The following is the list of known limitations for Synapse Link for Azure SQL Database.
 
