@@ -32,15 +32,14 @@ You'll learn how to use the AzureML Python SDK v2 to:
 > [!div class="checklist"]
 > 
 > * Connect to your Azure ML workspace
-> * Create Azure ML Datasets
-> * Create reusable Azure ML Components
+> * Create Azure ML datasets
+> * Create reusable Azure ML components
 > * Create, validate and run Azure ML pipelines
 > * Deploy the newly-trained model as an endpoint
 > * Call the Azure ML endpoint for inferencing
 
 ## Prerequisites
 
-* A basic understanding of Machine Learning projects workflow
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
@@ -71,6 +70,7 @@ First you'll install the v2 SDK on your compute instance:
 ## Clone the azureml-examples repo
 
 1. Now on the terminal, run the command:
+
    ```
    git clone --depth 1 https://github.com/Azure/azureml-examples --branch sdk-preview
    ```
@@ -103,12 +103,11 @@ First you'll install the v2 SDK on your compute instance:
 
 In this tutorial, you'll create an Azure ML pipeline to train a model for credit default prediction. The pipeline handles the data preparation, training and registering the trained model.  You'll then run the pipeline, deploy the model and use it.
 
-The image below shows the pipeline as you'll see it in the AzureML portal once submitted. It's a rather simple pipeline we'll use to walk you through the new AzureML SDK.
+The image below shows the pipeline as you'll see it in the AzureML portal once submitted. It's a rather simple pipeline we'll use to walk you through the AzureML SDK v2.
 
 The two steps are first data preparation and second training. 
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/pipeline-overview.jpg" alt-text="Overview of the pipeline.":::
-
 
 ## Set up the pipeline resources
 
@@ -119,7 +118,6 @@ Before creating the pipeline, you'll set up the resources the pipeline will use:
 * The dataset for training
 * The software environment to run the pipeline
 * A compute resource to where the job will run
-
 
 ## Connect to the workspace
 
@@ -136,7 +134,7 @@ from azure.identity import DefaultAzureCredential
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 1. In the upper right Azure Machine Learning Studio toolbar, select your workspace name.
 1. At the bottom, select **View all properties in Azure Portal**
-1. Copy the values from Azure Portal into the code.
+1. Copy the value from Azure Portal into the code.
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
 
@@ -198,45 +196,6 @@ print(
 In future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.datasets.get("<DATASET NAME>", version='<VERSION>')`.
 
 
-## Create a compute resource to run our pipeline
- @@We created one in the QS, can we use it?
-
-Each step of an Azure ML pipeline can use a different compute resource for running the specific job of that step. The resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark on HDInsight.
-
-In this section, we provision a Linux compute cluster. You may want to check [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/).
-
-For this tutorial we only need a basic cluster, let's pick a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure ML Compute
-
-
-```python
-from azure.ml.entities import AmlCompute
-
-# Let's create the Azure ML compute object with the intended parameters
-cluster_basic = AmlCompute(
-    # Name assigned to the compute cluster
-    name="cpu-cluster",
-    # Azure ML Compute is the on-demand VM service
-    type="amlcompute",
-    # VM Family
-    size="Standard_DS3_v2",
-    # Minimum running nodes when there is no job running
-    min_instances=0,
-    # nodes in cluster
-    max_instances=2,
-    # How many seconds will the node running after the job termination
-    idle_time_before_scale_down=180,
-    # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
-    tier="Dedicated",
-)
-
-# # Now, we pass the object to clinet's create_or_update method
-cluster_basic = ml_client.begin_create_or_update(cluster_basic)
-
-print(
-    f"AMLCompute with name {cluster_basic.name} is created, the compute size is {cluster_basic.size}"
-)
-```
-
 ## Create a job environment for pipeline steps
 
 So far, you've created a development environment on the compute instance, your development machine. You'll also need an environment to use for each step of the pipeline. Each step can have its own environment, or you can use some common environments for multiple steps.
@@ -297,7 +256,7 @@ print(
 )
 ```
 
-## Create the training pipeline
+## Build the training pipeline
 
 Now that you have all assets required to run your pipeline, it's time to build the pipeline itself, using the Azure ML Python SDK v2.
 
@@ -641,19 +600,15 @@ train_func = dsl.load_component(
 
 ```
 
-
-
-
-
-
 Here, you'll use *input data*, *split ratio* and *registered model name* as input variables. Then call the components and connect them via their inputs /outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
-Define your pipeline:
+In the code below, replace `<CPU-CLUSTER-NAME>` with the name you used when you created a compute cluster in the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md).
+
 
 ```Python
 # the dsl decorator tells the sdk that we are defining an Azure ML pipeline
 @dsl.pipeline(
-    compute="cpu-cluster",
+    compute="<CPU-CLUSTER-NAME>",
     description="E2E data_perp-train pipeline",
 )
 def credit_defaults_pipeline(
