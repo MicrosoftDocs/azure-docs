@@ -34,17 +34,17 @@ To set up a local Grafana server, [download and install Grafana in your local en
 > [!IMPORTANT]
 > The Internet Explorer browser and older Microsoft Edge browsers are not compatible with Grafana, you must use a chromium-based browser including Microsoft Edge. See [supported browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
-1. Using the endpoint URL of your Azure Managed Grafana workspace or the IP address of your server, login to Grafana.
+1. Log in to Grafana using the endpoint URL of your Azure Managed Grafana workspace or your server's IP address.
 
 ## Configure Azure Monitor data source plugin
 
-Azure Managed Grafana includes an Azure Monitor datasource plugin pre-configured with a Managed Identity that can query and visualize monitoring data from all resources in the subscription in which the Grafana workspace was deployed. Skip ahead to Build a Grafana dashboard.
+Azure Managed Grafana includes an Azure Monitor datasource plugin. By default, the plugin is pre-configured with a Managed Identity that can query and visualize monitoring data from all resources in the subscription in which the Grafana workspace was deployed. Skip ahead to Build a Grafana dashboard.
 
 ![Azure Managed Grafana](./media/grafana-plugin/azure-managed-grafana.png)
 
-You can also expand the resources that can be viewed by your Azure Managed Grafana workspace by [configuring additional permissions](../../managed-grafana/how-to-permissions.md) to assign the included Managed Identity the [Monitoring reader role](../roles-permissions-security.md) on other subscriptions or resources.
+You can expand the resources that can be viewed by your Azure Managed Grafana workspace by [configuring additional permissions](../../managed-grafana/how-to-permissions.md) to assign the included Managed Identity the [Monitoring reader role](../roles-permissions-security.md) on other subscriptions or resources.
 
-However, if you are using an instance that is not Azure Managed Grafana, you will need to setup an Azure Monitor datasource.
+ If you are using an instance that is not Azure Managed Grafana, you have to setup an Azure Monitor datasource.
 
 1. Select **Add data source**, filter by name *Azure* and select the **Azure Monitor** data source.
 
