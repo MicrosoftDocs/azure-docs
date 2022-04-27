@@ -817,6 +817,10 @@ items:
     href: text-summarization/quickstart.md
   - name: Conversation summarization quickstart
     href: conversation-summarization/quickstart.md
+  - name: Document summarization language support
+    href: text-summarization/language-support.md
+  - name: Conversation summarization language support
+    href: conversation-summarization/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for text summarization
@@ -828,10 +832,6 @@ items:
     - name: Data, privacy, and security  
       href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
       displayName: Data privacy, logging, data retention
-  - name: Document summarization language support
-    href: text-summarization/language-support.md
-  - name: Conversation summarization Language support
-    href: conversation-summarization/language-support.md
   - name: How-to guides
     items:
     - name: Call the document summarization API
