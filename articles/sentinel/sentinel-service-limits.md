@@ -3,13 +3,13 @@ title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 04/27/2022
 ms.author: yelevin
 ---
 
 # Service limits for Microsoft Sentinel
 
-This article lists the service limits for several features in Microsoft Sentinel.
+This article lists the most common service limits you might encounter as you use Microsoft Sentinel. For other limits that might impact services or features you use, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Analytics rule limits
 
@@ -87,4 +87,4 @@ The following limit applies to UEBA in Microsoft Sentinel. The limit for UEBA in
 
 ## Next steps
 
-For other limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+[Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
