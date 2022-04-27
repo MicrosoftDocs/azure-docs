@@ -19,7 +19,7 @@ ms.custom: private_preview
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
+- An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
 
 ## Provision Azure Managed Domain
 
@@ -48,11 +48,9 @@ ms.custom: private_preview
     :::image type="content" source="./media/email-azuredomain-overview.png"  alt-text="Navigate to Azure Managed Domain Overview":::
 
 ## Sender Authentication for Azure Managed Domain
-
-Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication Best Practices](../../concepts/Email/email-authentication-bestpractice.md). 
+Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication Best Practices](../../concepts/email/email-authentication-bestpractice.md). 
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
-
 When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You will able to configure and change the MailFrom address and FROM displayname to more user friendly value.
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
@@ -76,17 +74,15 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
     :::image type="content" source="./media/email-domains-overview-updated.png" alt-text="Azure Managed Domain Overview":::
 
-
 **Your email domain is now ready to send emails.**
 
 ## Next steps
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
+> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
-> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/Email/email-authentication-bestpractice.md)
-
+> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../../concepts/Email/sdk-features.md)
-- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/Email/add-custom-verified-domains.md)
+- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
+- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)

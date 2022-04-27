@@ -15,11 +15,9 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-
 Get started with Azure Communication Services by using the Communication Services C# Email client library to send Email messages.
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
-
 
 ## Prerequisites
 
@@ -36,7 +34,6 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ## Setting up
 
 ### Create a new C# application
-
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EmailQuickstart`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
 ```console
@@ -51,7 +48,6 @@ dotnet build
 ```
 
 ### Install the package
-
 While still in the application directory, install the Azure Communication Services Email client library for .NET package by using the `dotnet add package` command.
 
 ```console
@@ -101,11 +97,9 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
 | StatusFoundResponse | This class holds lists of email addresses for recipients of the email message, including optional CC & .                                             |
 
-
 ## Authenticate the client
 
  Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
-
 
 ```csharp
 // This code demonstrates how to fetch your connection string
@@ -114,7 +108,6 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 
 EmailClient emailClient = new EmailClient(connectionString);
 ```
-
 ## Send an Email message
 
 To send an Email message, you need to
@@ -136,7 +129,6 @@ EmailRecipients emailRecipients = new EmailRecipients(new List<EmailAddress> { n
 EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);
 var response = emailClient.SendEmail(emailMessage, Guid.NewGuid().ToString(), DateTime.Now.ToString());
 ```
-
 ## Getting MessageId to track Email Delivery
 
 To track the status of email delivery you need to get the MessageId back from response and track the status. if there is no MessageId retry the request.
@@ -196,7 +188,6 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
-
 ## Sample Code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)

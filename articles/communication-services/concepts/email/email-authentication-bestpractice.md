@@ -16,10 +16,8 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-
 ## Email Authentication
 Sending an email requires several steps which includes verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc.. Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
-
 
 ### SPF (Sender Policy Framework)
 SPF  [RFC 7208](https://tools.ietf.org/html/rfc7208)  is a mechanism that allows domain owners to publish and maintain, via a standard DNS TXT record, a list of systems authorized to send email on their behalf.
@@ -33,17 +31,13 @@ DMARC [RFC 7489](https://tools.ietf.org/html/rfc7489) is a scalable mechanism by
 ### ARC (Authenticated Received Chain) 
 The ARC protocol [RFC 8617](https://tools.ietf.org/html/rfc8617)  provides an authenticated chain of custody for a message, allowing each entity that handles the message to identify what entities handled it previously as well as the message’s authentication assessment at each hop. ARC is not yet an internet standard, but adoption is increasing. 
 
-
 ### How Email Authentication works
-
 Email authentication verifies that email messages from a sender (for example, notification@contoso.com) is legitimate and come from expected sources for that email domain (for example, contoso.com.). 
-
 An email message may contain multiple originator or sender addresses. These addresses are used for different purposes. For example, consider these addresses:
 
 **Mail From** address: Identifies the sender and specifies where to send return notices if any problems occur with the delivery of the message, such as non-delivery notices. This appears in the envelope portion of an email message and is not displayed by your email application. This is sometimes called the 5321.MailFrom address or the reverse-path address.
 
 **From** address: The address displayed as the From address by your mail application. This address identifies the author of the email. That is, the mailbox of the person or system responsible for writing the message. This is sometimes called the 5322.From address.
-
 
 **Sender Policy Framework (SPF)** helps validate outbound email sent from your mail from domain (is coming from who it says it is). 
 
@@ -52,7 +46,6 @@ An email message may contain multiple originator or sender addresses. These addr
 **Domain-based Message Authentication, Reporting, and Conformance(DMARC)** works with Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM) to authenticate mail senders and ensure that destination email systems trust messages sent from your domain.
 
 ### Implementing DMARC
-
 Implementing DMARC with SPF and DKIM provides rich protection against spoofing and phishing email. SPF uses a DNS TXT record to provide a list of authorized sending IP addresses for a given domain. Normally, SPF checks are only performed against the 5321.MailFrom address. This means that the 5322.From address is not authenticated when you use SPF by itself. This allows for a scenario where a user can receive a message, which passes an SPF check but has a spoofed 5322.From sender address.
 
 Like the DNS records for SPF, the record for DMARC is a DNS text (TXT) record that helps prevent spoofing and phishing. You publish DMARC TXT records in DNS. DMARC TXT records validate the origin of email messages by verifying the IP address of an email's author against the alleged owner of the sending domain. The DMARC TXT record identifies authorized outbound email servers. Destination email systems can then verify that messages they receive originate from authorized outbound email servers. This forces a mismatch between the 5321.MailFrom and the 5322.From addresses in all email sent from your domain and DMARC will fail for that email. To avoid this, you need to set up DKIM for your domain. 
@@ -70,13 +63,12 @@ A DMARC policy record allows a domain to announce that their email uses authenti
 
 > [Understanding Email Domains in Azure Communication Services](./Understanding-email-domain-setup.md)
 
-> [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
+> [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
-
+> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../Email/sdk-features.md)
-- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/Email/add-custom-verified-domains.md)
-- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/Email/add-azure-managed-domains.md)
+- Familiarize yourself with the [Email client library](../email/sdk-features.md)
+- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
+- How to send emails with Azure Communication Service managed domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)

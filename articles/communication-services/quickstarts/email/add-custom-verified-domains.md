@@ -19,7 +19,7 @@ ms.custom: private_preview
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/Email/create-email-communication-resource.md)
+- An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
 
 ## Provision Custom Domain
 
@@ -70,7 +70,7 @@ ms.custom: private_preview
 13. Verify that TXT record is created successfully in your DNS and Click **Done**. 
 14. DNS changes will take up to 15 to 30 minutes.  Click **Close**. 
 
-    :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="Verification in progress":::
+    :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="Verification in progress for Sender Authentication":::
 15. Once your domain is verified, you can setup your SPF, DKIM, and DMARC records to authenticate your domains. 
 
     :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Domain Verified":::
@@ -132,7 +132,7 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
 ## Next steps
 
-> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
+> [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/email/connect-email-communication-acs-resource.md)
 
 > [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
 
