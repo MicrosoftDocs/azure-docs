@@ -19,7 +19,7 @@ There are multiple ways to get your questions answered through public forums:
 
 - [StackOverflow](https://stackoverflow.com/search?q=azurekinect&s=3b855ed0-8564-4961-856f-9614aeab4c0d&s=fd9ea920-622c-4d8e-b908-ec996e1f1403), where you can ask questions or search through existing library of questions.
 - [GitHub](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK), where you can ask questions, open new bugs or contribute to development of Azure Kinect sensor SDK.
-- [Provide feedback](https://feedback.azure.com/forums/920053-azure-kinect-dk), where you can share your ideas for the future of the product and vote for an existing idea.
+- [Provide feedback](https://feedback.azure.com/d365community/forum/fdaad9c5-f624-ec11-b6e6-000d3a4f0da0), where you can share your ideas for the future of the product and vote for an existing idea.
 
 ## Assisted support
 
@@ -35,7 +35,7 @@ For quick and reliable answers on your technical product questions from Microsof
 
 Azure subscribers can create and manage support requests in the Azure portal. One-on-one development support for Body Tracking, Sensor SDK, Speech device SDK, or Azure Cognitive Services is available for Azure subscribers with an [Azure Support Plan](https://azure.microsoft.com/support/plans/) associated with their subscription.
 
-  - Have an [Azure Support Plan](https://azure.microsoft.com/support/plans/) associated with your Azure subscription? [Sign in to Azure portal](https://ms.portal.azure.com/) to submit an incident.
+  - Have an [Azure Support Plan](https://azure.microsoft.com/support/plans/) associated with your Azure subscription? [Sign in to Azure portal](https://portal.azure.com/) to submit an incident.
   - Need an Azure Subscription? [Azure subscription options](https://azure.microsoft.com/pricing/purchase-options/) will provide more information about different options.
   - Need a Support plan? [Select support plan](https://azure.microsoft.com/support/plans/)
 

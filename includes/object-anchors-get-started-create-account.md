@@ -5,8 +5,6 @@ ms.topic: include
 ms.date: 06/30/2021
 ms.author: rgarcia
 ---
-## Create an Object Anchors account
-
 First, you need to create an account with the Object Anchors service.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and select **Create a resource**.

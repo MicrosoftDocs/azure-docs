@@ -18,7 +18,7 @@ ms.author: danlep
 
 # Authorize access based on JWT claims
 
-This article shows an Azure API management policy sample that demonstrates how to authorize access to specific HTTP methods on an API based on JWT claims. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-reference.md).
+This article shows an Azure API management policy sample that demonstrates how to authorize access to specific HTTP methods on an API based on JWT claims. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](index.md).
 
 ## Policy
 

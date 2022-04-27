@@ -13,13 +13,13 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
 
 # Azure Storage types for SAP workload
-Azure has numerous storage types that differ vastly in capabilities, throughput, latency, and prices. Some of the storage types are not, or of limited usable for SAP scenarios. Whereas, several Azure storage types are well suited or optimized for specific SAP workload scenarios. Especially for SAP HANA, some Azure storage types got certified for the usage with SAP HANA. In this document, we are going through the different types of storage and describe their capability and usability with SAP workloads and SAP components.
+Azure has numerous storage types that differ vastly in capabilities, throughput, latency, and prices. Some of the storage types are not, or of limited usable for SAP scenarios. Whereas several Azure storage types are well suited or optimized for specific SAP workload scenarios. Especially for SAP HANA, some Azure storage types got certified for the usage with SAP HANA. In this document, we are going through the different types of storage and describe their capability and usability with SAP workloads and SAP components.
 
 Remark about the units used throughout this article. The public cloud vendors moved to use GiB ([Gibibyte](https://en.wikipedia.org/wiki/Gibibyte)) or TiB ([Tebibyte](https://en.wikipedia.org/wiki/Tebibyte) as size units, instead of Gigabyte or Terabyte. Therefore all Azure documentation and prizing are using those units.  Throughout the document, we are referencing these size units of MiB, GiB, and TiB units exclusively. You might need to plan with MB, GB, and TB. So, be aware of some small differences in the calculations if you need to size for a 400 MiB/sec throughput, instead of a 250 MiB/sec throughput.
 
@@ -75,16 +75,16 @@ Before going into the details, we are presenting the summary and recommendations
 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| OS disk | not suitable |  restricted suitable (non-prod) | recommended | not possible | not possible |
-| Global transport Directory | not supported | not supported | recommended | recommended | recommended |
-| /sapmnt | not suitable | restricted suitable (non-prod) | recommended | recommended | recommended |
-| DBMS Data volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
-| DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended<sup>2</sup> | 
-| DBMS Data volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
-| DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended<sup>2</sup> | 
-| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
-| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
-| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
+| OS disk | Not suitable |  Restricted suitable (non-prod) | Recommended | Not possible | Not possible |
+| Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended |
+| /sapmnt | Not suitable | Restricted suitable (non-prod) | Recommended | Recommended | Recommended |
+| DBMS Data volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended | Recommended | Recommended<sup>2</sup> |
+| DBMS log volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended<sup>1</sup> | Recommended | Recommended<sup>2</sup> | 
+| DBMS Data volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Recommended | Recommended | Recommended<sup>2</sup> |
+| DBMS log volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Not supported | Recommended | Recommended<sup>2</sup> | 
+| DBMS Data volume non-HANA | Not supported | Restricted suitable (non-prod) | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux |
+| DBMS log volume non-HANA M/Mv2 VM families | Not supported | Restricted suitable (non-prod) | Recommended<sup>1</sup> | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux |
+| DBMS log volume non-HANA non-M/Mv2 VM families | Not supported | restricted suitable (non-prod) | Suitable for up to medium workload | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
@@ -94,15 +94,15 @@ Characteristics you can expect from the different storage types list like:
 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Throughput/ IOPS SLA | no | no | yes | yes | yes |
-| Latency Reads | high | medium to high | low | sub-millisecond | sub-millisecond |
-| Latency Writes | high | medium to high  | low (sub-millisecond<sup>1</sup>) | sub-millisecond | sub-millisecond |
-| HANA supported | no | no | yes<sup>1</sup> | yes | yes |
-| Disk snapshots possible | yes | yes | yes | no | yes |
-| Allocation of disks on different storage clusters when using availability sets | through managed disks | through managed disks | through managed disks | disk type not supported with VMs deployed through availability sets | no<sup>3</sup> |
-| Aligned with Availability Zones | yes | yes | yes | yes | needs engagement of Microsoft |
-| Zonal redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
-| Geo redundancy | not for managed disks | not for managed disks | no | no | no |
+| Throughput/ IOPS SLA | No | No | Yes | Yes | Yes |
+| Latency Reads | High | Medium to high | Low | sub-millisecond | sub-millisecond |
+| Latency Writes | High | Medium to high  | Low (sub-millisecond<sup>1</sup>) | sub-millisecond | sub-millisecond |
+| HANA supported | No | No | yes<sup>1</sup> | Yes | Yes |
+| Disk snapshots possible | Yes | Yes | Yes | No | Yes |
+| Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> |
+| Aligned with Availability Zones | Yes | Yes | Yes | Yes | Needs engagement of Microsoft |
+| Zonal redundancy | Not for managed disks | Not for managed disks | Not for managed disks | No | No |
+| Geo redundancy | Not for managed disks | Not for managed disks | No | No | No |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
@@ -128,7 +128,7 @@ Azure premium SSD storage got introduced with the goal to provide:
 * Less variability in I/O latency
 
 This type of storage is targeting DBMS workloads, storage traffic that requires low single digit millisecond latency, and SLAs on IOPS and throughput
-Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../disks-types.md#premium-ssd). Conclusions out of this article are:
+Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](../../disks-types.md#premium-ssds). Conclusions out of this article are:
 
 - The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
 - The IOPS per GiB are not tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
@@ -140,23 +140,23 @@ The capability matrix for SAP workload looks like:
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
-| OS base VHD | suitable | all systems |
-| Data disk | suitable | all systems - [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
-| SAP global transport directory | YES | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | suitable | all systems |
-| Backup storage | suitable | for short term storage of backups |
-| Shares/shared disk | not available | Needs Azure Premium Files or third party |
+| OS base VHD | Suitable | All systems |
+| Data disk | Suitable | All systems - [Specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
+| SAP global transport directory | Yes | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | Suitable | All systems |
+| Backup storage | Suitable | For short term storage of backups |
+| Shares/shared disk | Not available | Needs Azure Premium Files or third party |
 | Resiliency | LRS | No GRS or ZRS available for disks |
-| Latency | low-to medium | - |
-| IOPS SLA | YES | - |
+| Latency | Low-to medium | - |
+| IOPS SLA | Yes | - |
 | IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../sizes.md) |
-| Throughput SLA | YES | - |
-| Throughput linear to capacity | semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certified | YES | [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
-| Disk snapshots possible | YES | - |
-| Azure Backup VM snapshots possible | YES | except for [Write Accelerator](../../how-to-enable-write-accelerator.md) cached disks  |
-| Costs | MEDIUM | - |
+| Throughput SLA | Yes | - |
+| Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| HANA certified | Yes | [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
+| Disk snapshots possible | Yes | - |
+| Azure Backup VM snapshots possible | Yes | Except for [Write Accelerator](../../how-to-enable-write-accelerator.md) cached disks  |
+| Costs | Medium| - |
 
 Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA log writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
 
@@ -188,8 +188,8 @@ Azure ultra disks deliver high throughput, high IOPS, and consistent low latency
 As you create an ultra disk, you have three dimensions you can define:
 
 - The capacity of the disk. Ranges are from 4 GiB to 65,536 GiB
-- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
-- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disk) for more details
+- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disks) for more details
+- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](../../disks-types.md#ultra-disks) for more details
 
 The cost of a single disk is determined by the three dimensions you can define for the particular disks separately. 
 
@@ -198,22 +198,22 @@ The capability matrix for SAP workload looks like:
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
-| OS base VHD | does not work | - |
-| Data disk | suitable | all systems  |
-| SAP global transport directory | YES | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | suitable | all systems |
-| Backup storage | suitable | for short term storage of backups |
-| Shares/shared disk | not available | Needs third party |
+| OS base VHD | Does not work | - |
+| Data disk | Suitable | All systems  |
+| SAP global transport directory | Yes | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | Suitable | All systems |
+| Backup storage | Suitable | For short term storage of backups |
+| Shares/shared disk | Not available | Needs third party |
 | Resiliency | LRS | No GRS or ZRS available for disks |
-| Latency | very low | - |
-| IOPS SLA | YES | - |
-| IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Latency | Very low | - |
+| IOPS SLA | Yes | - |
+| IOPS linear to capacity | Semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 1,200 to 160,000 | dependent of disk capacity |
-| Throughput SLA | YES | - |
-| Throughput linear to capacity | semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certified | YES | - |
-| Disk snapshots possible | NO | - |
-| Azure Backup VM snapshots possible | NO | - |
+| Throughput SLA | Yes | - |
+| Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| HANA certified | Yes | - |
+| Disk snapshots possible | No | - |
+| Azure Backup VM snapshots possible | No | - |
 | Costs | Higher than Premium storage | - |
 
 
@@ -241,9 +241,10 @@ ANF storage is currently supported for several SAP workload scenarios:
 - SAP HANA deployments using NFS v4.1 shares for /hana/data and /hana/log volumes and/or NFS v4.1 or NFS v3 volumes for /hana/shared volumes as documented in the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - IBM Db2 in Suse or Red Hat Linux guest OS
 - Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
+- SAP ASE in Suse or Red Hat Linux guest OS
 
 > [!NOTE]
-> No other DBMS workload is supported for Azure NetApp Files based NFS or SMB shares. Updates and changes will be provided if this is going to change.
+> So far no DBMS workloads are supported on SMB based on Azure NetApp Files.
 
 As already with Azure premium storage, a fixed or linear throughput size per GB can be a problem when you are required to adhere to some minimum numbers in throughput. Like this is the case for SAP HANA. With ANF, this problem can become more pronounced than with Azure premium disk. In case of Azure premium disk, you can take several smaller disks with a relatively high throughput per GiB and stripe across them to be cost efficient and have higher throughput at lower capacity. This kind of striping does not work for NFS or SMB shares hosted on ANF. This restriction resulted in deployment of overcapacity like:
 
@@ -255,21 +256,21 @@ The capability matrix for SAP workload looks like:
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
-| OS base VHD | does not work | - |
-| Data disk | suitable | SAP HANA only  |
-| SAP global transport directory | YES | SMB as well as NFS |
-| SAP sapmnt | suitable | all systems SMB (Windows only) or NFS (Linux only) |
-| Backup storage | suitable | - |
-| Shares/shared disk | YES | SMB 3.0, NFS v3, and NFS v4.1 |
+| OS base VHD | Does not work | - |
+| Data disk | Suitable | SAP HANA, Oracle on Oracle Linux, Db2 and SAP ASe on SLES/RHEL  |
+| SAP global transport directory | Yes | SMB as well as NFS |
+| SAP sapmnt | Suitable | Sll systems SMB (Windows only) or NFS (Linux only) |
+| Backup storage | Suitable | - |
+| Shares/shared disk | Yes | SMB 3.0, NFS v3, and NFS v4.1 |
 | Resiliency | LRS | No GRS or ZRS available for disks |
-| Latency | very low | - |
-| IOPS SLA | YES | - |
+| Latency | Very low | - |
+| IOPS SLA | Yes | - |
 | IOPS linear to capacity | strictly linear  | Dependent on [Service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
-| Throughput SLA | YES | - |
-| Throughput linear to capacity | semi linear in brackets | Dependent on [Service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
-| HANA certified | YES | - |
-| Disk snapshots possible | YES | - |
-| Azure Backup VM snapshots possible | NO | - |
+| Throughput SLA | Yes | - |
+| Throughput linear to capacity | Semi linear in brackets | Dependent on [Service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
+| HANA certified | Yes | - |
+| Disk snapshots possible | Yes | - |
+| Azure Backup VM snapshots possible | No | - |
 | Costs | Higher than Premium storage | - |
 
 
@@ -288,20 +289,20 @@ Compared to Azure standard HDD storage, Azure standard SSD storage delivers bett
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
-| OS base VHD | restricted suitable | non-production systems |
-| Data disk | restricted suitable | some non-production systems with low IOPS and latency demands |
-| SAP global transport directory | NO | [Not supported](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | restricted suitable | non-production systems |
-| Backup storage | suitable | - |
-| Shares/shared disk | not available | Needs third party |
+| OS base VHD | Restricted suitable | Non-production systems |
+| Data disk | Restricted suitable | Some non-production systems with low IOPS and latency demands |
+| SAP global transport directory | No | [Not supported](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | Restricted suitable | Non-production systems |
+| Backup storage | Suitable | - |
+| Shares/shared disk | Not available | Needs third party |
 | Resiliency | LRS, GRS | No ZRS available for disks |
-| Latency | high | too high for SAP Global Transport directory, or production systems |
-| IOPS SLA | NO | - |
+| Latency | high | Too high for SAP Global Transport directory, or production systems |
+| IOPS SLA | No | - |
 | Maximum IOPS per disk | 500 | Independent of the size of disk |
-| Throughput SLA | NO | - |
-| HANA certified | NO | - |
-| Disk snapshots possible | YES | - |
-| Azure Backup VM snapshots possible | YES | - |
+| Throughput SLA | No | - |
+| HANA certified | No | - |
+| Disk snapshots possible | Yes | - |
+| Azure Backup VM snapshots possible | Yes | - |
 | Costs | LOW | - |
 
 
@@ -315,21 +316,21 @@ The Azure Standard HDD storage was the only storage type when Azure infrastructu
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
-| OS base VHD | not suitable | - |
-| Data disk | not suitable | - |
-| SAP global transport directory | NO | [Not supported](https://launchpad.support.sap.com/#/notes/2015553) |
+| OS base VHD | Not suitable | - |
+| Data disk | Not suitable | - |
+| SAP global transport directory | No | [Not supported](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | NO | Not supported |
-| Backup storage | suitable | - |
-| Shares/shared disk | not available | Needs Azure Files or third party |
+| Backup storage | Suitable | - |
+| Shares/shared disk | Not available | Needs Azure Files or third party |
 | Resiliency | LRS, GRS | No ZRS available for disks |
-| Latency | high | too high for DBMS usage, SAP Global Transport directory, or sapmnt/saploc |
-| IOPS SLA | NO | - |
+| Latency | high | Too high for DBMS usage, SAP Global Transport directory, or sapmnt/saploc |
+| IOPS SLA | No | - |
 | Maximum IOPS per disk | 500 | Independent of the size of disk |
-| Throughput SLA | NO | - |
-| HANA certified | NO | - |
-| Disk snapshots possible | YES | - |
-| Azure Backup VM snapshots possible | YES | - |
-| Costs | LOW | - |
+| Throughput SLA | No | - |
+| HANA certified | No | - |
+| Disk snapshots possible | Yes | - |
+| Azure Backup VM snapshots possible | Yes | - |
+| Costs | Low | - |
 
 
 

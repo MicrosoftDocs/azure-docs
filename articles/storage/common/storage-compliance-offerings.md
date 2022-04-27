@@ -23,7 +23,7 @@ You can find below compliance offerings on Azure Storage to ensure your service 
 - [CSA-STAR-Self-Assessment](https://www.microsoft.com/trustcenter/compliance/csa-self-assessment)
 - [ISO 20000-1:2011](https://www.microsoft.com/TrustCenter/Compliance/ISO-20000-1)
 - [ISO 22301](/compliance/regulatory/offering-iso-22301)
-- [ISO 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)
+- [ISO 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)
 - [ISO 27017](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)
 - [ISO 27018](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)
 - [ISO 9001](https://www.microsoft.com/trustcenter/compliance/iso-9001)

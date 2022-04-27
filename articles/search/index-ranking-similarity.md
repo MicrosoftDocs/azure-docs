@@ -3,8 +3,8 @@ title: Configure the similarity algorithm
 titleSuffix: Azure Cognitive Search
 description: Learn how to enable BM25 on older search services, and how BM25 parameters can be modified to better accommodate the content of your indexes.
 
-author: puneet-hariharan-MSFT
-ms.author: puhariharan
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021

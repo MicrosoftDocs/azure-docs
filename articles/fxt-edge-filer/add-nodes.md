@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Add nodes to an Azure FXT Edge Filer cluster'
 description: Learn how to add cluster nodes to the Azure FXT Edge Filer storage cache and enable the High Availability (HA) feature.
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 05/26/2021

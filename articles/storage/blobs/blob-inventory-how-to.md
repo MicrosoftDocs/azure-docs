@@ -119,7 +119,7 @@ You can add, edit, or remove a policy by using the Azure PowerShell module.
 
 <a id="cli"></a>
 
-You can add, edit, or remove a policy by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
+You can add, edit, or remove a policy via the [Azure CLI](/cli/azure/).
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
@@ -178,7 +178,7 @@ You can add, edit, or remove a policy by using the [Azure Command-Line Interface
 
    ```
 
-4. Create a blob inventory policy by using the [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az_storage_account_blob_inventory_policy_create) create command. Provide the name of your JSON document by using the `--policy` parameter.
+4. Create a blob inventory policy by using the [az storage account blob-inventory-policy](/cli/azure/storage/account/blob-inventory-policy#az-storage-account-blob-inventory-policy-create) create command. Provide the name of your JSON document by using the `--policy` parameter.
 
    ```azurecli
    az storage account blob-inventory-policy create -g myresourcegroup --account-name mystorageaccount --policy @policy.json

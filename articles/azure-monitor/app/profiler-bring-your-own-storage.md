@@ -2,11 +2,7 @@
 title: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 description: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 ms.topic: conceptual
-author: renatosalas
-ms.author: regutier
 ms.date: 01/14/2021
-
-ms.reviewer: mbullwin
 ---
 
 # Configure Bring Your Own Storage (BYOS) for Application Insights Profiler and Snapshot Debugger
@@ -43,14 +39,20 @@ A BYOS storage account will be linked to an Application Insights resource. There
 First, the Application Insights Profiler, and Snapshot Debugger service needs to be granted access to the storage account. To grant access, add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` via the Access Control (IAM) page in your storage account as shown in Figure 1.0. 
 
 Steps: 
-1. Click on the "Add" button in the "Add a role assignment" section 
-1. Select "Storage Blob Data Contributor" role 
-1. Select "Azure AD user, group, or service principal" in the "Assign access to" section 
-1. Search & select "Diagnostic Services Trusted Storage Access" app 
-1. Save changes
 
-_![Figure 1.0](media/profiler-bring-your-own-storage/figure-10.png)_
-_Figure 1.0_ 
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | Diagnostic Services Trusted Storage Access |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 After you added the role, it will appear under the "Role assignments" section, like the below Figure 1.1. 
 _![Figure 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
@@ -61,9 +63,9 @@ If you're also using Private Link, it's required one additional configuration to
 ### Link your Storage Account with your Application Insights resource
 To configure BYOS for code-level diagnostics (Profiler/Debugger), there are three options:
 
-* Using Azure PowerShell Cmdlets
-* Using Azure Command Line Interface (CLI)
-* Using Azure Resource Manager template
+* Using Azure PowerShell cmdlets
+* Using the Azure CLI
+* Using Azure Resource Manager templates
 
 #### Configure using Azure PowerShell Cmdlets
 

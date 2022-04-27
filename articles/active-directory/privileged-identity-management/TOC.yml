@@ -119,4 +119,4 @@
   - name: PowerShell examples for Azure AD roles
     href: powershell-for-azure-ad-roles.md
   - name: Azure AD service limits
-    href: ../users-groups-roles/directory-service-limits-restrictions.md
+    href: ../enterprise-users/directory-service-limits-restrictions.md

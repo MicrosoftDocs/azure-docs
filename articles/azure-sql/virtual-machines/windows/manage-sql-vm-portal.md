@@ -1,20 +1,19 @@
 ---
 title: Manage SQL Server virtual machines in Azure by using the Azure portal | Microsoft Docs
-description: Learn how to access the SQL virtual machine resource in the Azure portal for a SQL Server VM hosted on Azure to modify SQL Server settings. 
+description: Learn how to access the SQL virtual machine resource in the Azure portal for a SQL Server VM hosted on Azure to modify SQL Server settings.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
-
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/30/2021
-ms.author: mathoma
-ms.reviewer: jroth
-
+ms.date: 12/21/2021
+ms.author: pamela
+ms.reviewer: mathoma
+ms.custom: ignite-fall-2021
 ---
 # Manage SQL Server VMs by using the Azure portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -70,7 +69,7 @@ Changing the license and edition metadata in the Azure portal is only supported 
 
 ## Storage 
 
-Use the **Configure**  page of the SQL virtual machines resource to extend your data, log, and tempdb drives. 
+Use the **Storage Configuration** page of the SQL virtual machines resource to extend your data, log, and tempdb drives. Review [storage configuration](storage-configuration.md) to learn more. 
 
 ![Extend storage in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-storage-configuration.png)
 
@@ -113,13 +112,19 @@ Use the **Security Configuration** page of the SQL virtual machines resource to 
 
 To learn more, see the [Security best practices](security-considerations-best-practices.md).
 
+<a name="security-center"></a>
 
-## Security Center 
+## Defender for Cloud 
 
-Use the **Security Center** page of the SQL virtual machines resource to view Security Center recommendations directly in the SQL virtual machine blade. Enable [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
+Use the **Defender for SQL** page of the SQL virtual machine's resource to view Defender for Cloud recommendations directly in the SQL virtual machine blade. Enable [Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
 
-![Configure SQL Server Security Center settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
+![Configure SQL Server Defender for Cloud settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
+## SQL best practices assessment
+
+Use the **SQL best practices assessment** page of the SQL virtual machines resource to assess the health of your SQL Server VM. Once the feature is enabled, your SQL Server instances and databases are scanned and recommendations are surfaced to improve performance (indexes, statistics, trace flags, and so on) and identify missing best practices configurations.  
+
+To learn more, see [SQL best practices assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md).
 
 ## Next steps
 
@@ -128,6 +133,4 @@ For more information, see the following articles:
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
-
-
+* [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)

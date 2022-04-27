@@ -2,13 +2,13 @@
 title: Enable WPF desktop application options using Azure Active Directory B2C
 description:  Enable the use of WPF desktop application options by using several ways.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---

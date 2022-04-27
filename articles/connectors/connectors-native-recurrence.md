@@ -1,11 +1,11 @@
 ---
 title: Schedule recurring tasks and workflows
-description: Schedule and run recurring automated tasks and workflows with the Recurrence trigger in Azure Logic Apps
+description: Schedule and run recurring automated tasks and workflows with the Recurrence trigger in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 12/18/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 01/24/2022
 ---
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
@@ -32,7 +32,7 @@ For differences between this trigger and the Sliding Window trigger or for more 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -55,19 +55,27 @@ For differences between this trigger and the Sliding Window trigger or for more 
    ||||||
 
    > [!IMPORTANT]
-   > If a recurrence doesn't specify a specific [start date and time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), 
-   > the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, 
-   > provide a start date and time for when you want the first recurrence to run.
+   > If you use the **Day** or **Week** frequency and specify a future date and time, make sure that you set up the recurrence in advance:
    >
-   > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are 
-   > based on the last run time. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. 
-   > To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, try these options:
-   > 
+   > * **Day**: Set up the daily recurrence at least 24 hours in advance.
+   >
+   > * **Week**: Set up the weekly recurrence at least 7 days in advance.
+   >
+   > Otherwise, the workflow might skip the first recurrence.
+   >
+   > If a recurrence doesn't specify a specific [start date and time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), the first recurrence runs immediately 
+   > when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start 
+   > date and time for when you want the first recurrence to run.
+   >
+   > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, 
+   > those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to 
+   > factors such as latency during storage calls. To make sure that your logic app doesn't miss a recurrence, especially when 
+   > the frequency is in days or longer, try these options:
+   >
    > * Provide a start date and time for the recurrence plus the specific times when to run subsequent recurrences by using the properties 
    > named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
-   > 
-   > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), 
-   > rather than the Recurrence trigger.
+   >
+   > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
 
 1. To set advanced scheduling options, open the **Add new parameter** list. Any options that you select appear on the trigger after selection.
 
@@ -145,11 +153,12 @@ The following example shows how to update the trigger definition so that the tri
 
 <a name="daylight-saving-standard-time"></a>
 
-## Trigger recurrence shift between daylight saving time and standard time
+## Trigger recurrence shift and drift (daylight saving time)
 
-Recurring built-in triggers honor the schedule that you set, including any time zone that you specify. If you don't select a time zone, daylight saving time (DST) might affect when triggers run, for example, shifting the start time one hour forward when DST starts and one hour backward when DST ends.
+To schedule jobs, Azure Logic Apps puts the message for processing into the queue and specifies when that message becomes available, based on the UTC time when the last job ran and the UTC time when the next job is scheduled to run. If you specify a start time with your recurrence, *make sure that you select a time zone* so that your logic app workflow runs at the specified start time. That way, the UTC time for your logic app also shifts to counter the seasonal time change. Recurring triggers honor the schedule that you set, including any time zone that you specify.
 
-To avoid this shift so that your logic app runs at your specified start time, make sure that you select a time zone. That way, the UTC time for your logic app also shifts to counter the seasonal time change. However, some time windows might cause problems when the time shifts. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+Otherwise, if you don't select a time zone, daylight saving time (DST) events might affect when triggers run. For example, the start time shifts one hour forward when DST starts and one hour backward when DST ends. However, some time windows might cause problems when the time shifts. For more information and examples, see [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
 
 ## Next steps
 

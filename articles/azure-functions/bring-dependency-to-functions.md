@@ -84,7 +84,7 @@ One of the simplest ways to bring in dependencies is to put the files/artifact t
  | - local.settings.json
  | - pom.xml
 ```
-For java specifically, you need to specifically include the artifacts into the build/target folder when copying resources. Here's  an example on how to do it in Maven:
+For Java specifically, you need to specifically include the artifacts into the build/target folder when copying resources. Here's an example on how to do it in Maven:
 
 ```xml
 ...
@@ -171,9 +171,9 @@ When running your function app on Linux, there's another way to bring in third-p
 
 First, you need to create an Azure Storage Account. In the account, you also need to create file share in Azure files. To create these resources, follow this [guide](../storage/files/storage-how-to-use-files-portal.md)
 
-After you created the storage account and file share, use the [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command to attach the file share to your functions app, as shown in the following example.
+After you created the storage account and file share, use the [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command to attach the file share to your functions app, as shown in the following example.
 
-```console
+```azurecli
 az webapp config storage-account add \
   --name < Function-App-Name > \
   --resource-group < Resource-Group > \
@@ -200,7 +200,7 @@ More commands to modify/delete the file share configuration can be found [here](
 
 ### Uploading the dependencies to Azure Files
 
-One option to upload your dependency into Azure Files is through Azure portal. Refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. Other options to upload your dependencies into Azure Files are through [Azure CLI](../storage/files/storage-how-to-use-files-cli.md#upload-a-file) and [PowerShell](../storage/files/storage-how-to-use-files-powershell.md#upload-a-file).
+One option to upload your dependency into Azure Files is through Azure portal. Refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. Other options to upload your dependencies into Azure Files are through [Azure CLI](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) and [PowerShell](../storage/files/storage-how-to-use-files-portal.md#upload-a-file).
 
 
 ### Accessing the dependencies in your code

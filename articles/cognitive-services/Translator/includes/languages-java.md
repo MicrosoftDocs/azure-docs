@@ -1,11 +1,11 @@
 ---
-author: erhopf
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.custom: devx-track-java
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
@@ -84,10 +84,10 @@ public class GetLanguages {
 }
 ```
 
-Add these lines to the `GetLanguages` class. You'll notice the subscription key and endpoint are being read from environment variables:
+Add these lines to the `GetLanguages` class. You'll notice the key and endpoint are being read from environment variables:
 
 ```java
-private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String key = System.getenv("TRANSLATOR_TEXT_KEY");
 private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/languages?api-version=3.0";
 ```

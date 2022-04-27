@@ -1,15 +1,14 @@
 ---
-title: 'Tutorial: Get started with Azure Synapse Analytics - monitor your Synapse workspace' 
-description: In this tutorial, you'll learn how to monitor activities in your Synapse workspace. 
-services: synapse-analytics
+title: 'Tutorial: Get started with Azure Synapse Analytics - monitor your Synapse workspace'
+description: In this tutorial, you'll learn how to monitor activities in your Synapse workspace.
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 12/31/2020 
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Monitor your Synapse Workspace
@@ -29,13 +28,20 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 1. Find the pipeline that you ran in the previous step and click on its **Pipeline name** to view the details.
 1. Click **Breadcrumb bar** near the top of Synapse Studio, click **All pipeline runs** to return to the previous view.
 
-## Apache Spark Activities
+## Data Explorer activities
+
+1. Navigate to **Activities > KQL requests**.
+1. In this view you can see KQL requests.
+1. Select a **Pool** to monitor from the **Pool** filter. Now you can see all KQL requests that are running or have run in your workspace in that pool.
+1. Find a specific KQL request and click on the **More** link to see the full text of the KQL request.
+
+## Apache Spark activities
 
 1. Navigate to **Activities > Apache Spark applications**. Now you can see all the Spark applications that are running or have run in your workspace.
 1. Find an application that is no longer running and click on its **Application name**. Now you can see the details of the spark application.
 1. If you are familiar with Apache Spark, you can find the standard Apache Spark history server UI by clicking on **Spark history server**.
 
-## SQL Activities
+## SQL activities
 
 1. Navigate to **Activities > SQL requests**.
 1. In this view you can see SQL requests.

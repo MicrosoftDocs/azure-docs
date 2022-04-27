@@ -50,6 +50,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F1s  | 1  | 2  | 4  | 4  | 4000/32 (12)    | 3200/48   | 2/750   |
@@ -70,6 +72,8 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 The NVv2-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology with Intel Broadwell CPUs. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv2 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with its predecessor NV-series.  
 
 Each GPU in NVv2 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
+
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|
@@ -217,6 +221,8 @@ Premium Storage: Supported
 
 Premium Storage caching: Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology, and with the Intel Turbo Boost Technology can go up to 4.7GHz. 
 
 | Size          | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
@@ -286,6 +292,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Not Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory (GiB) | Temp storage (GiB) | Max data disks | Max temp storage throughput (IOPS/MBps) | Max uncached disk throughput (IOPS/MBps) | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
@@ -307,6 +315,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 | 2 | 28  | 56  | 8  | 10000/100 (264)  | 5000/ 125  | 2/2000 |
@@ -317,7 +327,7 @@ Premium Storage caching:  Supported
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Design for high performance](premium-storage-performance.md).
 
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>2</sup> Isolation feature retired on 2/28/2022. For information, see the [retirement announcement](https://azure.microsoft.com/updates/the-g5-and-gs5-azure-vms-will-no-longer-be-hardwareisolated-on-28-february-2022/).
 
 <sup>3</sup> Constrained core sizes available.
 
@@ -341,7 +351,7 @@ Premium Storage caching:  Not Supported
 | Standard_G4  | 16 | 224 | 3072 | 48000/750/375 | 64/64x500 | 8/16000 |
 | Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup> Isolation feature retired on 2/28/2022. For information, see the [retirement announcement](https://azure.microsoft.com/updates/the-g5-and-gs5-azure-vms-will-no-longer-be-hardwareisolated-on-28-february-2022/).
 <br>
 
 ### NV-series
@@ -407,6 +417,7 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 
 > For this VM series, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../azure-portal/supportability/regional-quota-requests.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
 >
@@ -433,6 +444,7 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 
 > For this VM series, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../azure-portal/supportability/regional-quota-requests.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
 >

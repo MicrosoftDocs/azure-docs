@@ -5,7 +5,7 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2021
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
 ---
 
@@ -34,7 +34,7 @@ In Azure Automation, access is granted by assigning the appropriate Azure role t
 
 ## Role permissions
 
-The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
+The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and Not Actions, which restrict them.
 
 ### Owner
 
@@ -42,7 +42,7 @@ An Owner can manage everything, including access. The following table shows the 
 
 |Actions|Description|
 |---|---|
-|Microsoft.Automation/automationAccounts/|Create and manage resources of all types.|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types.|
 
 ### Contributor
 
@@ -50,7 +50,7 @@ A Contributor can manage everything except access. The following table shows the
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/|Create and manage resources of all types|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types|
 |**Not Actions**||
 |Microsoft.Authorization/*/Delete| Delete roles and role assignments.       |
 |Microsoft.Authorization/*/Write     |  Create roles and role assignments.       |
@@ -58,11 +58,15 @@ A Contributor can manage everything except access. The following table shows the
 
 ### Reader
 
+>[!Note]
+> We have recently made a change in the built-in Reader role permission for the Automation account. [Learn more](#reader-role-access-permissions)
+
 A Reader can view all the resources in an Automation account but can't make any changes.
 
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
+
 
 ### Automation Contributor
 
@@ -70,7 +74,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types under Automation account.|
+|[Microsoft.Automation](../role-based-access-control/resource-provider-operations.md#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -118,6 +122,7 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
+|[Microsoft.ResourceHealth](../role-based-access-control/resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
 
 ### Automation Job Operator
 
@@ -138,6 +143,8 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.|
+|Microsoft.Automation/automationAccounts/jobs/output/read | Gets the output of a job.|
 
 ### Automation Runbook Operator
 
@@ -159,7 +166,6 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.Automation/automationAccounts/*|Manage Automation accounts.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Create and manage virtual machine extensions.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|List classic storage account keys.|
 |Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions.|
@@ -171,6 +177,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys.|
 |Microsoft.Support/*|Create and manage support tickets.|
+|Microsoft.HybridCompute/machines/extensions/write| Installs or Updates an Azure Arc extensions.|
 
 ### Log Analytics Reader
 
@@ -231,6 +238,18 @@ A User Access Administrator can manage user access to Azure resources. The follo
 |Microsoft.Authorization/*|Manage authorization|
 |Microsoft.Support/*|Create and manage support tickets|
 
+
+## Reader role access permissions
+
+>[!Important]
+> To strengthen the overall Azure Automation security posture, the built-in RBAC Reader would not have access to Automation account keys through the API call - `GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`. 
+
+The Built-in Reader role for the Automation Account can't use the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION` to fetch the Automation Account keys. This is a high privilege operation providing sensitive information that could pose a security risk of an unwanted malicious actor with low privileges who can get access to automation account keys and can perform actions with elevated privilege level. 
+
+To access the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`, we recommend that you switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend that you create a custom role with limited permissions to access the Automation account keys. For a custom role, you need to add 
+`Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
+[Learn more](../role-based-access-control/custom-roles.md) about how to create custom role from the Azure portal.
+ 
 ## Feature setup permissions
 
 The following sections describe the minimum required permissions needed for enabling the Update Management and Change Tracking and Inventory features.
@@ -277,84 +296,14 @@ The following sections describe the minimum required permissions needed for enab
 |Create / edit saved search     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |
 |Create / edit scope config  | Microsoft.OperationalInsights/workspaces/write   | Workspace|
 
-## Custom Azure Automation Contributor role
+## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
-Microsoft intends to remove the Automation account rights from the Log Analytics Contributor role. Currently, the built-in [Log Analytics Contributor](#log-analytics-contributor) role described above can escalate privileges to the subscription [Contributor](./../role-based-access-control/built-in-roles.md#contributor) role. Since Automation account Run As accounts are initially configured with Contributor rights on the subscription, it can be used by an attacker to create new runbooks and execute code as a Contributor on the subscription.
+You can create [Azure custom roles](../role-based-access-control/custom-roles.md) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
 
-As a result of this security risk, we recommend you don't use the Log Analytics Contributor role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account. Perform the following steps to create this custom role.
+- [Extension-based Hybrid Runbook Worker](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+- [Agent-based Windows Hybrid Runbook Worker](./automation-windows-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+ - [Agent-based Linux Hybrid Runbook Worker](./automation-linux-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
 
-### Create using the Azure portal
-
-Perform the following steps to create the Azure Automation custom role in the Azure portal. If you would like to learn more, see [Azure custom roles](./../role-based-access-control/custom-roles.md).
-
-1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **assignableScopes** property with the subscription GUID.
-
-   ```json
-   {
-    "properties": {
-        "roleName": "Automation Account Contributor (Custom)",
-        "description": "Allows access to manage Azure Automation and its resources",
-        "assignableScopes": [
-            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Authorization/*/read",
-                    "Microsoft.Insights/alertRules/*",
-                    "Microsoft.Insights/metrics/read",
-                    "Microsoft.Insights/diagnosticSettings/*",
-                    "Microsoft.Resources/deployments/*",
-                    "Microsoft.Resources/subscriptions/resourceGroups/read",
-                    "Microsoft.Automation/automationAccounts/*",
-                    "Microsoft.Support/*"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-      }
-   }
-   ```
-
-1. Complete the remaining steps as outlined in [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md#start-from-json). For [Step 3:Basics](../role-based-access-control/custom-roles-portal.md#step-3-basics), note the following:
-
-    -  In the **Custom role name** field, enter **Automation account Contributor (custom)** or a name matching your naming standards.
-    - For **Baseline permissions**, select **Start from JSON**. Then select the custom JSON file you saved earlier.
-
-1. Complete the remaining steps, and then review and create the custom role. It can take a few minutes for your custom role to appear everywhere.
-
-### Create using PowerShell
-
-Perform the following steps to create the Azure Automation custom role with PowerShell. If you would like to learn more, see [Azure custom roles](./../role-based-access-control/custom-roles.md).
-
-1. Copy and paste the following JSON syntax into a file. Save the file on your local machine or in an Azure storage account. In the JSON file, replace the value for the **AssignableScopes** property with the subscription GUID.
-
-   ```json
-   { 
-       "Name": "Automation account Contributor (custom)",
-       "Id": "",
-       "IsCustom": true,
-       "Description": "Allows access to manage Azure Automation and its resources",
-       "Actions": [
-           "Microsoft.Authorization/*/read",
-           "Microsoft.Insights/alertRules/*",
-           "Microsoft.Insights/metrics/read",
-           "Microsoft.Insights/diagnosticSettings/*",
-           "Microsoft.Resources/deployments/*",
-           "Microsoft.Resources/subscriptions/resourceGroups/read",
-           "Microsoft.Automation/automationAccounts/*",
-           "Microsoft.Support/*"
-       ],
-       "NotActions": [],
-       "AssignableScopes": [
-           "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
-       ] 
-   } 
-   ```
-
-1. Complete the remaining steps as outlined in [Create or update Azure custom roles using Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). It can take a few minutes for your custom role to appear everywhere.
 
 ## Update Management permissions
 
@@ -362,9 +311,8 @@ Update Management can be used to assess and schedule update deployments to machi
 
 |**Resource** |**Role** |**Scope** |
 |---------|---------|---------|
-|Automation account |[Custom Azure Automation Contributor role](#custom-azure-automation-contributor-role) |Automation account |
 |Automation account |Virtual Machine Contributor  |Resource Group for the account  |
-|Log Analytics workspace  Log Analytics Contributor|Log Analytics workspace |
+|Log Analytics workspace | Log Analytics Contributor|Log Analytics workspace |
 |Log Analytics workspace |Log Analytics Reader|Subscription|
 |Solution |Log Analytics Contributor |Solution|
 |Virtual Machine |Virtual Machine Contributor |Virtual Machine |
@@ -380,42 +328,26 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 ### Configure Azure RBAC using the Azure portal
 
-1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.
-2. Click on **Access control (IAM)** to open the Access control (IAM) page. You can use this page to add new users, groups, and applications to manage your Automation account and view existing roles that are configurable for the Automation account.
-3. Click the **Role assignments** tab.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the **Automation Accounts** page.
 
-   ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)
+1. Select **Access control (IAM)** and select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you might have defined. Assign the role to a user to which you want to give permissions.
 
-#### Add a new user and assign a role
-
-1. From the Access control (IAM) page, click **+ Add role assignment**. This action opens the Add role assignment page where you can add a user, group, or application, and assign a corresponding role.
-
-2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined.
-
-3. Type the name of the user that you want to give permissions to in the **Select** field. Choose the user from the list and click **Save**.
-
-   ![Add users](media/automation-role-based-access-control/automation-04-add-users.png)
-
-   Now you should see the user added to the Users page, with the selected role assigned.
-
-   ![List users](media/automation-role-based-access-control/automation-05-list-users.png)
-
-   You can also assign a role to the user from the Roles page.
-
-4. Click **Roles** from the Access control (IAM) page to open the Roles page. You can view the name of the role and the number of users and groups assigned to that role.
-
-    ![Assign role from users page](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
+   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
    > [!NOTE]
    > You can only set role-based access control at the Automation account scope and not at any resource below the Automation account.
 
-#### Remove a user
+#### Remove role assignments from a user
 
-You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. Following are the steps to remove a user:
+You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. The following steps show how to remove the role assignments from a user. For detailed steps, see [Remove Azure role assignments](../../articles/role-based-access-control/role-assignments-remove.md):
 
-1. From the Access control (IAM) page, select the user to remove and click **Remove**.
-2. Click the **Remove** button in the assignment details pane.
-3. Click **Yes** to confirm removal.
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
+
+1. Select the **Role assignments** tab to view all the role assignments at this scope.
+
+1. In the list of role assignments, add a checkmark next to the user with the role assignment you want to remove.
+
+1. Select **Remove**.
 
    ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)
 

@@ -2,11 +2,11 @@
 title: Best practices for performance testing
 titleSuffix: Azure Cache for Redis
 description: Learn how to test the performance of Azure Cache for Redis.
-author: shpathak-msft
+author: flang-msft
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
-ms.author: shpathak
+ms.author: franlanglois
 ---
 
 # Performance testing
@@ -26,7 +26,7 @@ ms.author: shpathak
 
 ## Redis-benchmark utility
 
-**Redis-benchmark** documentation can be [found here](https://redis.io/topics/benchmarks).
+**Redis-benchmark** documentation can be [found here](https://redis.io/docs/reference/optimization/benchmarks/).
 
 The `redis-benchmark.exe` doesn't support TLS. You'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test. A Windows-compatible version of redis-benchmark.exe can be found [here](https://github.com/MSOpenTech/redis/releases).
 

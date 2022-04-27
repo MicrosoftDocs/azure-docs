@@ -5,7 +5,9 @@
   - name: What is Video Analyzer for Media?
     href: video-indexer-overview.md
   - name: About Video Analyzer
-    href: ../video-analyzer-docs/overview.md    
+    href: ../video-analyzer-docs/overview.md
+  - name: Language support
+    href: language-support.md    
 - name: Quickstarts
   expanded: true
   items:
@@ -15,12 +17,18 @@
     href: invite-users.md
 - name: Tutorials
   items:
+  - name: Create a new ARM account (Preview)
+    href: create-video-analyzer-for-media-account.md
   - name: Create a new account
     href: connect-to-azure.md
   - name: Use Video Analyzer for Media API
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
     href: logic-apps-connector-tutorial.md
+  - name: Deploy using ARM template
+    href: deploy-with-arm-template.md
+  - name: Index Video from OneDrive
+    href: odrv-download.md
 - name: Samples
   items:
   - name: Video Analyzer for Media samples
@@ -30,21 +38,25 @@
   - name: Overview
     href: concepts-overview.md
   - name: Compare Video Analyzer for Media and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md   
+    href: compare-video-indexer-with-media-services-presets.md
   - name: Manage multiple tenants
-    href: manage-multiple-tenants.md  
+    href: manage-multiple-tenants.md
   - name: Language identification model
     href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed people 
+  - name: Observed people in a video   
     href: observed-people-tracing.md
+  - name: Matched person
+    href: matched-person.md    
+  - name: People's detected clothing
+    href: detected-clothing.md
   - name: Audio effects detection
     href: audio-effects-detection.md
   - name: Customizing content models
     items:
     - name: Overview
-      href: customize-content-models-overview.md  
+      href: customize-content-models-overview.md
     - name: Animated characters
       href: animated-characters-recognition.md
     - name: Brands
@@ -55,6 +67,8 @@
       href: customize-person-model-overview.md
 - name: How to guides
   items:
+  - name: Connect an existing account to ARM (Preview)
+    href: connect-classic-account-to-arm.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
   - name: Upload and index videos
@@ -77,7 +91,7 @@
   - name: Considerations when using Video Analyzer for Media at scale
     href: considerations-when-use-at-scale.md
   - name: Disaster recovery
-    href: video-indexer-disaster-recovery.md        
+    href: video-indexer-disaster-recovery.md
   - name: Customize content models
     items:
     - name: Animated characters
@@ -93,17 +107,19 @@
       - name: using the website
         href: customize-brands-model-with-website.md
       - name: using the API
-        href: customize-brands-model-with-api.md        
+        href: customize-brands-model-with-api.md
     - name: Language
       items: 
       - name: using the website
         href: customize-language-model-with-website.md
       - name: using the API
-        href: customize-language-model-with-api.md        
+        href: customize-language-model-with-api.md
 - name: Reference
   items:
   - name: Video Analyzer for Media API
     href: https://api-portal.videoindexer.ai/
+  - name: Video Analyzer for Media ARM REST API
+    href: /rest/api/videoindexer/accounts?branch=videoindex
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -111,14 +127,14 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Regions
     displayName: location
     href: regions.md
   - name: FAQ
-    href: faq.yml    
+    href: faq.yml
   - name: Compliance
-    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 
+    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
   - name: Release notes
     href: release-notes.md
   - name: Stack Overflow

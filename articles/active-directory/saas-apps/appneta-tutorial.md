@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with AppNeta Performance Manager | Microsoft Docs"
+title: "Tutorial: Azure AD SSO integration with AppNeta Performance Manager"
 description: Learn how to configure single sign-on between Azure Active Directory and AppNeta Performance Manager.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 10/12/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with AppNeta Performance Manager
+# Tutorial: Azure AD SSO integration with AppNeta Performance Manager
 
 In this tutorial, you'll learn how to integrate AppNeta Performance Manager with Azure Active Directory (Azure AD). When you integrate AppNeta Performance Manager with Azure AD, you can:
 
@@ -32,8 +32,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-- AppNeta Performance Manager supports **SP** initiated SSO
-- AppNeta Performance Manager supports **Just In Time** user provisioning
+- AppNeta Performance Manager supports **SP** initiated SSO.
+- AppNeta Performance Manager supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -87,9 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot that shows the default attributes for a SAML token.](./media/appneta-tutorial/edit-attribute.png)
 
-1. In addition to above, the AppNeta Performance Manager application expects a few more attributes to be passed back in SAML response, which are shown below. These attributes are also prepopulated, but you can review them as per your requirement.
+1. In addition to above, AppNeta Performance Manager application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-   | Name      | Source attribute       |
+   | Name      | Source Attribute       |
    | --------- | ---------------------- |
    | firstName | user.givenname         |
    | lastName  | user.surname           |
@@ -100,20 +100,28 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    | title     | user.jobtitle          |
    |           |                        |
 
-1. To properly pass along your "groups" SAML assertions, you need to configure app roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Azure Active Directory** > **App registrations** >  **All applications**, select **Appneta Performance Manager** .
-1. Click **App roles** in the left pane.
+1. In order to properly pass along your ”groups” SAML assertions, you need to configure App roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Azure Active Directory** > **App registrations** >  **All applications**, select **Appneta Performance Manager**.
+
+   ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-registrations.png)
+
+1. Click **App roles** in the left pane. The following screen will appear:
+
+   ![Screenshot that shows the App Roles with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-roles.png)
+
 1. Click **Create App role**.
-1. On the **Create app role** pane, complete these steps:
-   1. In **Display name**, enter a name for the role.
-   1. In **Allowed member types**, select **Users/Groups**.
-   1. In **Value**, enter the value of the security group set in your AppNeta Performance Manager role mappings.
-   1. In **Description**, enter a description for the role.
+1. On the **Create app role** screen, follow these steps:
+   1. In the **Display name** field, enter a name for the role.
+   1. In the **Allowed member types** field, select **Users/Groups**.
+   1. In the **Value** field, enter the value of the security group set in your AppNeta Performance Manager role mappings.
+   1. In the **Description** field, enter a description for the role.
    1. Click **Apply**.
 
-1. After you create the roles, you need to map the roles to your users and groups. Go to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
-1. Select a user or group, and then assign the relevant app role for the user or group.
-1. After you map the app roles, go to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manager** > **Single sign-on**.
-1. On the **Set up single sign-on with SAML** pane, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+   ![Screenshot of the Create App Role dialog with the fields filled out as described. ](./media/appneta-tutorial/create-app-role.png)
+
+1. After creating the roles, you need to map them to your users/groups. Navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
+1. Select a user/group and then assign your desired App role (created in the previous step).
+1. Once you have mapped the App roles, navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manager** > **Single sign-on**.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/metadataxml.png)
 
@@ -167,4 +175,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-After you configure AppNeta Performance Manager, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+After you configure AppNeta Performance Manager, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

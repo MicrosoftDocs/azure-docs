@@ -18,11 +18,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Confidential Ledger
+  - title: About Azure confidential ledger
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Confidential Ledger?
+          - text: What is Azure confidential ledger?
             url: overview.md
 
   # Card
@@ -30,6 +30,10 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Azure portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-cli.md
           - text: Python quickstart
             url: quickstart-python.md
           - text: ARM template quickstart
@@ -54,9 +58,7 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Create a client certificate
             url: create-client-certificate.md
-          - text: Register a Ledger service principal
-            url: register-ledger-service-principal.md
-          - text: Register the Confidential Ledger resource provider
+          - text: Register the Azure confidential ledger resource provider
             url: register-ledger-resource-provider.md
   # Card
   - title: References

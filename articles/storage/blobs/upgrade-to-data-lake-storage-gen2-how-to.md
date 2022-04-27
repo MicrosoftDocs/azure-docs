@@ -4,14 +4,14 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 01/25/2022
 ms.author: normesta
 
 ---
 
 #  Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
 
-This article helps you unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. 
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. 
 
 To learn more about these capabilities and evaluate the impact of this upgrade on workloads, applications, costs, service integrations, tools, features, and documentation, see [Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2.md).
 
@@ -55,7 +55,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    > [!div class="mx-imgBorder"]
    > ![Error json page](./media/upgrade-to-data-lake-storage-gen2-how-to/error-json.png)
 
-   Open the downloaded file to determine why the account did not pass the validation step. 
+   Open the downloaded file to determine why the account did not pass the validation step. If you have a Blob Storage feature that is fully supported, but which in Data Lake Storage Gen2 is supported only at the preview level or is not yet supported, validation might fail. To see how each Blob Storage feature is supported with Data Lake Storage Gen2, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
    The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
 
@@ -167,6 +167,8 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    > [!div class="mx-imgBorder"]
    > ![Successful completion output](./media/upgrade-to-data-lake-storage-gen2-how-to/success-message-powershell.png)
 
+   > [!IMPORTANT]
+   > A rough estimate of the upgrade time would be approximately 5-10 minutes per 2 million blobs. For example, if the account has 10 million blobs, then the upgrade will take approximately 25-50 minutes. Accounts that contain fewer than 2 million blobs typically upgrade in less than 10 minutes.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -235,7 +237,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 
 ## Stop the upgrade
 
-You can stop the migration before it completes. Something here about what happens when you stop it.
+You can stop the migration before it completes.
 
 ### [Portal](#tab/azure-portal)
 
@@ -265,7 +267,7 @@ az storage account hns-migration stop -n <storage-account-name> -g <resource-gro
 
 ## Migrate data, workloads, and applications 
 
-1. Configure [services in your workloads](data-lake-storage-integrate-with-azure-services.md) to point to either the **Blob service** endpoint or the **Data Lake storage** endpoint.
+1. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to either the **Blob service** endpoint or the **Data Lake storage** endpoint.
 
    > [!div class="mx-imgBorder"]
    > ![Account endpoints](./media/upgrade-to-data-lake-storage-gen2-how-to/storage-endpoints.png)

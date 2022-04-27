@@ -12,9 +12,9 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
+ms.collection: M365-identity-device-management
 
 #Customer intent: As an IT admin, I need to understand what a policy migration is in Conditional Access so that I can get rid of my classic policies.
-ms.collection: M365-identity-device-management
 ---
 # Conditional Access classic policy migration
 

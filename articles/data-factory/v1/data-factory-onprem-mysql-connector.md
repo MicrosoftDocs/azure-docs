@@ -1,12 +1,12 @@
 ---
 title: Move data from MySQL using Azure Data Factory 
 description: Learn about how to move data from MySQL database using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 06/06/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data From MySQL using Azure Data Factory

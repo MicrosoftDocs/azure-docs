@@ -3,7 +3,7 @@ title: Use SCIM, Microsoft Graph, and Azure Active Directory to provision users 
 description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -110,7 +110,7 @@ My application creates information about a user that customers need in Azure AD.
 **Recommendation** The Microsoft graph exposes /Users and /Groups endpoints that you can integrate with today to provision users into Azure AD. Please note that Azure Active Directory doesn't support writing those users back into Active Directory. 
 
 > [!NOTE]
-> Microsoft has a provisioning service that pulls in data from HR applications such as Workday and SuccessFactors. These integrations are built and managed by Microsoft. For onboarding a new HR application to our service, you can request it on [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests). 
+> Microsoft has a provisioning service that pulls in data from HR applications such as Workday and SuccessFactors. These integrations are built and managed by Microsoft. For onboarding a new HR application to our service, you can request it on [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 ## Related articles
 

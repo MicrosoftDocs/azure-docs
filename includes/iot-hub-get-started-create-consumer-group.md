@@ -1,7 +1,7 @@
 ---
-author: robinsh
+author: kgremban
 
-ms.author: robinsh
+ms.author: kgremban
 ms.topic: include
 ms.date: 07/07/2021
 ---
@@ -13,8 +13,8 @@ To add a consumer group to your IoT hub, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), open your IoT hub.
 
-1. On the left pane, select **Built-in endpoints**. Enter a name for your new consumer group in the text box under **Consumer groups**. 
+1. On the left pane, select **Built-in endpoints**. Enter a name for your new consumer group in the text box under **Consumer groups**.
 
-   :::image type="content" source="./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png" alt-text="Create a consumer group in your IoT hub":::
+   :::image type="content" source="./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png" alt-text="Screenshot showing how to create a consumer group in your IoT hub." border="true":::
 
 1. Click anywhere outside the text box to save the consumer group.

@@ -5,8 +5,8 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/03/2021
-ms.author: cavoeg
+ms.date: 02/15/2022
+ms.author: mikaelw
 ---
 # Defining custom search parameters for Azure API for FHIR
 
@@ -74,15 +74,15 @@ Important elements of a `SearchParameter`:
 
 * **base**: Describes which resource(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resources.
  
-* **type**: Describes the data type for the search parameter. Type is limited by the support for the Azure API for FHIR. This means that you cannot define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it is a supported combination.
+* **type**: Describes the data type for the search parameter. Type is limited by the support for the Azure API for FHIR. This means that you can’t define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it's a supported combination.
 
-* **expression**: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it is not required by the specification. This is because you need either the expression or the xpath syntax and the Azure API for FHIR ignores the xpath syntax.
+* **expression**: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it isn't required by the specification. This is because you need either the expression or the xpath syntax and the Azure API for FHIR ignores the xpath syntax.
 
 ## Test search parameters
 
-While you cannot use the search parameters in production until you run a reindex job, there are a few ways to test your search parameters before reindexing the entire database. 
+While you can’t use the search parameters in production until you run a reindex job, there are a few ways to test your search parameters before reindexing the entire database. 
 
-First, you can test your new search parameter to see what values will be returned. By running the command below against a specific resource instance (by inputting their ID), you'll get back a list of value pairs with the search parameter name and the value stored for the specific patient. This will include all of the search parameters for the resource and you can scroll through to find the search parameter you created. Running this command will not change any behavior in your FHIR server. 
+First, you can test your new search parameter to see what values will be returned. By running the command below against a specific resource instance (by inputting their ID), you'll get back a list of value pairs with the search parameter name and the value stored for the specific patient. This will include all of the search parameters for the resource and you can scroll through to find the search parameter you created. Running this command won't change any behavior in your FHIR server. 
 
 ```rest
 GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
@@ -119,7 +119,7 @@ The result will look like this:
     },
 ...
 ```
-Once you see that your search parameter is displaying as expected, you can reindex a single resource to test searching with the element. First you will reindex a single resource:
+Once you see that your search parameter is displaying as expected, you can reindex a single resource to test searching with the element. First you'll reindex a single resource:
 
 ```rest
 POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
@@ -150,7 +150,7 @@ To update a search parameter, use `PUT` to create a new version of the search pa
 > If you don't know the ID for your search parameter, you can search for it. Using `GET {{FHIR_URL}}/SearchParameter` will return all custom search parameters, and you can scroll through the search parameter to find the search parameter you need. You could also limit the search by name. With the example below, you could search for name using `USCoreRace: GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
 
 ```rest
-PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}
+PUT {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 
 {
   "resourceType" : "SearchParameter",

@@ -2,18 +2,18 @@
 title: Container support
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
 ms.date: 7/5/2019
-ms.author: pafarley
+ms.author: eur
 ---
 
 ## Create a Speech resource
 
 1. Sign into the [Azure portal](https://portal.azure.com)
-1. Click [Create **Speech**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resource
+1. Click [Create **Speech**](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) resource
 1. Enter all required settings:
 
     |Setting|Value|

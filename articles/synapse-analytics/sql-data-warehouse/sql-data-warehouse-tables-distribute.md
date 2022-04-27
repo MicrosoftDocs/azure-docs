@@ -1,15 +1,14 @@
 ---
 title: Distributed tables design guidance
-description: Recommendations for designing hash-distributed and round-robin distributed tables using dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
-author: XiaoyuMSFT
+description: Recommendations for designing hash-distributed and round-robin distributed tables using dedicated SQL pool.
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 04/17/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -37,11 +36,11 @@ As part of table design, understand as much as possible about your data and how 
 
 A hash-distributed table distributes table rows across the Compute nodes by using a deterministic hash function to assign each row to one [distribution](massively-parallel-processing-mpp-architecture.md#distributions).
 
-![Distributed table](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distributed table")  
+:::image type="content" source="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png" alt-text="Distributed table" lightbox="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png":::
 
 Since identical values always hash to the same distribution, SQL Analytics has built-in knowledge of the row locations. In dedicated SQL pool this knowledge is used to minimize data movement during queries, which improves query performance.
 
-Hash-distributed tables work well for large fact tables in a star schema. They can have very large numbers of rows and still achieve high performance. There are, of course, some design considerations that help you to get the performance the distributed system is designed to provide. Choosing a good distribution column is one such consideration that is described in this article.
+Hash-distributed tables work well for large fact tables in a star schema. They can have very large numbers of rows and still achieve high performance. There are some design considerations that help you to get the performance the distributed system is designed to provide. Choosing a good distribution column is one such consideration that is described in this article.
 
 Consider using a hash-distributed table when:
 
@@ -65,7 +64,7 @@ Consider using the round-robin distribution for your table in the following scen
 
 The tutorial [Load New York taxicab data](./load-data-from-azure-blob-storage-using-copy.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table.
 
-## Choosing a distribution column
+## Choose a distribution column
 
 A hash-distributed table has a distribution column that is the hash key. For example, the following code creates a hash-distributed table with ProductKey as the distribution column.
 
@@ -83,8 +82,7 @@ CREATE TABLE [dbo].[FactInternetSales]
 WITH
 (   CLUSTERED COLUMNSTORE INDEX
 ,  DISTRIBUTION = HASH([ProductKey])
-)
-;
+);
 ```
 
 Data stored in the distribution column can be updated. Updates to data in the distribution column could result in data shuffle operation.
@@ -114,7 +112,7 @@ To minimize data movement, select a distribution column that:
 
 - Is used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, and `HAVING` clauses. When two large fact tables have frequent joins, query performance improves when you distribute both tables on one of the join columns.  When a table is not used in joins, consider distributing the table on a column that is frequently in the `GROUP BY` clause.
 - Is *not* used in `WHERE` clauses. This could narrow the query to not run on all the distributions.
-- Is *not* a date column. WHERE clauses often filter by date.  When this happens, all the processing could run on only a few distributions.
+- Is *not* a date column. `WHERE` clauses often filter by date.  When this happens, all the processing could run on only a few distributions.
 
 ### What to do when none of the columns are a good distribution column
 
@@ -137,7 +135,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 
 To identify which tables have more than 10% data skew:
 
-1. Create the view dbo.vTableSizes that is shown in the [Tables overview](sql-data-warehouse-tables-overview.md#table-size-queries) article.  
+1. Create the view `dbo.vTableSizes` that is shown in the [Tables overview](sql-data-warehouse-tables-overview.md#table-size-queries) article.  
 2. Run the following query:
 
 ```sql

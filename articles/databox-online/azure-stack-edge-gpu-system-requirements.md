@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 03/24/2022
 ms.author: alkohli
 ms.custom: "contperf-fy21q4"
 ---
@@ -80,6 +80,17 @@ Use the following table for port configuration for the servers hosting Azure IoT
 | TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
 
 For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](../iot-edge/troubleshoot.md).
+
+
+### Port requirements for Kubernetes on Azure Stack Edge
+
+| Port no. | In or out | Port scope | Required | Guidance |
+|----------|-----------|------------|----------|----------|
+| TCP 31000 (HTTPS)| In       | LAN        | In some cases. <br> See notes.      |This port is required only if you are connecting to the Kubernetes dashboard to monitor your device. |
+| TCP 6443 (HTTPS)| In       | LAN        | In some cases. <br> See notes.       |This port is required by Kubernetes API server only if you are using `kubectl` to access your device. |
+
+> [!IMPORTANT]
+> If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are in the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
 
 ## URL patterns for firewall rules
 

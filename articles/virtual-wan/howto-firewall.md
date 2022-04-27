@@ -64,6 +64,9 @@ To return to the hub **Overview** page, you can navigate back by clicking the pa
 
 :::image type="content" source="./media/howto-firewall/arrow.png" alt-text="Screenshot showing how to return to the overview page." lightbox="./media/howto-firewall/arrow.png":::
 
+## Upgrade to Azure Firewall Premium
+At any time, it is possible to upgrade from Azure Firewall Standard to Premium following these [instructions](../firewall/premium-migrate.md#migrate-a-secure-hub-firewall). This operation will require a maintenance windows since some minimal downtime will be generated. 
+
 ## Next steps
 
 For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).

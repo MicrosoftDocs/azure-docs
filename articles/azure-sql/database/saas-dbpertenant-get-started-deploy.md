@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: 
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with Azure SQL Database
@@ -51,7 +51,7 @@ Choose your names now, and write them down.
 
 1. To open the Wingtip Tickets SaaS database-per-tenant deployment template in the Azure portal, select **Deploy to Azure**.
 
-   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
+   [![Image showing a button labeled "Deploy to Azure".](../../media/template-deployments/deploy-to-azure.svg)](https://aka.ms/deploywingtipdpt)
 
 1. Enter values in the template for the required parameters.
 
@@ -128,7 +128,7 @@ The Wingtip application uses [*Azure Traffic Manager*](../../traffic-manager/tr
     | .*&lt;user&gt;* | *af1* in the example. |
     | .trafficmanager.net/ | Traffic Manager, base URL. |
     | fabrikamjazzclub | Identifies the tenant named Fabrikam Jazz Club. |
-    | &nbsp; | &nbsp; |
+
 
 - The tenant name is parsed from the URL by the events app.
 - The tenant name is used to create a key.

@@ -11,8 +11,8 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 7/16/2021
-ms.author: madhukan
+ms.date: 02/11/2022
+ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -37,7 +37,7 @@ The installation of SAP HANA is your responsibility. You can start installing a 
 > [!Note]
 > Per SAP policy, the installation of SAP HANA must be performed by a person who's passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or who is an SAP-certified system integrator (SI).
 
-When you're planning to install HANA 2.0, see [SAP support note #2235581 - SAP HANA: Supported operating systems](https://launchpad.support.sap.com/#/notes/2235581/E). Make sure the operating system (OS) is supported with the SAP HANA release you're installing. The supported OS for HANA 2.0 is more restrictive than the supported OS for HANA 1.0. Confirm that the OS release you're interested in is supported for the particular HANA Large Instance. Use this [list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure); select the HLI to see the details of the supported OS list for that unit. 
+When you're planning to install HANA 2.0, see [SAP support note #2235581 - SAP HANA: Supported operating systems](https://launchpad.support.sap.com/#/notes/2235581/E). Make sure the operating system (OS) is supported with the SAP HANA release you're installing. The supported OS for HANA 2.0 is more restrictive than the supported OS for HANA 1.0. Confirm that the OS release you're interested in is supported for the particular HANA Large Instance. Use this [list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120); select the HLI to see the details of the supported OS list for that unit. 
 
 Validate the following before you begin the HANA installation:
 - [HLI unit(s)](#validate-the-hana-large-instance-units)
@@ -146,7 +146,7 @@ For more information about Ethernet details for your architecture, see [HLI supp
 
 ## Storage
 
-The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure Service Management using SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). 
+The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure Service Management using SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://archive.sap.com/kmuuid2/70c8e423-c8aa-3210-3fae-e043f5c1ca92/SAP%20HANA%20TDI%20-%20Storage%20Requirements.pdf). 
 
 The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md).
 

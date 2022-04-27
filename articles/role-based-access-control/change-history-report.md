@@ -3,13 +3,14 @@ title: View activity logs for Azure RBAC changes
 description: View activity logs for Azure role-based access control (Azure RBAC) changes for the past 90 days.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
 ms.author: rolyon
-ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # View activity logs for Azure RBAC changes
 
@@ -125,7 +126,7 @@ Properties              :
 
 ## Azure CLI
 
-To view activity logs with the Azure CLI, use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) command.
+To view activity logs with the Azure CLI, use the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command.
 
 This command lists the activity logs in a resource group from March 1, looking forward seven days:
 

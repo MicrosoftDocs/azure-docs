@@ -1,8 +1,8 @@
 ---
 title: Azure Percept speech module interface workflow
 description: Describes the workflow and available methods for the Azure Percept speech module 
-author: tsampige
-ms.author: amiyouss
+author: nkhuyent
+ms.author: tsampige
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 7/19/2021

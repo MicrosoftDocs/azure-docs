@@ -26,7 +26,7 @@ The data used in this lab is New York City taxi data. To import it into your dat
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-* **Azure SQL Database**: If you don't have a SQL DB, learn how to [create a SQL DB account](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
+* **Azure SQL Database**: If you don't have a SQL DB, learn how to [create a SQL DB account](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal)
 
 * **Azure Data Lake Storage Gen2 storage account**: If you don't have an ADLS Gen2 storage account, learn how to [create an ADLS Gen2 storage account](../storage/common/storage-account-create.md).
 
@@ -92,7 +92,7 @@ In Azure Data Factory linked services define the connection information to exter
 
 In section *Transform data using mapping data flow*, you'll be building mapping data flows. A best practice before building mapping data flows is to turn on debug mode, which allows you to test transformation logic in seconds on an active spark cluster.
 
-To turn on debug, click the **Data flow debug** slider in the top bar of data flow canvas or pipeline canvas when you have **Data flow** activities. Click ok when the confirmation dialog pop-ups. The cluster will take about 5-7 minutes to start up. Continue on to *Ingest data from Azure SQL DB into ADLS Gen2 using the copy activity* while it is initializing.
+To turn on debug, click the **Data flow debug** slider in the top bar of data flow canvas or pipeline canvas when you have **Data flow** activities. Click **OK** when the confirmation dialog is shown. The cluster will start up in about 5 to 7 minutes. Continue on to *Ingest data from Azure SQL DB into ADLS Gen2 using the copy activity* while it is initializing.
 
 :::image type="content" source="media/lab-data-flow-data-share/configure10.png" alt-text="Portal configure 10":::
 

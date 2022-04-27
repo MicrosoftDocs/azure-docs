@@ -3,7 +3,7 @@ title: OAUTH 2.0 authentication with Azure Active Directory
 description: Architectural guidance on achieving OAUTH 2.0 authentication with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
@@ -22,9 +22,9 @@ The OAuth 2.0 is the industry protocol for authorization. It allows a user to gr
 
 OAuth 2.0 is directly related to OpenID Connect (OIDC). Since OIDC is an authentication and authorization layer built on top of OAuth 2.0, it isn't backwards compatible with OAuth 1.0. Azure Active Directory (Azure AD) supports all OAuth 2.0 flows. 
 
-## Use when:
+## Use for:
 
-For rich client & modern app scenarios and RESTful Web API access.
+Rich client and modern app scenarios and RESTful web API access.
 
 ![Diagram of architecture](./media/authentication-patterns/oauth.png)
 

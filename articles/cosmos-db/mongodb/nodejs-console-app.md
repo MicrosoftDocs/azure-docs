@@ -3,7 +3,7 @@ title: Use Azure Cosmos DB's API for MongoDB to build a Node.js app
 description: A tutorial that creates an online database using the Azure Cosmos DB's API for MongoDB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: sample
 ms.date: 08/26/2021
 author: gahl-levy

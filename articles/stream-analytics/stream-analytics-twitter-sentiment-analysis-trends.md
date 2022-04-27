@@ -120,7 +120,7 @@ If you do not already have a Twitter application that you can use for this how-t
 
 ### Configure the client application
 
-We've created a client application that connects to Twitter data using [Twitter's Streaming APIs](https://dev.twitter.com/streaming/overview) to collect tweet events about a specific set of topics.
+We've created a client application that connects to Twitter data using [Twitter Streaming APIs](https://dev.twitter.com/streaming/overview) to collect tweet events about a specific set of topics.
 
 Before the application runs, it requires certain information from you, like the Twitter keys and the event hub connection string.
 

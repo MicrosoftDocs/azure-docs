@@ -1,10 +1,11 @@
 ---
-title: Secure Azure AD B2C with Azure Sentinel
+title: Secure Azure AD B2C with Microsoft Sentinel
 titleSuffix: Azure AD B2C
-description: In this tutorial, you use Azure Sentinel to perform security analytics for Azure Active Directory B2C data.
+description: In this tutorial, you use Microsoft Sentinel to perform security analytics for Azure Active Directory B2C data.
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +13,14 @@ ms.topic: tutorial
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-#Customer intent: As an IT professional, I want to gather logs and audit data by using Azure Sentinel and Azure Monitor so that I can secure my applications that use Azure Active Directory B2C.
+#Customer intent: As an IT professional, I want to gather logs and audit data by using Microsoft Sentinel and Azure Monitor so that I can secure my applications that use Azure Active Directory B2C.
 ---
 
-# Tutorial: Configure security analytics for Azure Active Directory B2C data with Azure Sentinel
+# Tutorial: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel
 
-You can further secure your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Azure Sentinel. Azure Sentinel is a cloud-native SIEM (security information and event management) and SOAR (security orchestration, automation, and response) solution. Azure Sentinel provides alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
+You can further secure your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. Microsoft Sentinel is a cloud-native SIEM (security information and event management) and SOAR (security orchestration, automation, and response) solution. Microsoft Sentinel provides alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
 
-By using Azure Sentinel with Azure AD B2C, you can:
+By using Microsoft Sentinel with Azure AD B2C, you can:
 
 - Detect previously undetected threats and minimize false positives by using Microsoft's analytics and threat intelligence.
 - Investigate threats with AI. Hunt for suspicious activities at scale, and tap into years of cybersecurity-related work at Microsoft.
@@ -30,50 +31,50 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Transfer Azure AD B2C logs to a Log Analytics workspace.
-> * Enable Azure Sentinel in a Log Analytics workspace.
-> * Create a sample rule in Azure Sentinel that will trigger an incident.
+> * Enable Microsoft Sentinel in a Log Analytics workspace.
+> * Create a sample rule in Microsoft Sentinel that will trigger an incident.
 > * Configure an automated response.
 
 ## Configure Azure AD B2C with Azure Monitor Log Analytics
 
 To define where logs and metrics for a resource should be sent, enable **Diagnostic settings** in Azure AD within your Azure AD B2C tenant. Then, [configure Azure AD B2C to send logs to Azure Monitor](./azure-monitor.md).
 
-## Deploy an Azure Sentinel instance
+## Deploy a Microsoft Sentinel instance
 
-After you've configured your Azure AD B2C instance to send logs to Azure Monitor, you need to enable an Azure Sentinel instance.
+After you've configured your Azure AD B2C instance to send logs to Azure Monitor, you need to enable a Microsoft Sentinel instance.
 
 >[!IMPORTANT]
->To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
+>To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. To use Microsoft Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
 
 1. Go to the [Azure portal](https://portal.azure.com). Select the subscription where the Log Analytics workspace is created.
 
-2. Search for and select **Azure Sentinel**.
+2. Search for and select **Microsoft Sentinel**.
 
-   ![Screenshot that shows searching for Azure Sentinel in the Azure portal.](./media/azure-sentinel/azure-sentinel-add.png)
+   ![Screenshot that shows searching for Microsoft Sentinel in the Azure portal.](./media/azure-sentinel/azure-sentinel-add.png)
 
 3. Select **Add**.
 
 4. Select the new workspace.
 
-   ![Screenshot that shows where to select an Azure Sentinel workspace.](./media/azure-sentinel/create-new-workspace.png)
+   ![Screenshot that shows where to select a Microsoft Sentinel workspace.](./media/azure-sentinel/create-new-workspace.png)
 
-5. Select **Add Azure Sentinel**.
+5. Select **Add Microsoft Sentinel**.
 
 >[!NOTE]
->You can [run Azure Sentinel](../sentinel/quickstart-onboard.md) on more than one workspace, but the data is isolated to a single workspace.
+>You can [run Microsoft Sentinel](../sentinel/quickstart-onboard.md) on more than one workspace, but the data is isolated to a single workspace.
 
-## Create an Azure Sentinel rule
+## Create a Microsoft Sentinel rule
 
-Now that you've enabled Azure Sentinel, get notified when something suspicious occurs in your Azure AD B2C tenant.
+Now that you've enabled Microsoft Sentinel, get notified when something suspicious occurs in your Azure AD B2C tenant.
 
 You can create [custom analytics rules](../sentinel/detect-threats-custom.md) to discover threats and anomalous behaviors in your environment. These rules search for specific events or sets of events and alert you when certain event thresholds or conditions are reached. Then they generate incidents for further investigation.
 
 >[!NOTE]
->Azure Sentinel provides built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. There are no native Azure AD B2C connectors available at this time. For the example in this tutorial, we'll create our own rule.
+>Microsoft Sentinel provides built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. There are no native Azure AD B2C connectors available at this time. For the example in this tutorial, we'll create our own rule.
 
 In the following example, you receive a notification if someone tries to force access to your environment but isn't successful. It might mean a brute-force attack. You want to get notified for two or more unsuccessful logins within 60 seconds.
 
-1. From the left menu in Azure Sentinel, select **Analytics**.
+1. From the left menu in Microsoft Sentinel, select **Analytics**.
 
 2. On the action bar at the top, select **+ Create** > **Scheduled query rule**. 
 
@@ -104,10 +105,9 @@ In the following example, you receive a notification if someone tries to force a
 
 6. Select **Next: Incident settings (Preview)**. You'll configure and add the automated response later.
 
-7. Go to the **Review and create** tab to review all the
-   settings for your new alert rule. When the **Validation passed** message appears, select **Create** to initialize your alert rule.
+7. Go to the **Review and create** tab to review all the settings for your new alert rule. When the **Validation passed** message appears, select **Create** to initialize your alert rule.
 
-    ![Screenshot that shows the tab for reviewing and creating an rule.](./media/azure-sentinel/review-create.png)
+    ![Screenshot that shows the tab for reviewing and creating a rule.](./media/azure-sentinel/review-create.png)
 
 8. View the rule and the incidents that it generates. Find your newly created custom rule of type **Scheduled** in the table under the **Active rules** tab on the main **Analytics** screen. From this list, you can edit, enable, disable, or delete rules by using the corresponding buttons.
 
@@ -118,7 +118,7 @@ In the following example, you receive a notification if someone tries to force a
     An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
 
     > [!NOTE]
-    > A key feature of Azure Sentinel is [incident investigation](../sentinel/investigate-cases.md).
+    > A key feature of Microsoft Sentinel is [incident investigation](../sentinel/investigate-cases.md).
     
 10. To begin an investigation, select a specific incident. 
 
@@ -136,21 +136,21 @@ In the following example, you receive a notification if someone tries to force a
 
 ## Automated response
 
-Azure Sentinel provides a [robust SOAR capability](../sentinel/automation-in-azure-sentinel.md). Automated actions, called a *playbook* in Azure Sentinel, can be attached to analytics rules to suit your requirements.
+Microsoft Sentinel provides a [robust SOAR capability](../sentinel/automation-in-azure-sentinel.md). Automated actions, called a *playbook* in Microsoft Sentinel, can be attached to analytics rules to suit your requirements.
 
-In this example, we add an email notification for an incident that the rule creates. To accomplish this task, use an [existing playbook from the Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification). After the playbook is configured, edit the existing rule and select the playbook on the **Automated response** tab.
+In this example, we add an email notification for an incident that the rule creates. To accomplish this task, use an [existing playbook from the Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification). After the playbook is configured, edit the existing rule and select the playbook on the **Automated response** tab.
 
 ![Screenshot that shows the image configuration screen for the automated response associated with a rule.](./media/azure-sentinel/automation-tab.png)
 
 ## Related information
 
-For more information about Azure Sentinel and Azure AD B2C, see:
+For more information about Microsoft Sentinel and Azure AD B2C, see:
 
 - [Sample workbooks](https://github.com/azure-ad-b2c/siem#workbooks)
 
-- [Azure Sentinel documentation](../sentinel/index.yml)
+- [Microsoft Sentinel documentation](../sentinel/index.yml)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Handle false positives in Azure Sentinel](../sentinel/false-positives.md)
+> [Handle false positives in Microsoft Sentinel](../sentinel/false-positives.md)

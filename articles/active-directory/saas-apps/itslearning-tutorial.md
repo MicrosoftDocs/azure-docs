@@ -72,33 +72,30 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	
-    a. In the **Identifier (Entity ID)** text box, type the URL:
+    1. In the **Identifier (Entity ID)** text box, type the URL:
     `urn:mace:saml2v2.no:services:com.itslearning`
 
-    b. In the **Reply URL** text box, type one of the following URLs:
-	
-    | Reply URL |
-    |-------------|
-    | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
-    | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
-    | 
-    
-    c. In the **Sign on URL** text box, type one of the following URLs:
-	
-    | Sign on URL |
-    |-------------|
-    | `https://www.itslearning.com/index.aspx` |
-    | `https://us1.itslearning.com/index.aspx` |
-    |
+    1. In the **Reply URL** text box, type one of the following URLs:
+
+       | Reply URL |
+       |-------------|
+       | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
+       | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
+
+    1. In the **Sign on URL** text box, type one of the following URLs:
+
+       | Sign on URL |
+       |-------------|
+       | `https://www.itslearning.com/index.aspx` |
+       | `https://us1.itslearning.com/index.aspx` |
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 6. On the **Set up itslearning** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -144,4 +141,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure itslearning you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure itslearning you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

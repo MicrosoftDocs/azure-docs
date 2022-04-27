@@ -16,6 +16,8 @@ ms.custom: seodec18
 
 # Send events to an Azure Time Series Insights Gen1 environment by using an event hub
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

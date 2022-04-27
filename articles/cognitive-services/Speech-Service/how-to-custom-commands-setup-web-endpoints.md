@@ -3,13 +3,15 @@ title: 'Set up web endpoints'
 titleSuffix: Azure Cognitive Services
 description: set up web endpoints for Custom Commands
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
+ms.author: eur
+ms.devlang: csharp
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Set up web endpoints

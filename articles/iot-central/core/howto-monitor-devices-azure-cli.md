@@ -58,7 +58,7 @@ az login
 ```
 
 ### Get the Application ID of your IoT Central app
-In **Administration/Application Settings**, copy the **Application ID**. You use this value in later steps.
+In **Application > Management**, copy the **Application ID**. You use this value in later steps.
 
 ### Monitor messages
 Monitor the messages that are being sent to your IoT Central app from your devices. The output includes all headers and annotations.
@@ -76,4 +76,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## Next steps
 
-A suggested next step is to read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md).
+A suggested next step is to learn [how to connect Azure IoT Edge for Linux on Windows (EFLOW)](./howto-connect-eflow.md).

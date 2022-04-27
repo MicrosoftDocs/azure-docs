@@ -2,14 +2,13 @@
 metadata:
   title: Deployment issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
   description: This article lists the frequently asked questions about deployment for Microsoft Azure Cloud Services.
-  ms.topic: article
+  ms.topic: faq
   ms.service: cloud-services
   ms.date: 10/14/2020
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-    
 title: 'Deployment issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]

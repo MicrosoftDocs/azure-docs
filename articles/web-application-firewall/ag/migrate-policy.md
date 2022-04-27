@@ -3,10 +3,10 @@ title: Migrate WAF policies for Azure Application Gateway
 description: Learn how to migrate Azure Web Application Firewall policies using Azure PowerShell.
 services: web-application-firewall
 ms.topic: conceptual
-author: vhorne
+author: KumudD
 ms.service: web-application-firewall
 ms.date: 07/30/2021
-ms.author: ant 
+ms.author: kumud 
 ms.custom: devx-track-azurepowershell
 ---
 

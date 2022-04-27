@@ -225,9 +225,8 @@ Import-module Az.StorageSync -RequiredVersion 1.4.0
 # Verify the specific version is loaded:
 Get-module Az.StorageSync
 ```
-You can then continue to create a server endpoint using the same PowerShell module and specify a staging share in the process.
-If you have a migration ongoing with the offline data transfer process, your migration will continue as planned and you will still need to disable this setting once your migration is complete.
-The ability to start new migrations with this deprecated process will be removed with an upcoming agent release.
+> [!WARNING]
+> After May 15, 2022 you will no longer be able to create a server endpoint in the "offline data transfer" mode. Migrations in progress with this method must finish before July 15, 2022. If your migration continues to run with an "offline data transfer" enabled server endpoint, the server will begin to upload remaining files from the server on July 15, 2022 and no longer leverage files transferred with Azure Data Box to the staging share.
 
 ## Troubleshooting
 

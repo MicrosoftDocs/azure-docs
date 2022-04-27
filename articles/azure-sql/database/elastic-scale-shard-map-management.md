@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ---
 # Scale out databases with the shard map manager

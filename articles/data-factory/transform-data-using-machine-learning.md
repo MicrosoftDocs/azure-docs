@@ -1,6 +1,6 @@
 ---
 title: Create predictive data pipelines
-description: Learn how to create a predictive pipeline by using Azure Machine Learning Studio (classic) - Batch Execution Activity in Azure Data Factory or Synapse Analytics.
+description: Learn how to create a predictive pipeline by using Machine Learning Studio (classic) - Batch Execution Activity in Azure Data Factory or Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 09/09/2021
 ---
 
-# Create a predictive pipeline using Azure Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
+# Create a predictive pipeline using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
@@ -19,16 +19,21 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+
+> [!NOTE] 
+> Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Batch Execution activity to execute Machine Learning Studio (classic) batches.
+
 [ML Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using the ML Studio (classic). ML Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
 3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions from the model.
 
-### Using Azure Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
-Azure Data Factory and Synapse Analytics enable you to easily create pipelines that use a published [Azure Machine Learning Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning) web service for predictive analytics. Using the **Batch Execution Activity** in a pipeline, you can invoke an Azure Machine Learning Studio (classic) web service to make predictions on the data in batch.
+### Using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
+Azure Data Factory and Synapse Analytics enable you to easily create pipelines that use a published [Machine Learning Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning) web service for predictive analytics. Using the **Batch Execution Activity** in a pipeline, you can invoke Machine Learning Studio (classic) web service to make predictions on the data in batch.
 
-Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain a model from a pipeline by doing the following steps:
+Over time, the predictive models in the Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain a model from a pipeline by doing the following steps:
 
 1. Publish the training experiment (not predictive experiment) as a web service. You do this step in the ML Studio (classic) as you did to expose predictive experiment as a web service in the previous scenario.
 2. Use the ML Studio (classic) Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the ML Studio (classic) Batch Execution activity to invoke both training web service and scoring web service.
@@ -37,7 +42,7 @@ After you are done with retraining, update the scoring web service (predictive e
 
 ## ML Studio (classic) linked service
 
-You create an **Azure Machine Learning Studio (classic)** linked service to link an Azure Machine Learning Studio (classic) Web Service. The Linked Service is used by Azure Machine Learning Studio (classic) Batch Execution Activity and [Update Resource Activity](update-machine-learning-models.md).
+You create an **Machine Learning Studio (classic)** linked service to link a Machine Learning Studio (classic) Web Service. The Linked Service is used by Machine Learning Studio (classic) Batch Execution Activity and [Update Resource Activity](update-machine-learning-models.md).
 
 ```JSON
 {
@@ -62,7 +67,7 @@ You create an **Azure Machine Learning Studio (classic)** linked service to link
 
 See [Compute linked services](compute-linked-services.md) article for descriptions about properties in the JSON definition.
 
-Azure Machine Learning Studio (classic) supports both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from your Data Factory or Synapse workspace. To get the information required to create the Azure Machine Learning Studio (classic) Linked Service, go to https://services.azureml.net, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property.
+Machine Learning Studio (classic) supports both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from your Data Factory or Synapse workspace. To get the information required to create the Machine Learning Studio (classic) Linked Service, go to https://services.azureml.net, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property.
 
 :::image type="content" source="./media/transform-data-using-machine-learning/web-services.png" alt-text="ML Studio (classic) Web Services":::
 
@@ -132,7 +137,7 @@ The following JSON snippet defines an ML Studio (classic) Batch Execution activi
 
 ### Scenario 1: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
 
-In this scenario, the Azure Machine Learning Studio (classic) Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a pipeline with an AzureMLBatchExecution activity. The input and output data in Azure Blog Storage is referenced using a LinkedName and FilePath pair. In the sample Linked Service of inputs and outputs are different, you can use different Linked Services for each of your inputs/outputs for the service to be able to pick up the right files and send to Azure Machine Learning Studio (classic) Web Service.
+In this scenario, the Machine Learning Studio (classic) Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a pipeline with an AzureMLBatchExecution activity. The input and output data in Azure Blog Storage is referenced using a LinkedName and FilePath pair. In the sample Linked Service of inputs and outputs are different, you can use different Linked Services for each of your inputs/outputs for the service to be able to pick up the right files and send to Machine Learning Studio (classic) Web Service.
 
 > [!IMPORTANT]
 > In your ML Studio (classic) experiment, web service input and output ports, and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your ML Studio (classic) endpoint to verify the expected mapping.

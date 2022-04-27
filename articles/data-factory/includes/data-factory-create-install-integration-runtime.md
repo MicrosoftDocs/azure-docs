@@ -1,9 +1,9 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: jingwang
+ms.author: jianleishen
 ---
 ## Create a self-hosted integration runtime
 
@@ -11,7 +11,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 
 1. Create a variable for the name of the integration runtime. Use a unique name, and make a note of it. You use it later in this tutorial. 
 
-    ```powershell
+   ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 2. Create a self-hosted integration runtime. 

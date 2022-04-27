@@ -4,10 +4,10 @@ description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 01/04/2022
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Azure disk pools (preview)
@@ -26,7 +26,8 @@ When you add a managed disk to the disk pool, the disk is attached to managed iS
 
 In preview, disk pools have the following restrictions:
 
-- Only premium SSDs or ultra disks can be added to a disk pool.
+- Only premium SSDs and standard SSDs, or ultra disks can be added to a disk pool.
+    - A disk pool can't be configured to contain both ultra disks and premium/standard SSDs. If a disk pool is configured to use ultra disks, it can only contain ultra disks. Likewise, a disk pool configured to use premium and standard SSDs can only contain premium and standard SSDs.
 - Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) aren't currently supported. 
 
 ### Regional availability
@@ -37,29 +38,23 @@ Disk pools are currently available in the following regions:
 - Canada Central
 - Central US
 - East US
+- East US 2
 - West US 2
 - Japan East
 - North Europe
 - West Europe
 - Southeast Asia
 - UK South
+- Korea Central
+- Sweden Central
+- Central India
 
 
 ## Billing
 
-When you deploy a disk pool, there are two main areas that will incur billing costs:
+When you deploy a disk pool, there are two areas that will incur billing costs: The price of the disk pool service fee itself, and the price of each individual disk added to the pool. For example, if you have a disk pool with one P30 disk added, you will be billed for the P30 disk and the disk pool. Other than the disk pool and your disks, there are no extra service charges for a disk pool and you will not be billed for the resources deployed in the managed resource group: MSP_(resource-group-name)_(diskpool-name)_(region-name).
 
-- The disks added to the disk pool
-- The Azure resources deployed in the managed resource group that accompany the disk pool. These resources are:
-    - Virtual machines.
-    - Managed disks.
-    - One network interface.
-    - One storage account for diagnostic logs and metrics.
-        
-You will be billed for the resources inside this managed resource group and the individual disks that are the actual data storage. For example, if you have a disk pool with one P30 disk added, you will be billed for the P30 disk and all resources deployed in the managed resource group. Other than these resources and your disks, there are no extra service charges for a disk pool. For details on the managed resource group, see the [How it works](#how-it-works) section.
-
-See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) for regional pricing on VMs and disks to evaluate the cost of a disk pool for you. Azure resources consumed by the disk pool can be accounted for in Azure Reservations, if you have them.
-
+See the [Azure managed disk pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for regional pricing on disk pools and disks to evaluate the cost of a disk pool for you.
 
 ## Next steps
 

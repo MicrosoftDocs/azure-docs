@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: sample
 author: srinia
 ms.author: srinia
-ms.reviewer: mathoma
+ms.reviewer: mathoma, kendralittle
 ms.date: 12/18/2018
 ---
 # In-Memory sample

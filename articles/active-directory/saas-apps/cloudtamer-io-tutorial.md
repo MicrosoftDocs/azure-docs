@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with cloudtamer.io | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and cloudtamer.io.
+title: 'Tutorial: Azure AD SSO integration with Kion (formerly cloudtamer.io)'
+description: Learn how to configure single sign-on between Azure Active Directory and Kion (formerly cloudtamer.io).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 03/16/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with cloudtamer.io
+# Tutorial: Azure AD SSO integration with Kion (formerly cloudtamer.io)
 
-In this tutorial, you'll learn how to integrate cloudtamer.io with Azure Active Directory (Azure AD). When you integrate cloudtamer.io with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Kion with Azure Active Directory (Azure AD). When you integrate Kion with Azure AD, you can:
 
-* Control in Azure AD who has access to cloudtamer.io.
-* Enable your users to be automatically signed-in to cloudtamer.io with their Azure AD accounts.
+* Control in Azure AD who has access to Kion.
+* Enable your users to be automatically signed-in to Kion with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -27,44 +27,43 @@ In this tutorial, you'll learn how to integrate cloudtamer.io with Azure Active 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* cloudtamer.io single sign-on (SSO) enabled subscription.
+* Kion single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* cloudtamer.io supports **SP and IDP** initiated SSO.
-* cloudtamer.io supports **Just In Time** user provisioning.
+* Kion supports **IDP** initiated SSO.
+* Kion supports **Just In Time** user provisioning.
 
+## Add Kion (formerly cloudtamer.io) from the gallery
 
-## Adding cloudtamer.io from the gallery
-
-To configure the integration of cloudtamer.io into Azure AD, you need to add cloudtamer.io from the gallery to your list of managed SaaS apps.
+To configure the integration of Kion into Azure AD, you need to add Kion from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **cloudtamer.io** in the search box.
-1. Select **cloudtamer.io** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **Kion** in the search box.
+1. Select **Kion** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+## Configure and test Azure AD SSO for Kion (formerly cloudtamer.io)
 
-## Configure and test Azure AD SSO for cloudtamer.io
+Configure and test Azure AD SSO with Kion using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Kion.
 
-Configure and test Azure AD SSO with cloudtamer.io using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in cloudtamer.io.
-
-To configure and test Azure AD SSO with cloudtamer.io, perform the following steps:
+To configure and test Azure AD SSO with Kion, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure cloudtamer.io SSO](#configure-cloudtamerio-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create cloudtamer.io test user](#create-cloudtamerio-test-user)** - to have a counterpart of B.Simon in cloudtamer.io that is linked to the Azure AD representation of user.
+1. **[Configure Kion SSO](#configure-kion-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Kion test user](#create-kion-test-user)** - to have a counterpart of B.Simon in Kion that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Group assertions](#group-assertions)** - to set group assertions for Azure AD and Kion.
 
-### Begin cloudtamer.io SSO Configuration
+### Begin Kion SSO Configuration
 
-1. Log in to cloudtamer.io website as an administrator.
+1. Log in to Kion website as an administrator.
 
 1. Click on **+** plus icon at the top right corner and select **IDMS**.
 
@@ -78,27 +77,23 @@ To configure and test Azure AD SSO with cloudtamer.io, perform the following ste
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **cloudtamer.io** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Kion** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** text box, paste the **SERVICE PROVIDER ISSUER (ENTITY ID)** from cloudtamer.io into this box.
+    a. In the **Identifier** text box, paste the **SERVICE PROVIDER ISSUER (ENTITY ID)** from Kion into this box.
 
-    b. In the **Reply URL** text box, paste the **SERVICE PROVIDER ACS URL** from cloudtamer.io into this box.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, paste the **SERVICE PROVIDER ACS URL** from cloudtamer.io into this box.
+    b. In the **Reply URL** text box, paste the **SERVICE PROVIDER ACS URL** from Kion into this box.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up cloudtamer.io** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Kion** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -116,17 +111,17 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to cloudtamer.io.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Kion.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **cloudtamer.io**.
+1. In the applications list, select **Kion**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure cloudtamer.io SSO
+## Configure Kion SSO
 
 1. Perform the following steps in the **Add IDMS** page:
 
@@ -154,28 +149,53 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **Create IDMS**.
 
+### Create Kion test user
 
-### Create cloudtamer.io test user
-
-In this section, a user called Britta Simon is created in cloudtamer.io. cloudtamer.io supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in cloudtamer.io, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Kion. Kion supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Kion, a new one is created after authentication.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-#### SP initiated:
+* Click on Test this application in Azure portal and you should be automatically signed in to the Kion for which you set up the SSO.
 
-* Click on **Test this application** in Azure portal. This will redirect to cloudtamer.io Sign on URL where you can initiate the login flow.  
+* You can use Microsoft My Apps. When you click the Kion tile in the My Apps, you should be automatically signed in to the Kion for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-* Go to cloudtamer.io Sign-on URL directly and initiate the login flow from there.
+## Group assertions
 
-#### IDP initiated:
+To easily manage Kion user permissions by using existing Azure Active Directory groups, complete these steps:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the cloudtamer.io for which you set up the SSO 
+### Azure AD configuration
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the cloudtamer.io tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the cloudtamer.io for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+1. In the Azure portal, go to **Azure Active Directory** > **Enterprise Applications**.
+1. In the list, select the enterprise application for Kion.
+1. On **Overview**, in the left menu, select **Single sign-on**.
+1. On **Single Sign-On**, under **User Attributes & Claims**, select **Edit**.
+1. Select **Add a group claim**. 
+   > [!NOTE]
+   > You can have only one group claim. If this option is disabled, you might already have a group claim defined.
+1. On **Group Claims**, select the groups that should be returned in the claim:
+   - If you will always have every group you intend to use in Kion assigned to this enterprise application, select **Groups assigned to the application**.
+   - If you want all groups to appear (this selection can cause a large number of group assertions and might be subject to limits), select **Groups assigned to the application**.
+1. For **Source attribute**, leave the default **Group ID**.
+1. Select the **Customize the name of the group claim** checkbox.
+1. For **Name**, enter **memberOf**.
+1. Select **Save** to complete the configuration with Azure AD.
 
+### Kion configuration
+
+1. In Kion, go to **Users** > **Identity Management Systems**.
+1. Select the IDMS that you've created for Azure AD.
+1. On the overview page, select the **User Group Associations** tab.
+1. For each user group mapping that you want, complete these steps:
+   1. Select **Add** > **Add New**.
+   1. In the dialog that appears:
+      1. For **Name**, enter **memberOf**.
+      1. For **Regex**, enter the object ID (from Azure AD) of the group you want to match.
+      1. For **User Group**, select the Kion internal group you want to map to the group in **Regex**.
+      1. Select the **Update on Login** checkbox.
+   1. Select **Add** to add the group association.
 
 ## Next steps
 
-Once you configure cloudtamer.io you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Kion you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

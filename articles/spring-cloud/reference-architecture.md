@@ -10,6 +10,8 @@ description: This reference architecture is a foundation using a typical enterpr
 
 # Azure Spring Cloud reference architecture
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Cloud. In the design, Azure Spring Cloud is deployed in a single spoke that's dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework][16].
 
 For an implementation of this architecture, see the [Azure Spring Cloud Reference Architecture][10] repository on GitHub.
@@ -77,7 +79,7 @@ The following list describes the Azure services in this reference architecture:
 
 * [Azure Pipelines][5]: a fully featured Continuous Integration / Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud.
 
-* [Azure Security Center][4]: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
+* [Microsoft Defender for Cloud][4]: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
 
 * [Azure Spring Cloud][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
@@ -131,7 +133,7 @@ The following list describes the Azure services in this reference architecture:
 
 * [Azure Pipelines][5]: a fully featured Continuous Integration / Continuous Development (CI/CD) service that can automatically deploy updated Spring Boot apps to Azure Spring Cloud.
 
-* [Azure Security Center][4]: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
+* [Microsoft Defender for Cloud][4]: a unified security management and threat protection system for workloads across on-premises, multiple clouds, and Azure.
 
 * [Azure Spring Cloud][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
@@ -141,7 +143,7 @@ The following diagram represents a well-architected hub and spoke design that ad
 
 ## Azure Spring Cloud on-premises connectivity
 
-Applications running in Azure Spring Cloud can communicate to various Azure, on-premises, and external resources. By using the hub and spoke design, applications can route traffic externally or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
+Applications in Azure Spring Cloud can communicate to various Azure, on-premises, and external resources. By using the hub and spoke design, applications can route traffic externally or to the on-premises network using Express Route or Site-to-Site Virtual Private Network (VPN).
 
 ## Azure Well-Architected Framework considerations
 
@@ -162,7 +164,7 @@ Azure Spring Cloud addresses multiple aspects of operational excellence. You can
 * You can use Azure Pipelines to ensure that deployments are reliable and consistent while helping you avoid human error.
 * You can use Azure Monitor and Application Insights to store log and telemetry data.
   You can assess collected log and metric data to ensure the health and performance of your applications. Application Performance Monitoring (APM) is fully integrated into the service through a Java agent. This agent provides visibility into all the deployed applications and dependencies without requiring extra code. For more information, see the blog post [Effortlessly monitor applications and dependencies in Azure Spring Cloud][15].
-* You can use Azure Security Center to ensure that applications maintain security by providing a platform to analyze and assess the data provided.
+* You can use Microsoft Defender for Cloud to ensure that applications maintain security by providing a platform to analyze and assess the data provided.
 * The service supports various deployment patterns. For more information, see [Set up a staging environment in Azure Spring Cloud][14].
 
 ### Reliability

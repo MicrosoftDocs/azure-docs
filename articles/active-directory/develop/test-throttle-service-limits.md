@@ -26,7 +26,7 @@ In order to ensure reliable usage of services by all customers, Azure AD and oth
 Azure AD, Microsoft Graph, and other Azure services also limit the number of concurrent calls to a service or limit the amount of compute load per customer in order to prevent overuse of resources. This is a practice known as throttling and ensures that Azure services can handle usage and incoming requests without service outages. Throttling can occur at the application, tenant, or entire service level. Throttling commonly occurs when an application has a large number of requests within or across tenants.  At runtime, your application can read or update Azure AD directory objects through Microsoft Graph as part of it's business logic. For example, read or set user attributes, update a user’s calendar, or send emails on behalf of the user.  While running, your application could also deploy, access, update, and delete Azure resources as well. During testing, your application could hit these runtime throttling limits and the previously mentioned service limits while deploying resources or directory objects.
 
 ## Azure AD service limits relevant to testing
-General Azure AD usage constraints and service limits can be found [here](/azure/active-directory/enterprise-users/directory-service-limits-restrictions).  General Azure subscription and service limits, quotas, and constraints can be found [here](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+General Azure AD usage constraints and service limits can be found [here](../enterprise-users/directory-service-limits-restrictions.md).  General Azure subscription and service limits, quotas, and constraints can be found [here](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 The following table lists Azure AD service limits to consider when setting up a test environment or running tests. 
 
@@ -66,4 +66,3 @@ When you exceed a throttling limit, you receive the HTTP status code `429 Too ma
 
 ## Next steps
 Learn how to [setup a test environment](test-setup-environment.md).
-

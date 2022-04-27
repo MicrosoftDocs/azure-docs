@@ -1,20 +1,27 @@
 ---
-title: Use Azure Service Bus queues with Python azure-servicebus package version 7.0.0
-description: This article shows you how to use Python to send messages to, and receive messages from Azure Service Bus queues.
+title: Get started with Azure Service Bus queues (Python)
+description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Python programming language.
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 11/18/2020
+ms.date: 02/16/2022
 ms.topic: quickstart
 ms.devlang: python
-ms.custom:
-  - seo-python-october2019
-  - devx-track-python
-  - mode-api
+ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Python)
+> [!div class="op_single_selector" title1="Select the programming language:"]
+> * [C#](service-bus-dotnet-get-started-with-queues.md)
+> * [Java](service-bus-java-how-to-use-queues.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
+> * [Python](service-bus-python-how-to-use-queues.md)
+
 This article shows you how to use Python to send messages to, and receive messages from Azure Service Bus queues. 
+
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
+
 
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).

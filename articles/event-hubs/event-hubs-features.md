@@ -2,7 +2,7 @@
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
-ms.date: 08/27/2021
+ms.date: 01/24/2022
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -81,8 +81,7 @@ lakes or long-term archives for event sourcing.
 > The deeper the history of an event stream gets, the more you will need auxiliary indexes to find a particular historical slice of a given stream. Inspection of event payloads and indexing aren't within the feature scope of Event Hubs (or Apache Kafka). Databases and specialized analytics stores and engines such as [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) and [Azure Synapse](../synapse-analytics/overview-what-is.md) are therefore far better suited for storing historic events.
 >
 > [Event Hubs Capture](event-hubs-capture-overview.md) integrates directly with Azure Blob Storage and Azure Data Lake Storage and, through that integration, also enables [flowing events directly into Azure Synapse](store-captured-data-data-warehouse.md).
->
-> If you want to use the [Event Sourcing](/azure/architecture/patterns/event-sourcing) pattern for your application, you should align your snapshot strategy with the retention limits of Event Hubs. Do not aim to rebuild materialized views from raw events starting at the beginning of time. You would surely come to regret such a strategy once your application is in production for a while and is well used, and your projection builder has to churn through years of change events while trying to catch up to the latest and ongoing changes. 
+
 
 
 ### Publisher policy
@@ -136,7 +135,7 @@ The following examples show the consumer group URI convention:
 
 The following figure shows the Event Hubs stream processing architecture:
 
-![Event Hubs architecture](./media/event-hubs-about/event_hubs_architecture.svg)
+![Event Hubs architecture](./media/event-hubs-about/event_hubs_architecture.png)
 
 ### Stream offsets
 

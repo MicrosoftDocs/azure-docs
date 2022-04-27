@@ -1,27 +1,27 @@
 ---
-title: Azure AD MFA user data collection - Azure Active Directory
-description: What information is used to help authenticate users by Azure AD Multi-Factor Authentication?
+title: Azure AD user data collection - Azure Active Directory
+description: What information is used to help authenticate users by self-service password reset and Azure AD Multi-Factor Authentication?
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 01/07/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Multi-Factor Authentication user data collection
+# Azure AD user data collection for multifactor authentication and self-service password reset 
 
-This document explains how to find user information collected by Azure Multi-Factor Authentication Server (MFA Server) and Azure AD MFA (Cloud-based) in the event you would like to remove it.
+This document explains how to find user information collected by Azure Multi-Factor Authentication Server (MFA Server), Azure AD MFA (Cloud-based), and self-service password reset (SSPR) in the event you would like to remove it.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
-## Information collected
+## MFA information collected
 
 MFA Server, the NPS Extension, and the Windows Server 2016 Azure AD MFA AD FS Adapter collect and store the following information for 90 days.
 
@@ -179,11 +179,17 @@ Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azu
 
 - MFA information is included in the export, which may take hours or days to complete.
 
-## Delete Data for Azure AD MFA
+## Delete data for Azure AD MFA
 
 Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
+
+## Delete data for self-service password reset
+
+Users can add answers to security questions as part of SSPR. Security questions and answers are hashed to prevent unauthorized access. Only the hashed data is saved, so the security questions and answers can't be exported. Users can go to [My sign-ins](https://mysignins.microsoft.com/security-info) to edit or delete them. The only other information saved for SSPR is the user email address. 
+
+Global Administrators can remove data collected for any user. On the **Users** page in Azure AD, click **Authentication methods** and select a user to remove their phone or email address. 
 
 ## Next steps
 

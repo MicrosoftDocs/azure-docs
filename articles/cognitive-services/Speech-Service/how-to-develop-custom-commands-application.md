@@ -4,13 +4,14 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to develop and customize Custom Commands applications. These voice-command apps are best suited for task completion or command-and-control scenarios.
 services: cognitive-services
 
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/15/2020
-ms.author: pafarley
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Develop Custom Commands applications
@@ -352,16 +353,15 @@ The Custom Commands feature allows you to configure string-type parameters to re
 
 Reuse the `SubjectDevice` parameter from the `TurnOnOff` command. The current configuration for this parameter is **Accept predefined inputs from internal catalog**. This configuration refers to a static list of devices in the parameter configuration. Move out this content to an external data source that can be updated independently.
 
-To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint. Use the following configuration.
+To move the content, start by adding a new web endpoint. In the pane on the left, go to the **Web endpoints** section. There, add a new web endpoint URL. Use the following configuration.
 
 | Setting | Suggested value |
 |----|----|
 | **Name** | `getDevices` |
-| **URL** | `https://aka.ms/speech/cc-sampledevices` |
+| **URL** | `<Your endpoint of getDevices.json>` |
 | **Method** | **GET** |
 
-
-If the suggested value for the URL doesn't work for you, configure and host a web endpoint that returns a JSON file that consists of the list of the devices that can be controlled. The web endpoint should return a JSON file formatted as follows:
+Then, configure and host a web endpoint that returns a JSON file that lists the devices that can be controlled. The web endpoint should return a JSON file that's formatted like this example:
 
 ```json
 {
@@ -372,7 +372,7 @@ If the suggested value for the URL doesn't work for you, configure and host a we
     "lights" : [
         "bulb",
         "bulbs",
-        "light"
+        "light",
         "light bulb"
     ],
     "tv" : [
@@ -625,7 +625,7 @@ Another way to customize Custom Commands responses is to select an output voice.
 > ![Screenshot showing sample sentences and parameters.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#neural-and-standard-voices).
+> For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#prebuilt-neural-voices).
 >
 > You can create custom voices on the **Custom Voice** project page. For more information, see [Get started with Custom Voice](./how-to-custom-voice.md).
 

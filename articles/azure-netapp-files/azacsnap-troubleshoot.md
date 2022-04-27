@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/17/2021
 ms.author: phjensen
@@ -64,7 +63,7 @@ You can test the Service Principal is configured correctly by using Cloud Shell 
 
 **Solution:**
 
-1. Open a [Cloud Shell](/azure/cloud-shell/overview) session in your Azure Portal. 
+1. Open a [Cloud Shell](../cloud-shell/overview.md) session in your Azure Portal. 
 1. Make a test directory (e.g. `mkdir azacsnap`)
 1. cd to the azacsnap directory and download the latest version of azacsnap tool.
     
@@ -187,7 +186,7 @@ Cannot get SAP HANA version, exiting with error: 127
 If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check to ensure the appropriate privilege has been asssigned to the "AZACSNAP" database user (assuming this is the user created per the [installation guide](azacsnap-installation.md#enable-communication-with-database)).  Verify the user's current privilege with the following command:
 
 ```bash
-hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap
+hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges " | grep -i -e GRANTEE -e azacsnap
 ```
 
 ```output

@@ -56,7 +56,7 @@ Here are the important steps to create this solution:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
+* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one.
 * **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
 
 ### Create a data source table in your SQL database
@@ -65,33 +65,34 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. Run the following SQL command against your SQL database to create a table named `data_source_table` as the data source store:
 
     ```sql
-	create table data_source_table
-	(
-		PersonID int,
-		Name varchar(255),
-		LastModifytime datetime
-	);
+    create table data_source_table
+    (
+        PersonID int,
+        Name varchar(255),
+        LastModifytime datetime
+    );
 
-	INSERT INTO data_source_table
-	(PersonID, Name, LastModifytime)
-	VALUES
-	(1, 'aaaa','9/1/2017 12:56:00 AM'),
-	(2, 'bbbb','9/2/2017 5:23:00 AM'),
-	(3, 'cccc','9/3/2017 2:36:00 AM'),
-	(4, 'dddd','9/4/2017 3:21:00 AM'),
-	(5, 'eeee','9/5/2017 8:06:00 AM');
+    INSERT INTO data_source_table
+        (PersonID, Name, LastModifytime)
+    VALUES
+        (1, 'aaaa','9/1/2017 12:56:00 AM'),
+        (2, 'bbbb','9/2/2017 5:23:00 AM'),
+        (3, 'cccc','9/3/2017 2:36:00 AM'),
+        (4, 'dddd','9/4/2017 3:21:00 AM'),
+        (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-	In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
 
-	```
-	PersonID | Name | LastModifytime
-	-------- | ---- | --------------
-	1 | aaaa | 2017-09-01 00:56:00.000
-	2 | bbbb | 2017-09-02 05:23:00.000
-	3 | cccc | 2017-09-03 02:36:00.000
-	4 | dddd | 2017-09-04 03:21:00.000
-	5 | eeee | 2017-09-05 08:06:00.000
-	```
+    In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
+
+    ```
+    PersonID | Name | LastModifytime
+    -------- | ---- | --------------
+    1        | aaaa | 2017-09-01 00:56:00.000
+    2        | bbbb | 2017-09-02 05:23:00.000
+    3        | cccc | 2017-09-03 02:36:00.000
+    4        | dddd | 2017-09-04 03:21:00.000
+    5        | eeee | 2017-09-05 08:06:00.000
+    ```
 
 ### Create another table in your SQL database to store the high watermark value
 
@@ -303,15 +304,17 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ```
 3. Check the latest value from `watermarktable`. You see that the watermark value was updated.
 
-	```sql
-	Select * from watermarktable
-	```
+    ```sql
+    Select * from watermarktable
+    ```
 
-	Here is the output:
+    Here is the output:
 
-	| TableName | WatermarkValue |
-	| --------- | -------------- |
-	| data_source_table | 2017-09-05	8:06:00.000 |
+    ```output
+    | TableName | WatermarkValue |
+    | --------- | -------------- |
+    | data_source_table | 2017-09-05	8:06:00.000 |
+    ```
 
 ## Add more data to source
 
@@ -363,18 +366,20 @@ PersonID | Name | LastModifytime
     ```
 2. Check the latest value from `watermarktable`. You see that the watermark value was updated again.
 
-	```sql
-	Select * from watermarktable
-	```
-	sample output:
+    ```sql
+    Select * from watermarktable
+    ```
 
-	| TableName | WatermarkValue |
-	| --------- | --------------- |
-	| data_source_table | 2017-09-07 09:01:00.000 |
+    Sample output:
 
-
+    ```output
+    | TableName | WatermarkValue |
+    | --------- | -------------- |
+    | data_source_table | 2017-09-07 09:01:00.000 |
+    ```
 
 ## Next steps
+
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

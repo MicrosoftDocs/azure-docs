@@ -3,7 +3,7 @@ title: Backup and restore for SQL Server on Azure VMs | Microsoft Docs
 description: Describes backup and restore considerations for SQL Server databases running on Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -14,7 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
-ms.author: mikeray
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 # Backup and restore for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,10 +69,6 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 - **Point in time restore**: Use the portal to recover databases to a specific point in time without having to manually restore multiple full, differential, and log backups.
 - **Consolidated email alerts for failures**: Configure consolidated email notifications for any failures.
 - **Azure role-based access control**: Determine who can manage backup and restore operations through the portal.
-
-For a quick overview of how it works along with a demo, watch the following video:
-
-> [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
 This Azure Backup solution for SQL VMs is generally available. For more information, see [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md).
 

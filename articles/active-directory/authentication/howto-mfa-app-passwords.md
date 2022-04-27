@@ -10,7 +10,7 @@ ms.date: 06/05/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -81,10 +81,11 @@ In this scenario, you use the following credentials:
 By default, users can't create app passwords. The app passwords feature must be enabled before users can use them. To give users the ability to create app passwords, **admin needs** to complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search for and select **Azure Active Directory**, then choose **Users**.
-3. Select **Multi-Factor Authentication** from the navigation bar across the top of the *Users* window.
-4. Under Multi-Factor Authentication, select **service settings**.
-5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
+2. Search for and select **Azure Active Directory**, then choose **Security**.
+3. Select **Conditional Access** from the left navigation blade.
+4. Selet **Named location** from the left navigation blade.
+5. Click on **"Configure MFA trusted IPs"** in the bar across the top of the *Conditional Access | Named Locations* window.
+6. On the **multi-factor authentication** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
 
     ![Screenshot of the Azure portal that shows the service settings for multi-factor authentication to allow the user of app passwords](media/concept-authentication-methods/app-password-authentication-method.png)
     

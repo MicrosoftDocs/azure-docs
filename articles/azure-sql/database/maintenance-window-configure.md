@@ -1,5 +1,5 @@
 ---
-title: Configure maintenance window (Preview)
+title: Configure maintenance window
 description: Learn how to set the time when planned maintenance should be performed on your Azure SQL databases, elastic pools, and managed instance databases.
 services: sql-database
 ms.service: sql-db-mi
@@ -7,60 +7,57 @@ ms.subservice: deployment-configuration
 ms.topic: how-to
 author: scott-kim-sql
 ms.author: scottkim
-ms.reviewer: mathoma
-ms.date: 03/23/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 03/07/2022
 ---
-# Configure maintenance window (Preview)
+# Configure maintenance window
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-
-Configure the [maintenance window (Preview)](maintenance-window.md) for an Azure SQL database, elastic pool, or Azure SQL Managed Instance database during resource creation, or anytime after a resource is created. 
+Configure the [maintenance window](maintenance-window.md) for an Azure SQL database, elastic pool, or Azure SQL Managed Instance database during resource creation, or anytime after a resource is created.
 
 The *System default* maintenance window is 5PM to 8AM daily (local time of the Azure region the resource is located) to avoid peak business hours interruptions. If the *System default* maintenance window is not the best time, select one of the other available maintenance windows.
 
-The ability to change to a different maintenance window is not available for every service level or in every region. For details on availability, see [Maintenance window availability](maintenance-window.md#availability).
+The ability to change to a different maintenance window is not available for every service level or in every region. For details on feature availability, see [Maintenance window availability](maintenance-window.md#feature-availability).
 
 > [!Important]
 > Configuring maintenance window is a long running asynchronous operation, similar to changing the service tier of the Azure SQL resource. The resource is available during the operation, except a short reconfiguration that happens at the end of the operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should perform the operation outside of the peak hours.
 
-## Configure maintenance window during database creation 
+## Configure maintenance window during database creation
 
 # [Portal](#tab/azure-portal)
 
-To configure the maintenance window when you create a database, elastic pool, or managed instance, set the desired **Maintenance window** on the **Additional settings** page. 
+To configure the maintenance window when you create a database, elastic pool, or managed instance, set the desired **Maintenance window** on the **Additional settings** page.
 
-## Set the maintenance window while creating a single database or elastic pool
+### Set the maintenance window while creating a single database or elastic pool
 
 For step-by-step information on creating a new database or pool, see [Create an Azure SQL Database single database](single-database-create-quickstart.md).
 
    :::image type="content" source="media/maintenance-window-configure/additional-settings.png" alt-text="Create database additional settings tab":::
 
-
-## Set the maintenance window while creating a managed instance
+### Set the maintenance window while creating a managed instance
 
 For step-by-step information on creating a new managed instance, see [Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
    :::image type="content" source="media/maintenance-window-configure/additional-settings-mi.png" alt-text="Create managed instance additional settings tab":::
 
-
-
-
 # [PowerShell](#tab/azure-powershell)
 
 The following examples show how to configure the maintenance window using Azure PowerShell. You can [install Azure PowerShell](/powershell/azure/install-az-ps), or use the Azure Cloud Shell.
 
-## Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com).
 
+When Cloud Shell opens, verify that **PowerShell** is selected for your environment. Subsequent sessions will use Azure CLI in a Bash environment, Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Discover available maintenance windows
+### Discover available maintenance windows
 
-When setting the maintenance window, each region has its own maintenance window options that correspond to the timezone for the region the database or pool is located. 
+When setting the maintenance window, each region has its own maintenance window options that correspond to the timezone for the region the database or pool is located.
 
-### Discover SQL Database and elastic pool maintenance windows 
+#### Discover SQL Database and elastic pool maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet. For databases and elastic pools, set `MaintenanceScope` to `SQLDB`.
 
@@ -72,7 +69,7 @@ The following example returns the available maintenance windows for the *eastus2
    $configurations | ?{ $_.Location -eq $location -and $_.MaintenanceScope -eq "SQLDB"}
    ```
 
-### Discover SQL Managed Instance maintenance windows 
+#### Discover SQL Managed Instance maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet. For managed instances, set `MaintenanceScope` to `SQLManagedInstance`.
 
@@ -84,11 +81,9 @@ The following example returns the available maintenance windows for the *eastus2
    $configurations | ?{ $_.Location -eq $location -and $_.MaintenanceScope -eq "SQLManagedInstance"}
    ```
 
-
-## Set the maintenance window while creating a single database
+### Set the maintenance window while creating a single database
 
 The following example creates a new database and sets the maintenance window using the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet. The `-MaintenanceConfigurationId` must be set to a valid value for your database's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
-
 
    ```powershell-interactive
     # Set variables for your database
@@ -111,12 +106,9 @@ The following example creates a new database and sets the maintenance window usi
     $database
    ```
 
-
-
-## Set the maintenance window while creating an elastic pool
+### Set the maintenance window while creating an elastic pool
 
 The following example creates a new elastic pool and sets the maintenance window using the [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) cmdlet. The maintenance window is set on the elastic pool, so all databases in the pool have the pool's maintenance window schedule. The `-MaintenanceConfigurationId` must be set to a valid value for your pool's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
-
 
    ```powershell-interactive
     # Set variables for your pool
@@ -140,10 +132,9 @@ The following example creates a new elastic pool and sets the maintenance window
     $pool
    ```
 
-## Set the maintenance window while creating a managed instance
+### Set the maintenance window while creating a managed instance
 
 The following example creates a new managed instance and sets the maintenance window using the [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) cmdlet. The maintenance window is set on the instance, so all databases in the instance have the instance's maintenance window schedule. For `-MaintenanceConfigurationId`, the *MaintenanceConfigName* must be a valid value for your instance's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
-
 
    ```powershell
    New-AzSqlInstance -Name "your_mi_name" `
@@ -156,24 +147,38 @@ The following example creates a new managed instance and sets the maintenance wi
 
 # [CLI](#tab/azure-cli)
 
-The following examples show how to configure the maintenance window using Azure CLI. You can [install the Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell. 
+The following examples show how to configure the maintenance window using Azure CLI. You can [install Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell.
 
-Configuring the maintenance window with the Azure CLI is only available for SQL Managed Instance.
+Configuring the maintenance window with Azure CLI is only available for SQL Managed Instance.
 
-## Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/cli](https://shell.azure.com/cli). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com).
 
-## Discover available maintenance windows
+When Cloud Shell opens, verify that **Bash** is selected for your environment. Subsequent sessions will use Azure CLI in a Bash environment, Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+
+### Sign in to Azure
+
+Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.  [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+```azurecli-interactive
+subscription="<subscriptionId>" # add subscription here
+
+az account set -s $subscription # ...or use 'az login'
+```
+
+For more information, see [set active subscription](/cli/azure/account#az-account-set) or [log in interactively](/cli/azure/reference-index#az-login)
+
+### Discover available maintenance windows
 
 When setting the maintenance window, each region has its own maintenance window options that correspond to the timezone for the region the database or pool is located.
 
-### Discover SQL Database and elastic pool maintenance windows
+#### Discover SQL Database and elastic pool maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [az maintenance public-configuration list
-](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) command. For databases and elastic pools, set `maintenanceScope` to `SQLDB`.
+](/cli/azure/maintenance/public-configuration#az-maintenance-public-configuration-list) command. For databases and elastic pools, set `maintenanceScope` to `SQLDB`.
 
    ```azurecli
    location="eastus2"
@@ -181,19 +186,18 @@ The following example returns the available maintenance windows for the *eastus2
    az maintenance public-configuration list --query "[?location=='$location'&&contains(maintenanceScope,'SQLDB')]"
    ```
 
-### Discover SQL Managed Instance maintenance windows
+#### Discover SQL Managed Instance maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [az maintenance public-configuration list
-](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) command. For managed instances, set `maintenanceScope` to `SQLManagedInstance`.
+](/cli/azure/maintenance/public-configuration#az-maintenance-public-configuration-list) command. For managed instances, set `maintenanceScope` to `SQLManagedInstance`.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"
    ```
 
-## Set the maintenance window while creating a single database
+### Set the maintenance window while creating a single database
 
-The following example creates a new database and sets the maintenance window using the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command. The `--maint-config-id` (or `-m`) must be set to a valid value for your database's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
-
+The following example creates a new database and sets the maintenance window using the [az sql db create](/cli/azure/sql/db#az-sql-db-create) command. The `--maint-config-id` (or `-m`) must be set to a valid value for your database's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```azurecli
     # Set variables for your database
@@ -215,10 +219,9 @@ The following example creates a new database and sets the maintenance window usi
       --maint-config-id $maintenanceConfig
    ```
 
-## Set the maintenance window while creating an elastic pool
+### Set the maintenance window while creating an elastic pool
 
-The following example creates a new elastic pool and sets the maintenance window using the [az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create) cmdlet. The maintenance window is set on the elastic pool, so all databases in the pool have the pool's maintenance window schedule. The `--maint-config-id` (or `-m`) must be set to a valid value for your pool's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
-
+The following example creates a new elastic pool and sets the maintenance window using the [az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) cmdlet. The maintenance window is set on the elastic pool, so all databases in the pool have the pool's maintenance window schedule. The `--maint-config-id` (or `-m`) must be set to a valid value for your pool's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```azurecli
     # Set variables for your pool
@@ -240,9 +243,9 @@ The following example creates a new elastic pool and sets the maintenance window
       --maint-config-id $maintenanceConfig
    ```
 
-## Set the maintenance window while creating a managed instance
+### Set the maintenance window while creating a managed instance
 
-The following example creates a new managed instance and sets the maintenance window using [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create). The maintenance window is set on the instance, so all databases in the instance have the instance's maintenance window schedule. *MaintenanceConfigName* must be a valid value for your instance's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
+The following example creates a new managed instance and sets the maintenance window using [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create). The maintenance window is set on the instance, so all databases in the instance have the instance's maintenance window schedule. *MaintenanceConfigName* must be a valid value for your instance's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```azurecli
    az sql mi create -g mygroup -n myinstance -l mylocation -i -u myusername -p mypassword --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNETName}/subnets/{SubnetName} -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MaintenanceConfigName}
@@ -252,34 +255,29 @@ The following example creates a new managed instance and sets the maintenance wi
 
 ## Configure maintenance window for existing databases
 
-
 When applying a maintenance window selection to a database, a brief reconfiguration (several seconds) may be experienced in some cases as Azure applies the required changes.
 
 # [Portal](#tab/azure-portal)
 
 The following steps set the maintenance window on an existing database, elastic pool, or managed instance using the Azure portal:
 
-
-## Set the maintenance window for an existing database or elastic pool
+### Set the maintenance window for an existing database or elastic pool
 
 1. Navigate to the SQL database or elastic pool you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
 
    :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
 
-
-## Set the maintenance window for an existing managed instance
+### Set the maintenance window for an existing managed instance
 
 1. Navigate to the managed instance you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
 
    :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="SQL managed instance Maintenance page":::
 
-
-
 # [PowerShell](#tab/azure-powershell)
 
-## Set the maintenance window for an existing database
+### Set the maintenance window for an existing database
 
 The following example sets the maintenance window on an existing database using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet. 
 The `-MaintenanceConfigurationId` must be set to a valid value for your database's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
@@ -297,7 +295,7 @@ The `-MaintenanceConfigurationId` must be set to a valid value for your database
     $database
    ```
 
-## Set the maintenance window on an existing elastic pool
+### Set the maintenance window on an existing elastic pool
 
 The following example sets the maintenance window on an existing elastic pool using the [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) cmdlet. 
 It's important to make sure that the `$maintenanceConfig` value is a valid value for your pool's region.  To get valid values for a region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
@@ -315,13 +313,10 @@ It's important to make sure that the `$maintenanceConfig` value is a valid value
     $pool
    ```
 
-
-
-## Set the maintenance window on an existing managed instance
+### Set the maintenance window on an existing managed instance
 
 The following example sets the maintenance window on an existing managed instance using the [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) cmdlet. 
 It's important to make sure that the `$maintenanceConfig` value must be a valid value for your instance's region.  To get valid values for a region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
-
 
    ```powershell-interactive
    Set-AzSqlInstance -Name "your_mi_name" `
@@ -332,11 +327,11 @@ It's important to make sure that the `$maintenanceConfig` value must be a valid 
 
 # [CLI](#tab/azure-cli)
 
-The following examples show how to configure the maintenance window using Azure CLI. You can [install the Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell.
+The following examples show how to configure the maintenance window using Azure CLI. You can [install Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell.
 
-## Set the maintenance window for an existing database
+### Set the maintenance window for an existing database
 
-The following example sets the maintenance window on an existing database using the [az sql db update](/cli/azure/sql/db#az_sql_db_update) command. The `--maint-config-id` (or `-m`) must be set to a valid value for your database's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
+The following example sets the maintenance window on an existing database using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command. The `--maint-config-id` (or `-m`) must be set to a valid value for your database's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```azurecli
     # Select different maintenance window
@@ -350,9 +345,9 @@ The following example sets the maintenance window on an existing database using 
       --maint-config-id $maintenanceConfig
    ```
 
-## Set the maintenance window on an existing elastic pool
+### Set the maintenance window on an existing elastic pool
 
-The following example sets the maintenance window on an existing elastic pool using the [az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) command. 
+The following example sets the maintenance window on an existing elastic pool using the [az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) command. 
 It's important to make sure that the `maintenanceConfig` value is a valid value for your pool's region.  To get valid values for a region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```azurecli
@@ -367,9 +362,9 @@ It's important to make sure that the `maintenanceConfig` value is a valid value 
       --maint-config-id $maintenanceConfig
    ```
 
-## Set the maintenance window on an existing managed instance
+### Set the maintenance window on an existing managed instance
 
-The following example sets the maintenance window using [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update). The maintenance window is set on the instance, so all databases in the instance have the instance's maintenance window schedule. For `-MaintenanceConfigurationId`, the *MaintenanceConfigName* must be a valid value for your instance's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
+The following example sets the maintenance window using [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update). The maintenance window is set on the instance, so all databases in the instance have the instance's maintenance window schedule. For `-MaintenanceConfigurationId`, the *MaintenanceConfigName* must be a valid value for your instance's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
 
    ```azurecli
    az sql mi update -g mygroup  -n myinstance -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MainteanceConfigName}
@@ -385,7 +380,6 @@ Be sure to delete unneeded resources after you're finished with them to avoid un
 
 1. Navigate to the SQL database or elastic pool you no longer need.
 1. On the **Overview** menu, select the option to delete the resource.
-
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -421,6 +415,6 @@ Be sure to delete unneeded resources after you're finished with them to avoid un
 
 ## Next steps
 
-- To learn more about maintenance window, see [Maintenance window (Preview)](maintenance-window.md).
+- To learn more about maintenance window, see [Maintenance window](maintenance-window.md).
 - For more information, see [Maintenance window FAQ](maintenance-window-faq.yml).
 - To learn about optimizing performance, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](monitor-tune-overview.md).

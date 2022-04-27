@@ -5,7 +5,7 @@
  author: rishabv90
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 11/05/2020
+ ms.date: 10/20/2021
  ms.author: risverma
  ms.custom: include file
 ---
@@ -20,9 +20,16 @@ Additionally, as the Isolated size VMs are large, customers may choose to subdiv
 The current Isolated virtual machine offerings include:
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_E104i_v5
+* Standard_E104is_v5
+* Standard_E104id_v5
+* Standard_E104ids_v5
+* Standard_M192is_v2
+* Standard_M192ims_v2
+* Standard_M192ids_v2
+* Standard_M192idms_v2
 * Standard_F72s_v2
 * Standard_M128ms
-* Standard_DC8_v2
 
 
 > [!NOTE]
@@ -34,13 +41,12 @@ Isolated VM sizes have a hardware limited lifespan. Azure will issue reminders 1
 
 | Size | Isolation Retirement Date | 
 | --- | --- |
-| Standard_DS15_v2 | May 15, 2021 |
-| Standard_D15_v2  | May 15, 2021 |
-| Standard_G5  | February 15, 2022 |
-| Standard_GS5  | February 15, 2022 |
+| Standard_DS15_v2  | May 15, 2021      |
+| Standard_D15_v2   | May 15, 2021      |
+| Standard_G5       | February 15, 2022 |
+| Standard_GS5      | February 15, 2022 |
 | Standard_E64i_v3  | February 15, 2022 |
-| Standard_E64is_v3  | February 15, 2022 |
-| Standard_DC8_v2 | February 15, 2022 |
+| Standard_E64is_v3 | February 15, 2022 |
 
 
 ## FAQ

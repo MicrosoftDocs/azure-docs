@@ -10,7 +10,6 @@ ms.date: 12/24/2019
 After [failover](site-recovery-failover.md) of on-premises VMware VMs or physical servers to Azure, you reprotect the Azure VMs created after failover, so that they replicate back to the on-premises site. With replication from Azure to on-premises in place, you can then fail back by running a failover from Azure to on-premises when you're ready.
 
 Before you continue, get a quick overview with this video about how to fail back from Azure to an on-premises site.<br /><br />
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 ## Reprotection/failback components
 

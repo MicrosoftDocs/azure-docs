@@ -8,6 +8,7 @@ ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.devlang: csharp
 ---
 
 # Azure Storage samples using v12 .NET client libraries

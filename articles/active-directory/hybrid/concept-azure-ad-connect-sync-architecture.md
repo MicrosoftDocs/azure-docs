@@ -4,16 +4,15 @@ description: This topic describes the architecture of Azure AD Connect sync and 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -170,6 +169,8 @@ When sync engine finds a staging object that matches by distinguished name but n
 
 * If the object located in the connector space has no anchor, then sync engine removes this object from the connector space and marks the metaverse object it is linked to as **retry provisioning on next synchronization run**. Then it creates the new import object.
 * If the object located in the connector space has an anchor, then sync engine assumes that this object has either been renamed or deleted in the connected directory. It assigns a temporary, new distinguished name for the connector space object so that it can stage the incoming object. The old object then becomes **transient**, waiting for the Connector to import the rename or deletion to resolve the situation.
+
+Transient objects are not always a problem, and you might see them even in a healthy environment. With [Azure AD Connect sync V2 endpoint API](how-to-connect-sync-endpoint-api-v2.md), transient objects should auto-resolve in subsequent delta synchronization cycles. A common example where you might find transient objects being generated occurs on Azure AD Connect servers installed in staging mode, when an admin permanently deletes an object directly in Azure AD using PowerShell and later synchronizes the object again.
 
 If sync engine locates a staging object that corresponds to the object specified in the Connector, it determines what kind of changes to apply. For example, sync engine might rename or delete the object in the connected data source, or it might only update the object’s attribute values.
 

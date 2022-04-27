@@ -3,6 +3,7 @@ title: Use ephemeral OS disk nodes for Azure Batch pools
 description: Learn how and why to create a Batch pool that uses ephemeral OS disk nodes.
 ms.topic: how-to
 ms.date: 09/03/2021
+ms.devlang: csharp
 ---
 
 # Use ephemeral OS disk nodes for Azure Batch pools

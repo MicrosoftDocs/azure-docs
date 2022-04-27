@@ -4,12 +4,15 @@ description: Use these best practices to improve your knowledge base and provide
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/19/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Best practices of a QnA Maker knowledge base
 
 The [knowledge base development lifecycle](../Concepts/development-lifecycle-knowledge-base.md) guides you on how to manage your KB from beginning to end. Use these best practices to improve your knowledge base and provide better results to your client application or chat bot's end users.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## Extraction
 
@@ -19,7 +22,7 @@ In general, FAQ pages should be stand-alone and not combined with other informat
 
 ### Configuring multi-turn
 
-[Create your knowledge base](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted.
+[Create your knowledge base](../how-to/multi-turn.md#create-a-multi-turn-conversation-from-a-documents-structure) with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted.
 
 ## Creating good questions and answers
 
@@ -59,7 +62,7 @@ Chit-chat is supported for several predefined personalities:
 |Caring |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
 |Enthusiastic |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-The responses range from formal to informal and irreverent. You should select the personality that is closest aligned with the tone you want for your bot. You can view the [datasets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), and choose one that serves as a base for your bot, and then customize the responses.
+The responses range from formal to informal and irreverent. Select the personality that is closest aligned with the tone you want for your bot. You can view the [datasets](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), and choose one that serves as a base for your bot, and then customize the responses.
 
 ### Edit bot-specific questions
 There are some bot-specific questions that are part of the chit-chat data set, and have been filled in with generic answers. Change these answers to best reflect your bot details.
@@ -84,7 +87,7 @@ GenerateAnswer API uses both questions and the answer to search for best answers
 
 Use the [`RankerType=QuestionOnly`](#choosing-ranker-type) if you don't want to search answers.
 
-An example of this is when the knowledge base is a catalog of acronyms as questions with their full form as the answer. The value of the answer will not help to search for the appropriate answer.
+An example of this, is when the knowledge base is a catalog of acronyms as questions with their full form as the answer. The value of the answer will not help to search for the appropriate answer.
 
 ## Ranking/Scoring
 Make sure you are making the best use of the ranking features QnA Maker supports. Doing so will improve the likelihood that a given user query is answered with an appropriate response.
@@ -111,17 +114,8 @@ By default, QnA Maker searches through questions and answers. If you want to sea
 [Metadata](../How-To/edit-knowledge-base.md) adds the ability for a client application to know it should not take all answers but instead to narrow down the results of a user query based on metadata tags. The knowledge base answer can differ based on the metadata tag, even if the query is the same. For example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different - that is, the metadata is *Location: Seattle* versus *Location: Redmond*.
 
 ### Use synonyms
-# [QnA Maker GA (stable release)](#tab/v1)
+
 While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms are added at the QnA Maker service-level and **shared by all knowledge bases in the service**.
-
-# [Custom question answering (preview release)](#tab/v2)
-While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different forms. Synonyms in Custom question answering (preview) are **added per knowledge base**.
-
-|Original word|Synonyms|
-|--|--|
-|buy|purchase<br>net-banking<br>net banking|
-
----
 
 ### Use distinct words to differentiate questions
 QnA Maker's ranking algorithm, that matches a user query with a question in the knowledge base, works best if each question addresses a different need. Repetition of the same word set between questions reduces the likelihood that the right answer is chosen for a given user query with those words.
@@ -137,8 +131,6 @@ Since these two QnAs are phrased with very similar words, this similarity could 
 
 ## Collaborate
 QnA Maker allows users to collaborate on a knowledge base. Users need access to the Azure QnA Maker resource group in order to access the knowledge bases. Some organizations may want to outsource the knowledge base editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the knowledge base contents are transferred with an [import-export](../Tutorials/migrate-knowledge-base.md) process to the QnA Maker service of the approver that will finally publish the knowledge base and update the endpoint.
-
-
 
 ## Active learning
 

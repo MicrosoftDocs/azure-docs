@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
+ms.devlang: csharp, python
 ms.custom: devx-track-csharp
 ---
 

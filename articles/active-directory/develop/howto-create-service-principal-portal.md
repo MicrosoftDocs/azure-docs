@@ -153,7 +153,7 @@ To upload the certificate:
 1. Select **Azure Active Directory**.
 1. From **App registrations** in Azure AD, select your application.
 1. Select **Certificates & secrets**.
-1. Select **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
+1. Select **Certificates** > **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
 
     ![Select Upload certificate and select the one you want to add](./media/howto-create-service-principal-portal/upload-cert.png)
 

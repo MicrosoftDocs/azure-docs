@@ -1,5 +1,5 @@
 ---
-title: "The Azure CLI: Scale an elastic pool"
+title: "Azure CLI example: Scale an elastic pool"
 description: Use an Azure CLI example script to scale an elastic pool in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -9,34 +9,34 @@ ms.devlang: azurecli
 ms.topic: sample
 author: arvindshmicrosoft 
 ms.author: arvindsh
-ms.reviewer: mathoma
-ms.date: 06/25/2019
+ms.reviewer: kendralittle, mathoma
+ms.date: 01/26/2022 
 ---
 
-# Use the Azure CLI to scale an elastic pool in Azure SQL Database
+# Scale an elastic pool in Azure SQL Database using the Azure CLI
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example creates elastic pools in Azure SQL Database, moves pooled databases, and changes elastic pool compute sizes.
 
-If you choose to install and use the Azure CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-### Sign in to Azure
-
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/scale-pool/scale-pool.sh" id="FullScript"
 
-### Clean up deployment
+## Clean up resources
 
-Use the following command to remove  the resource group and all resources associated with it.
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
-```azurecli-interactive
-az group delete --name $resource
+```azurecli
+az group delete --name $resourceGroup
 ```
 
 ## Sample reference

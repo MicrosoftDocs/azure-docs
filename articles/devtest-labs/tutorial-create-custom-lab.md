@@ -1,100 +1,155 @@
 ---
-title: Create a lab tutorial
-description: In this tutorial, you create a lab in Azure DevTest Labs by using the Azure portal. A lab admin sets up a lab, creates VMs in the lab, and configures policies.
+title: Set up a lab & lab VM & lab user
+description: Use the Azure portal to create a lab, create a virtual machine in the lab, and add a lab user in Azure DevTest Labs.
 ms.topic: tutorial
-ms.date: 06/26/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/30/2022
 ---
 
-# Tutorial: Set up a lab by using Azure DevTest Labs
-In this tutorial, you create a lab by using the Azure portal. A lab admin sets up a lab in an organization, creates VMs in the lab, and configures policies. Lab users (for example: developer and testers) claim VMs in the lab, connect to them, and use them. 
+# Tutorial: Create a DevTest Labs lab and VM and add a user in the Azure portal
 
-In this tutorial, you do the following actions:
+In this Azure DevTest Labs tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a lab
-> * Add virtual machines (VM) to the lab
-> * Add a user to the Lab User role
+> * Create a lab in DevTest Labs.
+> * Add an Azure virtual machine (VM) to the lab.
+> * Add a user in the DevTest Labs User role.
+> * Delete the lab when no longer needed.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+In the [next tutorial](tutorial-use-custom-lab.md), lab users, such as developers, testers, and trainees, learn how to connect to the lab VM and claim and unclaim lab VMs.
+
+## Prerequisite
+
+- To create a lab, you need at least [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- To add users to a lab, you must have [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) role in the subscription the lab is in.
 
 ## Create a lab
-The following steps illustrate how to use the Azure portal to create a lab in Azure DevTest Labs. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. From the main menu on the left side, select **Create a resource** (at the top of the list), point to **Developer tools**, and click **DevTest Labs**. 
+To create a lab in Azure DevTest Labs, follow these steps.
 
-	![New DevTest Lab menu](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
-1. In the **Create a DevTest Lab** window, do the following actions: 
-    1. For **Lab name**, enter a name for the lab. 
-    2. For **Subscription**, select the subscription in which you want to create the lab. 
-    3. For **Resource group**, select **Create new**, and enter a name for the resource group. 
-    4. For **Location**, select the location/region in which you want the lab to be created. 
-    5. Select **Create**. 
-    6. Select **Pin to dashboard**. After you create the lab, the lab shows up in the dashboard. 
+1. In the [Azure portal](https://portal.azure.com), search for and select **DevTest Labs**.
 
-        ![Create a lab section of DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
-2. Confirm that the lab is created successfully by looking at the notifications. Select **Go to resource**.  
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-search-devtest-labs.png" alt-text="Screenshot of searching for DevTest Labs in the portal.":::
 
-    ![Notification](./media/tutorial-create-custom-lab/creation-notification.png)
-3. Confirm that you see the **DevTest Lab** page for your lab. 
+1. On the **DevTest Labs** page, select **Create**.
 
-    ![Home page for your lab](./media/tutorial-create-custom-lab/lab-home-page.png)
+1. On the **Create Devtest Lab** page, on the **Basic Settings** tab, provide the following information:
+
+   |Setting|Value|
+   |---|---|
+   |**Subscription**|Change the subscription if you want to use a different subscription for the lab.|
+   |**Resource group**|Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group so it's easy to delete later.|
+   |**Lab name**|Enter a name for the lab.|
+   |**Location**|If you're creating a new resource group, select an Azure region for the resource group and lab.|
+   |**Public environments**|Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).|
+
+   :::image type="content" source="./media/tutorial-create-custom-lab/create-custom-lab-blade.png" alt-text="Screenshot of the Basic Settings tab of the Create DevTest Labs form.":::
+
+1. Optionally, select the [Auto-shutdown](devtest-lab-create-lab.md#auto-shutdown-tab), [Networking](devtest-lab-create-lab.md#networking-tab), or [Tags](devtest-lab-create-lab.md#tags-tab) tabs at the top of the page, and customize those settings. You can also apply or change most of these settings after lab creation.
+
+1. After you complete all settings, select **Review + create** at the bottom of the page.
+
+1. If the settings are valid, **Succeeded** appears at the top of the **Review + create** page. Review the settings, and then select **Create**.
+
+   > [!TIP]
+   > Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs.
+
+1. After the creation process finishes, from the deployment notification, select **Go to resource**.
+
+   :::image type="content" source="./media/tutorial-create-custom-lab/creation-notification.png" alt-text="Screenshot of the DevTest Labs deployment notification.":::
 
 ## Add a VM to the lab
 
-1. On the **DevTest Lab** page, select **+ Add** on the toolbar. 
+To add a VM to the lab, follow these steps. For more information, see [Create lab virtual machines in Azure DevTest Labs](devtest-lab-add-vm.md).
 
-	![Add button](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. On the **Choose a base** page, search with a keyword (for example: Windows, Ubuntu), and select one of the base images in the list. 
-1. On the **Virtual machine** page, do the following actions: 
-    1. For **Virtual machine name**, enter a name for the virtual machine. 
-    2. For **User name**, enter a name for the user that has access to the virtual machine. 
-    3. For **Password**, enter the password for the user. 
+1. On the new lab's **Overview** page, select **Add** on the toolbar.
 
-        ![Screenshot that shows the "Create lab resource" page Basic Settings.](./media/tutorial-create-custom-lab/new-virtual-machine.png)
-1. Select **Advanced settings** tab.
-    1. For **Make this machine claimable**, select **Yes**.
-    2. Confirm that the **instance count** is set to **1**. If you set it to **2**, 2 VMs are created with names: `<base image name>00' and <base image name>01`. For example: `win10vm00` and `win10vm01`.     
-    3. Select **Submit**. 
+   :::image type="content" source="./media/tutorial-create-custom-lab/add-vm-to-lab-button.png" alt-text="Screenshot of a lab Overview page with Add highlighted.":::
 
-        ![Choose a base](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
-    9. You see the status of the VM in the list of **Claimable virtual machines** list. Creation of the virtual machine may take approximately 25 minutes. The VM is created in a separate Azure resource group, whose name starts with the name of the current resource group that has the lab. For example, if the lab is in `labrg`, the VM may be created in the resource group `labrg3988722144002`. 
+1. On the **Choose a base** page, select **Windows Server 2019 Datacenter** as a Marketplace image for the VM. Some of the following options might be different if you use a different image.
 
-        ![VM creation status](./media/tutorial-create-custom-lab/vm-creation-status.png)
-1. After the VM is created, you see it in the list of **Claimable virtual machines** in the list. 
+1. On the **Basic Settings** tab of the **Create lab resource** screen, provide the following information:
 
-    > [!NOTE] 
-    > On the **Advanced Settings** page, you can configure public, private or a shared IP address for the VM. When the **shared IP** is enabled, Azure DevTest Labs automatically enables RDP for Windows VMs and SSH for Linux VMs. If you create VMs with **public IP** addresses, RDP and SSH are enabled without any changes from DevTest Labs.  
+   |Setting|Value|
+   |---|---|
+   |**Virtual machine name**|Keep the autogenerated name, or enter another unique VM name.|
+   |**User name**|Keep the autogenerated user name, or enter another user name to grant administrator privileges on the VM.|
+   |**Use a saved secret**|You can select this checkbox to use a secret from Azure Key Vault instead of a password to access the VM. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). For this tutorial, don't select the checkbox.|
+   |**Password**|If you don't use a secret, enter a VM password between 8 and 123 characters long.|
+   |**Save as default password**|Select this checkbox to save the password in the Key Vault associated with the lab.|
+   |**Virtual machine size**|Keep the default value for the base, or select **Change Size** to select a different size.|
+   |**OS disk type**|Keep the default value for the base, or select a different option from the dropdown list.|
+   |**Artifacts**|Optionally, select **Add or Remove Artifacts** to [select and configure artifacts](devtest-lab-add-vm.md#add-artifacts-during-installation) to add to the VM.|
 
-## Add a user to the Lab User role
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-basic-settings.png" alt-text="Screenshot of the Basic Settings tab of the Create lab resource page.":::
 
-1. Select **Configuration and policies** in the left menu. 
+1. Select the **Advanced Settings** tab on the **Create lab resource** screen, and change any of the following values:
 
-	![Configuration and policies](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Select **Access control (IAM)** from the menu, and select **+ Add role assignment** on the toolbar. 
+   |Setting|Value|
+   |---|---|
+   |**Virtual network**|Keep the default, or select a network from the dropdown list. For more information, see [Add a virtual network](devtest-lab-configure-vnet.md).|
+   |**Subnet**|If necessary, select a different subnet from the dropdown list.|
+   |**IP address**|Leave at **Shared**, or select **Public** or **Private**. For more information, see [Understand shared IP addresses](devtest-lab-shared-ip.md).|
+   |**Expiration date**|Leave at **Will not expire**, or [set an expiration date](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) and time for the VM.|
+   |**Make this machine claimable**|The default is **No**, to keep the VM creator as the owner of the VM. For this tutorial, select **Yes**, so that another lab user can claim the VM after creation. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).|
+   |**Number of instances**|To create more than one VM with this configuration, enter the number of VMs to create.|
+   |**View ARM template**|Select to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/templates/overview.md).|
 
-	![Add role assignment - button](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
-1. On the **Add permissions** page, do the following actions:
-    1. For **Role**, select **DevTest Labs User**. 
-    2. Select the **user** you want to add. 
-    3. Select **Save**.
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-advanced-settings.png" alt-text="Screenshot of the Advanced Settings tab of the Create lab resource page.":::
 
-	    ![Add user](./media/tutorial-create-custom-lab/add-user.png)
+1. After you configure all settings, on the **Basic Settings** tab of the **Create lab resource** screen, select **Create**.
+
+During VM deployment, you can select the **Notifications** icon at the top of the screen to see progress. Creating a VM takes a while.
+
+From the lab **Overview** page, you can select **Claimable virtual machines** in the left navigation to see the VM listed on the **Claimable virtual machines** page. Select **Refresh** if the VM doesn't appear. To take ownership of a VM in the claimable list, see [Use a claimable VM](devtest-lab-add-claimable-vm.md#use-a-claimable-vm).
+
+:::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-creation-status.png" alt-text="Screenshot of the lab Claimable virtual machines page.":::
+
+## Add a user to the DevTest Labs User role
+
+To add users to a lab, you must be a [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) of the subscription the lab is in. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+
+1. On the lab's **Overview** page, under **Settings**, select **Configuration and policies**.
+
+1. On the **Configuration and policies** page, select **Access control (IAM)** from the left navigation.
+
+1. Select **Add**, and then select **Add role assignment**.
+
+   :::image type="content" source="media/tutorial-create-custom-lab/add-role-assignment-menu-generic.png" alt-text="Screenshot of the Access control (IAM) page with the Add role assignment menu open.":::
+
+1. On the **Role** tab, select the **DevTest Labs User** role.
+
+   :::image type="content" source="media/tutorial-create-custom-lab/add-role-assignment-role-generic.png" alt-text="Screenshot of the Add role assignment page with the Role tab selected.":::
+
+1. On the **Members** tab, select the user to assign the role to.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Clean up resources
-The next tutorial shows how a lab user can claim and connect to a VM in the lab. If you don't want to do that tutorial, and clean up the resources created as part of this tutorial, follow these steps: 
 
-1. In the Azure portal, select **Resource groups** in the menu. 
+Use this lab for the next tutorial, [Access a lab in Azure DevTest Labs](tutorial-use-custom-lab.md). When you're done using the lab, delete it and its resources to avoid further charges.
 
-	![Resource groups](./media/tutorial-create-custom-lab/resource-groups.png)
-1. Select your resource group in which you created the lab. 
-1. Select **Delete resource group** from the toolbar. Deleting a resource group deletes all the resources in the group including the lab. 
+1. On the lab **Overview** page, select **Delete** from the top menu.
 
-	![Lab resource group](./media/tutorial-create-custom-lab/lab-resource-group.png)
-1. Repeat these steps to delete the additional resource group created for you with the name `<your resource group name><random numbers>`. For example: `splab3988722144001`. The VMs are created in this resource group rather than in the resource group in which the lab exists. 
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-delete.png" alt-text="Screenshot of the lab Delete button.":::
+
+1. On the **Are you sure you want to delete it** page, enter the lab name, and then select **Delete**.
+
+   During the deletion process, you can select **Notifications** at the top of your screen to view progress. Deleting a lab can take a while.
+
+If you created the lab in an existing resource group, deleting the lab removes all of the lab resources.
+
+If you created a resource group for the lab, you can now delete that resource group. You can't delete a resource group that has a lab in it. Deleting the resource group that contained the lab deletes all resources in the resource group. To delete the resource group:
+
+1. Select the resource group that contained the lab from your subscription's **Resource groups** list.
+1. At the top of the page, select **Delete resource group**.
+1. On the **Are you sure you want to delete "\<resource group name>"** page, enter the resource group name, and then select **Delete**.
 
 ## Next steps
-In this tutorial, you created a lab with a VM and gave a user access to the lab. To learn about how to access the lab as a lab user, advance to the next tutorial:
+
+To learn how to access the lab and VMs as a lab user, go on to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Access the lab](tutorial-use-custom-lab.md)

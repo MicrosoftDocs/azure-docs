@@ -120,6 +120,7 @@ Here are the known restrictions of app cloning:
 * Outbound IP Addresses changes if cloning to a different scale unit
 * Not available for Linux Apps
 * Managed Identities are not cloned
+* Not available for Function Apps
 
 ### References
 * [App Service Cloning](app-service-web-app-cloning.md)

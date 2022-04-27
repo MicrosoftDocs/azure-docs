@@ -1,20 +1,17 @@
 ---
 title: Defender for IoT azureiotsecurity for IoT Edge
-description: Understand the architecture and capabilities of Azure Defender for IoT azureiotsecurity for IoT Edge.
+description: Understand the architecture and capabilities of Microsoft Defender for IoT azureiotsecurity for IoT Edge.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 03/28/2022
 ---
 
-# Azure Defender for IoT Edge azureiotsecurity
+# Microsoft Defender for IoT Edge azureiotsecurity
 
-[Azure IoT Edge](../../iot-edge/index.yml) provides powerful capabilities to manage and perform business workflows at the edge.
-The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
+[Azure IoT Edge](../../iot-edge/index.yml) provides powerful capabilities to manage and perform business workflows at the edge. The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
 
-Defender for IoT azureiotsecurity provides a comprehensive security solution for your IoT Edge devices.
-Defender for IoT module collects, aggregates and analyzes raw security data from your Operating System and container system into actionable security recommendations and alerts.
+Defender for IoT azureiotsecurity provides a comprehensive security solution for your IoT Edge devices. Defender for IoT module collects, aggregates and analyzes raw security data from your Operating System and container system into actionable security recommendations and alerts.
 
-Similar to Defender for IoT security agents for IoT devices, the Defender for IoT Edge module is highly customizable through its module twin.
-See [Configure your agent](how-to-agent-configuration.md) to learn more.
+Similar to Defender for IoT security agents for IoT devices, the Defender for IoT Edge module is highly customizable through its module twin. See [Configure your agent](how-to-agent-configuration.md) to learn more.
 
 Defender for IoT azureiotsecurity for IoT Edge offers the following features:
 
@@ -30,8 +27,7 @@ Defender for IoT azureiotsecurity for IoT Edge offers the following features:
 
   See [Configure a Defender for IoT agent](how-to-agent-configuration.md) to learn more.
 
-Defender for IoT azureiotsecurity for IoT Edge runs in a privileged mode under IoT Edge.
-Privileged mode is required to allow the module to monitor the Operating System, and other IoT Edge modules.
+Defender for IoT azureiotsecurity for IoT Edge runs in a privileged mode under IoT Edge. Privileged mode is required to allow the module to monitor the Operating System, and other IoT Edge modules.
 
 ## Module supported platforms
 

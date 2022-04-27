@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 04/09/2020
+ms.date: 10/21/2021
 ---
 
 # Prevent overfitting and imbalanced data with automated machine learning

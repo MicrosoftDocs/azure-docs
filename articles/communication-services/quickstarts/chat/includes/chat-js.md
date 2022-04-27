@@ -21,7 +21,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create *three* ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
+- Create *three* Azure Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
 
 ## Setting up
 
@@ -140,6 +140,7 @@ In the developer tools console within your browser you should see following:
 ```console
 Azure Communication Chat client created!
 ```
+
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
@@ -350,4 +351,20 @@ await chatThreadClient.removeParticipant({ communicationUserId: <PARTICIPANT_ID>
 await listParticipants();
 ```
 Replace **PARTICIPANT_ID** with a User ID used in the previous step (<NEW_PARTICIPANT_USER_ID>).
-Add this code in place of the `<REMOVE PARTICIPANT FROM THREAD>` comment in **client.js**,
+Add this code in place of the `<REMOVE PARTICIPANT FROM THREAD>` comment in **client.js**.
+
+### Subscribe to connection status of real time notifications
+Subscription to events `realTimeNotificationConnected` and `realTimeNotificationDisconnected` allows you to know when the connection to the call server is active.
+
+```JavaScript
+// subscribe to realTimeNotificationConnected event
+chatClient.on('realTimeNotificationConnected', () => {
+  console.log("Real time notification is now connected!");
+  // your code here
+});
+// subscribe to realTimeNotificationDisconnected event
+chatClient.on('realTimeNotificationDisconnected', () => {
+  console.log("Real time notification is now disconnected!");
+  // your code here
+});
+```

@@ -18,7 +18,7 @@ ms.author: juliako
 
 Azure Video Analyzer for Media (formerly Video Indexer) doesn't provide instant failover of the service if there's a regional datacenter outage or failure. This article explains how to configure your environment for a failover to ensure optimal availability for apps and minimized recovery time if a disaster occurs.
 
-We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure's isolation and availability policies. For more information, see [Azure paired regions](../../best-practices-availability-paired-regions.md).
+We recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from Azure's isolation and availability policies. For more information, see [Azure paired regions](../../availability-zones/cross-region-replication-azure.md).
 
 ## Prerequisites
 

@@ -2,9 +2,9 @@
 title: Develop and debug modules in Visual Studio - Azure IoT Edge
 description: Use Visual Studio with Azure IoT Tools to develop a C or C# IoT Edge module and push it from your IoT Hub to an IoT device, as configured by a deployment manifest.
 services: iot-edge
-author: kgremban
+author: PatAltimore
 manager: lizross
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -75,6 +75,9 @@ After your Visual Studio 2019 is ready, you also need the following tools and co
 1. Note the installed version. You can compare this version with the latest version on Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS2019), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools))
 
 1. If your version is older than what's available on Visual Studio Marketplace, update your tools in Visual Studio as shown in the following section.
+
+> [!NOTE]
+> If you are using Visual Studio 2022, [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022&preserve-view=true) is retired. To deploy Azure IoT Edge modules, use [Azure CLI](how-to-deploy-modules-cli.md?view=iotedge-2020-11&preserve-view=true) or [Azure portal](how-to-deploy-modules-portal.md?view=iotedge-2020-11&preserve-view=true).
 
 ### Update your tools
 
@@ -157,6 +160,9 @@ To initialize the tool, provide an IoT Edge device connection string from IoT Hu
 ## Build and debug a single module
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
+
+>[!TIP]
+>Make sure you have switched over to the correct Docker container mode, either Linux container mode or Windows container mode, depending on the type of IoT Edge module you are developing. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** to use Windows containers, or select **Switch to Linux containers** to use Linux containers. 
 
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 

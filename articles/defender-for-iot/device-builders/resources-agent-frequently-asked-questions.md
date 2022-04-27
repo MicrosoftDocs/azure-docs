@@ -1,11 +1,11 @@
 ---
-title: Azure Defender for IoT for device builders frequently asked questions
-description: Find answers to the most frequently asked questions about Azure Defender for IoT agent.
+title: Microsoft Defender for IoT for device builders frequently asked questions
+description: Find answers to the most frequently asked questions about Microsoft Defender for IoT agent.
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 11/09/2021
 ---
 
-# Azure Defender for IoT for device builders frequently asked questions
+# Microsoft Defender for IoT for device builders frequently asked questions
 
 This article provides a list of frequently asked questions and answers about the Defender for IoT agent.
 
@@ -69,7 +69,7 @@ If the agent stops communicating or fails to send security messages, a **Device 
 
 ## Can I create my own alerts?
 
-Yes, you can create custom alerts based on multiple parameters including IP/MAC address, protocol type, class, service, function, command, etc. as well as values of custom tags contained in the payloads. See [Create custom alerts](quickstart-create-custom-alerts.md) to learn more about custom alerts and how to create them.
+Yes, you can create custom alerts based on multiple parameters including IP/MAC address, protocol type, class, service, function, command, and so on, as well as values of custom tags contained in the payloads. See [Create custom alerts](quickstart-create-custom-alerts.md) to learn more about custom alerts and how to create them.
 
 ## Next steps
 

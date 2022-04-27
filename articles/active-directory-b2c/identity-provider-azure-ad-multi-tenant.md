@@ -3,15 +3,15 @@ title: Set up sign-in for multi-tenant Azure AD by custom policies
 titleSuffix: Azure AD B2C
 description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 03/10/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -33,6 +33,9 @@ This article shows you how to enable sign-in for users using the multi-tenant en
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+> [!NOTE]
+> In this article, it assumed that **SocialAndLocalAccounts** starter pack is used in the previous steps mentioned in pre-requisite.  
 
 ## Register an Azure AD app
 
@@ -70,7 +73,7 @@ If you want to get the `family_name`, and `given_name` claims from Azure AD, you
 1. Select **Add optional claim**.
 1. For the **Token type**, select **ID**.
 1. Select the optional claims to add, `family_name`, and `given_name`.
-1. Click **Add**.
+1. Select **Add**. If **Turn on the Microsoft Graph email permission (required for claims to appear in token)** appears, enable it, and then select **Add** again.
 
 ## [Optional] Verify your app authenticity
 
@@ -97,7 +100,7 @@ To enable users to sign in using an Azure AD account, you need to define Azure A
 
 You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsProvider** element in the extension file of your policy.
 
-1. Open the *TrustFrameworkExtensions.xml* file.
+1. Open the *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** file (see the files you've used in the prerequisites).
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
 1. Add a new **ClaimsProvider** as follows:
 
@@ -164,7 +167,7 @@ To obtain the values, look at the OpenID Connect discovery metadata for each of 
 
 Perform these steps for each Azure AD tenant that should be used to sign in:
 
-1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the **issuer** object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
+1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the `issuer` object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0`.
 1. Copy and paste the value into the **ValidTokenIssuerPrefixes** key. Separate multiple issuers with a comma. An example with two issuers appears in the previous `ClaimsProvider` XML sample.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
@@ -202,6 +205,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Check out the Azure AD multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Azure AD access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
 
 ::: zone-end

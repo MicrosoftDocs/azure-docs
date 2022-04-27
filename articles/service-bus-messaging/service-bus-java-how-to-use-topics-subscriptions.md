@@ -1,18 +1,25 @@
 ---
-title: Use Azure Service Bus topics and subscriptions with Java (azure-messaging-servicebus)
-description: In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
-ms.date: 02/13/2021
+title: Get started with Azure Service Bus topics (Java)
+description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the Java programming language.
+ms.date: 03/24/2022
 ms.topic: quickstart
-ms.devlang: Java
-ms.custom:
-  - mode-api
+ms.devlang: java
+ms.custom: mode-api
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Java)
+
+> [!div class="op_single_selector" title1="Select the programming language:"]
+> * [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> * [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+
+
 In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
 
-> [!IMPORTANT]
-> This quickstart uses the new azure-messaging-servicebus package. For a quickstart that uses the old azure-servicebus package, see [Send and receive messages using azure-servicebus](service-bus-java-how-to-use-topics-subscriptions-legacy.md).
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built Java samples for Azure Service Bus in the [Azure SDK for Java repository on GitHub](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/src/samples). 
 
 ## Prerequisites
 
@@ -51,15 +58,10 @@ If you are using Eclipse and created a Java console application, convert your Ja
 		</plugins>
 	</build>
 	<dependencies>
-  		<dependency>
-    		<groupId>com.azure</groupId>
-    		<artifactId>azure-core</artifactId>
-    		<version>1.13.0</version>
-		</dependency>
 		<dependency>
     		<groupId>com.azure</groupId>
     		<artifactId>azure-messaging-servicebus</artifactId>
-    		<version>7.0.2</version>
+    		<version>7.7.0</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -1,16 +1,16 @@
 ---
 title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services (SSIS) in Azure Data Factory
 description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
-author: chugugrace
-ms.author: chugu
+author: swinarko
+ms.author: sawinark
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 4/15/2020
+ms.date: 02/15/2022
 ---
-# Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory
+# Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory or Azure Synapse Analytics
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 You can now move your SQL Server Integration Services (SSIS) projects, packages, and workloads to the Azure cloud. Deploy, run, and manage SSIS projects and packages on Azure SQL Database or SQL Managed Instance with familiar tools such as SQL Server Management Studio (SSMS). This article highlights the following specific areas when using Azure SQL Managed Instance with Azure-SSIS integration runtime (IR):
 
@@ -32,15 +32,15 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
         1. Choose the virtual network for Azure-SSIS IR to join:
             - Inside the same virtual network as the managed instance, with **different subnet**.
-            - Inside a different virtual network than the the managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
+            - Inside a different virtual network than the managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
 
-            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance).
 
         1. [Configure virtual network](#configure-virtual-network).
 
     - Over public endpoint
 
-        Azure SQL Managed Instances can provide connectivity over [public endpoints](../azure-sql/managed-instance/public-endpoint-configure.md). Inbound and outbound requirements need to meet to allow traffic between SQL Managed Instance and Azure-SSIS IR:
+        Azure SQL Managed Instances can provide connectivity over [public endpoints](/azure/azure-sql/managed-instance/public-endpoint-configure). Inbound and outbound requirements need to meet to allow traffic between SQL Managed Instance and Azure-SSIS IR:
 
         - when Azure-SSIS IR not inside a virtual network (preferred)
 
@@ -50,7 +50,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             |---|---|---|---|---|
             |TCP|Azure Cloud service tag|*|VirtualNetwork|3342|
 
-            For more information, see [Allow public endpoint traffic on the network security group](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
+            For more information, see [Allow public endpoint traffic on the network security group](/azure/azure-sql/managed-instance/public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group).
 
         - when Azure-SSIS IR inside a virtual network
 
@@ -60,13 +60,13 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
                 | Transport protocol | Source | Source port range | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|Static IP address of Azure-SSIS IR <br> For details, see [Bring Your Own Public IP for Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP).|*|VirtualNetwork|3342|
+                |TCP|Static IP address of Azure-SSIS IR <br> For details, see [Bring Your Own Public IP for Azure-SSIS IR](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip).|*|VirtualNetwork|3342|
 
              1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL Managed Instance.
 
                 | Transport protocol | Source | Source port range | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL Managed Instance public endpoint IP address](../azure-sql/managed-instance/management-endpoint-find-ip-address.md)|3342|
+                |TCP|VirtualNetwork|*|[SQL Managed Instance public endpoint IP address](/azure/azure-sql/managed-instance/management-endpoint-find-ip-address)|3342|
 
 ### Configure virtual network
 
@@ -101,21 +101,21 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
         1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL Managed Instance, and other traffic needed by Azure-SSIS IR.
 
-        | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
-        |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Allow outbound traffic to SQL Managed Instance. If connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
-        | TCP | VirtualNetwork | * | AzureCloud | 443 | The nodes of your Azure-SSIS IR in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
-        | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, refer to [Use Azure ExpressRoute or User Defined Route(UDR)](./azure-ssis-integration-runtime-virtual-network-configuration.md#route).|
-        | TCP | VirtualNetwork | * | Storage | 445 | (Optional) This rule is only required when you want to execute SSIS package stored in Azure Files. |
-        |||||||
+           | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
+           |---|---|---|---|---|---|
+           | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Allow outbound traffic to SQL Managed Instance. If connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
+           | TCP | VirtualNetwork | * | AzureCloud | 443 | The nodes of your Azure-SSIS IR in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
+           | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, refer to [Configure User Defined Routes (UDRs)](azure-ssis-integration-runtime-standard-virtual-network-injection.md#udr).|
+           | TCP | VirtualNetwork | * | Storage | 445 | (Optional) This rule is only required when you want to execute SSIS package stored in Azure Files. |
+           |||||||
 
         1. **Inbound requirement of Azure-SSIS IR**, to allow traffic needed by Azure-SSIS IR.
 
-        | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
-        |---|---|---|---|---|---|
-        | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (if you join the IR to a Resource Manager virtual network) <br/><br/>10100, 20100, 30100 (if you join the IR to a classic virtual network)| The Data Factory service uses these ports to communicate with the nodes of your Azure-SSIS IR in the virtual network. <br/><br/> Whether or not you create a subnet-level NSG, Data Factory always configures an NSG at the level of the network interface cards (NICs) attached to the virtual machines that host the Azure-SSIS IR. Only inbound traffic from Data Factory IP addresses on the specified ports is allowed by that NIC-level NSG. Even if you open these ports to internet traffic at the subnet level, traffic from IP addresses that aren't Data Factory IP addresses is blocked at the NIC level. |
-        | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | (Optional) This rule is only required when Microsoft supporter asks customer to open for advanced troubleshooting, and can be closed right after troubleshooting. **CorpNetSaw** service tag permits only secure access workstations on the Microsoft corporate network to use remote desktop. And this service tag can't be selected from portal and is only available via Azure PowerShell or Azure CLI. <br/><br/> At NIC level NSG, port 3389 is open by default and we allow you to control port 3389 at subnet level NSG, meanwhile Azure-SSIS IR has disallowed port 3389 outbound by default at windows firewall rule on each IR node for protection. |
-        |||||||
+           | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
+           |---|---|---|---|---|---|
+           | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (if you join the IR to a Resource Manager virtual network) <br/><br/>10100, 20100, 30100 (if you join the IR to a classic virtual network)| The Data Factory service uses these ports to communicate with the nodes of your Azure-SSIS IR in the virtual network. <br/><br/> Whether or not you create a subnet-level NSG, Data Factory always configures an NSG at the level of the network interface cards (NICs) attached to the virtual machines that host the Azure-SSIS IR. Only inbound traffic from Data Factory IP addresses on the specified ports is allowed by that NIC-level NSG. Even if you open these ports to internet traffic at the subnet level, traffic from IP addresses that aren't Data Factory IP addresses is blocked at the NIC level. |
+           | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | (Optional) This rule is only required when Microsoft supporter asks customer to open for advanced troubleshooting, and can be closed right after troubleshooting. **CorpNetSaw** service tag permits only secure access workstations on the Microsoft corporate network to use remote desktop. And this service tag can't be selected from portal and is only available via Azure PowerShell or Azure CLI. <br/><br/> At NIC level NSG, port 3389 is open by default and we allow you to control port 3389 at subnet level NSG, meanwhile Azure-SSIS IR has disallowed port 3389 outbound by default at windows firewall rule on each IR node for protection. |
+           |||||||
 
     1. See [virtual network configuration](azure-ssis-integration-runtime-virtual-network-configuration.md) for more info:
         - If you bring your own public IP addresses for the Azure-SSIS IR

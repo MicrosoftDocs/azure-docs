@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to join a Teams meeting using the A
 author: chpalm
 ms.author: rifox
 ms.date: 03/10/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
@@ -70,7 +70,7 @@ const recordingStateElement = document.getElementById('recording-state');
 async function init() {
     const callClient = new CallClient();
     const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
+    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'Test user'});
     teamsMeetingJoinButton.disabled = false;
 }
 init();

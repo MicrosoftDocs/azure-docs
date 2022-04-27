@@ -1,29 +1,28 @@
 ---
 title: Compare Azure Database for PostgreSQL - Single Server and Flexible Server
 description: Detailed comparison of features and capabilities between Azure Database for PostgreSQL Single Server and Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 12/08/2021
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
-
-The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server.
+The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server. For most new deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
 
 | **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
 | **General**  | | |
-| General availability | GA since 2018 | Public Preview |
+| General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
-| Versions | 9.6, 10, 11 | 11, 12, 13 |
+| Supported versions | 10, 11 | 11, 12, 13 |
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
+| Uptime SLA | [SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_1/)| [SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) |
 | **Connectivity** | | |
 | Username in connection string | `<user_name>@server_name`. For example, `pgadmusr@mypgServer` | Just username. For example, `pgadmusr` | 
 | lc_collate  | English_United States.1252 | en_US.utf8 |
@@ -81,8 +80,8 @@ The following table provides a high-level features and capabilities comparisons 
 | PITR capability to any time within the retention period | Yes | Yes
 | Ability to restore on a different zone | N/A | Yes |
 | Ability to restore to a different VNET | No | Yes |
-| Ability to restore to a different region | Yes (Geo-redundant) | No |
-| Ability to restore a deleted server | Limited via API | No |
+| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in Preview in [selected regions](overview.md#azure-regions)) |
+| Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
 | Support for read replicas | Yes | No |
 | Number of read replicas | 5 | N/A |
@@ -99,16 +98,20 @@ The following table provides a high-level features and capabilities comparisons 
 | Saturation | Backup storage used, CPU %, IO %, Memory %, Server log storage limit, server log storage %, server log storage used, Storage limit, Storage %, Storage used | Backup storage used, CPU credits consumed, CPU credits remaining, CPU %, Disk queue depth, IOPS, Memory %, Read IOPS, Read throughput bytes/s, storage free, storage %, storage used, Transaction log storage used, Write IOPS, Write throughput bytes/s |
 | Traffic | Active connections, Network In, Network out | Active connections, Max. used transaction ID, Network In, Network Out, succeeded connections |
 | **Extensions** | | (offers latest versions)|
-| TimescaleDB, orafce, plv8 | Yes | No |
+| TimescaleDB, orafce | Yes | Yes |
 | PgCron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
+| **Security** | | |
+| Azure Active Directory Support (AAD) | Yes | No |
+| Customer managed encryption key (BYOK) | Yes | No |
+| SCRAM Authentication (SHA-256) | No | Yes |
+| Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
-| Customer managed key (BYOK) | Yes | No |
 | Alerts | Yes | Yes |
-| Azure defender | Yes | No |
+| Microsoft Defender for Cloud | Yes | No |
 | Resource health | Yes | No |
 | Service health | Yes | Yes |
-| Performance insights (iPerf) | Yes | Yes (Preview) |
+| Performance insights (iPerf) | Yes | Yes |
 | Major version upgrades support | No | No |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 

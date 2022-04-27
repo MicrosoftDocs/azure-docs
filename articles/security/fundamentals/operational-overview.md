@@ -11,7 +11,6 @@ editor: tomsh
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -50,7 +49,7 @@ For more information, see the [Azure Backup components table](../../backup/backu
 
 ### Site Recovery
 
-[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Azure Security Center to perform more intelligent and effective threat detection.
+[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Microsoft Defender for Cloud to perform more intelligent and effective threat detection.
 
 ## Azure Active Directory
 
@@ -73,11 +72,11 @@ Azure AD also includes a full suite of [identity management capabilities](./iden
 
 With Azure Active Directory, all applications that you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
-[Azure Security Center](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into (and control over) the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions. It helps detect threats that might otherwise go unnoticed, and it works with a broad ecosystem of security solutions.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into (and control over) the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions. It helps detect threats that might otherwise go unnoticed, and it works with a broad ecosystem of security solutions.
 
-[Safeguard virtual machine (VM) data](../../security-center/security-center-introduction.md) in Azure by providing visibility into your virtual machine’s security settings and monitoring for threats. Security Center can monitor your virtual machines for:
+[Safeguard virtual machine (VM) data](../../security-center/security-center-introduction.md) in Azure by providing visibility into your virtual machine’s security settings and monitoring for threats. Defender for Cloud can monitor your virtual machines for:
 
 - Operating system security settings with the recommended configuration rules.
 - System security and critical updates that are missing.
@@ -85,14 +84,14 @@ With Azure Active Directory, all applications that you publish for your partners
 - Disk encryption validation.
 - Network-based attacks.
 
-Security Center uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
-Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
+Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 
 >[!Note]
->To learn more about roles and allowed actions in Security Center, see [Permissions in Azure Security Center](../../security-center/security-center-permissions.md).
+>To learn more about roles and allowed actions in Defender for Cloud, see [Permissions in Microsoft Defender for Cloud](../../security-center/security-center-permissions.md).
 
-Security Center uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/logs/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
+Defender for Cloud uses the Microsoft Monitoring Agent. This is the same agent that the Azure Monitor service uses. Data collected from this agent is stored in either an existing Log Analytics [workspace](../../azure-monitor/logs/manage-access.md) associated with your Azure subscription or a new workspace, taking into account the geolocation of the VM.
 
 ## Azure Monitor
 
@@ -190,5 +189,5 @@ Mature DevOps practitioners adopt several of the following practices. These prac
 To learn about the Security and Audit solution, see the following articles:
 
 - [Security and compliance](https://azure.microsoft.com/overview/trusted-cloud/)
-- [Azure Security Center](../../security-center/security-center-introduction.md)
+- [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 - [Azure Monitor](../../azure-monitor/overview.md)

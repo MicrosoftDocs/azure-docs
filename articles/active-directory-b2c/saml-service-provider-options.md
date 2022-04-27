@@ -3,14 +3,14 @@ title: Configure SAML service provider options
 title-suffix: Azure Active Directory B2C
 description: Learn how to configure Azure Active Directory B2C SAML service provider options.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
@@ -291,18 +291,20 @@ For example, when `TokenNotBeforeSkewInSeconds` is set to `120` seconds:
 You can specify whether milliseconds will be removed from date and time values within the SAML response. (These values include `IssueInstant`, `NotBefore`, `NotOnOrAfter`, and `AuthnInstant`.) To remove the milliseconds, set the `RemoveMillisecondsFromDateTime` metadata key within the relying party. Possible values: `false` (default) or `true`.
 
 ```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2" />
       <Metadata>
         <Item Key="RemoveMillisecondsFromDateTime">true</Item>
       </Metadata>
-      ...
+      <OutputClaims>
+             ...
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="true" />
     </TechnicalProfile>
+  </RelyingParty>
 ```
 
 ## Use an issuer ID to override an issuer URI

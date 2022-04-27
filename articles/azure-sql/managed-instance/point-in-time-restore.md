@@ -8,9 +8,9 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: Misliplavo
+author: MilanMSFT
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 08/25/2019
 ---
 # Restore a database in Azure SQL Managed Instance to a previous point in time
@@ -40,7 +40,7 @@ The following table shows point-in-time restore scenarios for SQL Managed Instan
 
 |           |Restore existing DB to the same instance of SQL Managed Instance| Restore existing DB to another SQL Managed Instance|Restore dropped DB to same SQL Managed Instance|Restore dropped DB to another SQL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Yes|No |Yes|No|
+|**Azure portal**| Yes|Yes|Yes|Yes|
 |**Azure CLI**|Yes |Yes |No|No|
 |**PowerShell**| Yes|Yes |Yes|Yes|
 
@@ -122,7 +122,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-For a detailed explanation of the available parameters, see the [CLI documentation for restoring a database in a SQL Managed Instance](/cli/azure/sql/midb#az_sql_midb_restore).
+For a detailed explanation of the available parameters, see the [CLI documentation for restoring a database in a SQL Managed Instance](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ---
 
@@ -136,8 +136,6 @@ Restoring a deleted database can be done by using PowerShell or Azure portal. To
 To recover a managed database using the Azure portal, open the SQL Managed Instance overview page, and select **Deleted databases**. Choose a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
 
   ![Screenshot of restore deleted Azure SQL instance database](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
-
-../../sql-database
 
 ### PowerShell
 

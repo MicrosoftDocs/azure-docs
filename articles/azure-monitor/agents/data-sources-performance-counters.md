@@ -220,4 +220,4 @@ The following table provides different examples of log queries that retrieve Per
 ## Next steps
 * [Collect performance counters from Linux applications](data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
 * Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Export collected data to [Power BI](../visualize/powerbi.md) for additional visualizations and analysis.
+* Export collected data to [Power BI](../logs/log-powerbi.md) for additional visualizations and analysis.

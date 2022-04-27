@@ -1,9 +1,9 @@
 ---
 title: Create transparent gateway device - Azure IoT Edge | Microsoft Docs
 description: Use an Azure IoT Edge device as a transparent gateway that can process information from downstream devices
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -93,8 +93,8 @@ If you don't have your own certificate authority and want to use demo certificat
    2. Create a root CA certificate. At the end of those instructions, you'll have a root CA certificate file:
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
    3. Create IoT Edge device CA certificates. At the end of those instructions, you'll have a device CA certificate and its private key:
-      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` and
-      * `<path>/private/iot-edge-device-<cert name>.key.pem`
+      * `<path>/certs/iot-edge-device-ca-<cert name>-full-chain.cert.pem` and
+      * `<path>/private/iot-edge-device-ca-<cert name>.key.pem`
 
 If you created the certificates on a different machine, copy them over to your IoT Edge device then proceed with the next steps.
 

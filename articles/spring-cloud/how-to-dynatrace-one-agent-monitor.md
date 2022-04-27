@@ -1,17 +1,20 @@
 ---
-title:  "How to monitor Azure Spring Cloud applications with Dynatrace Java OneAgent"
-description: How to use Dynatrace Java OneAgent to monitor Azure Spring Cloud applications
+title:  "How to monitor Spring Boot apps with Dynatrace Java OneAgent"
+description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Cloud
 author:  karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
-# How to monitor Azure Spring Cloud applications with Dynatrace Java OneAgent
+# How to monitor Spring Boot apps with Dynatrace Java OneAgent
 
-This article explains how to use Dynatrace OneAgent to monitor Azure Spring Cloud applications.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Cloud.
 
 With the Dynatrace OneAgent, you can:
 
@@ -51,7 +54,7 @@ The following sections describe how to activate Dynatrace OneAgent.
 
 To activate Dynatrace OneAgent on your Azure Spring Cloud instance, you need to configure four environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, `DT_CONNECTION_POINT`, and `DT_CLUSTER_ID`. For more information, see [Integrate OneAgent with Azure Spring Cloud](https://www.dynatrace.com/support/help/shortlink/azure-spring).
 
-For applications with multiple instances, Dynatrace has several ways to group them. `DT_CLUSTER_ID` is one of the ways. For more information, see [Customize the structure of process groups](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/adapt-the-composition-of-default-process-groups/).
+For applications with multiple instances, Dynatrace has several ways to group them. `DT_CLUSTER_ID` is one of the ways. For more information, see [Process group detection](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/pg-detection).
 
 ### Add the environment variables to your application
 
@@ -89,11 +92,11 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
    :::image type="content" source="media/dynatrace-oneagent/configuration-application.png" alt-text="Screenshot of the 'Environment variables' tab of the application's Configuration section." lightbox="media/dynatrace-oneagent/configuration-application.png":::
 
-## Automation
+## Automate provisioning
 
 Using Terraform or an Azure Resource Manager template (ARM template), you can also run a provisioning automation pipeline. This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
-### Terraform
+### Automate provisioning using Terraform
 
 To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
@@ -106,7 +109,7 @@ environment_variables = {
 }
 ```
 
-### ARM template
+### Automate provisioning using an ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
@@ -162,13 +165,13 @@ You can find **Backtrace** from **Databases/Details/Backtrace**:
 
 :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Backtrace report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
 
-## Dynatrace OneAgent logging
+## View Dynatrace OneAgent logs
 
 By default, Azure Spring Cloud will print the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the Dynatrace agent from the following locations:
 
-* Azure Spring Cloud Logs
+* Azure Spring Cloud logs
 * Azure Spring Cloud Application Insights
 * Azure Spring Cloud LogStream
 

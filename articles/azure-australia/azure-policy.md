@@ -91,19 +91,19 @@ Azure Blueprints extend the capability of Azure Policy by combining them with:
 * Azure Resource Groups
 * [Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md)
 
-Blueprints allow for the creation of environment designs that deploy Azure resources from Resource Manager templates, configure Azure RBAC, and enforce and audit configuration by assigning Azure Policy. Blueprints form an editable and redeployable environment template. Once the Blueprint has been created, it can then be assigned to an Azure Subscription. Once assigned, all of the Azure resources defined within the Blueprint will be created and the Azure Policies applied. The deployment and configuration of resources defined in an Azure Blueprint can be monitored from the Azure Blueprint console in the Azure portal.
+Blueprints allow for the creation of environment designs that deploy Azure resources from Resource Manager templates, configure Azure RBAC, and enforce and audit configuration by assigning Azure Policy. Blueprints form an editable and redeployable environment template. Once the blueprint has been created, it can then be assigned to an Azure Subscription. Once assigned, all of the Azure resources defined within the blueprint will be created and the Azure Policies applied. The deployment and configuration of resources defined in an Azure blueprint can be monitored from the Azure Blueprints console in the Azure portal.
 
 Azure Blueprints that have been edited must be republished in the Azure portal. Each time a Blueprint is republished, the version number of the Blueprint is incremented. The version number allows you to determine which specific version of a Blueprint has been deployed to an organisation's Azure Subscriptions. If desired, the currently assigned version of the Blueprint can be updated to the latest version.
 
-Resources deployed using an Azure Blueprint can be configured with [Azure Resource Locks](../azure-resource-manager/management/lock-resources.md) at the time of deployment. Resource locks prevent resources from being accidentally modified or deleted.
+Resources deployed using an Azure blueprint can be configured with [Azure Resource Locks](../azure-resource-manager/management/lock-resources.md) at the time of deployment. Resource locks prevent resources from being accidentally modified or deleted.
 
-Microsoft is developing Azure Blueprint templates for a range of industries and regulatory requirements. The current library of available Azure Blueprint definitions can be viewed in the Azure portal or the [Azure Security and Compliance Blueprint](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview/) page in the Service Trust Portal.
+Microsoft is developing Azure Blueprints templates for a range of industries and regulatory requirements. The current library of available Azure Blueprints definitions can be viewed in the Azure portal or the [Azure Security and Compliance Blueprint](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview/) page in the Service Trust Portal.
 
-### Azure Blueprint artifacts
+### Azure Blueprints artifacts
 
 To create an Azure Blueprint, you can start with a blank Blueprint template, or use one of the existing sample Blueprints as a starting point. You can add artifacts to the Blueprint that will be configured as part of deployment:
 
-![Azure Blueprint Artifacts](media/blueprint-artifacts.png)
+![Azure Blueprints Artifacts](media/blueprint-artifacts.png)
 
 These artifacts could include the Azure Resource Group and Resources and associated Azure Policy and Policy Initiatives to enforce the configuration required for your environment to be compliant you're your regulatory requirements, for example, the ISM controls for system hardening.
 

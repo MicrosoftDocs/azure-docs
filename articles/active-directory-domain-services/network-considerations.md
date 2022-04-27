@@ -3,13 +3,13 @@ title: Network planning and connections for Azure AD Domain Services | Microsoft
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 01/06/2022
 ms.author: justinha
 
 ---
@@ -42,7 +42,7 @@ As you design the virtual network for Azure AD DS, the following considerations 
 
 A managed domain connects to a subnet in an Azure virtual network. Design this subnet for Azure AD DS with the following considerations:
 
-* A managed domain must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet.
+* A managed domain must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet. This includes the usage of remote gateways settings in the virtual network peering which puts the managed domain in an unsupported state.
 * A network security group is created during the deployment of a managed domain. This network security group contains the required rules for correct service communication.
     * Don't create or use an existing network security group with your own custom rules.
 * A managed domain requires 3-5 IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
@@ -85,12 +85,14 @@ You can enable name resolution using conditional DNS forwarders on the DNS serve
 
 ## Network resources used by Azure AD DS
 
-A managed domain creates some networking resources during deployment. These resources are needed for successful operation and management of the managed domain, and shouldn't be manually configured.
+A managed domain creates some networking resources during deployment. These resources are needed for successful operation and management of the managed domain, and shouldn't be manually configured. 
+
+Don't lock the networking resources used by Azure AD DS. If networking resources get locked, they can't be deleted. When domain controllers need to be rebuilt in that case, new networking resources with different IP addresses need to be created. 
 
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a Standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/public-ip-addresses.md). |
+| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a Standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/ip-services/public-ip-addresses.md). |
 | Azure standard load balancer            | Azure AD DS uses a Standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Network address translation (NAT) rules | Azure AD DS creates and uses two Inbound NAT rules on the load balancer for secure PowerShell remoting. If a Standard SKU load balancer is used, it will have an Outbound NAT Rule too. For the Basic SKU load balancer, no Outbound NAT rule is required. |
 | Load balancer rules                     | When a managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |

@@ -4,8 +4,8 @@ description: Delete an Azure Arc-enabled Postgres Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
@@ -50,7 +50,7 @@ az postgres arc-server delete -n postgres01 --k8s-namespace <namespace> --use-k8
 
 ## Reclaim the Kubernetes Persistent Volume Claims (PVCs)
 
-Deleting a server group does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will think it's running out of disk space. 
+A PersistentVolumeClaim (PVC) is a request for storage by a user from Kubernetes cluster while creating and adding storage to a PostgreSQL Hyperscale server group. Deleting a server group does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will think it's running out of disk space or usage of the same PostgreSQL Hyperscale server group name while creating new one might cause inconsistencies. 
 To reclaim the PVCs, take the following steps:
 
 ### 1. List the PVCs for the server group you deleted

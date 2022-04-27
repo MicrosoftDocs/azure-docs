@@ -1,16 +1,16 @@
 ---
-title: Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration on Microsoft AppSource - Azure Marketplace
-description: Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration on Microsoft AppSource (Azure Marketplace.
+title: Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration on Microsoft AppSource - Azure Marketplace
+description: Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration on Microsoft AppSource (Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
-ms.date: 06/29/2021
+ms.date: 12/03/2021
 ---
 
-# Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration
+# Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration
 
 This page defines the technical details used to connect to your offer. This connection lets us provision your offer for the customers who choose to acquire it.
 
@@ -42,7 +42,7 @@ Select **+ Add region** to specify the geographic regions in which your CRM pack
 
 By default, the **Application configuration URL** you entered above will be used for each region. Leave the Application Configuration URL field blank.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell with Microsoft sales teams and partners overview](./co-sell-overview.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
+Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell with Microsoft sales teams and partners overview](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
 
 ## Next steps
 

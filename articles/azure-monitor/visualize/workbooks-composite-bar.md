@@ -2,13 +2,10 @@
 title: Azure Monitor workbook composite bar renderer 
 description: Learn about all the Azure Monitor workbook Composite Bar Renderer visualization. 
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
-ms.author: lagayhar
 ---
 
 # Composite bar renderer

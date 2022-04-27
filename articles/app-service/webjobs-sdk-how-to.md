@@ -3,7 +3,7 @@ title: How to use the WebJobs SDK
 description: Learn more about how to write code for the WebJobs SDK. Create event-driven background processing jobs that access data in Azure and third-party services.
 author: ggailey777
 
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/24/2021
@@ -397,7 +397,7 @@ static async Task Main()
 }
 ```
 
-For more information, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
+For more information, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) article.
 
 #### Event Hubs trigger configuration (version 3.*x*)
 
@@ -526,7 +526,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) article.
+For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus.md) article.
 
 ### Configuration for other bindings
 
@@ -684,7 +684,7 @@ The Azure Functions documentation provides reference information about each bind
 
 * [Packages](../azure-functions/functions-bindings-storage-queue.md). The package you need to install to include support for the binding in a WebJobs SDK project.
 * [Examples](../azure-functions/functions-bindings-storage-queue-trigger.md). Code samples. The C# class library example applies to the WebJobs SDK. Just omit the `FunctionName` attribute.
-* [Attributes](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). The attributes to use for the binding type.
+* [Attributes](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes). The attributes to use for the binding type.
 * [Configuration](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explanations of the attribute properties and constructor parameters.
 * [Usage](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). The types you can bind to and information about how the binding works. For example: polling algorithm, poison queue processing.
 

@@ -35,6 +35,17 @@ By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed](/cli/azure/install-azure-cli).
 
+### Install the `aks-preview` Azure CLI
+
+You also need the *aks-preview* Azure CLI extension version 0.5.25 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
 ### Register the `HTTPProxyConfigPreview` preview feature
 
 To use the feature, you must also enable the `HTTPProxyConfigPreview` feature flag on your subscription.
@@ -59,38 +70,38 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Configuring an HTTP proxy using Azure CLI 
 
-Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON or YAML file.
+Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON file.
 
 The schema for the config file looks like this:
 
 ```json
-"httpProxyConfig": {
-    "httpProxy": "string",
-    "httpsProxy": "string",
-    "noProxy": [
-        "string"
-    ],
-    "trustedCa": "string"
+{
+  "httpProxy": "string",
+  "httpsProxy": "string",
+  "noProxy": [
+    "string"
+  ],
+  "trustedCa": "string"
 }
 ```
 
 `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
 `httpsProxy`: A proxy URL to use for creating HTTPS connections outside the cluster. If this is not specified, then `httpProxy` is used for both HTTP and HTTPS connections.
 `noProxy`: A list of destination domain names, domains, IP addresses or other network CIDRs to exclude proxying.
-`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the k8s system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
+`trustedCa`: A string containing the `base64 encoded` alternative CA certificate content. For now we only support `PEM` format. Another thing to note is that, for compatibility with Go-based components that are part of the Kubernetes system, the certificate MUST support `Subject Alternative Names(SANs)` instead of the deprecated Common Name certs.
 
 Example input:
 Note the CA cert should be the base64 encoded string of the PEM format cert content.
 
 ```json
-"httpProxyConfig": { 
-     "httpProxy": "http://myproxy.server.com:8080/", 
-     "httpsProxy": "https://myproxy.server.com:8080/", 
-     "noProxy": [
-         "localhost",
-         "127.0.0.1"
-     ],
-     "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+{
+  "httpProxy": "http://myproxy.server.com:8080/", 
+  "httpsProxy": "https://myproxy.server.com:8080/", 
+  "noProxy": [
+    "localhost",
+    "127.0.0.1"
+  ],
+  "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
 }
 ```
 
@@ -132,6 +143,21 @@ For example, assuming a new file has been created with the base64 encoded string
 az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
 
+## Monitoring Addon Configurations
+
+Below list the supported and not supported configuration for the monitoring addon.
+
+Supported configuration(s)
+
+  - Outbound proxy without authentication
+  - Outbound proxy with username & password authentication
+  - Outbound proxy with trusted cert for Log Analytics endpoint
+
+Not supported configuration(s)
+
+  -  Custom Metrics and Recommended alerts feature are not supported in Proxy with trusted cert
+  -  Outbound proxy support with Azure Monitor Private Link Scope (AMPLS)
+
 ## Next steps
 - For more on the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].
 
@@ -143,3 +169,5 @@ az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-co
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az-extension-update

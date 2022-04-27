@@ -3,14 +3,11 @@ title: Create configurations from existing servers for Azure Automation State Co
 description: This article tells how to create configurations from existing servers for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
-manager: carmonm
 ---
+
 # Create configurations from existing servers
 
 > Applies To: Windows PowerShell 5.1
@@ -46,7 +43,7 @@ to be used with SharePointDSC configuration scripts.
 
 Once the data files have been generated,
 you can use them with
-[DSC Configuration scripts](/powershell/scripting/dsc/overview/overview)
+[DSC Configuration scripts](/powershell/dsc/overview)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
@@ -63,6 +60,6 @@ to view the
 
 ## Next steps
 
-- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
-- Find out about PowerShell DSC resources in [DSC Resources](/powershell/scripting/dsc/resources/resources).
-- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig).
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/dsc/overview).
+- Find out about PowerShell DSC resources in [DSC Resources](/powershell/dsc/resources/resources).
+- For details of Local Configuration Manager configuration, see [Configuring the Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig).

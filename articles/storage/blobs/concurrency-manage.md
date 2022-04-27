@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: tamram

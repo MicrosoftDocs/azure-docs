@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-fundamentals
- author: robinsh
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: include
- ms.date: 08/07/2018
- ms.author: robinsh
+ ms.date: 11/29/2021
+ ms.author: kgremban
  ms.custom: include file
 ---
 
@@ -178,7 +178,7 @@ In each of the categories outlined in the Azure IoT architecture, this example t
 || TRID |Apply tamperproof mechanisms to the device, for example,  by making it hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are you sure, that device has not been tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. |
 || E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device |
 | Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (such as cert based, PSK, or Claim based.) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-|| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. |
+|| TRID |Protect the Field Gateway against tampering (TPM) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. |
 || E |Access control mechanism for Field Gateway | | |
 
 Here are some examples of threats in this category:
@@ -193,8 +193,6 @@ Here are some examples of threats in this category:
 
 **Tampering**: An attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
 
-**Tampering**: An attacker may partially or completely replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
-
 **Information Disclosure**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties.
 
 **Information Disclosure**: An attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
@@ -204,10 +202,6 @@ Here are some examples of threats in this category:
 **Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted
 
 **Elevation of Privilege**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
-
-**Denial of Service**: The device can be turned into a state where communication is not possible.
-
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted.
 
 **Spoofing/Tampering/Repudiation**: If not secured (which is rarely the case with consumer remote controls), an attacker can manipulate the state of a device anonymously. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
 
@@ -229,12 +223,13 @@ Here are some examples of threats in this category:
 
 **Spoofing, Information Disclosure**: Constrained devices and special-purpose devices often have one-for-all security facilities like password or PIN protection, or they wholly rely on trusting the network, meaning they grant access to information when a device is on the same network, and that network is often only protected by a shared key. That means that when the shared secret to device or network is disclosed, it is possible to control the device or observe data emitted from the device.  
 
-**Spoofing**: an attacker may intercept or partially override the broadcast and spoof the originator (man in the middle)
+**Spoofing**: an attacker may intercept or partially override the broadcast and spoof the originator (man in the middle).
 
-**Tampering**: an attacker may intercept or partially override the broadcast and send false information 
+**Tampering**: an attacker may intercept or partially override the broadcast and send false information.
 
-**Information Disclosure:** an attacker may eavesdrop on a broadcast and obtain information without authorization
-**Denial of Service:** an attacker may jam the broadcast signal and deny information distribution
+**Information Disclosure:** an attacker may eavesdrop on a broadcast and obtain information without authorization.
+
+**Denial of Service:** an attacker may jam the broadcast signal and deny information distribution.
 
 #### Storage
 

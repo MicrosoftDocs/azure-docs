@@ -2,7 +2,7 @@
 title: Get cost analysis and set budgets for Azure Batch
 description: Learn how to get a cost analysis, set a budget, and reduce costs for the underlying compute resources and software licenses used to run your Batch workloads.
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 12/13/2021
 ---
 
 # Get cost analysis and set budgets for Azure Batch
@@ -43,7 +43,7 @@ Depending on which services you use with your Batch solution, you may incur addi
 
 ## View cost analysis and create budgets
 
-[Azure Cost Management](/cost-management-billing/cost-management-billing-overview.md) lets you plan, analyze and reduce your spending to maximize your cloud investment. The usage costs for all Azure services are available, including Azure Batch. You can view and filter Batch costs to be viewed and filtered, forecast future costs, and set spending limits with alerts when those limits are reached.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) lets you plan, analyze and reduce your spending to maximize your cloud investment. The usage costs for all Azure services are available, including Azure Batch. You can view and filter Batch costs to be viewed and filtered, forecast future costs, and set spending limits with alerts when those limits are reached.
 
 In the Azure portal, you can create budgets and spending alerts for your Batch pools or Batch accounts. Budgets and alerts are useful for notifying stakeholders of any risks of overspending, although it's possible for there to be a delay in spending alerts and to slightly exceed a budget.
 
@@ -126,9 +126,9 @@ Multiple task slots can be specified for a pool, so that the corresponding numbe
 
 Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy) to `pack` will help ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
 
-### Use low-priority virtual machines
+### Use Azure Spot virtual machines
 
-[Low-priority VMs](batch-low-pri-vms.md) reduce the cost of Batch workloads by taking advantage of surplus computing capacity in Azure. When you specify low-priority VMs in your pools, Batch uses this surplus to run your workload. There can be substantial cost savings when you use low-priority VMs instead of dedicated VMs. Keep in mind that low-priority VMs are not suitable for all workloads, since there may not be available capacity to allocate, or they may get preempted.
+[Azure Spot VMs](batch-spot-vms.md) reduce the cost of Batch workloads by taking advantage of surplus computing capacity in Azure. When you specify Spot VMs in your pools, Batch uses this surplus to run your workload. There can be substantial cost savings when you use Spot VMs instead of dedicated VMs. Keep in mind that Spot VMs are not suitable for all workloads, since there may not be available capacity to allocate, or they may get preempted.
 
 ### Use ephemeral OS disks
 
@@ -147,4 +147,4 @@ It is important to note that reservation discount is "use-it-or-lose-it."  If th
 ## Next steps
 
 - Learn more about [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md).
-- Learn about [using low-priority VMs with Batch](batch-low-pri-vms.md).
+- Learn about using [Azure Spot VMs with Batch](batch-spot-vms.md).

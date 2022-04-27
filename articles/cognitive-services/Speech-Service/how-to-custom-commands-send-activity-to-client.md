@@ -3,13 +3,15 @@ title: 'Send Custom Commands activity to client application'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn how to send activity from a Custom Commands application to a client application running the Speech SDK.
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
+ms.author: eur
+ms.devlang: csharp
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Send Custom Commands activity to client application

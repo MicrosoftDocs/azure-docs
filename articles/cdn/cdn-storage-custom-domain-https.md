@@ -3,11 +3,11 @@ title: 'Tutorial: Access storage blobs using an Azure CDN custom domain over HTT
 description: Learn how to add an Azure CDN custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 06/15/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
 
 ---

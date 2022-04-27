@@ -39,7 +39,7 @@ There are always a multitude of [design considerations](/azure/architecture/refe
 * The related resources that the VM needs
 
 ### Locations
-All resources created in Azure are distributed across multiple [geographical regions](https://azure.microsoft.com/regions/) around the world. Usually, the region is called **location** when you create a VM. For a VM, the location specifies where the virtual hard disks are stored.
+There are multiple [geographical regions](https://azure.microsoft.com/regions/) around the world where you can create Azure resources. Usually, the region is called **location** when you create a VM. For a VM, the location specifies where the virtual hard disks will be stored.
 
 This table shows some of the ways you can get a list of available locations.
 
@@ -54,7 +54,7 @@ This table shows some of the ways you can get a list of available locations.
 Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
 ## VM Size
-The [size](../sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.
+The [size](../sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, storage capacity, and network bandwidth. Azure offers a wide variety of sizes to support many types of uses.
 
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
@@ -106,7 +106,7 @@ Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distro
 
 ## Networking
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
-* [IP addresses in Azure](../../virtual-network/public-ip-addresses.md)
+* [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../create-fqdn.md)
 

@@ -18,6 +18,17 @@ ms.date: 09/09/2021
 
 The Execute Pipeline activity allows a Data Factory or Synapse pipeline to invoke another pipeline.
 
+## Create an Execute Pipeline activity with UI
+
+To use an Execute Pipeline activity in a pipeline, complete the following steps:
+
+1. Search for _pipeline_ in the pipeline Activities pane, and drag an Execute Pipeline activity to the pipeline canvas.
+1. Select the new Execute Pipeline activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-execute-pipeline-activity/execute-pipeline-activity.png" alt-text="Shows the UI for an execute pipeline activity.":::
+
+1. Select an existing pipeline or create a new one using the New button.  Select other options and configure any parameters for the pipeline as required to complete your configuration.
+
 ## Syntax
 
 ```json

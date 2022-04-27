@@ -1,17 +1,15 @@
 ---
 title: 'Quickstart: Create a search index in .NET'
 titleSuffix: Azure Cognitive Search
-description: In this C# quickstart, learn how to create an index, load data, and run queries using the Azure.Search.Documents client library.
-
+description: "In this C# quickstart, learn how to create an index, load data, and run queries using the Azure.Search.Documents client library."
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/11/2021
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 
@@ -28,7 +26,7 @@ Before you begin, have the following tools and services:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code was tested on the free Community edition of Visual Studio 2019.
 

@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Deploy an Azure Resource Manager template in an Automation PowerShell runbook
 
-You can write an [Automation PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md)
+You can write an [Automation PowerShell runbook](./learn/powershell-runbook-managed-identity.md)
 that deploys an Azure resource by using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Templates allow you to use Azure Automation to automate deployment of your Azure resources. You can maintain your Resource Manager templates in a central, secure location, such as Azure Storage.
 
 In this article, we create a PowerShell runbook that uses a Resource Manager template stored in [Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.

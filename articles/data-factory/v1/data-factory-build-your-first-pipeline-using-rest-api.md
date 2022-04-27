@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 11/01/2017 
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -291,7 +291,7 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
 
     Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**.
 
-	```powershell
+    ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 	```
 2. Run the command by using **Invoke-Command**.
@@ -317,14 +317,16 @@ Note the following points:
 
   * In Azure PowerShell, run the following command to register the Data Factory provider:
 
-	```powershell
-	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-	```
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
-      You can run the following command to confirm that the Data Factory provider is registered:
-	```powershell
-	Get-AzResourceProvider
-	```
+    You can run the following command to confirm that the Data Factory provider is registered:
+
+    ```powershell
+    Get-AzResourceProvider
+    ```
+
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores.
@@ -337,38 +339,42 @@ In this step, you link your Azure Storage account to your data factory. With thi
 
 1. Assign the command to variable named **cmd**.
 
-	```powershell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
-	```
+    ```powershell
+    $cmd = { .\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01 };
+    ```
+
 2. Run the command by using **Invoke-Command**.
 
-	```powershell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```powershell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
-	```powershell
-	Write-Host $results
-	```
+    ```powershell
+    Write-Host $results
+    ```
 
 ### Create Azure HDInsight linked service
 In this step, you link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.
 
 1. Assign the command to variable named **cmd**.
 
-	```powershell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
-	```
+    ```powershell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```
+
 2. Run the command by using **Invoke-Command**.
 
-	```powershell
-	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```powershell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
+
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
-	```powershell
-	Write-Host $results
-	```
+    ```powershell
+    Write-Host $results
+    ```
 
 ## Create datasets
 In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.

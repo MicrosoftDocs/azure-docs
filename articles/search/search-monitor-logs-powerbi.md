@@ -2,8 +2,10 @@
 title: Visualize logs and metrics with Power BI
 description: Visualize Azure Cognitive Search logs and metrics with Power BI.
 
-author: MarkHeff
-ms.author: maheff
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/07/2021
@@ -97,6 +99,6 @@ If you find that you cannot see your data follow these troubleshooting steps:
 
 ## Next steps
 
-+ [Monitor search operations and activity](search-monitor-usage.md)
++ [Monitor search operations and activity](monitor-azure-cognitive-search.md)
 + [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 + [Basic concepts for designers in the Power BI service](/power-bi/service-basic-concepts)

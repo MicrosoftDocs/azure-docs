@@ -9,6 +9,10 @@ ms.date: 04/27/2017
 ---
 
 # Targeting monitoring solutions in Azure Monitor (Preview)
+
+> [!IMPORTANT]
+> This feature has been deprecated as the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use it if you already have it configured, but it's being removed from regions where it is not already being used. The feature will longer be supported after August 31, 2024. 
+
 When you add a monitoring solution to your subscription, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is a feature that allows you to apply a scope to your solutions.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]

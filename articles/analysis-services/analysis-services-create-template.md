@@ -6,12 +6,8 @@ ms.author: owend
 ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
-tags:
-  - azure-resource-manager
-ms.custom: devx-track-azurepowershell
-  - subject-armqs
-  - references_regions
-  - mode-arm
+tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell, subject-armqs, references_regions, mode-arm
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
 ---
 

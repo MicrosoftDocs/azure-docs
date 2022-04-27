@@ -7,10 +7,10 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: AlainDormehlMSFT
-ms.author: aldorme
-ms.reviewer: mathoma, wiassaf
-ms.date: 05/04/2020
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/23/2022"
+ms.reviewer: kendralittle, mathoma, wiassaf
 ---
 # Create alerts for Azure SQL Database and Azure Synapse Analytics using the Azure portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

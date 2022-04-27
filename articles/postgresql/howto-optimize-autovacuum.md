@@ -1,10 +1,11 @@
 ---
 title: Optimize autovacuum - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can optimize autovacuum on an Azure Database for PostgreSQL - Single Server
-author: dianaputnam
-ms.author: dianas
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: how-to
+ms.author: dianas
+author: dianaputnam
 ms.date: 07/09/2020
 ---
 
@@ -37,7 +38,15 @@ If you don't vacuum from time to time, the dead tuples that accumulate can resul
 The following sample query is designed to identify the number of dead and live tuples in a table named XYZ:
 
 ```sql
-SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+SELECT relname,
+       n_dead_tup,
+       n_live_tup,
+       (n_dead_tup / n_live_tup) AS DeadTuplesRatio,
+       last_vacuum,
+       last_autovacuum
+FROM pg_catalog.pg_stat_all_tables
+WHERE relname = 'XYZ'
+ORDER BY n_dead_tup DESC;
 ```
 
 ## Autovacuum configurations
@@ -91,7 +100,7 @@ Running autovacuum is "costly," and there are parameters for controlling the run
 
 The vacuum process reads physical pages and checks for dead tuples. Every page in shared_buffers is considered to have a cost of 1 (vacuum_cost_page_hit). All other pages are considered to have a cost of 20 (vacuum_cost_page_dirty), if dead tuples exist, or 10 (vacuum_cost_page_miss), if no dead tuples exist. The vacuum operation stops when the process exceeds the autovacuum_vacuum_cost_limit.
 
-After the limit is reached, the process sleeps for the duration specified by the autovacuum_vacuum_cost_delay parameter before it starts again. If the limit isn't reached, autovacuum starts after the value specified by the autovacuum_nap_time parameter.
+After the limit is reached, the process sleeps for the duration specified by the autovacuum_vacuum_cost_delay parameter before it starts again. If the limit isn't reached, autovacuum starts after the value specified by the autovacuum_naptime parameter.
 
 In summary, the autovacuum_vacuum_cost_delay and autovacuum_vacuum_cost_limit parameters control how much data cleanup is allowed per unit of time. Note that the default values are too low for most pricing tiers. The optimal values for these parameters are pricing tier-dependent and should be configured accordingly.
 

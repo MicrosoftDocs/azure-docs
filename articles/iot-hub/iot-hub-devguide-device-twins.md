@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub device twins | Microsoft Docs
 description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
-author: nehsin
+author: kgremban
 
-ms.author: nehsin
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 01/31/2022
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
@@ -130,7 +130,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
    },
    ```
 
-2. The device app is notified of the change immediately if connected, or at the first reconnect. The device app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
+2. The device app is notified of the change immediately if the device is connected. If it's not connected, the device app follows the [device reconnection flow](#device-reconnection-flow) when it connects. The device app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
 
    ```json
    "reported": {
@@ -146,7 +146,9 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
 
 > [!NOTE]
 > The preceding snippets are examples, optimized for readability, of one way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the device twin desired and reported properties in the device twins.
-> 
+
+> [!IMPORTANT]
+> IoT Plug and Play defines a schema that uses several additional properties to synchronize changes to desired and reported properties. If your solution uses IoT Plug and Play, you must follow the Plug and Play conventions when updating twin properties. For more information and an example, see [Writable properties in IoT Plug and Play](../iot-develop/concepts-convention.md#writable-properties).
 
 You can use twins to synchronize long-running operations such as firmware updates. For more information on how to use properties to synchronize and track a long running operation across devices, see [Use desired properties to configure devices](tutorial-device-twins.md).
 
@@ -244,6 +246,9 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
 * **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
+
+  > [!NOTE]
+  > IoT Hub queries used in [Message Routing](./iot-hub-devguide-routing-query-syntax.md) don't support whitespace or any of the following characters as part of a key name: `()<>@,;:\"/?={}`.
 
 * **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 
@@ -374,10 +379,6 @@ IoT Hub does not preserve desired properties update notifications for disconnect
 3. Device app retrieves the full document for desired properties.
 
 The device app can ignore all notifications with `$version` less or equal than the version of the full retrieved document. This approach is possible because IoT Hub guarantees that versions always increment.
-
-> [!NOTE]
-> This logic is already implemented in the [Azure IoT device SDKs](iot-hub-devguide-sdks.md). This description is useful only if the device app cannot use any of Azure IoT device SDKs and must program the MQTT interface directly.
-> 
 
 ## Additional reference material
 

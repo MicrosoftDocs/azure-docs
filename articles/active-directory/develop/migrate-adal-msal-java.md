@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 ms.author: marsma
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java, has-adal-ref
-#Customer intent: As an Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
+#Customer intent: As a Java application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 
 # ADAL to MSAL migration guide for Java

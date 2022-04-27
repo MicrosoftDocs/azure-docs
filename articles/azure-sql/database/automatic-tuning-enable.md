@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 03/03/2021
 ---
 # Enable automatic tuning in the Azure portal to monitor queries and improve workload performance
@@ -76,7 +76,7 @@ Please note that DROP_INDEX option at this time is not compatible with applicati
 
 Once you have selected your desired configuration, click **Apply**.
 
-### Rest API
+### REST API
 
 To find out more about using a REST API to enable automatic tuning on a single database, see [Azure SQL Database automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/databaseautomatictuning).
 

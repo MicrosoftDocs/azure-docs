@@ -3,7 +3,7 @@ title: Linux NFS mount options best practices for Azure NetApp Files | Microsoft
 description: Describes mount options and the best practices about using them with Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
 

@@ -3,7 +3,7 @@ title: Securing service principals in Azure Active Directory
 description: Find, assess, and secure service principals.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -96,7 +96,7 @@ Mitigate potential challenges using the following information.
 
 |Challenges | Mitigations|
 | - | - |
-| Detect the user that consented to a multi-tenant app​, and detect illicit consent grants to a multi-tenant app | Run the following PowerShell to find multi-tenant apps.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Disable user consent. ​<br>Allow user consent from verified publishers, for selected permissions (recommended) <br> Use conditional access to block service principals from untrusted locations. Configure them under the user context, and their tokens should be used to trigger the service principal.|
+| Detect the user that consented to a multi-tenant app​, and detect illicit consent grants to a multi-tenant app | Run the following PowerShell to find multi-tenant apps.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Disable user consent. ​<br>Allow user consent from verified publishers, for selected permissions (recommended) <br> Configure them under the user context, and their tokens should be used to trigger the service principal.|
 |Use of a hard-coded shared secret in a script using a service principal.|Use a certificate or Azure Key Vault​.|
 |Tracking who is using the certificate or the secret​| Monitor the service principal's sign-ins using the Azure AD sign-in logs.|
 Can't manage service principals' sign-in with Conditional Access.| Monitor the sign-ins using the Azure AD sign-in logs

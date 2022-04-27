@@ -1,12 +1,11 @@
 ---
 title: Azure Functions SignalR Service output binding
 description: Learn about the SignalR Service output binding for Azure Functions.
-author: craigshoemaker
 ms.topic: reference
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
-ms.date: 02/20/2020
-ms.author: cshoe
-
+ms.date: 03/04/2022
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # SignalR Service output binding for Azure Functions
@@ -20,11 +19,17 @@ The output binding also allows you to manage groups.
 
 For information on setup and configuration details, see the [overview](functions-bindings-signalr-service.md).
 
-## Broadcast to all clients
+## Example
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+### Broadcast to all clients
+
+# [In-process](#tab/in-process)
 
 The following example shows a function that sends a message using the output binding to all connected clients. The *target* is the name of the method to be invoked on each client. The *Arguments* property is an array of zero or more objects to be passed to the client method.
-
-# [C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -40,6 +45,17 @@ public static Task SendMessage(
         });
 }
 ```
+
+# [Isolated process](#tab/isolated-process)
+
+The following example shows a SignalR trigger that reads a message string from one hub using a SignalR trigger and writes it to a second hub using an output binding. The *target* is the name of the method to be invoked on each client.  
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="12-31":::
+
+The `MyConnectionInfo` and `MyMessage` classes are defined as follows:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="34-46":::
+
 
 # [C# Script](#tab/csharp-script)
 
@@ -76,7 +92,12 @@ public static Task Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell" 
+
+### Broadcast to all clients
 
 Here's binding data in the *function.json* file:
 
@@ -92,6 +113,9 @@ Example function.json:
 }
 ```
 
+::: zone-end
+::: zone pivot="programming-language-javascript"
+
 Here's the JavaScript code:
 
 ```javascript
@@ -103,21 +127,12 @@ module.exports = async function (context, req) {
 };
 ```
 
-# [Python](#tab/python)
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "outMessage",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
 Here's the Python code:
 
@@ -130,7 +145,10 @@ def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     }))
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
+
+### Broadcast to all clients
 
 ```java
 @FunctionName("sendMessage")
@@ -148,13 +166,14 @@ public SignalRMessage sendMessage(
 }
 ```
 
----
+::: zone-end
+::: zone pivot="programming-language-csharp"
 
-## Send to a user
+### Send to a user
 
 You can send a message only to connections that have been authenticated to a user by setting the *user ID* in the SignalR message.
 
-# [C#](#tab/csharp)
+# [In-process](#tab/in-process)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -173,6 +192,10 @@ public static Task SendMessage(
 }
 ```
 
+# [Isolated process](#tab/isolated-process)
+
+Not supported for isolated process.
+
 # [C# Script](#tab/csharp-script)
 
 Example function.json:
@@ -187,7 +210,7 @@ Example function.json:
 }
 ```
 
-Here's the C# Script code:
+Here's the C# script code:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -208,25 +231,34 @@ public static Task Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+---
+
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+
+### Send to a user
+
+You can send a message only to connections that have been authenticated to a user by setting the *user ID* in the SignalR message.
 
 Example function.json:
 
 ```json
 {
   "type": "signalR",
-  "name": "signalRMessages",
+  "name": "outRMessages",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
 }
 ```
 
+::: zone-end
+::: zone pivot="programming-language-javascript"  
 Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.bindings.signalRMessages = [{
+    context.bindings.signalRMessages  = [{
         // message will only be sent to this user ID
         "userId": "userId1",
         "target": "newMessage",
@@ -235,26 +267,17 @@ module.exports = async function (context, req) {
 };
 ```
 
-# [Python](#tab/python)
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "outMessage",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
 Here's the Python code:
 
 ```python
-def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessages: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
     outMessage.set(json.dumps({
         #message will only be sent to this user ID
@@ -264,7 +287,11 @@ def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     }))
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
+### Send to a user
+
+You can send a message only to connections that have been authenticated to a user by setting the *user ID* in the SignalR message.
 
 ```java
 @FunctionName("sendMessage")
@@ -283,13 +310,13 @@ public SignalRMessage sendMessage(
 }
 ```
 
----
-
-## Send to a group
+::: zone-end
+::: zone pivot="programming-language-csharp"
+### Send to a group
 
 You can send a message only to connections that have been added to a group by setting the *group name* in the SignalR message.
 
-# [C#](#tab/csharp)
+# [In-process](#tab/in-process)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -307,6 +334,9 @@ public static Task SendMessage(
         });
 }
 ```
+# [Isolated process](#tab/isolated-process)
+
+Example not available for isolated process.
 
 # [C# Script](#tab/csharp-script)
 
@@ -343,7 +373,13 @@ public static Task Run(
 }
 ```
 
-# [JavaScript](#tab/javascript)
+---
+
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
+### Send to a group
+
+You can send a message only to connections that have been added to a group by setting the *group name* in the SignalR message.
 
 Example function.json:
 
@@ -357,6 +393,8 @@ Example function.json:
 }
 ```
 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 Here's the JavaScript code:
 
 ```javascript
@@ -370,21 +408,12 @@ module.exports = async function (context, req) {
 };
 ```
 
-# [Python](#tab/python)
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "outMessage",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
 Here's the Python code:
 
@@ -399,7 +428,12 @@ def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     }))
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
+
+### Send to a group
+
+You can send a message only to connections that have been added to a group by setting the *group name* in the SignalR message.
 
 ```java
 @FunctionName("sendMessage")
@@ -418,18 +452,13 @@ public SignalRMessage sendMessage(
 }
 ```
 
----
+::: zone-end
+::: zone pivot="programming-language-csharp"
+### Group management
 
-## Group management
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership. The following example adds a user to a group.
 
-SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership.
-
-# [C#](#tab/csharp)
-
-### Add user to a group
-
-The following example adds a user to a group.
-
+# [In-process](#tab/in-process)
 ```csharp
 [FunctionName("addToGroup")]
 public static Task AddToGroup(
@@ -448,8 +477,6 @@ public static Task AddToGroup(
         });
 }
 ```
-
-### Remove user from a group
 
 The following example removes a user from a group.
 
@@ -472,12 +499,11 @@ public static Task RemoveFromGroup(
 }
 ```
 
-> [!NOTE]
-> In order to get the `ClaimsPrincipal` correctly bound, you must have configured the authentication settings in Azure Functions.
+# [Isolated process](#tab/isolated-process)
+
+Example not available for isolated process.
 
 # [C# Script](#tab/csharp-script)
-
-### Add user to a group
 
 The following example adds a user to a group.
 
@@ -515,8 +541,6 @@ public static Task Run(
 }
 ```
 
-### Remove user from a group
-
 The following example removes a user from a group.
 
 Example *function.json*
@@ -553,16 +577,19 @@ public static Task Run(
 }
 ```
 
+---
+
 > [!NOTE]
 > In order to get the `ClaimsPrincipal` correctly bound, you must have configured the authentication settings in Azure Functions.
 
-# [JavaScript](#tab/javascript)
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
-### Add user to a group
+### Group management
 
-The following example adds a user to a group.
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership. The following example adds a user to a group.
 
-Example *function.json*
+Example *function.json* that defines the output binding:
 
 ```json
 {
@@ -574,7 +601,10 @@ Example *function.json*
 }
 ```
 
-*index.js*
+::: zone-end
+::: zone pivot="programming-language-javascript"
+
+The following example adds a user to a group.
 
 ```javascript
 module.exports = async function (context, req) {
@@ -586,23 +616,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-### Remove user from a group
-
 The following example removes a user from a group.
-
-Example *function.json*
-
-```json
-{
-    "type": "signalR",
-    "name": "signalRGroupActions",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "hubName": "chat",
-    "direction": "out"
-}
-```
-
-*index.js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -614,25 +628,14 @@ module.exports = async function (context, req) {
 };
 ```
 
-# [Python](#tab/python)
-
-### Add user to a group
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
 The following example adds a user to a group.
-
-Example *function.json*
-
-```json
-{
-    "type": "signalR",
-    "name": "action",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "hubName": "chat",
-    "direction": "out"
-}
-```
-
-*\_\_init.py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -643,23 +646,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
     }))
 ```
 
-### Remove user from a group
-
 The following example removes a user from a group.
-
-Example *function.json*
-
-```json
-{
-    "type": "signalR",
-    "name": "action",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "hubName": "chat",
-    "direction": "out"
-}
-```
-
-*\_\_init.py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -670,9 +657,12 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
     }))
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
-### Add user to a group
+### Group management
+
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership. 
 
 The following example adds a user to a group.
 
@@ -694,8 +684,6 @@ public SignalRGroupAction addToGroup(
 }
 ```
 
-### Remove user from a group
-
 The following example removes a user from a group.
 
 ```java
@@ -715,35 +703,75 @@ public SignalRGroupAction removeFromGroup(
     return action;
 }
 ```
+::: zone-end
+::: zone pivot="programming-language-csharp"
+
+## Attributes
+
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
+
+# [In-process](#tab/in-process)
+
+The following table explains the properties of the `SignalR` output attribute.
+
+| Attribute property |Description|
+|---------|----------------------|
+|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+
+# [Isolated process](#tab/isolated-process)
+
+The following table explains the properties of the `SignalROutput` attribute.
+
+| Attribute property |Description|
+|---------|----------------------|
+|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+# [C# Script](#tab/csharp-script)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type**|  Must be set to `signalR`.|
+|**direction**|Must be set to `out`.|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 ---
 
+::: zone-end 
+::: zone pivot="programming-language-java" 
+ 
+## Annotations
+
+The following table explains the supported settings for the `SignalROutput` annotation.
+
+|Setting | Description|
+|---------|--------|
+|**name**| Variable name used in function code for connection info object. |
+|**hubName**|This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**connectionStringSetting**|The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python" 
 ## Configuration
 
-### SignalRConnectionInfo
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `SignalRConnectionInfo` attribute.
+|function.json property | Description|
+|---------|----------------------|
+|**type**|  Must be set to `signalR`.|
+|**direction**|Must be set to `out`.|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type**| n/a | Must be set to `signalRConnectionInfo`.|
-|**direction**| n/a | Must be set to `in`.|
-|**name**| n/a | Variable name used in function code for connection info object. |
-|**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**userId**|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
-|**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
 
-### SignalR
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `SignalR` attribute.
-
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type**| n/a | Must be set to `signalR`.|
-|**direction**| n/a | Must be set to `out`.|
-|**name**| n/a | Variable name used in function code for connection info object. |
-|**hubName**|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
+::: zone-end
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: how-to
 author: uc-msft
 ms.author: umajay
-ms.reviewer: mathoma
-ms.date: 04/19/2020
+ms.reviewer: kendralittle, mathoma
+ms.date: 10/18/2021
 ---
 # Getting started with JSON features in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ Azure SQL Database and Azure SQL Managed Instance let you parse and query data r
 
 If you have a web service that takes data from the database layer and provides a response in JSON format, or client-side JavaScript frameworks or libraries that accept data formatted as JSON, you can format your database content as JSON directly in a SQL query. You no longer have to write application code that formats results from Azure SQL Database or Azure SQL Managed Instance as JSON, or include some JSON serialization library to convert tabular query results and then serialize objects to JSON format. Instead, you can use the FOR JSON clause to format SQL query results as JSON and use it directly in your application.
 
-In the following example, rows from the Sales.Customer table are formatted as JSON by using the FOR JSON clause:
+In the following example, rows from the `Sales.Customer` table are formatted as JSON by using the FOR JSON clause:
 
 ```sql
 select CustomerName, PhoneNumber, FaxNumber
@@ -98,7 +98,7 @@ Instead of sending separate queries to get Customer data and then to fetch a lis
 
 ## Working with JSON data
 
-If you don’t have strictly structured data, if you have complex sub-objects, arrays, or hierarchical data, or if your data structures evolve over time, the JSON format can help you to represent any complex data structure.
+If you don't have strictly structured data, if you have complex sub-objects, arrays, or hierarchical data, or if your data structures evolve over time, the JSON format can help you to represent any complex data structure.
 
 JSON is a textual format that can be used like any other string type in Azure SQL Database and Azure SQL Managed Instance. You can send or store JSON data as a standard NVARCHAR:
 
@@ -185,9 +185,3 @@ END
 ```
 
 The collection of orders formatted as a JSON array and provided as a parameter to the stored procedure can be parsed and inserted into the Orders table.
-
-## Next steps
-
-To learn how to integrate JSON into your application, check out these resources:
-
-To learn about various scenarios for integrating JSON into your application, see the demos in this [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) or find a scenario that matches your use case in [JSON Blog posts](/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 11/19/2021
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: "devx-track-csharp, aaddev"
@@ -21,6 +21,8 @@ ms.custom: "devx-track-csharp, aaddev"
 
 Microsoft Identity Web is a set of ASP.NET Core libraries that simplifies adding authentication and authorization support to web apps and web APIs integrating with the Microsoft identity platform. It provides a single-surface API convenience layer that ties together ASP.NET Core, its authentication middleware, and the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/azuread/microsoft-authentication-library-for-dotnet).
 
+You can get Microsoft.Identity.Web from NuGet or by using a Visual Studio project template to create a new app project.
+
 ## Supported application scenarios
 
 If you're building ASP.NET Core web apps or web APIs and want to use Azure Active Directory (Azure AD) or Azure AD B2C for identity and access management (IAM), we recommend using Microsoft Identity Web for all of these scenarios:
@@ -30,11 +32,7 @@ If you're building ASP.NET Core web apps or web APIs and want to use Azure Activ
 - [Protected web API that only authenticated users can access](scenario-protected-web-api-overview.md)
 - [Protected web API that calls another (downstream) web API on behalf of the signed-in user](scenario-web-api-call-api-overview.md)
 
-## Get the library
-
-You can get Microsoft Identity Web from [NuGet](#nuget), [.NET Core project templates](#project-templates), and [GitHub](#github).
-
-#### NuGet
+## Install from NuGet
 
 Microsoft Identity Web is available on NuGet as a set of packages that provide modular functionality based on your app's needs. Use the .NET CLI's `dotnet add` command or Visual Studio's **NuGet Package Manager** to install the packages appropriate for your project:
 
@@ -43,37 +41,45 @@ Microsoft Identity Web is available on NuGet as a set of packages that provide m
 - [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) - Optional. Provides simplified interaction with the Microsoft Graph API.
 - [Microsoft.Identity.Web.MicrosoftGraphBeta](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraphBeta) - Optional. Provides simplified interaction with the Microsoft Graph API [beta endpoint](/graph/api/overview?view=graph-rest-beta&preserve-view=true).
 
-#### Project templates
+## Install by using a Visual Studio project template
 
-Microsoft Identity Web project templates are included in .NET 5.0 and are available for download for ASP.NET Core 3.1 projects.
+Several project templates that use Microsoft Identity Web are included in .NET SDK versions 5.0 and above. The project templates aren't included in the ASP.NET Core 3.1 SDK, but you can install them separately.
 
-If you're using ASP.NET Core 3.1, install the templates with the .NET CLI:
+### .NET 5.0+ - Project templates included
+
+The Microsoft Identity Web project templates are included in .NET SDK versions 5.0 and above.
+
+This example .NET CLI command creates a Blazor Server project that includes Microsoft Identity Web.
 
 ```dotnetcli
-dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
+dotnet new blazorserver --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
-The following diagram shows a high-level view of the supported app types and their relevant arguments:
+Don't append a `2` to the application type argument (`blazorserver` in the example) if you're using the templates included in .NET SDK 5.0+. Include the `2` suffix *only* if you're on ASP.NET Core 3.1 and you installed the templates separately as described in the next section.
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web":::
-<br /><sup><b>*</b></sup> `MultiOrg` is not supported with `webapi2`, but can be enabled in *appsettings.json* by setting tenant to `common` or `organizations`
-<br /><sup><b>**</b></sup> `--calls-graph` is not supported for Azure AD B2C
+### ASP.NET Core 3.1 - Install the project templates
 
-This example .NET CLI command, taken from our [Blazor Server tutorial](tutorial-blazor-server.md), generates a new Blazor Server project that includes the right packages and starter code (placeholder values shown):
+If you're using ASP.NET Core 3.1, install the project templates from NuGet.
+
+```dotnetcli
+dotnet new --install Microsoft.Identity.Web.ProjectTemplates
+```
+
+For ASP.NET Core 3.1 *only*, append a `2` to the application type argument when you create a new project:
 
 ```dotnetcli
 dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
 ```
 
-#### GitHub
+The following diagram shows several of the available app type templates and their arguments. Append a `2` to the app type argument (`blazorserver2` in the example) only if you're using the ASP.NET Core 3.1 SDK and you installed the templates by using `dotnet new --install`.
 
-Microsoft Identity Web is an open-source project hosted on GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-identity-web</a>
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web":::
+<br /><sup><b>*</b></sup> `MultiOrg` is not supported with `webapi2`, but can be enabled in *appsettings.json* by setting tenant to `common` or `organizations`
+<br /><sup><b>**</b></sup> `--calls-graph` is not supported for Azure AD B2C
 
-The [repository wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) contains additional documentation, and if you need help or discover a bug, you can [file an issue](https://github.com/AzureAD/microsoft-identity-web/issues).
+## Features of the project templates
 
-## Features
-
-Microsoft Identity Web includes several features not provided if you use the default ASP.NET 3.1 project templates.
+Microsoft Identity Web includes several features not available in the default ASP.NET Core 3.1 project templates.
 
 | Feature                                                                                  | ASP.NET Core 3.1                                                     | Microsoft Identity Web                                                                                  |
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|

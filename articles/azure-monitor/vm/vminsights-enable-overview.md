@@ -19,22 +19,16 @@ This article provides an overview of the options available to enable VM insights
 - On-premises virtual machines
 - Virtual machines hosted in another cloud environment.  
 
-To set up VM insights:
+## Installation options and supported machines
+The following table shows the installation methods available for different supported machines.
 
-* Enable a single Azure virtual machine, Azure virtual machine scale set, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
-* Enable multiple Azure virtual machines, Azure virtual machines, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant virtual machines and scale sets are reported, so you can decide whether to enable them and to remediate them.
-* Enable multiple Azure virtual machines, Azure Arc virtual machines, Azure virtual machine scale sets, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
-* Enable VM insights to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
+| Method | Scope |
+|:---|:---|
+| [Azure portal](vminsights-enable-portal.md) | Single Azure virtual machine,  Azure virtual machine scale set, or Azure Arc machine |
+| [Azure Policy](vminsights-enable-policy.md) | Multiple Azure virtual machines,  Azure virtual machine scale sets, or Azure Arc machines |
+| [PowerShell](vminsights-enable-powershell.md) |  Multiple Azure virtual machines,  Azure virtual machine scale sets, or Azure Arc machines |
+| [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises other cloud environments |
 
-## Supported machines
-VM insights supports the following machines:
-
-- Azure virtual machine
-- Azure virtual machine scale set
-- Hybrid virtual machine connected with Azure Arc
-
-> [!IMPORTANT]
-> If the ethernet device for your virtual machine has more than nine characters, then it won’t be recognized by VM insights and data won’t be sent to the InsightsMetrics table. The agent will collect data from [other sources](../agents/agent-data-sources.md).
 
 ## Supported Azure Arc machines
 VM insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
@@ -49,6 +43,9 @@ VM insights is available for Azure Arc-enabled servers in regions where the Arc 
 
 VM insights supports any operating system that supports the Log Analytics agent and Dependency agent. See [Overview of Azure Monitor agents
 ](../agents/agents-overview.md#supported-operating-systems) for a complete list.
+
+> [!IMPORTANT]
+> If the ethernet device for your virtual machine has more than nine characters, then it won’t be recognized by VM insights and data won’t be sent to the InsightsMetrics table. The agent will collect data from [other sources](../agents/agent-data-sources.md).
 
 > [!IMPORTANT]
 > The VM insights guest health feature has more limited operating system support while it's in public preview. See [Enable VM insights guest health (preview)](../vm/vminsights-health-enable.md) for a detailed list.
@@ -79,8 +76,12 @@ Output for this command will look similar to the following and specify whether a
 
 ## Log Analytics workspace
 VM insights requires a Log Analytics workspace. See [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md) for details and requirements of this workspace.
+
+> [!NOTE]
+> VM Insights does not support sending data to more than one Log Analytics workspace (multi-homing).
+> 
 ## Agents
-VM insights requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. To onboard the resource, install these agents and connect them to the workspace.  See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
+When you enable VM insights for a machine, the following two agents are installed. See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
 
 - [Log Analytics agent](../agents/log-analytics-agent.md). Collects events and performance data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. Deployment methods for the Log Analytics agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md).
 - Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. Deployment methods for the Dependency agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).

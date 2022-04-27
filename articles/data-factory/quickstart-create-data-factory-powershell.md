@@ -1,14 +1,14 @@
 ---
-title: Copy data in Blob Storage using Azure Data Factory 
+title: Copy data in Blob Storage using Azure Data Factory
 description: Create an Azure Data Factory using PowerShell to copy data from one location in Azure Blob storage to another location.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 04/10/2020
-ms.author: jingwang 
-ms.custom: devx-track-azurepowershell
+ms.date: 01/26/2022
+ms.author: jianleishen
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create an Azure Data Factory using PowerShell
 
@@ -60,7 +60,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"ADFQuickStartRG"`.
 
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFQuickStartRG";
     ```
 

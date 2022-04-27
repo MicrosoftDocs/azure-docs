@@ -4,7 +4,7 @@ description: Understanding the data independence of your Azure Active Directory 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
@@ -35,10 +35,7 @@ If a non-administrative user of organization 'Contoso' creates a test organizati
 
 ## Synchronization independence
 
-You can configure each Azure AD organization independently to get data synchronized from a single instance of either:
-
-* The Azure AD Connect tool, to synchronize data with a single AD forest.
-* The Azure Active Directory Connector for Forefront Identity Manager, to synchronize data with one or more on-premises forests, and/or non-Azure AD data sources.
+You can configure each Azure AD organization independently to get data synchronized from different AD forests, using the Azure AD Connect tool.  See [topologies for Azure AD Connect](../hybrid/plan-connect-topologies.md) for more information on supported topologies when there are multiple Azure AD tenants.
 
 ## Add an Azure AD organization
 

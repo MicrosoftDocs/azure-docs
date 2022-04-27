@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Quickstart: Deploy Unity sample to HoloLens

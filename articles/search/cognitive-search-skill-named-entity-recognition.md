@@ -6,7 +6,7 @@ description: Extract named entities for person, location and organization from t
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 

@@ -28,12 +28,9 @@ Tags enable users to group devices. Devices need to have a ADUGroup key and a va
 }
 ```
 
+## Default device group
 
-## Uncategorized device group
-
-Uncategorized is a reserved word that is used to group devices that:
-- Don't have the ADUGroup device or module twin tag.
-- Have ADUGroup device or module twin tag but a group is not created with this group name.
+Any device that has the Device Update agent installed and provisioned, but does not have a ADUGroup tag added to its device or module twin will be added to a default group. Default groups or system-assigned groups help reduce the overhead of tagging and grouping devices, so customers can easily deploy updates to them. Default groups cannot be deleted or re-created by customers. Customers cannot change the definition or add/remove devices from a default group manually. Devices with the same device class are grouped together in a default group. Default group names are reserved within an IOT solution. Default groups will be named in the format “Default-(deviceClassID)”. All deployment features that are available for user-defined groups are also available for default, system-assigned groups.
 
 For example consider the devices with their device twin tags below:
 
@@ -69,9 +66,14 @@ Below are the devices and the possible groups that can be created for them.
 |Device1	|Group1|
 |Device2	|Group1|
 |Device3	|Group2|
-|Device4	|Uncategorized|
+|Device4	|DefaultGroup1-(deviceClassId)|
 
 
+## Invalid group
+
+A corresponding invalid group is created for every user-defined group. A device is added to the invalid group if it doesn't meet the compatibility requirements of the user-defined group. This can be resolved by either re-tagging and regrouping the device under a new group, or modifying it's compatibility properties through the agent configuration file. 
+
+An invalid group only exists for diagnostic purposes. Updates cannot be deployed to invalid groups
 
 ## Next steps
 

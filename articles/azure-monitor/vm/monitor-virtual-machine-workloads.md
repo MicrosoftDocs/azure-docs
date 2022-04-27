@@ -12,6 +12,9 @@ ms.date: 06/21/2021
 # Monitor virtual machines with Azure Monitor: Workloads
 This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to monitor workloads that are running on the guest operating systems of your virtual machines. This article includes details on analyzing and alerting on different sources of data on your virtual machines.
 
+> [!NOTE]
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md) or [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md). 
+
 ## Configure additional data collection
 VM insights collects only performance data from the guest operating system of enabled machines. You can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. It's configured only once because any agent that connects to the workspace automatically downloads the configuration and immediately starts collecting the defined data.
 
@@ -280,7 +283,7 @@ Use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBo
 
     ```kusto
     VMConnection
-    | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
+    | where Computer == <replace this with a computer name, e.g. 'acme-demo'>
     | extend bythehour = datetime_part("hour", TimeGenerated)
     | project bythehour, LinksFailed
     | summarize failCount = count() by bythehour
@@ -292,7 +295,7 @@ Use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBo
 
     ```kusto
     VMConnection
-    | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
+    | where Computer == <replace this with a computer name, e.g. 'acme-demo'>
     | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h)
     | render timechart
     ```
@@ -318,7 +321,7 @@ A synthetic transaction connects to an application or service running on a machi
 
 ## SQL Server
 
-Use [SQL insights](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
+Use [SQL Insights (preview)](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
 
 ## Next steps
 

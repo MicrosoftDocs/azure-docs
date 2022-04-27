@@ -1,11 +1,11 @@
 ---
 title: Configure the Azure HPC Cache aggregated namespace
 description: How to create client-facing paths for back-end storage with Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/22/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Set up the aggregated namespace
@@ -60,7 +60,7 @@ From the Azure portal, load the **Namespace** settings page. You can add, change
 
 When using the Azure CLI, you must add a namespace path when you create the storage target. Read [Add a new Azure Blob storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) for details.
 
-To update the target's namespace path, use the [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update) command. The arguments for the update command are similar to the arguments in the create command, except that you do not pass the container name or storage account.
+To update the target's namespace path, use the [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az-hpc-cache-blob-storage-target-update) command. The arguments for the update command are similar to the arguments in the create command, except that you do not pass the container name or storage account.
 
 You cannot delete a namespace path from a blob storage target with the Azure CLI, but you can overwrite the path with a different value.
 
@@ -96,7 +96,7 @@ Fill in these values for each namespace path:
 
 * **Export subdirectory** - If you want this path to mount a specific subdirectory of the export, enter it here. If not, leave this field blank.
 
-![screenshot of the portal namespace page with the edit page open at the right. The edit form shows settings for an nfs storage target namespace path](media/namespace-edit-nfs.png)
+![Screenshot of the portal namespace page with the edit page open at the right. The edit form shows settings for an N F S storage target namespace path.](media/namespace-edit-nfs.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -104,7 +104,7 @@ Fill in these values for each namespace path:
 
 When using the Azure CLI, you must add at least one namespace path when you create the storage target. Read [Add a new NFS storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) for details.
 
-To update the target's namespace path or to add additional paths, use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) command. Use the ``--junction`` option to specify all of the namespace paths you want.
+To update the target's namespace path or to add additional paths, use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az-hpc-cache-nfs-storage-target-update) command. Use the ``--junction`` option to specify all of the namespace paths you want.
 
 The options used for the update command are similar to the "create" command, except that you do not pass the storage system information (IP address or hostname), and the usage model is optional. Read [Add a new NFS storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) for more details about the syntax of the ``--junction`` option.
 

@@ -1,15 +1,15 @@
 ---
-title: Enable age gating in Azure Active Directory B2C | Microsoft Docs
+title: Enable age gating in Azure Active Directory B2C  
 description: Learn about how to identify minors using your application.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.author: mimart
+ms.date: 04/07/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -80,7 +80,7 @@ When you sign-in as a minor, you should see the following error message: *Unfort
 
 ## Enable age gating in your custom policy
 
-1. Get the example of an age gating policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies).
+1. Get the example of an age gating policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/age-gating).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 1. Upload the policy files.
 

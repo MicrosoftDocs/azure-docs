@@ -1,47 +1,42 @@
 ---
-title: Quickstart - Create an Azure confidential computing virtual machine in the Azure portal
-description: Get started with your deployments by learning how to quickly create a confidential computing virtual machine in the Azure portal.
-author: JBCook
+title: Quickstart - Create Intel SGX VM in the Azure Portal
+description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure Portal
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 06/13/2021
-ms.author: JenCook
+ms.date: 11/1/2021
+ms.author: stempesta
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 
-# Quickstart: Deploy an Azure confidential computing VM in the Azure portal
+# Quickstart: Create Intel SGX VM in the Azure portal
 
-Get started with Azure confidential computing by using the Azure portal to create a virtual machine (VM) backed by Intel SGX. You'll then be able to run enclave applications.
-
-This tutorial is recommended for you if you're interested in deploying a confidential compute virtual machine with custom configuration. Otherwise, we recommend following the [confidential Computing virtual machine deployment steps for the Microsoft commercial marketplace](quick-create-marketplace.md).
-
+This tutorial guides you through the process of deploying Intel SGX VMs using Azure portal. Otherwise, we recommend following [Azure Marketplace](quick-create-marketplace.md) templates.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
 
 > [!NOTE]
-> Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
+> Free trial accounts do not have access to the VMs in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
 
 ## Sign in to Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 
 1. At the top, select **Create a resource**.
 
-1. In the **Marketplace** pane, select **Compute** on the left.
+1. On the left hand side pane, select, select **Compute**.
 
-1. Find and select **Virtual machine**.
+1. Select **Create Virtual Machine**.
 
     ![Deploy a VM](media/quick-create-portal/compute-virtual-machine.png)
 
-1. On the Virtual machine landing page, select **Create**.
-
-
-## Configure a confidential computing virtual machine
+## Configure an Intel SGX Virtual Machine
 
 1. In the **Basics** tab, select your **Subscription** and **Resource Group**.
 
@@ -52,28 +47,23 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
    * **Region**: Select the Azure region that's right for you.
 
         > [!NOTE]
-        > Confidential compute virtual machines only run on specialized hardware available in specific regions. For the latest available regions for DCsv2-Series VMs, see [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+        > Intel SGX VMs run on specialized hardware in specific regions. For the latest regional availability, look for DCsv2-series or DCsv3/DCdsv3-series in [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 1. Configure the operating system image that you would like to use for your virtual machine.
 
-    * **Choose Image**: For this tutorial, select Ubuntu 18.04 LTS. You may also select Windows Server 2019, Windows Server 2016, or and Ubuntu 16.04 LTS. If you choose to do so, you'll be redirected in this tutorial accordingly.
+    * **Choose Image**: For this tutorial, select Ubuntu 20.04 LTS - Gen2. You may also select Ubuntu 18.04 LTS - Gen2, or Windows Server 2019.
     
-    * **Toggle the image for Gen 2**: Confidential compute virtual machines only run on [Generation 2](../virtual-machines/generation-2.md) images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
+    * **Update to Generation 2**: Underneath Image, select **Configure VM generation**, in the fly out, then select **Generation 2**.
     
+        ![image](https://user-images.githubusercontent.com/63871188/137009767-421ee49a-ded8-4cfd-ac53-a3d6750880b9.png)
 
-        ![Advanced Tab](media/quick-create-portal/advanced-tab-virtual-machine.png)
 
-
-        ![VM Generation](media/quick-create-portal/gen2-virtual-machine.png)
-
-    * **Return to basic configuration**: Go back to the **Basics** tab using the navigation at the top.
-
-1. Choose a virtual machine with confidential compute capabilities in the size selector by choosing **change size**. In the virtual machine size selector, click **Clear all filters**. Choose **Add filter**, select **Family** for the filter type, and then select only **Confidential compute**.
+1. Choose a virtual machine with Intel SGX capabilities by clicking on **+ Add filter** to create a filter, select **Type** for Filter type, and check only **Confidential compute** from the list in the next dropdown.
 
     ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](virtual-machine-solutions.md).
+    > You should see sizes **DC(number)s_v2**, **DC(number)s_v3** and **DC(number)ds_v3**. [Learn more](virtual-machine-solutions-sgx.md).
 
 1. Fill in the following information:
 
@@ -98,8 +88,8 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. Make changes in the **Disks** tab.
 
-   * If you chose a **DC1s_v2**, **DC2s_v2**, **DC4s_V2** virtual machine, choose a disk type that is either **Standard SSD** or **Premium SSD**. 
-   * If you chose a **DC8_v2** virtual machine, choose **Standard SSD** as your disk type.
+   * **DCsv2-series** supports **Standard SSD**, **Premium SSD** is supported across DC1, DC2 and DC4. 
+   * **DCsv3 and DCdsv3-series** supports **Standard SSD**, **Premium SSD** and **Ultra Disk**
 
 1. Make any changes you want to the settings in the following tabs or keep the default settings.
 
@@ -130,7 +120,7 @@ You can find the Public IP address of your VM in the Azure portal, under the Ove
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
-1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 1. Run PuTTY.
 
@@ -143,28 +133,26 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 > [!NOTE]
 > If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.
 
-## Intel SGX Drivers
+## Install Azure DCAP Client
 
 > [!NOTE]
-> Intel SGX drivers as already part of the Ubuntu & Windows Azure Gallery Images. No special installation of the drivers is required. Optionally you can also update the existing drivers shipped in the images by visiting the [Intel SGX DCAP drivers list](https://01.org/intel-software-guard-extensions/downloads).
+> Trusted Hardware Identity Management (THIM) is a free Azure service that helps you manage the hardware identities of different Trusted Execution Environments (TEEs). It fetches collateral from Intel Provisioning Certification Service (PCS) and caches it. The service enforces a minimum Trusted Compute Base (TCB) level as Azure security baseline, for attestation purposes. For DCsv3 and DCdsv3-series Azure VMs, the Intel certificates can only be fetched from THIM, as it is not possible to make direct calls to Intel service from the VMs. 
 
-## Optional: Testing enclave apps built with Open Enclave SDK (OE SDK) <a id="Install"></a>
-
-Follow the step-by-step instructions to install the [OE SDK](https://github.com/openenclave/openenclave) on your DCsv2-Series virtual machine running an Ubuntu 18.04 LTS Gen 2 image. 
-
-If your virtual machine runs on Ubuntu 18.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md).
+With the release of the Intel® Xeon Scalable Processors, remote attestation support is changing. DCsv3 and DCdsv3 only support [ECDSA-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) and the users are required to install [Azure DCAP](https://github.com/Microsoft/Azure-DCAP-Client) client to interact with THIM and fetch TEE collateral for quote generation during attestation process. DCsv2 continues to support [EPID-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. 
+When no longer needed, you can delete the resource group, virtual machine, and all its related resources. 
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
 ## Next steps
 
-In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
+In this quickstart, you deployed and connected to your Intel SGX VM. For more information, see [Solutions on Virtual Machines](virtual-machine-solutions-sgx.md). 
 
 Discover how you can build confidential computing applications, by continuing to the Open Enclave SDK samples on GitHub. 
 
 > [!div class="nextstepaction"]
 > [Building Open Enclave SDK Samples](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
+
+Microsoft Azure Attestation is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it. Learn [more](../attestation/overview.md)

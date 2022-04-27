@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) with Microsoft Azure Maps'
 description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather services using Azure Notebooks(Python).
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-
 ms.custom: mvc, devx-track-python
 ---
 
@@ -18,13 +17,13 @@ Wind power is one alternative energy source for fossil fuels to combat against c
 In this tutorial, you will:
 
 > [!div class="checklist"]
+>
 > * Work with data files in [Azure Notebooks](https://notebooks.azure.com) in the cloud.
-> *	Load demo data from file.
-> *	Call Azure Maps REST APIs in Python.
+> * Load demo data from file.
+> * Call Azure Maps REST APIs in Python.
 > * Render location data on the map.
-> *	Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecast) weather data.
+> * Enrich the demo data with Azure Maps [Daily Forecast](/rest/api/maps/weather/getdailyforecast) weather data.
 > * Plot forecast data in graphs.
-
 
 ## Prerequisites
 
@@ -32,7 +31,6 @@ To complete this tutorial, you first need to:
 
 1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account).
 2. Get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
@@ -84,7 +82,7 @@ for i in range(0, len(coords), 2):
     wind_direction.append([])
     
     query = str(coords[i])+', '+str(coords[i+1])
-    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={}&duration=15".format(query, subscription_key))).json()
+    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&duration=15".format(query, subscription_key))).json()
     j+=1
     for day in range(len(forecast_response['forecasts'])):
             date = forecast_response['forecasts'][day]['date'][:10]
@@ -109,7 +107,7 @@ session = aiohttp.ClientSession()
 
 pins="default|la-25+60|ls12|lc003C62|co9B2F15||'Location A'{} {}|'Location B'{} {}|'Location C'{} {}|'Location D'{} {}".format(coords[1],coords[0],coords[3],coords[2],coords[5],coords[4], coords[7],coords[6])
 
-image_response = "https://atlas.microsoft.com/map/static/png?subscription-key={}&api-version=1.0&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
+image_response = "https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
 
 static_map_response = await session.get(image_response)
 
@@ -121,7 +119,6 @@ display(Image(poi_range_map))
 ```
 
 ![Turbine locations](./media/weather-service-tutorial/location-map.png)
-
 
 We'll group the forecast data with the demo data based on the station ID. The station ID is for the weather data center. This grouping augments the demo data with the forecast data.
 
@@ -145,9 +142,7 @@ The following table displays the combined historical and forecast data for one o
 grouped_weather_data.get_group(station_ids[0]).reset_index()
 ```
 
-<center>
-
-![Grouped data](./media/weather-service-tutorial/grouped-data.png)</center>
+<center>![Grouped data](./media/weather-service-tutorial/grouped-data.png)</center>
 
 ## Plot forecast data
 

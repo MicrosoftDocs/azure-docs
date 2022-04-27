@@ -208,6 +208,8 @@ After you've created the site pairing, follow the VMware documentation mentioned
 
 - [Perform a Failback (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-556E84C0-F8B7-4F9F-AAB0-0891C084EDE4.html)
 
+   >[!NOTE]
+   >If IP Customization Rules have been defined for network mappings between the AVS environment and the on-premises environment, these rules will not be applied on failback from the AVS environment to the on-premises environment due to a [known issue](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-releasenotes-8-3.html#knownissues) with SRM 8.3.0. You can work around this limitation by removing protection from all VMs in the Protection Group and then reconfiguring protection on them prior to initiating the failback.
 
 
 ## Ongoing management of your SRM solution

@@ -27,7 +27,22 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade a non Availability Zone (AZ) gateway to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime. You do not need to delete and recreate the gateway to upgrade an AZ-enabled SKU.
+If you want to upgrade your gateway to a more powerful gateway SKU, you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet or perform the upgrade directly in the ExpressRoute virtual network gateway configuration blade in the Azure Portal. The following upgrades are supported:
+
+- Standard to High Performance
+- Standard to Ultra Performance
+- High Performance to Ultra Performance
+- ErGw1Az to ErGw2Az
+- ErGw1Az to ErGw3Az
+- ErGw2Az to ErGw3Az
+- Default to Standard
+
+Additionally, you can downgrade the virtual network gateway SKU. The following downgrades are supported:
+- High Performance to Standard
+- ErGw2Az to ErGw1Az
+
+For all other downgrade scenarios, you will need to delete and recreate the gateway. Recreating a gateway incurs downtime.
+
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 The following table shows the features supported across each gateway type.
 
@@ -43,17 +58,17 @@ The following table shows the gateway types and the estimated performance scale 
 ### Testing conditions
 ##### **Standard/ERGw1Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Traffic sent from on-premises: 1,000 Mega-Bits per second
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 4,000
 ##### **High Performance/ERGw2Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Traffic sent from on-premises: 2,000 Mega-Bits per second
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
 ##### **Ultra Performance/ErGw3Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Traffic sent from on-premises: 10,000 Mega-Bits per second
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
 
@@ -105,11 +120,6 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 * ErGw3AZ
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you also have the option to deploy the gateway in a specific zone. This is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
-
-> [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU for the gateway you deploy in a dual stack gateway subnet.
-> 
->
 
 ## <a name="fastpath"></a>FastPath
 

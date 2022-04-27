@@ -1,11 +1,13 @@
 ---
-title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code 
-description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project. 
+title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
+description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
 author: ThomasWeiss
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
+ms.devlang: csharp, javascript
+ms.custom: mode-ui
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
@@ -104,7 +106,6 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ```
 ---
-Now, you can add the storage output binding to your project.  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -170,7 +171,7 @@ To create a binding, right-click (Ctrl+click on macOS) the `function.json` file 
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
 
-A binding is added to the `bindings` array in your function.json, which should look like the following:
+A binding is added to the `bindings` array in your function.json, which should look like the following after removing any `undefined` values present
 
 ```json
 {

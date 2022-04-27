@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/30/2021
+ms.date: 04/12/2022
 
 ---
 # Array functions for Bicep
@@ -235,6 +235,82 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
+## indexOf
+
+`indexOf(arrayToSearch, itemToFind)`
+
+Returns an integer for the index of the first occurrence of an item in an array. The comparison is **case-sensitive** for strings.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| arrayToSearch | Yes | array | The array to use for finding the index of the searched item. |
+| itemToFind | Yes | int, string, array, or object | The item to find in the array. |
+
+### Return value
+
+An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, -1 is returned.
+
+### Examples
+
+The following example shows how to use the indexOf and lastIndexOf functions:
+
+```bicep
+var names = [
+  'one'
+  'two'
+  'three'
+]
+
+var numbers = [
+  4
+  5
+  6
+]
+
+var collection = [
+  names
+  numbers
+]
+
+var duplicates = [
+  1
+  2
+  3
+  1
+]
+
+output index1 int = lastIndexOf(names, 'two')
+output index2 int = indexOf(names, 'one')
+output notFoundIndex1 int = lastIndexOf(names, 'Three')
+
+output index3 int = lastIndexOf(numbers, 4)
+output index4 int = indexOf(numbers, 6)
+output notFoundIndex2 int = lastIndexOf(numbers, '5')
+
+output index5 int = indexOf(collection, numbers)
+
+output index6 int = indexOf(duplicates, 1)
+output index7 int = lastIndexOf(duplicates, 1)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| index1 |int | 1 |
+| index2 | int | 0 |
+| index3 | int | 0 |
+| index4 | int | 2 |
+| index5 | int | 1 |
+| index6 | int | 0 |
+| index7 | int | 3 |
+| notFoundIndex1 | int | -1 |
+| notFoundIndex2 | int | -1 |
+
 ## intersection
 
 `intersection(arg1, arg2, arg3, ...)`
@@ -330,7 +406,7 @@ The output from the preceding example is:
 
 ## last
 
-`last (arg1)`
+`last(arg1)`
 
 Returns the last element of the array, or last character of the string.
 
@@ -367,6 +443,82 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
+
+## lastIndexOf
+
+`lastIndexOf(arrayToSearch, itemToFind)`
+
+Returns an integer for the index of the last occurrence of an item in an array. The comparison is **case-sensitive** for strings.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| arrayToSearch | Yes | array | The array to use for finding the index of the searched item. |
+| itemToFind | Yes | int, string, array, or object | The item to find in the array. |
+
+### Return value
+
+An integer representing the last index of the item in the array. The index is zero-based. If the item isn't found, -1 is returned.
+
+### Examples
+
+The following example shows how to use the indexOf and lastIndexOf functions:
+
+```bicep
+var names = [
+  'one'
+  'two'
+  'three'
+]
+
+var numbers = [
+  4
+  5
+  6
+]
+
+var collection = [
+  names
+  numbers
+]
+
+var duplicates = [
+  1
+  2
+  3
+  1
+]
+
+output index1 int = lastIndexOf(names, 'two')
+output index2 int = indexOf(names, 'one')
+output notFoundIndex1 int = lastIndexOf(names, 'Three')
+
+output index3 int = lastIndexOf(numbers, 4)
+output index4 int = indexOf(numbers, 6)
+output notFoundIndex2 int = lastIndexOf(numbers, '5')
+
+output index5 int = indexOf(collection, numbers)
+
+output index6 int = indexOf(duplicates, 1)
+output index7 int = lastIndexOf(duplicates, 1)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| index1 |int | 1 |
+| index2 | int | 0 |
+| index3 | int | 0 |
+| index4 | int | 2 |
+| index5 | int | 1 |
+| index6 | int | 0 |
+| index7 | int | 3 |
+| notFoundIndex1 | int | -1 |
+| notFoundIndex2 | int | -1 |
 
 ## length
 
@@ -632,7 +784,7 @@ The output from the preceding example with the default values is:
 
 `union(arg1, arg2, arg3, ...)`
 
-Returns a single array or object with all elements from the parameters. Duplicate values or keys are only included once.
+Returns a single array or object with all elements from the parameters. For arrays, duplicate values are included once. For objects, duplicate property names are only included once.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -647,6 +799,14 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 ### Return value
 
 An array or object.
+
+### Remarks
+
+The union function uses the sequence of the parameters to determine the order and values of the result.
+
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any more parameters. If a value is already present, its earlier placement in the array is preserved.
+
+For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
 ### Example
 
@@ -674,6 +834,7 @@ param firstArray array = [
 param secondArray array = [
   'three'
   'four'
+  'two'
 ]
 
 output objectOutput object = union(firstObject, secondObject)

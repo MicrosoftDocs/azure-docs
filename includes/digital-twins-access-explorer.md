@@ -7,10 +7,15 @@ ms.date: 05/04/2021
 ms.author: baanders
 ---
 
-## How to access
-
-The main way to access Azure Digital Twins Explorer is through the [Azure portal](https://portal.azure.com).
-
-To open Azure Digital Twins Explorer for an Azure Digital Twins instance, first navigate to the instance in the portal, by searching for its name in the portal search bar. Next, select the **Open Azure Digital Twins Explorer (preview)** button to open an Azure Digital Twins Explorer window connected to the instance.
+Next, select the **Open Azure Digital Twins Explorer (preview)** button.
 
 :::image type="content" source="../articles/digital-twins/media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Screenshot of the Azure portal showing the Overview page for an Azure Digital Twins instance. There's a highlight around the Open Azure Digital Twins Explorer (preview) button." lightbox="../articles/digital-twins/media/includes/azure-digital-twins-explorer-portal-access.png":::
+
+This will open Azure Digital Twins Explorer in a new tab. If this is your first time using the Explorer, you'll see a welcome modal summarizing its key features.
+
+>[!NOTE]
+>If Azure Digital Twins Explorer can't automatically connect to your instance, you'll see the following screen asking you to specify an Azure Digital Twins URL.
+>
+>:::image type="content" source="../articles/digital-twins/media/includes/azure-digital-twins-explorer-no-environment.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an empty editable box for the Azure Digital Twins URL." lightbox="../articles/digital-twins/media/includes/azure-digital-twins-explorer-no-environment.png":::
+>
+>If you see this, enter *https://* into the box, followed by the host name of your instance (this can be found back on the instance's **Overview** page in the portal). These values together make up the instance URL. Select **Save** to connect to your instance.

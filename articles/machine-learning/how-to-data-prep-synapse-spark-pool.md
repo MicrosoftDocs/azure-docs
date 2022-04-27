@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
 
 
@@ -95,7 +95,7 @@ env.register(workspace=ws)
 To begin data preparation with the Apache Spark pool and your custom environment, specify the Apache Spark pool name and which environment to use during the Apache Spark session. Furthermore, you can provide your subscription ID, the machine learning workspace resource group, and the name of the machine learning workspace.
 
 >[!IMPORTANT]
-> Make sure to [Allow session level packages](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) is enabled in the linked Synapse workspace.
+> Make sure to [Allow session level packages](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages) is enabled in the linked Synapse workspace.
 >
 >![enable session level packages](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
 
@@ -299,6 +299,8 @@ script_run_config = ScriptRunConfig(source_directory = './code',
                                                  "--output_dir", output],
                                     run_config = run_config)
 ```
+
+For more infomation about  `run_config.spark.configuration` and general Spark configuration, see [SparkConfiguration Class](/python/api/azureml-core/azureml.core.runconfig.sparkconfiguration) and [Apache Spark's configuration documentation](https://spark.apache.org/docs/latest/configuration.html).
 
 Once your `ScriptRunConfig` object is set up, you can submit the run.
 

@@ -3,20 +3,20 @@ title: Diagnose a virtual machine network traffic filter problem | Microsoft Doc
 description: Learn how to diagnose a virtual machine network traffic filter problem by viewing the effective security rules for a virtual machine.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: twooley
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
-ms.author: kumud 
-ms.custom: devx-track-azurepowershell
+ms.author: mbender 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Diagnose a virtual machine network traffic filter problem
@@ -110,9 +110,9 @@ In the previous output, the network interface name is *myVMVMNic*.
 
 ## Diagnose using Azure CLI
 
-If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+If using Azure CLI commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you're running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective security rules for a network interface with [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg). The following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named *myResourceGroup*:
+Get the effective security rules for a network interface with [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). The following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -189,7 +189,7 @@ Consider the following points when troubleshooting connectivity problems:
 * Default security rules block inbound access from the internet, and only permit inbound traffic from the virtual network. To allow inbound traffic from the Internet, add security rules with a higher priority than default rules. Learn more about [default security rules](./network-security-groups-overview.md#default-security-rules), or how to [add a security rule](manage-network-security-group.md#create-a-security-rule).
 * If you have peered virtual networks, by default, the **VIRTUAL_NETWORK** service tag automatically expands to include prefixes for peered virtual networks. To troubleshoot any issues related to virtual network peering, you can view the prefixes in the **ExpandedAddressPrefix** list. Learn more about [virtual network peering](virtual-network-peering-overview.md) and [service tags](./network-security-groups-overview.md#service-tags).
 * Effective security rules are only shown for a network interface if there is an NSG associated with the VM's network interface and, or, subnet, and if the VM is in the running state.
-* If there are no NSGs associated with the network interface or subnet, and you have a [public IP address](virtual-network-public-ip-address.md) assigned to a VM, all ports are open for inbound access from and outbound access to anywhere. If the VM has a public IP address, we recommend applying an NSG to the subnet the network interface.
+* If there are no NSGs associated with the network interface or subnet, and you have a [public IP address](./ip-services/virtual-network-public-ip-address.md) assigned to a VM, all ports are open for inbound access from and outbound access to anywhere. If the VM has a public IP address, we recommend applying an NSG to the subnet the network interface.
 
 ## Additional diagnosis
 

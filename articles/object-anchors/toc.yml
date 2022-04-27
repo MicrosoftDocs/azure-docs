@@ -1,3 +1,4 @@
+items:
 - name: Object Anchors documentation
   href: index.yml
 - name: Overview
@@ -28,8 +29,14 @@
       href: quickstarts/upgrade-unity-quickstart-to-2020.md
     - name: Starting a new Unity HoloLens app
       href: quickstarts/new-unity-hololens-app.md
+    - name: Unity remoting support
+      href: quickstarts/unity-remoting.md
   - name: Create HoloLens DirectX app
     href: quickstarts/get-started-hololens-directx.md
+- name: How-to
+  items:
+  - name: Move an Object Anchors account between regions
+    href: how-tos/move-azure-object-anchors-account.md
 - name: Samples
   items:
   - name: Azure Object Anchors samples (GitHub)

@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Virtual Desktop from Android - Azure
+title: Connect to Azure Virtual Desktop with the Android client - Azure
 description: How to connect to Azure Virtual Desktop using the Android client.
 author: Heidilohr
 ms.topic: how-to
@@ -26,7 +26,7 @@ Subscribe to the feed provided by your admin to get the list of managed resource
 
 To subscribe to a feed:
 
-1. In the Connection Center, tap **+**, and then tap **Remote Resource Feed**.
+1. In the Connection Center, tap **+**, and then tap **Workspaces**.
 2. Enter the feed URL into the **Feed URL** field. The feed URL can be either a URL or an email address.
    - If you use a URL, use the one your admin gave you, normally <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - To use email, enter your email address. The client will search for a URL associated with your email address if your admin configured the server that way.

@@ -1,21 +1,21 @@
 ---
-title: Migrate Azure SQL Database tables to Azure CosmosDB with Azure Data Factory
-description: Take an existing normalized database schema from Azure SQL Database and migrate to an Azure CosmosDB denormalized container with Azure Data Factory.
+title: Migrate Azure SQL Database tables to Azure Cosmos DB with Azure Data Factory
+description: Take an existing normalized database schema from Azure SQL Database and migrate to an Azure Cosmos DB denormalized container with Azure Data Factory.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 01/27/2022
 ---
 
-# Migrate normalized database schema from Azure SQL Database to Azure CosmosDB denormalized container
+# Migrate normalized database schema from Azure SQL Database to Azure Cosmos DB denormalized container
 
-This guide will explain how to take an existing normalized database schema in Azure SQL Database and convert it into an Azure CosmosDB denormalized schema for loading into Azure CosmosDB.
+This guide will explain how to take an existing normalized database schema in Azure SQL Database and convert it into an Azure Cosmos DB denormalized schema for loading into Azure Cosmos DB.
 
 SQL schemas are typically modeled using third normal form, resulting in normalized schemas that provide high levels of data integrity and fewer duplicate data values. Queries can join entities together across tables for reading. CosmosDB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
 
-Using Azure Data Factory, we'll build a pipeline that uses a single Mapping Data Flow to read from two Azure SQL Database normalized tables that contain primary and foreign keys as the entity relationship. ADF will join those tables into a single stream using the data flow Spark engine, collect joined rows into arrays and produce individual cleansed documents for insert into a new Azure CosmosDB container.
+Using Azure Data Factory, we'll build a pipeline that uses a single Mapping Data Flow to read from two Azure SQL Database normalized tables that contain primary and foreign keys as the entity relationship. ADF will join those tables into a single stream using the data flow Spark engine, collect joined rows into arrays and produce individual cleansed documents for insert into a new Azure Cosmos DB container.
 
 This guide will build a new container on the fly called "orders" that will use the ```SalesOrderHeader``` and ```SalesOrderDetail``` tables from the standard SQL Server AdventureWorks sample database. Those tables represent sales transactions joined by ```SalesOrderID```. Each unique detail records has its own primary key of ```SalesOrderDetailID```. The relationship between header and detail is ```1:M```. We'll join on ```SalesOrderID``` in ADF and then roll each related detail record into an array called "detail".
 

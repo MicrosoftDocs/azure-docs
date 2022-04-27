@@ -3,23 +3,23 @@ title: Restore a deleted Microsoft 365 group - Azure AD | Microsoft Docs
 description: How to restore a deleted group, view restorable groups, and permanently delete a group in Azure Active Directory
 services: active-directory
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 12/02/2020
-ms.author: curtand 
+ms.author: curtand
 ms.reviewer: krbain
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, mode-other
 ms.collection: M365-identity-device-management
 ---
 # Restore a deleted Microsoft 365 group in Azure Active Directory
 
-When you delete an Microsoft 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It is not available for security groups and distribution groups. Please note that the 30-day group restoration period is not customizable.
+When you delete a Microsoft 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This behavior is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Microsoft 365 groups in Azure AD. It is not available for security groups and distribution groups. Please note that the 30-day group restoration period is not customizable.
 
 > [!NOTE]
-> Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-AzureADMSGroup` to delete an Microsoft 365 group.
+> Don't use `Remove-MsolGroup` because it purges the group permanently. Always use `Remove-AzureADMSGroup` to delete a Microsoft 365 group.
 
 The permissions required to restore a group can be any of the following:
 
@@ -42,7 +42,7 @@ User | Can restore any deleted Microsoft 365 group that they own
    - Restore the deleted group and its contents by selecting **Restore group**.
    - Permanently remove the deleted group by selecting **Delete permanently**. To permanently remove a group, you must be an administrator.
 
-## View the deleted Microsoft 365 groups that are available to restore using Powershell
+## View the deleted Microsoft 365 groups that are available to restore using PowerShell
 
 The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2) article.
 
@@ -59,7 +59,7 @@ The following cmdlets can be used to view the deleted groups to verify that the 
     Get-AzureADMSDeletedGroup –Id <objectId>
     ```
 
-## How to restore your deleted Microsoft 365 group using Powershell
+## How to restore your deleted Microsoft 365 group using 
 
 Once you have verified that the group is still available to restore, restore the deleted group with one of the following steps. If the group contains documents, SP sites, or other persistent objects, it might take up to 24 hours to fully restore a group and its contents.
 
@@ -79,7 +79,7 @@ Once you have verified that the group is still available to restore, restore the
 
 ## How do you know this worked?
 
-To verify that you’ve successfully restored an Microsoft 365 group, run the `Get-AzureADGroup –ObjectId <objectId>` cmdlet to display information about the group. After the restore request is completed:
+To verify that you’ve successfully restored a Microsoft 365 group, run the `Get-AzureADGroup –ObjectId <objectId>` cmdlet to display information about the group. After the restore request is completed:
 
 - The group appears in the Left navigation bar on Exchange
 - The plan for the group will appear in Planner

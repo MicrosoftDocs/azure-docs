@@ -13,6 +13,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 Azure Spring Cloud enables log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 ## Prerequisites
@@ -21,7 +23,7 @@ Azure Spring Cloud enables log streaming in Azure CLI to get real-time applicati
 * An instance of **Azure Spring Cloud** with a running application, for example [Spring Cloud app](./quickstart.md).
 
 > [!NOTE]
->  The ASC CLI extension is updated from version 0.2.0 to 0.2.1. This change affects the syntax of the command for log streaming: `az spring-cloud app log tail`, which is replaced by: `az spring-cloud app logs`. The command: `az spring-cloud app log tail` will be deprecated in a future release. If you have been using version 0.2.0, you can upgrade to 0.2.1. First, remove the old version with the command: `az extension remove -n spring-cloud`.  Then, install 0.2.1 by the command: `az extension add -n spring-cloud`.
+> The Azure Spring Cloud CLI extension is updated from version 0.2.0 to 0.2.1. This change affects the syntax of the command for log streaming: `az spring-cloud app log tail` is replaced by `az spring-cloud app logs`. The command: `az spring-cloud app log tail` will be deprecated in a future release. If you have been using version 0.2.0, you can upgrade to 0.2.1. First, remove the old version with the command: `az extension remove --name spring-cloud`.  Then, install 0.2.1 by the command: `az extension add --name spring-cloud`.
 
 ## Use CLI to tail logs
 
@@ -39,10 +41,10 @@ In following examples, the resource group and service name will be omitted in th
 If an app named auth-service has only one instance, you can view the log of the app instance with the following command:
 
 ```azurecli
-az spring-cloud app logs -n auth-service
+az spring-cloud app logs --name <application name>
 ```
 
-This will return logs:
+This will return logs similar to the following examples, where `auth-service` is the application name.
 
 ```output
 ...
@@ -61,10 +63,10 @@ If multiple instances exist for the app named `auth-service`, you can view the i
 First, you can get the app instance names with following command.
 
 ```azurecli
-az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
+az spring-cloud app show --name auth-service --query properties.activeDeployment.properties.instances --output table
 ```
 
-With results:
+This command produces results similar to the following output:
 
 ```output
 Name                                         Status    DiscoveryStatus
@@ -77,23 +79,25 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 Then, you can stream logs of an app instance with the option `-i/--instance` option:
 
 ```azurecli
-az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
+az spring-cloud app logs --name auth-service --instance auth-service-default-12-75cc4577fc-pw7hb
 ```
 
 You can also get details of app instances from the Azure portal.  After selecting **Apps** in the left navigation pane of your Azure Spring Cloud service, select **App Instances**.
 
 ### Continuously stream new logs
 
-By default, `az spring-cloud app logs` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):
+By default, `az spring-cloud app logs` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add `-f/--follow`:
 
 ```azurecli
-az spring-cloud app logs -n auth-service -f
+az spring-cloud app logs --name auth-service --follow
 ```
+
+When you use `--follow` to tail instant logs, the Azure Spring Cloud log streaming service will send heartbeat logs to the client every minute unless your application is writing logs constantly. These heartbeat log messages look like `2020-01-15 04:27:13.473: No log from server`.
 
 To check all the logging options supported:
 
 ```azurecli
-az spring-cloud app logs -h
+az spring-cloud app logs --help
 ```
 
 ### Format JSON structured logs
@@ -103,23 +107,23 @@ az spring-cloud app logs -h
 
 When the [Structured application log](./structured-app-log.md) is enabled for the app, the logs are printed in JSON format. This makes it difficult to read. The `--format-json` argument can be used to format the JSON logs into human readable format.
 
-```shell
+```azurecli
 # Raw JSON log
-$ az spring-cloud app logs -n auth-service
+$ az spring-cloud app logs --name auth-service
 {"timestamp":"2021-05-26T03:35:27.533Z","logger":"com.netflix.discovery.DiscoveryClient","level":"INFO","thread":"main","mdc":{},"message":"Disable delta property : false"}
 {"timestamp":"2021-05-26T03:35:27.533Z","logger":"com.netflix.discovery.DiscoveryClient","level":"INFO","thread":"main","mdc":{},"message":"Single vip registry refresh property : null"}
 
 # Formatted JSON log
-$ az spring-cloud app logs -n auth-service --format-json
+$ az spring-cloud app logs --name auth-service --format-json
 2021-05-26T03:35:27.533Z  INFO [           main] com.netflix.discovery.DiscoveryClient   : Disable delta property : false
 2021-05-26T03:35:27.533Z  INFO [           main] com.netflix.discovery.DiscoveryClient   : Single vip registry refresh property : null
 ```
 
 The `--format-json` argument also takes optional customized format, using the keyword argument [format string syntax](https://docs.python.org/3/library/string.html#format-string-syntax).
 
-```shell
+```azurecli
 # Custom format
-$ az spring-cloud app logs -n auth-service --format-json="{message}{n}"
+$ az spring-cloud app logs --name auth-service --format-json="{message}{n}"
 Disable delta property : false
 Single vip registry refresh property : null
 ```

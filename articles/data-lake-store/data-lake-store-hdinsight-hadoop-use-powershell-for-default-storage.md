@@ -5,8 +5,8 @@ description: Use Azure PowerShell to create and use Azure HDInsight clusters wit
 author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
-ms.date: 05/29/2018
-ms.author: normesta 
+ms.date: 12/06/2021
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -47,7 +47,7 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 
 To create a Data Lake Storage Gen1 account, do the following:
 
-1. From your desktop, open a PowerShell window, and then enter the snippets below. When you are prompted to sign in, sign in as one of the subscription administrators or owners. 
+1. From your desktop, open a PowerShell window, and then enter the snippets below. When you are prompted to sign in, sign in as one of the subscription administrators or owners.
 
     ```azurepowershell
     # Sign in to your Azure account
@@ -175,7 +175,7 @@ In this section, you create a service principal for an Azure AD application, ass
 2. Create a service principal by using the application ID.
 
     ```azurepowershell
-    $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
+    $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId -Role Contributor
 
     $objectId = $servicePrincipal.Id
     ```

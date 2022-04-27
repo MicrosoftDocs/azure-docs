@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Content Delivery Network, a solution for delivering high-bandwidth content, which can be hosted in Azure or any other location.
   ms.service: azure-cdn
   ms.topic: landing-page # Required
-  author: asudbring #Required; your GitHub user alias, with correct capitalization.
-  ms.author: allensu #Required; microsoft alias of author; optional team alias.
+  author: duongau #Required; your GitHub user alias, with correct capitalization.
+  ms.author: duau #Required; microsoft alias of author; optional team alias.
   ms.date: 02/24/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -29,7 +29,12 @@ landingContent:
           - text: Azure CDN video library
             url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
           - text: How to use HTTP overrides on Azure CDN from Microsoft
-            url: https://channel9.msdn.com/Shows/Azure-Friday/How-to-use-HTTP-overrides-on-Azure-CDN-from-Microsoft
+            url: /shows/Azure-Friday/How-to-use-HTTP-overrides-on-Azure-CDN-from-Microsoft
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Content Delivery Network (CDN)
+            url: /learn/modules/intro-to-azure-content-delivery-network
+      
 
   # Card (optional)
   - title: Get started

@@ -91,7 +91,7 @@ Use the following steps:
 If you choose to stop all scheduled backup jobs and delete all existing backups, use **Delete Backup Instance**.
 
 >[!Note]
->Deleting a backup instance will fail if the Snapshot Resource Group is deleted manually or permission to the Backup vault’s managed identity is revoked. In such failure cases, create the Snapshot Resource Group (with the same name) temporarily and provide Backup vault’s managed identity with required role permissions as documented [here](/azure/backup/backup-managed-disks-ps#assign-permissions). You can find the name of Snapshot Resource Group on the **Essentials** tab of **Backup instance** screen. 
+>Deleting a backup instance will fail if the Snapshot Resource Group is deleted manually or permission to the Backup vault’s managed identity is revoked. In such failure cases, create the Snapshot Resource Group (with the same name) temporarily and provide Backup vault’s managed identity with required role permissions as documented [here](./backup-managed-disks-ps.md#assign-permissions). You can find the name of Snapshot Resource Group on the **Essentials** tab of **Backup instance** screen. 
 
 To delete a disk backup instance, follow these steps:
 

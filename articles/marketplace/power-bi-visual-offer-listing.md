@@ -1,9 +1,9 @@
 ---
 title: Configure Power BI visual offer listing details in Partner Center for Microsoft AppSource
 description: Learn how to configure Power BI visual offer listing details in Partner Center for Microsoft AppSource.
-author: KesemSharabi
-ms.author: kesharab
-ms.reviewer: ""
+author: posurnis
+ms.author: posurnis
+ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
@@ -22,7 +22,7 @@ Provide listing details in any one or multiple supported languages. Select **Man
 
 ## Marketplace details
 
-- The **[Name](https://aka.ms/PBIvisualreservename)** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered when you created the offer, but you can change it. If you want to reserve more names (for example, in another language) select [Reserve more names](power-bi-visual-manage-names.md).
+- The **[Name](/office/dev/store/reserve-solution-name)** you enter here is shown to customers as the title of the offer. This field is pre-populated with the name you entered when you created the offer, but you can change it. If you want to reserve more names (for example, in another language) select [Reserve more names](power-bi-visual-manage-names.md).
 - Enter a **Summary** of your offer for the Search results summary. This description may be used in marketplace search results.
 - Enter a thorough **Description** of your offer, up to 3,000 characters. Customers will see this in the Marketplace listing overview.
 - Add up to three **Search keywords** to help people find your offer.
@@ -30,6 +30,9 @@ Provide listing details in any one or multiple supported languages. Select **Man
 ## Marketplace media
 
 Provide an icon and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 >[!NOTE]
 >If you have an issue uploading files, ensure your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
@@ -44,9 +47,7 @@ Provide at least one and up to five screenshots. The format should be PNG and th
 
 ### Additional information (optional)
 
-To increase the interest of users for your custom visual, provide  a **YouTube** or **Vimeo** link to a video about your visual. The format of your URL should include https:// or https://.
-
-For tips on making your offer listing as effective as possible, see [Tips for creating effective listings](https://aka.ms/PBIvisualeffectivelisting).
+To increase the interest of users for your custom visual, provide  a **YouTube** or **Vimeo** link to a video about your visual. The format of your URL should include `https://` or `https://`.
 
 For additional marketplace listing resources, see [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md).
 

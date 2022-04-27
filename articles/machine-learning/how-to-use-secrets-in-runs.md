@@ -8,7 +8,7 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 
 ---

@@ -7,7 +7,7 @@ ms.subservice: deployment-configuration
 ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: mathoma
+ms.reviewer: mathoma, kendralittle
 ms.date: 09/03/2021
 ms.custom: references_regions
 ---

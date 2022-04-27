@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations

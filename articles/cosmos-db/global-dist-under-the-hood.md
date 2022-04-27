@@ -1,11 +1,11 @@
 ---
 title: Global distribution with Azure Cosmos DB- under the hood 
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
-author: SnehaGunda
+author: rothja
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/02/2020
-ms.author: sngun
+ms.author: jroth
 ms.reviewer: sngun
 
 ---
@@ -13,9 +13,17 @@ ms.reviewer: sngun
 # Global data distribution with Azure Cosmos DB - under the hood
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB is a foundational service in Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB on massive stamps of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains for high availability within a region. The following image shows the Cosmos DB global distribution system topology:
+Azure Cosmos DB is a foundational service in Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds.
+
+At a high level, Azure Cosmos DB container data is [horizontally partitioned](partitioning-overview.md) into many replica-sets, which replicate writes, in each region. Replica-sets durably commit writes using a majority quorum.
+
+Each region contains all the data partitions of an Azure Cosmos container and can serve reads as well as serve writes when multi-region writes is enabled. If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data.
+
+Within a data center, we deploy and manage the Azure Cosmos DB on massive stamps of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains for high availability within a region. The following image shows the Cosmos DB global distribution system topology:
 
 :::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="System Topology" border="false":::
+
+
 
 **Global distribution in Azure Cosmos DB is turnkey:** At any time, with a few clicks or programmatically with a single API call, you can add or remove the geographical regions associated with your Cosmos database. A Cosmos database, in turn, consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema-agnostic and provide a scope for a query. Data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without the hassles of schema or index management, especially in a globally distributed setup.  
 

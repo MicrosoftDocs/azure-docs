@@ -1,20 +1,20 @@
 ---
 title: About API connectors in Azure AD B2C
-description: Use Azure Active Directory (Azure AD) API connectors to customize and extend your user flows by using REST APIs. 
+description: Use Azure Active Directory (Azure AD) API connectors to customize and extend your user flows by using REST APIs or outbound webhooks to external identity data sources. 
 services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 07/05/2021
+ms.date: 11/02/2021
 
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Use API connectors to customize and extend sign-up user flows
+# Use API connectors to customize and extend sign-up user flows with external identity data sources 
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -25,7 +25,7 @@ zone_pivot_groups: b2c-policy-type
 As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. For example, with API connectors, you can:
 
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
-- **Verify user identity**. Use an identity verification service to add an extra level of security to account creation decisions.
+- **Verify user identity**. Use an identity verification service or external identity data sources to add an extra level of security to account creation decisions.
 - **Integrate with a custom approval workflow**. Connect to a custom approval system for managing and limiting account creation.
 - **Augment tokens with attributes from external sources**. Enrich tokens with attributes about the user from sources external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
 - **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
@@ -74,9 +74,9 @@ The Identity Experience Framework, which underlies Azure Active Directory B2C (A
 
 Using Azure AD B2C, you can add your own business logic to a user journey by calling your own RESTful service. The Identity Experience Framework can send and receive data from your RESTful service to exchange claims. For example, you can:
 
-- **Validate user input data**. For example, you can verify that the email address provided by the user exists in your customer's database, and if not, present an error.
-- **Process claims**. If a user enters their first name in all lowercase or all uppercase letters, your REST API can format the name with only the first letter capitalized and return it to Azure AD B2C.
-- **Enrich user data by further integrating with corporate line-of-business applications**. Your RESTful service can receive the user's email address, query the customer's database, and return the user's loyalty number to Azure AD B2C. Then return claims can be stored in the user's Azure AD account, evaluated in the next orchestration steps, or included in the access token.
+- **Use external identity data source to validate user input data**. For example, you can verify that the email address provided by the user exists in your customer's database, and if not, present an error. You can as well think of API connectors as a way of supporting outbound webhooks because the call is made when an event occurs e.g. a sign up.
+- **Process claims**. If a user enters their first name in all lowercase or all uppercase letters, your REST API can format the name with only the first letter capitalized and return it to Azure AD B2C. However, when using a custom policy, [ClaimsTransformations](claimstransformations.md) is preferred over calling a RESTful API. 
+- **Dynamically enrich user data by further integrating with corporate line-of-business applications**. Your RESTful service can receive the user's email address, query the customer's database, and return the user's loyalty number to Azure AD B2C. Then return claims can be stored in the user's Azure AD account, evaluated in the next orchestration steps, or included in the access token.
 - **Run custom business logic**. You can send push notifications, update corporate databases, run a user migration process, manage permissions, audit databases, and perform any other workflows.
 
 ![Diagram of a RESTful service claims exchange](media/api-connectors-overview/restful-service-claims-exchange.png)

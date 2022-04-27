@@ -6,18 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: na
+ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
 ---
 # Group Policy and MDM settings
 
-Use these group policy and mobile device management (MDM) settings only on corporate-owned devices because these policies are applied to the user’s entire device. Applying an MDM policy to disable settings sync for a personal, user-owned device will negatively impact the use of that device. Additionally, other user accounts on the device will also be affected by the policy.
+Use these Group Policy and mobile device management (MDM) settings only on corporate-owned devices because these policies are applied to the user’s entire device. Applying an MDM policy to disable settings sync for a personal, user-owned device will negatively impact the use of that device. Additionally, other user accounts on the device will also be affected by the policy.
 
 Enterprises that want to manage roaming for personal (unmanaged) devices can use the Azure portal to enable or disable roaming, rather than using Group Policy or MDM.
 The following tables describe the policy settings available.
@@ -27,18 +27,18 @@ The following tables describe the policy settings available.
 
 ## MDM settings
 
-The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD-based syncing.
+The MDM policy settings apply to Windows 10 or newer. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD-based syncing.
 
 | Name | Description |
 | --- | --- |
 | Allow Microsoft Account Connection |Allows users to authenticate using a Microsoft account on the device |
 | Allow Sync My Settings |Allows users to roam Windows settings and app data; Disabling this policy will disable sync as well as backups on mobile devices |
 
-## Group policy settings
+## Group Policy settings
 
-The group policy settings apply to Windows 10 devices that are joined to an Active Directory domain. The table also includes legacy settings that would appear to manage sync settings, but that do not work for Enterprise State Roaming for Windows 10, which are noted with ‘Do not use’ in the description.
+The Group Policy settings apply to Windows 10 or newer devices that are joined to an Active Directory domain. The table also includes legacy settings that would appear to manage sync settings. Legacy settings that don't work for Enterprise State Roaming for Windows 10 or newer are noted with ‘Do not use’ in the description.
 
-These settings are located at: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
+These settings are located in Group Policy under: **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Sync your settings**.
 
 | Name | Description |
 | --- | --- |

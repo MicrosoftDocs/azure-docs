@@ -3,7 +3,7 @@ title: Scale session hosts Azure Automation - Azure
 description: How to automatically scale Azure Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 02/10/2022
 ms.author: helohr
 manager: femila
 ---
@@ -13,17 +13,26 @@ You can reduce your total Azure Virtual Desktop deployment cost by scaling your 
 
 In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
+> [!NOTE]
+> You can't scale session hosts using Azure Automation and use the [autoscale feature](autoscale-scaling-plan.md) on the same host pool. You must use one or the other.
+
 ## How the scaling tool works
 
 The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
 
 You can use the scaling tool to:
 
-- Schedule VMs to start and stop based on Peak and Off-Peak business hours.
+- Schedule VMs to start and stop based on peak and off-peak business hours.
 - Scale out VMs based on number of sessions per CPU core.
-- Scale in VMs during Off-Peak hours, leaving the minimum number of session host VMs running.
+- Scale in VMs during off-peak hours, leaving the minimum number of session host VMs running.
 
 The scaling tool uses a combination of an Azure Automation account, a PowerShell runbook, a webhook, and the Azure Logic App to function. When the tool runs, Azure Logic App calls a webhook to start the Azure Automation runbook. The runbook then creates a job.
+
+Peak and off-peak hours are defined as:
+
+| Peak  | Off-peak |
+|--|--|
+| The time when *maximum* user session concurrency is expected to be reached. | The time when  *minimum* user session concurrency is expected to be reached. |
 
 During peak usage time, the job checks the current number of sessions and the VM capacity of the current running session host for each host pool. It uses this information to calculate if the running session host VMs can support existing sessions based on the *SessionThresholdPerCPU* parameter defined for the **CreateOrUpdateAzLogicApp.ps1** file. If the session host VMs can't support existing sessions, the job starts additional session host VMs in the host pool.
 
@@ -63,10 +72,10 @@ Before you start setting up the scaling tool, make sure you have the following t
 
 The machine you use to deploy the tool must have:
 
-- Windows PowerShell 5.1 or later
-- The Microsoft Az PowerShell module
+- PowerShell 5.1 or later
+- The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az)
 
-If you have everything ready, then let's get started.
+If you have everything ready, let's get started.
 
 ## Create or update an Azure Automation account
 
@@ -75,7 +84,7 @@ If you have everything ready, then let's get started.
 
 First, you'll need an Azure Automation account to run the PowerShell runbook. The process this section describes is valid even if you have an existing Azure Automation account that you want to use to set up the PowerShell runbook. Here's how to set it up:
 
-1. Open Windows PowerShell.
+1. Open PowerShell.
 
 2. Run the following cmdlet to sign in to your Azure account.
 
@@ -112,7 +121,10 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Th
     .\CreateOrUpdateAzAutoAccount.ps1 @Params
     ```
 
-5. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
+    >[!NOTE]
+    >If your policy doesn't let you create scaling script resources in a specific region, update the policy assignment and add the region you want to the list of allowed regions.
+
+5. If you haven't created an automation account before, the cmdlet's output will include an encrypted webhook URI in the automation account variable. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App. If you're updating an existing automation account, you can retrieve the webhook URI using [PowerShell to access variables](../automation/shared-resources/variables.md#powershell-cmdlets-to-access-variables).
 
 6. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to remember URI because you'll need to use it again later as a parameter when you set up the execution schedule for the Azure Logic App.
 
@@ -143,13 +155,13 @@ To create a Run As account in your Azure Automation account:
 
 5. Wait a few minutes for Azure to create the Run As account. You can track the creation progress in the menu under Notifications.
 
-6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. You can also find the same information on the **Connections** page. To go to this page, in the pane on the left side of the window, select **Connections** under the **Shared Resources** section and click on the connection asset named **AzureRunAsConnection**.
+6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. You can also find the same information on the **Connections** page. To go to this page, in the pane on the left side of the window, select **Connections** under the **Shared Resources** section and select the connection asset named **AzureRunAsConnection**.
 
 ## Create the Azure Logic App and execution schedule
 
 Finally, you'll need to create the Azure Logic App and set up an execution schedule for your new scaling tool. First, download and import the [Desktop Virtualization PowerShell module](powershell-module.md) to use in your PowerShell session if you haven't already.
 
-1. Open Windows PowerShell.
+1. Open PowerShell.
 
 2. Run the following cmdlet to sign in to your Azure account.
 
@@ -194,12 +206,12 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     $LimitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, any session host VM that has user sessions, will be left untouched"
     $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
     $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-
+    
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
-
-    $WebhookURIAutoVar = Get-AzAutomationVariable -Name 'WebhookURIARMBased' -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
-
+    
+    $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://docs.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
+    
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
          "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
@@ -221,7 +233,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
          "LimitSecondsToForceLogOffUser" = $LimitSecondsToForceLogOffUser           # Optional. Default: 1
          "LogOffMessageTitle"            = $LogOffMessageTitle                      # Optional. Default: "Machine is about to shutdown."
          "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
-         "WebhookURI"                    = $WebhookURIAutoVar.Value
+         "WebhookURI"                    = $WebhookURI
     }
 
     .\CreateOrUpdateAzLogicApp.ps1 @Params
@@ -231,7 +243,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
     >[!div class="mx-imgBorder"]
     >![An image of the overview page for an example Azure Logic App.](media/logic-app.png)
-
+    
     To make changes to the execution schedule, such as changing the recurrence interval or time zone, go to the Azure Logic App autoscale scheduler and select **Edit** to go to the Azure Logic App Designer.
 
     >[!div class="mx-imgBorder"]
@@ -285,7 +297,7 @@ When you report an issue, you'll need to provide the following information to he
 
 If you decided to use Log Analytics, you can view all the log data in a custom log named **WVDTenantScale_CL** under **Custom Logs** in the **Logs** view of your Log Analytics Workspace. We've listed some sample queries you might find helpful.
 
-- To see all logs for a host pool, enter the following query
+- To see all logs for a host pool, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
@@ -293,7 +305,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- To view the total number of currently running session host VMs and active user sessions in your host pool, enter the following query
+- To view the total number of currently running session host VMs and active user sessions in your host pool, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
@@ -304,7 +316,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- To view the status of all session host VMs in a host pool, enter the following query
+- To view the status of all session host VMs in a host pool, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
@@ -313,7 +325,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- To view any errors and warnings, enter the following query
+- To view any errors and warnings, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
@@ -323,4 +335,4 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
 
 ## Report issues
 
-Issue reports for the scaling tool are currently being handled by Microsoft Support. When you make an issue report, make sure to follow the instructions in [Reporting issues](#reporting-issues). If you have feedback about the tool or want to request new features, open a GitHub issue labeled "4-WVD-scaling-tool" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).
+Issue reports for the scaling tool are currently being handled by Microsoft Support. When you make an issue report, make sure to follow the instructions in [Reporting issues](#reporting-issues). If you have feedback about the tool or want to request new features, open a GitHub issue labeled *4-WVD-scaling-tool* on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

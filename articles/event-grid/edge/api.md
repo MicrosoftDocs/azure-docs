@@ -6,13 +6,17 @@ manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.subservice: iot-edge
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.topic: article
 ---
 
 
 # REST API
 This article describes the REST APIs of Azure Event Grid on IoT Edge
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 ## Common API behavior
 
@@ -46,7 +50,7 @@ In case of **CloudEventSchemaV1_0** in structured mode, the value of Content-Typ
     
 `Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
-In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) for details.
+In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md) for details.
 
 ### Error response
 All APIs return an error with the following payload:

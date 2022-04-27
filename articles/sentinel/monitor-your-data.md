@@ -1,27 +1,20 @@
 ---
-title: Visualize your data using Azure Monitor Workbooks in Azure Sentinel | Microsoft Docs
-description: Learn how to visualize your data using workbooks in Azure Sentinel.
-services: sentinel
-documentationcenter: na
+title: Visualize your data using Azure Monitor Workbooks in Microsoft Sentinel | Microsoft Docs
+description: Learn how to visualize your data using workbooks in Microsoft Sentinel.
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/04/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Use Azure Monitor workbooks to visualize and monitor your data
 
-Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can visualize and monitor the data using the Azure Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This article describes how to visualize your data in Azure Sentinel.
+Once you have [connected your data sources](quickstart-onboard.md) to Microsoft Sentinel, you can visualize and monitor the data using the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Microsoft Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Microsoft Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
+
+This article describes how to visualize your data in Microsoft Sentinel.
 
 > [!div class="checklist"]
 > * Use built-in workbooks
@@ -29,16 +22,16 @@ This article describes how to visualize your data in Azure Sentinel.
 
 ## Prerequisites
 
-You must have at least **Workbook reader** or **Workbook contributor** permissions on the resource group of the Azure Sentinel workspace.
+You must have at least **Workbook reader** or **Workbook contributor** permissions on the resource group of the Microsoft Sentinel workspace.
 
 > [!NOTE]
-> The workbooks that you can see in Azure Sentinel are saved within the Azure Sentinel workspace's resource group and are tagged by the workspace in which they were created.
+> The workbooks that you can see in Microsoft Sentinel are saved within the Microsoft Sentinel workspace's resource group and are tagged by the workspace in which they were created.
 
 ## Use built-in workbooks
 
-1. Go to **Workbooks** and then select **Templates** to see the full list of Azure Sentinel built-in workbooks. 
+1. Go to **Workbooks** and then select **Templates** to see the full list of Microsoft Sentinel built-in workbooks. 
 
-    To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
+    To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Microsoft Sentinel.
 
     [ ![Go to workbooks.](media/tutorial-monitor-data/access-workbooks.png) ](media/tutorial-monitor-data/access-workbooks.png#lightbox)
 
@@ -72,7 +65,12 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 1. When building a query, make sure the **Data source** is set to **Logs** and **Resource type** is set to **Log Analytics**, and then choose the relevant workspace(s). 
 
-1. After you create your workbook, save the workbook, making sure you save it under the subscription and resource group of your Azure Sentinel workspace.
+   > [!IMPORTANT]
+   >
+   > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
+   >
+    
+1. After you create your workbook, save the workbook, making sure you save it under the subscription and resource group of your Microsoft Sentinel workspace.
 
 1. If you want to let others in your organization use the workbook, under **Save to** select **Shared reports**. If you want this workbook to be available only to you, select **My reports**.
 
@@ -120,8 +118,8 @@ To delete a saved workbook (either a saved template or a customized workbook), i
 
 ## Next steps
 
-In this article, you learned how to visualize your data in Azure Sentinel, using Azure Workbooks.
+In this article, you learned how to visualize your data in Microsoft Sentinel, using Azure Workbooks.
 
-To learn how to automate your responses to threats, see [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
+To learn how to automate your responses to threats, see [Set up automated threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
 
-To learn about popular built-in workbooks, see [Commonly used Azure Sentinel workbooks](top-workbooks.md). 
+To learn about popular built-in workbooks, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md). 

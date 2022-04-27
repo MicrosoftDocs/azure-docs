@@ -9,6 +9,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: mbaldwin
+ms.devlang: csharp
 ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli"
 
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
@@ -112,7 +113,7 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 ---
 
 ## Assign permissions to the VM identity
-Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command:
+Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli

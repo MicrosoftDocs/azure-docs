@@ -3,6 +3,7 @@ title: 'Quickstart: Data streaming with Azure Event Hubs using the Kafka protoco
 description: 'Quickstart: This article provides information on how to stream into Azure Event Hubs using the Kafka protocol and APIs.'
 ms.topic: quickstart
 ms.date: 05/10/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Data streaming with Event Hubs using the Kafka protocol

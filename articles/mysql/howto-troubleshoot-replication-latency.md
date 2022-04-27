@@ -98,7 +98,7 @@ The output contains a lot of information. Normally, you need to focus on only th
 |Slave_IO_Running| Indicates whether the IO thread is running. The value should be `Yes`. If the value is `NO`, then the replication is likely broken.|
 |Slave_SQL_Running| Indicates whether the SQL thread is running. The value should be `Yes`. If the value is `NO`, then the replication is likely broken.|
 |Exec_Master_Log_Pos| Indicates the position of the Relay_Master_Log_File that the replica is applying. If there's latency, then this position sequence should be smaller than Read_Master_Log_Pos.|
-|Relay_Log_Space|Indicates the upper limit of the relay log size. You can check the size by querying `SHOW GLOBAL VARIABLES` like `relay_log_space_limit`.|
+|Relay_Log_Space|Indicates the total combined size of all existing relay log files. You can check the upper limit size by querying `SHOW GLOBAL VARIABLES` like `relay_log_space_limit`.|
 |Seconds_Behind_Master| Displays replication latency in seconds.|
 |Last_IO_Errno|Displays the IO thread error code, if any. For more information about these codes, see the [MySQL server error message reference](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_IO_Error| Displays the IO thread error message, if any.|

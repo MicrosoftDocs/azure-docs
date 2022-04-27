@@ -3,7 +3,7 @@ title: Failover cluster instances
 description: "Learn about failover cluster instances (FCIs) with SQL Server on Azure Virtual Machines." 
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -11,8 +11,8 @@ ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "06/02/2020"
-ms.author: mathoma
+ms.date: 11/10/2021
+ms.author: rsetlem
 
 ---
 
@@ -20,6 +20,8 @@ ms.author: mathoma
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article introduces feature differences when you're working with failover cluster instances (FCI) for SQL Server on Azure Virtual Machines (VMs). 
+
+To get started, [prepare your vm](failover-cluster-instance-prepare-vm.md). 
 
 ## Overview
 
@@ -50,7 +52,7 @@ SQL Server on Azure VMs offers various options as a shared storage solution for 
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
-|**Supported VM availability** |Availability sets with proximity placement groups (For Premium SSD) </br> Same availability zone (For Ultra SSD) |Availability sets and availability zones|Availability sets |
+|**Supported VM availability** |[Premium SSD LRS](../../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks): Availability Sets with or with out [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md) </br> [Premium SSD ZRS](../../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks): Availability Zones</br> [Ultra disks](../../../virtual-machines/disks-enable-ultra-ssd.md): Same availability zone|Availability sets and availability zones|Availability sets |
 |**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
@@ -70,14 +72,17 @@ The rest of this section lists the benefits and limitations of each storage opti
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 - Supports Filestream.
 - Premium SSDs support availability sets. 
+- Premium SSDs Zone Redundant Storage (ZRS) supports Availability Zones. VMs part of FCI can be placed in different availability zones. 
 
+> [!NOTE]
+> While Azure shared disks also support [Standard SSD sizes](../../../virtual-machines/disks-shared.md#disk-sizes), we do not recommend using Standard SSDs for SQL Server workloads due to the performance limitations.
 
 **Limitations**: 
-- It is recommended to place the virtual machines in the same availability set and proximity placement group.
-- Ultra disks do not support availability sets. 
-- Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine. 
-- Regardless of the chosen hardware availability solution, the availability of the failover cluster is always 99.9% when using Azure Shared Disks. 
+
 - Premium SSD disk caching is not supported.
+- Ultra disks do not support availability sets. 
+- Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine to 99.9%
+- Ultra disks do not support Zone Redundant Storage (ZRS)
 
  
 To get started, see [SQL Server failover cluster instance with Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
@@ -91,11 +96,13 @@ To get started, see [SQL Server failover cluster instance with Azure shared disk
 
 
 **Benefits:** 
+
 - Sufficient network bandwidth enables a robust and highly performant shared storage solution. 
 - Supports Azure blob cache, so reads can be served locally from the cache. (Updates are replicated simultaneously to both nodes.) 
 - Supports FileStream. 
 
 **Limitations:**
+
 - Available only for Windows Server 2016 and later. 
 - Availability zones are not supported.
 - Requires the same disk capacity attached to both virtual machines. 
@@ -112,7 +119,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 **Supported SQL version**: SQL Server 2012 and later   
 
 **Benefits:** 
-- Only shared storage solution for virtual machines spread over multiple availability zones. 
+- Shared storage solution for virtual machines spread over multiple availability zones. 
 - Fully managed file system with single-digit latencies and burstable I/O performance. 
 
 **Limitations:**
@@ -144,7 +151,9 @@ For shared storage and data replication solutions from Microsoft partners, conta
 
 ## Connectivity
 
-You can configure a virtual network name, or a distributed network name for a failover cluster instance. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your failover cluster instance.
+To match the on-premises experience for connecting to your failover cluster instance, deploy your SQL Server VMs to [multiple subnets](failover-cluster-instance-prepare-vm.md#subnets) within the same virtual network. Having multiple subnets negates the need for the extra dependency on an Azure Load Balancer, or a distributed network name (DNN) to route your traffic to your FCI. 
+
+If you deploy your SQL Server VMs to a single subnet, you can configure a virtual network name (VNN) and an Azure Load Balancer, or a distributed network name (DNN) to route traffic to your failover cluster instance. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your failover cluster instance.
 
 The distributed network name is recommended, if possible, as failover is faster, and the overhead and cost of managing the load balancer is eliminated. 
 
@@ -154,7 +163,7 @@ Most SQL Server features work transparently with FCIs when using the DNN, but th
 
 Consider the following limitations for failover cluster instances with SQL Server on Azure Virtual Machines. 
 
-### Lightweight extension support   
+### Lightweight extension support
 
 At this time, SQL Server failover cluster instances on Azure virtual machines are supported only with the [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) of the SQL Server IaaS Agent Extension. To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL IaaS Agent extension in lightweight mode. When you're deleting the **SQL virtual machine** resource by using the Azure portal, clear the check box next to the correct virtual machine to avoid deleting the virtual machine. 
 

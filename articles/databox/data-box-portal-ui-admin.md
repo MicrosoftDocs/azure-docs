@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 01/09/2019
+ms.date: 12/09/2021
 ms.author: alkohli
 ---
 # Use Azure portal to administer your Data Box Disk
@@ -124,7 +124,7 @@ Perform the following steps to edit notification details.
 |Received     | Your disks were received at the Azure datacenter. Data copy will start soon.        |
 |Data copied     |Data copy is in progress.<br> Wait until the data copy is complete.         |
 |Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
-|Completed with errors| Data copy was completed but errors were received. <br> Review the error logs for upload using the path provided in the **Overview**. For more information, go to [Download upload error logs](data-box-disk-troubleshoot-upload.md#download-logs).   |
+|Completed with errors| Data copy was completed but errors were received. <br> Review the error logs for upload using the path provided in the **Overview**. For more information, go to [Download upload error logs](data-box-disk-troubleshoot-upload.md#locate-the-logs).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order.     |
 
 

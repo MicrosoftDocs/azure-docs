@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
 ms.custom: vs-azure, devx-track-azurepowershell
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
 # Tutorial: Create a data factory by using Visual Studio
@@ -93,7 +93,7 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
 2. Select **HDInsight On Demand Linked Service**, and click **Add**.
 3. Replace the **JSON** with the following JSON:
 
-     ```json
+    ```json
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
@@ -212,10 +212,10 @@ You have created the Azure Storage linked service, and input and output datasets
 2. Select **Hive Transformation Pipeline** from the list, and click **Add**.
 3. Replace the **JSON** with the following snippet:
 
-	> [!IMPORTANT]
-	> Replace `<storageaccountname>` with the name of your storage account.
+    > [!IMPORTANT]
+    > Replace `<storageaccountname>` with the name of your storage account.
 
-	```json
+    ```json
     {
         "name": "MyFirstPipeline",
         "properties": {
@@ -260,8 +260,8 @@ You have created the Azure Storage linked service, and input and output datasets
     }
     ```
 
-	> [!IMPORTANT]
-	> Replace `<storageaccountname>` with the name of your storage account.
+    > [!IMPORTANT]
+    > Replace `<storageaccountname>` with the name of your storage account.
 
     The JSON snippet defines a pipeline that consists of a single activity (Hive Activity). This activity runs a Hive script to process input data on an on-demand HDInsight cluster to produce output data. In the activities section of the pipeline JSON, you see only one activity in the array with type set to **HDInsightHive**. 
 
@@ -294,17 +294,17 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
 
 	:::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png" alt-text="Publish - New data factory settings":::
 
-   1. select **Create New Data Factory** option.
+   1. Select **Create New Data Factory** option.
    2. Enter a unique **name** for the data factory. For example: **DataFactoryUsingVS09152016**. The name must be globally unique.
    3. Select the right subscription for the **Subscription** field. 
-		> [!IMPORTANT]
-		> If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.
+      > [!IMPORTANT]
+      > If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.
    4. Select the **resource group** for the data factory to be created.
    5. Select the **region** for the data factory.
    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.)
-
       > [!IMPORTANT]
       > If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
+
 1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.
 
 	:::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png" alt-text="Publish items page":::     
@@ -316,20 +316,27 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
 Important points to note:
 
 - If you receive the error: **This subscription is not registered to use namespace Microsoft.DataFactory**, do one of the following and try publishing again:
-	- In Azure PowerShell, run the following command to register the Data Factory provider.
-		```powershell	
-		Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-        ```
-		You can run the following command to confirm that the Data Factory provider is registered.
 
-		```powershell
-		Get-AzResourceProvider
-        ```
-	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
+  - In Azure PowerShell, run the following command to register the Data Factory provider.
+
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+
+    You can run the following command to confirm that the Data Factory provider is registered.
+
+    ```powershell
+    Get-AzResourceProvider
+    ```
+
+  - Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
+
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
+
 - To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
 
 ### Monitor pipeline
+
 In this step, you monitor the pipeline using Diagram View of the data factory. 
 
 #### Monitor pipeline using Diagram View
@@ -452,29 +459,29 @@ Add a configuration file for each environment by performing the following steps:
     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png" alt-text="Add configuration file":::
 3. Add configuration parameters and their values in the following format:
 
-	```json
-	{
-	    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
-	    "AzureStorageLinkedService1": [
-	        {
-	            "name": "$.properties.typeProperties.connectionString",
-	            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	        }
-	    ],
-	    "AzureSqlLinkedService1": [
-	        {
-	            "name": "$.properties.typeProperties.connectionString",
-	            "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-	        }
-	    ]
-	}
+    ```json
+    {
+        "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+        "AzureStorageLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        ],
+        "AzureSqlLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        ]
+    }
     ```
 
     This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     If JSON has a property that has an array of values as shown in the following code:  
 
-	```json
+    ```json
     "structure": [
           {
               "name": "FirstName",
@@ -484,24 +491,24 @@ Add a configuration file for each environment by performing the following steps:
             "name": "LastName",
             "type": "String"
         }
-    ],
+    ]
     ```
 
     Configure properties as shown in the following configuration file (use zero-based indexing):
 
-	```json
+    ```json
     {
         "name": "$.properties.structure[0].name",
         "value": "FirstName"
-    }
+    },
     {
         "name": "$.properties.structure[0].type",
         "value": "String"
-    }
+    },
     {
         "name": "$.properties.structure[1].name",
         "value": "LastName"
-    }
+    },
     {
         "name": "$.properties.structure[1].type",
         "value": "String"
@@ -509,13 +516,14 @@ Add a configuration file for each environment by performing the following steps:
     ```
 
 ### Property names with spaces
+
 If a property name has spaces in it, use square brackets as shown in the following example (Database server name):
 
 ```json
- {
-     "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
-     "value": "MyAsqlServer.database.windows.net"
- }
+{
+    "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+    "value": "MyAsqlServer.database.windows.net"
+}
 ```
 
 ### Deploy solution using a configuration
@@ -547,7 +555,7 @@ In this tutorial, you created an Azure Data Factory to process data by running H
 3. Created two **datasets**, which describe input and output data for HDInsight Hive activity in the pipeline.
 4. Created a **pipeline** with a **HDInsight Hive** activity.  
 
-## Next Steps
+## Next steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 

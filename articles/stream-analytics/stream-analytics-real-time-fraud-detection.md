@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
 
-#Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
+#Customer intent: As an IT admin/developer, I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard.
 ---
 
 # Tutorial: Analyze fraudulent call data with Stream Analytics and visualize results in Power BI dashboard
@@ -37,16 +37,17 @@ Before you start, make sure you have completed the following steps:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an Azure Event Hub
+## Create an event hub
 
 Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you will send data to Azure by using  [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
-Use the following steps to create an Event Hub and send call data to that Event Hub:
+Use the following steps to create an event hub and send call data to that event hub:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Create a resource** > **Internet of Things** > **Event Hubs**.
 
-   ![Create an Azure Event Hub in the portal](media/stream-analytics-real-time-fraud-detection/find-event-hub-resource.png)
+   ![Create an event hub in the Azure portal.](media/stream-analytics-real-time-fraud-detection/find-event-hub-resource.png)
+
 3. Fill out the **Create Namespace** pane with the following values:
 
    |**Setting**  |**Suggested value** |**Description**  |
@@ -58,13 +59,13 @@ Use the following steps to create an Event Hub and send call data to that Event 
 
 4. Use default options on the remaining settings and select **Review + create**. Then select **Create** to start the deployment.
 
-   ![Create event hub namespace in Azure portal](media/stream-analytics-real-time-fraud-detection/create-event-hub-namespace.png)
+   ![Create event hub namespace in the Azure portal](media/stream-analytics-real-time-fraud-detection/create-event-hub-namespace.png)
 
 5. When the namespace has finished deploying, go to **All resources** and find *asaTutorialEventHub* in the list of Azure resources. Select *asaTutorialEventHub* to open it.
 
-6. Next select **+Event Hub** and enter a **Name** for the Event Hub. Set the **Partition Count** to 2.  Use the default options in the remaining settings and select **Create**. Then wait for the deployment to succeed.
+6. Next select **+Event Hub** and enter a **Name** for the event hub. Set the **Partition Count** to 2.  Use the default options in the remaining settings and select **Create**. Then wait for the deployment to succeed.
 
-   ![Event Hub configuration in Azure portal](media/stream-analytics-real-time-fraud-detection/create-event-hub-portal.png)
+   ![Event hub configuration in the Azure portal](media/stream-analytics-real-time-fraud-detection/create-event-hub-portal.png)
 
 ### Grant access to the event hub and get a connection string
 
@@ -140,7 +141,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
    |Subscription    |  \<Your subscription\>   |   Select an Azure subscription where you want to create the job.       |
    |Resource group   |   MyASADemoRG      |   Select **Use existing** and enter a new resource-group name for your account.      |
    |Location   |    West US2     |   	Location where the job can be deployed. It's recommended to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.      |
-   |Hosting environment    | Cloud        |     Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT Edge device.    |
+   |Hosting environment    | Cloud        |     Stream Analytics jobs can be deployed to cloud or edge. **Cloud** allows you to deploy to Azure Cloud, and **Edge** allows you to deploy to an IoT Edge device.    |
    |Streaming units     |    1	     |   	Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.      |
 
 4. Use default options on the remaining settings, select **Create**, and wait for the deployment to succeed.
@@ -162,12 +163,30 @@ The next step is to define an input source for the job to read data using the ev
    |Input alias     |  CallStream       |  Provide a friendly name to identify your input. Input alias can contain alphanumeric characters, hyphens, and underscores only and must be 3-63 characters long.       |
    |Subscription    |   \<Your subscription\>      |   Select the Azure subscription where you created the event hub. The event hub can be in same or a different subscription as the Stream Analytics job.       |
    |Event hub namespace    |  asaTutorialEventHub       |  Select the event hub namespace you created in the previous section. All the event hub namespaces available in your current subscription are listed in the dropdown.       |
-   |Event Hub name    |   MyEventHub      |  Select the event hub you created in the previous section. All the event hubs available in your current subscription are listed in the dropdown.       |
-   |Event Hub policy name   |  MyPolicy       |  Select the event hub shared access policy you created in the previous section. All the event hubs policies available in your current subscription are listed in the dropdown.       |
+   |Event hub name    |   MyEventHub      |  Select the event hub you created in the previous section. All the event hubs available in your current subscription are listed in the dropdown.       |
+   |Event hub policy name   |  MyPolicy       |  Select the event hub shared access policy you created in the previous section. All the event hubs policies available in your current subscription are listed in the dropdown.       |
 
 4. Use default options on the remaining settings and select **Save**.
 
    ![Configure Azure Stream Analytics input](media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-input.png)
+
+## Create a consumer group
+
+We recommend that you use a distinct consumer group for each Stream Analytics job. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. When a job contains a self-join or has multiple inputs, some inputs later might be read by more than one reader. This situation affects the number of readers in a single consumer group.
+
+To add a new consumer group:
+
+1. In the Azure portal, go to your Event Hubs instance.
+
+1. In the left menu, under **Entities**, select **Consumer groups**.
+
+1. Select **+ Consumer group**.
+
+1. In **Name**, enter a name for your new consumer group. For example, *MyConsumerGroup*.
+
+1. Select **Create**.
+
+   :::image type="content" source="media/stream-analytics-real-time-fraud-detection/create-consumer-group.png" alt-text="Screenshot that shows creating a new consumer group.":::
 
 ## Configure job output
 
@@ -227,7 +246,7 @@ If you want to archive every event, you can use a pass-through query to read all
 
 3. Select **Test query**.
 
-    The Stream Analytics job runs the query against the sample data from the input and displays the output at the bottom of the window. The results indicate that the Event Hub and the Streaming Analytics job are configured correctly.
+    The Stream Analytics job runs the query against the sample data from the input and displays the output at the bottom of the window. The results indicate that the Event Hubs and the Streaming Analytics job are configured correctly.
 
     :::image type="content" source="media/stream-analytics-real-time-fraud-detection/sample-output-passthrough.png" alt-text="Sample output from test query":::
 
@@ -320,7 +339,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
    ![View results in Power BI dashboard](media/stream-analytics-real-time-fraud-detection/power-bi-results-dashboard.png)
 
-## Embedding your Power BI Dashboard in a Web Application
+## Embedding your Power BI Dashboard in a web application
 
 For this part of the tutorial, you'll use a sample [ASP.NET](https://asp.net/) web application created by the Power BI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](/power-bi/developer/embedding) article.
 

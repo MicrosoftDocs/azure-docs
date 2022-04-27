@@ -2,9 +2,12 @@
 title: Design with models - LUIS
 description: Language understanding provides several types of models. Some models can be used in more than one way.
 ms.service: cognitive-services
+author: aahill
+ms.author: aahi
+ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 01/07/2022
 ---
 
 # Design with intent and entity models
@@ -65,19 +68,19 @@ Model decomposition has the following parts:
 * [machine-learning entities](reference-entity-machine-learned-entity.md)
     * subentities (also machine-learning entities)
         * [features](#features)
-            * [phrase list](luis-concept-feature.md)
-            * [non-machine-learning entities](luis-concept-feature.md) such as [regular expressions](reference-entity-regular-expression.md), [lists](reference-entity-list.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
+            * [phrase list](concepts/patterns-features.md)
+            * [non-machine-learning entities](concepts/patterns-features.md) such as [regular expressions](reference-entity-regular-expression.md), [lists](reference-entity-list.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>
 
 ## Features
 
-A [feature](luis-concept-feature.md) is a distinguishing trait or attribute of data that your system observes. Machine learning features give LUIS important cues for where to look for things that will distinguish a concept. They are hints that LUIS can use, but not hard rules. These hints are used in conjunction with the labels to find the data.
+A [feature](concepts/patterns-features.md) is a distinguishing trait or attribute of data that your system observes. Machine learning features give LUIS important cues for where to look for things that will distinguish a concept. They are hints that LUIS can use, but not hard rules. These hints are used in conjunction with the labels to find the data.
 
 ## Patterns
 
-[Patterns](luis-concept-patterns.md) are designed to improve accuracy when several utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing many more utterances.
+[Patterns](concepts/patterns-features.md) are designed to improve accuracy when several utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 
 ## Extending the app at runtime
 
@@ -85,5 +88,5 @@ The app's schema (models and features) is trained and published to the predictio
 
 ## Next steps
 
-* Understand [intents](luis-concept-intent.md) and [entities](luis-concept-entity-types.md).
-* Learn more about [features](luis-concept-feature.md)
+* Understand [intents](concepts/patterns-features.md) and [entities](concepts/entities.md).
+* Learn more about [features](concepts/patterns-features.md)

@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018 
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,6 +15,7 @@ ms.custom: devx-track-azurepowershell
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
 
@@ -4925,7 +4926,10 @@ The following table provides descriptions for the properties used in the Azure J
 }
 ```
 
-## ML Studio (classic)
+## ML Studio (classic) 
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 You create an ML Studio (classic) linked service to register a Studio (classic) batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [ML Studio (classic) Batch Execution Activity](#ml-studio-classic-batch-execution-activity), [ML Studio (classic) Update Resource Activity](#ml-studio-classic-update-resource-activity).
 
 ### Linked service
@@ -5331,7 +5335,7 @@ Note the following points:
 
 - The **type** property is set to **HDInsightSpark**.
 - The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See Spark Activity properties for details about this property and other properties supported by the Spark Activity.
-- The **entryFilePath** is set to the **test.py**, which is the python file.
+- The **entryFilePath** is set to the **test.py**, which is the Python file.
 - The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
 	> [!IMPORTANT]
@@ -5341,6 +5345,9 @@ Note the following points:
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
 ## ML Studio (classic) Batch Execution Activity
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 You can specify the following properties in an ML Studio (classic) Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required
@@ -5636,7 +5643,7 @@ You can specify the following properties in a .NET custom activity JSON definiti
 
 For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article.
 
-## Next Steps
+## Next steps
 See the following tutorials:
 
 - [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

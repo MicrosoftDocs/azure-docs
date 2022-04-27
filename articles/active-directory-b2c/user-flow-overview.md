@@ -1,17 +1,17 @@
 ---
-title: User flows and custom policies in Azure Active Directory B2C | Microsoft Docs
+title: User flows and custom policies in Azure Active Directory B2C  
 titleSuffix: Azure AD B2C
 description: Learn more about built-in user flows and the custom policy extensible policy framework of Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -56,7 +56,7 @@ A custom policy is fully configurable and policy-driven. It orchestrates trust b
 The custom policy gives you the ability to construct user journeys with any combination of steps. For example:
 
 * Federate with other identity providers
-* First- and third-party multi-factor authentication (MFA) challenges
+* First- and third-party multifactor authentication (MFA) challenges
 * Collect any user input
 * Integrate with external systems using REST API communication
 
@@ -78,9 +78,9 @@ The following table gives a detailed comparison of the scenarios you can enable 
 |-|-------------------|-----------------|
 | Target users | All application developers with or without identity expertise. | Identity pros, systems integrators, consultants, and in-house identity teams. They are comfortable with OpenID Connect flows and understand identity providers and claims-based authentication. |
 | Configuration method | Azure portal with a user-friendly user-interface (UI). | Directly editing XML files and then uploading to the Azure portal. |
-| UI customization | [Full UI customization](customize-ui-with-html.md) including HTML, CSS and, [JavaScript](javascript-and-page-layout.md).<br><br>[Multilanguage support](language-customization.md) with Custom strings. | Same |
-| Attribute customization | Standard and custom attributes. | Same |
-| Token and session management | [Customize tokens](configure-tokens.md) and [sessions behavior](session-behavior.md). | Same |
+| UI customization | [Full UI customization](customize-ui-with-html.md) including HTML, CSS and, [JavaScript](javascript-and-page-layout.md).<br><br>[Multilanguage support](language-customization.md) with Custom strings. | Same as User flows |
+| Attribute customization | Standard and custom attributes. | Same as User flows |
+| Token and session management | [Customize tokens](configure-tokens.md) and [sessions behavior](session-behavior.md). | Same as User flows |
 | Identity Providers | [Predefined local](identity-provider-local.md) or [social provider](add-identity-provider.md), such as federation with Azure Active Directory tenants. | Standards-based OIDC, OAUTH, and SAML.  Authentication is also possible by using integration with REST APIs. |
 | Identity Tasks | [Sign-up or sign-in](add-sign-up-and-sign-in-policy.md) with local or many social accounts.<br><br>[Self-service password reset](add-password-reset-policy.md).<br><br>[Profile edit](add-profile-editing-policy.md).<br><br>Multi-Factor Authentication.<br><br>Access token flows. | Complete the same tasks as user flows using custom identity providers or use custom scopes.<br><br>Provision a user account in another system at the time of registration.<br><br>Send a welcome email using your own email service provider.<br><br>Use a user store outside Azure AD B2C.<br><br>Validate user provided information with a trusted system by using an API. |
 

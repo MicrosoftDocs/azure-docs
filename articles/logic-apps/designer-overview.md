@@ -3,7 +3,7 @@ title: About single-tenant workflow designer
 description: Learn how the designer in single-tenant Azure Logic Apps helps you visually create workflows through the Azure portal. Discover the benefits and features in this latest version.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 06/30/2021
 ---
@@ -67,7 +67,7 @@ To add either the trigger or an action your workflow, follow these steps:
 The **Code** view allows you to directly edit the workflow definition file in JSON format. Make sure to select **Save** to save any changes you make in this view. 
 
 > [!TIP]
-> The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure Command Line Interface (Azure CLI) or other methods.
+> The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure CLI or other methods.
 
 :::image type="content" source="./media/designer-overview/code-view.png" alt-text="Screenshot of a Logic Apps workflow in Code view, showing the JSON workflow definition being edited in the Azure portal.":::
 

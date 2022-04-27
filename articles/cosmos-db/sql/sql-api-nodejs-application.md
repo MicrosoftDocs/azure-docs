@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial:Build a Node.js web app with Azure Cosmos DB JavaScript SDK to manage SQL API data'
+title: 'Tutorial: Build a Node.js web app with Azure Cosmos DB JavaScript SDK to manage SQL API data'
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Web Apps feature of Microsoft Azure App Service.
-author: SnehaGunda
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.author: sngun
+ms.date: 10/18/2021
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
@@ -20,7 +20,6 @@ ms.custom: devx-track-js
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
-> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 As a developer, you might have applications that use NoSQL document data. You can use a SQL API account in Azure Cosmos DB to store and access this document data. This Node.js tutorial shows you how to store and access data from a SQL API account in Azure Cosmos DB by using a Node.js Express application that is hosted on the Web Apps feature of Microsoft Azure App Service. In this tutorial, you will build a web-based application (Todo app) that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
@@ -89,7 +88,7 @@ Now let's learn to create a basic Hello World Node.js project using the Express 
 
 ## <a name="install-modules"></a>Install the required modules
 
-The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
+The **package.json** file is one of the files created in the root of the project. This file contains a list of other modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
 
 1. Install the **\@azure/cosmos** module via npm. 
 
@@ -454,25 +453,17 @@ Now that you have built the application, you can run it locally by using the fol
 
 5. To stop the application, press CTRL+C in the terminal window and then select **Y** to terminate the batch job.
 
-## <a name="deploy-app"></a>Deploy your application to Web Apps
+## <a name="deploy-app"></a>Deploy your application to App Service
 
-After your application succeeds locally, you can deploy it to Azure by using the following steps:
+After your application succeeds locally, you can deploy it to Azure App Service. In the terminal, make sure you're in the *todo* app directory. Deploy the code in your local folder (todo) using the following [az webapp up](/cli/azure/webapp#az-webapp-up) command:
 
-1. If you haven't already done so, enable a git repository for your Web Apps application.
+```azurecli
+az webapp up --sku F1 --name <app-name>
+```
 
-2. Add your Web Apps application as a git remote.
-   
-   ```bash
-   git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
-   ```
+Replace <app_name> with a name that's unique across all of Azure (valid characters are a-z, 0-9, and -). A good pattern is to use a combination of your company name and an app identifier. To learn more about the app deployment, see [Node.js app deployment in Azure](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-cli#deploy-to-azure) article.
 
-3. Deploy the application by pushing it to the remote.
-   
-   ```bash
-   git push azure main
-   ```
-
-4. In a few seconds, your web application is published and launched in a browser.
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives you a URL to launch the app at `http://<app-name>.azurewebsites.net`, which is the app's URL on Azure.
 
 ## Clean up resources
 
@@ -481,12 +472,11 @@ When these resources are no longer needed, you can delete the resource group, Az
 ## Next steps
 
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+  * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+  * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md)
-
 
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/

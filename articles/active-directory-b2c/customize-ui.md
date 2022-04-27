@@ -3,15 +3,15 @@ title: Customize the user interface
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/21/2021
 ms.custom: "project-no-code, b2c-support"
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -223,7 +223,7 @@ Once you've configured company branding, enable it in your user flows.
 
 If you'd like to brand all pages in the user flow, set the page layout version for each page layout in the user flow.
 
-![Page layout selection in Azure AD B2C in the Azure portal](media/customize-ui/portal-02-page-layout-select.png)
+:::image type="content" source="media/customize-ui/portal-02-page-layout-select.png" alt-text="Page layout selection in Azure AD B2C in the Azure portal.":::
 
 ::: zone-end
 
@@ -275,6 +275,25 @@ The following example shows the content definitions with their corresponding the
   </ContentDefinition>
 </ContentDefinitions>
 ```
+
+::: zone-end
+
+::: zone pivot="b2c-user-flow"
+
+## Re-order input fields in the sign-up form
+To re-order the input fields on the sign-up page for local accounts form, follow these steps:
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. In the left menu, select **User flows**.
+1. Select a user flow (for local accounts only) that you want to re-order its input fields.
+1. In the left menu, select **Page layouts**
+1. In the table, select the row **Local account sign up page**.
+1. Under **User attributes**, select the input field you want to re-order, and drag (up or down) and drop or use use the **Move Up** or **Move down** controls to achieve the desired order. 
+1. At the top of the page, select **Save**.
+
+  :::image type="content" source="media/customize-ui/portal-02-page-layout-fields.png" alt-text="Template selection drop-down in user flow page of Azure portal.":::
 
 ::: zone-end
 

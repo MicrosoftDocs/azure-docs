@@ -6,26 +6,25 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 12/06/2021
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
 # Create a project
 
-A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
+A project contains translation models for one language pair. Each includes all documents that are uploaded into that workspace that have the correct language pair.
 
 Creating project is the first step toward building a model.
 
-## Create a project:
+## Create a project
 
-1.  In the [Custom Translator](https://portal.customtranslator.azure.ai) portal,
-    click Create project.
+1. In the [Custom Translator](https://legacy.portal.customtranslator.azure.ai/) legacy portal, select **Create project**.
 
     ![Create project](media/how-to/how-to-create-project.png)
 
-2.  Enter the following details about your project in the dialog:
+1. Enter the following details about your project in the dialog:
 
     a.  Project name (required): Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
 
@@ -58,7 +57,7 @@ Creating project is the first step toward building a model.
 
     ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
 
-3.  Click Create
+1. Select **Create**
 
 ## View project details
 
@@ -68,7 +67,7 @@ After selecting a project, you'll see the following on the project page:
 
 - CategoryID: A CategoryID is created by concatenating the WorkspaceID,
     project label, and category code. You use the CategoryID with the Text
-    Translator API to get custom translations. To copy, click the copy icon.
+    Translator API to get custom translations. To copy, choose the **copy icon**.
 
 - Train button: Use this button to start a [training a model](how-to-train-model.md).
 
