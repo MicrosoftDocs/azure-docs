@@ -187,7 +187,7 @@ For more information, see the following documentation:
    | **location**| <*Azure-region*> | The Azure region to use for deployment. This example uses **West US**. |
    | **templateLink : uri** | <*quickstart-template-URL*> | The URL location for the quickstart template to use for deployment: <br><br><br><br>**https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json** |
    | **parametersLink : uri** | <*quickstart-template-parameter-file-URL*> | The URL location for the quickstart template's parameter file to use for deployment: <br><br><br><br>**https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.parameters.json** <br><br><br><br>For more information about the Resource Manager parameter file, see the following documentation: <br><br><br><br>- [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md) <br>- [Tutorial: Use parameter files to deploy your ARM template](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
-   | **mode** | <*deployment-mode*> | Run either a incremental update or complete update. This example uses **Incremental**, which is the default value. For more information, see [Azure Resource Manager deployment modes](../azure-resource-manager/templates/deployment-modes.md). |
+   | **mode** | <*deployment-mode*> | Run either an incremental update or complete update. This example uses **Incremental**, which is the default value. For more information, see [Azure Resource Manager deployment modes](../azure-resource-manager/templates/deployment-modes.md). |
    |||
 
    For example:
