@@ -361,21 +361,31 @@ For example:
 
 ```python
 [ABAP Table Selector] 
+ADCP_FULL = True
+ADR6_FULL = True
+AGR_1251_FULL = True
+AGR_AGRS_FULL = True
+AGR_DEFINE_FULL = True
+AGR_DEFINE_INCREMENTAL = True
+AGR_FLAGS_FULL = True
+AGR_FLAGS_INCREMENTAL = True
+AGR_PROF_FULL = True
+AGR_TCODES_FULL = True
+AGR_USERS_FULL = True
+AGR_USERS_INCREMENTAL = True
+DEVACCESS_FULL = True
+PAHI_FULL = True
+USER_ADDR_FULL = True
+USGRP_USER_FULL = True
 USR01_FULL = True
 USR02_FULL = True
 USR02_INCREMENTAL = True
-UST04_FULL = True
-AGR_USERS_FULL = True
-AGR_USERS_INCREMENTAL = True
+USR05_FULL = True
 USR21_FULL = True
-AGR_1251_FULL = True
-ADR6_FULL = True
-AGR_TCODES_FULL = True 
-DEVACCESS_FULL = True
-AGR_DEFINE_FULL = True
-AGR_DEFINE_INCREMENTAL = True
-AGR_PROF_FULL = True
-PAHI_FULL = True
+USRSTAMP_FULL = True
+USRSTAMP_INCREMENTAL = True
+UST04_FULL = True
+
 ```
 
 For more information, see [Tables retrieved directly from SAP systems](sap-solution-log-reference.md#tables-retrieved-directly-from-sap-systems).
