@@ -82,8 +82,7 @@ Set "authenticationType" property to **UserAuthentication**, and specify the fol
 | clientSecret | Secret of the application used to generate the refresh token. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | refreshToken | The refresh token obtained from Google used to authorize access to BigQuery. Learn how to get one from [Obtaining OAuth 2.0 access tokens](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) and [this community blog](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
-> [!Note]
-> In general, the scope required to obtain an OAuth 2.0 access token is `https://www.googleapis.com/auth/bigquery.readonly`. But if you run a query in Google BigQuery that might return larger results, other scope is required to get the OAuth 2.0 access token, and for more information, see [Writing large query results](https://cloud.google.com/bigquery/docs/writing-results#large-results). 
+The minimum scope required to obtain an OAuth 2.0 access token is `https://www.googleapis.com/auth/bigquery.readonly`. If you plan to run a query that might return larger results, other scope might be required. For more information, refer to this [article](https://cloud.google.com/bigquery/docs/writing-results#large-results). 
 
 **Example:**
 
