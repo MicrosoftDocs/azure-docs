@@ -40,7 +40,7 @@ Key differences between persistent and ephemeral OS disks:
 | **OS disk resize**| Supported during VM creation and after VM is stop-deallocated| Supported during VM creation only|
 | **Resizing to a new VM size**| OS disk data is preserved| Data on the OS disk is deleted, OS is reprovisioned |
 | **Redeploy** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
-| **Stop/ Start of VM** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
+| **Stop/ Start of VM** | OS disk data is preserved | VMs and scale set instances cannot be stopped. | 
 | **Page file placement**| For Windows, page file is stored on the resource disk| For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).|
 
 
