@@ -14,11 +14,11 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service provides speech-to-text, text-to-speech, and speech translation capabilities with an Azure resource. You can Transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. 
+The Speech service provides speech-to-text and text-to-speech capabilities with an [Azure Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
 :::image type="content" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::
 
-Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, in the cloud or at the edge in containers. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](#use-speech-in-your-application).
+Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, in the cloud or at the edge in containers. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](./rest-speech-to-text.md).
 
 Speech is available for many [languages](language-support.md), [regions](regions.md), and [price points](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
@@ -27,7 +27,6 @@ Speech is available for many [languages](language-support.md), [regions](regions
 Common scenarios for speech include:
 - [Captioning](./captioning-concepts.md): Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
 - [Multidevice conversation](multi-device-conversation.md): Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation.
-- [Conversation transcription](./conversation-transcription.md): Enable real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
 - [Voice assistants](voice-assistants.md): Create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion.
 
 Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation in Office 365, and Read Aloud in the Edge browser. 
@@ -42,10 +41,9 @@ Speech feature summaries are provided below with links for more information.
 
 Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in real time or asynchronously. 
 
-Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarisation to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. Tailor your speech models to understand organization- and industry-specific terminology. Overcome speech recognition barriers such as background noise, accents, or unique vocabulary. Customize your models by uploading audio data and transcripts. 
+Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarisation to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
 
-- [Batch speech-to-text](batch-transcription.md): Batch speech-to-text enables asynchronous speech-to-text transcription of large volumes of speech audio data stored in Azure Blob Storage. In addition to converting speech audio to text, batch speech-to-text allows for diarization and sentiment analysis.
-- [Create custom speech models](custom-speech-overview.md): If you're using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. Custom speech models are private and can offer a competitive advantage.
+The baseline model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
 
 You can try speech to text with [this demo web app](https://azure.microsoft.com/services/cognitive-services/speech-to-text/#features) or in the [Speech Studio](https://aka.ms/speechstudio/speechtotexttool).
 
@@ -58,7 +56,7 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Speech translation
 
-[Speech translation](speech-translation.md) enables real-time, multilanguage translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation.
+[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation.
 
 ### Language identification
 
@@ -93,12 +91,7 @@ The [Speech CLI](spx-overview.md) is a command-line tool for using Speech servic
 
 The [Speech SDK](./speech-sdk.md) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available in many programming languages and across all platforms.
 
-In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service:
-- [Conversation transcription REST API](https://signature.centralus.cts.speech.microsoft.com/UI/index.html)
-- [Speech-to-text REST API v3.0](rest-speech-to-text.md)
-- [Speech-to-text REST API for short audio](rest-speech-to-text-short.md)
-- [Text-to-speech REST API](rest-text-to-speech.md)
-- [Speaker Recognition REST API](/rest/api/speakerrecognition/)
+In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use REST APIs for [batch transcription](batch-transcription.md) and [speaker recognition](/rest/api/speakerrecognition/) REST APIs.
 
 ## Get started
 
