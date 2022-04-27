@@ -47,11 +47,11 @@ After the change, TLS certificates used by Azure services will chain up to one o
 
 ## <a id="will-this-change-affect-me"></a>Was my application impacted?
 
-If your application explicitly specifies a list of acceptable CAs, your application was likely impacted. This practice is known as certificate pinning. Review the [Microsoft Tech Community article on Azure Storage TLS changes]( https://techcommunity.microsoft.com/t5/azure-storage-blog/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581) for more information on how to determine if your services were impacted and next steps.
+If your application explicitly specifies a list of acceptable CAs, your application was likely impacted. This practice is known as certificate pinning. Review the [Microsoft Tech Community article on Azure Storage TLS changes](https://techcommunity.microsoft.com/t5/azure-storage-blog/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581) for more information on how to determine if your services were impacted and next steps.
 
 Here are some ways to detect if your application was impacted:
 
-- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there's a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice, ensure that CAs can be added or edited on short notice. Industry regulations require CA certificates to be replaced within seven days and hence customers relying on pinning need to react swiftly.
+- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there's a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice, ensure that CAs can be added or edited on short notice. Industry regulations require CA certificates to be replaced within seven days of the change and hence customers relying on pinning need to react swiftly.
 
 - If you have an application that integrates with Azure APIs or other Azure services and you're unsure if it uses certificate pinning, check with the application vendor.
 
