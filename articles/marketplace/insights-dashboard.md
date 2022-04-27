@@ -88,7 +88,7 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 ### Marketlace Insights dashboard filters
 
-Filter the data by offer names. Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
+Filter the data by offer names. Filter options are dynamic and based on the selected date range.
 
 To select the filters, in the top-right of the page, select **Filters**.
 
