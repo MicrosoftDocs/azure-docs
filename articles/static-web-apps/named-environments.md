@@ -19,7 +19,7 @@ To enable stable URL environments with named deployment environment, make the fo
 
 - Set the `deployment_environment` input to a specific name on the `static-web-apps-deploy` job in GitHub action or on the AzureStaticWebApp task. This ensures all changes to your tracked branches are deployed to the named preview environment.
 - List the branches you want to deploy to preview environments in the trigger array in your workflow configuration so that changes to those branches also trigger the GitHub Actions or Azure Pipelines deployment.
-  - Set this array to `**` for GitHub Actions or "*" for Azure Pipelines if you want to track all branches.
+  - Set this array to `**` for GitHub Actions or `*` for Azure Pipelines if you want to track all branches.
 
 ## Example
 
