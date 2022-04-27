@@ -63,8 +63,14 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Description |
 |---|---|
-| [az sql db](/cli/azure/sql/db) | Database commands. |
-| [az sql failover-group](/cli/azure/sql/failover-group) | Failover group commands. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored.. |
+| [az storage account create](/cli/azure/storage/account) | Creates an Azure Storage account in the specified resource group. |
+| [az storage blob service-properties update](/cli/azure/storage/blob/service-properties#az-storage-blob-service-properties-update) | Update storage blob service properties. |
+| [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-update) | Sets system properties on the blob. |
+| [az storage account show](/cli/azure/storage/account#az-storage-account-show) | Show storage account properties.|
+| [az network front-door create](/cli/azure/network/front-door#az-network-front-door-create) | Create a Front Door.|
+| [az network dns record-set](/cli/azure/network/dns/record-set) | Manage DNS records and record sets.|
+| [az network front-door](/cli/azure/network/front-door) | Manage Front Doors.|
 
 ## Next steps
 
