@@ -44,9 +44,9 @@ Images are either standalone binary files or embedded in documents (PDF, RTF, an
 
 Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. There are three main tasks related to retrieving images from the source:
 
-+ Access rights on the container. If you're using a full access connection string that includes a key, the key will grant you access to the content. Alternatively, you can authenticate using Azure Active Directory (Azure AD) and a role assignment that grants read access.
++ Access rights on the container. If you're using a full access connection string that includes a key, the key gives you access to the content. Alternatively, you can [authenticate using Azure Active Directory (Azure AD)](search-howto-managed-identities-data-sources.md) or [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
 
-+ [Create a data source](/rest/api/searchservice/create-data-source) of type "azureblob" that connects to the blob container storing your files.
++ [Create a data source](search-howto-indexing-azure-blob-storage.md) of type "azureblob" that connects to the blob container storing your files.
 
 + Optionally, [set file type criteria](search-blob-storage-integration.md#PartsOfBlobToIndex) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings. You can filter out files you don't want.
 
