@@ -27,50 +27,18 @@ landingContent:
         links:
           - text: What is Translator?
             url: translator-overview.md
+          - text: Language support
+            url:  language-support.md
+          - text: Pricing
+            url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
       - linkListType: whats-new
         links:
          - text: What's new in Translator?
            url: whats-new.md
-      - linkListType: reference
-        links:
-          - text: Language support
-            url:  language-support.md
-          - text: Support and help options
-            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-          - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-          - text: Compliance
-            url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-          - text: Confidentiality
-            url: https://www.microsoft.com/translator/business/notrace/
-          - text: Create a subscription
-            url: how-to-create-translator-resource.md
-
 
   # Card 2
-  - title: Features and quickstarts
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Text Translation
-            url: text-translation-overview.md
-          - text: Document Translation
-            url:  document-translation/overview.md
-          - text: Custom Translator
-            url: custom-translator/overview.md
-      - linkListType: get-started
-        links:
-          - text: Translator Text quickstart
-            url: quickstart-translator.md
-          - text: Document Translation quickstart
-            url: document-translation/get-started-with-document-translation.md
-          - text: Custom Translator (preview)
-            url: custom-translator/v2-preview/quickstart.md
-          - text: Custom Translator (legacy)
-            url: custom-translator/quickstart-build-deploy-custom-model.md
-  # Card 3
   - title: Translator Text
     linkLists:
       - linkListType: reference
@@ -91,7 +59,48 @@ landingContent:
             url:  firewalls.md
           - text: Use the Translator container
             url: containers/translator-how-to-install-container.md
+
+  # Card 3
+  - title: Document Translation
+    linkLists:
+      - linkListType: reference
+        links:
+         - text: Client-library SDKs
+           url: document-translation/client-sdks.md
+         - text: Document Translation REST APIs
+           url: document-translation/reference/rest-api-guide.md
+         - text: Document Translation FAQ
+           url: document-translation/faq.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create SAS tokens
+            url: document-translation/create-sas-tokens.md
+          - text: Create and use managed identities
+            url: document-translation/managed-identity.md
+
   # Card 4
+  - title: Features and quickstarts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Text Translation
+            url: text-translation-overview.md
+          - text: Document Translation
+            url:  document-translation/overview.md
+          - text: Custom Translator
+            url: custom-translator/overview.md
+      - linkListType: get-started
+        links:
+          - text: Translator Text quickstart
+            url: quickstart-translator.md
+          - text: Document Translation quickstart
+            url: document-translation/get-started-with-document-translation.md
+          - text: Custom Translator (preview)
+            url: custom-translator/v2-preview/quickstart.md
+          - text: Custom Translator (legacy)
+            url: custom-translator/quickstart-build-deploy-custom-model.md
+
+  # Card 5
   - title: Custom Translator (preview)
     linkLists:
       - linkListType: reference
@@ -99,7 +108,7 @@ landingContent:
         - text: Key terms
           url: custom-translator/key-terms.md
         - text: FAQ
-          url: custom-translator/faq.md   
+          url: custom-translator/faq.md
       - linkListType: get-started
         links:
           - text: Custom Translation for beginners
@@ -119,24 +128,19 @@ landingContent:
           - text: Translate text with a custom model
             url: custom-translator/v2-preview/how-to/translate-with-custom-model.md
 
-  # Card 5
-  - title: Document Translation
+  # Card 6
+  - title: Help and support
     linkLists:
       - linkListType: reference
         links:
-         - text: Client-library SDKs
-           url: document-translation/client-sdks.md
-         - text: Document Translation REST APIs
-           url: document-translation/reference/rest-api-guide.md
-         - text: Document Translation FAQ
-           url: document-translation/faq.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create SAS tokens
-            url: document-translation/create-sas-tokens.md
-          - text: Create and use managed identities
-            url: document-translation/managed-identity.md
-  # Card 6
+          - text: Support and help options
+                url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
+
+              - text: Compliance
+                url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+              - text: Confidentiality
+                url: https://www.microsoft.com/translator/business/notrace/
+  # Card 7
   - title: Resources
     linkLists:
       - linkListType: reference
@@ -149,3 +153,12 @@ landingContent:
             url: https://www.microsoft.com/translator/business/notrace/
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
+
+        #new card
+
+            - linkListType: reference
+        links:
+
+          
+          - text: Create a subscription
+            url: how-to-create-translator-resource.md
