@@ -29,7 +29,7 @@ For more information, see [Purchase sensors or download software for sensors](ho
 
 You can order any of the following preconfigured appliances for monitoring your OT networks:
 
-|Capacity / Hardware profile  |Appliance  |Performance / Monitoring  |Physical specifications  |
+|Hardware profile  |Appliance  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|---------|
 |Corporate   | [HPE ProLiant DL360](appliance-catalog/hpe-proliant-dl360.md)         |   **Max bandwidth**: 3Gbp/s <br>**Max devices**:12,000      |  **Mounting**: 1U <br>**Ports**: 15x RJ45 or 8x SFP (OPT)     |
 |Enterprise    | [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md)  <br> (4SFF)     |  **Max bandwidth**: 1 Gbp/s<br>**Max devices**: 10,000      |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
@@ -45,7 +45,7 @@ You can order any of the following preconfigured appliances for monitoring your 
 
 You can purchase any of the following appliances for your OT on-premises management consoles:
 
-|Capacity / Hardware profile |Appliance  |Max sensors  |Physical specifications  |
+|Hardware profile |Appliance  |Max sensors  |Physical specifications  |
 |---------|---------|---------|---------|
 |Enterprise    | [HPE ProLiant DL20/DL20 Plus](appliance-catalog/hpe-proliant-dl20-plus-enterprise.md) <br> (4SFF)       | 300     |  **Mounting**: 1U <br>**Ports**: 8x RJ45 or 6x SFP (OPT)         |
 
