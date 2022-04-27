@@ -293,7 +293,7 @@ If you're still troubleshooting, wait until after you've inspected the container
 docker rm --force <container name>
 ```
 
-For ongoing logs maintenance and production scenarios, [place limits on log size](production-checklist.md#place-limits-on-log-size).
+For ongoing logs maintenance and production scenarios, [Set up default logging driver](production-checklist.md#set-up-default-logging-driver).
 
 ## View the messages going through the IoT Edge hub
 
