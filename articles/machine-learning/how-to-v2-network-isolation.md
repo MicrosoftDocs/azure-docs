@@ -93,6 +93,7 @@ az ml workspace update \
     -g <resource-group-name>
 ```
 
+---
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable public access to the workspace, add the parameter `--v1-legacy-mode disabled`.
