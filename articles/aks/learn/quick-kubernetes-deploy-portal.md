@@ -47,7 +47,7 @@ If you are unfamiliar with using the Bash environment in Azure Cloud Shell, revi
     - **Primary node pool**:
         * Leave the default values selected.
     
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot of Create AKS cluster - provide basic information.:::
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot of Create AKS cluster - provide basic information.":::
 
     > [!NOTE]
     > You can change the preset configuration when creating your cluster by selecting *Learn more and compare presets* and choosing a different option.
