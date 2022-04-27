@@ -155,13 +155,13 @@ Select the ellipsis (three dots) to copy the widget image, download aggregated w
 
 [ ![Screenshot of the Estimated revenue timeline section of the Revenue dashboard.](./media/revenue-dashboard/estimated-revenue-timeline-ellipsis.png) ](./media/revenue-dashboard/estimated-revenue-timeline-ellipsis.png#lightbox)
 
-### Customer leader board
+### Customers leader board
 
 In this section, you will find the information for top customers who contribute the most to estimated revenue. The “All” row denotes billed sales of all your customers. Up to 500 records can be displayed in this leaderboard table. All figures are reported in the partner preferred currency and can be sorted on different columns. You can select each row of the table and see the corresponding revenue split across different statuses, and the revenue trend for the selected month range. The dotted line in the revenue trend represents revenue figures for the open month.
 
 Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
 
-[ ![Screenshot of the Customer leader board section of the Revenue dashboard.](./media/revenue-dashboard/revenue-customer-leaderboard.png) ](./media/revenue-dashboard/revenue-customer-leaderboard.png#lightbox)
+[ ![Screenshot of the Customers leader board section of the Revenue dashboard.](./media/revenue-dashboard/customers-leaderboard.png) ](./media/revenue-dashboard/customers-leaderboard.png#lightbox)
 
 ### Geographical spread
 
