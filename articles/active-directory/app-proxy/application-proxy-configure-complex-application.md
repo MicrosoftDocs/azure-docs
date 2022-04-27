@@ -13,11 +13,29 @@ ms.author: dhruvinshah
 ms.reviewer: ashishj
 ---
 
-# Understand and solve Azure Active Directory Application Proxy CORS issues
+# Understanding Azure Active Directory Application Proxy Complex application scenario
 
-[Cross-origin resource sharing (CORS)](https://www.w3.org/TR/cors/) can sometimes present challenges for the apps and APIs you publish through the Azure Active Directory Application Proxy. This article discusses Azure AD Application Proxy CORS issues and solutions.
+When applications are made up of multiple top-level domains the following problems arise.
+1.	Pre-authentication- The App Proxy service does not have a token acquired for the second domain and must redirect to pre-auth for this domain to successfully access the site.
+2.	CORS issues- Cross-origin resource sharing calls will be triggered to validate if the second domain is allowed to access the first domain.
+3.	Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
 
-Browser security usually prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. CORS is a W3C standard that lets a server relax the same-origin policy and allow some cross-origin requests while rejecting others.
+The following figure shows an example for complex application domain structure.
+
+![Domain Structure of complex application](./media/application-proxy-configure-complex-application/complex-app-structure.png)
+
+With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using complex application publishing that is made up of multiple URLs across various domains. 
+
+A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
+There is one conditional access policy associated with the app and access to any of the external URL's work with pre-authentication with the same set of policies enforced for all.
+
+This solution that allows user to:
+
+- access this application by successfully authenticating 
+- load all URLs across various domains
+- including those that exist at a different top-level domain
+
+This article provides you with the information you need to configure wildcard application publishing in your environment.
 
 ## Pre-requisites
 Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
@@ -63,12 +81,7 @@ Before you get started with single sign-on for header-based applications, you sh
 If successful, this method returns a `204 No Content` response code and does not return anything in the response body.
 ## Example
 
-##### Response
-
-```http
-HTTP/1.1 204 No Content
-```
-#### Request
+##### Request
 Here is an example of the request.
 
 
@@ -110,14 +123,12 @@ Content-type: application/json
 }
 
 ```
-3. Set the single sign-on mode to **Header-based**. 
-4. In Basic Configuration, **Azure Active Directory**, will be selected as the default. 
-5. Select the edit pencil, in Headers to configure headers to send to the application. 
-6. Select **Add new header**. Provide a **Name** for the header and select either **Attribute** or **Transformation** and select from the drop-down which header your application needs.  
-    - To learn more about the list of attribute available, see [Claims Customizations- Attributes](../develop/active-directory-saml-claims-customization.md#attributes). 
-    - To learn more about the list of transformation available, see [Claims Customizations- Claim Transformations](../develop/active-directory-saml-claims-customization.md#claim-transformations). 
-    - You may also add a **Group Header**, to send all the groups a user is part of, or the groups assigned to the application as a header. To learn more about configuring groups as a value see: [Configure group claims for applications](../hybrid/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration). 
-7. Select Save. 
+##### Response
+
+```http
+HTTP/1.1 204 No Content
+```
+
 
 ## CORS challenges with Application Proxy
 
