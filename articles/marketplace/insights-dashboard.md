@@ -40,7 +40,7 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 
 1. In the left menu, select **[Marketplace insights](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/marketplaceinsights)**.
 
-[ ![Screenshot of the Marketplace insights link in the left-nav.](./media/insights-dashboard/marketplace-insights.png) ](./media/insights-dashboard/marketplace-insights.png#lightbox)
+    [ ![Screenshot of the Marketplace insights link in the left-nav.](./media/insights-dashboard/marketplace-insights.png) ](./media/insights-dashboard/marketplace-insights.png#lightbox)
 
 ## Elements of the Marketplace Insights dashboard
 
@@ -193,7 +193,6 @@ This table provides a list view of the page visits and the calls to action of yo
 | Consent given | Consent given | Total count of clicks for customer-provided consent to Microsoft or the partner | consentGivenCount |
 | Platform | Platform | Indicates website or client (in-product store) as the source for page view, CTA, or consent clicks | platforms |
 | n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
-|
 
 ## Next steps
 
