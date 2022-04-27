@@ -83,10 +83,10 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
 > [Get started by Connecting Email Resource with a Communication Resource](../../quickstarts/Email/connect-email-communication-acs-resource.md)
 
-> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/email/email-authentication-bestpractice.md)
+> [Best Practices for Sender Authentication Support in Azure Communication Services Email](../../concepts/Email/email-authentication-bestpractice.md)
 
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
-- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
+- Familiarize yourself with the [Email client library](../../concepts/Email/sdk-features.md)
+- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/Email/add-custom-verified-domains.md)
