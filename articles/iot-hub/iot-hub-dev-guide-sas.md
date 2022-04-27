@@ -78,7 +78,7 @@ Here are the expected values:
 | Value | Description |
 | --- | --- |
 | {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
-| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT hub (no protocol). Security tokens granted to backend services should be scoped to the IoT hub-level; for example, `myHub.azure-devices.net`. Security tokens granted to devices should be scoped to the device; for example, `myHub.azure-devices.net/devices/device1`. |
+| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT hub (no protocol). SAS tokens granted to backend services are scoped to the IoT hub-level; for example, `myHub.azure-devices.net`. SAS tokens granted to devices must be scoped to an individual device; for example, `myHub.azure-devices.net/devices/device1`. |
 | {expiry} |UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
 | {URL-encoded-resourceURI} |Lower case URL-encoding of the lower case resource URI |
 | {policyName} |The name of the shared access policy to which this token refers. Absent if the token refers to device-registry credentials. |
@@ -237,7 +237,7 @@ When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a sin
 
 ## Use security tokens from service components
 
-Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained previously in [Access control and permissions](#access-control-and-permissions).
+Services can generate SAS tokens by using a shared access policy which defines the appropriate permissions as explained previously in [Access control and permissions](#access-control-and-permissions).
 
 As an example, a service generating using the pre-created shared access policy called **registryRead** would create a token with the following parameters:
 
