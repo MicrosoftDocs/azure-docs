@@ -515,7 +515,13 @@
   - name: Troubleshooting
     items:  
     - name: Troubleshoot CLI errors
-      href: flexible-server/how-to-troubleshoot-cli-errors.md    
+      href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: Troubleshoot High CPU Utilization
+      href: flexible-server/how-to-troubleshoot-high-cpu.md
+    - name: Troubleshoot High Memory Utilization
+      href: flexible-server/how-to-troubleshoot-high-memory-usage.md
+    - name: Troubleshoot Autovacuum Issues
+      href: flexible-server/how-to-troubleshoot-autovacuum-tuning.md
   - name: How-to guides
     items:
     - name: Manage a server
