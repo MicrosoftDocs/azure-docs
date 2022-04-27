@@ -194,9 +194,7 @@ In this section, you add a new controller to the WebAPI backend to handle reques
 
 9. In the **Controller name** box, type **RegisterController** to name the new class, and then select **Add**.
 
-    [ ![The Add Controller window](/media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png)](/media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png#lightbox)
-
-
+    :::image type="content" source="media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png" alt-text="The Add Controller window." lightbox="media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png":::
 
 10. In RegisterController.cs, add the following `using` statements:
 
