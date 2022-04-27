@@ -43,7 +43,7 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
 Now that you've transcribed speech to text, here are some suggested modifications to try out:
-- To recognize speech from an audio file, use `--file` instead of `--microphone`. For compressed audio files such as MP4, install GStreamer and use `--format`. For more information, see [How to use compressed audio files](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
+- To recognize speech from an audio file, use `--file` instead of `--microphone`. For compressed audio files such as MP4, install GStreamer and use `--format`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
     # [Terminal](#tab/terminal)
     ```console
     spx recognize --file YourAudioFile.wav

@@ -114,7 +114,7 @@ Here are some additional considerations:
     ```csharp
     using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
     ```
-- For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed audio files](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
+- For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Clean up resources
 
