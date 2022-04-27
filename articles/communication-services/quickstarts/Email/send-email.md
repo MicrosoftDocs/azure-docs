@@ -13,6 +13,7 @@ ms.custom: private_preview
 zone_pivot_groups: acs-js-csharp
 ---
 
+# Quickstart: How to send an Email using Azure Communication Services.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
