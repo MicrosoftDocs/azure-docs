@@ -86,15 +86,19 @@ For API versions October 2021 and newer, the error output will look like the fol
     - Added support for customers to use their own VNet.
     - Added support for customers to customize the build VM (VM size, OS disk size).
     - Added support for user assigned MSI (for customize/distribute steps).
-- The following APIs are deprecated, but still supported:
-    - 2018-02-01-preview
-    - 2019-02-01-preview
-    - 2019-05-01-preview
+
 
 
 ### November 2021
 
 Added support for [Gen2 images.](image-builder-overview.md#hyper-v-generation).
+
+### Preview APIs
+
+ The following APIs are deprecated, but still supported:
+- 2018-02-01-preview
+- 2019-02-01-preview
+- 2019-05-01-preview
 
 
 ## Next steps
