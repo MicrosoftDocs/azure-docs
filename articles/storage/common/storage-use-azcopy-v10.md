@@ -1,6 +1,6 @@
 ---
 title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
-description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
+description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.custom: contperf-fy21q2
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer files.
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
 > [!NOTE]
 > AzCopy **V10** is the currently supported version of AzCopy.

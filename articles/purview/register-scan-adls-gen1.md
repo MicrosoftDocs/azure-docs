@@ -29,7 +29,7 @@ This article outlines the process to register an Azure Data Lake Storage Gen1 da
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -43,9 +43,9 @@ It is important to register the data source in Microsoft Purview prior to settin
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source":::
 
-1. **Open Microsoft Purview Studio** and navigate to the **Data Map --> Sources**
+1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
 
-    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview Studio":::
+    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview governance portal":::
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
@@ -147,9 +147,9 @@ It is important to give your service principal the permission to scan the ADLS G
 
 ### Creating the scan
 
-1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview Studio**
+1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**
 
-    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-purview-acct.png" alt-text="Screenshot that shows the Open Microsoft Purview Studio":::
+    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-purview-acct.png" alt-text="Screenshot that shows the Open Microsoft Purview governance portal":::
 
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 

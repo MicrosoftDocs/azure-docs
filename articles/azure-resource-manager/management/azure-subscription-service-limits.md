@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/17/2022
+ms.date: 04/26/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -384,7 +384,7 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 ## SQL Database limits
 
-For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](/azure/azure-sql/database/resource-limits-vcore-single-databases), [SQL Database resource limits for elastic pools and pooled databases](/azure/azure-sql/database/resource-limits-vcore-elastic-pools), and [SQL Database resource limits for SQL Managed Instance](/azure/azure-sql/managed-instance/resource-limits).
 
 The maximum number of private endpoints per Azure SQL Database logical server is 250.
 

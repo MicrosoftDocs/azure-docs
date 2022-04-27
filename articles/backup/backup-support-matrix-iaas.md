@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 04/12/2022
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
@@ -49,7 +49,7 @@ Monthly/yearly backup| Not supported when backing up with Azure VM extension. On
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
 Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
-Multiple Backups Per Day   |  Supported, using _Enhanced policy_ (in preview). To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).     <br><br>   For hourly backup, the minimum RPO is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively. Learn about how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+Multiple Backups Per Day    |  Supported (in preview), using *Enhanced policy* (in preview). <br><br>   For hourly backup, the minimum RPO is 4 hours and the maximum is 24 hours. You can set the backup schedule to 4, 6, 8, 12, and 24 hours respectively. Learn about how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
 
 ## Operating system support (Windows)
 

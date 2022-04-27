@@ -17,7 +17,7 @@ The goal of search in Microsoft Purview is to speed up the process of quickly fi
 
 ## Searching the catalog
 
-The search bar can be quickly accessed from the top bar of the Microsoft Purview Studio UX. In the data catalog home page, the search bar is in the center of the screen.
+The search bar can be quickly accessed from the top bar of the Microsoft Purview governance portal UX. In the data catalog home page, the search bar is in the center of the screen.
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Microsoft Purview search bar" border="true":::
 

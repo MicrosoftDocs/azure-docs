@@ -76,7 +76,7 @@ For more information, see [Create, import, and export glossary terms](./how-to-c
 
 ## Recommendations for exporting glossary terms 
 
-Exporting terms may be useful in Microsoft Purview account to account, Backup, or Disaster Recovery scenarios. Exporting terms in Microsoft Purview Studio must be done one term template at a time. Choosing terms from multiple templates will disable the "Export terms" button. As a best practice, using the "Term template" filter before bulk selecting will make the export process quick.
+Exporting terms may be useful in Microsoft Purview account to account, Backup, or Disaster Recovery scenarios. Exporting terms in the Microsoft Purview governance portal must be done one term template at a time. Choosing terms from multiple templates will disable the "Export terms" button. As a best practice, using the "Term template" filter before bulk selecting will make the export process quick.
 
 ## Glossary Management 
 
@@ -85,8 +85,8 @@ Exporting terms may be useful in Microsoft Purview account to account, Backup, o
 - While classifications and sensitivity labels are applied to assets automatically by the system based on classification rules, glossary terms are not applied automatically.
 - Similar to classifications, glossary terms can be mapped to assets at the asset level or scheme level.
 - In Microsoft Purview, terms can be added to assets in different ways:
-  - Manually, using Microsoft Purview Studio.
-  - Using Bulk Edit mode to update up to 25 assets, using Microsoft Purview Studio.
+  - Manually, using the Microsoft Purview governance portal.
+  - Using Bulk Edit mode to update up to 25 assets, using the Microsoft Purview governance portal.
   - Curated Code using the Atlas API.
 - Use Bulk Edit Mode when assigning terms manually. This feature allows a curator to assign glossary terms, owners, experts, classifications and certified in bulk based on selected items from a search result. Multiple searches can be chained by selecting objects in the results. The Bulk Edit will apply to all selected objects. Be sure to clear the selections after the bulk edit has been performed. 
 - Other bulk edit operations can be performed by using the Atlas API. An example would be using the API to add descriptions or other custom properties to assets in bulk programmatically.

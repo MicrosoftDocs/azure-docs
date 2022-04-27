@@ -152,7 +152,7 @@ Here are some considerations to bear in mind as you're defining classifications:
 * The sampling rules apply to resource sets as well. For more information, see the "Resource set file sampling" section in [Supported data sources and file types in Microsoft Purview](./sources-and-scans.md#resource-set-file-sampling).
 * Custom classifications can't be applied on document type assets using custom classification rules. Classifications for such types can be applied manually only.
 * Custom classifications aren't included in any default scan rules. Therefore, if automatic assignment of custom classifications is expected, you must deploy and use a custom scan rule that includes the custom classification to run the scan.
-* If you apply classifications manually from Microsoft Purview Studio, such classifications are retained in subsequent scans. 
+* If you apply classifications manually from the Microsoft Purview governance portal, such classifications are retained in subsequent scans. 
 * Subsequent scans won't remove any classifications from assets, if they were detected previously, even if the classification rules are inapplicable.
 * For *encrypted source* data assets, Microsoft Purview picks only file names, fully qualified names, schema details for structured file types, and database tables. For classification to work, decrypt the encrypted data before you run scans. 
 

@@ -16,7 +16,7 @@ This article provides an overview of the Scanning and Ingestion features in Micr
 
 ## Scanning
 
-After data sources are [registered](manage-data-sources.md) in your Microsoft Purview account, the next step is to scan the data sources. The scanning process establishes a connection to the data source and captures technical metadata like names, file size, columns, and so on. It also extracts schema for structured data sources, applies classifications on schemas, and [applies sensitivity labels if your Microsoft Purview account is connected to a Microsoft 365 Security and Compliance Center (SCC)](create-sensitivity-label.md). The scanning process can be triggered to run immediately or can be scheduled to run on a periodic basis to keep your Microsoft Purview account up to date.
+After data sources are [registered](manage-data-sources.md) in your Microsoft Purview account, the next step is to scan the data sources. The scanning process establishes a connection to the data source and captures technical metadata like names, file size, columns, and so on. It also extracts schema for structured data sources, applies classifications on schemas, and [applies sensitivity labels if your Microsoft Purview Data Map is connected to a Microsoft Purview compliance portal](create-sensitivity-label.md). The scanning process can be triggered to run immediately or can be scheduled to run on a periodic basis to keep your Microsoft Purview account up to date.
 
 For each scan there are customizations you can apply so that you're only scanning your sources for the information you need.
 

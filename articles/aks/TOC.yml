@@ -66,8 +66,6 @@
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
-        - name: Security Hardening in host OS
-          href: security-hardened-vm-host-image.md
         - name: Compliance
           items:
             - name: CIS Baseline overview
@@ -75,6 +73,8 @@
               maintainContext: True
             - name: CIS Kubernetes benchmark
               href: cis-kubernetes.md
+            - name: CIS Ubuntu benchmark
+              href: cis-ubuntu.md
     - name: Access and identity
       href: concepts-identity.md
     - name: Networking

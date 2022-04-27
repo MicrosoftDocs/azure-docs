@@ -42,7 +42,7 @@ In Microsoft Purview, you can register and scan source types. Once the scan is c
 
 1. Navigate to your Microsoft Purview account in the Azure portal.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Open Microsoft Purview Studio** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Open Microsoft Purview governance portal** tile.
 
    :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Launch Microsoft Purview from the Azure portal":::
 
