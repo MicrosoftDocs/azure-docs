@@ -234,7 +234,7 @@
         "articles/azure-monitor/platform/*.md": "rboucher",
         "articles/azure-monitor/app/*.md": "AaronMaxwell",
         "articles/azure-monitor/agents/*.md": "bwren",
-        "articles/azure-monitor/alerts/*.md": "rboucher",
+        "articles/azure-monitor/alerts/*.md": "AbbyMSFT",
         "articles/azure-monitor/autoscale/*.md": "rboucher",
         "articles/azure-monitor/containers/*.md": "bwren",
         "articles/azure-monitor/essentials/*.md": "rboucher",
