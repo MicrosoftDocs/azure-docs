@@ -52,11 +52,11 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 [!INCLUDE [Enable plan for GKE](./includes/defender-for-containers-enable-plan-gke.md)]
 ::: zone-end
 
-## Install the Defender profile
+## Override the default workspace
 
-Once the Defender profile has been deployed you can then override the default workspace for AKS SecurityProfile.
+Once the Defender profile has been deployed, a default workstation will be automatically assigned. You can override the default workspace and make a change through Azure Policy.
 
-**To install the Defender profile**:
+**To override the default workspace**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
