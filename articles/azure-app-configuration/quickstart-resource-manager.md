@@ -19,7 +19,7 @@ This quickstart describes how to :
 - Read key-values in an App Configuration store from ARM template.
 
 > [!TIP]
-> Feature flags and Key Vault references are special key-values. Check out the [Next Steps](#next-steps) for examples of creating them using ARM template.
+> Feature flags and Key Vault references are special types of key-values. Check out the [Next steps](#next-steps) for examples of creating them using the ARM template.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
