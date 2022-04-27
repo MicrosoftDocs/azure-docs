@@ -426,6 +426,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -3229,6 +3234,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/scenario-secure-app-clean-up-resources.md",
+      "redirect_url": "/azure/app-service/scenario-secure-app-access-storage#clean-up-resources",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs",
       "redirect_document_id": false
@@ -4540,17 +4550,32 @@
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-onetime.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-onetime",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-onetime.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-restore.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-restore",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-restore.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-scheduled.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-scheduled",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-scheduled.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
@@ -41266,7 +41291,7 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
       "redirect_url": "/azure/storage/files/files-nfs-protocol",
-      "redireect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
