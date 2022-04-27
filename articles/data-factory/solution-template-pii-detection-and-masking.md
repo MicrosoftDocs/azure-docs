@@ -58,7 +58,7 @@ This template defines 3 parameters:
 
 6. Turn on **Data flow debug**. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-3.png" alt-text="Data flow debug button":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-6.png" alt-text="Data flow debug button":::
 
 7. Update **Parameters** in **Debug Settings** and **Save**. 
 
