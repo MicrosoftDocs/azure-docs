@@ -251,7 +251,7 @@ The following is the list of known limitations for Synapse Link for SQL Server 2
 * Users must create new Synapse workspace to get Synapse link for SQL Server 2022.
 * Synapse link for SQL Server 2022 cannot be used in virtual network environment. Users need to check “Disable Managed virtual network” for Synapse workspace.
 * Users need to manually create schema in destination Synapse SQL pool in advance, as target database schema object will not be automatically created.
-* When creating SQL Server linked service, please choose SQL Auth, Windows Auth or AAD auth.
+* When creating SQL Server linked service, please choose SQL Auth, Windows Auth or Azure AD auth.
 * Synapse Link for SQL Server 2022 can work with SQL Server on Linux. But HA scenarios with Linux Pacemaker are not supported. Shelf hosted IR cannot be installed on Linux environment 
 * Synapse Link for SQL Server 2022 CANNOT be enabled for source tables in SQL Server 2022 in following conditions:
   * Source tables do not have primary keys.
