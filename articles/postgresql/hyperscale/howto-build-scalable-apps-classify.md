@@ -25,6 +25,8 @@ Hyperscale (Citus).
 * These apps have a classic relational data model, and are built using ORMs –
   like RoR, Hibernate, Django etc.
 
+> [!VIDEO https://www.youtube.com/embed/7gAW08du6kk]
+
 ## Characteristics of real-time operational analytics
 
 * These apps have a customer/user facing interactive analytics dashboard, with
@@ -35,6 +37,8 @@ Hyperscale (Citus).
 * Common data models in these apps include:
 	* Star Schema - few large/fact tables, the rest being small/dimension tables
 	* Mostly fewer than 20 major tables
+
+> [!VIDEO https://www.youtube.com/embed/xGWVVTva434]
 
 ## Characteristics of high-throughput transactional
 
@@ -47,6 +51,8 @@ Hyperscale (Citus).
 * Query latency in single-digit miliseconds, with a high concurrency
   requirement.
 * Timeseries data, such as internet of things.
+
+> [!VIDEO https://www.youtube.com/embed/A9q7w96yO_E]
 
 ## Next steps
 
