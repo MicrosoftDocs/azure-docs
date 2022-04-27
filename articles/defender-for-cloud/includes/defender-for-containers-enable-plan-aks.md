@@ -168,3 +168,8 @@ Once the Defender profile has been deployed you can then override the default wo
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
+1. Enter `LogAnalyticsWorkspaceResource`.
+
+1. Select **Review + create**.
+
+1. Select **Create**.
