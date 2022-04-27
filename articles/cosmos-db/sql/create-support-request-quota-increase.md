@@ -34,9 +34,9 @@ To request a quota increase, you must create a new support request with your wor
 
 1. Fill the following details in this form:
 
-   * **Description**: Provide a short description of your request such as your workload, why the default values aren’t sufficient. Based on the resource type for which you want quota increase, it’s mandatory for you to provide the following details within the **Description** field:
+   * **Description**: Provide a short description of your request such as your workload, why the default values aren’t sufficient along with any error messages you are observing.
 
-     **Quota specific fields** provide the requested information for your specific quota request.
+   * **Quota specific fields** provide the requested information for your specific quota request.
 
    * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support](../../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) article.
 
