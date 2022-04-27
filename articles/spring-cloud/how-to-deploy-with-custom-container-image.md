@@ -26,6 +26,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring Clo
 # [Azure CLI](#tab/azure-cli)
 
 1. To deploy a container image, use one of the following commands:
+
     1. To deploy a container image `contoso/your-app:v1` on the public Docker Hub to an app, use the following command:
 
        ```azurecli
@@ -69,20 +70,32 @@ This article explains how to deploy Spring Boot applications in Azure Spring Clo
    --container-args "-jar /app.jar -Dkey=value"
    ```
 
-1. To disable listening on a port for images that are not web applications, add the following argument to the above commands:
+1. To disable listening on a port for images that aren't web applications, add the following argument to the above commands:
    ```xml
    --disable-probe true
    ```
 
 # [Portal](#tab/azure-portal)
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-custom-container-app-1.png" alt-text="Create App 1.":::
+To deploy an application to a custom container image, use the following steps:
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-custom-container-app-2.png" alt-text="Create App 2.":::
- 
-The `Commands` and `Arguments` field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
+1. Open the [Azure portal](portal.azure.com).
+1. Open your existing Spring Cloud service instance.
+1. Select **Apps** from left the menu, then select **Create App**.
+1. Name your app, and in the **Runtime platform** pulldown list, select **Custom Container**.
 
-You need to also specify the `Language Framework`, which is the web framework of the container image used. Currently only `Spring Boot` is supported. For other Java applications or non-Java (polyglot) applications please choose `Polyglot`.
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of where to select Custom Container in Create App section.":::
+
+1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
+
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot showing the custom image settings fields to be filled in." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
+
+> [!NOTE]
+> The `Commands` and `Arguments` field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
+>
+> You need to also specify the `Language Framework`, which is the web framework of the container image used. Currently only `Spring Boot` is supported. For other Java applications or non-Java (polyglot) applications please choose `Polyglot`.
+
+1. Select **Save**, then select **Create** to deploy your application.
 
 ---
 
@@ -107,7 +120,7 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Gateway for VMware Tanzu®                          | Y | Y | Enterprise tier only  |
 | Application Configuration Service for VMware Tanzu®             | Y | N | Enterprise tier only  |
 | VMware Tanzu® Service Registry                                  | Y | N | Enterprise tier only  |
-| VNET                                                            | Y | Y | Add registry to [Allow List in NSG or Azure Firewall](#why-cant-connect-to-the-container-registry-in-vnet)  |
+| VNET                                                            | Y | Y | Add registry to [allowlist in NSG or Azure Firewall](#why-cant-connect-to-the-container-registry-in-vnet)  |
 | Outgoing IP Address                                             | Y | Y |   |
 | E2E TLS                                                         | Y | Y | Trust a self-signed CA is supported by [manual installation](#how-to-trust-a-ca-in-the-image)  |
 | Liveness and readiness settings                                 | Y | Y |   |
@@ -161,7 +174,7 @@ To trust a CA in the image, set the following variables depending on your enviro
    ``` 
 ### How to avoid unexpected behavior when images change
 
-When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image. This may lead to unexpected application behavior. To avoid this, don't use the `latest` tag or overwrite an image without a tag change.
+When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image. Avoid using the `latest` tag or overwrite the image without a tag change to avoid unexpected application behavior.
 
 ### How to avoid not being able to connect to the container registry in a VNet
 
@@ -182,7 +195,7 @@ The installation steps vary on different APMs and languages. The following steps
 
 1. Modify the image entry point by adding: `java -javaagent:/opt/agents/newrelic/java/newrelic-agent.jar`
 
-For more information on how to install the agents for the Java apps, please see the following articles:
+For more information on how to install the agents for the Java apps, see the following articles:
 
 * [New Relic Monitor](/azure/spring-cloud/how-to-new-relic-monitor)
 * [Dynatrace One Agent Monitor](/azure/spring-cloud/how-to-dynatrace-one-agent-monitor)
@@ -214,17 +227,18 @@ az spring-cloud app logs \
    -instance <AppInstanceName>
 ```
 
-To view the container events logs from the Azure Monitor:
+To view the container events logs from the Azure Monitor, enter the query:
 
 ```xml
-AppPlatformContainerEventLogs | where App == "hw-20220317-1b"
+AppPlatformContainerEventLogs
+| where App == "hw-20220317-1b"
 ```
 
 :::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the container events log.":::
 
 ### How to scan your image for vulnerabilities
 
-It is recommended that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
+It's recommended that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
 
 ### How to switch between JAR deployment and container deployment
 
