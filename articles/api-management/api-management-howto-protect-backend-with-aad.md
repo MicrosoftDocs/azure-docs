@@ -6,7 +6,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 04/25/2022
+ms.date: 04/27/2022
 ms.author: danlep
 ms.custom: contperf-fy21q1
 ---
@@ -25,25 +25,19 @@ Prior to following the steps in this article, you must have:
 
 ## Overview
 
-This article describes the following steps to configure Azure AD to represent the API and to configure a policy to validate an OAuth token presented in each incoming request. 
+Follow these steps to protect an API in API Management, using OAuth 2.0 authorization with Azure AD.
 
-1. Register an application (backend-app) in Azure AD to represent the API or APIs. 
+1. Register an application (backend-app) in Azure AD to protect access to the API. 
 
-    Clients and services must obtain and present a valid AD token granting access to this app with each API request.
+    To access the API, users or applications will acquire and present a valid OAuth token granting access to this app with each API request.
 
-1. Configure the **validate-jwt** policy at an appropriate scope in API Management to validate the OAuth token presented in each incoming API request. Valid requests can be passed to the backend.
+1. Configure the **validate-jwt** policy in API Management to validate the OAuth token presented in each incoming API request. Valid requests can be passed to the backend.
 
-Details about OAuth authorization flows and generating the required OAuth tokens are beyond the scope of this article. Typically, you would configure a separate client app to acquire tokens from Azure AD that authorize access to the backend.
-
-* Learn more about [OAuth grant types](https://oauth.net/2/grant-types/).
-
-* For information about the authorization code flow with Azure AD, see [Microsoft identity platform and OAuth 2.0 authorization code flow](../active-directory/develop/v2-oauth2-auth-code-flow.md). 
-
-* For an end-to-end example of configuring OAuth 2.0 user authorization in the API Management developer portal, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
+Details about OAuth authorization flows and how to generate the required OAuth tokens are beyond the scope of this article. Typically, a separate client app is used to acquire tokens from Azure AD that authorize access to the backend. For more information, see the [Next steps](#next-steps).
 
 ## Register an application in Azure AD to represent the API
 
-Using the Azure portal, protect an API with Azure AD by registering an application that represents the API in Azure AD. 
+Using the Azure portal, protect an API with Azure AD by first registering an application that represents the API. 
 
 For details about app registration, see [Quickstart: Configure an application to expose a web API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
@@ -76,23 +70,25 @@ For details about app registration, see [Quickstart: Configure an application to
 
 ## Configure a JWT validation policy to pre-authorize requests
 
-To enable OAuth 2.0 authorization to the backend API:
-
-1. A user or service acquires a token from Azure AD granting access to the backend-app at the appropriate scope (steps not shown).
-
-1. A token is sent in the authorization header of API requests to API Management. 
-
-1. API Management validates the token by using the [validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy. 
-
-    If a request doesn't have a valid token, API Management blocks it. If a request is accompanied by a valid token, the request can be forwarded by the gateway to the backend. 
-
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
+
+## Authorization workflow
+
+1. A user or application acquires a token from Azure AD with permissions that grant access to the backend-app. 
+
+1. The token is added in the Authorization header of API requests to API Management. 
+
+1. API Management validates the token by using the `validate-jwt` policy. 
+
+    * If a request doesn't have a valid token, API Management blocks it. 
+
+    * If a request is accompanied by a valid token, the gateway can forward the request to the backend. 
 
 ## Next steps
 
 * To learn more about how to build an application and implement OAuth 2.0, see [Azure AD code samples](../active-directory/develop/sample-v2-code.md).
 
-* For an end-to-end example, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
+* For an end-to-end example of configuring OAuth 2.0 user authorization in the API Management developer portal, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
 
 - Learn more about [Azure AD and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 

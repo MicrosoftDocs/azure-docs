@@ -1,14 +1,14 @@
 ---
-author: dlpow
+author: dlepow
 ms.service: api-management
 ms.topic: include
 ms.date: 04/26/2022
 ms.author: danlep
 ---
 
-The following example policy, when added to the `<inbound>` policy section, checks the value of the audience claim in an access token obtained from Azure AD, and returns an error message if the token is not valid. 
+The following example policy, when added to the `<inbound>` policy section, checks the value of the audience claim in an access token obtained from Azure AD that is presented in the Authorization header. It returns an error message if the token is not valid. Configure this policy at a policy scope that's appropriate for your scenario.
 
-* In `openid-config`, the `aad-tenant` is the tenant ID in Azure ID. Find this value in the Azure portal, for example, on the **Overview** page of your Azure AD resource.
+* In `openid-config`, the `aad-tenant` is the tenant ID in Azure AD. Find this value in the Azure portal, for example, on the **Overview** page of your Azure AD resource.
 * The value of the `claim` is the client ID of the backend-app you registered in Azure AD.
 
 
