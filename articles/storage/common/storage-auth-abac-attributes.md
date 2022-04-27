@@ -80,10 +80,14 @@ The following table lists the descriptions for the supported attributes for cond
 > [!div class="mx-tableFixed"]
 > | Display name | Description | Attribute |
 > | --- | --- | --- |
-> | Container name| Name of a storage container or file system. Use when you want to check the container name. | `containers:name` |
-> | Blob path | Path of a virtual directory, blob, folder or file resource. Use when you want to check the blob name or folders in a blob path. | `blobs:path` |
-> | Blob index tags [Keys] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. | `tags&$keys$&` |
-> | Blob index tags [Values in key] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. | `tags:`*keyname*`<$key_case_sensitive$>` |
+> | Container name| Name of a storage container or file system. Use when you want to check the container name. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]` |
+> | Blob path | Path of a virtual directory, blob, folder or file resource. Use when you want to check the blob name or folders in a blob path. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path]` |
+> | Blob index tags [Keys] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&]` |
+> | Blob index tags [Values in key] | Index tags on a blob resource. Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>` |
+> | Encryption scope name | Name of the encryption scope used to encrypt data. Available only for storage accounts where hierarchical namespace is not enabled. | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name]` |
+> | Is hierarchical namespace enabled | Indicates whether hierarchical namespace is enabled on a storage account. Available only at resource group or above scope. | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled]` |
+> | Snapshot | Snapshot identifier for a blob snapshot. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
+> | Version ID | Version ID of a version blob. Available only for storage accounts where hierarchical namespace is not enabled. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]` |
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
