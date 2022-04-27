@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 03/16/2022
+ms.date: 04/27/2022
 ---
 
 # Technical configuration for a virtual machine offer
@@ -20,12 +20,14 @@ This option lets you use the same technical configuration settings across plans 
 Some common reasons for reusing the technical configuration settings from another plan include:
 
 - The same images are available for both *Pay as you go* and *BYOL*.
-- To reuse the same technical configuration from a public plan for a private plan with a different price. 
 - Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
+
+> [!NOTE]
+> If you would like to use a public plan to create a private plan with a different price, consider creating a private offer instead of reusing the technical configuration. Learn more about the difference between private plans and private offers. Learn more about how to create a private offer.
 
 Leverage [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
 
-If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later.
+If you later decide to publish different changes between your plans, you can detach them. Detach the plan by deselecting this option with your plan that is reusing the technical configuration. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later.
 
 ## Operating system
 
@@ -41,15 +43,26 @@ Select the link to choose up to six recommended virtual machine sizes to display
 
 ## Open ports
 
-Add open public or private ports on a deployed virtual machine.
+Add public ports that will be automatically opened on a deployed virtual machine. You may specify the ports individually or via a range along with the supported protocol – TCP, UDP, or both. Be sure to use a hyphen if specifying a port range (Ex: 80-150).
 
 ## Properties
 
 Here is a list of properties that can be selected for your VM.
 
+
+
+- **Supports VM extensions**: Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used. 
+Linux VM extension validations require the following to be part of the image:
+    - Azure Linux Agent greater 2.2.41
+    - Python version above 2.6+
+
+    For more information, please visit VM Extension.
+
 - **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](../backup/backup-azure-vms-introduction.md).
 
-- **Supports accelerated networking**: Enable this property if the VM images for this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+- **Supports accelerated networking**:The VM images in this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking for Linux](/azure/virtual-network/create-vm-accelerated-networking-cli). Learn more about [accelerated networking for Windows](/azure/virtual-network/create-vm-accelerated-networking-powershell).
+
+- **Is a network virtual appliance**: A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
 
 - **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](../virtual-machines/linux/using-cloud-init.md).
 
@@ -67,52 +80,39 @@ Here is a list of properties that can be selected for your VM.
     - Image requires setup during initial login which causes automation to not connect to the virtual machine.
     - Image does not support port 22.
 
-- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](./azure-vm-certification-faq.yml#custom-templates).
+- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template.  In general, all the images that are published under a VM offer will follow standard ARM template for deployment. However, there are scenarios that might require customization while deploying VMs (for example, multiple NIC(s) to be configured).
+    - Below are examples (non-exhaustive) that might require custom templates for deploying the VM:
+        - VM requires additional network subnets.
+        - Additional metadata to be inserted in ARM template.
+        - Commands that are prerequisite to the execution of ARM template.
 
-## Generations
+## Image types
 
-Generating a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both.
+Generations of a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both. To learn more about the differences between Generation 1 and Generation 2 capabilities, see Support for generation 2 VMs on Azure.
 
-1. When creating a new offer, select a **Generation type** and enter the requested details:
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="A view of the Generation detail section in Partner Center.":::
-
-2. To add another generation to a plan, select **Add generation**...
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="A view of the 'Add Generation' link.":::
-
-    ...and enter the requested details:
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-3.png" alt-text="A view of the generation details window.":::
-
-<!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
--->
-3. To update an existing VM that has a Generation 1 already published, edit details on the **Technical configuration** page.
-
-To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+When creating a new plan, select an Image type from the drop-down menu. You can choose either X64 Gen 1 or X64 Gen 2. To add another image type to a plan, select +Add image type. You will need to provide a SKU ID for each new image type that is added.
 
 > [!NOTE]
-> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page (see first section in this article).
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select Deprecate plan on the Plan Overview page. Learn more about deprecating plans.
+>
 
 ## VM images
 
-Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.
+To add a new image version, click +Add VM image. This will open a panel in which you will then need to specify an image version number. From there, you can provide your image(s) via either the Azure Compute Gallery and/or using a shared access signature (SAS) URI.
 
-These two required fields are shown in the prior image above:
+Keep in mind the following when publishing VM images:
 
-- **Disk version**: The version of the image you are providing.
-- **OS VHD link**: The image stored in Azure Compute Gallery (formerly know as Shared Image Gallery). Learn how to capture your image in an [Azure Compute Gallery](azure-vm-create-using-approved-base.md#capture-image).
-
-Data disks (select **Add data disk (maximum 16)**) are also VHD shared access signature URIs that are stored in their Azure storage accounts. Add only one image per submission in a plan.
-
-Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
+1.	Provide only one new image version per plan in a given submission.
+2.	Provide only one new VM image per image type in a given submission.
+3.	After an image has been published, you can't edit it, but you can deprecate it. Deprecating a version prevents both new and existing users from deploying a new instance of the deprecated version. Learn more about deprecating VM images.
+4.	You can add up to 16 data disks for each VM image provided. Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can’t remove disks that are part of an image, but they can always add disks during or after deployment.
 
 > [!NOTE]
-> If you provide your images using SAS and have data disks, you also need to provide them as SAS URI. If you are using a shared image, they are captured as part of your image in Azure Compute Gallery. Once your offer is published to Azure Marketplace, you can delete the image from your Azure storage or Azure Compute Gallery.
+> If you provide your images using the SAS URI method and you are adding data disks, you also need to provide them in the form of a SAS URI. Data disks are also VHD shared access signature URIs that are stored in your Azure storage accounts. If you are using a gallery image, the data disks are captured as part of your image in Azure Compute Gallery.
 
-Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
+Select Save draft, then select ← Plan overview at the top left to see the plan you just created.
 
-Once your VM image has published, you can delete the image from your Azure storage.
+Once your VM image is published, you can delete the image from your Azure storage.
 
 ## Reorder plans (optional)
 
