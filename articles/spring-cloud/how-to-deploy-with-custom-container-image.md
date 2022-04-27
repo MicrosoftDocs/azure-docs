@@ -204,16 +204,16 @@ For more information on how to install the agents for the Java apps, see the fol
 To install the agents for other languages, refer to the official documentation for the other agents:
 
 New Relic:
-* Python: https://docs.newrelic.com/docs/apm/agents/python-agent/installation/standard-python-agent-install/
-* Node.js: https://docs.newrelic.com/docs/apm/agents/nodejs-agent/installation-configuration/install-nodejs-agent/
+* Python: [Standard Python agent install](https://docs.newrelic.com/docs/apm/agents/python-agent/installation/standard-python-agent-install/)
+* Node.js: [Install the Node.js agent](https://docs.newrelic.com/docs/apm/agents/nodejs-agent/installation-configuration/install-nodejs-agent/)
 
 Dynatrace:
-* Python: https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-traces/opentelemetry-ingest/opent-python
-* Node.js: https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-traces/opentelemetry-ingest/opent-nodejs
+* Python: [Instrument Python applications with OpenTelemetry](https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-traces/opentelemetry-ingest/opent-python)
+* Node.js: [Instrument Node.js applications with OpenTelemetry](https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-traces/opentelemetry-ingest/opent-nodejs)
 
 AppDynamics:
-* Python: https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/python-agent/install-the-python-agent
-* Node.js: https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/node-js-agent/install-the-node-js-agent#InstalltheNode.jsAgent-install_nodejsInstallingtheNode.jsAgent
+* Python: [Install the Python Agent](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/python-agent/install-the-python-agent)
+* Node.js: [Installing the Node.js Agent](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/node-js-agent/install-the-node-js-agent#InstalltheNode.jsAgent-install_nodejsInstallingtheNode.jsAgent)
 
 ### How to view the container logs
 
