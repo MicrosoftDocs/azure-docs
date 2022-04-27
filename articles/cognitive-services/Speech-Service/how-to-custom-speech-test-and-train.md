@@ -83,7 +83,7 @@ Audio files can have silence at the beginning and end of the recording. If possi
 | Maximum length per audio | 2 hours (testing) / 60 s (training) |
 | Sample format            | PCM, 16-bit                         |
 | Archive format           | .zip                                |
-| Maximum zip size         | 2 GB                                |
+| Maximum zip size         | 2 GB or 10,000 files                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -256,7 +256,7 @@ Custom Speech requires audio files with these properties:
 | Maximum length per audio | 2 hours               |
 | Sample format            | PCM, 16-bit           |
 | Archive format           | .zip                  |
-| Maximum archive size     | 2 GB                  |
+| Maximum archive size     | 2 GB or 10,000 files  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
