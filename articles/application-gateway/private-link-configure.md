@@ -129,7 +129,13 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "AppGW-PL-
 ## Create private endpoint
 New-AzPrivateEndpoint -Name "AppGWPrivateEndpoint" -ResourceGroupName $vnet_plendpoint.ResourceGroupName -Location $vnet_plendpoint.Location -Subnet ($vnet_plendpoint | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'MySubnet'}) -PrivateLinkServiceConnection $privateEndpointConnection
 ```
-
+A list of all Azure PowerShell references for Private Link Configuration on Application Gateway can be found here:
+- [Get-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com//powershell/module/az.network/get-azapplicationgatewayprivatelinkconfiguration)
+- [New-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayprivatelinkconfiguration)
+- [New-AzApplicationGatewayPrivateLinkIpConfiguration](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationgatewayprivatelinkipconfiguration)
+- [Add-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayprivatelinkconfiguration)
+- [Remove-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/remove-azapplicationgatewayprivatelinkconfiguration)
+- [Set-AzApplicationGatewayPrivateLinkConfiguration](https://docs.microsoft.com/powershell/module/az.network/set-azapplicationgatewayprivatelinkconfiguration)
 
 # [Azure CLI](#tab/cli)
 
@@ -182,6 +188,8 @@ az network private-endpoint create \
 	--private-connection-resource-id /subscriptions/XXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/AppGW-PL-CLI-RG/providers/Microsoft.Network/applicationGateways/AppGW-PL-CLI \
 	--connection-name AppGW-PL-Connection
 ```
+
+A list of all Azure CLI references for Private Link Configuration on Application Gateway can be found here: [Azure CLI CLI - Private Link](https://docs.microsoft.com/cli/azure/network/application-gateway/private-link)
 
 ---
 
