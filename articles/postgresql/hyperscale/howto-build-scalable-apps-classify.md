@@ -60,23 +60,3 @@ Choose whichever fits your application the best:
 
 > [!div class="nextstepaction"]
 > [Classify application workload >](howto-build-scalable-apps-model-htap.md)
-
-## Data modeling by workload
-
-### Modeling multi-tenant SaaS apps
-
-#### Tenant ID as the shard key for multi-tenant SaaS apps
-
-#### Optimal data model for multi-tenant SaaS apps
-
-### Modeling real-time operational analytics apps
-
-#### Shard key in real-time analytics co-locates large tables
-
-#### Optimal data model for real-time operational analytics apps
-
-### Modeling high throughput transactional apps
-
-#### Shard key is the column that you mostly filter on
-
-#### Optimal data model for real-time operational analytics apps
