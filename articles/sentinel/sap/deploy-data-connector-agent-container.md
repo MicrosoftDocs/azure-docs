@@ -43,39 +43,37 @@ The data connector agent runs as a container on a Linux virtual machine (VM). Th
 
 The agent connects to your SAP system to pull the logs from it, and then sends those logs to your Microsoft Sentinel workspace. To do this, the agent has to authenticate to your SAP system - that's why you created a user and a role for the agent in your SAP system in the previous step. 
 
-Your SAP authentication infrastructure, and where you deploy your VM, will determine how and where your agent configuration information, including your SAP authentication secrets, is stored. These are the options:
+Your SAP authentication infrastructure, and where you deploy your VM, will determine how and where your agent configuration information, including your SAP authentication secrets, is stored. These are the options, in descending order of preference:
 
-- A plaintext configuration file
-- An Azure AD enterprise application service principal
-- An Azure managed identity
+- An Azure Key Vault, accessed through an Azure **system-assigned managed identity**
+- An Azure Key Vault, accessed through an Azure AD **registered-application service principal**
+- A plaintext **configuration file**
 
-If your SAP authentication infrastructure is based on PKI, using X.509 certificates, your only option is to use a configuration file. [Follow these instructions](#deploy-using-configuration-file-for-secrets-storage) to deploy your agent container.
+If your **SAP authentication** infrastructure is based on **PKI**, using **X.509 certificates**, your only option is to use a configuration file. [Follow these instructions](#deploy-using-configuration-file-for-secrets-storage) to deploy your agent container.
 
-If not, then it depends on where your VM is deployed:
+If not, then your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
 
-- A container on an Azure VM can use an Azure [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. [Follow these instructions](#deploy-using-azure-key-vault-for-secret-storage) to deploy your agent container using managed identity.
+- **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. [Follow these instructions](#deploy-using-azure-key-vault-for-secret-storage) to deploy your agent container using managed identity.
 
-    Such a container can also authenticate to Azure Key Vault using an [Azure AD service principal](../../active-directory/develop/app-objects-and-service-principals.md), or a configuration file.
+    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a configuration file.
 
-- A container on an on-premises VM, or a VM in a third-party cloud environment, can't use Azure managed identity, but can authenticate to Azure Key Vault using a [service principal](../../active-directory/develop/app-objects-and-service-principals.md). [Follow these instructions](#deploy-using-enterprise-application-identity-for-secrets-storage-in-key-vault) to deploy your agent container.
+- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). [Follow these instructions](#deploy-using-enterprise-application-identity-for-secrets-storage-in-key-vault) to deploy your agent container.
 
-### Summary
-
-| Authentication | VM location | Config file | Azure AD<br>service principal | Azure<br>managed identity |
-| -------------- | ----------- | :----------------: | :---------------------------: | :-----------------------: |
-| X.509  | regardless     | &#10004; | &#10008; | &#10008; |
-| Other  | On-premises<br>Non-Azure cloud | &#10004; | preferable | &#10008; |
-|        | Azure cloud | last resort | if unable to use<br>managed identity | ideal |
+    If for some reason a registered-application service principal can't be used, you can use a configuration file, though this is not preferred.
 
 ### Prerequisites
 
-[See this article](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites).
+> [!NOTE]
+> **FROM YECHIEL:**  
+> I think this section should be eliminated. There is a whole separate document of prerequisites that contains almost all the information that was here. I can move the VM sizing table to that document also. I created an [**alternate version of the prerequisites document**](prerequisites-for-deploying-sap-continuous-threat-monitoring_alternate.md) with this there (and divided the whole table into sections). Let me know what you think.
+
+[See this article](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites) for a full description of all the prerequisites for deploying the SAP data connector.
 
 Deploying the data connector container using a kickstart script requires the Linux distros and versions listed at the link above. If you have a different operating system, you can [deploy and configure the container manually](#manual-sap-data-connector-deployment).
 
 The instructions below require the Azure CLI. [Learn how to install the Azure CLI](/cli/azure/install-azure-cli).
 
-### Recommended virtual machine sizing
+#### Recommended virtual machine sizing
 
 The following table describes the recommended sizing for your virtual machine, depending on your intended usage:
 In general, at least 2 cores and at least 4 GB of memory is recommended for the VM acting as host for the data connector agent container
@@ -87,19 +85,21 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
 |**Multiple connectors** | *Standard_D4as_v5* or<br> *Standard_D4_v5* VM, with: <br>- 4 cores<br>- 16 GB RAM |
 | | |
 
+> [!NOTE]
+> **FROM YECHIEL:**  
+> Up to this point should be eliminated.
+
 ## Deploy the data connector agent container
 
 # [Managed identity](#tab/managed-identity)
 
-### Agent deployment steps
-
-1. Create a VM in Azure using the following sample command:
+1. Run the following command to **Create a VM** in Azure (substitute actual names for the `<placeholders>`):
 
     ```azurecli
-    az vm create --resource-group [resource group name] --name [VM Name] --image Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest --admin-username azureuser --public-ip-address "" --size  Standard_D2as_v5 --generate-ssh-keys --assign-identity
+    az vm create --resource-group <resource group name> --name <VM Name> --image Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest --admin-username <azureuser> --public-ip-address "" --size  Standard_D2as_v5 --generate-ssh-keys --assign-identity
     ```
 
-    The command will create the VM resource, producing output that looks like this:
+    The command above will create the VM resource, producing output that looks like this:
 
     ```json
     {
@@ -119,7 +119,7 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
     }
     ```
 
-    Copy the **systemAssignedIdentity** GUID, as it will be used in the next step.
+1. Copy the **systemAssignedIdentity** GUID, as it will be used in the coming steps.
 
     For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md).
 
@@ -127,7 +127,7 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
     > After the VM is created, be sure to apply any security requirements and hardening procedures applicable in your organization.
     >
 
-1. Create a key vault using the following command:
+1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`):
 
     ```azurecli
     kvgp=<KVResourceGroup>
@@ -139,55 +139,55 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
       --resource-group $kvgp
     ```
 
-    If an an existing key vault will be used, locate and copy its name and the name of its resource group.
+    If you'll be using an existing key vault, ignore this step.
 
-1. Assign a key vault access policy to the VM assigned identity (to allow it to list, read, and write secrets from the key vault), using the following command:
+1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these when you run the deployment script in the coming steps.
+
+1. Run the following command to **assign a key vault access policy** to the VM's system-assigned identity that you copied above (substitute actual names for the `<placeholders>`):
 
     ```azurecli
-    az keyvault set-policy -n [key vault name] -g [key vault resource group] --object-id [vm system assigned identity] --secret-permissions get list set
+    az keyvault set-policy -n <key vault name> -g <key vault resource group> --object-id <VM system-assigned identity> --secret-permissions get list set
     ```
 
-1. Sign in to the newly created machine and configure a data disk to be mounted at the Docker root directory.
+    This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
-1. Download and run the deployment Kickstart script:
+1. **Sign in to the newly created machine** with a user with sudo privileges.
+
+1. **Create and configure a data disk** to be mounted at the Docker root directory.
+
+1. Run the following command to **download and run the deployment Kickstart script**:
 
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh
     ```
 
-    The Kickstart script simplifies the process of deploying the data connector container by performing the following actions:
+    The script updates the OS components and installs the Azure CLI and Docker software.
 
-   1. Updates the OS components.
+1. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
-   1. Installs prerequisite software:
-      - azure-cli
-      - docker
+    ```bash
+    The process has been successfully completed, thank you!
+    ```
 
-   1. Prompts for configuration parameter values.
+   Note the Docker container name in the script output. You'll use it in the next step.
 
-   1. Configures the container.
+1. Run the following command to **configure the Docker container to start automatically**.
 
-   Note the Docker container name in the script output.
-
-1. Configure the Docker container to start automatically.
-
-    The sample code below assumes the name of the created container is `sapcon-a4h`.
+    ```bash
+    docker update --restart unless-stopped <container-name>
+    ```
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-    ```bash
-    docker update --restart unless-stopped sapcon-a4h
-    ```
+# [Registered application](#tab/registered-application)
 
-# [Service principal](#tab/service-principal)
-
-1. Create an enterprise application by running the following command:
+1. Run the following command to **create and register an application**:
 
     ```azurecli
     az ad sp create-for-rbac
     ```
 
-    The command will create the application, producing output that looks like this:
+    The command above will create the application, producing output that looks like this:
 
     ```json
     {
@@ -198,9 +198,9 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
     }
     ```
 
-    Copy the **appId** from the output, as you'll need it later.
+1. Copy the **appId** from the output, as you'll need it later.
 
-1. Create a key vault using the following command:
+1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`):
 
     ```azurecli
     kvgp=<KVResourceGroup>
@@ -212,12 +212,14 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
       --resource-group $kvgp
     ```
 
-    If an an existing key vault will be used, locate and copy its name and the name of its resource group.
+    If you'll be using an existing key vault, ignore this step.
 
-1. Assign a key vault access policy to the enterprise application (to allow it to list, read, and write secrets from the key vault) by running the following command:
+1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these when you run the deployment script in the coming steps.
+
+1. Run the following command to **assign a key vault access policy** to the registered application ID that you copied above (substitute actual names or values for the `<placeholders>`):
 
     ```azurecli
-    az keyvault set-policy -n [key vault name] -g [key vault resource group] --spn [appid] --secret-permissions get list set
+    az keyvault set-policy -n <key vault name> -g <key vault resource group> --spn <appid> --secret-permissions get list set
     ```
 
     For example:
@@ -226,88 +228,88 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
     az keyvault set-policy -n sentinelkeyvault -g sentinelresourcegroup --application-id aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --secret-permissions get list set
     ```
 
-1. Download and run the Kickstart script:
+    This policy will allow the VM to list, read, and write secrets from/to the key vault.
 
-
-    Download the script from the Microsoft Sentinel GitHub repository, and mark it executable.
+1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
 
     ```bash
     wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
     chmod +x ./sapcon-sentinel-kickstart.sh
     ```
     
-    Run the script, specifying the application ID, secret, tenant ID, and key vault name.
+1. **Run the script**, specifying the application ID, secret, tenant ID, and key vault name.
 
     ```bash
-    ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname [key vault name]
+    ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
     ```
 
-    The Kickstart script simplifies the process of deploying the data connector container by performing the following actions:
+    ***WHERE DO YOU GET THE SECRET FROM? -YL***
 
-    - Updates the OS components.
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values.
 
-    - Installs prerequisite software:
-       - azure-cli
-       - docker
-       - jq
-       - nc
-       - curl
+1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
-    - Prompts for configuration parameter values.
+    ```bash
+    The process has been successfully completed, thank you!
+    ```
 
-    - Configures the container.
-    
-    Note the Docker container name in the script output.
+   Note the Docker container name in the script output. You'll use it in the next step.
 
-1. Configure the Docker container to start automatically:
+1. Run the following command to **configure the Docker container to start automatically**.
 
-    The sample code below assumes the name of the created container is `sapcon-a4h`.
+    ```bash
+    docker update --restart unless-stopped <container-name>
+    ```
 
     To view a list of the available containers use the command: `docker ps -a`.
 
-    ```bash
-    docker update --restart unless-stopped sapcon-a4h
-    ```
-
 # [Configuration file](#tab/config-file)
 
-1. Download and run the Kickstart script by running the following commands:
-
-    Download the script from the Microsoft Sentinel GitHub repository, and mark it executable.
+1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
 
     ```bash
     wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
     chmod +x ./sapcon-sentinel-kickstart.sh
     ```
-
-    Run the script, specifying application ID, secret, tenant ID, keyvault name
+    
+1. **Run the script**:
 
     ```bash
     ./sapcon-sentinel-kickstart.sh --keymode cfgf
     ```
 
-    Kickstart script simplifies the process of deploying the data connector container by performing the following actions:
-    - Updating the OS components
-    - Install prerequisite software
-       - curl
-       - jq
-       - netcat
-       - azure-cli
-       - docker
-    - Prompt for configuration parameter values
-    - Configure the container
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values.
+
+1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
+
+    ```bash
+    The process has been successfully completed, thank you!
+    ```
+
+   Note the Docker container name in the script output. You'll use it in the next step.
+
+1. Run the following command to **configure the Docker container to start automatically**. ***THIS STEP WASN'T HERE BEFORE. DOES IT NOT APPLY WHEN USING A CONFIG FILE? -YL***
+
+    ```bash
+    docker update --restart unless-stopped <container-name>
+    ```
+
+    To view a list of the available containers use the command: `docker ps -a`.
+
 
 ---
 
-## Deploy SAP data connector manually
+## Deploy the SAP data connector manually
 
-1. Prepare a machine running a [supported](#prerequisites) version of the Operating System
+1. Prepare a machine running a supported OS and version.
 
-1. Transfer [SDK](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites) to the target machine
+***IN THE PREREQUISITES SECTION, IT SAID YOU WOULD DEPLOY MANUALLY IF YOU DON'T HAVE A SUPPORTED VERSION OF THE OPERATING SYSTEM. WHICH IS IT? -YL***
+
+1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the target machine.
 
 1. Install [Docker](https://www.docker.com/)
 
-1. Create a folder to store container configuration and metadata, retreive sample systemconfig.ini file.
+1. Use the following commands (replacing <*SID*> with the name of the SAP instance) to create a folder to store the container configuration and metadata, and to download a sample systemconfig.ini file into that folder.
 
    ````bash
    sid=<SID>
@@ -317,11 +319,9 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
 
    ````
 
-   Replace <*SID*> with the name of the SAP instance
+1. Edit the systemconfig.ini file to [configure the relevant settings](reference-systemconfig.md).
 
-1. Edit the systemconfig.ini file, configure relevant settings. For more information on the available settings see [Continuous Threat Monitoring for SAP container configuration file reference](reference_systemconfig.md)
-
-1. Retreive latest container image image and create a new container
+1. Run the following commands (replacing <*SID*> with the name of the SAP instance) to retrieve the latest container image, create a new container, and configure it to start automatically.
 
    ````bash
    sid=<SID>
@@ -329,9 +329,7 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
    docker create -d --restart unless-stopped -v /opt/sapcon/$sid/:/sapcon-app/sapcon/config/system --name sapcon-$sid sapcon   
    ````
 
-   Replace <*SID*> with the name of the SAP instance
-
-1. Copy SDK into the container
+1. Run the following command (replacing <*SID*> with the name of the SAP instance) to copy the SDK into the container.
 
    ````bash
    sdkfile=<sdkfilename> 
@@ -343,4 +341,4 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
 
 Once connector is deployed, proceed to deploy Continuous Threat Monitoring for SAP solution content
 > [!div class="nextstepaction"]
-> [Deploy SAP security content](deploy_sap_security_content.md)
+> [Deploy SAP security content](deploy-sap-security-content.md)

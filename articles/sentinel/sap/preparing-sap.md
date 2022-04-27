@@ -21,7 +21,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deployment overview](deployment-overview.md)
 
-1. [Prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
 1. **Prepare SAP environment (*You are here*)**
 
