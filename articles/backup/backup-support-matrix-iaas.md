@@ -53,7 +53,7 @@ Multiple Backups Per Day   |  Supported, using _Enhanced policy_ (in preview). T
 
 ## Operating system support (Windows)
 
-The following table summarizes the supported operating systems when backing up Windows Azure VMs.
+The following table summarizes the supported operating systems when backing up Azure VMs running Windows.
 
 **Scenario** | **OS support**
 --- | ---
@@ -222,7 +222,7 @@ Network traffic to Azure:
 Data security:
 
 - When backing up Azure VMs, you need to set up encryption *within* the virtual machine.
-- Azure Backup supports Azure Disk Encryption, which uses BitLocker on Windows virtual machines and us **dm-crypt** on Linux virtual machines.
+- Azure Backup supports Azure Disk Encryption, which uses BitLocker on virtual machines running Windows and uses **dm-crypt** on Linux virtual machines.
 - On the back end, Azure Backup uses [Azure Storage Service encryption](../storage/common/storage-service-encryption.md), which protects data at rest.
 
 **Machine** | **In transit** | **At rest**
