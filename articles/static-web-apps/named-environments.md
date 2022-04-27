@@ -76,7 +76,7 @@ steps:
 > The `...` denotes code skipped for clarity.
 
 In this example, changes to all branches will be deployed to the `release` named preview environments.
-
+---
 ## Next Steps
 
 > [!div class="nextstepaction"]
