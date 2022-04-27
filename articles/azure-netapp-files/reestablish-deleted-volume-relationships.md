@@ -17,7 +17,7 @@ If the destination volume remains operational and no snapshots were deleted, the
 
 ## Considerations
 
-* Relationships can only be re-established when there is an existing manual or ad hoc policy-generated snapshot.
+* Relationships can only be re-established when there is an existing snapshot that was generated either [manually](azure-netapp-files-manage-snapshots.md) or by a [snapshot policy](snapshots-manage-policy.md). 
 
 ## Register the feature 
 
