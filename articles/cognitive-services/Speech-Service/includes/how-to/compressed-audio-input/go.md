@@ -12,7 +12,7 @@ ms.author: eur
 
 ## GStreamer configuration
 
-Speech SDK can use [GStreamer](https://gstreamer.freedesktop.org) to handle compressed audio. For licensing reasons, GStreamer binaries aren't compiled and linked with the Speech SDK. You need to install several dependencies and plug-ins. 
+The Speech SDK can use [GStreamer](https://gstreamer.freedesktop.org) to handle compressed audio. For licensing reasons, GStreamer binaries aren't compiled and linked with the Speech SDK. You need to install some dependencies and plug-ins. 
 
 [!INCLUDE [Linux](gstreamer-linux.md)]
 

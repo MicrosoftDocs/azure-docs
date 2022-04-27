@@ -10,9 +10,9 @@ ms.author: eur
 
 ## GStreamer configuration
 
-Handling compressed audio is implemented by using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons, GStreamer binaries aren't compiled and linked with the Speech SDK. You need to install several dependencies and plug-ins. For more information, see [Installing on Windows](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c) or [Installing on Linux](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c).
+The Speech CLI can use [GStreamer](https://gstreamer.freedesktop.org) to handle compressed audio. For licensing reasons, GStreamer binaries aren't compiled and linked with the Speech CLI. You need to install some dependencies and plug-ins. 
 
-GStreamer binaries need to be in the system path so that the Speech SDK can load the binaries during runtime. For example, on Windows, if the Speech SDK finds `libgstreamer-1.0-0.dll` during runtime, it means the GStreamer binaries are in the system path.
+GStreamer binaries must be in the system path so that they can be loaded by the Speech CLI at runtime. For example, on Windows, if the Speech CLI finds `libgstreamer-1.0-0.dll` or `gstreamer-1.0-0.dll` (for the latest GStreamer) during runtime, it means the GStreamer binaries are in the system path.
 
 Choose a platform for installation instructions.
 
