@@ -77,8 +77,6 @@ The Bicep file defines five Azure resources:
 
 ## Review deployed resources
 
-# [Portal](#tab/azure-portal)
-
 Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
 # [CLI](#tab/CLI)
