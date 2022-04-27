@@ -16,16 +16,14 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 ## Prerequisites
 
-
+::: zone pivot="github"
 - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
-- [Azure](https://portal.azure.com) account
+- [GitHub](https://github.com) account
 ::: zone-end
 
 ::: zone pivot="azure-devops"
-
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 - [Azure DevOps](https://azure.microsoft.com/services/devops) account
-- [Azure](https://portal.azure.com) account
-
 ::: zone-end
 
 ::: zone pivot="github"
@@ -185,7 +183,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 Select **Review + create**.
 
-:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
+:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review and create your Azure Static Web Apps instance.":::
 
 ::: zone pivot="github"
 
@@ -196,11 +194,11 @@ Select **Review + create**.
 
 Select **Create**.
 
-:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
+:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create your Azure Static Web Apps instance.":::
 
 Select **Go to resource**.
 
-:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
+:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Proceed to go to the newly created resource.":::
 
 ## View the website
 
@@ -212,7 +210,7 @@ The Static Web Apps *Overview* window displays a series of links that help you i
 
 ::: zone pivot="github"
 
-:::image type="content" source="./media/getting-started/overview-window.png" alt-text="Overview window":::
+:::image type="content" source="./media/getting-started/overview-window.png" alt-text="The Azure Static Web Apps overview window.":::
 
 1. Clicking on the banner that says, _Click here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
 
