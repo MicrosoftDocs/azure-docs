@@ -621,7 +621,8 @@ Be sure to assign the role for both cluster nodes.
    >[!IMPORTANT]
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
-1. **[A]** Install the Azure Python SDK and Azure Identity python module.
+1. **[A]** Install the Azure Python SDK and Azure Identity python module.  
+
     Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
     <pre><code># You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
