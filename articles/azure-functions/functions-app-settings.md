@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 04/27/2022
 ---
 
 # App settings reference for Azure Functions
@@ -433,9 +433,16 @@ The file path to the function app code and configuration in an event-driven scal
 |---|------------|
 |WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
-Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or for Dedicated plans on  Windows or Linux. The value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names), including using lowercase. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or for Dedicated plans on  Windows or Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE for slots in the template. This setting is generated during deployment for slots. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
+
++ When you don't set a `WEBSITE_CONTENTSHARE` value for either the main function app or any apps in a slots, unique share values are generated for you. This is the recommended approach for an ARM template deployment.
++ If you need to set `WEBSITE_CONTENTSHARE` values, the main function app and the app each deployment slot must be given unique share values.  
++ Don't make `WEBSITE_CONTENTSHARE` a slot setting. 
++ When you specify `WEBSITE_CONTENTSHARE`, the value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names), including using lowercase. 
++ 
+To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
