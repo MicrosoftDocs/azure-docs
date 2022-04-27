@@ -138,11 +138,11 @@ To grant permissions to an existing service principal with the Azure portal, see
 
 ## Use the service principal - Azure portal
 
-When deploying an Azure Red Hat OpenShift cluster using the Azure portal, configure the service principal on the **Authentication** page of the *Azure Red Hat OpenShift** dialog.
+When deploying an Azure Red Hat OpenShift cluster using the Azure portal, configure the service principal on the **Authentication** page of the **Azure Red Hat OpenShift** dialog.
 
 :::image type="content" source="./media/openshift-service-principal-portal.png" alt-text="Screenshot that shows how to use the Azure Red Hat service principal with Azure portal to create a cluster." lightbox="./media/openshift-service-principal-portal.png":::
 
-Specify the following values, and then select **Review + Create".
+Specify the following values, and then select **Review + Create**.
 
 In the **Service principal information** section:
 
