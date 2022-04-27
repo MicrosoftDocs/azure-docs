@@ -78,6 +78,6 @@ Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-se
 
 <!-- links -->
 [docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
-[docs-ms]: /media-services/latest/media-services-overview
+[docs-ms]: /azure/media-services/latest/media-services-overview
 [docs-role-contributor]: ../../role-based-access-control/built-in-roles.md#contibutor
 [docs-contributor-on-ms]: ./add-contributor-role-on-the-media-service.md

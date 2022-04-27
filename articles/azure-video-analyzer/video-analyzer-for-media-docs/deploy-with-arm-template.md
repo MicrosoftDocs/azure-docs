@@ -21,7 +21,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ## Prerequisites
 
-* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](/media-services/latest/account-create-how-to).
+* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](/azure/media-services/latest/account-create-how-to).
 
 ## Deploy the sample
 

@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 04/21/2022
 ms.author: kgremban
 ms.custom:  [amqp, mqtt]
 ---
@@ -316,6 +316,8 @@ while True:
 
 You can also send telemetry messages from a device by using AMQP. The device can optionally provide a dictionary of application properties, or various message properties, such as message ID.
 
+To route messages based on message body, you must set the `content_type` property to be `application/json;charset=utf-8`.  To learn more about routing messages either based on message properties or message body, please see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
+
 The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to send device-to-cloud messages from a device.
 
 ```python
@@ -331,7 +333,7 @@ msg_props = uamqp.message.MessageProperties()
 msg_props.message_id = str(uuid.uuid4())
 msg_props.creation_time = None
 msg_props.correlation_id = None
-msg_props.content_type = None
+msg_props.content_type = 'application/json;charset=utf-8'
 msg_props.reply_to_group_id = None
 msg_props.subject = None
 msg_props.user_id = None

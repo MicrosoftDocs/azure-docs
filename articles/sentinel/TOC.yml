@@ -29,7 +29,7 @@
     href: /security/zero-trust/integrate/sentinel-solution
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
-  - name: Integrate with Azure Purview
+  - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
   items:
@@ -118,7 +118,11 @@
     - name: Watchlists
       href: watchlists.md
   - name: Threat hunting
-    href: hunting.md
+    items:
+    - name: Overview
+      href: hunting.md
+    - name: Jupyter Notebooks
+      href: notebooks.md
   - name: Investigate
     items:
     - name: Investigate large datasets
@@ -280,8 +284,10 @@
     items:
     - name: Hunt with Jupyter notebooks
       items:
-      - name: Overview
-        href: notebooks.md
+      - name: Launch Jupyter notebook
+        href: notebooks-hunt.md
+      - name: Troubleshoot Jupyter notebook
+        href: notebooks-troubleshoot.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
       - name: Large-scale security analytics with Azure Synapse

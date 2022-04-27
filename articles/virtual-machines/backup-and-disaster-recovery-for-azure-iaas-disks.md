@@ -130,13 +130,13 @@ Another option to create consistent backups is to shut down the VM and take snap
 
 ### Copy the snapshots to another region
 
-Creation of the snapshots alone might not be sufficient for disaster recovery. You must also copy the snapshots to another region. See [Cross-region snapshot copy](disks-incremental-snapshots.md#cross-region-snapshot-copy).
+Creation of the snapshots alone might not be sufficient for disaster recovery. You must also copy the snapshots to another region. See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md).
 
 ## Other options
 
 ### SQL Server
 
-SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
+SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use). In addition to back up and restore, [SQL Server AlwaysOn availability groups](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
 
 ## Next steps
 

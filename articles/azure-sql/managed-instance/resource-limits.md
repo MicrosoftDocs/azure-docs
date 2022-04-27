@@ -55,16 +55,20 @@ Support for the premium-series hardware (public preview) is currently available 
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |
-| Australia Central | Yes | | 
 | Australia East | Yes | Yes | 
 | Canada Central | Yes | | 
+| Canada East | Yes | | 
+| Central US | Yes | Yes | 
+| Germany West Central | Yes | Yes | 
 | Japan East | Yes | | 
 | Korea Central | Yes | | 
-| North Central US | Yes | | 
+| North Central US | Yes | Yes | 
+| North Europe | Yes | | 
 | South Central US | Yes | Yes | 
 | Southeast Asia | Yes |  | 
+| UK South | Yes | Yes | 
 | West Europe | | Yes | 
-| West US | Yes | Yes |  
+| West US | Yes | |  
 | West US 2 | Yes | Yes | 
 | West US 3 | Yes | Yes | 
 

@@ -103,12 +103,25 @@ Below are some general guidelines that you can follow to create a good corpus (r
    
    With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
-   > [!NOTE]
-   > The scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Check the scripts used for training against the recordings of your voice talent, to make sure they match.
-
 - Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
 
 - Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
+
+### Difference between voice talent script and training script
+
+The training script can differ from the voice talent script, especially for scripts that contain digits, symbols, abbreviations, date, and time. Scripts prepared for the voice talent must follow the native reading conventions, such as 50% and $45. The scripts used for training must be normalized to match the audio recording, such as *fifty percent* and *forty-five dollars*. 
+
+> [!NOTE] 
+> We provide some example scripts for the voice talent on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). To use the example scripts for training, you must normalize them according to the recordings of your voice talent before uploading the file.
+
+The following table shows the difference between scripts for voice talent and the normalized script for training.
+
+| Category |Voice talent script example | Training script example (normalized) |
+| --------- | --------- | --------------------------- |
+| Digits |123| one hundred and twenty-three |
+| Symbols |50%| fifty percent|
+| Abbreviation |ASAP| as soon as possible|
+| Date and time |March 3rd at 5:00 PM| March third at five PM|
 
 ### Typical defects of a script
 

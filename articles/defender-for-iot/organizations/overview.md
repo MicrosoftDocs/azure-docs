@@ -18,7 +18,7 @@ Microsoft Defender for IoT is a unified security solution for identifying IoT an
 
 **For end-user organizations**, Microsoft Defender for IoT provides an agentless, network-layer monitoring that integrates smoothly with industrial equipment and SOC tools. You can deploy Microsoft Defender for IoT in Azure-connected and hybrid environments or completely on-premises.
 
-**For IoT device builders**, Microsoft Defender for IoT also offers a lightweight, micro-agent that supports standard IoT operating systems, such as Linux and RTOS. The Microsoft Defender device builder agent helps you ensure that security is built into your IoT/OT projects, from the cloud. For more information, see [Microsoft Defender for IoT for device builders documentation](/device-builders/index.md).
+**For IoT device builders**, Microsoft Defender for IoT also offers a lightweight, micro-agent that supports standard IoT operating systems, such as Linux and RTOS. The Microsoft Defender device builder agent helps you ensure that security is built into your IoT/OT projects, from the cloud. For more information, see [Microsoft Defender for IoT for device builders documentation](../device-builders/overview.md).
 
 ## Agentless device monitoring
 
@@ -54,14 +54,12 @@ Regardless of configuration, data detected by a specific sensor is also always a
 
 ## Extend support to proprietary protocols
 
-IoT and ICS devices can be secured using both embedded protocols and proprietary, custom, or non-standard protocols. Use the [Horizon Open Development Environment (ODE) SDK](references-horizon-sdk.md) to develop dissector plug-ins that decode network traffic, regardless of protocol type.
+IoT and ICS devices can be secured using both embedded protocols and proprietary, custom, or non-standard protocols. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic, regardless of protocol type.
 
 For example, in an environment running MODBUS, you might want to generate an alert when the sensor detects a write command to a memory register on a specific IP address and Ethernet destination. Or you might want to generate an alert when any access is performed to a specific IP address. Alerts are triggered when Horizon alert rule conditions are met.
 
 Use custom, condition-based alert triggering and messaging to help pinpoint specific network activity and effectively update your security, IT, and operational teams.
-
-For more information, see [Horizon proprietary protocol dissector](references-horizon-sdk.md) and [Supported Protocols](concept-supported-protocols.md).
-
+Contact [ms-horizon-support@microsoft.com](mailto:ms-horizon-support@microsoft.com) for details about working with the Open Development Environment (ODE) SDK and creating protocol plugins.
 
 ## Extend Defender for IoT to enterprise networks
 

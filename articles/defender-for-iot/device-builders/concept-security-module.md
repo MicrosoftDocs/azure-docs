@@ -7,11 +7,6 @@ ms.date: 03/28/2022
 
 # Defender-IoT-micro-agent
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Create a DefenderIotMicroAgent module twin (Preview)](tutorial-create-micro-agent-module-twin.md).
->
-
-
 This article explains how Defender for IoT uses device twins and modules.
 
 ## Device twins

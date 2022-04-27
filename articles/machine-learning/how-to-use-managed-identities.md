@@ -191,10 +191,10 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
     1. Grant the Managed Identity Operator role:
 
         ```azurecli-interactive
-        az role assignment create --assignee <principal ID> --role managedidentityoperator --scope <UAI resource ID>
+        az role assignment create --assignee <principal ID> --role managedidentityoperator --scope <user-assigned managed identity resource ID>
         ```
 
-        The UAI resource ID is Azure resource ID of the user assigned identity, in the format `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>`.
+        The user-assigned managed identity resource ID is Azure resource ID of the user assigned identity, in the format `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned managed identity name>`.
 
 1. Specify the external ACR and client ID of the __user-assigned managed identity__ in workspace connections by using [Workspace.set_connection method](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-):
 
@@ -204,7 +204,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
         category="ACR", 
         target = "<acr url>", 
         authType = "RegistryConnection", 
-        value={"ResourceId": "<UAI resource id>", "ClientId": "<UAI client ID>"})
+        value={"ResourceId": "<user-assigned managed identity resource id>", "ClientId": "<user-assigned managed identity client ID>"})
     ```
 
 Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
@@ -222,8 +222,8 @@ Optionally, you can specify the managed identity resource URL and client ID in t
 from azureml.core.container_registry import RegistryIdentity
 
 identity = RegistryIdentity()
-identity.resource_id= "<UAI resource ID>"
-identity.client_id="<UAI client ID>"
+identity.resource_id= "<user-assigned managed identity resource ID>"
+identity.client_id="<user-assigned managed identity client ID>"
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```

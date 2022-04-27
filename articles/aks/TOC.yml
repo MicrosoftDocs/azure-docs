@@ -66,8 +66,6 @@
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
-        - name: Security Hardening in host OS
-          href: security-hardened-vm-host-image.md
         - name: Compliance
           items:
             - name: CIS Baseline overview
@@ -75,6 +73,8 @@
               maintainContext: True
             - name: CIS Kubernetes benchmark
               href: cis-kubernetes.md
+            - name: CIS Ubuntu benchmark
+              href: cis-ubuntu.md
     - name: Access and identity
       href: concepts-identity.md
     - name: Networking
@@ -169,7 +169,7 @@
           href: start-stop-cluster.md
         - name: Use planned maintenance (preview)
           href: planned-maintenance.md
-        - name: Cloud Controller Manager (preview)
+        - name: Cloud Controller Manager
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
@@ -256,6 +256,8 @@
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
               href: api-server-authorized-ip-ranges.md
+            - name: Use KMS etcd encryption
+              href: use-kms-etcd-encryption.md
             - name: Update cluster credentials
               href: update-credentials.md
             - name: Enable Azure Active Directory integration
@@ -374,14 +376,14 @@
           href: azure-netapp-files.md
         - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
-        - name: CSI Storage Drivers
-          items:
-            - name: Enable CSI Storage Drivers
-              href: csi-storage-drivers.md
-            - name: Azure Disk CSI drivers
-              href: azure-disk-csi.md
-            - name: Azure Files CSI drivers
-              href: azure-files-csi.md
+    - name: CSI Storage Drivers
+      items:
+        - name: Enable CSI Storage Drivers
+          href: csi-storage-drivers.md
+        - name: Azure Disk CSI drivers
+          href: azure-disk-csi.md
+        - name: Azure Files CSI drivers
+          href: azure-files-csi.md
     - name: Monitoring and logging
       items:
         - name: Monitor AKS

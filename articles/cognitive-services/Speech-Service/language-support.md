@@ -1032,6 +1032,14 @@ The following table outlines supported languages for custom keyword and keyword 
 | Japanese (Japan) | ja-JP | No | Yes |
 | Portuguese (Brazil) | pt-BR | No | Yes |
 
+## Intent Recognition Pattern Matcher
+
+The Intent Recognizer Pattern Matcher supports the following locales:
+
+| Locale                            | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| English (United States)           | `en-US`         |
+
 ## Next steps
 
 * [Region support](regions.md)

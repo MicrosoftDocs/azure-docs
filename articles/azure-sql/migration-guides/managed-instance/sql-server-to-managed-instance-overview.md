@@ -8,10 +8,11 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: mathoma, danil
-ms.date: 04/06/2022
+ms.reviewer: mathoma, danil, randolphwest
+ms.date: 04/11/2022
 ---
 # Migration overview: SQL Server to Azure SQL Managed Instance
+
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Learn about the options and considerations for migrating your SQL Server databases to Azure SQL Managed Instance. 
@@ -44,14 +45,16 @@ One of the key benefits of migrating your SQL Server databases to SQL Managed In
 - Instance-level objects required for your application, including logins, credentials, SQL Agent jobs and operators, and server-level triggers 
 
 > [!NOTE]
-> Azure SQL Managed Instance guarantees 99.99 percent availability, even in critical scenarios. Overhead caused by some features in SQL Managed Instance can't be disabled. For more information, see the [Key causes of performance differences between SQL Managed Instance and SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) blog entry. 
-
+>  
+> Azure SQL Managed Instance guarantees 99.99 percent availability, even in critical scenarios. Overhead caused by some features in SQL Managed Instance can't be disabled. For more information, see the [Key causes of performance differences between SQL Managed Instance and SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) blog entry.
 
 ## Choose an appropriate target
 
+You can use the [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to get right-sized Azure SQL Managed Instance recommendation. The extension collects performance data from your source SQL Server instance to provide right-sized Azure recommendation that meets your workload's performance needs with minimal cost. To learn more, see [Get right-sized Azure recommendation for your on-premises SQL Server database(s)](../../../dms/ads-sku-recommend.md)
+
 The following general guidelines can help you choose the right service tier and characteristics of SQL Managed Instance to help match your [performance baseline](sql-server-to-managed-instance-performance-baseline.md): 
 
-- Use the CPU usage baseline to provision a managed instance that matches the number of cores that your instance of SQL Server uses. It might be necessary to scale resources to match the [hardware characteristics](../../managed-instance/resource-limits.md#hardware-configuration-characteristics). 
+- Use the CPU usage baseline to provision a managed instance that matches the number of cores that your instance of SQL Server uses. It might be necessary to scale resources to match the [hardware configuration characteristics](../../managed-instance/resource-limits.md#hardware-configuration-characteristics). 
 - Use the memory usage baseline to choose a [vCore option](../../managed-instance/resource-limits.md#service-tier-characteristics) that appropriately matches your memory allocation. 
 - Use the baseline I/O latency of the file subsystem to choose between the General Purpose (latency greater than 5 ms) and Business Critical (latency less than 3 ms) service tiers. 
 - Use the baseline throughput to preallocate the size of the data and log files to achieve expected I/O performance. 
@@ -59,6 +62,7 @@ The following general guidelines can help you choose the right service tier and 
 You can choose compute and storage resources during deployment and then [change them afterward by using the Azure portal](../../database/scale-resources.md), without incurring downtime for your application. 
 
 > [!IMPORTANT]
+>  
 > Any discrepancy in the [virtual network requirements for managed instances](../../managed-instance/connectivity-architecture-overview.md#network-requirements) can prevent you from creating new instances or using existing ones. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md) networks. 
 
 Another key consideration in the selection of the target service tier in Azure SQL Managed Instance (General Purpose versus Business Critical) is the availability of certain features, like In-Memory OLTP, that are available only in the Business Critical tier. 
@@ -80,23 +84,21 @@ We recommend the following migration tools:
 
 |Technology | Description|
 |---------|---------|
-|[Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md)  | The Azure SQL Migration extension for Azure Data Studio provides both the SQL Server assessment and migration capabilities in Azure Data Studio. It supports migrations in either online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the duration of the migration) modes. |
+| [Azure SQL migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) | The Azure SQL migration extension for Azure Data Studio provides both the SQL Server assessment and migration capabilities in Azure Data Studio. It supports migrations in either online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the duration of the migration) modes. |
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | This Azure service helps you discover and assess your SQL data estate at scale on VMware. It provides Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
-|[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md)  | This Azure service supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. | 
+|[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md) | This Azure service supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. | 
 |[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance supports restore of native SQL Server database backups (.bak files). It's the easiest migration option for customers who can provide full database backups to Azure Storage.| 
 |[Log Replay Service](../../managed-instance/log-replay-service-migrate.md) | This cloud service is enabled for SQL Managed Instance based on SQL Server log-shipping technology. It's a migration option for customers who can provide full, differential, and log database backups to Azure Storage. Log Replay Service is used to restore backup files from Azure Blob Storage to SQL Managed Instance.| 
 |[Managed Instance link](../../managed-instance/managed-instance-link-feature-overview.md) | This feature enables online migration to Managed Instance using Always On technology. It’s a migration option for customers who require database on Managed Instance to be accessible in R/O mode while migration is in progress, who need to keep the migration running for prolonged periods of time (weeks or months at the time), who require true online replication to Business Critical service tier, and for customers who require the most performant minimum downtime migration. | 
-
-
 
 The following table lists alternative migration tools: 
 
 |**Technology** |**Description**  |
 |---------|---------|
 |[Transactional replication](../../managed-instance/replication-transactional-overview.md) | Replicate data from source SQL Server database tables to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. | 
-|[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| The [bulk copy program (bcp) tool](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the tool to export the data from your source and import the data file into the target SQL managed instance. </br></br> For high-speed bulk copy operations to move data to Azure SQL Managed Instance, you can use the [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) to maximize transfer speed by taking advantage of parallel copy tasks. | 
+|[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| The [bulk copy program (bcp) tool](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the tool to export the data from your source and import the data file into the target SQL managed instance.<br/><br/>For high-speed bulk copy operations to move data to Azure SQL Managed Instance, you can use the [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) to maximize transfer speed by taking advantage of parallel copy tasks. | 
 |[Import Export Wizard/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. You can use BACPAC to both export data from a SQL Server source and import the data back into Azure SQL Managed Instance. |  
-|[Azure Data Factory](../../../data-factory/connector-azure-sql-managed-instance.md)| The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory migrates data from source SQL Server databases to SQL Managed Instance by using built-in connectors and an [integration runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> Data Factory supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Managed Instance. |
+|[Azure Data Factory](../../../data-factory/connector-azure-sql-managed-instance.md)| The [Copy activity](../../../data-factory/copy-activity-overview.md) in Azure Data Factory migrates data from source SQL Server databases to SQL Managed Instance by using built-in connectors and an [integration runtime](../../../data-factory/concepts-integration-runtime.md).<br/><br/>Data Factory supports a wide range of [connectors](../../../data-factory/connector-overview.md) to move data from SQL Server sources to SQL Managed Instance. |
 
 ## Compare migration options
 
@@ -106,22 +108,20 @@ The following table compares the recommended migration options:
 
 |Migration option  |When to use  |Considerations  |
 |---------|---------|---------|
-|[Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) | - Migrate single databases or multiple databases at scale. </br> - Can run in both online (minimal downtime) and offline (acceptable downtime) modes. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Easy to setup and get started. </br> - Requires setup of self-hosted integration runtime to access on-premises SQL Server and backups. </br> - Includes both assessment and migration capabilities. |
-|[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrate single databases or multiple databases at scale. </br> - Can accommodate downtime during the migration process. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> - Time to complete migration depends on database size and is affected by backup and restore time. </br> - Sufficient downtime might be required. |
-|[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | - Migrate individual line-of-business application databases.  </br> - Quick and easy migration without a separate migration service or tool.  </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Database backup uses multiple threads to optimize data transfer to Azure Blob Storage, but partner bandwidth and database size can affect transfer rate. </br> - Downtime should accommodate the time required to perform a full backup and restore (which is a size of data operation).| 
-|[Log Replay Service](../../managed-instance/log-replay-service-migrate.md) | - Migrate individual line-of-business application databases.  </br> - More control is needed for database migrations.  </br> </br> Supported sources: </br> - SQL Server (2008 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - The migration entails making full database backups on SQL Server and copying backup files to Azure Blob Storage. Log Replay Service is used to restore backup files from Azure Blob Storage to SQL Managed Instance. </br> - Databases being restored during the migration process will be in a restoring mode and can't be used for read or write workloads until the process is complete.| 
-|[Managed Instance link](../../managed-instance/managed-instance-link-feature-overview.md) | - Migrate individual line-of-business application databases.  </br> - More control is needed for database migrations.  </br> - Minimum downtime migration is needed.  </br> </br> Supported sources: </br> - SQL Server (2016 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - GCP Compute SQL Server VM | - The migration entails establishing a network connection between SQL Server and SQL Managed Instance, and opening communication ports. </br> - Uses [Always On availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology to replicate database near real-time, making an exact replica of the SQL Server database on SQL Managed Instance. </br> - The database can be used for read-only access on SQL Managed Instance while migration is in progress. </br> - Provides the best performance during migration with minimum downtime. | 
-
+|[Azure SQL migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) | - Migrate single databases or multiple databases at scale.<br/>- Can run in both online (minimal downtime) and offline (acceptable downtime) modes.<br/><br/>Supported sources:<br/>- SQL Server (2005 to 2019) on-premises or Azure VM<br/>- AWS EC2<br/>- AWS RDS<br/>- GCP Compute SQL Server VM |  - Easy to setup and get started.<br/>- Requires setup of self-hosted integration runtime to access on-premises SQL Server and backups.<br/>- Includes both assessment and migration capabilities. |
+|[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrate single databases or multiple databases at scale.<br/>- Can accommodate downtime during the migration process.<br/><br/>Supported sources:<br/>- SQL Server (2005 to 2019) on-premises or Azure VM<br/>- AWS EC2<br/>- AWS RDS<br/>- GCP Compute SQL Server VM |  - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md).<br/>- Time to complete migration depends on database size and is affected by backup and restore time.<br/>- Sufficient downtime might be required. |
+|[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | - Migrate individual line-of-business application databases.<br/>- Quick and easy migration without a separate migration service or tool.<br/><br/>Supported sources:<br/>- SQL Server (2005 to 2019) on-premises or Azure VM<br/>- AWS EC2<br/>- AWS RDS<br/>- GCP Compute SQL Server VM | - Database backup uses multiple threads to optimize data transfer to Azure Blob Storage, but partner bandwidth and database size can affect transfer rate.<br/>- Downtime should accommodate the time required to perform a full backup and restore (which is a size of data operation).| 
+|[Log Replay Service](../../managed-instance/log-replay-service-migrate.md) | - Migrate individual line-of-business application databases.<br/>- More control is needed for database migrations.<br/><br/>Supported sources:<br/>- SQL Server (2008 to 2019) on-premises or Azure VM<br/>- AWS EC2<br/>- AWS RDS<br/>- GCP Compute SQL Server VM | - The migration entails making full database backups on SQL Server and copying backup files to Azure Blob Storage. Log Replay Service is used to restore backup files from Azure Blob Storage to SQL Managed Instance.<br/>- Databases being restored during the migration process will be in a restoring mode and can't be used for read or write workloads until the process is complete.| 
+|[Link feature for Azure SQL Managed Instance](../../managed-instance/managed-instance-link-feature-overview.md) | - Migrate individual line-of-business application databases.<br/>- More control is needed for database migrations.<br/>- Minimum downtime migration is needed.<br/><br/>Supported sources:<br/>- SQL Server (2016 to 2019) on-premises or Azure VM<br/>- AWS EC2<br/>- GCP Compute SQL Server VM | - The migration entails establishing a network connection between SQL Server and SQL Managed Instance, and opening communication ports.<br/>- Uses [Always On availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology to replicate database near real-time, making an exact replica of the SQL Server database on SQL Managed Instance.<br/>- The database can be used for read-only access on SQL Managed Instance while migration is in progress.<br/>- Provides the best performance during migration with minimum downtime. | 
 
 The following table compares the alternative migration options: 
 
 |Method or technology |When to use |Considerations  |
 |---------|---------|---------|
-|[Transactional replication](../../managed-instance/replication-transactional-overview.md) | - Migrate by continuously publishing changes from source database tables to target SQL Managed Instance database tables. </br> - Do full or partial database migrations of selected tables (subset of a database).  </br> </br> Supported sources: </br> - SQL Server (2012 to 2019) with some limitations </br> - AWS EC2  </br> - GCP Compute SQL Server VM | </br> - Setup is relatively complex compared to other migration options.   </br> - Provides a continuous replication option to migrate data (without taking the databases offline).</br> - Transactional replication has limitations to consider when you're setting up the publisher on the source SQL Server instance. See [Limitations on publishing objects](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) to learn more.  </br> - Capability to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication) is available.    |
-|[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Do full or partial data migrations. </br> - Can accommodate downtime. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | - Requires downtime for exporting data from the source and importing into the target. </br> - The file formats and data types used in the export or import need to be consistent with table schemas. |
-|[Import Export Wizard/BACPAC](../../database/database-import.md)| - Migrate individual line-of-business application databases. </br>- Suited for smaller databases.  </br>  Does not require a separate migration service or tool. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM  |   </br> - Requires downtime because data needs to be exported at the source and imported at the destination.   </br> - The file formats and data types used in the export or import need to be consistent with table schemas to avoid truncation or data-type mismatch errors. </br> - Time taken to export a database with a large number of objects can be significantly higher. |
-|[Azure Data Factory](../../../data-factory/connector-azure-sql-managed-instance.md)| - Migrate and/or transform data from source SQL Server databases.</br> - Merging data from multiple sources of data to Azure SQL Managed Instance is typically for business intelligence (BI) workloads.   </br> - Requires creating data movement pipelines in Data Factory to move data from source to destination.   </br> - [Cost](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) is an important consideration and is based on factors like pipeline triggers, activity runs, and duration of data movement. |
-
+|[Transactional replication](../../managed-instance/replication-transactional-overview.md) | - Migrate by continuously publishing changes from source database tables to target SQL Managed Instance database tables.<br/>- Do full or partial database migrations of selected tables (subset of a database).<br/><br/>Supported sources:<br/>- SQL Server (2012 to 2019) with some limitations<br/>- AWS EC2<br/>- GCP Compute SQL Server VM |<br/>- Setup is relatively complex compared to other migration options.<br/>- Provides a continuous replication option to migrate data (without taking the databases offline).<br/>- Transactional replication has limitations to consider when you're setting up the publisher on the source SQL Server instance. See [Limitations on publishing objects](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) to learn more.<br/>- Capability to [monitor replication activity](/sql/relational-databases/replication/monitor/monitoring-replication) is available.    |
+|[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Do full or partial data migrations.<br/>- Can accommodate downtime.<br/><br/>Supported sources:<br/>- SQL Server (2005 to 2019) on-premises or Azure VM<br/>- AWS EC2<br/>- AWS RDS<br/>- GCP Compute SQL Server VM   | - Requires downtime for exporting data from the source and importing into the target.<br/>- The file formats and data types used in the export or import need to be consistent with table schemas. |
+|[Import Export Wizard/BACPAC](../../database/database-import.md)| - Migrate individual line-of-business application databases.<br/>- Suited for smaller databases.<br/>Doesn't require a separate migration service or tool.<br/><br/>Supported sources:<br/>- SQL Server (2005 to 2019) on-premises or Azure VM<br/>- AWS EC2<br/>- AWS RDS<br/>- GCP Compute SQL Server VM  |<br/>- Requires downtime because data needs to be exported at the source and imported at the destination.<br/>- The file formats and data types used in the export or import need to be consistent with table schemas to avoid truncation or data-type mismatch errors.<br/>- Time taken to export a database with a large number of objects can be significantly higher. |
+|[Azure Data Factory](../../../data-factory/connector-azure-sql-managed-instance.md)| - Migrate and/or transform data from source SQL Server databases.<br/>- Merging data from multiple sources of data to Azure SQL Managed Instance is typically for business intelligence (BI) workloads.<br/>- Requires creating data movement pipelines in Data Factory to move data from source to destination.<br/>- [Cost](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) is an important consideration and is based on factors like pipeline triggers, activity runs, and duration of data movement. |
 
 ## Feature interoperability 
 
@@ -132,7 +132,6 @@ There are more considerations when you're migrating workloads that rely on other
 Migrate SQL Server Integration Services (SSIS) packages and projects in SSISDB to Azure SQL Managed Instance by using [Azure Database Migration Service](../../../dms/how-to-migrate-ssis-packages-managed-instance.md). 
 
 Only SSIS packages in SSISDB starting with SQL Server 2012 are supported for migration. Convert older SSIS packages before migration. See the [project conversion tutorial](/sql/integration-services/lesson-6-2-converting-the-project-to-the-project-deployment-model) to learn more. 
-
 
 ### SQL Server Reporting Services
 
@@ -155,6 +154,7 @@ Beyond the high-availability architecture that's included in SQL Managed Instanc
 Use the offline Azure Database Migration Service option to migrate [SQL Agent jobs](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). Otherwise, script the jobs in Transact-SQL (T-SQL) by using SQL Server Management Studio and then manually re-create them on the target SQL managed instance. 
 
 > [!IMPORTANT]
+>  
 > Currently, Azure Database Migration Service supports only jobs with T-SQL subsystem steps. Jobs with SSIS package steps have to be manually migrated. 
 
 ### Logins and groups
@@ -166,11 +166,11 @@ By default, Azure Database Migration Service supports migrating only SQL logins.
 - Ensuring that the target SQL managed instance has Azure Active Directory (Azure AD) read access. A user who has the Global Administrator role can configure that access via the Azure portal.
 - Configuring Azure Database Migration Service to enable Windows user or group login migrations. You set this up via the Azure portal, on the **Configuration** page. After you enable this setting, restart the service for the changes to take effect.
 
-After you restart the service, Windows user or group logins appear in the list of logins available for migration. For any Windows user or group logins that you migrate, you're prompted to provide the associated domain name. Service user accounts (accounts with the domain name NT AUTHORITY) and virtual user accounts (accounts with the domain name NT SERVICE) are not supported. To learn more, see [How to migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md).
+After you restart the service, Windows user or group logins appear in the list of logins available for migration. For any Windows user or group logins that you migrate, you're prompted to provide the associated domain name. Service user accounts (accounts with the domain name NT AUTHORITY) and virtual user accounts (accounts with the domain name NT SERVICE) aren't supported. To learn more, see [How to migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md).
 
 Alternatively, you can use the [PowerShell utility](https://www.microsoft.com/download/details.aspx?id=103111) specially designed by Microsoft data migration architects. The utility uses PowerShell to create a T-SQL script to re-create logins and select database users from the source to the target. 
 
-The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure AD accounts, and it can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
+The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure AD accounts, and it can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases aren't yet supported, and only a subset of possible SQL Server permissions is scripted. 
 
 ### Encryption
 
@@ -178,13 +178,14 @@ When you're migrating databases protected by [Transparent Data Encryption](../
 
 ### System databases
 
-Restore of system databases is not supported. To migrate instance-level objects (stored in the master and msdb databases), script them by using T-SQL and then re-create them on the target managed instance. 
+Restore of system databases isn't supported. To migrate instance-level objects (stored in the `master` and `msdb` databases), script them by using T-SQL and then re-create them on the target managed instance. 
 
 ### In-Memory OLTP (memory-optimized tables)
 
 SQL Server provides an In-Memory OLTP capability. It allows usage of memory-optimized tables, memory-optimized table types, and natively compiled SQL modules to run workloads that have high-throughput and low-latency requirements for transactional processing. 
 
 > [!IMPORTANT]
+>  
 > In-Memory OLTP is supported only in the Business Critical tier in Azure SQL Managed Instance. It's not supported in the General Purpose tier.
 
 If you have memory-optimized tables or memory-optimized table types in your on-premises SQL Server instance and you want to migrate to Azure SQL Managed Instance, you should either:
@@ -221,7 +222,6 @@ For more assistance, see the following resources that were developed for real-wo
 |[Perfmon data collection automation by using Logman](https://www.microsoft.com/download/details.aspx?id=103114)|You can use the Logman tool to collect Perfmon data (to help you understand baseline performance) and get migration target recommendations. This tool uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server instance.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
-
 
 ## Next steps
 
