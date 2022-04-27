@@ -3,15 +3,14 @@ title: Update inventory using Azure portal and topics/subscriptions
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET
 author: spelluru
 ms.author: spelluru
-ms.date: 10/15/2020
+ms.date: 04/26/2022
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
 # Tutorial: Update inventory using Azure portal and topics/subscriptions
-
-Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using the Azure portal and .NET.
+Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using the Azure portal and .NET.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -23,7 +22,7 @@ In this tutorial, you learn how to:
 
 An example of this scenario is an inventory assortment update for multiple retail stores. In this scenario, each store, or set of stores, gets messages intended for them to update their assortments. This tutorial shows how to implement this scenario using subscriptions and filters. First, you create a topic with 3 subscriptions, add some rules and filters, and then send and receive messages from the topic and subscriptions.
 
-![topic](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
+:::image type="content" source="./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png" alt-text="Image showing a sender, a topic with three subscriptions, and three recevers.":::
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
@@ -79,7 +78,7 @@ To run the code, do the following:
 
    - Execute 1: to remove the default filters.
    - Execute 2: to add your own filters.
-   - Execute 3: to optionally remove your own filters. Note that this will not recreate the default filters.
+   - Execute 3: Skip this step for the tutorial. This option optionally removes your own filters. It will not recreate the default filters.
 
      ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
