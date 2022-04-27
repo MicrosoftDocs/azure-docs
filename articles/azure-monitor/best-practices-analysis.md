@@ -65,7 +65,7 @@ See [Create and share dashboards of Log Analytics data](visualize/tutorial-logs-
 
 All versions of Grafana include the [Azure Monitor datasource plug-in](visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.
 
-Additionally, [Azure Managed Grafana](../managed-grafana/overview.md) optimizes this experience for Azure-native data stores such as Azure Monitor and Data Explorer thus making it easy for you to connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards and includes out of the box dashboards for Azure resources.
+Additionally, [Azure Managed Grafana](../managed-grafana/overview.md) optimizes this experience for Azure-native data stores such as Azure Monitor and Data Explorer thus making it easy for you to connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards and includes out of the box dashboards for Azure resources. [Create your first Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md) to get started.
 
 ![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
 
