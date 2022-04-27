@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 09/08/2021
+ms.date: 04/26/2022
 ms.author: radeltch
 
 ---
@@ -621,16 +621,20 @@ Be sure to assign the role for both cluster nodes.
    >[!IMPORTANT]
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
-1. **[A]** Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5.
+1. **[A]** Install the Azure Python SDK and Azure Identity python module.  
+
+    Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
     <pre><code># You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
     sudo zypper install python-azure-mgmt-compute
+    sudo zypper install python-azure-identity
     </code></pre>
 
     Install the Azure Python SDK on SLES 15 or later:
     <pre><code># You might need to activate the public cloud extension first. In this example, the SUSEConnect command is for SLES 15 SP1
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
+    sudo zypper install python3-azure-identity
     </code></pre> 
 
     >[!IMPORTANT]

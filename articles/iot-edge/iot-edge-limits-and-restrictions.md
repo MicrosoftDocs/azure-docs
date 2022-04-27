@@ -67,6 +67,9 @@ IoT Hub only supports file upload APIs for device identities, not module identit
 
 For more information on uploading files with IoT Hub, see [Upload files with IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md).
 
+### Edge agent environment variables
+Changes made in `config.toml` to `edgeAgent` environment variables like the `hostname` aren't applied to `edgeAgent` if the container already existed. To apply these changes, remove the `edgeAgent` container using the command  `sudo docker rm -f edgeAgent`. The IoT Edge daemon recreates the container and starts edgeAgent in about a minute.
+
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 ### AMQP transport
