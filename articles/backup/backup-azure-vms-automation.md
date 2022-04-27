@@ -434,10 +434,11 @@ To restore backup data, identify the backed-up item and the recovery point that 
 
 The basic steps to restore an Azure VM are:
 
-* Select the VM.
-* Choose a recovery point.
-* Restore the disks.
-* Create the VM from stored disks.
+> [!div class="checklist"]
+> * Select the VM.
+> * Choose a recovery point.
+> * Restore the disks.
+> * Create the VM from stored disks.
 
 Now, you can also use PowerShell to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using PowerShell](#restore-data-to-virtual-machine-using-powershell).
 
