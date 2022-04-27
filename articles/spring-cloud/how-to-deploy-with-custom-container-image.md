@@ -1,66 +1,94 @@
 ---
-title: Deploy applications in Azure Spring Cloud with custom container image (Preview)
-description: How to deploy applications in Azure Spring Cloud with custom container image
-author: xiangy
+title: How to deploy applications in Azure Spring Cloud with a custom container image (Preview)
+description: How to deploy applications in Azure Spring Cloud with a custom container image
+author: karlerickson
 ms.author: xiangy
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: spring-cloud
-ms.date: 3/20/2022
+ms.date: 4/27/2022
 ---
 
-# Deploy with custom container image (Preview)
+# Deploy an application with a custom container image (Preview)
 
-You can deploy Spring Boot applications with container image, and enjoy almost the same feature support as the JAR deployment.
+**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-You can also deploy other Java applications or non-Java (polyglot) applications with container image, to accompany the Spring Boot applications on ASC.
-
-  
+This article explains how to deploy Spring Boot applications in Azure Spring Cloud using a custom container image. Deploying an application with a custom container supports most features as when deploying a JAR application. Other Java and non-Java applications can also be deployed with the container image.
+ 
 ## Prerequisites 
-* Built A container image containing the applicaiton
-* Pushed the image to a image registry ([Azure Container Registry](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr) / Docker Hub)
+* A container image containing the application
+* The image is pushed to an image registry. For more information, see [Azure Container Registry](/azure/container-instances/container-instances-tutorial-prepare-acr)
   
+> [!NOTE]
+> The web application must listen on port `1025` for Standard tier and on port `8080` for Enterprise tier. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. The probe can be disabled for applications that do not listen on any port.
 
-## Limitations
-The web application must listen to port `1025` for the standard tier and `8080` for the enterprise tier. The way of change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot application or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core application.
+## How to deploy your application 
 
-For the applications not listening on any port. You can disable the probe by CLI. See the details [below](#cli) 
+# [Azure CLI](#tab/azure-cli)
 
+1. To deploy a container image, use one of the following commands:
+    1. To deploy a container image `contoso/your-app:v1` on the public Docker Hub to an app, use the following command:
 
-## Deploy your application 
+       ```azurecli
+       az spring-cloud app deploy \
+          -name <MyApp> \
+          -service <MyCluster> \
+          -group <MyResourceGroup> \
+          --container-image contoso/your-app:v1
+       ```
 
-### CLI
-Deploy a container image `contoso/your-app:v1` on the public Docker Hub to an app.
-```
-az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image contoso/your-app:v1
-```
+    1. To deploy a container image `myacr.azurecr.io/your-app:v1` from ACR to an app, use the following command:
 
-Or deploy a container image `myacr.azurecr.io/your-app:v1` from ACR to an app.
-```
-az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image your-app:v1 --container-registry myacr.azurecr.io --registry-username myacr --registry-password <password>
-```
+       ```azurecli
+       az spring-cloud app deploy \
+          -name <MyApp> \
+          -service <MyCluster> \
+          -group <MyResourceGroup> \
+          --container-image your-app:v1 \
+          --container-registry myacr.azurecr.io \
+          --registry-username myacr \
+          --registry-password <password>
+        ```
 
-Or deploy a container image `registry.consoto.com/your-app:v1` from other private registry to an app.
-```
-az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image your-app:v1 --container-registry registry.consoto.com --registry-username <username> --registry-password <password>
-```
+    1. To deploy a container image `registry.consoto.com/your-app:v1` from another private registry to an app, use the following command:
 
-If the entrypoint of the image needs to be overwrite, then the two arguments can be added:
-```
---container-command "java" --container-args "-jar /app.jar -Dkey=value"
-```
+       ```azurecli
+       az spring-cloud app deploy \
+          -name <MyApp> \
+          -service <MyCluster> \
+          -group <MyResourceGroup> \
+          --container-image your-app:v1 \
+          --container-registry registry.consoto.com \
+          --registry-username <username> \
+          --registry-password <password>
+        ```
 
-If the image is not a web application and doesn't listen on any port. The following arguments can be added `--disable-probe true`
+1. To overwrite the entry point of the image, add the following two arguments to any of the above commands:
 
-### Portal
-![Create App-1](media/how-to-deploy-with-custom-container-image/create-custom-container-app-1.png)
-![Create App-2](media/how-to-deploy-with-custom-container-image/create-custom-container-app-2.png)
+   ```xml
+   --container-command "java" \
+   --container-args "-jar /app.jar -Dkey=value"
+   ```
+
+1. To disable listening on a port for images that are not web applications, add the following argument to the above commands:
+   ```xml
+   --disable-probe true
+   ```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-custom-container-app-1.png" alt-text="Create App 1.":::
+
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-custom-container-app-2.png" alt-text="Create App 2.":::
  
 The `Commands` and `Arguments` field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
 
 You need to also specify the `Language Framework`, which is the web framework of the container image used. Currently only `Spring Boot` is supported. For other Java applications or non-Java (polyglot) applications please choose `Polyglot`.
 
+---
+
 ## Feature Support matrix 
 
+The following matrix shows what features are supported in each application type.
 
 | Feature  | Spring Boot Apps - container deployment  | Polyglot Apps - container deployment  | Notes  |
 |---|---|---|---|
@@ -95,59 +123,72 @@ You need to also specify the `Language Framework`, which is the web framework of
 | SLA                                                             | Y | Y |   |
 
 
-Note: Polyglot includes non-Spring Boot Java apps and NodeJS, AngularJS, Python, .NET apps 
+> [!NOTE]
+> Polyglot apps include non-Spring Boot Java, NodeJS, AngularJS, Python, and .NET apps.
 
+## Common points to be aware of when deploying with a custom container
 
-## Common Issues 
+The following points will help you address common situations when deploying with a custom image.
+### How to trust a Certificate Authority (CA) in the image
 
-### How to trust a CA in the image?
-For the `Java` application, you need to import it into the trust store by adding the following lines into your `Dockerfile`:
-```
-ADD EnterpriseRootCA.crt /opt/
-RUN keytool -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias EnterpriseRootCA -file /opt/EnterpriseRootCA.crt
-```
+To trust a CA in the image, set the following variables depending on your environment:
 
-For the `Node.js` application, you will have to set the `NODE_EXTRA_CA_CERTS` environment variable:
-```
-ADD EnterpriseRootCA.crt /opt/
-ENV NODE_EXTRA_CA_CERTS="/opt/EnterpriseRootCA.crt"
-```
+1. Java applications must be imported into the trust store by adding the following lines into your `Dockerfile`:
 
-For the application in `python` or other language relying on the system CA store:
-```
-# Debian / Ubuntu based image
-ADD EnterpriseRootCA.crt /usr/local/share/ca-certificates/
-RUN /usr/sbin/update-ca-certificates
+   ```xml
+   ADD EnterpriseRootCA.crt /opt/
+   RUN keytool -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias EnterpriseRootCA -file /opt/EnterpriseRootCA.crt
+   ```
 
-# CentOS / Fedora based image
-ADD EnterpriseRootCA.crt /etc/pki/ca-trust/source/anchors/
-RUN /usr/bin/update-ca-trust
-``` 
+1. Node.js applications must set the `NODE_EXTRA_CA_CERTS` environment variable:
 
+   ```xml
+   ADD EnterpriseRootCA.crt /opt/
+   ENV NODE_EXTRA_CA_CERTS="/opt/EnterpriseRootCA.crt"
+   ```
 
-### Don't use `latest` tag or overwrite a image without tag change
-When your application is restarted or scaled out, the latest image will be always pulled. If the image has been changed during this period, the newly started application instances will use the new image while the old instances will use the old image, which may lead to unexpected application behavior.
+1. For Python, or other languages relying on the system CA store, on Debian or Ubuntu images, add the following environment variables:
 
-### Why can't connect to the container registry in VNet?
-If you deployed the instance into a VNet, please ensure to allow the network traffic to your container registry in the NSG or Azure Firewall (if used). You may follow [this guide](https://docs.microsoft.com/azure/spring-cloud/vnet-customer-responsibilities) to add the security rules.
+   ```xml
+   ADD EnterpriseRootCA.crt /usr/local/share/ca-certificates/
+   RUN /usr/sbin/update-ca-certificates
+   ```
 
-### How to install an APM into the image manually?
-The installation steps vary on different APM and languages. Take `New Relic` with Java application as the example, modify the `Dockerfile` with the following steps:
-1. Download and install the agent file into the image: `ADD newrelic-agent.jar /opt/agents/newrelic/java/newrelic-agent.jar`
-1. Add the environment variables required by the APM: 
-    ```
+1. For Python, or other languages relying on the system CA store, on CentOS or Fedora based images, add the following environment variables:
+   ```xml
+   ADD EnterpriseRootCA.crt /etc/pki/ca-trust/source/anchors/
+   RUN /usr/bin/update-ca-trust
+   ``` 
+### How to avoid unexpected behavior when images change
+
+When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image. This may lead to unexpected application behavior. To avoid this, don't use the `latest` tag or overwrite an image without a tag change.
+
+### How to avoid not being able to connect to the container registry in a VNet
+
+If you deployed the instance to a VNet, make sure you allow the network traffic to your container registry in the NSG or Azure Firewall (if used). For more information, see [Customer responsibilities for running in VNet](/azure/spring-cloud/vnet-customer-responsibilities) to add the needed security rules.
+
+### How to install an APM into the image manually
+
+The installation steps vary on different APMs and languages. The following steps are for `New Relic` with Java applications. You must modify the `Dockerfile` using the following steps:
+
+1. Download and install the agent file into the image by adding the following to the `Dockerfile`: `ADD newrelic-agent.jar /opt/agents/newrelic/java/newrelic-agent.jar`
+
+1. Add the environment variables required by the APM:
+
+    ```xml
     ENV NEW_RELIC_APP_NAME=appName
     ENV NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
-    ``` 
-1. Modify the image entrypoint: `java -javaagent:/opt/agents/newrelic/java/newrelic-agent.jar`
+    ```
 
-For more information about how to install the agents for the Java apps, please see the following docs:
+1. Modify the image entry point by adding: `java -javaagent:/opt/agents/newrelic/java/newrelic-agent.jar`
 
-* https://docs.microsoft.com/azure/spring-cloud/how-to-new-relic-monitor
-* https://docs.microsoft.com/azure/spring-cloud/how-to-dynatrace-one-agent-monitor
-* https://docs.microsoft.com/azure/spring-cloud/how-to-appdynamics-java-agent-monitor
+For more information on how to install the agents for the Java apps, please see the following articles:
 
-To install the agents for other languages, you can refer to the official documents:
+* [New Relic Monitor](/azure/spring-cloud/how-to-new-relic-monitor)
+* [Dynatrace One Agent Monitor](/azure/spring-cloud/how-to-dynatrace-one-agent-monitor)
+* [App Dynamics Java Agent Monitor](/azure/spring-cloud/how-to-appdynamics-java-agent-monitor)
+
+To install the agents for other languages, refer to the official documentation for the other agents:
 
 New Relic:
 * Python: https://docs.newrelic.com/docs/apm/agents/python-agent/installation/standard-python-agent-install/
@@ -161,40 +202,58 @@ AppDynamics:
 * Python: https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/python-agent/install-the-python-agent
 * Node.js: https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/node-js-agent/install-the-node-js-agent#InstalltheNode.jsAgent-install_nodejsInstallingtheNode.jsAgent
 
-### Troubleshooting the container logs
-The check the console logs of your container application, the following CLI subcommand can be used:
-```
-az spring-cloud app logs -n <app name> -g <resource group> -s <service name> -i <app instance name>
-```
+### How to view the container logs
 
-Or if the application can't be started without any console logs, the container events logs can be searched from the Azure Monitor:
+To view the console logs of your container application, the following CLI command can be used:
 
-```
-AppPlatformContainerEventLogs 
-| where App == "hw-20220317-1b"
-```
-
-![Container Events Logs](media/how-to-deploy-with-custom-container-image/container-event-logs.png)
-
-
-### Advanced troubleshooting (thread dump, heap dump, etc., Spring Boot only) by CLI 
-It's same with the normal applications and can be referenced here: https://docs.microsoft.com/azure/spring-cloud/how-to-capture-dumps
-
-
-### Scan the vulnerabilities of the images
-We recommend use Microsoft Defender for Cloud with ACR to keep your images from various vunerabilities. More details please see: https://docs.microsoft.com/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries
-
-
-### How to switch from JAR deployment to container deployment or vice versa? 
-The deployment type can be switched directly by redeploying:
-```
-az spring-cloud app deploy -n MyApp -s MyCluster -g MyResourceGroup --container-image contoso/your-app:v1
+```azurecli
+az spring-cloud app logs \
+   -name <AppName> \
+   -group <ResoureGroup> \
+   -service <ServiceName> \
+   -instance <AppInstanceName>
 ```
 
-Also it's supported to create another deployment with a existing JAR deployment.
-```
-az spring-cloud app deployment create --app MyApp -s MyCluster -g MyResourceGroup -n greenDeployment --container-image contoso/your-app:v1
+To view the container events logs from the Azure Monitor:
+
+```xml
+AppPlatformContainerEventLogs | where App == "hw-20220317-1b"
 ```
 
-### Can I automate the deployment by Azure Pipelines Task or GitHub Action?
-No. They're not supported yet.
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the container events log.":::
+
+### How to scan your image for vulnerabilities
+
+It is recommended that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
+
+### How to switch between JAR deployment and container deployment
+
+The deployment type can be switched directly by redeploying using the following command:
+
+```azurecli
+az spring-cloud app deploy \ 
+   -name <MyApp> \
+   -service <MyCluster> \
+   -group <MyResourceGroup> \
+   --container-image contoso/your-app:v1
+```
+
+### How to create another deployment with an existing JAR deployment
+
+You can create another deployment using an existing JAR deployment using the following command:
+
+```azurecli
+az spring-cloud app deployment create \
+   --app <MyApp> \
+   -service <MyCluster>
+   -group <MyResourceGroup>
+   -name <greenDeployment> \
+   --container-image contoso/your-app:v1
+```
+
+> [!NOTE]
+> Automating deployments using Azure Pipelines Tasks or GitHub Actions are not currently supported.
+
+## Next Steps
+
+* [How to capture dumps](/azure/spring-cloud/how-to-capture-dumps)
