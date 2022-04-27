@@ -409,7 +409,7 @@
         href: create-monitoring-tracking-queries.md
   - name: Business continuity and disaster recovery
     items:
-    - name: Set up zone redundant logic apps with availability zones
+    - name: Set up zone redundant logic apps
       href: set-up-zone-redundancy-availability-zones.md
     - name: Replicate Azure resources for business continuity and disaster recovery
       href: create-replication-tasks-azure-resources.md
