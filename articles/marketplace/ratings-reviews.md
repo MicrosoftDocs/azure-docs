@@ -130,11 +130,11 @@ The response will appear under the text of the original review in the product de
 
 ##### Microsoft AppSource
 
-:::image type="content" source="media/ratings-reviews/review-appsource.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Microsoft Appsource." lightbox="media/marketplace-publisher-guide-rating-reviews/review-appsource.png":::
+:::image type="content" source="media/ratings-reviews/review-appsource.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Microsoft Appsource." lightbox="media/ratings-reviews/review-appsource.png":::
 
 ##### Azure Marketplace
 
-:::image type="content" source="media/ratings-reviews/review-azure.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Azure Marketplace." lightbox="media/marketplace-publisher-guide-rating-reviews/az-mp-online-store.png":::
+:::image type="content" source="media/ratings-reviews/review-azure.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Azure Marketplace." lightbox="media/ratings-reviews/review-azure.png":::
 
 ### Editing or deleting a response to a review
 
