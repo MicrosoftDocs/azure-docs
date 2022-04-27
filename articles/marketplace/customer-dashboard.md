@@ -40,7 +40,7 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 
     ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png)
 
-1. In the left menu, select **Customers**.
+1. In the left-nav menu, select **[Customers](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/customer)**.
 
     :::image type="content" source="media/customer-dashboard/menu-customer.png" alt-text="Screenshot showing the Customer option in the left-nav menu.":::
 
