@@ -161,13 +161,6 @@ For the Request API the new scope for your application or Postman is now:
 
 ```3db474b9-6a0c-96ac-1fceb342124f/.default```
 
-#### **5. Clean up configuration**
-
-**Suggested after May 6, 2022**. Once you have confirmed that the Azure AD verifiable credentials service is working normally, you can issue, verify, etc after May 6, 2022 you can proceed to clean up your tenant so that the Azure AD Verifiable Credentials service has only the new service principals.
-
-1. Run the following PowerShell command to connect to your Azure AD tenant. Replace ```<your tenant ID>``` with your Azure AD tenant ID.
-1. Run the following commands in the same PowerShell session. The AppId ```603b8c59-ba28-40ff-83d1-408eee9a93e5``` and ```bbb94529-53a3-4be5-a069-7eaf2712b826``` refer to the previous Verifiable Credentials service principals.
-
 ### How do I reset the Azure AD Verifiable credentials service?
 
 Resetting requires that you opt out and opt back into the Azure Active Directory Verifiable Credentials service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID to use during issuance and presentation.
