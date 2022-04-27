@@ -8,7 +8,7 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 02/22/2022
 ---
 
-# Microsoft Sentinel SAP solution: security content reference (public preview)
+# Microsoft Sentinel SAP solution: security content reference
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
