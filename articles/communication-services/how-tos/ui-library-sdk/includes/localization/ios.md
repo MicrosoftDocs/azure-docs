@@ -94,11 +94,11 @@ Certain cultures (Arabic, Hebrew, etc.) may need  for localization to have right
 var localizationConfig: LocalizationConfiguration
 
 // Initializer with langaugeCode and layoutDirection (or equivalent initializer with locale)
-localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.en,
+localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.en.rawValue,
                                                layoutDirection: .rightToLeft)
 
 // Initializer with langaugeCode, localizableFilename, and layoutDirection (or equivalent initializer with locale)
-localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.en,
+localizationConfig = LocalizationConfiguration(languageCode: LanguageCode.en.rawValue,
                                                localizableFilename: "Localizable",
                                                layoutDirection: .rightToLeft)
 
