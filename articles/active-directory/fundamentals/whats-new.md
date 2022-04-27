@@ -123,7 +123,7 @@ For more information, see [internalDomainFederation resource type - Microsoft Gr
 **Product capability:** AuthZ/Access Delegation  
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
-Added functionality to session controls allowing admins to require primary and/or secondary authentication on every sign-in if a user or particular sign-in event is deemed risky, or when enrolling a device in Intune. For more information, see [Configure authentication session management with conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+Added functionality to session controls allowing admins to reauthenticate a user on every sign-in if a user or particular sign-in event is deemed risky, or when enrolling a device in Intune. For more information, see [Configure authentication session management with conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ---
 
