@@ -73,25 +73,25 @@ Processor model information for each SKU is available in the SKU documentation (
 
 ### VM Series Retiring
 
-The following VM series are retiring on or before [31 August 2024](av1-series-retirement):
+The following VM series are retiring on or before [August 31, 2024](av1-series-retirement):
 
 | SKU Family | ACU \ vCPU | vCPU: Core |  Retirement Date |
 | --- | --- |---| --- |
-| [H](h-series.md)                  |290 - 300*  | 1:1 | [31 August 2022](h-series-retirement) |
-| [HB](hb-series.md)                |199 - 216** | 1:1 | [31 August 2024](hb-series-retirement) |
-| [A0](sizes-previous-gen.md)       |50          | 1:1 | [31 August 2024](av1-series-retirement) |
-| [A1 - A4](sizes-previous-gen.md)  |100         | 1:1 | [31 August 2024](av1-series-retirement) |
-| [A5 - A7](sizes-previous-gen.md)  |100         | 1:1 | [31 August 2024](av1-series-retirement) |
-| [A8 - A11](sizes-previous-gen.md) |225*        | 1:1 | [31 August 2024](av1-series-retirement) |
+| [H](h-series.md)                  |290 - 300*  | 1:1 | [August 31, 2022](h-series-retirement.md) |
+| [HB](hb-series.md)                |199 - 216** | 1:1 | [August 31, 2024](hb-series-retirement.md) |
+| [A0](sizes-previous-gen.md)       |50          | 1:1 | [August 31, 2024](av1-series-retirement.md) |
+| [A1 - A4](sizes-previous-gen.md)  |100         | 1:1 | [August 31, 2024](av1-series-retirement.md) |
+| [A5 - A7](sizes-previous-gen.md)  |100         | 1:1 | [August 31, 2024](av1-series-retirement.md) |
+| [A8 - A11](sizes-previous-gen.md) |225*        | 1:1 | [August 31, 2024](av1-series-retirement.md) |
 
 The following GPU series are also retiring:
 
 | SKU Family | Retirement Date |
 | ---------- | --------------- |
-| NC         | [August 31, 2023](nc-series-retirement)   |
-| NCv2       | [August 31, 2023](ncv2-series-retirement) |
-| ND         | [August 31, 2023](nd-series-retirement)   |
-| NV         | [August 31, 2023](nv-series-retirement)   |
+| NC         | [August 31, 2023](nc-series-retirement.md)   |
+| NCv2       | [August 31, 2023](ncv2-series-retirement.md) |
+| ND         | [August 31, 2023](nd-series-retirement.md)   |
+| NV         | [August 31, 2023](nv-series-retirement.md)   |
 
 ## Performance Consistency
 
@@ -100,7 +100,7 @@ We understand that Azure customers want the best possible consistent performance
 Azure VM sizes typically run with maximum performance on the hardware platform they are first released on.  Azure may place controls on older Azure VMs when run on newer hardware to help maintain consistent performance for our customers even when the VMs run on different hardware.  For example:
 1) **D**, **E**, and **F** series VMs may have the processor frequency set to a lower level when running on newer hardware to help achieve better performance consistency across hardware updates.  (The specific frequency setting varies based on the processor the VM series was first released on and the comparable performance of the current hardware.)
 2) **A** series VMs use an older model based on time slicing newer hardware to deliver performance consistency across hardware versions.
-3) **B** series VMs are burstable and use a credit system (described in their [documentation](sizes-b-series-burstable) to achieve expected performance.
+3) **B** series VMs are burstable and use a credit system (described in their [documentation](sizes-b-series-burstable.md) to achieve expected performance.
 
 These different processor settings for VMs are a key part of Azure's effort to provide consistent performance and minimize the impact of changes in underlying hardware platform outside of our customer’s control.
 
