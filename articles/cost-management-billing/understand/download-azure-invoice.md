@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 04/26/2022
 ms.author: banders
 ---
 
@@ -18,7 +18,7 @@ You can download your invoice in the [Azure portal](https://portal.azure.com/) o
 
 ## When invoices are generated
 
-An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
+An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP) also called pay-as-you-go, Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
@@ -76,7 +76,7 @@ For more information about your invoice, see [Understand your bill for Microsoft
 
 ## Download your MOSP support plan invoice
 
-An invoice is only generated for a support plan subscription that belongs to an MOSP billing account. [Check your access to an MOSP account](../manage/view-all-accounts.md#check-the-type-of-your-account).
+A PDF invoice is only generated for a support plan subscription that belongs to an MOSP billing account. [Check your access to an MOSP account](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 You must have an account admin role on the support plan subscription to download its invoice.
 
@@ -113,27 +113,20 @@ To download an invoice:
 
 ## Get MOSP subscription invoice in email
 
-You must have an account admin role on a subscription or a support plan to opt in to receive its invoice by email. Once you've opted-in you can add additional recipients, who receive the invoice by email as well.
+You must have an account admin role on a subscription or a support plan to opt in to receive its PDF invoice by email. When you opt-in, you can optionally add additional recipients that will also receive the invoice by email. The following steps apply to subscription and support plan invoices.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-2.  Search for **Cost Management + Billing**.  
-3.  Select **Invoices** from the left-hand side.
-4.  Select your Azure subscription or support plan subscription and then select **Receive invoice by email**.  
-    [![Screenshot that shows the Receive invoice by email option](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
-5. Click **Email invoice** and accept the terms.  
-    ![Screenshot that shows the opt-in flow step 2](./media/download-azure-invoice/invoicearticlestep02.png)
-6. The invoice is sent to your preferred communication email. Select **Update profile** to update the email.  
-    ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
-
-## Share subscription and support plan invoice
-
-You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses. 
-
-1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-mosp-subscription-invoice-in-email) and select **Configure recipients**.  
-    [![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoice-article-step03.png)](./media/download-azure-invoice/invoice-article-step03-zoomed.png#lightbox)
-1. Enter an email address, and then select **Add recipient**. You can add multiple email addresses.  
-    ![Screenshot that shows a user adding additional recipients](./media/download-azure-invoice/invoice-article-step04.png)
-1. Once you've added all the email addresses, select **Done** from the bottom of the screen.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to **Cost Management + Billing**.
+1. Select a billing scope, if needed.
+1. Select **Invoices** on the left side.
+1. At the top of the page, select **Receive invoice by email**.  
+    :::image type="content" source="./media/download-azure-invoice/select-receive-invoice-by-email.png" alt-text="Screenshot showing navigation to Receive invoice by email." lightbox="./media/download-azure-invoice/select-receive-invoice-by-email.png" :::
+1. In the Receive invoice by email window, select the subscription where invoices are created.
+1. In the **Status** area, select **Yes** for **Receive email invoices for Azure services**. You can optionally select **Yes** for **Email invoices for Azure marketplace and reservation purchases**.
+1. In the **Preferred email** area, enter the email address where invoices will get sent.
+1. Optionally, in the **Additional recipients** area, enter one or more email addresses.  
+    :::image type="content" source="./media/download-azure-invoice/receive-invoice-by-email-page.png" alt-text="Screenshot showing the Receive invoice by email page." lightbox="./media/download-azure-invoice/receive-invoice-by-email-page.png" :::
+1. Select **Save**.
 
 ## Invoices for MCA and MPA billing accounts
 
