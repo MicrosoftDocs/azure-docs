@@ -13,10 +13,9 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-
 ## Azure Monitor agent
-The samples in this section install the Azure Monitor agent on Windows and Linux virtual machines and Azure Arc-enabled servers. To configure data collection for these agents, you must also deploy [Resource Manager templates data collection rules and associations](./resource-manager-data-collection-rules.md).
 
+The samples in this section install the Azure Monitor agent on Windows and Linux virtual machines and Azure Arc-enabled servers. To configure data collection for these agents, you must also deploy [Resource Manager templates data collection rules and associations](./resource-manager-data-collection-rules.md).
 
 ## Permissions required
 
@@ -37,7 +36,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
 param vmName string
 param location string
 
-resource agent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
+resource windowsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
   name: '${vmName}/AzureMonitorWindowsAgent'
   location: location
   properties: {
@@ -113,7 +112,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure virtual m
 param vmName string
 param location string
 
-resource agent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
+resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
   name: '${vmName}/AzureMonitorLinuxAgent'
   location: location
   properties: {
@@ -183,33 +182,54 @@ The following sample installs the Azure Monitor agent on a Windows Azure Arc-ena
 
 #### Template file
 
+# [Bicep](#tab/bicep)
+
+```bicep
+param vmName string
+param location string
+
+resource windowsAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-preview' = {
+  name: '${vmName}/AzureMonitorWindowsAgent'
+  location: location
+  properties: {
+    publisher: 'Microsoft.Azure.Monitor'
+    type: 'AzureMonitorWindowsAgent'
+    autoUpgradeMinorVersion: true
+  }
+}
+```
+
+# [JSON](#tab/json)
+
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "vmName": {
-          "type": "string"
-      },
-      "location": {
-          "type": "string"
-      }
+    "vmName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
   },
   "resources": [
-      {
-          "name": "[concat(parameters('vmName'),'/AzureMonitorWindowsAgent')]",
-          "type": "Microsoft.HybridCompute/machines/extensions",
-          "location": "[parameters('location')]",
-          "apiVersion": "2019-08-02-preview",
-          "properties": {
-              "publisher": "Microsoft.Azure.Monitor",
-              "type": "AzureMonitorWindowsAgent",
-              "autoUpgradeMinorVersion": true
-          }
+    {
+      "type": "Microsoft.HybridCompute/machines/extensions",
+      "apiVersion": "2021-12-10-preview",
+      "name": "[format('{0}/AzureMonitorWindowsAgent', parameters('vmName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publisher": "Microsoft.Azure.Monitor",
+        "type": "AzureMonitorWindowsAgent",
+        "autoUpgradeMinorVersion": true
       }
+    }
   ]
 }
 ```
+
+---
 
 #### Parameter file
 
@@ -239,7 +259,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure Arc-enabl
 param vmName string
 param location string
 
-resource agent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-preview'= {
+resource linuxAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-preview'= {
   name: '${vmName}/AzureMonitorWindowsAgent'
   location: location
   properties: {
