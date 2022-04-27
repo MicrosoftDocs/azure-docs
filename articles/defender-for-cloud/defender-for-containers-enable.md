@@ -2,10 +2,8 @@
 title: How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
-ms.author: elkrieger
-author: Elazark
 zone_pivot_groups: k8s-host
-ms.date: 03/27/2022
+ms.date: 04/27/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -53,6 +51,36 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 ::: zone pivot="defender-for-container-gke"
 [!INCLUDE [Enable plan for GKE](./includes/defender-for-containers-enable-plan-gke.md)]
 ::: zone-end
+
+## Install the Defender profile
+
+Once the Defender profile has been deployed you can then override the default workspace for AKS SecurityProfile.
+
+**To install the Defender profile**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Search for, and select **Policy**.
+
+    :::image type="content" source="../media/defender-for-containers/find-policy.png" alt-text="Screenshot that shows how to locate the policy page.":::
+
+1. Select **Definitions**.
+
+1. Search for policy ID `64def556-fbad-4622-930e-72d1d5589bf5`.
+
+    :::image type="content" source="../media/defender-for-containers/policy-search.png" alt-text="Screenshot that shows where to search for the policy by ID number.":::
+
+1. Select **\[Preview]: Configure Azure Kubernetes Service clusters to enable Defender profile**.
+
+1. Select **Assign**.
+
+1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
+
+1. Enter `LogAnalyticsWorkspaceResource`.
+
+1. Select **Review + create**.
+
+1. Select **Create**.
 
 ## Simulate security alerts from Microsoft Defender for Containers
 
