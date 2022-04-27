@@ -81,6 +81,13 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
+    - name: $import
+      expanded: false
+      items:
+      - name: Configure bulk-import settings 
+        href: configure-import-data.md
+      - name: Use bulk-import
+        href: import-data.md 
     - name: $member-match
       href: tutorial-member-match.md
     - name: Patient/$everything
@@ -91,14 +98,7 @@ items:
       - name: Store profiles
         href: store-profiles-in-fhir.md
       - name: Use $validate
-        href: validation-against-profiles.md
-  - name: Bulk-import data
-    expanded: true
-    items:
-    - name: Configure bulk-import settings 
-      href: configure-import-data.md
-    - name: Use bulk-import
-      href: import-data.md   
+        href: validation-against-profiles.md  
   - name: Copy data to Synapse
     href: copy-to-synapse.md
 - name: Concepts
