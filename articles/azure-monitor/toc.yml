@@ -1498,6 +1498,8 @@ items:
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
+  - name: Data reference
+    href: /azure/azure-monitor/reference/
   - name: Monitoring data reference
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
