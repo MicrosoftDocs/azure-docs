@@ -390,10 +390,10 @@ All configuration items must be set up before you create the application gateway
     $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
     ```
 
-1. Because TLS 1.0 currently is the default, set the application gateway to use the most recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s).
+1. Because TLS 1.0 currently is the default, set the application gateway to use one of the recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#predefined-tls-policy).
 
     ```powershell
-    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20220101
     ```
 
 ## Create an application gateway

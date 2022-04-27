@@ -148,6 +148,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.PolicyInsights](#microsoftpolicyinsights) |
 | [Microsoft.Portal](#microsoftportal) |
 | [Microsoft.RecoveryServices](#microsoftrecoveryservices) |
+| [Microsoft.ResourceGraph](#microsoftresourcegraph) |
 | [Microsoft.Resources](#microsoftresources) |
 | [Microsoft.Solutions](#microsoftsolutions) |
 | [Microsoft.Subscription](#microsoftsubscription) |
@@ -5012,7 +5013,7 @@ Azure service: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### Microsoft.Sql
 
-Azure service: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml), [Azure Synapse Analytics](../synapse-analytics/index.yml)
+Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index), [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -5541,7 +5542,7 @@ Azure service: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 
 ### Microsoft.SqlVirtualMachine
 
-Azure service: [SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+Azure service: [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -12394,6 +12395,22 @@ Azure service: [Site Recovery](../site-recovery/index.yml)
 > | microsoft.recoveryservices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/vaults/usages/read | Read any Vault Usages |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
+
+### Microsoft.ResourceGraph
+
+Azure service: [Azure Resource Graph](../governance/resource-graph/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ResourceGraph/operations/read | Gets the list of supported operations |
+> | Microsoft.ResourceGraph/queries/read | Gets the specified graph query |
+> | Microsoft.ResourceGraph/queries/delete | Deletes the specified graph query |
+> | Microsoft.ResourceGraph/queries/write | Creates/Updates the specified graph query |
+> | Microsoft.ResourceGraph/resourceChangeDetails/read | Gets the details of the specified resource change |
+> | Microsoft.ResourceGraph/resourceChanges/read | Lists changes to a resource for a given time interval |
+> | Microsoft.ResourceGraph/resources/read | Submits a query on resources within specified subscriptions, management groups or tenant scope |
+> | Microsoft.ResourceGraph/resourcesHistory/read | List all snapshots of resources history within specified subscriptions, management groups or tenant scope |
 
 ### Microsoft.Resources
 

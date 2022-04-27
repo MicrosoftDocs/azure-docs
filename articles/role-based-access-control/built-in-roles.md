@@ -5525,7 +5525,7 @@ Lets you manage SQL Managed Instances and required network configuration, but ca
 
 ### SQL Security Manager
 
-Lets you manage the security-related policies of SQL servers and databases, but not access to them. [Learn more](../azure-sql/database/azure-defender-for-sql.md)
+Lets you manage the security-related policies of SQL servers and databases, but not access to them. [Learn more](/azure/azure-sql/database/azure-defender-for-sql)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -5658,7 +5658,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 
 ### SQL Server Contributor
 
-Lets you manage SQL servers and databases, but not access to them, and not their security-related policies. [Learn more](../azure-sql/database/authentication-aad-configure.md)
+Lets you manage SQL servers and databases, but not access to them, and not their security-related policies. [Learn more](/azure/azure-sql/database/authentication-aad-configure)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

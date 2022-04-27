@@ -34,7 +34,7 @@ To set up Data Catalog, you must be the owner or co-owner of an Azure subscripti
 
 ### Register a data source
 
-You register data assets (tables) from a [database sample](../azure-sql/database/single-database-create-quickstart.md) for Azure SQL Database, but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+You register data assets (tables) from a [database sample](/azure/azure-sql/database/single-database-create-quickstart) for Azure SQL Database, but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
 The database name we're using in this tutorial is *RLSTest*.
 
