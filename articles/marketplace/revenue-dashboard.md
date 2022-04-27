@@ -131,8 +131,6 @@ The growth rate denotes the percentage change of billed sales between the end an
 > [!NOTE]
 > There are no earnings entries in the transaction history report for estimated revenue figures with the rejected, reprocessed, not eligible, or not reconcilable status. This screenshot shows an example of billed sales of not only sent, upcoming, and unprocessed earnings, but also uncollected payments from customers.
 
-[ ![Screenshot of the estimated revenue widget of the Revenue dashboard.](./media/revenue-dashboard/estimated-revenue.png) ](./media/revenue-dashboard/estimated-revenue.png#lightbox)
-
 Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF for sharing purposes.
 
 [ ![Screenshot of the ellipsis menu of the estimated revenue widget.](./media/revenue-dashboard/estimated-revenue-ellipsis.png) ](./media/revenue-dashboard/estimated-revenue-ellipsis.png#lightbox)
