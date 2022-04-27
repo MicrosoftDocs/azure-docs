@@ -79,7 +79,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring Clo
 
 To deploy an application to a custom container image, use the following steps:
 
-1. Open the [Azure portal](portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com).
 1. Open your existing Spring Cloud service instance.
 1. Select **Apps** from left the menu, then select **Create App**.
 1. Name your app, and in the **Runtime platform** pulldown list, select **Custom Container**.
@@ -120,9 +120,9 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Gateway for VMware Tanzu®                          | Y | Y | Enterprise tier only  |
 | Application Configuration Service for VMware Tanzu®             | Y | N | Enterprise tier only  |
 | VMware Tanzu® Service Registry                                  | Y | N | Enterprise tier only  |
-| VNET                                                            | Y | Y | Add registry to [allowlist in NSG or Azure Firewall](#How-to-avoid-not-being-able-to-connect-to-the-container-registry-in-a-VNet)  |
+| VNET                                                            | Y | Y | Add registry to [allowlist in NSG or Azure Firewall](#how-to-avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet)  |
 | Outgoing IP Address                                             | Y | Y |   |
-| E2E TLS                                                         | Y | Y | Trust a self-signed CA is supported by [manual installation](#How-to-trust-a-Certificate-Authority-in-the-image)  |
+| E2E TLS                                                         | Y | Y | Trust a self-signed CA is supported by [manual installation](#how-to-trust-a-certificate-authority-in-the-image)  |
 | Liveness and readiness settings                                 | Y | Y |   |
 | Advanced troubleshooting - thread/heap/JFR dump                 | Y | N | The image must include `bash` and JDK with `PATH` specified.   |
 | Bring your own storage                                          | Y | Y |   |
