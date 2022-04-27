@@ -25,7 +25,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | [High performance compute](#high-performance-compute) | [HBv3](#hbv3), [HBv2](#hbrsv2), [HB](#hbs---memory-bandwidth-amd-epyc), [HC](#hcs---dense-computation-intel-xeon-platinum-8168)  |
 | [Memory optimized](#memory-optimized) | [EADSv5](#eadsv5), [EASv5](#easv5), [EDSv5](#edsv5), [EDv5](#edv5), [ESv5](#esv5), [Ev5](#ev5), [Easv4](#easv4), [Eav4](#eav4), [Edsv4](#edsv4),  [Edv4](#edv4), [Esv4](#esv4), [Ev4](#ev4), [DSv2](#dsv2---memory-optimized--premium-storage), [Esv3](#esv3---memory-optimized--premium-storage) [Ev3](#ev3---memory-optimized), [Dv2](#dv2---memory-optimized-compute),  [Msv2](#msv2-high-memory), [Ms](#m-series-medium-memory)  |
 | [Storage optimized](#storage-optimized) | [Lsv2](#lsv2---storage-optimized)  |
-| [Confidential Compute](#confidential-compute) | [DC](#dcs---confidential-compute-series), [DCSv3](#dcsv3), [DCDSv3](#dcdsv3), [DCv2](#dcsv2)  |
+| [Confidential Compute](#confidential-compute) | [DCS](#dcs), [DCSv3](#dcsv3), [DCDSv3](#dcdsv3), [DCv2](#dcsv2)  |
 
 ## Compute optimized
 
