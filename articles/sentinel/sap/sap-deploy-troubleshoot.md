@@ -253,7 +253,7 @@ Common issues include:
 If you have unexpected issues not listed in this article, try the following steps:
 
 - [Reset the connector and reload your logs](#reset-the-sap-data-connector)
-- [Upgrade the connector](update_sap_data_connector.md) to the latest version.
+- [Upgrade the connector](update-sap-data-connector.md) to the latest version.
 
 > [!TIP]
 > Resetting your connector and ensuring that you have the latest upgrades are also recommended after any major configuration changes.
@@ -332,7 +332,7 @@ For more information, see:
 
 - [Deploying SAP continuous threat monitoring](deployment-overview.md)
 - [Microsoft Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure_snc.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
 - [Available logs reference](sap-solution-log-reference.md)
 - [Microsoft Sentinel SAP solution: security content reference (public preview)](sap-solution-security-content.md)
 - [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)

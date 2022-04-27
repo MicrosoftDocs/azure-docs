@@ -24,11 +24,11 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
-1. [Deploy SAP security content](deploy_sap_security_content.md)
+1. [Deploy SAP security content](deploy-sap-security-content.md)
 
 1. Optional deployment steps
-   - [Configure auditing](configure_audit.md)
-   - [Configure SAP data connector to use SNC](configure_snc.md)
+   - [Configure auditing](configure-audit.md)
+   - [Configure SAP data connector to use SNC](configure-snc.md)
 
 ## Table of prerequisites
 
@@ -50,7 +50,7 @@ To successfully deploy the SAP Continuous Threat Monitoring solution, you must m
 | **Administrative privileges** | Administrative privileges (root) are required on the container host machine. |
 | **Supported Linux versions** | Your Docker container host machine must run one of the following Linux distributions:<ul><li>Ubuntu 18.04 or higher<li>SLES version 15 or higher<li>RHEL version 7.7 or higher</ul>If you have a different operating system, you can [deploy and configure the container manually](deploy-data-connector-agent-container.md#deploy-sap-data-connector-manually). |
 | **Network connectivity** | Ensure that the container host has access to: <ul><li>Microsoft Sentinel <li>Azure key vault (in deployment scenario where Azure key vault is used to store secrets<li>SAP system via the following TCP ports: <br>- *32xx*<br>- *5xx13*<br>- *33xx*<br>- *48xx* (in case SNC is used)<br>where *xx* is the SAP instance number. </ul> |
-| **Software utilities** | The [SAP data connector deployment script](reference_kickstart.md) installs the following required software on the container host VM (depending on the Linux distribution used, the list may vary slightly): <ul><li>[Unzip](http://infozip.sourceforge.net/UnZip.html)<li>[NetCat](https://sectools.org/tool/netcat/)<li>[Docker](https://www.docker.com/)<li>[jq](https://stedolan.github.io/jq/)<li>[curl](https://curl.se/)</ul><br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
+| **Software utilities** | The [SAP data connector deployment script](reference-kickstart.md) installs the following required software on the container host VM (depending on the Linux distribution used, the list may vary slightly): <ul><li>[Unzip](http://infozip.sourceforge.net/UnZip.html)<li>[NetCat](https://sectools.org/tool/netcat/)<li>[Docker](https://www.docker.com/)<li>[jq](https://stedolan.github.io/jq/)<li>[curl](https://curl.se/)</ul><br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
 
 #### Recommended virtual machine sizing
 

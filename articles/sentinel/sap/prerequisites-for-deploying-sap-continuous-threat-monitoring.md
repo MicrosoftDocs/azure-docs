@@ -24,11 +24,11 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
-1. [Deploy SAP security content](deploy_sap_security_content.md)
+1. [Deploy SAP security content](deploy-sap-security-content.md)
 
 1. Optional deployment steps
-   - [Configure auditing](configure_audit.md)
-   - [Configure SAP data connector to use SNC](configure_snc.md)
+   - [Configure auditing](configure-audit.md)
+   - [Configure SAP data connector to use SNC](configure-snc.md)
 
 ## Table of prerequisites
 
@@ -44,7 +44,7 @@ To successfully deploy the SAP Continuous Threat Monitoring solution, you must m
 
 ### Automatically installed software
 
-The [SAP data connector deployment script](reference_kickstart.md) installs the following software on the container host VM (depending on the Linux distribution used, the list may vary slightly):
+The [SAP data connector deployment script](reference-kickstart.md) installs the following software on the container host VM (depending on the Linux distribution used, the list may vary slightly):
 
 - [Unzip](http://infozip.sourceforge.net/UnZip.html)
 - [NetCat](https://sectools.org/tool/netcat/)

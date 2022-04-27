@@ -33,7 +33,7 @@ Before enabling connectivity over encrypted (SNC) connection, a number of prereq
    1) Select the system, then click the value of the **Subject** field<br>
    Note that server certificate information will be displayed in the **Certificate** section at the bottom of the page
    1) Click **Export certificate** button at the bottom of the page<br>
-   ![Export server certificate](./media/configure_snc/export_server_certificate.png "Export server certificate")
+   ![Export server certificate](./media/configure-snc/export_server_certificate.png "Export server certificate")
    1) In **Export Certificate** dialog box select **Base64** as file format, click double boxes next to **File Path** field and select a filename to export certificate to, then click click the green checkbox to export the certificate
 > [!IMPORTANT]
 > Next section explains how to import a certificate, so it's trusted by ABAP server<br>
@@ -56,18 +56,18 @@ Before enabling connectivity over encrypted (SNC) connection, a number of prereq
     1) Run **SM30** transaction
     1) In **Table/View** field type **USRACLEXT**, then click **Maintain**
     1) Review the output, identify whether target user already has an associates SNC name. If not, click **New Entries**<br>
-    ![New entry in USRACLEXT](./media/configure_snc/usraclext_new_entry.png "New entry in USRACLEXT")
+    ![New entry in USRACLEXT](./media/configure-snc/usraclext_new_entry.png "New entry in USRACLEXT")
     1) Type in username in **User** field and user's certificate subject name prefixed with **p:**, then click **Save**<br>
-    ![New user in USRACLEXT](./media/configure_snc/usraclext_new_user.png "New user in USRACLEXT")
+    ![New user in USRACLEXT](./media/configure-snc/usraclext_new_user.png "New user in USRACLEXT")
 1) Grant logon rights using certificate
     1) Run **SM30** transaction
     1) In **Table/View** field type **VSNCSYSACL**, then click **Maintain**
     1) Confirm the informational prompt that the table is cross-client
     1) In **Determine Work Area: Entry** type **E** in **Type of ACL entry** field and press the green checkbox
     1) Review the output, identify whether target user already has an associates SNC name. If not, click **New Entries**<br>
-    ![New entry in VSNCSYSACL](./media/configure_snc/vsncsysacl_new_entry.png "New entry in VSNCSYSACL")
+    ![New entry in VSNCSYSACL](./media/configure-snc/vsncsysacl_new_entry.png "New entry in VSNCSYSACL")
     1) Enter system ID and user certificate subject name with a **p:** prefix<br>
-    ![New user in VSNCSYSACL](./media/configure_snc/vsncsysacl_new_user.png "New user in VSNCSYSACL")
+    ![New user in VSNCSYSACL](./media/configure-snc/vsncsysacl_new_user.png "New user in VSNCSYSACL")
     1) Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are checked, then press **Save**
 1) Setup the container
     1) Transfer **libsapcrypto.so**, **sapgenpse** to the target system where container will be created
@@ -108,5 +108,5 @@ Before enabling connectivity over encrypted (SNC) connection, a number of prereq
     >[!NOTE]
     >If client certificate is signed by an enteprise certification authority, add `--cacert <path to ca certificate>` switch for every certificate authority used in the trust chain, for example `--cacert /home/azureuser/issuingca.crt --cacert /home/azureuser/rootca.crt`
 
-    For additional information on options available in the kickstart script, review [Reference: Kickstart script](reference_kickstart.md)
+    For additional information on options available in the kickstart script, review [Reference: Kickstart script](reference-kickstart.md)
 

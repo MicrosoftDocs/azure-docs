@@ -28,8 +28,8 @@ Track your SAP solution deployment journey through this series of articles:
 1. **Deploy SAP security content (*You are here*)**
 
 1. Optional deployment steps
-   - [Configure auditing](configure_audit.md)
-   - [Configure SAP data connector to use SNC](configure_snc.md)
+   - [Configure auditing](configure-audit.md)
+   - [Configure SAP data connector to use SNC](configure-snc.md)
 
 
 ## Deploy SAP security content

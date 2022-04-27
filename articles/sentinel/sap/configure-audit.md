@@ -25,7 +25,7 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. Sign in to the SAP GUI and run the **RSAU_CONFIG** transaction.
 
-   ![Run RSAU_CONFIG transaction](./media/configure_audit/rsau_config.png "Run RSAU_CONFIG transaction")
+   ![Run RSAU_CONFIG transaction](./media/configure-audit/rsau_config.png "Run RSAU_CONFIG transaction")
 
 1. In the **Security Audit Log - Display of Current Configuration** window, find the **Parameter** section within the **Configuration** section. Under **General Parameters**, see that the **Static security audit active** checkbox is marked.
 
@@ -44,11 +44,11 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. If you changed any settings in the **Security Audit Log Configuration - Parameter** section, select **Save** to save the changes. Auditing will be activated only after the server is rebooted.
 
-    ![RSAU_CONFIG parameters](./media/configure_audit/rsau_config_parameter.png "Set RSAU_CONFIG paramters")
+    ![RSAU_CONFIG parameters](./media/configure-audit/rsau_config_parameter.png "Set RSAU_CONFIG paramters")
 
 1. Right-click **Static Configuration** and select **Create Profile**.
 
-    ![RSAU_CONFIG create profile](./media/configure_audit/create_profile.png "RSAU_CONFIG create profile")
+    ![RSAU_CONFIG create profile](./media/configure-audit/create_profile.png "RSAU_CONFIG create profile")
 
 1. Specify a name for the profile in the **Profile/Filter Number** field.
 
@@ -64,7 +64,7 @@ Some installations of SAP systems may not have audit log enabled by default. For
 
 1. Select **Save**.
 
-    ![Static profile settings](./media/configure_audit/create_profile_settings.png "Static profile settings")
+    ![Static profile settings](./media/configure-audit/create_profile_settings.png "Static profile settings")
 
 1. You'll see that the **Static Configuration** section displays the newly created profile. Right-click the profile and select **Activate**.
 
@@ -128,4 +128,13 @@ The following table lists Message IDs used by the Continuous Threat Monitoring f
 
 ## Next steps
 
-Track your deployment journey in [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md).
+Learn more about the Microsoft Sentinel SAP solutions:
+
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
+- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
+- [Troubleshoot your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+
+For more information, see [Microsoft Sentinel solutions](sentinel-solutions.md).

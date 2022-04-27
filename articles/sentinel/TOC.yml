@@ -339,13 +339,15 @@
       - name: Deploy and configure the data connector agent container
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
-        href: sap/deploy_sap_security_content.md
+        href: sap/deploy-sap-security-content.md
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
-        href: sap/configure_snc.md
+        href: sap/configure-snc.md
       - name: Configure auditing
-        href: sap/configure_audit.md
+        href: sap/configure-audit.md
+      - name: Collect SAP HANA audit logs
+        href: sap/collect-sap-hana-audit-logs.md
     - name: SAP solution data reference
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
@@ -357,11 +359,11 @@
         - name: Configure Transport Management System
           href: sap/configure-transport.md
     - name: Reference - Kickstart script
-      href: sap/reference_kickstart.md
+      href: sap/reference-kickstart.md
     - name: Reference - Container update script
-      href: sap/reference_update.md
+      href: sap/reference-update.md
     - name: Reference - Systemconfig.ini file
-      href: sap/reference_systemconfig.md
+      href: sap/reference-systemconfig.md
 - name: Reference
   items:
   - name: Microsoft Sentinel REST-API
