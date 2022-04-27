@@ -35,7 +35,8 @@ Alternately, you can also [use environment variables and secrets in Azure Load T
 You can define user properties for your JMeter test script by uploading a *.properties* file to the load test. The following code snippet shows an example user properties file:
 
 ```properties
-# Peak load properties file
+# peak-load.properties
+# User properties for testing peak load
 threadCount=250
 rampUpSeconds=30
 durationSeconds=600
@@ -112,7 +113,9 @@ The following code snippet shows an example of how to reference properties in a 
   <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
   </ThreadGroup>
   ```
-  
+
+Alternately, you also specify properties in the JMeter user interface. The following image shows how to use properties to configure a JMeter thread group:
+
   :::image type="content" source="media/how-to-configure-user-properties/jmeter-user-properties.png" alt-text="Screenshot that shows how to reference user properties in the JMeter user interface.":::
 
 You can [download the JMeter errors logs](./how-to-find-download-logs.md) to troubleshoot errors during the load test.
