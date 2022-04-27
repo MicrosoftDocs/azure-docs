@@ -8,11 +8,14 @@ ms.reviewer: vgorbenko
 
 # PageView telemetry: Application Insights data model
 
-PageView telemetry (in [Application Insights](./app-insights-overview.md))...
+PageView telemetry (in [Application Insights](./app-insights-overview.md)) is logged when an application user opens a new page of a monitored application. The `Page` in this context is a logical unit that is defined by the developer to be an application tab or a screen and is not necessarily correlated to a browser webpage load or refresh action. This distinction can be further understood in the context of single-page applications (SPA) where the switch between pages is not tied to browser page actions. [`pageViews.duration`](../reference/tables/pageviews.md) is the time it takes for the application to present the page to the user.
 
-## Lifecycle of Processing a Request between a client browser and DNS/Web servers
+> [!NOTE]
+> By default, Application Insights SDKs log single PageView events on each browser webpage load action, with [`pageViews.duration`](../reference/tables/pageviews.md) populated by [browser timing](#Measuring browserTiming in Application Insights). Developers can extend additional tracking of PageView events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
 
-![Screenshot of the Metrics page in Application Insights showing graphic displays of metrics data for a web application.](./media/javascript/page-view-load-time.png)
+## Measuring browserTiming in Application Insights
+
+Modern browsers expose measurements for page load actions with the [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API). Application Insights simplifies these measurements by consolidating related timings into [standard browser metrics](../essentials/metrics-supported.md#microsoftinsightscomponents) as defined by these processing time definitions:
 
 1. Client <--> DNS : Client reaches out to DNS to resolve website hostname, DNS responds with IP address.
 1. Client <--> Web Server : Client creates TCP then TLS handshakes with web server.
@@ -20,21 +23,15 @@ PageView telemetry (in [Application Insights](./app-insights-overview.md))...
 1. Client <-- Web Server : Client receives the rest of the response payload bytes from the web server.
 1. Client : Client now has full response payload and has to render contents into browser and load the DOM.
  
-[`browserTiming`](../essentials/metrics-supported.md#microsoftinsightscomponents) metrics can be understood per the above processing time definitions:
-
 * `browserTimings/networkDuration` = #1 + #2
 * `browserTimings/sendDuration` = #3
 * `browserTimings/receiveDuration` = #4
 * `browserTimings/processingDuration` = #5
 * `browsertimings/totalDuration` = #1 + #2 + #3 + #4 + #5
 * `pageViews/duration`
-   * The PageView duration is from the browser’s performance timing interface, [PerformanceNavigationTiming.duration](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/duration).
-    * If PerformanceNavigationTiming is available use its duration.
-    * If it’s not (when an older browser is encountered), then use (the now deprecated) [PerformanceTiming](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming) interface and find the delta between [NavigationStart](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) and [LoadEventEnd](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/loadEventEnd).
-    * There are also cases when the users can send their own duration which will override any of the calculated values.
+   * The PageView duration is from the browser’s performance timing interface, [`PerformanceNavigationTiming.duration`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/duration).
+    * If `PerformanceNavigationTiming` is available that duration is used.
+    * If it’s not, then the *deprecated* [`PerformanceTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming) interface is used and the delta between [`NavigationStart`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) and [`LoadEventEnd`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/loadEventEnd) is calculated.
+    * The developer specifies a duration value when logging custom PageView events using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
 
-## PageView and Browser Timing 
-
-Browser timing is considered physical and is defined by the browser [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API).
-
-PageView timing is considered logical and can be defined by the customer. 
+![Screenshot of the Metrics page in Application Insights showing graphic displays of metrics data for a web application.](./media/javascript/page-view-load-time.png)
