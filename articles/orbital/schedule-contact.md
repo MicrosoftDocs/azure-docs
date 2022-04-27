@@ -3,7 +3,7 @@ title: 'How to schedule a contact on Azure Orbital Earth Observation service'
 description: 'How to schedule a contact'
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: quickstart
 ms.custom: public-preview
 ms.date: 11/16/2021
 ms.author: wamota

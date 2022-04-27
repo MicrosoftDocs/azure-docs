@@ -92,7 +92,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
 ||Microsoft Azure portal|portal.azure.com|portal.azure.us||
 ||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
-|||manage.microsoft.com|\manage.microsoft.us|Enterprise enrollment|
+|||manage.microsoft.com|manage.microsoft.us|Enterprise enrollment|
 |**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
 |||backup.windowsazure.com|backup.windowsazure.us|Protection service|
 |||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
@@ -212,7 +212,7 @@ The following Azure Database for PostgreSQL **features are not currently availab
   - Advanced Threat Protection
   - Backup with long-term retention
 
-### [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 
 The following Azure SQL Managed Instance **features are not currently available** in Azure Government:
 
@@ -385,9 +385,9 @@ The following Azure Cost Management + Billing **features are not currently avail
 
 This section outlines variations and considerations when using Media services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Media Services](/media-services/)
+### [Media Services](/azure/media-services/)
 
-For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](/media-services/latest/azure-clouds-regions#us-government-cloud).
+For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#us-government-cloud).
 
 ## Migration
 

@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 04/12/2022
 ---
 
 # ARM template functions
@@ -46,8 +46,10 @@ Resource Manager provides several functions for working with arrays.
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
+* [indexOf](template-functions-array.md#indexof)
 * [intersection](template-functions-array.md#intersection)
 * [last](template-functions-array.md#last)
+* [lastIndexOf](template-functions-array.md#lastindexof)
 * [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
 * [max](template-functions-array.md#max)

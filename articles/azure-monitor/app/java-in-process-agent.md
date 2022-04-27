@@ -29,7 +29,7 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.2.10.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.10/applicationinsights-agent-3.2.10.jar) file.
+Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.11/applicationinsights-agent-3.2.11.jar) file.
 
 > [!WARNING]
 > 
@@ -51,7 +51,7 @@ Download the [applicationinsights-agent-3.2.10.jar](https://github.com/microsoft
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.10.jar` to your application's JVM args.
+Add `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -66,7 +66,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.2.10.jar` to your applicatio
         APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.10.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.11.jar` with the following content:
 
         ```json
         {
@@ -367,7 +367,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ### Send custom telemetry by using the 2.x SDK
 
-1. Add `applicationinsights-core-2.6.4.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice. it's worth using the latest version:
+1. Add `applicationinsights-core-2.6.4.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice, it's worth using the latest version:
 
     ```xml
     <dependency>

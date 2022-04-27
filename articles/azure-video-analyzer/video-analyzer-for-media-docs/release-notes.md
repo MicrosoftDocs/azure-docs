@@ -147,7 +147,7 @@ Fixed bugs related to CSS, theming and accessibility:
 
 ### Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
 

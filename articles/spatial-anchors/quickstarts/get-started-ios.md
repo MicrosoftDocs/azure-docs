@@ -35,6 +35,8 @@ To complete this quickstart, make sure you have:
   1. Update your git config with `git lfs install` (for the current user) or `git lfs install --system` (for the entire system).
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
+## Create a Spatial Anchors resource
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project

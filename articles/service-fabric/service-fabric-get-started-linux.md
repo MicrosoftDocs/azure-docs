@@ -10,6 +10,7 @@ ms.custom: devx-track-js
 # service-fabric-get-started-linux.md
 # service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
+# service-fabric-local-linux-cluster-windows-wsl2.md
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
@@ -187,6 +188,10 @@ Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microso
     ```
 
 3. Start the cluster.<br/>
+    <b>Ubuntu 20.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u20
+    ```
     <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18

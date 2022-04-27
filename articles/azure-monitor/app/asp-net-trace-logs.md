@@ -193,7 +193,7 @@ You can, for example:
 ## Troubleshooting
 
 ### Delayed telemetry, overloading network, or inefficient transmission
-System.Diagnostics.Tracing has an [Autoflush feature](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace.autoflush). This causes SDK to flush with every telemetry item, which is undesirable, and can cause logging adapter issues like delayed telemetry, overloading network, inefficient transmission, etc.
+System.Diagnostics.Tracing has an [Autoflush feature](/dotnet/api/system.diagnostics.trace.autoflush). This causes SDK to flush with every telemetry item, which is undesirable, and can cause logging adapter issues like delayed telemetry, overloading network, inefficient transmission, etc.
 
 
 

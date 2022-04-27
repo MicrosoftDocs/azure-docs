@@ -10,10 +10,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
 ## Install Speech SDK and samples
 
 The [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Samples/cognitive-services-speech-sdk) repository contains samples written in Objective-C for iOS and Mac. Select a link to see installation instructions for each sample:

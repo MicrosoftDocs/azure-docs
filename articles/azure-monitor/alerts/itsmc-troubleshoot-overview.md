@@ -101,3 +101,14 @@ The following sections identify common symptoms, possible causes, and resolution
 **Resolution**: 
 * [Sync the connector](itsmc-resync-servicenow.md).
 * Check the [dashboard](itsmc-dashboard.md) and review the errors in the section for connector status. Then review the [common errors and their resolutions](itsmc-dashboard-errors.md)
+
+### Configuration Item is showing blank in incidents received from Service Now
+**Cause**: There can be several reasons for this symptom:
+* Only Log alerts supports configurtaion item, the alert can be from other type
+* The search results must have column Computer or Resource in order to have the configuration item
+* The values in the configurtaion item fied does not match to an entry in the CMDB
+
+**Resolution**: 
+* Check whether it is log alert - if not configuration item not supported
+* Check whether search results have column Computer or Resource -if not it should be added to the query
+* Check whether values in the columns Computer/Resource are identical to the values in CMDB- if not a new entry should be added to the CMDB

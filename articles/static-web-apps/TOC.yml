@@ -48,8 +48,14 @@
           href: user-information.md
         - name: Custom authentication
           href: authentication-custom.md
-    - name: Review pull requests in pre-production environments
-      href: review-publish-pull-requests.md
+    - name: Preview environments
+      items:
+        - name: About preview environments
+          href: preview-environments.md
+        - name: Pull request environments
+          href: review-publish-pull-requests.md
+        - name: Branch environments
+          href: branch-environments.md
     - name: Custom domains
       items:
       - name: About custom domains
@@ -135,6 +141,8 @@
       href: assign-roles-microsoft-graph.md
     - name: Use an external code host
       items:
+        - name: Bitbucket
+          href: bitbucket.md
         - name: GitLab
           href: gitlab.md
 - name: Samples

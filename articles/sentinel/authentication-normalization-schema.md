@@ -62,12 +62,12 @@ The following filtering parameters are available:
 
 | Name     | Type      | Description |
 |----------|-----------|-------------|
-| **starttime** | datetime | Filter only DNS queries that ran at or after this time. |
-| **endtime** | datetime | Filter only DNS queries that finished running at or before this time. |
+| **starttime** | datetime | Filter only authentication events that ran at or after this time. |
+| **endtime** | datetime | Filter only authentication events that finished running at or before this time. |
 | **targetusername_has** | string | Filter only authentication events that has any of the listed user names. |
 
 
-For example, to filter only DNS queries from the last day to a specific user, use:
+For example, to filter only authentication events from the last day to a specific user, use:
 
 ```kql
 imAuthentication (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())
@@ -116,7 +116,7 @@ The following list mentions fields that have specific guidelines for authenticat
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Authentication records, supported values include: <br>- `Logon` <br>- `Logoff`|
-| <a name ="eventresultdetails"></a>**EventResultDetails**         | Optional   | String |  One of the following values: <br><br>-	`No such user or password`. This value should be used also when the original event reports that there is no such user, without reference to a password. <br>-	`Incorrect password`<br>-	`Account expired`<br>-	`Password expired`<br>-	`User locked`<br>-	`User disabled`<br>-	`Logon violates policy`. This value should be used when the original event reports, for example: MFA required, logon outside of working hours, conditional access restrictions, or too frequent attempts.<br>-	`Session expired`<br>-	`Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)|
+| <a name ="eventresultdetails"></a>**EventResultDetails**         | Recommended   | String |  One of the following values: <br><br>-	`No such user or password`. This value should be used also when the original event reports that there is no such user, without reference to a password. <br>-	`Incorrect password`<br>-	`Account expired`<br>-	`Password expired`<br>-	`User locked`<br>-	`User disabled`<br>-	`Logon violates policy`. This value should be used when the original event reports, for example: MFA required, logon outside of working hours, conditional access restrictions, or too frequent attempts.<br>-	`Session expired`<br>-	`Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the field [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)|
 | **EventSubType**    | Optional    | String     |   The sign-in type. Allowed values include: `System`, `Interactive`, `Service`, `RemoteInteractive`, `RemoteService`, `AssumeRole`. <br><br>Example: `Interactive`. Store the original value in [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype). |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.1`         |
 | **EventSchema** | Optional | String | The name of the schema documented here is **Authentication**. |

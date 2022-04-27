@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 07/14/2021
+ms.date: 04/06/2022
 ---
 # Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
 
@@ -53,7 +53,7 @@ To continue to interact with the PowerShell Gallery, run the following command b
 
 ## Step 1: Create and configure a server and a DC-series database
 
-In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
+In this step, you will create a new Azure SQL Database logical server and a new database using DC-series hardware, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
 
 # [Portal](#tab/azure-portal)
 
@@ -72,7 +72,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
    - **Location**: Select a location from the dropdown list.
       > [!IMPORTANT]
-      > You need to select a location (an Azure region) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+      > You need to select a location (an Azure region) that supports both the DC-series hardware and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
    Select **OK**.
 1. Leave **Want to use SQL elastic pool** set to **No**.
@@ -117,7 +117,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 1. Create a new resource group.
 
    > [!IMPORTANT]
-   > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+   > You need to create your resource group in a region (location) that supports both the DC-series hardware and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
    ```powershell
    $resourceGroupName = "<your new resource group name>"
@@ -239,7 +239,7 @@ In this step, you'll create and configure an attestation provider in Microsoft A
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
-1. Assign yourself to the Attestation Contributor role for the attestaton provider, to ensure you have permissions to configure an attestation policy.
+1. Assign yourself to the Attestation Contributor role for the attestation provider, to ensure you have permissions to configure an attestation policy.
 
    ```powershell
    New-AzRoleAssignment -SignInName $context.Account.Id `

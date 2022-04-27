@@ -3,7 +3,7 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: service-overview
 ms.topic: include
-ms.date: 01/26/2022 
+ms.date: 04/06/2022
 ms.author: mathoma
 ms.reviewer: vanto
 ---
@@ -47,7 +47,7 @@ To create a resource group, server, and single database in the Azure portal:
    On the **Configure** page, you can optionally:
    - Change the **Compute tier** from **Provisioned** to **Serverless**.
    - Review and change the settings for **vCores** and **Data max size**.
-   - Select **Change configuration** to change the hardware generation.
+   - Select **Change configuration** to change hardware configuration.
 
    After making any changes, select **Apply**.
 

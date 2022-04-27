@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma, urosmil
 ms.custom: references_regions
-ms.date: 04/04/2022
+ms.date: 04/19/2022
 ---
 
 # Maintenance window
@@ -113,7 +113,7 @@ Choosing a maintenance window other than the default is currently available in t
 | Switzerland North | Yes | Yes | |
 | Switzerland West | Yes | | |
 | UAE Central | Yes | | |
-| UAE North | Yes | | |
+| UAE North | Yes | Yes | |
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
 | US Gov Arizona | Yes | | |
@@ -133,11 +133,11 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 * In Azure SQL Database, any connections using the proxy connection policy could be affected by both the chosen maintenance window and a gateway node maintenance window. However, client connections using the recommended redirect connection policy are unaffected by a gateway node maintenance reconfiguration. 
 
-* In Azure SQL Managed Instance, the gateway nodes are hosted [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, but using the redirect connection policy is still recommended to minimize number of disruptions during the maintenance event.
+* In Azure SQL Managed Instance, the gateway nodes are hosted [within the virtual cluster](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, but using the redirect connection policy is still recommended to minimize number of disruptions during the maintenance event.
 
 For more on the client connection policy in Azure SQL Database, see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
-For more on the client connection policy in Azure SQL Managed Instance, see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+For more on the client connection policy in Azure SQL Managed Instance, see [Azure SQL Managed Instance connection types](/azure/azure-sql/managed-instance/connection-types-overview).
 
 ## Considerations for Azure SQL Managed Instance
 

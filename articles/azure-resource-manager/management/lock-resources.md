@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 04/13/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -20,6 +20,10 @@ Unlike role-based access control, you use management locks to apply a restrictio
 ## Lock inheritance
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
+
+If you have a **Delete** lock on a resource and attempt to delete its resource group, the whole delete operation is blocked. Even if the resource group or other resources in the resource group aren't locked, the deletion doesn't happen. You never have a partial deletion.
+
+When you [cancel an Azure subscription](../../cost-management-billing/manage/cancel-azure-subscription.md#what-happens-after-subscription-cancellation), the resources are initially deactivated but not deleted. A resource lock doesn't block canceling the subscription. After a waiting period, the resources are permanently deleted. The resource lock doesn't prevent the permanent deletion of the resources.
 
 ## Understand scope of locks
 
@@ -64,7 +68,7 @@ Applying locks can lead to unexpected results because some operations that don't
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses POST](/rest/api/application-gateway/application-gateways/backend-health), which is blocked by the read-only lock.
 
-- A read-only lock on a **AKS cluster** prevents all users from accessing any cluster resources from the **Kubernetes Resources** section of AKS cluster left-side blade on the Azure portal. These operations require a POST request for authentication.
+- A read-only lock on a **AKS cluster** prevents all users from accessing any cluster resources from the **Kubernetes Resources** section of AKS cluster on the left of the Azure portal. These operations require a POST request for authentication.
 
 ## Who can create or delete locks
 

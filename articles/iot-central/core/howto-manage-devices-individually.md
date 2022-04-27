@@ -131,7 +131,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassigned** for any of your devices.
 
-1. Select the devices you want to assign to a template:
+1. Select the devices you want to assign to a template.
 
 1. Select **Migrate**:
 

@@ -37,8 +37,8 @@ The service tier, compute tier, and resource limits for a database, elastic pool
 
 > [!NOTE]
 > Notable exceptions where you cannot change the service tier of a database are:
-> - Databases in the Hyperscale service tier cannot currently be changed to a different service tier.
 > - Databases using features which are [only available](features-comparison.md#features-of-sql-database-and-sql-managed-instance) in the Business Critical / Premium service tiers, cannot be changed to use the General Purpose / Standard service tier.
+> - Databases originally created in the Hyperscale service tier cannot be migrated to other service tiers. If you migrate an existing database in Azure SQL Database to the Hyperscale service tier, you can reverse migrate to the General Purpose service tier within 45 days of the original migration to Hyperscale. If you wish to migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then perform a further migration. Learn more in [How to reverse migrate from Hyperscale](manage-hyperscale-database.md#reverse-migrate-from-hyperscale). 
 
 You can adjust the resources allocated to your database by changing service objective, or scaling, to meet workload demands. This also enables you to only pay for the resources that you need, when you need them. Please refer to the [note](#impact-of-scale-up-or-scale-down-operations) on the potential impact that a scale operation might have on an application.
 

@@ -80,7 +80,9 @@ The discovery status of the instance is reported as one of the following values:
 |----------------|------------|
 | UP             | The app instance is registered to Eureka and ready to receive traffic |
 | OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
-| DOWN           | The app instance isn't registered to Eureka or is registered but not able to receive traffic. |
+| DOWN           | The app instance is registered but not able to receive traffic. |
+| UNREGISTERED   | The app instance isn't registered to Eureka. |
+| N/A            | The app instance is running with custom container or service discovery is not enabled. |
 
 ## App registration status
 

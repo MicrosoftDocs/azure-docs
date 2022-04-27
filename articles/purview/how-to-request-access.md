@@ -1,6 +1,6 @@
 ---
-title: How to request access to a data source in Azure Purview.
-description: This article describes how a user can request access to a data source from within Azure Purview.
+title: How to request access to a data source in Microsoft Purview.
+description: This article describes how a user can request access to a data source from within Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -14,15 +14,15 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 [!INCLUDE [Region Notice](./includes/workflow-regions.md)]
 
-If you discover a data asset in the catalog that you would like access to, you can request access directly through Azure Purview.
+If you discover a data asset in the catalog that you would like access to, you can request access directly through Microsoft Purview.
 
 The request will trigger a workflow that will request that the owners of the data resource grant you access to that data source.
 
 This article outlines how to make an access request.
 
-1. To find a data asset, use Azure Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality.
+1. To find a data asset, use Microsoft Purview's [search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md) functionality.
 
-    :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Azure Purview studio, with the search bar and browse buttons highlighted.":::
+    :::image type="content" source="./media/how-to-request-access/search-or-browse.png" alt-text="Screenshot of the Microsoft Purview governance portal, with the search bar and browse buttons highlighted.":::
 
 1. Select the asset to go to asset details.
 
@@ -43,6 +43,6 @@ This article outlines how to make an access request.
 
 ## Next steps
 
-- [What are Azure Purview workflows](concept-workflow.md)
+- [What are Microsoft Purview workflows](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Self-service data access workflow for hybrid data estates](how-to-workflow-self-service-data-access-hybrid.md)

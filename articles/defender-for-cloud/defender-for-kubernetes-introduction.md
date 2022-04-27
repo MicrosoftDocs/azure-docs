@@ -19,7 +19,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 ## Availability
 
 > [!IMPORTANT]
-> Microsoft Defender for Kubernetes has been replaced with [**Microsoft Defender for Containers**](defender-for-servers-introduction.md). If you've already enabled Defender for Kubernetes on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
+> Microsoft Defender for Kubernetes has been replaced with [**Microsoft Defender for Containers**](defender-for-containers-introduction.md). If you've already enabled Defender for Kubernetes on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
 >
 > This plan is no longer available for subscriptions where it isn't already enabled.
 >

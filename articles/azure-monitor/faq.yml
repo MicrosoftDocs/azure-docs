@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-monitor
   author: bwren
   ms.author: bwren
-  ms.date: 10/08/2020
+  ms.date: 04/01/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
   This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
@@ -146,7 +146,7 @@ sections:
           **Query Explorer**, **Save** and **New alert rule** buttons are not available when the [query scope](logs/scope.md) is set to a specific resource. To create alerts, save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](logs/scope.md)
           
       - question: |
-          Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" when opening Log Analytics from a VM?
+          Why am I getting the error "Register resource provider `Microsoft.Insights` for this subscription to enable this query" when opening Log Analytics from a VM?
         answer: |
           Many resource providers are automatically registered, but you may need to manually register some resource providers. The scope for registration is always the subscription. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information.
           
@@ -262,7 +262,7 @@ sections:
       - question: |
           What are the firewall requirements for Log Analytics agents?
         answer: |
-          See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements)for details on firewall requirements.
+          See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements) for details on firewall requirements.
 
   - name: Azure Monitor agent
     questions:
@@ -318,7 +318,7 @@ sections:
       - question: |
           Can the Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
         answer: |
-          Yes they can, but with certain considerations. Read more about agent coexistence [here](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
+          Yes they can, but with certain considerations. Read more [about agent coexistence](agents/azure-monitor-agent-overview.md#coexistence-with-other-agents).
           
       - question: |
           Will I duplicate events if I use the Azure Monitor agent and the Log Analytics agent on the same machine? 
@@ -547,7 +547,7 @@ sections:
           
           You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
           
-          You can [use Power BI](app/export-power-bi.md ) to display your request telemetry on a map.
+          You can [use Power BI](app/export-power-bi.md) to display your request telemetry on a map.
           
       - question: How long is data retained in the portal? Is it secure?
         answer: |
@@ -804,7 +804,7 @@ sections:
           
           The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
           
-          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than it's predecessor the Application Insights SDK.
+          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
           
           Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
           
@@ -1113,7 +1113,7 @@ sections:
       - question: |
           How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
         answer: |
-          Response time is an approximation. Since we do not instrument the code of the application, we do not really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
+          Response time is an approximation. Since we do not instrument the code of the application, we do not really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives, is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
           
           This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
           
@@ -1124,7 +1124,7 @@ sections:
           
           Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to VM insights.
           
-  - name: SQL insights (preview)
+  - name: SQL Insights (preview)
     questions:
       - question: |
           What versions of SQL Server are supported?
@@ -1136,15 +1136,15 @@ sections:
         answer: |
           - Azure SQL Database
           - Azure SQL Managed Instance
-          - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
-          - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+          - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
+          - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           
           See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details and for details about scenarios with no support or limited support.
           
       - question: |
           What operating systems for the virtual machine running SQL Server are supported?
         answer: |
-          We support all operating systems specified by the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#getting-started) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines.
+          We support all operating systems specified by the [Windows](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview#getting-started) and [Linux](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview#create) documentation for SQL Server on Azure Virtual Machines.
           
       - question: |
           What operating system for the monitoring virtual machine are supported?
@@ -1159,7 +1159,7 @@ sections:
       - question: |
           How often is data collected?
         answer: |
-          The frequency of data collection is customizable. See [Data collected by SQL insights](../insights/../azure-monitor/insights/sql-insights-overview.md#collected-data) for details on the default frequencies and see [Create SQL monitoring profile](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) for instructions on customizing frequencies.
+          The frequency of data collection is customizable. See [Data collected by SQL Insights (preview)](../insights/../azure-monitor/insights/sql-insights-overview.md#collected-data) for details on the default frequencies and see [Create SQL monitoring profile](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) for instructions on customizing frequencies.
           
 additionalContent: |
 

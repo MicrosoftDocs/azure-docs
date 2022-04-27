@@ -3,7 +3,7 @@ title: Use the migration feature to migrate App Service Environment v2 to App Se
 description: Learn how to migrate your App Service Environment v2 to App Service Environment v3 using the migration feature
 author: seligj95
 ms.topic: tutorial
-ms.date: 4/5/2022
+ms.date: 4/11/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -37,7 +37,7 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Validate migration is supported
 
-The following command will check whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. If your environment [won't be supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
+The following command will check whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages you may get. If your environment [won't be supported for migration](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
@@ -107,7 +107,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 1. Validate migration is supported
 
-From the [Azure portal](https://portal.azure.com), navigate to the **Overview** page for the App Service Environment you'll be migrating. The platform will validate if migration is supported for your App Service Environment. Wait a couple seconds after the page loads for this validation to take place.
+From the [Azure portal](https://portal.azure.com), navigate to the **Overview** page for the App Service Environment you'll be migrating. The platform will validate if migration is supported for your App Service Environment. Wait a couple seconds after the page loads for this validation to take place. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages if migration for your environment isn't supported by the migration feature.
 
 If migration is supported for your App Service Environment, there are three ways to access the migration feature. These methods include a banner at the top of the Overview page, a new item in the left-hand side menu called **Migration**, and an info box on the **Configuration** page. Select any of these methods to move on to the next step in the migration process.
 

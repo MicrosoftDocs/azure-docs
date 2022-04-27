@@ -7,8 +7,8 @@ ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MaraSteiu 
-ms.author: masteiu
+author: rothja 
+ms.author: jroth
 ms.reviewer: kendralittle, mathoma
 ms.date: 01/14/2019
 ---
