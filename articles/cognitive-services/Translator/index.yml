@@ -92,29 +92,14 @@ landingContent:
           - text: Use the Translator container
             url: containers/translator-how-to-install-container.md
   # Card 4
-  - title: Document Translation
-    linkLists:
-      - linkListType: reference
-        links:
-         - text: Client-library SDKs
-           url: document-translation/client-sdks.md
-         - text: Document Translation REST APIs
-           url: document-translation/reference/rest-api-guide.md
-         - text: Document Translation FAQ
-           url: document-translation/faq.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create SAS tokens
-            url: document-translation/create-sas-tokens.md
-          - text: Create and use managed identities
-            url: document-translation/managed-identity.md
-  # Card 5
   - title: Custom Translator (preview)
     linkLists:
       - linkListType: reference
         links:
         - text: Key terms
           url: custom-translator/key-terms.md
+        - text: FAQ
+          url: custom-translator/faq.md   
       - linkListType: get-started
         links:
           - text: Custom Translation for beginners
@@ -133,6 +118,24 @@ landingContent:
             url: custom-translator/v2-preview/how-to/publish-model.md
           - text: Translate text with a custom model
             url: custom-translator/v2-preview/how-to/translate-with-custom-model.md
+
+  # Card 5
+  - title: Document Translation
+    linkLists:
+      - linkListType: reference
+        links:
+         - text: Client-library SDKs
+           url: document-translation/client-sdks.md
+         - text: Document Translation REST APIs
+           url: document-translation/reference/rest-api-guide.md
+         - text: Document Translation FAQ
+           url: document-translation/faq.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create SAS tokens
+            url: document-translation/create-sas-tokens.md
+          - text: Create and use managed identities
+            url: document-translation/managed-identity.md
   # Card 6
   - title: Resources
     linkLists:
