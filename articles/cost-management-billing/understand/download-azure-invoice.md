@@ -125,7 +125,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 1. In the **Status** area, select **Yes** for **Receive email invoices for Azure services**. You can optionally select **Yes** for **Email invoices for Azure marketplace and reservation purchases**.
 1. In the **Preferred email** area, enter the email address where invoices will get sent.
 1. Optionally, in the **Additional recipients** area, enter one or more email addresses.  
-    :::image type="content" source="./media/download-azure-invoice/receive-invoice-by-email-page.png" alt-text="Screenshot showing navigation to Receive invoice by email." lightbox="./media/download-azure-invoice/receive-invoice-by-email-page.png" :::
+    :::image type="content" source="./media/download-azure-invoice/receive-invoice-by-email-page.png" alt-text="Screenshot showing the Receive invoice by email page." lightbox="./media/download-azure-invoice/receive-invoice-by-email-page.png" :::
 1. Select **Save**.
 
 ## Invoices for MCA and MPA billing accounts
