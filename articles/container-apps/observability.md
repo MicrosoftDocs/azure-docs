@@ -11,10 +11,8 @@ ms.author: v-bcatherine
 
 # Observability in Azure Container Apps Preview
 
-Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout of the application lifecycle.  
+Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and analyze the state of your app.  With this information, you can proactively adjust to statistics and respond to critical problems.
 
-
-With these features, you can monitor and analyze aggregated log and metric data streams and craft alerts for critical conditions. You have visibility from your entire container app down to a single container. This visibility helps you identify and debug issues and proactively adjust for changing application usage and compute requirements. 
 
 These features include:
 
@@ -30,18 +28,22 @@ These features include:
 
 ## Log streaming
 
-While developing an app, you often want to see your application logs in real-time.  Container Apps lets you view a stream of your container's `stdout` and `stderr` log messages.  You can view log streams in the Azure portal or the Azure CLI.
+While developing an app, you often want to see your application logs in real-time.  Container Apps lets you view a stream of your container's `stdout` and `stderr` log messages.  
 
+<!--
+You can view log streams in the Azure portal or the Azure CLI.
+-->
 ### View log streams from the Azure portal
 
 View container logs from your container app page in the Azure portal. Go to the **Log stream** page from the **Monitoring** group in the menu on the left.  
 
-Select the container whose log you want to view. When there are multiple revisions and replicas, select the revision, replica, and then the container from the drop-down lists.   
+Select the container whose log you want to view. When there are multiple revisions and replicas, select the revision, replica, and then the container from the drop-down lists.
 
 Select **Start** to begin streaming the logs. You can also pause and stop the log stream and clear the log messages from the page. To save the displayed log messages, you can copy and paste them into the editor of your choice.
 
+:::image type="content" source="media/observability/log-stream.png" alt-text="Screenshot of Azure Container Apps Log stream page.":::
 
-***Insert screenshot here***
+<!-- Add this in after the CLI is completed
 
 ### Tail log streams from Azure CLI
 
@@ -52,21 +54,26 @@ Tail a container's application logs from the Azure CLI with the ***need the comm
 ```azurecli
 
 ```
+-->
 
 ## Container console
 
 Connecting to a container's console is useful when you want to see what's happening inside a container.  If your app isn't behaving as expected, you can access a container's console to run commands to troubleshoot issues.
 
-Azure Container Apps lets you access the consoles of your deployed containers through the Azure portal or the Azure CLI.
+<!-- Add this back in when the CLI is complete.
 
-### Access container console via the Azure portal
+Azure Container Apps lets you access the consoles of your deployed containers through the Azure portal or the Azure CLI.
+-->
+
+### Access a container console via the Azure portal
 
 You can access your container console from **Console** in the **Monitoring** group of your container app's page in the Azure portal. To connect to a container, select the replica and container from the pull-down lists. When your app is in the *multiple revision mode*, the **Revision** pull-down list is shown so that you can select a revision. 
 
 You can choose to access your console via bash, sh or another application.
 
+:::image type="content" source="media/observability/console-ss.png" alt-text="Screenshot of Azure Container Apps Console page":::
 
-***IMAGE GOES HERE***
+<!-- Add this back in when the CLI is complete
 
 ### Access container console via the Azure CLI
 
@@ -75,7 +82,7 @@ You can connect to a container console through the Azure CLI.
 ***Need command information, and how to terminate the console session.***
 
 TO disconnect from the console, **NEED KEY COMBO OR COMMAND**
-
+ -->
 
 ## Azure Monitor metrics
 
@@ -245,7 +252,7 @@ You can monitor your app throughout the development-to-production lifecycle with
 
 Real-time access to your containers' application log and console is essential during the development and test phase.  Container Apps provides: 
 
-- [log streaming](#streaming-logs) for real-time monitoring.
+- [log streaming](#log-streaming) for real-time monitoring.
 - [container console](#container-console) access to debug your application.
 
 ### Deployment phase
