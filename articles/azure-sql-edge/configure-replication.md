@@ -19,7 +19,7 @@ You can configure an instance of Azure SQL Edge as the push subscriber for one-w
   
 - The instance of Azure SQL Edge must be a push subscriber for a publisher.
 - The publisher and the distributor can be either:
-   - An instance of SQL Server running on-premises, or an instance of SQL Server running in an Azure virtual machine. For more information, see [SQL Server on Azure Virtual Machines overview](../azure-sql/virtual-machines/index.yml). SQL Server instances must be using a version later than SQL Server 2016.
+   - An instance of SQL Server running on-premises, or an instance of SQL Server running in an Azure virtual machine. For more information, see [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/index). SQL Server instances must be using a version later than SQL Server 2016.
    - An instance of Azure SQL Managed Instance. SQL Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - The distribution database and the replication agents can't be placed on an instance of Azure SQL Edge.  
