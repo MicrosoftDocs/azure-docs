@@ -79,10 +79,10 @@ You can use the following strategies to avoid host ID collisions:
 
 + Use a separated storage account for each function app involved in the collision.
 + Rename one of your function apps to a value less than 32 characters in length, which changes the computed host ID for the app and removes the collision.
-+ Set an explicit host ID for one or more of the colliding apps. To learn more, see [Host ID override](#host-id-override).
++ Set an explicit host ID for one or more of the colliding apps. To learn more, see [Host ID override](#override-the-host-id).
 
 > [!IMPORTANT]
-> Changing the storage account associated with an existing function app or changing the app's host ID can impact current function. For example, a Blob Storage trigger tracks whether it's processed individual blobs by writing receipts under a specific host ID path in storage. When the host ID changes or you point to a new storage account, previously processed blobs may be reprocessed. 
+> Changing the storage account associated with an existing function app or changing the app's host ID can impact the behavior of existing functions. For example, a Blob Storage trigger tracks whether it's processed individual blobs by writing receipts under a specific host ID path in storage. When the host ID changes or you point to a new storage account, previously processed blobs may be reprocessed. 
 
 ### Override the host ID
 
