@@ -120,9 +120,9 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Gateway for VMware Tanzu®                          | Y | Y | Enterprise tier only  |
 | Application Configuration Service for VMware Tanzu®             | Y | N | Enterprise tier only  |
 | VMware Tanzu® Service Registry                                  | Y | N | Enterprise tier only  |
-| VNET                                                            | Y | Y | Add registry to [allowlist in NSG or Azure Firewall](#why-cant-connect-to-the-container-registry-in-vnet)  |
+| VNET                                                            | Y | Y | Add registry to [allowlist in NSG or Azure Firewall](#How-to-avoid-not-being-able-to-connect-to-the-container-registry-in-a-VNet)  |
 | Outgoing IP Address                                             | Y | Y |   |
-| E2E TLS                                                         | Y | Y | Trust a self-signed CA is supported by [manual installation](#how-to-trust-a-ca-in-the-image)  |
+| E2E TLS                                                         | Y | Y | Trust a self-signed CA is supported by [manual installation](#How-to-trust-a-Certificate-Authority-in-the-image)  |
 | Liveness and readiness settings                                 | Y | Y |   |
 | Advanced troubleshooting - thread/heap/JFR dump                 | Y | N | The image must include `bash` and JDK with `PATH` specified.   |
 | Bring your own storage                                          | Y | Y |   |
@@ -142,7 +142,7 @@ The following matrix shows what features are supported in each application type.
 ## Common points to be aware of when deploying with a custom container
 
 The following points will help you address common situations when deploying with a custom image.
-### How to trust a Certificate Authority (CA) in the image
+### How to trust a Certificate Authority in the image
 
 To trust a CA in the image, set the following variables depending on your environment:
 
