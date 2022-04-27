@@ -290,7 +290,7 @@ upstream device for connection.
     # If this is a Nested Edge device, uncomment the next line to set the
     # parent hostname of this device.
     #
-    parent_hostname = "parent-vm.westus.cloudapp.azure.com"
+    parent_hostname = "10.0.0.4"
     ```
 
 01. The beginning of your configuration file should look similar to this example.
@@ -309,7 +309,7 @@ upstream device for connection.
     Example **child configuration file**:
 
     ```toml
-    parent_hostname = "parent-vm.westus.cloudapp.azure.com"
+    parent_hostname = "10.0.0.4"
     trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
@@ -390,7 +390,7 @@ To verify the *hostname*, you need to inspect the environment variables of the *
     The command should return the certificate chain similar to the following example.
 
     ```Output
-    azureUser@child-vm:~$ echo | openssl s_client -connect parent-vm.westus.cloudapp.azure.com:8883 2>/dev/null | openssl x509 -text
+    azureUser@child-vm:~$ echo | openssl s_client -connect 10.0.0.4:8883 2>/dev/null | openssl x509 -text
 
     Certificate:
         Data:
@@ -401,7 +401,7 @@ To verify the *hostname*, you need to inspect the environment variables of the *
             Validity
                 Not Before: Apr 27 16:25:44 2022 GMT
                 Not After : May 26 14:43:24 2022 GMT
-            Subject: CN = parent-vm.westus.cloudapp.azure.com
+            Subject: CN = 10.0.0.4
             Subject Public Key Info:
                 Public Key Algorithm: rsaEncryption
                     RSA Public-Key: (2048 bit)
@@ -421,7 +421,10 @@ To verify the *hostname*, you need to inspect the environment variables of the *
              ...
         ```
 
-        the `Subject: CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
+        The `Subject: CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
+
+        If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
+
 
 ## Network isolate downstream devices
 
