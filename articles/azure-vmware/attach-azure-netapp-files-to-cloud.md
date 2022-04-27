@@ -47,6 +47,9 @@ There are some important best practices to follow for optimal performance of NFS
 
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
     1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it's recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
+    1. Create a volume with **Standard** [network features](/azure/azure-netapp-files/configure-network-features) if available for ExpressRoute FastPath connectivity.
+    1. Under the **Protocol** section, select the **Azure VMware Solution Datastore** option to indicate the volume is being created to be used as a datastore for Azure VMware Solution private cloud.
+    1. If you're using [export policies](/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) to control access to Azure NetApp Files volumes, be sure to enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced so if the IP isn't enabled, connectivity to datastore will be impacted.
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -161,7 +164,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **How many datastores are we supporting with Azure VMware Solution?**
 
-    The default is eight but it can be increased up to 256 through submitting a support request.
+    The default is eight but it can be increased up to 256 if you [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) ticket.
 
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 
