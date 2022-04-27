@@ -1,6 +1,6 @@
 ---
 title: Collect SAP HANA audit logs | Microsoft Docs
-description: Collect SAP HANA audit logs
+description: This article explains how to collect audit logs from your SAP HANA database.
 author: msftandrelom
 ms.author: andrelom
 ms.topic: how-to
@@ -22,9 +22,9 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 1. Install and configure a Log Analytics agent on your machine:
 
-    a. Sign in to your HANA database operating system as a user with sudo privileges.  
-    b. In the Azure portal, go to your Log Analytics workspace. On the left pane, under **Settings**, select **Agents management** > **Linux servers**.  
-    c. Under **Download and onboard agent for Linux**, copy the code that's displayed in the box to your terminal, and then run the script.
+    1. Sign in to your HANA database operating system as a user with sudo privileges.  
+    1. In the Azure portal, go to your Log Analytics workspace. On the left pane, under **Settings**, select **Agents management** > **Linux servers**.  
+    1. Under **Download and onboard agent for Linux**, copy the code that's displayed in the box to your terminal, and then run the script.
 
     The Log Analytics agent is installed on your machine and connected to your workspace. For more information, see [Install Log Analytics agent on Linux computers](../../azure-monitor/agents/agent-linux.md) and [OMS Agent for Linux](https://github.com/microsoft/OMS-Agent-for-Linux) on the Microsoft GitHub repository.
 

@@ -16,7 +16,7 @@ This article details the security content available for the SAP continuous threa
 
 Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
-## Built in workbooks
+## Built-in workbooks
 
 Use the following built-in workbooks to visualize and monitor data ingested via the SAP data connector. After deploying the SAP solution, SAP workbooks are found in the **My workbooks** tab.
 

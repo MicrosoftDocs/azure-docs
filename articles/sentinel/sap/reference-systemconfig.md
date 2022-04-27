@@ -9,28 +9,24 @@ ms.date: 03/03/2022
 # Systemconfig.ini file reference
 
 ## Systemconfig file description
-Systemconfig.ini file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
+
+The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
 ### Systemconfig configuration file sections
-- [Secrets Source](#secrets-source-section)<br>
-This section defines where credentials are stored
-- [ABAP Central Instance](#abap-central-instance-section)<br>
-This section defines general options of the SAP instance to connect to
-- [Azure Credentials](#azure-credentials-section)<br>
-This section defines credentials to connect to Azure Log Analytics
-- [File Extraction ABAP](#file-extraction-abap-section)<br>
-This section defines logs and credentials that are extracted from ABAP server using SAPControl interface
-- [File Extraction JAVA](#file-extraction-java-section)<br>
-This section defines logs and credentials that are extracted from JAVA server using SAPControl interface
-- [Logs Activation Status](#logs-activation-status-section)<br>
-This section defines which logs are extracted from ABAP 
-- [Connector Configuration](#connector-configuration-section)<br>
-This section defines miscellaneous connector options
-- [ABAP Table Selector](#abap-table-selector-section)<br>
-This section defines which User Master Data logs get extracted from the ABAP system
+
+| Section name | Description |
+| ------------ | ----------- |
+| [Secrets Source](#secrets-source-section) | This section defines where credentials are stored. |
+| [ABAP Central Instance](#abap-central-instance-section) | This section defines general options of the SAP instance to connect to. |
+| [Azure Credentials](#azure-credentials-section) | This section defines credentials to connect to Azure Log Analytics. |
+| [File Extraction ABAP](#file-extraction-abap-section) | This section defines logs and credentials that are extracted from ABAP server using SAPControl interface. |
+| [File Extraction JAVA](#file-extraction-java-section) | This section defines logs and credentials that are extracted from JAVA server using SAPControl interface. |
+| [Logs Activation Status](#logs-activation-status-section) | This section defines which logs are extracted from ABAP. |
+| [Connector Configuration](#connector-configuration-section) | This section defines miscellaneous connector options. |
+| [ABAP Table Selector](#abap-table-selector-section) | This section defines which User Master Data logs get extracted from the ABAP system. |
 
 ### Secrets Source section
-````systemconfig.ini
+```systemconfig.ini
 secrets=AZURE_KEY_VAULT|DOCKER_SECRETS|DOCKER_FIXED
 
 keyvault=<vaultname>
@@ -38,10 +34,10 @@ keyvault=<vaultname>
 
 intprefix=<prefix>
 # intprefix - Prefix for variables created in Azure Key Vault
-````
+```
 
 ### ABAP Central Instance section
-````systemconfig.ini
+```systemconfig.ini
 [ABAP Central Instance]
 auth_type=PLAIN_USER_AND_PASSWORD|SNC_WITH_X509
 # Authentication type - username/password authentication, or X.509 authentication
@@ -92,20 +88,20 @@ snc_myname=<distinguished name of the client certificate>
 
 x509cert=<server certificate>
 # Base64 encoded server certificate value in a single line (with leading ----BEGIN-CERTIFICATE--- and trailing ----END-CERTIFICATE---- removed)
-````
+```
 
 ### Azure Credentials section
-````systemconfig.ini
+```systemconfig.ini
 [Azure Credentials]
 loganalyticswsid=<workspace ID>
 # Log Analytics workspace ID. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
 
 publickey=<publickey>
 # Log Analytics workspace primary or secondary key. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
-````
+```
 
 ### File Extraction ABAP section
-````systemconfig.ini
+```systemconfig.ini
 [File Extraction ABAP]
 osuser = <SAPControl username>
 # Username to use to authenticate to SAPControl
@@ -127,10 +123,10 @@ abaptz = <timezone>
 # GMT FORMAT
 # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
 
-````
+```
 
 ### File Extraction JAVA section
-````systemconfig.ini
+```systemconfig.ini
 [File Extraction JAVA]
 javaosuser = <username>
 # Username to use to authenticate to JAVA server
@@ -150,10 +146,10 @@ javaseverity = <severity>
 javatz = <timezone>
 # GMT FORMAT
 # example - For OS Timezone = NZST (New Zealand Standard Time) use abaptz = GMT+12
-````
+```
 
 #### Logs Activation Status section
-````systemconfig.ini
+```systemconfig.ini
 [Logs Activation Status]
 # The following logs are retrieved using RFC interface
 # Specify True or False to configure whether log should be collected using the mentioned interface
@@ -174,10 +170,10 @@ WP = <True/False>
 GW = <True/False>
 # The following logs are retrieved using SAP Conntrol interface and OS Login
 JAVAFilesLogs = <True/False>
-````
+```
 
 #### Connector Configuration section
-````systemconfig.ini
+```systemconfig.ini
 extractuseremail = <True/False>
 apiretry = <True/False>
 auditlogforcexal = <True/False>
@@ -185,10 +181,10 @@ auditlogforcelegacyfiles = <True/False>
 
 timechunk = <value>
 # Default timechunk value is 60 (minutes). For certain tables, data connector retrieves data from the ABAP server using timechunks (colleting all events that occured within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
-````
+```
 
 #### ABAP Table Selector section
-````systemconfig.ini
+```systemconfig.ini
 [ABAP Table Selector]
 # Specify True or False to configure whether table should be collected from the SAP system
 AGR_TCODES_FULL = <True/False>
@@ -213,4 +209,4 @@ PAHI_FULL = <True/False>
 AGR_AGRS_FULL = <True/False>
 USRSTAMP_FULL = <True/False>
 USRSTAMP_INCREMENTAL = <True/False>
-````
+```
