@@ -156,7 +156,7 @@ For the selected computation period, the georgraphical spread heatmap displays t
 
 Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
 
-[ ![Illustrates the geographical spread chart on the Marketplace Insights dashboard.](./media/insights-dashboard/geographical-spread-ellipsis.png) ](./media/insights-dashboard/geographical-spread.png-ellipsis#lightbox)
+[ ![Illustrates the geographical spread chart on the Marketplace Insights dashboard.](./media/insights-dashboard/geographical-spread-ellipsis.png) ](./media/insights-dashboard/geographical-spread-ellipsis.png#lightbox)
 
 Note the following:
 
