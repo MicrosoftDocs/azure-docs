@@ -104,7 +104,7 @@ The summary section displays the following metrics for a selected date range:
 
 :::image type="content" source="media/ratings-reviews/ratings-summary-analyze.png" alt-text="Illustrates Partner Center analyze ratings and reviews summary." lightbox="media/ratings-reviews/ratings-summary-analyze.png":::
 
-Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a pdf.
+Select the ellipsis (...) to copy the widget image, download aggregated widget data as a .csv file, or download the image as a PDF.
 
 :::image type="content" source="media/ratings-reviews/menu-elipsis.png" alt-text="Screenshot showing the Filters menu on the Insights screen of the Ratings and Reviews dashboard.":::
 
