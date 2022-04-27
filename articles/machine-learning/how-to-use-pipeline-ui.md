@@ -151,11 +151,7 @@ After cloning, you can also know which pipeline job it's cloned from by clicking
 You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage**.
 ![TODO: Screenshot job lineage](./media/new-pipeline-ui/job-show-lineage.png)
 
-## Compare pipelines
-
-<!-- *************
-Compare
-************* -->
+<!-- ## Compare pipelines: not release for build
 
 When you have multiple pipeline jobs for the same project but with different settings, you can easily compare the graph structure, pipeline configurations, component configurations, and pipeline job properties in the studio portal.
 
@@ -196,7 +192,7 @@ When you have multiple pipeline jobs for the same project but with different set
     From the detail comparison list, you can also select two pipeline jobs to compare the graph.
 
     ![Screenshot showing compare graph in detail page](./media/new-pipeline-ui/compare-graph-in-detail.png)
-
+ -->
 
 
 ## Next steps
