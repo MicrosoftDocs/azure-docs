@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 8/26/2021
+ms.date: 4/26/2022
 ms.custom: devx-track-csharp, mode-api
 ---
 
@@ -19,7 +19,6 @@ ms.custom: devx-track-csharp, mode-api
 > * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
 
