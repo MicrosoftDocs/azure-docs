@@ -101,7 +101,7 @@ As a content publisher, you might want to share a gallery to the community:
 - You want greater control over the number of versions, regions, and the duration of image availability.  
 
 - You want to quickly share daily or nightly builds with your customers.  
-- 
+
 - You don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.
 
 ### How sharing with the community works
