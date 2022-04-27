@@ -54,7 +54,7 @@ sudo iotedge check
 
 The troubleshooting tool runs many checks that are sorted into these three categories:
 
-* *Configuration checks* examines details that could prevent IoT Edge devices from connecting to the cloud, including issues with the config file and the container engine.
+* *Configuration checks* examine details that could prevent IoT Edge devices from connecting to the cloud, including issues with the config file and the container engine.
 * *Connection checks* verify that the IoT Edge runtime can access ports on the host device and that all the IoT Edge components can connect to the IoT Hub. This set of checks returns errors if the IoT Edge device is behind a proxy.
 * *Production readiness checks* look for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
