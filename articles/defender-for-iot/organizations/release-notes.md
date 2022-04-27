@@ -144,11 +144,17 @@ For more information, see [Manage proprietary protocols with Horizon plugins](re
 
 ### Documentation improvements
 
+We've recently optimized and enhanced our documentation as follows:
+
+- [Release note tracking per version](#release-note-tracking-per-version)
+- [New OT monitoring appliance catalog](#new-ot-monitoring-appliance-catalog)
+- [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
+
 #### Release note tracking per version
 
 Starting in May 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
 
-Going forward, find the sensor software version released in a given month at the top of the release notes for that month. For example, in April 2022, we released version **22.1.4**.
+Going forward, find the sensor software versions released in a given month, and their features, at the top of the release notes for that month. For example, in May, we released version **22.2.1**. Features that are cloud-only and unrelated to sensor or on-premises management console software will also be listed separately from the software releases.
 
 For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
 
@@ -166,7 +172,7 @@ Use the new pages as follows:
 
     :::image type="content" source="media/release-notes/appliance-catalog.png" alt-text="Screenshot of the new appliance catalog reference section.":::
 
-    Reference articles for each appliance type, including virtual appliances, include specific steps to configure the appliance for OT monitoring. Generic software installation and troubleshooting procedures are still documented in [Defender for IoT software installation](how-to-install-software.md).
+    Reference articles for each appliance type, including virtual appliances, include specific steps to configure the appliance for OT monitoring with Defender for IpT. Generic software installation and troubleshooting procedures are still documented in [Defender for IoT software installation](how-to-install-software.md).
 
 #### Documentation reorganization for end-user organizations
 
