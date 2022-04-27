@@ -771,7 +771,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     The `if` statement sets the PostgreSQL username based on which identity the token applies to. The token is then passed in to the [standard PostgreSQL connection](../postgresql/connect-python.md) as the password of the Azure identity.
 
-    Whatever databse driver you use, make sure it can send the token as clear text (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
+    Whatever database driver you use, make sure it can send the token as clear text (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
 
     -----
 
