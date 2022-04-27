@@ -27,7 +27,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 ## Data extraction
 
-| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-by-read)** |
+| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-read-api)** |
 | --- | --- | --- | 
 prebuilt-read  | ✓  |✓  |
 
@@ -66,7 +66,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 * For best results, provide one clear photo or high-quality scan per document.
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
+* The file size must be less than 50 MB (4 MB for the free tier)
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 
 ## Supported languages and locales
@@ -81,7 +81,7 @@ Read API extracts text from documents and images with multiple text angles and c
 
 ### Language detection (v3.0 preview)
 
-Read API in v3.0 preview 2 adds [language detection](language-support.md#detected-languages-by-read) as a new feature for text lines. Read will predict the language at the text line level along with the confidence score.
+Read API in v3.0 preview 2 adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the language at the text line level along with the confidence score.
 
 ### Handwritten classification for text lines (Latin only)
 

@@ -101,7 +101,8 @@ Presently, a DNS alias has the following limitations:
 - *DNS lookup:* For now, the only authoritative way to check what server a given DNS alias refers to is by performing a [DNS lookup](/windows-server/administration/windows-commands/nslookup).
 - _Table auditing is not supported:_ You cannot use a DNS alias on a server that has *table auditing* enabled on a database.
   - Table auditing is deprecated.
-  - We recommend that you move to [Blob Auditing](../../azure-sql/database/auditing-overview.md).
+  - We recommend that you move to [Blob Auditing](/azure/azure-sql/database/auditing-overview).
+- DNS alias is subject to [naming restrictions](/azure/azure-resource-manager/management/resource-name-rules).
 
 ## Related resources
 
