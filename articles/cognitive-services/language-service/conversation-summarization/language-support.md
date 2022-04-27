@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 04/27/2022
 ms.author: aahi
 ms.custom: language-service-summarization
 ---
@@ -27,4 +27,4 @@ Conversation summarization supports the following languages:
 
 ## Next steps
 
-[Text summarization overview](overview.md)
+[Summarization overview](../text-summarization/overview.md)
