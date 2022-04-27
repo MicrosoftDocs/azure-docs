@@ -79,7 +79,7 @@ If you are migrating workloads from IoT Edge solution on Kubernetes to IoT Edge 
 1. When you enable Kubernetes services on Azure Stack Edge, Kubernetes may take over the GPU resources and not allow the deployment of a GPU-enabled VM. To deploy the VM:
 
     1. Stop any running modules. 
-    1. Remove the IoT Edge on Kubernetes deployment.
+    1. Remove the IoT Edge on Kubernetes deployment. For detailed instructions, see [Remove IoT Edge service](azure-stack-edge-gpu-manage-compute#remove-iot-edge-service.md).
     
         ![Screenshot of removal of IoT Edge role configured on Kubernetes deployment.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/remove-iot-configuration-1.png)
 
