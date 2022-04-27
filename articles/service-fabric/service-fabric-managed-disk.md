@@ -18,7 +18,7 @@ This article provides the steps for how to use native support from Service Fabri
 ## Prerequisites
 
 * The required minimum disk size for the managed data disk is 50 GB.
-* Managed Data disks is supported for virtual machine scale sets of all durability Levels.
+* Data disk drive letter should be set to character lexicographically greater than all drives present in the virtual machine scale set SKU. 
 * Only one managed data disk per VM is supported. For scenarios involving more than 1 data disks, user needs to manage the data disks on their own.
 
 ## Configure the virtual machine scale set to use managed data disks in Service Fabric
