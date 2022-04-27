@@ -1,19 +1,20 @@
 ---
-title: Azure Active Directory security operations for privileged accounts
-description: Learn to set baselines, and then monitor and alert on potential security issues with privileged accounts in Azure Active directory.
+title: Security operations for privileged accounts in Azure AD
+description: Learn about baselines, and how to monitor and alert on potential security issues with privileged accounts in Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: baselden
+ms.custom: kr2b-contr-experiment
 ms.collection: M365-identity-device-management
 ---
 
-# Security operations for privileged accounts
+# Security operations for privileged accounts in Azure AD
 
 The security of business assets depends on the integrity of the privileged accounts that administer your IT systems. Cyber attackers use credential theft attacks and other means to target privileged accounts and gain access to sensitive data.
 
@@ -27,7 +28,7 @@ You're entirely responsible for all layers of security for your on-premises IT e
 * For more information on securing access for privileged users, see [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md).
 * For a wide range of videos, how-to guides, and content of key concepts for privileged identity, see [Privileged Identity Management documentation](../privileged-identity-management/index.yml).
 
-## Where to look
+## Log files to monitor
 
 The log files you use for investigation and monitoring are:
 
@@ -37,24 +38,24 @@ The log files you use for investigation and monitoring are:
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [Microsoft Sentinel](../../sentinel/overview.md): Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
-* [Azure Monitor](../../azure-monitor/overview.md): Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
-* [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM: Enables [Azure AD logs to be pushed to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration.
-* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security): Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance.
-* **Microsoft Graph**: Enables you to export data and use Microsoft Graph to do more analysis. For more information on Microsoft Graph, see [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md).
-* [Identity Protection](../identity-protection/overview-identity-protection.md): Generates three key reports you can use to help with your investigation:
+* [Microsoft Sentinel](../../sentinel/overview.md). Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* [Azure Monitor](../../azure-monitor/overview.md). Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM. Enables Azure AD logs to be pushed to other SIEMs such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security). Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance.
+* Microsoft Graph. Enables you to export data and use Microsoft Graph to do more analysis. For more information, see [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md).
+* [Identity Protection](../identity-protection/overview-identity-protection.md). Generates three key reports you can use to help with your investigation:
 
-   * **Risky users**: Contains information about which users are at risk, details about detections, history of all risky sign-ins, and risk history.
-   * **Risky sign-ins**: Contains information about a sign-in that might indicate suspicious circumstances. For more information on investigating information from this report, see [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
-   * **Risk detections**: Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
+  * *Risky users*. Contains information about which users are at risk, details about detections, history of all risky sign-ins, and risk history.
+  * *Risky sign-ins*. Contains information about a sign-in that might indicate suspicious circumstances. For more information on investigating information from this report, see [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
+  * *Risk detections*. Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 
-* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+* [Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md). Use to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
 Although we discourage the practice, privileged accounts can have standing administration rights. If you choose to use standing privileges, and the account is compromised, it can have a strongly negative effect. We recommend you prioritize monitoring privileged accounts and include the accounts in your Privileged Identity Management (PIM) configuration. For more information on PIM, see [Start using Privileged Identity Management](../privileged-identity-management/pim-getting-started.md). Also, we recommend you validate that admin accounts:
 
 * Are required.
 * Have the least privilege to execute the require activities.
-* Are protected with multifactor authentication (MFA) at a minimum.
+* Are protected with multifactor authentication at a minimum.
 * Are run from privileged access workstation (PAW) or secure admin workstation (SAW) devices.
 
 The rest of this article describes what we recommend you monitor and alert on. The article is organized by the type of threat. Where there are specific prebuilt solutions, we link to them following the table. Otherwise, you can build alerts by using the preceding tools.
@@ -77,15 +78,14 @@ For guidance on what to do in an emergency, see [Secure access practices for adm
 
 Send a high-priority alert every time an emergency access account is used.
 
-### Discovery
-
 Because break-glass accounts are only used if there's an emergency, your monitoring should discover no account activity. Send a high-priority alert every time an emergency access account is used or changed. Any of the following events might indicate a bad actor is trying to compromise your environments:
 
-* **Account used**: Monitor and alert on any activity by using this type of account, such as:
-   * Sign-in.
-   * Account password change.
-   * Account permission or roles changed.
-   * Credential or auth method added or changed.
+Account used. Monitor and alert on any activity by using this type of account, such as:
+
+* Sign-in.
+* Account password change.
+* Account permission or roles changed.
+* Credential or auth method added or changed.
 
 For more information on managing emergency access accounts, see [Manage emergency access admin accounts in Azure AD](../roles/security-emergency-access.md). For detailed information on creating an alert for an emergency account, see [Create an alert rule](../roles/security-emergency-access.md).
 
@@ -104,15 +104,13 @@ Monitor all privileged account sign-in activity by using the Azure AD Sign-in lo
 * MFA fraud
 * Conditional Access failure
 
-### Things to monitor
-
 You can monitor privileged account sign-in events in the Azure AD Sign-in logs. Alert on and investigate the following events for privileged accounts.
 
 | What to monitor | Risk level |  Where |  Filter/subfilter | Notes |
 | - | - | - | - | - |
 | Sign-in failure, bad password threshold | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50126 | Define a baseline threshold and then monitor and adjust to suit your organizational behaviors and limit false alerts from being generated.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PrivilegedAccountsSigninFailureSpikes.yaml) |
 | Failure because of Conditional Access requirement |High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 53003<br>-and-<br>Failure reason = Blocked by Conditional Access | This event can be an indication an attacker is trying to get into the account.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/UserAccounts-CABlockedSigninSpikes.yaml) |
-| Privileged accounts that don't follow naming policy| | Azure subscription | [List Azure role assignments using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-list-portal.md)| List role assignments for subscriptions and alert where the sign-in name doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
+| Privileged accounts that don't follow naming policy| | Azure subscription | [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.md)| List role assignments for subscriptions and alert where the sign-in name doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
 | Interrupt |  High, medium | Azure AD Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure reason = Authentication failed during strong authentication request | This event can be an indication an attacker has the password for the account but can't pass the MFA challenge.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/AADPrivilegedAccountsFailedMFA.yaml) |
 | Privileged accounts that don't follow naming policy| High | Azure AD directory | [List Azure AD role assignments](../roles/view-assignments.md)| List role assignments for Azure AD roles and alert where the UPN doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
 | Discover privileged accounts not registered for MFA | High | Microsoft Graph API| Query for IsMFARegistered eq false for admin accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audit and investigate to determine if the event is intentional or an oversight. |
@@ -127,25 +125,24 @@ You can monitor privileged account sign-in events in the Azure AD Sign-in logs. 
 | Change in legacy authentication protocol | High | Azure AD Sign-ins log | Client App = Other client, IMAP, POP3, MAPI, SMTP, and so on<br>-and-<br>Username = UPN<br>-and-<br>Application = Exchange (example) | Many attacks use legacy authentication, so if there's a change in auth protocol for the user, it could be an indication of an attack. |
 | New device or location | High | Azure AD Sign-ins log | Device info = Device ID<br>-and-<br>Browser<br>-and-<br>OS<br>-and-<br>Compliant/Managed<br>-and-<br>Target = User<br>-and-<br>Location | Most admin activity should be from [privileged access devices](/security/compass/privileged-access-devices), from a limited number of locations. For this reason, alert on new devices or locations.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Audit alert setting is changed | High | Azure AD Audit logs | Service = PIM<br>-and-<br>Category = Role management<br>-and-<br>Activity = Disable PIM alert<br>-and-<br>Status = Success | Changes to a core alert should be alerted if unexpected. |
-| Administrators authenticating to other Azure AD tenants| Medium| Azure AD Sign-ins log| Status = success<br><br>Resource tenantID != Home Tenant ID| When scoped to Privileged Users this detects when an administrator has successfully authenticated to another Azure AD tenant with an identity in your organization's tenant. <br><br>Alert if Resource TenantID is not equal to Home Tenant ID |
-|Admin User state changed from Guest to Member|Medium|Azure AD Audit logs|Activity: Update user<br><br>Category: UserManagement<br><br>UserType changed from Guest to Member|Monitor and alert on change of user type from Guest to Member.<br><br> Was this expected?
+| Administrators authenticating to other Azure AD tenants| Medium| Azure AD Sign-ins log| Status = success<br><br>Resource tenantID != Home Tenant ID| When scoped to Privileged Users, this monitor detects when an administrator has successfully authenticated to another Azure AD tenant with an identity in your organization's tenant. <br><br>Alert if Resource TenantID isn't equal to Home Tenant ID |
+|Admin User state changed from Guest to Member|Medium|Azure AD Audit logs|Activity: Update user<br><br>Category: UserManagement<br><br>UserType changed from Guest to Member|Monitor and alert on change of user type from Guest to Member.<br><br> Was this change expected?
 |Guest users invited to tenant by non-approved inviters|Medium|Azure AD Audit logs|Activity: Invite external user<br><br>Category: UserManagement<br><br>Initiated by (actor): User Principal Name|Monitor and alert on non-approved actors inviting external users.
+
 ## Changes by privileged accounts
 
 Monitor all completed and attempted changes by a privileged account. This data enables you to establish what's normal activity for each privileged account and alert on activity that deviates from the expected. The Azure AD Audit logs are used to record this type of event. For more information on Azure AD Audit logs, see [Audit logs in Azure Active Directory](../reports-monitoring/concept-audit-logs.md).
 
-### Azure Active Directory Domain Services
-
-Privileged accounts that have been assigned permissions in Azure AD Domain Services can perform tasks for Azure AD Domain Services that affect the security posture of your Azure-hosted virtual machines (VMs) that use Azure AD Domain Services. Enable security audits on VMs and monitor the logs. For more information on enabling Azure AD Domain Services audits and for a list of sensitive privileges, see the following resources:
+Privileged accounts that have been assigned permissions in Azure AD Domain Services can perform tasks for Azure AD Domain Services that affect the security posture of your Azure-hosted virtual machines that use Azure AD Domain Services. Enable security audits on virtual machines and monitor the logs. For more information on enabling Azure AD Domain Services audits and for a list of sensitive privileges, see the following resources:
 
 * [Enable security audits for Azure Active Directory Domain Services](../../active-directory-domain-services/security-audit-events.md)
 * [Audit Sensitive Privilege Use](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)
 
-| What to monitor                                                         | Risk level | Where               | Filter/subfilter                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Notes                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|-------------------------------------------------------------------------|------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Attempted and completed changes                                  | High       | Azure AD Audit logs | Date and time<br>-and-<br>Service<br>-and-<br>Category and name of the activity (what)<br>-and-<br>Status = Success or failure<br>-and-<br>Target<br>-and-<br>Initiator or actor (who)                                                                                                                                                                                                                                                                                                | Any unplanned changes should be alerted on immediately. These logs should be retained to assist in any investigation. Any tenant-level changes should be investigated immediately (link out to Infra doc) that would lower the security posture of your tenant. An example is excluding accounts from MFA or Conditional Access. Alert on any [additions or changes to applications](security-operations-applications.md). |
-| **EXAMPLE**<br>Attempted or completed change to high-value apps or services | High       | Audit log           | Service<br>-and-<br>Category and name of the activity                                                                                                                                                                                                                                                                                                                                                                                                                                | <li>Date and time <li>Service <li>Category and name of the activity <li>Status = Success or failure <li>Target <li>Initiator or actor (who)                                                                                                                                                                                                                                                                                        |
-| Privileged changes in Azure AD Domain Services                                             | High       | Azure AD Domain Services               | Look for event [4673](/windows/security/threat-protection/auditing/event-4673) | [Enable security audits for Azure Active Directory Domain Services](../../active-directory-domain-services/security-audit-events.md)<br>[Audit Sensitive Privilege use](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use). See the article for a list of all privileged events.                                                                                                                            |
+| What to monitor  | Risk level | Where               | Filter/subfilter              | Notes                   |
+|------------------|------------|---------------------|-------------------------------|-------------------------|
+| Attempted and completed changes | High       | Azure AD Audit logs | Date and time<br>-and-<br>Service<br>-and-<br>Category and name of the activity (what)<br>-and-<br>Status = Success or failure<br>-and-<br>Target<br>-and-<br>Initiator or actor (who) | Any unplanned changes should be alerted on immediately. These logs should be retained to help with any investigation. Any tenant-level changes should be investigated immediately (link out to Infra doc) that would lower the security posture of your tenant. An example is excluding accounts from MFA or Conditional Access. Alert on any [additions or changes to applications](security-operations-applications.md). |
+| **EXAMPLE**<br>Attempted or completed change to high-value apps or services | High       | Audit log           | Service<br>-and-<br>Category and name of the activity | <li>Date and time <li>Service <li>Category and name of the activity <li>Status = Success or failure <li>Target <li>Initiator or actor (who) |
+| Privileged changes in Azure AD Domain Services | High       | Azure AD Domain Services | Look for event [4673](/windows/security/threat-protection/auditing/event-4673) | [Enable security audits for Azure Active Directory Domain Services](../../active-directory-domain-services/security-audit-events.md)<br>For a list of all privileged events, see [Audit Sensitive Privilege use](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use). |
 
 ## Changes to privileged accounts
 
@@ -172,26 +169,26 @@ Having privileged accounts that are permanently provisioned with elevated abilit
 
 To monitor for exceptions, you must first create a baseline. Determine the following information for:
 
-* **Admin accounts**:
+Admin accounts:
 
-   * Your privileged account strategy
-   * Use of on-premises accounts to administer on-premises resources
-   * Use of cloud-based accounts to administer cloud-based resources
-   * Approach to separating and monitoring administrative permissions for on-premises and cloud-based resources
+* Your privileged account strategy
+* Use of on-premises accounts to administer on-premises resources
+* Use of cloud-based accounts to administer cloud-based resources
+* Approach to separating and monitoring administrative permissions for on-premises and cloud-based resources
 
-* **Privileged role protection**:
+Privileged role protection:
 
-   * Protection strategy for roles that have administrative privileges
-   * Organizational policy for using privileged accounts
-   * Strategy and principles for maintaining permanent privilege versus providing time-bound and approved access
+* Protection strategy for roles that have administrative privileges
+* Organizational policy for using privileged accounts
+* Strategy and principles for maintaining permanent privilege versus providing time-bound and approved access
 
 The following concepts and information will help you determine policies:
 
-* **Just-in-time admin principles**: Use the Azure AD logs to capture information for performing administrative tasks that are common in your environment. Determine the typical amount of time needed to complete the tasks.
-* **Just-enough admin principles**: [Determine the least-privileged role](../roles/delegate-by-task.md), which might be a custom role, that's needed for administrative tasks.
-* **Establish an elevation policy**: After you have insight into the type of elevated privilege needed and how long is needed for each task, create policies that reflect elevated privileged usage for your environment. As an example, define a policy to limit Global admin access to one hour.
+* Just-in-time admin principles. Use the Azure AD logs to capture information for performing administrative tasks that are common in your environment. Determine the typical amount of time needed to complete the tasks.
+* Just-enough admin principles. Determine the least-privileged role, which might be a custom role, that's needed for administrative tasks. For more information, see [Least privileged roles by task in Azure Active Directory](../roles/delegate-by-task.md).
+* Establish an elevation policy. After you have insight into the type of elevated privilege needed and how long is needed for each task, create policies that reflect elevated privileged usage for your environment. As an example, define a policy to limit Global admin access to one hour.
 
- After you establish your baseline and set policy, you can configure monitoring to detect and alert usage outside of policy.
+After you establish your baseline and set policy, you can configure monitoring to detect and alert usage outside of policy.
 
 ### Discovery
 
@@ -215,7 +212,7 @@ For more information about managing elevation, see [Elevate access to manage all
 
 For information about configuring alerts for Azure roles, see [Configure security alerts for Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-alerts.md).
 
- ## Next steps
+## Next steps
 
 See these security operations guide articles:
 
