@@ -221,8 +221,6 @@ inputs:
 ## Skip building the API
 
 If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
-> [!NOTE]
-> Currently the `skip_api_build` is only supported in GitHub Actions and not Azure Pipelines.
 
 Steps to skip building the API:
 

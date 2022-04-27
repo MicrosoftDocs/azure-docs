@@ -7,10 +7,6 @@ ms.date: 03/28/2022
 
 # Tutorial: Configure security agents
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
->
-
 This article explains Defender for IoT security agents, and details how to change and configure them.
 
 > [!div class="checklist"]
