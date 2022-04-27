@@ -18,7 +18,7 @@ By using NFS datastores backed by Azure NetApp Files, you can expand your storag
 
 Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in the virtual network connected to it using an ExpressRoute. Ensure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, no other permissions configured via vSphere are needed.
 
-For best performance, create multiple datastores. Create your VMs with VMDKs from those datastores and stripe your logical volumes across the disks.
+For best performance, create multiple datastores. Create your VMs with Virtual Machine Disks (VMDKs) from those datastores and stripe your logical volumes across the disks.
 
 The diagram below demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
 
@@ -170,7 +170,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What are my options for backup and recovery?**
     
-   Azure NetApp Files support [snapshots](/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) of datastores for quick checkpoints for near term recovery or quick clones. Azure NetApp Files backup lets you offload your Azure NetApp Files snapshots to Azure storage. Only for this technology are copies and stores changed blocks relative to previously offloaded snapshots in an efficient format. This ability greatly increases RPO/RTO while lowering backup data transfer burden on the AVS service.   
+   Azure NetApp Files support [snapshots](/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) of datastores for quick checkpoints for near term recovery or quick clones. Azure NetApp Files backup lets you offload your Azure NetApp Files snapshots to Azure storage. Only for this technology are copies and stores-changed blocks relative to previously offloaded snapshots in an efficient format. This ability greatly increases RPO/RTO while lowering backup data transfer burden on the AVS service.   
 
 - **How do I monitor Storage Usage?**
     
