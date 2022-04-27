@@ -20,7 +20,7 @@ You can enable Data Contract Serialization for Remoting Exceptions using the bel
 
 1. Enable DataContract remoting exception serialization on the **Service** side by using `FabricTransportRemotingListenerSettings.ExceptionSerializationTechnique` while creating the remoting listener.
 
-- StatelessService
+  - StatelessService
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
@@ -38,7 +38,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
     };
 }
 ```
-- StatefulService
+  - StatefulService
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
@@ -57,7 +57,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 }
 ```
 
-- ActorService  
+  - ActorService  
 To enable DataContract remoting exception serialization on the ActorService, override `CreateServiceReplicaListeners()` by extending `ActorService`
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -81,7 +81,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 If the original exception has multiple levels of inner exceptions, then you can control the number of levels of inner exceptions to be serialized by setting `FabricTransportRemotingListenerSettings.RemotingExceptionDepth`.
 
 2. Enable DataContract remoting exception serialization on the **Client** by using `FabricTransportRemotingSettings.ExceptionSerializationTechnique` while creating the Client Factory
-- ServiceProxyFactory creation
+  - ServiceProxyFactory creation
 ```csharp
 var serviceProxyFactory = new ServiceProxyFactory(
 (callbackClient) =>
@@ -94,7 +94,7 @@ var serviceProxyFactory = new ServiceProxyFactory(
         callbackClient);
 });
 ```
-- ActorProxyFactory
+  - ActorProxyFactory
 ```csharp
 var actorProxyFactory = new ActorProxyFactory(
 (callbackClient) =>
@@ -194,7 +194,7 @@ class CustomException : Exception
     public string Field1 { get; set; }
 
     public string Field2 { get; set; }
-  }
+}
 ```
 
 - `IExceptionConvertor` implementation on **Service** side.
@@ -269,7 +269,7 @@ class CustomConvertorClient : Microsoft.ServiceFabric.Services.Remoting.V2.Clien
 
  To register convertors, `CreateServiceInstanceListeners` has to be overriden and list of `IExceptionConvertor` has to be passed while creating RemotingListener instance.
 
- *StatelessService*
+  - *StatelessService*
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
@@ -292,7 +292,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
- *StatefulService*
+  - *StatefulService*
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
@@ -315,7 +315,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 }
 ```
 
- *ActorService*
+  - *ActorService*
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
@@ -342,7 +342,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
  To register convertors, list of `IExceptionConvertor`s has to be passed while creating ClientFactory instance.
 
- *ServiceProxyFactory creation*
+  - *ServiceProxyFactory creation*
 ```csharp
 var serviceProxyFactory = new ServiceProxyFactory(
 (callbackClient) =>
@@ -360,7 +360,7 @@ var serviceProxyFactory = new ServiceProxyFactory(
 });
 ```
 
- *ActorProxyFactory creation*
+  - *ActorProxyFactory creation*
 ```csharp
 var actorProxyFactory = new ActorProxyFactory(
 (callbackClient) =>
