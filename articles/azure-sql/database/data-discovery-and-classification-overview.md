@@ -106,7 +106,7 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 ## <a id="audit-sensitive-data"></a>Audit access to sensitive data
 
-An important aspect of the classification is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
+An important aspect of the classification is the ability to monitor access to sensitive data. [Azure SQL Auditing](/azure/azure-sql/database/auditing-overview) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
 [![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
 
@@ -222,11 +222,11 @@ You can use the following SQL drivers to retrieve classification metadata:
 
 ## FAQ - Advanced classification capabilities
 
-**Question**: Will [Azure Purview](../../purview/overview.md) replace SQL Data Discovery & Classification or will SQL Data Discovery & Classification be retired soon?
-**Answer**: We continue to support SQL Data Discovery & Classification and encourage you to adopt [Azure Purview](../../purview/overview.md) which has richer capabilities to drive advanced classification capabilities and data governance. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies here.
+**Question**: Will [Microsoft Purview](../../purview/overview.md) replace SQL Data Discovery & Classification or will SQL Data Discovery & Classification be retired soon?
+**Answer**: We continue to support SQL Data Discovery & Classification and encourage you to adopt [Microsoft Purview](../../purview/overview.md) which has richer capabilities to drive advanced classification capabilities and data governance. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies here.
 
 ## Next steps
 
-- Consider configuring [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) for monitoring and auditing access to your classified sensitive data.
+- Consider configuring [Azure SQL Auditing](/azure/azure-sql/database/auditing-overview) for monitoring and auditing access to your classified sensitive data.
 - For a presentation that includes data Discovery & Classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).
-- To classify your Azure SQL Databases and Azure Synapse Analytics with Azure Purview labels using T-SQL commands, see [Classify your Azure SQL data using Azure Purview labels](../../sql-database/scripts/sql-database-import-purview-labels.md).
+- To classify your Azure SQL Databases and Azure Synapse Analytics with Microsoft Purview labels using T-SQL commands, see [Classify your Azure SQL data using Microsoft Purview labels](../../sql-database/scripts/sql-database-import-purview-labels.md).

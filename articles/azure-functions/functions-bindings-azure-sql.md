@@ -3,7 +3,7 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 1/25/2022
+ms.date: 4/1/2022
 ms.author: drskwier
 ms.reviewer: cachai
 ms.devlang: csharp
@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Azure SQL bindings for Azure Functions overview (preview)
 
-This set of articles explains how to work with [Azure SQL](../azure-sql/index.yml) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
+This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
 
 | Action | Type |
 |---------|---------|
@@ -22,12 +22,6 @@ This set of articles explains how to work with [Azure SQL](../azure-sql/index.ym
 > This reference is for [Azure Functions version 2.x and higher](functions-versions.md). 
 >
 > This binding requires connectivity to an Azure SQL or SQL Server database.
-
-To learn more, see the following video:
-
->
-> [!VIDEO https://docs.microsoft.com/shows/data-exposed/introduction-to-azure-sql-bindings-for-azure-functions/player?WT.mc_id=dataexposed-c9-niner]
-
 
 ## Add to your Functions app
 
@@ -63,3 +57,4 @@ The Azure SQL bindings for Azure Functions are open-source and available on the 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
 - [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
 - [Learn how to connect Azure Function to Azure SQL with managed identity](./functions-identity-access-azure-sql-with-managed-identity.md)
+- [Use SQL bindings in Azure Stream Analytics](../stream-analytics/sql-database-upsert.md#option-1-update-by-key-with-the-azure-function-sql-binding)

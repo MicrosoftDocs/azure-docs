@@ -22,7 +22,7 @@ Currently, integrated security solutions include vulnerability assessment by [Qu
 > [!NOTE]
 > Defender for Cloud does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 
-To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to customers who've enabled Microsoft Defender for servers, see [Defender for Cloud's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
+To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to customers who've enabled Microsoft Defender for Servers, see [Defender for Cloud's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
 
 Defender for Cloud also offers vulnerability analysis for your:
 

@@ -113,7 +113,7 @@ For more information about how to use CloudTable, see [Get started with Azure Ta
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
-# [Table API extension (preview)](#tab/table-api/in-process)
+# [Table API extension](#tab/table-api/in-process)
 
 The following example shows a [C# function](./functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
 
@@ -643,9 +643,9 @@ Write-Host "Person entity name: $($PersonEntity.Name)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following function uses a queue trigger to read a single table row as input to a function.
+The following function uses an HTTP trigger to read a single table row as input to a function.
 
-In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{id}` indicates that the row key comes from the queue message string.
+In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{id}` indicates that the row key comes from the `{id}` part of the route in the request.
 
 Binding configuration in the _function.json_ file:
 
@@ -847,7 +847,7 @@ To return a specific entity by key, use a binding parameter that derives from [T
 
 To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
 
-# [Table API extension (preview)](#tab/table-api/in-process)
+# [Table API extension](#tab/table-api/in-process)
 
 To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
 

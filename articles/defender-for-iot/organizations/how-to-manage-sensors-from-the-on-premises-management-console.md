@@ -65,7 +65,7 @@ If you're upgrading an on-premises management console and managed sensors, first
 
 **To update several sensors**:
 
-1. Verify that you've already updated the on-premises management console to the version that you're updating the sensors. For more information see [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
+1. Verify that you've already updated the on-premises management console to the version that you're updating the sensors. For more information, see [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 
 1. On the Azure portal, go to **Defender for IoT** > **Updates**. Under **Sensors**, select **Download** and save the file.
 

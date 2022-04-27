@@ -136,6 +136,8 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 
 > [!NOTE]
 > Forcing a user to change their password on next logon requires a password change at the same time.  Azure AD Connect will not pick up the force password change flag by itself; it is supplemental to the detected password change that occurs during password hash sync.
+> 
+> If the user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in.
 
 > [!CAUTION]
 > You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.

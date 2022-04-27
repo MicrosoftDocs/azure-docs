@@ -1,17 +1,19 @@
 ---
-title: Move Azure App Service resources
+title: Move Azure App Service resources across resource groups or subscriptions
 description: Use Azure Resource Manager to move App Service resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 03/31/2022
 ---
 
-# Move guidance for App Service resources
+# Move App Service resources to a new resource group or subscription
 
-This article describes the steps to move App Service resources. There are specific requirements for moving App Service resources to a new subscription.
+This article describes the steps to move App Service resources between resource groups or Azure subscriptions. There are specific requirements for moving App Service resources to a new subscription.
+
+If you want to move App Services to a new region, see [Move an App Service resource to another region](../../../app-service/manage-move-across-regions.md).
 
 ## Move across subscriptions
 
-When moving a Web App across subscriptions, the following guidance applies:
+When you move a Web App across subscriptions, the following guidance applies:
 
 - Moving a resource to a new resource group or subscription is a metadata change that shouldn't affect anything about how the resource functions. For example, the inbound IP address for an app service doesn't change when moving the app service.
 - The destination resource group must not have any existing App Service resources. App Service resources include:

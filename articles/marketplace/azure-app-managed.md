@@ -1,13 +1,13 @@
 ---
 title: Configure a managed application plan
-description: Configure a managed application plan for your Azure application offer in Partner Center (Azure Marketplace). 
+description: Configure a managed application plan for an Azure application offer in Partner Center. 
 author: macerru
 ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/29/2022
 ---
 
 # Configure a managed application plan
@@ -59,11 +59,6 @@ Prices are set in USD (USD = United States Dollar) are converted into the local 
 ### Set custom prices (optional)
 
 Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet.
-
-Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published.
-
-> [!NOTE]
-> After a price for a market in your plan is published, it can't be changed later.
 
 To set custom prices in an individual market, export, modify, and then import the pricing spreadsheet. You're responsible for validating this pricing and owning these settings. For detailed information, see [Custom prices](plans-pricing.md#custom-prices).
 

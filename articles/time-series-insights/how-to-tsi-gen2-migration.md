@@ -478,7 +478,7 @@ The Power BI query copied from TSI UX Explorer looks like as shown below
 ```
 {"storeType":"ColdStore","isSearchSpanRelative":false,"clientDataType":"RDX_20200713_Q","environmentFqdn":"6988946f-2b5c-4f84-9921-530501fbab45.env.timeseries.azure.com", "queries":[{"aggregateSeries":{"searchSpan":{"from":"2019-10-31T23:59:39.590Z","to":"2019-11-01T05:22:18.926Z"},"timeSeriesId":["Arctic Ocean",null],"interval":"PT1M", 		"inlineVariables":{"EventCount":{"kind":"aggregate","aggregation":{"tsx":"count()"}}},"projectedVariables":["EventCount"]}}]}
 ```
-- To convert it to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](/azure/rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
+- To convert it to TSQ, build a JSON from the above payload. The AggregateSeries API documentation also has examples to understand it better. [Query - Execute - REST API (Azure Time Series Insights) | Microsoft Docs](/rest/api/time-series-insights/dataaccessgen2/query/execute#queryaggregateseriespage1)
 -	The converted TSQ looks like as shown below. It's the JSON payload inside “queries”
 ```
 {

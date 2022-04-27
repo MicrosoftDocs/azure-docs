@@ -29,7 +29,7 @@ There are two Azure VM Image Builder (AIB) DevOps Tasks:
 ## Prerequisites
 
 > [!NOTE]
-> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Windows Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
+> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Azure Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
 
 * Install the [Stable DevOps Task from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * You must have a VSTS DevOps account, and a Build Pipeline created
@@ -48,7 +48,7 @@ There are two Azure VM Image Builder (AIB) DevOps Tasks:
     New-AzStorageAccount -ResourceGroupName $strResourceGroup -Name $storageAccName -Location $location -SkuName Standard_LRS
     ```
 
-    ```bash
+    ```azurecli
     # Az CLI
     location=westus
     scriptStorageAcc=aibstordot$(date +'%s')

@@ -47,6 +47,8 @@ Although Azure SQL Database and Azure SQL Managed Instance service tiers are des
 
    Applications that have inherent data access concurrency issues, for example deadlocking, might not benefit from a higher compute size. Consider reducing round trips against the database by caching data on the client side with the Azure Caching service or another caching technology. See [Application tier caching](#application-tier-caching).
 
+    To prevent deadlocks from reoccurring in Azure SQL Database, see [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md). For Azure SQL Managed Instance, refer to the [Deadlocks](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#deadlock_tools) of the [Transaction locking and row versioning guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide).
+
 ## Tune your database
 
 In this section, we look at some techniques that you can use to tune database to gain the best performance for your application and run it at the lowest possible compute size. Some of these techniques match traditional SQL Server tuning best practices, but others are specific to Azure SQL Database and Azure SQL Managed Instance. In some cases, you can examine the consumed resources for a database to find areas to further tune and extend traditional SQL Server techniques to work in Azure SQL Database and Azure SQL Managed Instance.

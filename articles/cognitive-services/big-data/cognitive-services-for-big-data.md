@@ -118,7 +118,7 @@ Cognitive Services for Big Data is an example of how we can integrate intelligen
 ## Blog posts
 
 - [Learn more about how Cognitive Services work on Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
-- [Saving Snow Leopards with Deep Learning and Computer Vision on Spark](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
+- [Saving Snow Leopards with Deep Learning and Computer Vision on Spark](/archive/blogs/machinelearning/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark)
 - [Microsoft Research Podcast: MMLSpark, empowering AI for Good with Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
 - [Academic Whitepaper: Large Scale Intelligent Microservices](https://arxiv.org/abs/2009.08044)
 

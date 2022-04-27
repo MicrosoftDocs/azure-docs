@@ -185,6 +185,10 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Delete rows in target when not present in source](https://www.youtube.com/watch?v=9i7qf1vczUw)
 
+[Incremental data loading with Azure Data Factory and Azure SQL DB](https://youtu.be/6tNWFErnGGU)
+
+[Transform Avro data from Event Hubs using Parse and Flatten](https://youtu.be/F2x7Eg-635o)
+
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

@@ -154,3 +154,7 @@
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Monitor Network Insights
       href:  ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+  - name: Troubleshooting
+    items: 
+    - name: Troubleshoot Microsoft.Network Failed provisioning state
+      href: ../troubleshoot-failed-state.md?toc=/azure/networking/fundamentals/toc.json
