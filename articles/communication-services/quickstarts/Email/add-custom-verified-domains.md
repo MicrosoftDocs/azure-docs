@@ -35,7 +35,7 @@ ms.custom: private_preview
 
     - (Option 2) Click **Provision Domains** on the left navigation panel.
     
-        :::image type="content" source="./media/email-domains-custom-nav.png" alt-text="Provision Domains":::
+        :::image type="content" source="./media/email-domains-custom-nav.png" alt-text="Navigate to Provision Domains":::
 
     - Click **Add domain** on the upper navigation bar.
     - Select **Custom domain** from the dropdown.
@@ -96,7 +96,7 @@ ms.custom: private_preview
     
 5. Wait for Verification to complete. You can check the Verification Status from **Provision Domains** page. 
 
-    :::image type="content" source="./media/email-domains-custom-verificationstatus.png" alt-text="Provisioned Domains":::
+    :::image type="content" source="./media/email-domains-custom-verificationstatus.png" alt-text="Verification done shown in Provisioned Domains":::
  
 6. Once your sender authentication configurations are successfully verified, your email domain will be ready to send emails using custom domain.
 
@@ -110,11 +110,11 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 2. Click **Provision Domains** on the left navigation panel. You will be see list of provisioned domains.
 3. Click on the Custom Domain name that you would like to update.
 
-    :::image type="content" source="./media/email-domains-custom-provision-domains.png" alt-text="Provisioned Domains":::
+    :::image type="content" source="./media/email-domains-custom-provision-domains.png" alt-text="Click Custom Domain in provisioned Domains":::
 
 4. The navigation lands in Domain Overview page where you will able to see Mailfrom and From attributes.
  
-    :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="Domains Overview":::
+    :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="Navigate to Domains Overview":::
 
 5. Click on edit link on MailFrom 
 
