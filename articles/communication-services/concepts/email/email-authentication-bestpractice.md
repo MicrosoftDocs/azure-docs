@@ -39,7 +39,7 @@ An email message may contain multiple originator or sender addresses. These addr
 
 **From** address: The address displayed as the From address by your mail application. This address identifies the author of the email. That is, the mailbox of the person or system responsible for writing the message. This is sometimes called the 5322.From address.
 
-**Sender Policy Framework (SPF)** helps validate outbound email sent from your mail from domain (is coming from who it says it is). 
+**Sender Policy Framework (SPF)** helps validate outbound email sent from your mail from domain (is coming from who it says it is).
 
 **DomainKeys Identified Mail (DKIM)** helps to ensure that destination email systems trust messages sent outbound from your mail from domain.
 

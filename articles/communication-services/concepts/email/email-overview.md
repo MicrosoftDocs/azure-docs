@@ -39,14 +39,11 @@ Key features include:
 - **Azure Managed Domain** - Customers will be able to send mail from the pre-provisioned domain (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net) 
 - **Custom Domain** - 	Customers will be able to send mail from the domain(notify.contoso.com) where mail from domain will also from the verified domain (notify.contoso.com).
 - **Sender Authentication Support** - 	Platform Enables support for SPF(Sender Policy Framework) and DKIM(Domain Keys Identified Mail) settings for both Azure managed and Custom Domains with ARC (Authenticated Received Chain) support which preserves the Email authentication result during transitioning.
-
 - **Email Spam Protection and Fraud Detection** - Platform performs email hygiene for all messages and offers comprehensive email protection leveraging Microsoft Defender components by enabling the existing transport rules for detecting malware's, URL Blocking and Content Heuristic. 
 - **Email Analytics** -	 Email Analytics through Azure Insights. To meet GDPR requirements we will emit logs at the request level which will contain messageId and recipient information for diagnostic and auditing purposes. 
 - **Engagement Tracking** - Bounce, Blocked, Open and Click Tracking.
 
-
 ## Next steps
-
 
 > [Understanding Email Communication Services](./Understanding-email-communication-resource.md)
 

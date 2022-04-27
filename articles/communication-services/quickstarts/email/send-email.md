@@ -19,10 +19,9 @@ zone_pivot_groups: acs-js-csharp
 [!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
 ::: zone-end
 
-
 ## Troubleshooting
 
-To troubleshoot issues related to email delivery, you can [enable delivery reporting with Event Grid](#) to capture delivery details.
+To troubleshoot issues related to email delivery, you can get status of the email delivery to capture delivery details.
 
 ## Clean up resources
 

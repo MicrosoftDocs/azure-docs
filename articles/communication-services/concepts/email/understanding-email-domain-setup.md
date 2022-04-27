@@ -1,5 +1,5 @@
 ---
-title: Email Domains and Sender Authentication overview for Azure Communication Services
+title: Understanding Email Domains and Sender Authentication for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Email Domains and Sender Authentication.
 author: bashan-git

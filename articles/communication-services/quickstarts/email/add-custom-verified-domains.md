@@ -114,7 +114,7 @@ When Azure Manged Domain is provisioned to send mail, it has default Mail From a
 
 4. The navigation lands in Domain Overview page where you will able to see Mailfrom and From attributes.
  
-    :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="Navigate to Domains Overview":::
+    :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="Navigate to Custom Domains Overview":::
 
 5. Click on edit link on MailFrom 
 
