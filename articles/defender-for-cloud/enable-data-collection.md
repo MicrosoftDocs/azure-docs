@@ -82,7 +82,7 @@ This table shows the availability details for the auto provisioning **feature** 
 
 ### [**Defender for Containers**](#tab/autoprovision-containers)
 
-This table shows the availability details for the various components that can be auto provisioned to provide the protections offered by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
+This table shows the availability details for the components that are required for auto provisioning to provide the protections offered by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 | Aspect                                               | Azure Kubernetes Service clusters                                                      | Azure Arc-enabled Kubernetes clusters                                                       |
 |------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
