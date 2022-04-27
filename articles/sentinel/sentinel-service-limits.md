@@ -37,8 +37,6 @@ This article lists the most common service limits you might encounter as you use
 
 ## User and Entity Behavior Analytics (UEBA) limits
 
-The following limit applies to UEBA in Microsoft Sentinel. The limit for UEBA in Microsoft Sentinel is related to dependencies on another service.
-
 [!INCLUDE [sentinel-service-limits](../../includes/sentinel-limits-ueba.md)]
 
 ## Next steps

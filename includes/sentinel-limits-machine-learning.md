@@ -10,7 +10,7 @@ ms.author: cwatson
 ms.custom: "include file"
 ---
 
-The following limits apply to Machine learning-based features in Microsoft Sentinel like customizable anomalies and Fusion.
+The following limits apply to machine learning-based features in Microsoft Sentinel like customizable anomalies and Fusion.
 
 | Description                                                         | Limit                                           |Dependency|
 |---------------------------------------------------------------|-------------------------------------------------|-------|
