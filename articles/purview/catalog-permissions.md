@@ -110,7 +110,7 @@ For full instructions, see our [how-to guide for adding role assignments](how-to
 
 ## Administrator change
 
-There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the Microsoft Purview account is automatically assigned collection admin to the root collection. To change this, there are three options:
+There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the Microsoft Purview account is automatically assigned collection admin to the root collection. To update the root collection admin, there are three options:
 
 - You can [assign permissions through the portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
 
