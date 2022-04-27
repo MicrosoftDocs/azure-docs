@@ -5,7 +5,7 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/27/2022
 ---
 
 
@@ -43,7 +43,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 1. Select **Yes, with VMware vSphere Hypervisor.**
 1. Select agentless replication in the next step.
 1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
-1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale-out.
+1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale out.
 
 :::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Discover machines page for scale-out onboarding":::
 
@@ -103,7 +103,7 @@ After the script has executed successfully, the appliance configuration manager 
 
 ### 4. Configure the appliance
 
-Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#public-cloud-urls) are accessible from the scale-out appliance.
+Before you begin, ensure that the [these Azure endpoints](migrate-appliance.md#public-cloud-urls) are accessible from the scale-out appliance.
 
 - Open a browser on any machine that can connect to the scale-out appliance server, and open the URL of the appliance configuration manager: **https://*scale-out appliance name or IP address*: 44368**.
 
@@ -128,7 +128,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
-	2. The appliance will verify the key and start the auto-update service which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
