@@ -41,7 +41,7 @@ You'll learn how to use the AzureML Python SDK v2 to:
 ## Prerequisites
 
 * A basic understanding of Machine Learning projects workflow
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources) to:
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a cloud-based compute cluster to use for training your model.

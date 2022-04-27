@@ -11,10 +11,11 @@
       href: concept-model-management-and-deployment.md
     - name: MLflow
       href: concept-mlflow-v1.md
--name: Tutorials
- items:
-  - name: "Build a training pipeline (Python)"
-    href: "tutorial-pipeline-python-sdk.md"
+- name: Tutorials
+  expanded: true
+  items:
+    - name: "Build a training pipeline (Python)"
+      href: "tutorial-pipeline-python-sdk.md"
 - name: How-to guides
   items:
   - name: Install and set up the CLI (v1)
