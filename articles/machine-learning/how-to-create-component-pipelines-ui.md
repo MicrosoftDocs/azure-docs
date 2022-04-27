@@ -17,7 +17,7 @@ ms.custom: devplatv2, designer
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python-v2.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
+In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer better amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python-v2.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -38,7 +38,9 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 
 ## Register component in your workspace
 
-After you have defined your components, you can use CLI to register to your workspace, so that you can share and resue the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
+To build pipeline using components in UI, you need to register components to your workspace first. You can use CLI or SDK to register components to your workspace, so that you can share and resue the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
+
+Here take using CLI for example. If you want to learn more about how to build a component, you can refer to [this article](how-to-create-component-pipelines-cli.md).
 
 1. From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `1b_e2e_registered_components` subdirectory.
 
@@ -65,7 +67,7 @@ After you have defined your components, you can use CLI to register to your work
     > [!Important]
     > Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
-1. You can find your registered components in the previous section in the asset library.
+1. In asset library, you can see the components registered from previous section.
 
     ![TODO: Screenshot showing registered component in asset library](./media/how-to-create-component-pipelines-ui/asset-library.png)
 
@@ -77,13 +79,20 @@ After you have defined your components, you can use CLI to register to your work
 
     ![TODO: Screenshot showing drag and drop component](./media/how-to-create-component-pipelines-ui/drag-drop-component.png)
 
-1. Select submit 
+1. Select one component, you will see a right pane where you can configure the component. For components with primitive type inputs like number, integer, string and boolean, you can change values of such inputs in the component detailed pane.
 
+    ![TODO: Screenshot showing component parameter](./media/how-to-create-component-pipelines-ui/component-parameter.png)
 
-### Caching & reuse  
+> [!NOTE]
+> Currently registered components and the designer built-in components cannot be used together.
 
-By default, only those components whose inputs have changed are rerun if you rerun the same pipeline. You can change this behavior by setting the `is_deterministic` key of the component specification YAML to `False`. A common need for this is a component that loads data that may have been updated from a fixed location or URL. 
+## Submit pipeline
 
+1. Select submit, and fill in the required information for your pipeline job.
+
+    ![TODO: Screenshot showing submit pipeline](./media/how-to-create-component-pipelines-ui/submit-pipeline.png)
+
+1. 
 
 ## Next steps
 

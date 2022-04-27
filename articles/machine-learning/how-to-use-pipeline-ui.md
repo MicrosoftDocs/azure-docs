@@ -59,11 +59,16 @@ If your pipeline contains too many components, you can multi-select some compone
 submission list
 ************* -->
 
-After you submit your pipeline job, you'll see a submitted job list in the left pane, which shows all the pipeline job you create from the current pipeline draft in the same session. There's also notification popping up from the notification center. You can select through the pipeline job link in the submission list or the notification for further debugging.
+Now you've built your pipeline. Select **Submit** button on right top of the canvas, and configure your pipeline job.
+
+![TODO: Screenshot showing submitting](./media/new-pipeline-ui/submit-pipeline.png)
+
+After you submit your pipeline job, you'll see a submitted job list in the left pane, which shows all the pipeline job you create from the current pipeline draft in the same session. There's also notification popping up from the notification center. You can select through the pipeline job link in the submission list or the notification to check pipeline job status or debugging.
 
 > [!NOTE]
 > Pipeline job status and resuls will not be filled back to the authoring page.
-> You can continuouly submit jobs from the same pipeline draft, without having to wait for the previous job completes.
+
+If you want to try a few different parameter values for the same pipeline, you can change values and submit for multiple times, without having to waiting for the running status.
 
 ![TODO: Screenshot showing submission list and notification](./media/new-pipeline-ui/.png)
 
@@ -167,8 +172,11 @@ When you have multiple pipeline jobs for the same project but with different set
     ![TODO: Screenshot showing compare graph](./media/new-pipeline-ui/compare-graph.png)
 
     In the screenshot above, you can see the detailed difference of each node in the two pipelines your compare.
-    - The red and green colors mean those nodes only occur in Copy of sample pipeline1 and sample pipeline 1 respectively. 
-    - The "Train" node shows that it has parameter changed. You can select that node to see which parameters are changed. The blue lines are different values for same parameters.
+    - The **red** node means this node only exists in Copy of sample pipeline1. 
+    - The **green** node means this node only exists in sample pipeline 1.
+    - The **blue** node means this node exists in both pipelines but have configuration changed. 
+
+        For example, the `Train` node shows that it has parameter changed. You can select that node to see which parameters are changed. In the right pane of **Component information**, the blue lines are different values for same parameters.
         ![Screenshot showing parameter difference](./media/new-pipeline-ui/compare-parameter.png)
 
     In the comparison page, you can select **Show details** to see the difference of the two pipeline job properties.

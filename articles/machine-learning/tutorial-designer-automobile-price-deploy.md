@@ -36,6 +36,9 @@ Complete [part one of the tutorial](tutorial-designer-automobile-price-train-sco
 
 To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training components and adds web service inputs and outputs to handle requests.
 
+> [!NOTE]
+> Create inference pipeline only supports training pipelines which contain only the designer built-in components and must have a component like **Train Model**  which outputs the trained model.
+
 ### Create a real-time inference pipeline
 
 1. In pipeline job detail page, above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.

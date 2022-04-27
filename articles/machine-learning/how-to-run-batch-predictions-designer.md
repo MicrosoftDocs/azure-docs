@@ -44,10 +44,11 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 1. **Submit** the pipeline.
 
-Go to the job detail page, and after the training pipeline job completes, you can create a batch inference pipeline.
-
 ![TODO: Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
+You will see a submission list on the left of canvas. You can click the job detail link to go to the job detail page, and after the training pipeline job completes, you can create a batch inference pipeline.
+
+![TODO: Submission list](./media/how-to-run-batch-predictions-designer/submission-list.png)
 
 1. In job detail page, above the canvas, select the dropdown **Create inference pipeline**.
 
@@ -55,7 +56,11 @@ Go to the job detail page, and after the training pipeline job completes, you ca
 
     ![TODO: Create batch inference pipeline](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
     
-The result is a default batch inference pipeline. 
+    It will create a batch inference pipeline draft for you.
+
+    ![TODO: Batch inference pipeline draft](./media/how-to-run-batch-predictions-designer/batch-inference-draft.png)
+
+
 
 ### Add a pipeline parameter
 
