@@ -287,7 +287,10 @@ It imports the code from live mode into collaboration branch. It considers the c
 
 1. Remove your current Git repository
 1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **Collaboration branch (same branch)**
-1. Create a pull request to merge the changes to the collaboration branch 
+1. Create a pull request to merge the changes to the collaboration branch.
+
+> [!NOTE]
+> It is only necessary to create and merge a pull request if you are working in a repository that does not allow direct commits.  In most organizations, submissions into the repository will require review before merging so the best practice is usually to use this approach.  But in some cases no review is required, in which case it isn't necessary to create and merge a pull request, but changes can be directly committed to the collaboration branch.
 
 Choose either method appropriately as needed. 
 

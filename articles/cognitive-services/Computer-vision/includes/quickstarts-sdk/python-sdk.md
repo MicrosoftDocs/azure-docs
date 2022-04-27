@@ -30,32 +30,29 @@ Use the OCR client library to read printed and handwritten text from a remote im
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Install the client library
-
-You can install the client library with:
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-computervision
-```
-
-Also install the Pillow library.
-
-```console
-pip install pillow
-```
-
-### Create a new Python application
-
-Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE.
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
-
 ## Read printed and handwritten text
+
+1. Install the client library.
+
+    You can install the client library with:
+
+    ```console
+    pip install --upgrade azure-cognitiveservices-vision-computervision
+    ```
+
+    Also install the Pillow library.
+
+    ```console
+    pip install pillow
+    ```
+
+1. Create a new Python application
+
+    Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE.
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. Replace the contents of *quickstart-file.py* with the following code.
 
@@ -78,6 +75,20 @@ Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it i
    ```console
    python quickstart-file.py
    ```
+
+## Output
+
+```console
+===== Read File - remote =====
+The quick brown fox jumps
+[38.0, 650.0, 2572.0, 699.0, 2570.0, 854.0, 37.0, 815.0]
+Over
+[184.0, 1053.0, 508.0, 1044.0, 510.0, 1123.0, 184.0, 1128.0]
+the lazy dog!
+[639.0, 1011.0, 1976.0, 1026.0, 1974.0, 1158.0, 637.0, 1141.0]
+
+End of Computer Vision quickstart.
+```
 
 ## Clean up resources
 

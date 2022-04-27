@@ -24,11 +24,11 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption occurs when an object is created. You can't encrypt objects that already exist.
 
-## CMK-qualified encryption
+## CMK encryption support
 
 Objects that can be encrypted include indexes, synonym lists, indexers, data sources, and skillsets. Encryption is computationally expensive to decrypt so only sensitive content is encrypted.
 
-Encryption is performed over the following objects:
+Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 

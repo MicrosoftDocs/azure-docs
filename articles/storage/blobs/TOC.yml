@@ -571,7 +571,7 @@ items:
             - name: Upload blobs
               href: storage-blob-upload.md
             - name: Append to blobs
-              href: storage-blob-append.md
+              href: storage-blob-append.md              
             - name: Download blobs
               href: storage-blob-download.md
             - name: Copy blobs
@@ -585,7 +585,37 @@ items:
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
-              href: storage-blob-container-lease.md
+              href: storage-blob-container-lease.md              
+        - name: JavaScript
+          items:
+          - name: Get started
+            href: storage-blob-javascript-get-started.md
+          - name: Work with containers
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-javascript.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-javascript.md
+            - name: List containers
+              href: storage-blob-containers-list-javascript.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-javascript.md
+          - name: Work with blobs
+            items:
+            - name: Upload blobs
+              href: storage-blob-upload-javascript.md
+            - name: Download blobs
+              href: storage-blob-download-javascript.md
+            - name: Copy blobs
+              href: storage-blob-copy-javascript.md
+            - name: List blobs
+              href: storage-blobs-list-javascript.md
+            - name: Delete and restore blobs
+              href: storage-blob-delete-javascript.md
+            - name: Find blobs using tags
+              href: storage-blob-tags-javascript.md
+            - name: Manage blob properties and metadata
+              href: storage-blob-properties-metadata-javascript.md             
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator

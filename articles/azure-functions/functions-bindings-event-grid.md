@@ -105,19 +105,9 @@ The Event Grid extension is part of an [extension bundle], which is specified in
 
 # [Bundle v3.x](#tab/extensionv3)
 
-This version of the extension supports updated Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Microsoft.Azure.EventGrid.Models.EventGridEvent](/dotnet/api/microsoft.azure.eventgrid.models.eventgridevent).
+You can add this version of the extension from the extension bundle v3 by adding or replacing the following configuration in your `host.json` file:
 
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
-  }
-}
-```
+[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
 

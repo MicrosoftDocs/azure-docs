@@ -100,6 +100,8 @@
               href: continuous-backup-restore-resource-model.md
             - name: Latest restorable timestamp
               href: latest-restore-timestamp-continuous-backup.md
+            - name: Auditing restore action with continuous backup
+              href: audit-restore-continuous.md              
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -152,6 +154,9 @@
           items:
             - name: Azure portal
               href: sql/create-cosmosdb-resources-portal.md
+            - name: Bicep
+              displayName: ARM, Resource Manager, Template
+              href: sql/quick-create-bicep.md
             - name: ARM template
               displayName: Resource Manager
               href: sql/quick-create-template.md
@@ -1553,6 +1558,8 @@
     - name: Limit total account throughput
       displayName: cost, RUs, RU
       href: limit-total-account-throughput.md
+    - name: Access preview features
+      href: access-previews.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos account

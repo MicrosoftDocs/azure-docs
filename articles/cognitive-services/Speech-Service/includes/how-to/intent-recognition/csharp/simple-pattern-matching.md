@@ -270,8 +270,3 @@ RECOGNIZED: Text= Take me to floor 7.
   Intent Id= ChangeFloors
   FloorName= 7
 ```
-
-## Next steps
-
-> Improve your pattern matching by using [custom entities](../../../../how-to-use-custom-entity-pattern-matching.md).
-
