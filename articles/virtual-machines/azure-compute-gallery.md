@@ -102,7 +102,7 @@ As a content publisher, you might want to share a gallery to the community:
 
 - You have daily/nightly builds to share publicly with your customers and don’t want to deal with the overhead that comes with publishing on Azure Marketplace 
 
-- You don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.  
+- You want to quickly share daily or nightly builds with your customers.  
 
 ### How sharing with the community works
 
