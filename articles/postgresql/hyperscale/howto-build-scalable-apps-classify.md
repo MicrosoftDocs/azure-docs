@@ -53,10 +53,10 @@ Hyperscale (Citus).
 Choose whichever fits your application the best:
 
 > [!div class="nextstepaction"]
-> [Classify application workload >](howto-build-scalable-apps-model-mt.md)
+> [Model multi-tenant SaaS app >](howto-build-scalable-apps-model-mt.md)
 
 > [!div class="nextstepaction"]
-> [Classify application workload >](howto-build-scalable-apps-model-rt.md)
+> [Model real-time analytics app](howto-build-scalable-apps-model-rt.md)
 
 > [!div class="nextstepaction"]
-> [Classify application workload >](howto-build-scalable-apps-model-htap.md)
+> [Model high-throughput app](howto-build-scalable-apps-model-htap.md)
