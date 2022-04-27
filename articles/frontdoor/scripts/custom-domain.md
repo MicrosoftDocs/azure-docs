@@ -13,15 +13,11 @@ ms.date: 04/27/2022
 
 # Azure Front Door: Deploy custom domain
 
-This Azure CLI script example deploys a custom domain name and TLS certificate on an Azure Front Door front-end.
+This Azure CLI script example deploys a custom domain name and TLS certificate on an Azure Front Door front-end. This script demonstrates fully automated provisioning of Azure Front Door with a custom domain name (hosted by Azure DNS) and TLS cert. This script requires that an Azure DNS public zone already exists for domain name. For a tutorial, see [ost your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## Before you begin
-
-This script requites that an Azure DNS public zone already exists for domain name. For a tutorial, see [ost your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
 
 ## Sample script
 
@@ -46,6 +42,12 @@ The script will:
 1. Enable HTTPS with Front Door managed cert
 
 ### Run the script
+
+To run this script, copy the following code to a .sh file, change the hardcoded variables to your domain values, and then execute the following command to pass these variables into the script
+
+```bash
+AZURE_DNS_ZONE_NAME=www.contoso.com AZURE_DNS_ZONE_RESOURCE_GROUP=contoso-rg ./deploy-custom-apex-domain.sh
+```
 
 :::code language="azurecli" source="~/azure_cli_scripts/azure-front-door/deploy-custom-domain/deploy-custom-domain.sh" id="FullScript":::
 
