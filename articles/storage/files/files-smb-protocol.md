@@ -141,7 +141,7 @@ echo $protocolSettings
 
 To enable/disable SMB Multichannel, use the `az storage account file-service-properties update` command.
 
-```bash
+```azurecli
 az storage account file-service-properties update \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
@@ -300,7 +300,7 @@ Depending on your organizations security, performance, and compatibility require
 > [!Important]  
 > Restricting SMB Azure file shares to only the most secure options may result in some clients not being able to connect if they do not meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows Server 2022 and Windows 11. This means that older clients that do not support AES-256-GCM will not be able to connect.
 
-```bash
+```azurecli
 az storage account file-service-properties update \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \

@@ -2,7 +2,7 @@
 author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 01/24/2022
+ms.date: 04/25/2022
 
 ---
 ## Enable the plan
@@ -23,7 +23,7 @@ ms.date: 01/24/2022
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
     > [!NOTE]
-    > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually disable auto provisioning of the Defender for Containers components. This will not remove the components from machines on which they've already been deployed.
+    > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually remove Defender for Containers components deployed on your clusters.
 
 1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
