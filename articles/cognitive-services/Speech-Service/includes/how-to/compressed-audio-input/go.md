@@ -1,10 +1,22 @@
 ---
-author: amitkumarshukla
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/17/2021
-ms.author: amishu
+ms.date: 09/15/2020
+ms.author: eur
 ---
+
+[!INCLUDE [Header](../../common/go.md)]
+
+[!INCLUDE [Introduction](intro.md)]
+
+## GStreamer configuration
+
+The Speech SDK can use [GStreamer](https://gstreamer.freedesktop.org) to handle compressed audio. For licensing reasons, GStreamer binaries aren't compiled and linked with the Speech SDK. You need to install some dependencies and plug-ins. 
+
+[!INCLUDE [Linux](gstreamer-linux.md)]
+
+## Example
 
 To configure the Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream.
 

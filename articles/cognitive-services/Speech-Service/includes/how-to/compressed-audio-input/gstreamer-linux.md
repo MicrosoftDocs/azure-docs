@@ -1,12 +1,13 @@
 ---
 author: eric-urban
 ms.service: cognitive-services
+ms.subservice: speech-service
 ms.topic: include
-ms.date: 03/09/2020
+ms.date: 04/25/2022
 ms.author: eur
 ---
 
-Handling compressed audio is implemented by using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons, GStreamer binaries aren't compiled and linked with the Speech SDK. You need to install several dependencies and plug-ins.
+You need to install several dependencies and plug-ins.
 
 # [Ubuntu/Debian](#tab/debian)
 
@@ -31,5 +32,6 @@ gstreamer1-plugins-ugly-free
 > [!NOTE]
 > On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plug-ins need to be installed if the stream media format plug-in isn't in the preceding installed plug-ins. 
 
-
 ---
+
+For more information, see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c) and [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
