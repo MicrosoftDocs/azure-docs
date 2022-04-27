@@ -112,7 +112,7 @@ public static Boolean headerMatchesEnvVar(String headerValue) throws NoSuchAlgor
 
 ##### [Node.js](#tab/node)
 
-```node.js
+```javascript
 var crypto = require('crypto');
 
 function envVarMatchesHeader(headerValue) {
