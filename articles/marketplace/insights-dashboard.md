@@ -96,6 +96,8 @@ To select the filters, in the top-right of the page, select **Filters**.
 
 In the panel that appears on the right, select the offer names you want, and then select **Apply**.
 
+[ ![Screenshot of the dashboard filters panel.](./media/insights-dashboard/dashboard-filters-panel.png) ](./media/insights-dashboard/dashboard-filters-panel.png#lightbox)
+
 ### Page visits trends
 
 The Marketplace Insights **Visitors** chart displays a count of _Page visits_ and _Unique visitors_ for the selected computation period.
