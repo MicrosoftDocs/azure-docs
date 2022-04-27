@@ -1,6 +1,6 @@
 ---
-title: Create Dynatrace application - Azure partner solutions
-description: This article describes how to use the Azure portal to create an instance of Dynatrace.
+title: Create nginx application - Azure partner solutions
+description: This article describes how to use the Azure portal to create an instance of nginx.
 ms.topic: quickstart
 ms.collection: na
 ms.service: partner-services
@@ -10,47 +10,47 @@ ms.date: 05/12/2022
 ms.custom: mode-other
 ---
 
-# QuickStart: Get started with Dynatrace
+# QuickStart: Get started with nginx
 
-In this quickstart, you'll use the Azure portal to integrate an instance of Dynatrace with your Azure solutions.
+In this quickstart, you'll use the Azure portal to integrate an instance of nginx with your Azure solutions.
 
 ## Prerequisites
 
-- Subscription owner - The Dynatrace integration with Azure can only be created by users who have _Owner_ access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and Dynatrace Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+- Subscription owner - The nginx integration with Azure can only be created by users who have _Owner_ access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+- Single sign-on app - The ability to automatically navigate between the Azure portal and nginx Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
 
 ## Find offer
 
-Use the Azure portal to find the Dynatrace application.
+Use the Azure portal to find the nginx application.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
-1. Search for _Dynatrace_ and select **Dynatracesearch (Dynatrace Cloud)** from the available offerings.
+1. Search for _nginx_ and select **nginxsearch (nginx Cloud)** from the available offerings.
 
 1. Select **Set up + subscribe**.
 
 ## Create resource
 
-After you've selected the offer for Dynatrace, you're ready to set up the application.
+After you've selected the offer for nginx, you're ready to set up the application.
 
-1. On the **Create Dynatrace Resource** basics page, provide the following values.
+1. On the **Create nginx Resource** basics page, provide the following values.
 
     | Property | Description |
     | ---- | ---- |
     | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
     | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    | **Dynatrace account name** | Provide the name for the Dynatrace account you want to create |
+    | **nginx account name** | Provide the name for the nginx account you want to create |
     | **Region** | Select the region you want to deploy to. |
     | **Pricing Plan** | **Pay as you go**. |
-    | **Price** | Specified based on the selected Dynatrace plan. |
+    | **Price** | Specified based on the selected nginx plan. |
 
    When you've finished, select **Next: Logs and Metrics**.
 
-1. On **Logs & metrics**, specify which logs to send to Dynatrace.
+1. On **Logs & metrics**, specify which logs to send to nginx.
 
-   There are two types of logs that can be emitted from Azure to Dynatrace.
+   There are two types of logs that can be emitted from Azure to nginx.
 
    **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the management plane.
 
@@ -60,4 +60,4 @@ After you've selected the offer for Dynatrace, you're ready to set up the applic
 
 ## Next steps
 
-- [Manage the Dynatrace resource](dynatrace-manage.md)
+- [Manage the nginx resource](nginx-manage.md)

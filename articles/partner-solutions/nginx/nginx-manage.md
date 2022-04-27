@@ -1,6 +1,6 @@
 ---
-title: Manage an Dynatrace integration with Azure - Azure partner solutions
-description: This article describes management of Dynatrace on the Azure portal. 
+title: Manage an nginx integration with Azure - Azure partner solutions
+description: This article describes management of nginx on the Azure portal. 
 ms.topic: conceptual
 ms.service: partner-services
 ms.collection: na
@@ -11,13 +11,13 @@ ms.date: 05/12/2022
 
 ---
 
-# Manage the Dynatrace integration with Azure
+# Manage the nginx integration with Azure
 
-This article describes how to manage your integration of Dynatrace with Azure. It shows how to configure the diagnostic settings and delete the Dynatrace resource.
+This article describes how to manage your integration of nginx with Azure. It shows how to configure the diagnostic settings and delete the nginx resource.
 
 ## Reconfigure rules for metrics and logs
 
-When you created the Dynatrace resource, you configured which logs are sent to Dynatrace. If you need to change those settings, select **Metrics and Logs** in the left pane. Make the needed changes to how logs are sent to Dynatrace.
+When you created the nginx resource, you configured which logs are sent to nginx. If you need to change those settings, select **Metrics and Logs** in the left pane. Make the needed changes to how logs are sent to nginx.
 
 For more information about the two types of logs, see .
 
@@ -25,4 +25,4 @@ For more information about the two types of logs, see .
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
+For help with troubleshooting, see [Troubleshooting nginx integration with Azure](nginx-troubleshoot.md).

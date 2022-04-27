@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Dynatrace integration with Azure
-summary: Uses Dynatrace to Dynatrace stuff.
+title: nginx integration with Azure
+summary: Uses nginx to nginx stuff.
 
 metadata:
-  title: Dynatrace with Azure documentation
-  description: Dynatrace integrates with Azure to offer 
+  title: nginx with Azure documentation
+  description: nginx integrates with Azure to offer 
   ms.service: partner-services
   ms.topic: landing-page
   ms.collection: na
@@ -17,28 +17,28 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Dynatrace with Azure
+  - title: About nginx with Azure
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Dynatrace integration with Azure?
-            url: dynatrace-overview.md
+          - text: What is nginx integration with Azure?
+            url: nginx-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage the Dynatrace integration with Azure
-            url: dynatrace-manage.md
+          - text: Manage the nginx integration with Azure
+            url: nginx-manage.md
 
   # Card
-  - title: Create Dynatrace resource
+  - title: Create nginx resource
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Dynatrace
-            url: dynatrace-create.md
+          - text: Get started with nginx
+            url: nginx-create.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Dynatrace with Azure
-            url: dynatrace-troubleshoot.md
+          - text: Troubleshooting nginx with Azure
+            url: nginx-troubleshoot.md
 
   # Card
   - title: Explore reference content
@@ -46,8 +46,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/Dynatrace
+            url: /cli/azure/nginx
           - text: Azure PowerShell
-            url: /powershell/module/az.Dynatrace/#Dynatrace
+            url: /powershell/module/az.nginx/#nginx
           - text: REST API
-            url: /rest/api/Dynatrace
+            url: /rest/api/nginx
