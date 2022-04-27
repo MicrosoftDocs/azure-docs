@@ -174,7 +174,7 @@ For example, the following table lists few alert rules for your resources. You c
 | Alert type | Condition | Description  |
 |:---|:---|:---|
 |Rate limiting on request units (metric alert) |Dimension name: StatusCode, Operator: Equals, Dimension values: 429  | Alerts if the container or a database has exceeded the provisioned throughput limit. |
-|Region failed over |Operator: Greater than, Aggregation type: Count, Threshold value: 1 | When a single region is failed over. This alert is helpful if you didn't enable automatic failover. |
+|Region failed over |Operator: Greater than, Aggregation type: Count, Threshold value: 1 | When a single region is failed over. This alert is helpful if you didn't enable service-managed failover. |
 | Rotate keys(activity log alert)| Event level: Informational , Status: started| Alerts when the account keys are rotated. You can update your application with the new keys. |
 
 ## <a id="monitor-cosmosdb-programmatically"></a> Monitor Azure Cosmos DB programmatically
