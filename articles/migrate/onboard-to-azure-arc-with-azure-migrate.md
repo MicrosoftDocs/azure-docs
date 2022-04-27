@@ -57,7 +57,7 @@ Before you set up the appliance,
 Next,
 
 - Follow this article to [set up the Azure Migrate appliance](./tutorial-discover-vmware.md#set-up-the-appliance) to start vCenter Server discovery. To deploy the appliance, you can download and import an OVA template into VMware to create a server running in your vCenter Server.  
-- After deploying the appliance, you need to register it with the project before you initiate the discovery. Follow [these instructions](./tutorial-discover-vmware.md#register-the-appliance-with-azure-migrate) to register the appliance. 
+- After deploying the appliance, you need to register it with the project before you initiate the discovery. Follow [these instructions](./tutorial-discover-vmware.md#set-up-prerequisites-and-register-the-appliance) to register the appliance. 
 
 ## Configure the appliance and start discovery  
 

@@ -243,7 +243,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 1. **Time sync**: Check that the time on the appliance is in sync with internet time for discovery to work properly.
 1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
-    :::image type="content" source="./media/tutorial-discover-vmware/prereq-new.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
+    :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
     > [!NOTE]
     > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
