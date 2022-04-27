@@ -66,11 +66,11 @@ Now that you've transcribed speech to text, here are some suggested modification
     ```
     ***
 - To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
-    ```csharp
+    ```console
     spx recognize --microphone --source es-ES
     ```
 - For continuous recognition of audio longer than 30 seconds, append `--continuous`:
-    ```csharp
+    ```console
     spx recognize --microphone --source es-ES --continuous
     ```
 
