@@ -14,9 +14,9 @@ The following limits apply to incidents in Microsoft Sentinel.
 
 |Description  |Limit  |Dependency|
 |---------|---------|-------|
-|Investigation experience availablility     | 90 days from the incident last update time       |None|
+|Investigation experience availability     | 90 days from the incident last update time       |None|
 |Number of automation rules     | 512  rules      |None|
 |Number of actions    | 20  actions    |None|
-|Number of characters per comment   | 30K characters  |None|
+|Number of characters per comment   | 30 K characters  |None|
 |Number of comments per incident   | 100  comments  |None|
 |Number of conditions    | 50 conditions   |None|
