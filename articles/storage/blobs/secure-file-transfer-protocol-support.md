@@ -145,7 +145,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 
 To get started, enable SFTP support, create a local user, and assign permissions for that local user. Then, you can use any SFTP client to securely connect and then transfer files. For step-by-step guidance, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
 
-## Service availablity
+## Service availability
 
 SFTP is available in all regions where Blob Storage with Hierarchical Namespace (HNS) or Azure Data Lake Storage (ADLS) Gen2 is available, see [Azure Products by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage) for more information. 
 
