@@ -110,7 +110,7 @@ If your are hosting Grafana on your own Azure VM or Azure App Service with manag
 
 In addition to building you panels in Grafana, you can also quickly pin Azure Monitor visualizations from the Azure Portal to new or existing Grafana dashboards by adding panels to your Grafana dashboard directly from Azure Monitor. Navigate to Metrics for your resource, create a chart and click **Save to dashboard**, followed by **Pin to Grafana**. Choose the workspace  and dashboard and click **Pin** to complete the operation.
 
-[ ![Screenshot Pin to Grafana option in Azure Monitor metrics explorer.](media/grafana-plugin/grafana-pin-to.png) ](grafana-pin-to-expanded.png#lightbox)
+[ ![Screenshot Pin to Grafana option in Azure Monitor metrics explorer.](media/grafana-plugin/grafana-pin-to.png) ](media/grafana-plugin/grafana-pin-to-expanded.png#lightbox)
 
 ## Optional: Monitor your custom metrics in the same Grafana server
 
