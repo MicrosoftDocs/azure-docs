@@ -51,8 +51,8 @@ The tables below summarize current availability:
 | UK                 | Local          | Not Available        | Not Available        | Public Preview   | Public Preview\* |
 | USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | Public Preview   | Public Preview\* |
 | USA & Puerto Rico  | Local          | Not Available        | Not Available        | Public Preview   | Public Preview\* |
-| Canada | Toll-Free | Public Preview | Public Preview       | Public Preview       | Public Preview\* | Public Preview\* |
-| Canada | Local     | Not Available  | Not Available        | Public Preview       | Public Preview\* | Public Preview\* |
+| Canada             | Toll-Free      | Public Preview       | Public Preview       | Public Preview   | Public Preview\* |
+| Canada             | Local          | Not Available        | Not Available        | Public Preview   | Public Preview\* |
 
 \* Available through Azure Bot Framework and Dynamics only
 
