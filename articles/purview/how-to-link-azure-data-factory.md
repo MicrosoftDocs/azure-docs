@@ -20,7 +20,7 @@ Multiple Azure Data Factories can connect to a single Microsoft Purview to push 
 2. Under **Lineage connections**, select **Data Factory**.
 3. The Data Factory connection list appears.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection-inline.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection-expanded.png":::
 
 4. Notice the various values for connection **Status**:
 
