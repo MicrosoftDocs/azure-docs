@@ -14,4 +14,4 @@ The following limit applies to UEBA in Microsoft Sentinel. The limit for UEBA in
 
 |Description   |Limit |Dependency|
 |---------|---------|---------|
-|Lowest retention configuration in days for the [IdentityInfo](../articles/azure-monitor/reference/tables/identityinfo.md) table. All data stored on the IdentityInfo table in Log Analytics is refreshed every 14 days. | 14 days  |Log Analytics|
+|Lowest retention configuration in days for the [IdentityInfo](/azure/azure-monitor/reference/tables/identityinfo) table. All data stored on the IdentityInfo table in Log Analytics is refreshed every 14 days. | 14 days  |Log Analytics|
