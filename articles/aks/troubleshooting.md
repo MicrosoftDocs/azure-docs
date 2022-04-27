@@ -60,7 +60,7 @@ There might be various reasons for the pod being stuck in that mode. You might l
 For more information about how to troubleshoot pod problems, see [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) in the Kubernetes documentation.
 
 ## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
-AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
+AKS has HA control planes that scale vertically and horizontally according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
 
 - **Are all your API commands timing out consistently or only a few?** If it's only a few, your `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
 - **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail. The AKS secure, tunneled communication between api-server and kubelet (through the *konnectivity-agent*) will require some of these to work.
