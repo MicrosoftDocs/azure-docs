@@ -50,8 +50,8 @@ Identity Protection now integrates a signal from Microsoft Defender for Endpoint
 ### General availability - Entitlement management 3 stages of approval
 
 
-**Type:** Changed feature 
-**Service category:** Identity Protection  
+**Type:** Changed feature  
+**Service category:** Other  
 **Product capability:** Entitlement Management  
 **Clouds impacted:** Public (Microsoft 365,GCC)
  
@@ -64,7 +64,7 @@ This update extends the Azure AD entitlement management access package policy to
 ### General Availability - Improvements to Azure AD Smart Lockout
 
 
-**Type:** Changed feature 
+**Type:** Changed feature  
 **Service category:** Identity Protection  
 **Product capability:** User Management  
 **Clouds impacted:** Public (Microsoft 365,GCC), China, US Gov(GCC-H, DOD), US Nat, US Sec
@@ -79,7 +79,7 @@ With a recent improvement, Smart Lockout now synchronizes the lockout state acro
 ### Public Preview - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
 
 **Type:** New feature  
-**Service category:** Authentications (Logins)
+**Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
 Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
@@ -90,7 +90,7 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 login 
 
 
 **Type:** New feature  
-**Service category:** User Access Management 
+**Service category:** User Access Management  
 **Product capability:** AuthZ/Access Delegation  
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
@@ -101,7 +101,7 @@ Microsoft 365 Certification status for an app is now available in Azure AD conse
 ### Public Preview - Organizations can replace all references to Microsoft on the AAD auth experience
 
 **Type:** New feature  
-**Service category:** Authentications (Logins)
+**Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
 Updating the Company Branding functionality on the Azure AD/Microsoft 365 login experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
@@ -114,6 +114,8 @@ Updating the Company Branding functionality on the Azure AD/Microsoft 365 login 
 **Type:** New feature  
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
+
+
 Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels. For more information, see: [Include B2B direct connect users and teams accessing Teams Shared Channels in access reviews (preview)](../governance/create-access-review.md#include-b2b-direct-connect-users-and-teams-accessing-teams-shared-channels-in-access-reviews-preview).
 
 ---
@@ -121,8 +123,8 @@ Use Azure AD access reviews to review access of B2B direct connect users in Team
 ### Public Preview - New MS Graph APIs to configure federated settings when federated with Azure AD
 
 **Type:** New feature  
-**Service category:** MS Graph
-**Product capability:** Identity Security & Protection
+**Service category:** MS Graph  
+**Product capability:** Identity Security & Protection  
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
 
@@ -160,8 +162,8 @@ Added functionality to session controls allowing admins to reauthenticate a user
 ###  Public Preview – Protect against by-passing of cloud Azure MFA when federated with Azure AD
 
 **Type:** New feature  
-**Service category:** MS Graph
-**Product capability:** Identity Security & Protection
+**Service category:** MS Graph  
+**Product capability:** Identity Security & Protection  
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
 We are delighted to announce a new security protection that prevents bypassing of cloud Azure MFA when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account cannot bypass Azure MFA by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](https://docs.microsoft.com/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values). 
@@ -190,7 +192,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 **Type:** New feature  
 **Service category:** App Provisioning  
-**Product capability:** GoLocal
+**Product capability:** GoLocal  
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
 From April 15, 2022, Microsoft began storing Azure AD’s Customer Data for new tenants with a Japan billing address within the Japanese data centers.  For more information, see: [Customer data storage for Japan customers in Azure Active Directory](active-directory-data-storage-japan.md).
@@ -204,7 +206,7 @@ From April 15, 2022, Microsoft began storing Azure AD’s Customer Data for new 
 
 **Type:** New feature  
 **Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration
+**Product capability:** 3rd Party Integration  
 **Clouds impacted:** Public (Microsoft 365,GCC)
 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
