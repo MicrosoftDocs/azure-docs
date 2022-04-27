@@ -203,7 +203,7 @@ sections:
 
             - Form Recognizer extracts data from document images JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) formats and returns a structured output.
             - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-            - Your file size must be less than 50 MB.
+            - Your file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
             - Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
             - PDF dimensions can be a maximum of 17 x 17 inches (corresponding to Legal or A3 paper size) or smaller.
             - The total allowable size of training data is 500 pages or less.
