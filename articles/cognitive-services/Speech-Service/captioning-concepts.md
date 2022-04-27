@@ -38,7 +38,7 @@ Captioning can accompany real time or pre-recorded speech. Whether you're showin
 
 For real time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
 
-For captioning of a prerecoding, send file input to the Speech service. For more information, see [How to use compressed audio files](how-to-use-codec-compressed-audio-input-streams.md).
+For captioning of a prerecoding, send file input to the Speech service. For more information, see [How to use compressed input audio](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Caption and speech synchronization 
 
