@@ -119,6 +119,48 @@ This command returns a JSON payload that looks like the following example:
 ```
 This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
 
+### [Azure PowerShell](#tab/azure-powershell) 
+
+The [Azure PowerShell](/powershell/azure/) has commands for retrieving metrics. You can use the Azure PowerShell from a local command environment or directly from the portal using [Azure Cloud Shell](../articles/cloud-shell/overview.md). For example, the following [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) command returns hourly data over same time period used before.
+
+Make sure to replace `<AZURE_SUBSCRIPTON_ID>` with your Azure subscription ID running the command.
+
+```azurepowershell-interactive
+Get-AzMetric -ResourceId /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption -MetricName  FunctionExecutionUnits,FunctionExecutionCount -AggregationType Total -TimeGrain 01:00:00 -StartTime 2019-09-11T21:46:00Z -EndTime 2019-09-11T23:18:00Z
+```
+
+This command returns an output that looks like the following example:
+
+```Output
+Id         : /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption/providers/Microsoft.Insights/metrics/FunctionExecutionUnits
+Name       : 
+                LocalizedValue : Function Execution Units
+                Value          : FunctionExecutionUnits
+             
+Type       : Microsoft.Insights/metrics
+Unit       : Count
+Data       : {Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue, 
+             Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue, 
+             Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue, 
+             Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue…}
+Timeseries : {Microsoft.Azure.Management.Monitor.Models.TimeSeriesElement}
+
+Id         : /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption/providers/Microsoft.Insights/metrics/FunctionExecutionCount
+Name       : 
+                LocalizedValue : Function Execution Count
+                Value          : FunctionExecutionCount
+             
+Type       : Microsoft.Insights/metrics
+Unit       : Count
+Data       : {Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue, 
+             Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue, 
+             Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue, 
+             Microsoft.Azure.Commands.Insights.OutputClasses.PSMetricValue…}
+Timeseries : {Microsoft.Azure.Management.Monitor.Models.TimeSeriesElement}
+```
+
+The `Data` property contains the actual metric values.
+
 ---
 
 [Azure portal]: https://portal.azure.com
