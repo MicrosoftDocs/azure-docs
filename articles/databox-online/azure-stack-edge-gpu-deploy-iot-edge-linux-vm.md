@@ -35,7 +35,7 @@ Before you begin, make sure you have:
 - An Azure Stack Edge device that you've activated as described in [Activate Azure Stack Edge Pro].
 - You have access to a VM image. This could be an image from Azure marketplace. 
 
-    - If you intend to run a non-GPU Ubuntu VM, see the [Supported versions of Ubuntu Operating System for Azure IoT Edge](../iot-edge/support.md?view=iotedge-2020-11#operating-systems&preserve-view=true).
+    - If you intend to run a non-GPU Ubuntu VM, see the [Supported versions of Ubuntu Operating System for Azure IoT Edge](../iot-edge/support.md#operating-systems&preserve-view=true).
     - For GPU VMs, see the [Supported versions of OS for your GPU VM on Azure Stack Edge device](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-for-gpu-extension-for-linux).
 
 ## Deploy IoT Edge runtime
@@ -44,11 +44,11 @@ Begin by deploying IoT Edge runtime. Follow these steps to deploy IoT Edge runti
 
 1. In the Azure portal, go to Azure marketplace. 
     1. Connect to the Azure Cloud Shell or a client with Azure CLI installed. 
-    1. Search the Azure Marketplace and identify your preferred image. Make sure that the VM image is included in the list of [Azure IoT Edge supported systems](../iot-edge/support.md?view=iotedge-2020-11#linux-containers&preserve-view=true).
+    1. Search the Azure Marketplace and identify your preferred image. Make sure that the VM image is included in the list of [Azure IoT Edge supported systems](../iot-edge/support.md#linux-containers&preserve-view=true).
     1. Create a new managed disk from the Marketplace image.
     1. Export a VHD from the managed disk to Azure Storage account.
 
-    For detailed steps, follow the instructions in [Use Azure marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image).
+    For detailed steps, follow the instructions in [Use Azure marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
 
 1. Create an Ubuntu VM using the VM image created in the previous step. Depending on whether you are creating a GPU-enabled VM or a non-GPU VM, you would need to follow a different set of steps.
 
@@ -79,7 +79,7 @@ If you are migrating workloads from IoT Edge solution on Kubernetes to IoT Edge 
 1. When you enable Kubernetes services on Azure Stack Edge, Kubernetes may take over the GPU resources and not allow the deployment of a GPU-enabled VM. To deploy the VM:
 
     1. Stop any running modules. 
-    1. Remove the IoT Edge on Kubernetes deployment. For detailed instructions, see [Remove IoT Edge service](azure-stack-edge-gpu-manage-compute#remove-iot-edge-service.md).
+    1. Remove the IoT Edge on Kubernetes deployment. For detailed instructions, see [Remove IoT Edge service](azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
     
         ![Screenshot of removal of IoT Edge role configured on Kubernetes deployment.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/remove-iot-configuration-1.png)
 
