@@ -10,7 +10,7 @@ ms.date: 4/28/2022
 ---
 
 # High Memory Utilization
-The purpose of the document is to discuss common scenarios and root causes that might lead to high memory utilization. The documents highlight the following -
+The purpose of the document is to discuss common scenarios and root causes that might lead to high memory utilization. The document highlights the following -
 
 -   Tools to Identify high memory utilization. 
 -   Reasons & Remedial actions  
