@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -44,11 +44,74 @@ The [Orders dashboard](https://partner.microsoft.com/dashboard/insights/commerci
 
 The following sections describe how to use the Orders dashboard and how to read the data.
 
+### Download
+
+To download of the data for this dashboard, select **Download as PDF** from the **Download** list.
+
+:::image type="content" source="./media/orders-dashboard/download-as-pdf.png" alt-text="Screenshot of the Download list.":::
+
+Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
+
+### Share
+
+To share the dashboard widgets data via email, in the top menu, select **Share**.
+
+:::image type="content" source="./media/orders-dashboard/share.png" alt-text="Screenshot of the Share button in the top menu.":::
+
+In the dialog box that appears, provide the recipient email address and message. To share the report URL, select the **Copy link** or **Share to teams** button. To take a snapshot of the charts data, select the **Copy as image** button.
+
+### What's new
+
+To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
+
+:::image type="content" source="./media/orders-dashboard/whats-new.png" alt-text="Screenshot of the What's new button in the top menu.":::
+
+### Data refresh details
+
+To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
+
+:::image type="content" source="./media/orders-dashboard/data-refresh-details.png" alt-text="Screenshot of the Data refresh details option in the ellipsis menu.":::
+
+### Got feedback?
+
+To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
+
+:::image type="content" source="./media/orders-dashboard/got-feedback.png" alt-text="Screenshot of the Got feedback option in the ellipsis menu.":::
+
+Provide your feedback in the dialog box that appears.
+
+> [!NOTE]
+> A screenshot is automatically sent to us with your feedback.
+
 ### Month range
 
 A month range selection is at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
 
-[ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
+[ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/time-range.png) ](./media/orders-dashboard/time-range.png#lightbox)
+
+### Orders dashboard filters
+
+The page has different dashboard-level filters you can use to filter the data based on the following:
+
+- Sales Channel
+- Offer Type
+- Is Free Trial
+- Subscription Status
+- Marketplace License Type
+- Marketplace Subscription Id
+- Customer Id
+- Customer Company Name
+- Country
+- Offer Name
+
+To select the filters, in the upper-right of the page, select Filters.
+
+[ ![Screenshot of the Filters button in the top menu.](./media/orders-dashboard/filters.png) ](./media/orders-dashboard/filters.png#lightbox)
+
+Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
+
+:::image type="content" source="./media/orders-dashboard/filters-panel.png" alt-text="Screenshot of the Filters side panel.":::
+
 
 ### Public and Private offer
 You can choose to view subscription and order details of public offers, private offers, or both by selecting the **Public offer** sub-tab, **Private offer** sub-tab, and the **All** sub-tab respectively.
@@ -119,7 +182,7 @@ For different statuses, the _Orders_ tab provides information about the count of
 - **New**: Indicates new orders purchased by customers for the selected month range.
 - **Convert**: This indicates orders for which customers purchased an offer after its trial period was over
 - **Renewed**: This indicates orders for subscriptions that were renewed in the selected month range. These orders do not include converted orders.
-- **Cancelled**: Orders that were canceled during the selected month range. Revenue of canceled orders is calculated using billed revenue of last term before order cancellation.
+- **Canceled**: Orders that were canceled during the selected month range. Revenue of canceled orders is calculated using billed revenue of last term before order cancellation.
 - **Seats/Sites added**: Seats or Sites that were added by customers to existing subscription orders.
 - **Seats/Sites removed**:  Seats or Sites that were removed by customers from existing subscription orders. It doesn't include seats or sites that were removed due to orders cancellations.
 
