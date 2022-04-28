@@ -114,13 +114,13 @@ From this view, you can pin one or more charts to your dashboard or select a cha
 
 The Azure Monitor metrics explorer is available from the Azure portal through the **Metrics** menu option on your container app page or the Azure **Monitor>Metrics** page.
 
-The metrics page allows you to create and view charts to display your container app's metrics over time.  Refer to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
+The metrics page allows you to create and view charts to display your container app's resource and network usage over time.  Refer to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
 When you first navigate to the metrics explorer, you'll see the main page.  From here, select the metric that you want to display.  You can add more metrics to the chart by selecting **Add Metric** in the upper left.
 
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::
 
-You can filter your metrics by revision or replica.  For example, to filter by a replica, select **Add filter**, then select a replica from the *Value* drop-down.  
+You can filter your metrics by revision or replica.  For example, to filter by a replica, select **Add filter**, then select a replica from the **Value** drop-down.  
 
 :::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Screenshot of the metrics explorer showing the chart filter options.":::
 
@@ -134,9 +134,9 @@ You can view metrics across multiple container apps to view resource utilization
 
 ## Azure Monitor Log Analytics
 
-Application logs are available through Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace, which provides a common log space for all containers running in the environment.  
+Application logs are collected by Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace, which provides a common log space for all containers running in the environment.  
 
-Application logs, consisting of the logs written to `stdout` and `stderr` from the container(s) in each container app, are collected and stored in the Log Analytics workspace.  Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.
+Application logs from each container in the container app are stored in the Log Analytics workspace.  The logs consist of the messages written to `stdout` and `stderr`. Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.
 
 To view these logs, you create Log Analytics queries.  The log entries are stored in the ContainerAppConsoleLogs_CL table in the CustomLogs group.
 
@@ -187,17 +187,22 @@ For more information about viewing logs, see [Viewing Logs](monitor.md#viewing-l
 
 You can configure alerts to send notifications based on metrics values and Log Analytics queries.  You can add alerts from the metrics explorer and the Log Analytics interface in the Azure portal.
 
-Alerts are based on existing charts and queries in the metrics explorer and the Log Analytics interface.  You can manage your alerts from the **Monitor>Alerts** page.  You can create metric and log alerts from this page without existing metric charts or log queries.  To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
+When you create alerts using the **Metrics** and **Logs** pages on your container app page, the alerts are based on existing charts and queries in the metrics explorer and the Log Analytics interface.  
 
-### Set alerts in the metrics explorer
+You can also create and manage alerts from the **Monitor>Alerts** page.  From there, you can create metric and log alerts without existing metric charts or log queries.  
 
-With the metrics explorer, you define metric alerts that are triggered when metric data collected over set intervals meet alert rule conditions.  For more information, see [Metric alerts](../azure-monitor/alerts/alerts-metric-overview.md).
+To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
 
-After you create a metric chart, you can create alert rules based on the chart's settings by selecting **New alert rule**.
+### Create alerts in the metrics explorer
+
+You can add alert rules to your metric charts in the metrics explorer.  Metric alerts are triggered  when metric data collected over set intervals meet alert rule conditions.  For more information, see [Metric alerts](../azure-monitor/alerts/alerts-metric-overview.md).
+
+
+After you create a [metric chart](#view-and-analyze-metric-data-with-metrics-explorer), you can create alert rules based on the chart's settings by selecting **New alert rule**.
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Screenshot of the metrics explorer highlighting the new rule button.":::
 
-When you select **New alert rule**, the rule creation pane is opened to the **Condition** tab.  An alert condition is started for you containing the metrics you selected for the chart.  Edit the condition to configure threshold criteria and other settings.
+When you select **New alert rule**, the rule creation pane is opened to the **Condition** tab.  An alert condition is started for you containing the metrics you selected when creating the chart.  Edit the condition to configure threshold criteria and other settings.
 
 :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Screenshot of the metric explorer alert rule editor.  A condition is automatically created based on the chart settings.":::
 
@@ -221,7 +226,7 @@ Once you create the alert rule, it's added to your resource group.  To manage yo
 
  To learn more about configuring alerts, visit [Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md)
 
-### Set alerts using Log Analytics queries
+### Create alerts using Log Analytics queries
 
 You can create log alerts that periodically run Log Analytics queries to monitor your app and trigger alerts based on alert rule conditions.  You can add alert rules to your queries from the Log Analytics interface.  Once you have created and run a query, the **New alert rule** button is enabled.
 
