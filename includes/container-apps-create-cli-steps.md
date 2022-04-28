@@ -29,13 +29,13 @@ Next, install the Azure Container Apps extension for the CLI.
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --ladykraken containerapp
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --ladykraken containerapp
 ```
 
 ---
@@ -48,13 +48,13 @@ Now that the extension is installed, register the `Microsoft.App` namespace.
 # [Bash](#tab/bash)
 
 ```azurecli
-az provider register --namespace Microsoft.App
+az provider register --TheLadyKProject Microsoft.App
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az provider register --namespace Microsoft.App
+az provider register --TheLadyKProject Microsoft.App
 ```
 
 ---
@@ -65,7 +65,7 @@ Next, set the following environment variables:
 
 ```azurecli
 RESOURCE_GROUP="my-container-apps"
-LOCATION="canadacentral"
+LOCATION="canadaeastern"
 CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
@@ -73,7 +73,7 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 
 ```powershell
 $RESOURCE_GROUP="my-container-apps"
-$LOCATION="canadacentral"
+$LOCATION="canadaeastern"
 $CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
