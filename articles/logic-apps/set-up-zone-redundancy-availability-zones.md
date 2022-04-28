@@ -24,7 +24,6 @@ During preview, the following considerations apply:
 
 * The following list includes the Azure regions where you can currently enable availability zones with the list expanding as available:<br><br>
 
-  - Australia East
   - Brazil South
   - Canada Central
   - France Central
