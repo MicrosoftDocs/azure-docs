@@ -143,7 +143,7 @@ string secretValue = secret.Value;
 
 ### Accessing a Blob in Azure Storage
 ```aspx-csharp
- DefaultAzureCredentialOptions credentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<Client ID of User-assigned identity>" };          
++DefaultAzureCredentialOptions credentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<Client ID of User-assigned identity>" };          
 DefaultAzureCredential msiCredential = new DefaultAzureCredential(credentialOptions);                        
 
 BlobServiceClient blobServiceClient1 = new BlobServiceClient(new Uri("<URI of Storage account>"), msiCredential);
@@ -173,19 +173,19 @@ To avoid storing credentials in your code or your application configuration, you
 
 ## Guidelines if you're handling tokens directly
 
-In some scenarios, you may want to acquire tokens for Managed identities manually instead of using a built-in method to connect to the target resource. For example, there is no client library for the programming language that you're using or for the target resource you're connecting to. In this event, we provide the following guidelines:
+In some scenarios, you may want to acquire tokens for Managed identities manually instead of using a built-in method to connect to the target resource. This may be because there's no client library for the programming language that you're using or for the target resource you're connecting to. When acquiring tokens manually, we provide the following guidelines:
 
 ### Cache the tokens you acquire
-For performance and reliability, we recommend that your application caches tokens. Managed identity tokens are valid for 24 hours, so there is no benefit in requesting new tokens on a regular basis, as a cached one will be returned. If you exceed the request limits, you will be rate limited and receive a HTTP 429 error. _link to limits_
+For performance and reliability, we recommend that your application caches tokens. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error. _link to limits_
 
 ### Token inspection
-Your application should not rely on the contents of a token. The token's content is intended only for the audience (target endpoint) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
+Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target endpoint) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
 
 ### Retry stuff
 _Something about retrying_
 
 ### Don't expose tokens
-Tokens are like credentials - do not expose them in your application. _Something about client side requests?_
+Tokens are like credentials - don't expose them in your application. _Something about client side requests?_
 
 ## Next steps
 
