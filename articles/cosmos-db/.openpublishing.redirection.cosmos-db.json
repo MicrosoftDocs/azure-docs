@@ -681,6 +681,16 @@
     "redirect_document_id": false
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/mongodb/create-mongodb-xamarin.md",
+    "redirect_url": "/azure/cosmos-db/mongodb/mongodb-introduction",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/mongodb/create-mongodb-rust.md",
+    "redirect_url": "/azure/cosmos-db/mongodb/mongodb-introduction",
+    "redirect_document_id": false
+  },
+  {
     "source_path_from_root": "/articles/documentdb/documentdb-monitor-accounts.md",
     "redirect_url": "/azure/cosmos-db/monitor-accounts",
     "redirect_document_id": false
