@@ -91,7 +91,7 @@ A month range selection is at the top-right corner of each page. Customize the o
 
 ### Orders dashboard filters
 
-The page has different dashboard-level filters you can use to filter the the data based on the following:
+The page has different dashboard-level filters you can use to filter the data based on the following:
 
 - Sales Channel
 - Offer Type
