@@ -93,6 +93,6 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 
 To learn more about Certificate Authorities and PKI, see:
 
-- [Azure Firewall Premium certificates](https://docs.microsoft.com/en-us/azure/firewall/premium-certificates)
-- [Plan for PKI certificates in Configuration Manager](https://docs.microsoft.com/en-us/mem/configmgr/core/plan-design/security/plan-for-certificates)
-- [Securing PKI])https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)
+- [Azure Firewall Premium certificates](../../firewall/premium-certificates.md)
+- [Plan for PKI certificates in Configuration Manager](/mem/configmgr/core/plan-design/security/plan-for-certificates)
+- [Securing PKI](../previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11))
