@@ -53,7 +53,7 @@ This template defines 4 parameters:
 
 4. You should see the following pipeline: 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-4.png" alt-text="Pipeline view":::
+   :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf4.png" alt-text="Pipeline view":::
 
 5. Select **Debug**.
 
