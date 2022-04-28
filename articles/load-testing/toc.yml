@@ -31,30 +31,37 @@
 - name: How-to guides
   expanded: true
   items: 
-    - name: Compare test runs
-      href: how-to-compare-multiple-test-runs.md
-    - name: Configure server-side monitoring
-      href: how-to-monitor-server-side-metrics.md
-    - name: Configure for high scale loads
-      href: how-to-high-scale-load.md
-    - name: Troubleshoot test execution errors
-      href: how-to-find-download-logs.md
-    - name: Define test criteria
-      href: how-to-define-test-criteria.md
-    - name: Parameterize load tests
-      href: how-to-parameterize-load-tests.md
-    - name: Read a CSV file in load tests
-      href: how-to-read-csv-data.md
-    - name: Get insights from App Service Diagnostics
-      href: how-to-appservice-insights.md
-    - name: Export test results
-      href: how-to-export-test-results.md
-    - name: Manage users and roles
-      href: how-to-assign-roles.md
-    - name: Use a managed identity
-      href: how-to-use-a-managed-identity.md
-    - name: Move between regions
-      href: how-to-move-between-regions.md
+    - name: Configure load tests
+      items:
+      - name: Configure server-side monitoring
+        href: how-to-monitor-server-side-metrics.md
+      - name: Configure for high scale loads
+        href: how-to-high-scale-load.md
+      - name: Troubleshoot test execution errors
+        href: how-to-find-download-logs.md
+      - name: Define test criteria
+        href: how-to-define-test-criteria.md
+      - name: Parameterize load tests
+        href: how-to-parameterize-load-tests.md
+      - name: Read a CSV file in load tests
+        href: how-to-read-csv-data.md
+    - name: Analyze test results
+      items:
+      - name: Compare test runs
+        href: how-to-compare-multiple-test-runs.md
+      - name: Get insights from App Service Diagnostics
+        href: how-to-appservice-insights.md
+      - name: Export test results
+        href: how-to-export-test-results.md
+    - name: Security
+      items:
+      - name: Manage users and roles
+        href: how-to-assign-roles.md
+      - name: Use a managed identity
+        href: how-to-use-a-managed-identity.md
+    - name: Manage load testing resources
+      - name: Move between regions
+        href: how-to-move-between-regions.md
 - name: Reference
   items:
       - name: Test configuration YAML
