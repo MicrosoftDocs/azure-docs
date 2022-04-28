@@ -1,4 +1,15 @@
-## Introduction 
+---
+title: Extensions - Azure Database for PostgreSQL - Flexible Server
+description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
+ms.author: sunila
+author: sunilagarwal
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: conceptual
+ms.date: 11/30/2021
+---
+
+## High Memory Utilization
 The purpose of the document is to discuss common scenarios and root causes that might lead to high memory utilization. The documents highlight the following -
 
 -   Tools to Identify high memory utilization. 
@@ -71,7 +82,7 @@ For more details of pg bouncer
 
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer )
 
-#### EXPLAIN ANALZE 
+#### Explain Analyze 
 
 Once you know the query which is running and consuming memory that was identified from query store one can use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate the query and tune it. 
 
