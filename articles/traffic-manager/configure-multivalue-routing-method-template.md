@@ -32,7 +32,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/traffic-manager-minchild/azuredeploy.json":::
 
-Two Azure resource are defined in the template:
+Two Azure resources are defined in the template:
 
 * [**Microsoft.Network/trafficManagerProfiles/nestedEndpoints**](/azure/templates/microsoft.network/trafficmanagerprofiles)
 
@@ -69,7 +69,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
     It takes a few minutes to deploy the template. When completed, the output is similar to:
 
-    :::image type="content" source="./media/how-to-add-endpoint-existing-profile-template/traffic-manager-arm-powershell-output.png" alt-text="Azure Traffic Manager Resource Manager template PowerShell deployment output":::
+    :::image type="content" source="./media/configure-multivalue-routing-method-template/traffic-manager-arm-powershell-output.png" alt-text="Azure Traffic Manager Resource Manager template PowerShell deployment output":::
 
     Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -78,11 +78,11 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manger profile you entered when deploying the template.
 
     ```azurepowershell-interactive
-    Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name ParentEndPointExample | Select Endpoints
+    Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name tmprofileparent-1 | Select Endpoints
     ```
     The output is similar to:
 
-    :::image type="content" source="./media/how-to-add-endpoint-existing-profile-template/validation-output.png" alt-text="Output of validation command":::
+    :::image type="content" source="./media/configure-multivalue-routing-method-template/validation-output.png" alt-text="Output of validation command":::
 
 ## Clean up resources
 
@@ -96,7 +96,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you added a multi-value routing method with nested endpoints and the minchild feature.
+In this quickstart, you added a multi-value routing method with nested endpoints and the min-child feature.
 
 To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
