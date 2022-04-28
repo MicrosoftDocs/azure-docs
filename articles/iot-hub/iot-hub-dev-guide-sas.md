@@ -87,7 +87,7 @@ The URI prefix is computed by segment and not by character. For example `/a/b` i
 
 ### [Node.js](#tab/node)
 
-The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
+The following code generates a SAS token using the resource URI, signing key, policy name, and expiration period. The next sections detail how to initialize the different inputs for the different token use cases.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -113,7 +113,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
 
 ### [Python](#tab/python)
 
-As a comparison, the equivalent Python code to generate a security token is:
+The following code generates a SAS token using the resource URI, signing key, policy name, and expiration period. The next sections detail how to initialize the different inputs for the different token use cases.
 
 ```python
 from base64 import b64encode, b64decode
@@ -139,9 +139,10 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
     return 'SharedAccessSignature ' + parse.urlencode(rawtoken)
 ```
+
 ### [C#](#tab/csharp)
 
-The functionality in C# to generate a security token is:
+The following code generates a SAS token using the resource URI, signing key, policy name, and expiration period. The next sections detail how to initialize the different inputs for the different token use cases.
 
 ```csharp
 using System;
@@ -171,9 +172,11 @@ public static string generateSasToken(string resourceUri, string key, string pol
     return token;
 }
 ```
+
 ### [Java](#tab/java)
 
-For Java:
+The following code generates a SAS token using the resource URI, signing key, policy name, and expiration period. The next sections detail how to initialize the different inputs for the different token use cases.
+
 ```java
     public static String generateSasToken(String resourceUri, String key) throws Exception {
         // Token will expire in one hour
