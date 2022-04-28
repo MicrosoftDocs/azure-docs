@@ -64,7 +64,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/configure-firewall-sql-database.png" alt-text="Configure firewalls and virtual networks for your SQL DB using Azure portal.":::
 
-## Create your target Synapse SQL pool and database
+## Create your target Synapse SQL pool
 
 1. Launch [Synapse Studio](https://ms.web.azuresynapse.net/).
 
@@ -74,23 +74,8 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Enter a unique pool name, use the default settings, and create the dedicated pool.
 
-1. While the pool is being created, navigate to the **Data** hub, select **+ New**, and select **Synapse SQL database**.
+1. You need to create a schema if your expected schema is not available in target Synapse SQL database. If your schema is dbo, you can skip this step.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-sql-database.png" alt-text="Create a new Synapse SQL database from Synapse Studio.":::
-
-1. Select **Dedicated** and enter a name for your target Synapse SQL database.
-
-1. Create the target database and schema. After the pool, database, and schema are created successfully, proceed to the next step.
-
-1. From the **Data** hub, under **Workspace**, you should see your new Synapse SQL database listed under **Databases**. From your new Synapse SQL database, select **New SQL script**, then **Empty script**.
-
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-empty-sql-script.png" alt-text="Create a new empty SQL script from Synapse Studio.":::
-
-1. Paste the following script and select **Run** to create the master key for your target Synapse SQL database.
-
-   ```sql
-   CREATE MASTER KEY
-   ```
 
 ## Create the Synapse Link connection
 
@@ -112,7 +97,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. Select **Test connection** to ensure the firewall rules are properly configured and the workspace can successfully connect to the source Azure SQL Database.
 
-1. Select **Save**.
+1. Select **Create**.
 
 1. Select one or more source tables to replicate to your Synapse workspace and select **Continue**.
 
@@ -132,9 +117,9 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 1. With the new Synapse Link connection open, you can update the target table name, distribution type and structure type.
 
-   * Consider heap table for structure type when your data contains `varchar(max)`, `nvarchar(max)`, and `varbinary(max)`.
-
-   * Make sure the schema in your Synapse SQL pool has already been created before you start the link connection. Synapse link will help you to create tables automatically under your schema in Synapse SQL Pool.
+   > [!NOTE]
+   > * Consider heap table for structure type when your data contains varchar(max), nvarchar(max), and varbinary(max).
+   > * Make sure the schema in your Synapse SQL pool has already been created before you start the link connection. Synapse link will help you to create tables automatically under your schema in Synapse SQL Pool.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-edit-link.png" alt-text="Edit Synapse Link connection from Synapse Studio.":::
 
@@ -143,19 +128,6 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 ## Start the Synapse Link connection
 
 1. Select **Start** and wait a few minutes for the data to be replicated.
-
-   > [!NOTE]
-   > When you complete the steps in this article, select **Stop** from the same screen. For now, continue with the rest of the guide.
-
-## Validate and make updates to the Synapse Link connection
-
-1. In the **Data** hub, under **Workspace**, open your target database, and within **Tables**, right-click one of your target tables. Choose **New SQL script**, then **Select TOP 100 rows**.
-
-1. Run this query to check that the target database has the expected target table(s) and data.
-
-1. Try making changes to your source table(s) in your source Azure SQL Database. You may also add more tables to the source database.
-
-1. To include new tables to your running connection, go back to the Synapse Link connection in the **Integrate** hub. Select **New table**, select your other table(s), Save, and select **Publish all** to persist the change.
 
 ## Monitor the status of the Synapse Link connection
 
@@ -171,7 +143,7 @@ You may monitor the status of your Synapse Link connection, see which tables are
 
 ## Query replicated data
 
-You may now explore the replicated tables in your target Synapse SQL database.
+Wait for a few minutes, then check the target database has the expected table and data. ou can also now explore the replicated tables in your target Synapse SQL database.
 
 1. In the **Data** hub, under **Workspace**, open your target database, and within **Tables**, right-click one of your target tables.
 
@@ -181,11 +153,34 @@ You may now explore the replicated tables in your target Synapse SQL database.
 
 1. You can also query the target database with SSMS (or other tools). Use the dedicated SQL endpoint for your workspace as the server name. This is typically `<workspacename>.sql.azuresynapse.net`. Add `Database=databasename@poolname` as another connection string parameter when connecting via SSMS (or other tools).
 
-## <a name="known-issues"></a>Known issues and restrictions
+## Add/remove table in existing Synapse Link connection
 
-The following is the list of known issues, restrictions, and limits for Synapse Link for Azure SQL Database. If you encounter an issue that isn't documented in the following section, please reach out to the [SynapseLinkSQL@microsoft.com](mailto:SynapseLinkSQL@microsoft.com?subject=SQL%20DB%20-%20Private%20Preview%20issue) team.
+You can add/remove tables on Synapse Studio as following:
 
-Many of these are on our road map to address and may be supported in the future. However, we don't have any timelines for these at this point.
+1. Open the **Integrate Hub**.
+
+1. Select the **Link connection** you want to edit and open it.  
+
+1. Select **+New** table to add tables on Synapse Studio or remove the existing tables. You can add or remove tables when the link connection is running.
+
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of link connection to add table.":::
+
+## Stop the Synapse Link connection
+
+You can stop the Synapse link connection on Synapse Studio as following:
+
+1. Open the **Integrate Hub** of your Synapse workspace.
+
+1. Select the **Link connection** you want to edit and open it.  
+
+1. Select **Stop** to stop the link connection, and it will stop replicating your data.
+
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Screenshot of link connection to stop link.":::
+
+
+## <a name="known-issues"></a>Known limitations
+
+The following is the list of known limitations for Synapse Link for Azure SQL Database.
 
 * Users must create new Synapse workspace to get Synapse link for SQL DB. 
 
@@ -200,8 +195,8 @@ Many of these are on our road map to address and may be supported in the future.
 * Synapse Link for Azure SQL DB CANNOT be enabled for source tables in Azure SQL DB in following conditions:
 
   * Source tables do not have primary keys.
-  * The PK columns in source tables contain the unsupported data types including real and float.  
-  * Source table row size exceeds the limit of 7500 bytes. 
+  * The PK columns in source tables contain the unsupported data types including real, float, hierarchyid, sql_variant and timestamp.  
+  * Source table row size exceeds the limit of 7500 bytes. SQL Server supports row-overflow storage, which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row.
 
 * When SQL DB owner does not have a mapped login, Synapse link for SQL DB will run into error when enabling a link connection. User can set database owner to sa to fix this.
 
@@ -223,9 +218,8 @@ Many of these are on our road map to address and may be supported in the future.
 
 * Synapse Link for SQL DB cannot be enabled if any of the following features are in use for the source tables in Azure SQL database:
 
-  * Transactional Replication
   * Change Data Capture
-  * Hekaton, Column Store index, Graph table, temporal table.
+  * Temporal history table
   * Always encrypted
 	
 * System tables in SQL database will not be replicated.
