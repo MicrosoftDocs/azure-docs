@@ -114,7 +114,7 @@ With the delta query option, Stream Analytics runs the snapshot query initially 
 
 To configure your SQL Database reference data, you first need to create reference data input. The following table explains each property you need to provide when you create the reference data input with its description. For more information, see [Use reference data from a SQL Database for a Stream Analytics job](sql-reference-data.md).
 
-You can use [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) as a reference data input. You must [configure a public endpoint in SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). Then you manually configure the following settings in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is also supported by manually configuring these settings.
+You can use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as a reference data input. You must [configure a public endpoint in SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure). Then you manually configure the following settings in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is also supported by manually configuring these settings.
 
 |Property name|Description  |
 |---------|---------|

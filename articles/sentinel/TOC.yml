@@ -350,6 +350,8 @@
       href: sap-deploy-troubleshoot.md
 - name: Reference
   items:
+  - name: Service limits
+    href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
