@@ -11,9 +11,9 @@ ms.date: 4/28/2022
 
 # Autovacuum Tuning
 
-Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row. This provides greater concurrency with minimal blocking between the different processes. The downside of it is it needs appropriate maintenance done by VACUUM and ANALYZE commands.  
+Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes. The downside of it is it needs appropriate maintenance done by VACUUM and ANALYZE commands.  
 
-For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, it marks the existing row as “dead” and inserts a new version of this row. These operations leave behind the dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, these dead tuples will stay, consuming disk space, and for tables with a high update and delete rate, the dead tuples might account for most of the disk space, wasting space (which is commonly referred to as Bloat) and slowing query performance.   
+For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, it marks the existing row as “dead” and inserts a new version of this row. These operations leave behind the dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, these dead tuples will stay, consuming disk space,increasing table and index bloat which results in slow query performance.   
 
 The purpose of autovacuum process is to automate the execution of VACUUM and ANALYZE commands. The AUTOVACUUM daemon is made up of multiple processes that reclaim storage by removing obsolete data or tuples from the database. It checks for tables that have a significant number of inserted, updated, or deleted records and vacuums these tables.  
 
@@ -36,7 +36,7 @@ The following columns help determine if autovacuum is catching up with table act
 
 ### When Does PostgreSQL Trigger Autovacuum 
 
-The autovacuum uses a threshold which basically is how many rows in the table must change. If the number of dead tuples is greater than the threshold, then the autovacuum is triggered.   
+The autovacuum uses a threshold, which basically is how many rows in the table must change. If the number of dead tuples is greater than the threshold, then the autovacuum is triggered.   
 
 The threshold is calculated using several server parameters as mentioned below:  
 
@@ -89,11 +89,11 @@ Cost based vacuuming limits the amount of disk I/O autovacuum process is expecte
 
 The `autovacuum_vacuum_cost_delay` and `autovacuum_vacuum_cost_limit` are the 2 server parameters that are used in the process.  
 
-By default, `autovacuum_vacuum_cost_limit` is set to –1 meaning autovacuum cost limit would be same value as the parameter – `vacuum_cost_limt` which defaults to 200. 
+By default, `autovacuum_vacuum_cost_limit` is set to –1 meaning autovacuum cost limit would be same value as the parameter – `vacuum_cost_limt` that defaults to 200. 
 
-`vacuum_cost_limit` is the cost of manual vacuum. If the `autovacuum_vacuum_cost_limit` is set to 200 then autovacuum process would then use this parameter. The `autovacuum_vacuum_cost_delay` is set to 20 ms by default. So, by default every time the autovacuum process accumulates a cost of 200 it pauses for 20 ms.  
+`vacuum_cost_limit` is the cost of manual vacuum. If the `autovacuum_vacuum_cost_limit` is set to 200, then autovacuum process would then use this parameter. The `autovacuum_vacuum_cost_delay` is set to 20 ms by default. So, by default every time the autovacuum process accumulates a cost of 200 it pauses for 20 ms.  
 
-In case the autovacuum is not keeping up, then following prameters can be changed  
+In case the autovacuum is not keeping up, then following parameters can be changed  
                                                                                                          
 ###### autovacuum_vacuum_scale_factor
 The parameter from default 0.2 to the following range 0.05 - 0.1. The scale factor is workload specific and amount of data in the tables. Before changing the value, the workload and individual table volumes need to be investigated.
@@ -110,9 +110,9 @@ There might be two reasons 
 
 ###### maintenance_work_mem  
 
-Autovacuum deamon uses `autovacuum_work_mem` which is by default set to -1 meaning `autovacuum_work_mem` would be same value as the parameter – `maintenance_work_mem`. In this document we are assuming `autovacuum_work_mem` is set to -1 value and `maintenance_work_mem` is used by autovacuum by deamon.
+Autovacuum daemon uses `autovacuum_work_mem` which is by default set to -1 meaning `autovacuum_work_mem` would be same value as the parameter – `maintenance_work_mem`. In this document we are assuming `autovacuum_work_mem` is set to -1 value and `maintenance_work_mem` is used by autovacuum by daemon.
 
-If the `maintenance_work_mem` is low then value of `maintenance_work_mem` can be increased upto 2GB on flexible server. A general rule of thumb is 50 MB is allocated to `maintenance_work_mem` for every 1 GB of RAM.  
+If the `maintenance_work_mem` is low, then value of `maintenance_work_mem` can be increased upto 2GB on flexible server. A general rule of thumb is 50 MB is allocated to `maintenance_work_mem` for every 1 GB of RAM.  
 
 
 ###### Large number of databases.
@@ -120,7 +120,7 @@ Auto vacuum tries to start one worker on each database every `autovacuum_nap
 Example:  
 We have 60 databases and autovacuum_naptime is 60 seconds then every second [autovacuum_naptime/Number of DBs] autovacuum worker is started.  
 
-It might be a good idea to increase the `autovacuum_naptime` if we have more databases in a cluster. At the same time the autovacuum process can be made more aggressive by changing the `autovacuum_cost_limit` & `autovacuum_cost_delay` parameters and increasing the `autovacuum_max_workers` from default 3 to 4 or 5. 
+It might be a good idea to increase the `autovacuum_naptime` if we have more databases in a cluster. At the same time, the autovacuum process can be made more aggressive by changing the `autovacuum_cost_limit` & `autovacuum_cost_delay` parameters and increasing the `autovacuum_max_workers` from default 3 to 4 or 5. 
 
 ##### Out Of Memory Errors  
 Too aggressive `maintenance_work_mem` value may periodically cause out of memory errors in the system. It is important to know the available RAM on the system before setting the parameter and not forget that each `autovacuum_max_workers` when active uses the entire memory assigned as per `maintenance_work_mem`. Example: If the parameter is set to 1 GB, then when an autovacuum worker is active then it uses 1 GB of memory with it. So, if 3 workers are running then 3 GB is used.  
@@ -133,25 +133,25 @@ In case where autovacuum is consuming lot of resources following can be done 
 
 ##### Number Of Autovacuum Workers  
 
-Increasing the number of autovacuum workers will not necessarily increase the speed of vacuum. Generally, it is not recommended to have a high number of autovacuum workers. In fact, increasing the number of autovacuum workers will have them consume more memory depending on the value set in `maintenance_work_mem`. The processes may become too disruptive also which is generally not recommended. Rather than making it faster it makes the vacuum processing slow the reason being each worker process only gets (1/autovacuum_max_workers) of the total `autovacuum_cost_limit`, so increasing the number of workers will only make them go slower.
+Increasing the number of autovacuum workers will not necessarily increase the speed of vacuum. Generally, it is not recommended to have a high number of autovacuum workers. In fact, increasing the number of autovacuum workers will have them consume more memory depending on the value set in `maintenance_work_mem`. The processes may become too disruptive also that is generally not recommended. Rather than making it faster it makes the vacuum processing slow the reason being each worker process only gets (1/autovacuum_max_workers) of the total `autovacuum_cost_limit`, so increasing the number of workers will only make them go slower.
 If the number of workers is increased `autovacuum_vacuum_cost_limit` will also have to be increased or/and reduce `autovacuum_vacuum_cost_delay` to make the vacuum process faster. 
 
 However, if we have changed table level `autovacuum_vacuum_cost_delay` or `autovacuum_vacuum_cost_limit` storage parameters then those workers running on those tables are not considered in the balancing algorithm [autovacuum_cost_limit/autovacuum_max_workers].
  
 ##### Autovacuum transaction ID (TXID) wraparound protection
 
-When a database runs into transaction ID wrapround protection, an error message like below is seen 
+When a database runs into transaction ID wraparound protection, an error message like below is seen 
 ```
   <i>database is not accepting commands to avoid wraparound data loss in database ‘xx’   
   Stop the postmaster and vacuum that database in single-user mode. </i>
     
     Note: This error message is a long-standing oversight. Usually, you do not need to switch to single-user mode. Instead, you can run the required VACUUM commands and perform tuning for VACUUM to run fast. While you can't run any data manipulation language (DML), you can still run VACUUM.
 ```
-The wraparound problem occurs when the database is either not vacuumed or there are a large number of dead tuples which could not be removed by autovacuum. The reasons for this might be: 
+The wraparound problem occurs when the database is either not vacuumed or there are a large number of dead tuples that could not be removed by autovacuum. The reasons for this might be: 
  
 ###### Workload induced 
 
-The workload causes too many dead tuples in a short period of time which makes it difficult for autovacuum to catch up. The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation. 
+The workload causes too many dead tuples in a short period of time that makes it difficult for autovacuum to catch up. The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation. 
 
  
 ###### Long Running Transactions 
@@ -185,7 +185,7 @@ Use commit prepared or rollback prepared to remove them.
 
 ###### Replication Slots 
 
-The replication slots which are not used. The query below helps identify it.   
+The replication slots that are not used. The query below helps identify it.   
 ```
     SELECT slot_name, slot_type, database, xmin 
     FROM pg_replication_slots 
@@ -194,7 +194,7 @@ The replication slots which are not used. The query below helps identify it.
 Use pg_drop_replication_slot() to delete an unused replication slot. 
 
 
-When the database runs into transaction ID wrapround protection one can look if there are any blockers as mentioned above on the database and remove those for autovacuum to continue and complete. The speed of the autovacuum can also be increased by making `autovacuum_cost_delay` to 0 and increasing the `autovacuum_cost_limit` to a value much greater than 200. But changing the parameters the existing autovacuum workers would not pick the updated parameters. A database restart or killing of existing workers will have to be carried out so that new workers started pick the parameters changed from the point where it was killed. 
+When the database runs into transaction ID wraparound protection one can look if there are any blockers as mentioned above on the database and remove those for autovacuum to continue and complete. The speed of the autovacuum can also be increased by making `autovacuum_cost_delay` to 0 and increasing the `autovacuum_cost_limit` to a value much greater than 200. But changing the parameters the existing autovacuum workers would not pick the updated parameters. A database restart or killing of existing workers will have to be carried out so that new workers started pick the parameters changed from the point where it was killed. 
 
 ##### Table Specific Requirements  
 
