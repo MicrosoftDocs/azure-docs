@@ -115,7 +115,7 @@ When the app finishes deploying, Visual Studio opens a browser to the URL of you
 
 Container Apps can also be deployed using CI/CD through [GitHub actions](https://docs.github.com/en/actions), which are a powerful tool for automating, customizing, and executing development workflows directly through the GitHub repository of your project.
 
-If Visual Studio detects the project you are publishing is hosted in GitHub through the presence of a .git directory, the publish flow presents an additional **Deployment type** step. This stage allows developers to choose whether to publish directly through Visual Studio using the steps shown earlier in the quickstart, or through a GitHub Actions workflow.
+If Visual Studio detects the project you are publishing is hosted in GitHub through the presence of a *.git* directory, the publish flow presents an additional **Deployment type** step. This stage allows developers to choose whether to publish directly through Visual Studio using the steps shown earlier in the quickstart, or through a GitHub Actions workflow.
 
 :::image type="content" source="media/visual-studio/container-apps-deployment-type.png" alt-text="A screenshot showing the deployment type.":::
 
