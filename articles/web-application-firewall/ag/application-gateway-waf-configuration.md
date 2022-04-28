@@ -294,7 +294,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 
 ---
 
-If the URL `http://www.contoso.com/?user%281%29=fdafdasfda` is scanned by the WAF, it won't evaluate the string **fdafdasfda**, but it will still evaluate the parameter name **user%281%29**.
+So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it will still evaluate the parameter name **user%3c%3e**. 
 
 ## Next steps
 
