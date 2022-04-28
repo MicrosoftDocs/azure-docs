@@ -88,7 +88,6 @@ The capacity used by the metrics tables is also billable. Use the following info
 
 ## Next steps
 
-- [Monitor a storage account](/azure/storage/common/storage-insights-overview)
 - [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 - [Storage Analytics logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 - [Storage Analytics logging](storage-analytics-logging.md)
