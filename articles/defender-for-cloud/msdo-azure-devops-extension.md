@@ -20,7 +20,7 @@ The MSDO leverages the following Open Source tools:
 
 ### Steps: Configure the Extension
 
-1.  Login to [Azure DevOps](https://dev.azure.com/)
+1.  Sign into [Azure DevOps](https://dev.azure.com/)
 
 2.  Click on the **Shopping Bag icon** at the top right
 

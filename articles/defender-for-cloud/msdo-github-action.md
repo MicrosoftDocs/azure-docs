@@ -19,7 +19,7 @@ Browse to the Microsoft DevOps Security GitHub Action [here](https://github.com/
 
 ### Steps: Setup GitHub Action
 
-1.  Login to [GitHub](https://www.github.com)
+1.  Sign into [GitHub](https://www.github.com)
 
 2.  Click on a repository to configure the GitHub Action
 
