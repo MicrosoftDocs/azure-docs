@@ -1,6 +1,6 @@
 # Overview of Defender for DevOps
 ![Graphical user interface, application Description automatically
-generated](media/image002.png)
+generated](./media/defender-for-devops-introduction/image002.png)
 # Microsoft Preview Software License Terms
 
 Please refer to the complete Microsoft Universal License Terms for Online Services located here
