@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: overview
-ms.date: 11/30/2020
+ms.date: 04/29/2022
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom:
