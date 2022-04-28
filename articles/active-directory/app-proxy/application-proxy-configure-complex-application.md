@@ -15,9 +15,9 @@ ms.reviewer: ashishj
 
 # Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)
 
-When applications are made up of multiple top-level domains the following problems arise.
-1.	Pre-authentication- The App Proxy service does not have a token acquired for the second domain and must redirect to pre-auth for this domain to successfully access the site.
-2.	CORS issues- Cross-origin resource sharing calls will be triggered to validate if the second domain is allowed to access the first domain.
+When applications are made up of multiple individual web application instances using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Azure AD Application Proxy apps and the following problems might arise:
+1.	Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy apps. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
+2.	CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
 3.	Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
 
 The following figure shows an example for complex application domain structure.
@@ -34,11 +34,20 @@ There is one conditional access policy associated with the app and access to any
 This solution that allows user to:
 
 - access this application by successfully authenticating 
-- load all URLs across various domains
-- including those that exist at a different top-level domain
+- not being blocked by CORS errors
+- including those that uses different domain suffixes or different ports or paths in the URL internally
 
 This article provides you with the information you need to configure wildcard application publishing in your environment.
 
+## Charactrisitics of application segment(s) for complex application. 
+1. Application segments can be configured only for a wildcard application.
+2. External and alternal URL should match the wildcard external and alternal URL domain of the application respectively.
+3. Application segment URL’s (internal and external) need to maintain uniqueness across complex applications.
+4. CORS Rules (optional) can be configured per application segment.
+5. Access will only be granted to defined application segments for a complex application.
+    - Note - If all application segments are deleted, a complex application will behave as a wildcard application opening access to all valid URL by specified domain. 
+7. You can have an internal URL defined both as an application segment and a regular application.
+    - Note - Regular application will always take precedence over a complex app (wildcard application).
 
 ## Pre-requisites
 Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
@@ -48,6 +57,9 @@ Before you get started with single sign-on for header-based authentication apps,
 ## Configure application segment(s) for complex application. 
 
 To configure Application Segments for a complex app using the API, you first [create a wildcard application](application-proxy-wildcard.md#create-a-wildcard-application), and then update the application's onPremisesPublishing property to configure the application segments and respective CORS settings.
+
+> [!NOTE]
+> One application segment is supported in preview. Support for multiple application segment to be announced soon.
 
 If successful, this method returns a `204 No Content` response code and does not return anything in the response body.
 ## Example
