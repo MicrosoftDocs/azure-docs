@@ -1,13 +1,13 @@
 ---
 title: Control access to IoT Hub using SAS tokens | Microsoft Docs
 description: How to control access to IoT Hub for device apps and back-end apps using shared access signature tokens.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 04/28/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
 
@@ -55,21 +55,21 @@ The following table lists the permissions you can use to control access to your 
 
 Each IoT Hub contains an [identity registry](iot-hub-devguide-identity-registry.md) For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
-## Security tokens
+## SAS tokens
 
-IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. These security tokens are also known as Shared Access Signature (SAS) tokens. [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include:
+IoT Hub uses Shared Access Signature (SAS) tokens to authenticate devices and services to avoid sending keys on the wire. SAS tokens are limited in time validity and scope. [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use SAS tokens directly. Such scenarios include:
 
 * The direct use of the MQTT, AMQP, or HTTPS surfaces.
 
 * The implementation of the token service pattern, as explained in [Custom device authentication](iot-hub-dev-guide-sas.md#create-a-token-service-to-integrate-existing-devices).
 
-You use security tokens to grant time-bounded access to devices and services to specific functionality in IoT Hub. To get authorization to connect to IoT Hub, devices and services must send security tokens signed with either a shared access or symmetric key. These keys are stored with a device identity in the identity registry.
+You use SAS tokens to grant time-bounded access to devices and services to specific functionality in IoT Hub. To get authorization to connect to IoT Hub, devices and services must send SAS tokens signed with either a shared access or symmetric key. Symmetric keys are stored with a device identity in the identity registry.
 
-### Security token structure
+### SAS token structure
 
 A token signed with a shared access key grants access to all the functionality associated with the shared access policy permissions. A token signed with a device identity's symmetric key only grants the **DeviceConnect** permission for the associated device identity.
 
-The security token has the following format:
+A SAS token has the following format:
 
 `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
 
@@ -213,7 +213,7 @@ For SASL PLAIN, the **username** can be:
 * `{policyName}@sas.root.{iothubName}` if using IoT hub-level tokens.
 * `{deviceId}@sas.{iothubname}` if using device-scoped tokens.
 
-In both cases, the password field contains the token, as described in [IoT Hub security tokens](iot-hub-dev-guide-sas.md#security-tokens).
+In both cases, the password field contains the token, as described in [IoT Hub SAS tokens](iot-hub-dev-guide-sas.md#sas-tokens).
 
 HTTPS implements authentication by including a valid token in the **Authorization** request header.
 
@@ -235,7 +235,7 @@ When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a sin
 
 * Resource-constrained devices are adversely affected by the increased use of resources to reconnect after each token expiration.
 
-## Use security tokens from services
+## Use SAS tokens from services
 
 Services can generate SAS tokens by using a shared access policy which defines the appropriate permissions as explained previously in [Access control and permissions](#access-control-and-permissions).
 
@@ -258,7 +258,7 @@ The result, which would grant access to read all device identities, would be:
 
 `SharedAccessSignature sr=myhub.azure-devices.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=registryRead`
 
- For services, SAS security tokens only grant permissions at the IoT Hub-level. That is, a service authenticating with a token based on the **service** policy, will be able to perform all the operations granted by the **ServiceConnect** permission. These operations include receiving device-to-cloud messages, sending cloud-to-device messages, and so on. If you want to grant more granular access to your services, for example, limiting a service to only sending cloud-to-device messages, you can use Azure Active Directory. To learn more, see [Control access to IoT Hub with Azure AD](iot-hub-dev-guide-azure-ad-rbac.md).
+ For services, SAS tokens only grant permissions at the IoT Hub-level. That is, a service authenticating with a token based on the **service** policy, will be able to perform all the operations granted by the **ServiceConnect** permission. These operations include receiving device-to-cloud messages, sending cloud-to-device messages, and so on. If you want to grant more granular access to your services, for example, limiting a service to only sending cloud-to-device messages, you can use Azure Active Directory. To learn more, see [Control access to IoT Hub with Azure AD](iot-hub-dev-guide-azure-ad-rbac.md).
 
 ## Authenticating a device to IoT Hub
 
@@ -276,7 +276,7 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 ### Use SAS tokens as a device
 
-There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access key](#use-a-shared-access-policy-to-access-on-behalf-of-a-device).
+There are two ways to obtain **DeviceConnect** permissions with IoT Hub with SAS tokens: use a [symmetric device key from the identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access key](#use-a-shared-access-policy-to-access-on-behalf-of-a-device).
 
 Remember that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
 
@@ -323,7 +323,7 @@ The two main scenarios for using shared access policies to access device functio
 * [cloud protocol gateways](iot-hub-devguide-endpoints.md),
 * [token services](iot-hub-dev-guide-sas.md#create-a-token-service-to-integrate-existing-devices) used to implement custom authentication schemes.
 
-Since the shared access policy can potentially grant access to connect as any device, it is important to use the correct resource URI when creating security tokens. This setting is especially important for token services, which have to scope the token to a specific device using the resource URI. This point is less relevant for protocol gateways as they are already mediating traffic for all devices.
+Since the shared access policy can potentially grant access to connect as any device, it is important to use the correct resource URI when creating SAS tokens. This setting is especially important for token services, which have to scope the token to a specific device using the resource URI. This point is less relevant for protocol gateways as they are already mediating traffic for all devices.
 
 As an example, a token service using the pre-created shared access policy called **device** would create a token with the following parameters:
 
