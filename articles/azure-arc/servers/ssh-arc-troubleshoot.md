@@ -34,6 +34,8 @@ Error:
  - "Failed to create ssh key file with error: \<ERROR\>."
  - "Failed to run ssh command with error: \<ERROR\>."
  - "Failed to get certificate info with error: \<ERROR\>."
+ - "Failed to create ssh key file with error: [WinError 2] The system cannot find the file specified."
+ - "Failed to create ssh key file with error: [Errno 2] No such file or directory: 'ssh-keygen'."
 
 Resolution:
  - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.

@@ -28,7 +28,7 @@ In this quickstart, you'll build a sample Go application that uses the Azure SDK
 
 Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
-To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](/azure/cosmos-db/introduction).
+To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](../introduction.md).
 
 ## Prerequisites
 

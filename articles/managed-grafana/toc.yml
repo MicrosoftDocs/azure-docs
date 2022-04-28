@@ -18,7 +18,7 @@ items:
     href: how-to-data-source-plugins-managed-identity.md
   - name: Share your Managed Grafana workspace
     href: how-to-share-grafana-workspace.md
-  - name: Call APIs in your automation
+  - name: Call Grafana APIs programmatically
     href: how-to-api-calls.md
   - name: Monitor your Managed Grafana workspace
     href: how-to-monitor-managed-grafana-workspace.md

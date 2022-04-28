@@ -25,8 +25,6 @@ sections:
         answer: |
           - Managed Cache service -[Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
           - In-Role Cache - [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
-
-            
   - name: General questions
     questions:
       - question: What if my Azure Cache for Redis question isn't answered here?
@@ -38,4 +36,3 @@ sections:
             - If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8).
             
             - You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
-          

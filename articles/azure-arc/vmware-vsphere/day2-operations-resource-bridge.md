@@ -82,7 +82,7 @@ az connectedvmware vcenter connect --custom-location <name of the custom locatio
 
 ## Collecting logs from the Arc resource bridge
 
-For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](https://docs.microsoft.com/cli/azure/arcappliance/logs?#az-arcappliance-logs-vmware) command.
+For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [`Az arcappliance log`](/cli/azure/arcappliance/logs#az-arcappliance-logs-vmware) command.
 
 The `az arcappliance log` command must be run from a workstation that can communicate with the Arc resource bridge either via the cluster configuration IP address or the IP address of the Arc resource bridge VM.
 

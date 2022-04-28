@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
 ms.date: 03/01/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # Configure export settings and set up a storage account
@@ -30,17 +30,19 @@ In this step, browse to your FHIR service in the Azure portal, and select the **
 
 ## Assign permissions to the FHIR service to access the storage account
 
-1. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
 
    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role.
+1. On the **Role** tab, select the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role.
 
    [![Screen shot showing user interface of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
 
 1. Select **System-assigned managed identity**, and then select the FHIR service.
 

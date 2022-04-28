@@ -5,7 +5,7 @@ description: Learn how copy and paste to and from a Windows VM using Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 04/18/2022
+ms.date: 04/19/2022
 ms.author: cherylmc
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
@@ -24,7 +24,7 @@ Before you proceed, make sure you have the following items.
 
 ## <a name="configure"></a> Configure the bastion host
 
-By default, Azure Bastion is automatically enabled to allow copy and paste for all sessions connected through the bastion resource. You don't need to configure anything additional. This applies to both the Basic and the Standard SKU tier. If you want to disable the copy and paste feature, the Standard SKU is required.
+By default, Azure Bastion is automatically enabled to allow copy and paste for all sessions connected through the bastion resource. You don't need to configure anything additional. This applies to both the Basic and the Standard SKU tier. If you want to disable this feature, you can disable it for web-based clients on the configuration page of your Bastion resource.
 
 1. To view or change your configuration, in the portal, go to your Bastion resource.
 1. Go to the **Configuration** page.

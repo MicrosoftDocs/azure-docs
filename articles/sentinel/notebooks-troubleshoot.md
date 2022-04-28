@@ -83,7 +83,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     ModuleNotFoundError: No module named 'gi'
     ```
 
-1. Use the [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/HowTos/aml-compute-setup.sh) script, located in the Microsoft Sentinel Notebooks GitHub repository, to automatically install the `pygobject` in all notebooks and Anaconda environments on the Compute instance.
+1. Use the [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/tutorials-and-examples/how-tos/aml-compute-setup.sh) script, located in the Microsoft Sentinel Notebooks GitHub repository, to automatically install the `pygobject` in all notebooks and Anaconda environments on the Compute instance.
 
 > [!TIP]
 > You can also fix this Warning by running the following code from a notebook:

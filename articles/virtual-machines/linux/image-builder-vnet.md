@@ -65,7 +65,7 @@ az group create -n $imageResourceGroup -l $location
 
 If you do not have an existing VNET\Subnet\NSG, use the following script to create one.
 
-```bash
+```azurecli
 
 # Create a resource group
 
@@ -151,7 +151,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Compute Gallery (formerly known as Shared Image Gallery). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
-```bash
+```azurecli
 # create user assigned identity for image builder
 idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
@@ -176,7 +176,7 @@ sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibR
 
 Instead of granting Image Builder lower granularity and increased privilege, you can create two roles. One gives the builder permissions to create an image, the other allows it to connect the build VM and load balancer to your VNET.
 
-```bash
+```azurecli
 # create role definitions
 az role definition create --role-definition ./aibRoleImageCreation.json
 az role definition create --role-definition ./aibRoleNetworking.json

@@ -47,6 +47,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Arabic (Tunisia)                  | `ar-TN`         |
 | Arabic (United Arab Emirates)     | `ar-AE`         |
 | Arabic (Yemen)                    | `ar-YE`         |
+| Bengali (India)                   | `bn-IN`         |
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |

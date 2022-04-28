@@ -7,13 +7,14 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 04/27/2022
 ---
+
 # Image Analysis cognitive skill
 
-The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) in Cognitive Services. 
+The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This article is the reference documentation for the **Image Analysis** skill. See [Extract text and information from images](cognitive-search-concept-image-scenarios.md) for usage instructions.
 
-**Image Analysis** works on images that meet the following requirements:
+This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) in Cognitive Services. **Image Analysis** works on images that meet the following requirements:
 
 + The image must be presented in JPEG, PNG, GIF, or BMP format
 + The file size of the image must be less than 4 megabytes (MB)
@@ -41,11 +42,21 @@ Parameters are case-sensitive.
 
 ## Skill inputs
 
-| Input name	  | Description                                          |
+| Input name  | Description                                          |
 |---------------|------------------------------------------------------|
 | `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
 
-##	Sample skill definition
+<!-- ## Skill outputs
+
+| Output name      | Description                   |
+|---------------|-------------------------------|
+| `categories` | Complex type that ...  |
+| `tags` | Complex type that ...  |
+| `description` | Complex type that ...  |
+| `faces` | Complex type that ... |
+| `brands` | Complex type that ...  | -->
+
+## Sample skill definition
 
 ```json
         {
@@ -92,7 +103,7 @@ Parameters are case-sensitive.
 {
     "fields": [
         {
-            "name": "id",
+            "name": "metadata_storage_name",
             "type": "Edm.String",
             "key": true,
             "searchable": true,
@@ -101,7 +112,7 @@ Parameters are case-sensitive.
             "sortable": true
         },
         {
-            "name": "blob_uri",
+            "name": "metadata_storage_path",
             "type": "Edm.String",
             "searchable": true,
             "filterable": false,
@@ -338,7 +349,7 @@ You can define output field mappings to lower-level properties, such as just lan
         }
 ```
 
-##	Sample input
+## Sample input
 
 ```json
 {
@@ -362,7 +373,7 @@ You can define output field mappings to lower-level properties, such as just lan
 }
 ```
 
-##	Sample output
+## Sample output
 
 ```json
 {
@@ -513,8 +524,8 @@ You can define output field mappings to lower-level properties, such as just lan
 }
 ```
 
-
 ## Error cases
+
 In the following error cases, no elements are extracted.
 
 | Error Code | Description |
@@ -548,4 +559,5 @@ If you get the error similar to `"One or more skills are invalid. Details: Error
 + [What is Image Analysis?](../cognitive-services/computer-vision/overview-image-analysis.md)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Extract text and information from images](cognitive-search-concept-image-scenarios.md)
 + [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

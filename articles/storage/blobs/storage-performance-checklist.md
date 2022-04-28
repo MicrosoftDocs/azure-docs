@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 04/19/2022
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -212,7 +212,7 @@ While parallelism can be great for performance, be careful about using unbounded
 For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Azure Storage also supports PowerShell and Azure CLI. Microsoft actively develops these client libraries and tools with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally.
 
 > [!TIP]
-> The [ABFS driver](data-lake-storage-abfs-driver.md) was designed to overcome the inherent deficiencies of WASB. Favor using the ABFS driver over the WASB driver, as the ABFS driver is optimized specifically for big data analytics.
+> The [ABFS driver](data-lake-storage-abfs-driver.md) was designed to overcome the inherent deficiencies of WASB. Microsoft recommends using the ABFS driver over the WASB driver, as the ABFS driver is optimized specifically for big data analytics.
 
 ## Handle service errors
 
