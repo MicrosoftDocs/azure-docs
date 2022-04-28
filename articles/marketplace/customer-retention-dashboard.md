@@ -60,37 +60,39 @@ To learn about changes and enhancements that were made to the dashboard, select 
 
 ### About data refresh
 
+To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
 
+:::image type="content" source="./media/customer-retention-dashboard/data-refresh-details.png" alt-text="Screenshot of the Data refresh details link in the ellipsis menu.":::
 
+### Got feedback
 
+To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
 
+:::image type="content" source="./media/customer-retention-dashboard/got-feedback.png" alt-text="Screenshot of the Got feedback link in the ellipsis menu.":::
 
+Provide your feedback in the dialog box that appears.
 
+> [!NOTE]
+> A screenshot is automatically sent to us with your feedback.
 
+### Filters for category and marketplace offer
 
+Select the **Category** for an offer from the **Categor** list, and then select one of your offers from the **Marketplace offer** list.
 
-
-
-
-
-## Filters for category and marketplace offer
-
-:::image type="content" source="media/customer-retention-dashboard/category-selection.png" lightbox="media/customer-retention-dashboard/category-selection.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes.":::
-
-Delect the **Category** for an offer from the left dropdown, then select one of your offers from the **Marketplace offer** dropdown.
+:::image type="content" source="media/customer-retention-dashboard/category-and-offer.png" lightbox="media/customer-retention-dashboard/category-and-offer.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes.":::
 
 > [!NOTE]
 > The analysis is currently available at offer level, not at offer plan level.
 
-## Granularity for retention analysis
-
-:::image type="content" source="media/customer-retention-dashboard/time-range-selection.png" alt-text="Shows the selection headings of Days, Weeks, and Months.":::
+### Granularity for retention analysis
 
 Select a time range to analyze customer retention across days, weeks, and months. This analysis uses the 18 months of usage data prior to the current system date to calculate retained customers and retention scores across daily, weekly, and monthly views.
 
-## Retained customers
+:::image type="content" source="media/customer-retention-dashboard/days-weeks-months.png" alt-text="Shows the selection headings of Days, Weeks, and Months.":::
 
-This section shows the count of retained customers on a specific day (Day 0, Day 1, Day 2, …, Day *n*) after their first offer usage. Customer offer usage data is considered for a time range of 45 days to 18 months prior to the current day. View usage on specific days in the offer usage journey to understand where most customers become dormant or inactive.
+### Retained customers
+
+This widget shows the count of retained customers on a specific day (Day 0, Day 1, Day 2, …, Day *n*) after their first offer usage. Customer offer usage data is considered for a time range of 45 days to 18 months prior to the current day. View usage on specific days in the offer usage journey to understand where most customers become dormant or inactive.
 
 #### Widget insights
 
@@ -99,17 +101,19 @@ This section shows the count of retained customers on a specific day (Day 0, Day
 - **Total** represents the customer count normalized at Day 45 of using the category offer.
 - Hover on the line graph to display the customer count on specific days since first usage.
 
-:::image type="content" source="media/customer-retention-dashboard/retained-customers.png" alt-text="Shows the count of retained customers on a specific day.":::
+Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
 
-## Offer performance by category
+:::image type="content" source="media/customer-retention-dashboard/retained-customers-widget.png" alt-text="Shows the count of retained customers on a specific day.":::
 
-This section shows the performance of a selected offer compared to other offers within the same selected category in the dropdown. It compares retention scores of offers at day 45 within a category and assigns a rank. Offers with higher retention scores are ranked higher than other offers. If any retention scores match, customer count at Day 0 breaks the tie.
+### Offer performance by category
+
+This section shows the performance of a selected offer compared to other offers within the same selected category in the list. It compares retention scores of offers at day 45 within a category and assigns a rank. Offers with higher retention scores are ranked higher than other offers. If any retention scores match, customer count at Day 0 breaks the tie.
 
 The left portion of the widget contains information on the current rank, offer rank based on the time granularity selected (day, week, month), and change in offer rank based on the last data refresh. **Total offers** shows the count of all offers under the selected category, including offers from all partners in the marketplace with an offer listed under the selected category. **Total customers** indicates the count of all customers of these total offers.
 
 The right portion of the widget plots a line between the offer count on the Y-axis against retention score (at day 45) separate intervals on the X-axis. The following example shows how to read offer performance by category widget.
 
-**Example** – If you select **Contoso test offer** listed under the **Storage** category, the offer is currently ranked 125 among a total of 608 marketplace offers in the storage category. Your offer has a retention score of 0.4 calculated at day 45 of customers using **Contoso test offer**, meaning your selected offer would retain only 40% of customers who used this offer in the last 18 months. The retention score for all marketplace offers under category **Storage** has an average score of 0.19 and a median score of 0.10.
+**Example** – If you select **Contoso test offer** listed under the **Storage** category, the offer is currently ranked 125 among a total of 608 marketplace offers in the storage category. Your offer has a retention score of 0.4 calculated on day 45 of customers using **Contoso test offer**, meaning your selected offer would retain only 40% of customers who used this offer in the last 18 months. The retention score for all marketplace offers under the **Storage** category has an average score of 0.19 and a median score of 0.10.
 
 The offer rank, indicating the relative offer performance, has slipped by 9 ranks since the last data refresh happened for all partners in the marketplace. Hovering over the line graph shows the **Offer count**: the number of marketplace offers at different retention scores on the x-axis. In this example, **72 offers** have a retention score of **0.2**. The total offers (**608**) is the sum of all the offer counts (**Y-axis**) on the line graph at different retention score intervals (**X-axis**).
 
@@ -117,7 +121,9 @@ The offer rank, indicating the relative offer performance, has slipped by 9 rank
 
 #### Daily level analysis
 
-:::image type="content" source="media/customer-retention-dashboard/retained-customers-example.png" alt-text="Shows the offer performance by category for a sample offer.":::
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as .CSV file, and download the image as a .PDF.
+
+:::image type="content" source="media/customer-retention-dashboard/offer-performance-by-category.png" alt-text="Shows the offer performance by category for a sample offer.":::
 
 #### Weekly level analysis
 
@@ -134,9 +140,9 @@ The offer rank, indicating the relative offer performance, has slipped by 9 rank
 - **Total offers** and **Total customers** values are for the selected Azure marketplace category.
 - The vertical line shows the retention score at day 45 of the selected offer and its relative performance with other offers.
 
-## Daily Retention
+### Daily Retention
 
-This section shows offer retention scores at different days of customer usage and benchmarks it with the aggregated retention scores of all offers listed under the selected category. This shows how well your offer is performing and positioned among other offers:
+This widget shows offer retention scores at different days of customer usage and benchmarks it with the aggregated retention scores of all offers listed under the selected category. This shows how well your offer is performing and positioned among other offers:
 
 - Good – offer retention score is above category benchmark
 - Neutral – offer retention score equals category benchmark
@@ -151,11 +157,13 @@ The retention curve gives you an idea of major checkpoints at which a customer m
 - Hover over the bar graph to view the count of retained customers for specific days.
 - Hover over the line graph to view retention scores for specific days.
 
+Select the ellipsis (three dots) to copy the widget as an image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
+
 :::image type="content" source="media/customer-retention-dashboard/daily-retention.png" lightbox="media/customer-retention-dashboard/daily-retention.png" alt-text="Shows offer retention scores at different days of customer usage and benchmarks it with aggregated retention scores.":::
 
-## Customers
+### Customers
 
-This section uses offer usage and generated revenue to identify the value of retained and dormant customers. Use this information to engage with customers dormant for longer durations to reactivate their offer usage.
+This widget uses offer usage and generated revenue to identify the value of retained and dormant customers. Use this information to engage with customers dormant for longer durations to reactivate their offer usage.
 
 #### Widget insights
 
@@ -169,13 +177,17 @@ View additional pages of data using the page links at the bottom right.
 
 #### Retained customer information
 
-:::image type="content" source="media/customer-retention-dashboard/retained-information-day-1.png" lightbox="media/customer-retention-dashboard/retained-information-day-1.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 1.":::
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
+
+:::image type="content" source="media/customer-retention-dashboard/retained-information-day.png" lightbox="media/customer-retention-dashboard/retained-information-day.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 1.":::
 
 #### Dormant customer information
 
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
+
 :::image type="content" source="media/customer-retention-dashboard/retained-information-day-5.png" lightbox="media/customer-retention-dashboard/retained-information-day-5.png" alt-text="Shows the use of offer usage and generated revenue to identify the value of retained and dormant customers at Day 5.":::
 
-## Active customers
+### Active customers
 
 This  widget displays the total count of active or retained customers based on the number of marketplace offers used. The stacked bar graph categorizes and shows the different number of days a customer is retained by an offer.
 
@@ -184,6 +196,8 @@ This  widget displays the total count of active or retained customers based on t
 - Offers per customer is on the X-axis and active customer count is on the Y-axis.
 - The colored bar represents different buckets of active or retained customers.
 - Hover over the graph to see the active customer count on different days.
+
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
 
 :::image type="content" source="media/customer-retention-dashboard/active-customers.png" alt-text="Shows the total count of active or retained customers based on the number of marketplace offers used.":::
 <!--
@@ -199,18 +213,18 @@ This widget shows the revenue that could have been generated for you by retainin
 :::image type="content" source="media/customer-retention-dashboard/potential-revenue.png" alt-text="Shows the revenue that could have been generated for you by retaining dormant customers.":::
 -->
 
-## Recommendations
+### Recommendations
 
 :::image type="content" source="media/customer-retention-dashboard/recommendations.png" lightbox="media/customer-retention-dashboard/recommendations.png" alt-text="Shows the Click Here boxes for getting recommendations.":::
 
-This shows next steps. **Click here** opens the offer product description page in Microsoft AppSource or Azure marketplace.
+This shows next steps. Select the **Click here** button to open the offer product description page in Microsoft AppSource or Azure marketplace.
 
 #### Widget insights
 
 - **Click here** on the left opens the product description page for your offer.
 - **Click here** on the right opens the customer dashboard in Marketplace Insights.
 
-## Retention heat map
+### Retention heat map
 
 This section shows the retention scores of customers acquired in a cohort. The retention scores are based starting on specific month start date. The Month column denotes the first usage month (Month 0). The cohort column indicates the cohort size, defined as count of customers within a cohort starting on a specific month.
 
@@ -262,7 +276,9 @@ This table lists the 500 top orders by retained date.
 | Days from First Usage | Days from First Usage | Number of days since the customer first started using the offer | Offset |
 | Revenue Generated (USD) | Revenue Generated (USD) | Total revenue accumulated up to *days from first usage* | RevenueGenerated(USD) |
 | Revenue generated Per Day (USD) | Revenue generated Per Day (USD) | Revenue generated for the specific day value in the *Days from first usage* column | RevenueGeneratedPerDay(USD) |
-|
+
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](analytics-faq.yml).
