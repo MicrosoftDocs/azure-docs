@@ -14,7 +14,11 @@ Service Fabric managed cluster supports deployments that span across multiple Av
 
 Sample templates are available: [Service Fabric cross availability zone template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## Recommendations for zone resilient Azure Service Fabric managed clusters
+## Topology for zone resilient Azure Service Fabric managed clusters
+
+>[!NOTE]
+>The benefit of spanning the primary node type across availability zones is really only seen for three zones and not just two.
+
 A Service Fabric cluster distributed across Availability Zones ensures high availability of the cluster state. 
 
 The recommended topology for managed cluster requires the resources outlined below:

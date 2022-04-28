@@ -13,7 +13,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma
-ms.date: 3/02/2021
+ms.date: 4/8/2022
 ---
 # Understand and resolve Azure SQL Database blocking problems
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,16 +24,37 @@ The article describes blocking in Azure SQL databases and demonstrates how to tr
 
 In this article, the term connection refers to a single logged-on session of the database. Each connection appears as a session ID (SPID) or session_id in many DMVs. Each of these SPIDs is often referred to as a process, although it is not a separate process context in the usual sense. Rather, each SPID consists of the server resources and data structures necessary to service the requests of a single connection from a given client. A single client application may have one or more connections. From the perspective of Azure SQL Database, there is no difference between multiple connections from a single client application on a single client computer and multiple connections from multiple client applications or multiple client computers; they are atomic. One connection can block another connection, regardless of the source client.
 
+For information on troubleshooting deadlocks, see [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md).
+
 > [!NOTE]
 > **This content is focused on Azure SQL Database.** Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting options and tools may differ. For more on blocking in SQL Server, see [Understand and resolve SQL Server blocking problems](/troubleshoot/sql/performance/understand-resolve-blocking).
 
 ## Understand blocking 
  
-Blocking is an unavoidable and by-design characteristic of any relational database management system (RDBMS) with lock-based concurrency. As mentioned previously, in SQL Server, blocking occurs when one session holds a lock on a specific resource and a second SPID attempts to acquire a conflicting lock type on the same resource. Typically, the time frame for which the first SPID locks the resource is small. When the owning session releases the lock, the second connection is then free to acquire its own lock on the resource and continue processing. This is normal behavior and may happen many times throughout the course of a day with no noticeable effect on system performance.
+Blocking is an unavoidable and by-design characteristic of any relational database management system (RDBMS) with lock-based concurrency. Blocking in a database in Azure SQL Database occurs when one session holds a lock on a specific resource and a second SPID attempts to acquire a conflicting lock type on the same resource. Typically, the time frame for which the first SPID locks the resource is small. When the owning session releases the lock, the second connection is then free to acquire its own lock on the resource and continue processing. This is normal behavior and may happen many times throughout the course of a day with no noticeable effect on system performance.
 
-The duration and transaction context of a query determine how long its locks are held and, thereby, their effect on other queries. If the query is not executed within a transaction (and no lock hints are used), the locks for SELECT statements will only be held on a resource at the time it is actually being read, not during the query. For INSERT, UPDATE, and DELETE statements, the locks are held during the query, both for data consistency and to allow the query to be rolled back if necessary.
+Each new database in Azure SQL Database has the [read committed snapshot](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1) (RCSI) database setting enabled by default.  Blocking between sessions reading data and sessions writing data is minimized under RCSI, which uses row versioning to increase concurrency. However, blocking and deadlocks may still occur in databases in Azure SQL Database because:
 
-For queries executed within a transaction, the duration for which the locks are held are determined by the type of query, the transaction isolation level, and whether lock hints are used in the query. For a description of locking, lock hints, and transaction isolation levels, see the following articles:
+- Queries that modify data may block one another.
+- Queries may run under isolation levels that increase blocking. Isolation levels may be specified in application connection strings, [query hints](/sql/t-sql/queries/hints-transact-sql-query), or [SET statements](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) in Transact-SQL.
+- [RCSI may be disabled](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#read_committed_snapshot--on--off--1), causing the database to use shared (S) locks to protect SELECT statements run under the read committed isolation level. This may increase blocking and deadlocks.
+
+[Snapshot isolation level](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true#b-enable-snapshot-isolation-on-a-database) is also enabled by default for new databases in Azure SQL Database. Snapshot isolation is an additional row-based isolation level that provides transaction-level consistency for data and which uses row versions to select rows to update. To use snapshot isolation, queries or connections must explicitly set their transaction isolation level to `SNAPSHOT`. This may only be done when snapshot isolation is enabled for the database.
+
+You can identify if RCSI and/or snapshot isolation are enabled with Transact-SQL. Connect to your database in Azure SQL Database and run the following query:
+
+```sql
+SELECT name, is_read_committed_snapshot_on, snapshot_isolation_state_desc
+FROM sys.databases
+WHERE name = DB_NAME();
+GO
+```
+
+If RCSI is enabled, the `is_read_committed_snapshot_on` column will return the value **1**. If snapshot isolation is enabled, the `snapshot_isolation_state_desc` column will return the value **ON**.
+
+The duration and transaction context of a query determine how long its locks are held and, thereby, their effect on other queries. SELECT statements run under RCSI [do not acquire shared (S) locks on the data being read](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-when-reading-data), and therefore do not block transactions that are modifying data. For INSERT, UPDATE, and DELETE statements, the locks are held during the query, both for data consistency and to allow the query to be rolled back if necessary.
+
+For queries executed within an [explicit transaction](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#starting-transactions), the type of locks and duration for which the locks are held are determined by the type of query, the transaction isolation level, and whether lock hints are used in the query. For a description of locking, lock hints, and transaction isolation levels, see the following articles:
 
 * [Locking in the Database Engine](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [Customizing Locking and Row Versioning](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#customizing-locking-and-row-versioning)
@@ -78,16 +99,15 @@ Now let's dive in to discuss how to pinpoint the main blocking session with an a
 
 ## Gather blocking information
 
-To counteract the difficulty of troubleshooting blocking problems, a database administrator can use SQL scripts that constantly monitor the state of locking and blocking in the Azure SQL database. To gather this data, there are essentially two methods. 
+To counteract the difficulty of troubleshooting blocking problems, a database administrator can use SQL scripts that constantly monitor the state of locking and blocking in the database in Azure SQL Database. To gather this data, there are essentially two methods. 
 
 The first is to query dynamic management objects (DMOs) and store the results for comparison over time. Some objects referenced in this article are dynamic management views (DMVs) and some are dynamic management functions (DMFs). The second method is to use XEvents to capture what is executing. 
-
 
 ## Gather information from DMVs
 
 Referencing DMVs to troubleshoot blocking has the goal of identifying the SPID (session ID) at the head of the blocking chain and the SQL Statement. Look for victim SPIDs that are being blocked. If any SPID is being blocked by another SPID, then investigate the SPID owning the resource (the blocking SPID). Is that owner SPID being blocked as well? You can walk the chain to find the head blocker then investigate why it is maintaining its lock.
 
-Remember to run each of these scripts in the target Azure SQL database.
+Remember to run each of these scripts in the target database in Azure SQL Database.
 
 * The sp_who and sp_who2 commands are older commands to show all current sessions. The DMV `sys.dm_exec_sessions` returns more data in a result set that is easier to query and filter. You will find `sys.dm_exec_sessions` at the core of other queries. 
 
@@ -182,7 +202,7 @@ CROSS APPLY sys.dm_exec_sql_text ([s_ec].[most_recent_sql_handle]) AS [s_est];
 > [!Note]
 > For much more on wait types including aggregated wait stats over time, see the DMV [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database). This DMV returns aggregate wait stats for the current database only.
 
-* Use the [sys.dm_tran_locks](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql) DMV for more granular information on what locks have been placed by queries. This DMV can return large amounts of data on a production SQL Server, and is useful for diagnosing what locks are currently held. 
+* Use the [sys.dm_tran_locks](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql) DMV for more granular information on what locks have been placed by queries. This DMV can return large amounts of data on a production database, and is useful for diagnosing what locks are currently held. 
 
 Due to the INNER JOIN on `sys.dm_os_waiting_tasks`, the following query restricts the output from `sys.dm_tran_locks` only to currently blocked requests, their wait status, and their locks:
 
@@ -200,7 +220,7 @@ AND object_name(p.object_id) = '<table_name>';
 
 * With DMVs, storing the query results over time will provide data points that will allow you to review blocking over a specified time interval to identify persisted blocking or trends. 
 
-## Gather information from Extended events
+## Gather information from Extended Events
 
 In addition to the previous information, it is often necessary to capture a trace of the activities on the server to thoroughly investigate a blocking problem on Azure SQL Database. For example, if a session executes multiple statements within a transaction, only the last statement that was submitted will be represented. However, one of the earlier statements may be the reason locks are still being held. A trace will enable you to see all the commands executed by a session within the current transaction.
 
@@ -224,13 +244,16 @@ Refer to the document that explains how to use the [Extended Events New Session 
     -   Sql_batch_completed
     -   Sql_batch_starting
 
--   Lock
-    -   Lock_deadlock
+-   Category deadlock_monitor
+    -   database_xml_deadlock_report
 
--   Session
+-   Category session
     -   Existing_connection
     -   Login
     -   Logout
+
+> [!NOTE]
+> For detailed information on deadlocks, see [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md).
 
 ## Identify and resolve common blocking scenarios
 
@@ -340,6 +363,8 @@ The Waittype, Open_Tran, and Status columns refer to information returned by [sy
 
     Reports from the [Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store) in SSMS are also a highly recommended and valuable tool for identifying the most costly queries, suboptimal execution plans. Also review the [Intelligent Performance](intelligent-insights-overview.md) section of the Azure portal for the Azure SQL database, including [Query Performance Insight](query-performance-insight-use.md).
 
+    If the query performs only SELECT operations, consider [running the statement under snapshot isolation](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql) if it is enabled in your database, especially if RCSI has been disabled. As when RCSI is enabled, queries reading data do not require shared (S) locks under snapshot isolation level. Additionally, snapshot isolation provides transaction level consistency for all statements in an explicit multi-statement transaction. Snapshot isolation may [already be enabled in your database](#understand-blocking). Snapshot isolation may also be used with queries performing modifications, but you must handle [update conflicts](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#behavior-in-summary).
+
     If you have a long-running query that is blocking other users and cannot be optimized, consider moving it from an OLTP environment to a dedicated reporting system, a [synchronous read-only replica of the database](read-scale-out.md).
 
 1.  Blocking caused by a sleeping SPID that has an uncommitted transaction
@@ -386,6 +411,8 @@ The Waittype, Open_Tran, and Status columns refer to information returned by [sy
 1.  Blocking caused by a SPID whose corresponding client application did not fetch all result rows to completion
 
     After sending a query to the server, all applications must immediately fetch all result rows to completion. If an application does not fetch all result rows, locks can be left on the tables, blocking other users. If you are using an application that transparently submits SQL statements to the server, the application must fetch all result rows. If it does not (and if it cannot be configured to do so), you may be unable to resolve the blocking problem. To avoid the problem, you can restrict poorly behaved applications to a reporting or a decision-support database, separate from the main OLTP database.
+
+    The impact of this scenario is reduced when read committed snapshot is enabled on the database, which is the default configuration in Azure SQL Database. Learn more in the [Understand blocking](#understand-blocking) section of this article.
     
     > [!NOTE]
     > See [guidance for retry logic](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) for applications connecting to Azure SQL Database. 
@@ -414,6 +441,7 @@ The Waittype, Open_Tran, and Status columns refer to information returned by [sy
 
 ## See also
 
+* [Analyze and prevent deadlocks in Azure SQL Database](analyze-prevent-deadlocks.md)
 * [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](./monitor-tune-overview.md)
 * [Monitoring performance by using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Transaction Locking and Row Versioning Guide](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)

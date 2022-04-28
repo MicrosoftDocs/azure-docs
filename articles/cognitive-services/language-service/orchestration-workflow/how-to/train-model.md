@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 03/21/2022
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---
@@ -27,7 +27,7 @@ Select **Train model** on the left of the screen. Select **Start a training job*
 
 Enter a new model name or select an existing model from the **Model Name** dropdown. 
 
-:::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the Train model page for Conversational Language Understanding projects." lightbox="../media/train-model.png":::
+:::image type="content" source="../media/train-orchestration.png" alt-text="A screenshot showing the Train model page for Orchestration workflow projects." lightbox="../media/train-orchestration.png":::
 
 Click the **Train** button and wait for training to complete. You will see the training status of your model in the view model details page. Only successfully completed jobs will generate models.
 
@@ -35,9 +35,7 @@ Click the **Train** button and wait for training to complete. You will see the t
 
 After model training is completed, you can view your model details and see how well it performs against the test set in the training step. Observing how well your model performed is called evaluation. The test set is composed of 20% of your utterances, and this split is done at random before training. The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 utterances in your training set.
 
-In the **view model details** page, you'll be able to see all your models, with their current training status, and the date they were last trained.
-
-:::image type="content" source="../media/model-page-1.png" alt-text="A screenshot showing the model details page for Conversational Language Understanding projects." lightbox="../media/model-page-1.png":::
+In the **view model details** page, you'll be able to see all your models, with their score. Scores are only available if you have enabled evaluation before hand.
 
 * Click on the model name for more details. A model name is only clickable if you've enabled evaluation before hand. 
 * In the **Overview** section you can find the macro precision, recall and F1 score for the collective intents. 

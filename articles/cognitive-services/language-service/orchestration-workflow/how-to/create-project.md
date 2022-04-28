@@ -48,7 +48,7 @@ To create a new intent, click on *+Add* button and start by giving your intent a
 > The list of projects you can connect to are only projects that are owned by the same Language resource you are using to create the orchestration project.
 
 
-:::image type="content" source="../media/orchestration-project-detail.png" alt-text="A screenshot showing the Conversational Language Understanding orchestration workflow project modal." lightbox="../media/orchestration-project-detail.png":::
+:::image type="content" source="../media/quickstart-intent.png" alt-text="A screenshot showing the Conversational Language Understanding orchestration workflow project modal." lightbox="../media/quickstart-intent.png":::
 
 In Orchestration Workflow projects, the data used to train connected intents isn't provided within the project. Instead, the project pulls the data from the connected service (such as connected LUIS applications, Conversational Language Understanding projects, or Custom Question Answering knowledge bases) during training. However, if you create intents that are not connected to any service, you still need to add utterances to those intents.
 

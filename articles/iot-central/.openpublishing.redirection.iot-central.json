@@ -1334,6 +1334,11 @@
       "source_path_from_root": "/articles/iot-central/preview/concepts-get-connected.md",
       "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-migrate.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": false
     }
   ]
 }

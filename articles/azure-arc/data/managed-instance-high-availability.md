@@ -278,7 +278,7 @@ Additional steps are required to restore a database into an availability group. 
     Add the database backup file into the primary instance container.
 
     ```console
-    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
+    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -c <serviceName> -n <namespaceName>
     ```
 
     Example

@@ -147,6 +147,9 @@ If you no longer want to use any password functionality, complete the following 
 1. On the **Ready to configure** page, select **Configure** and wait for the process to finish.
 1. When you see the configuration finish, select **Exit**.
 
+> [!IMPORTANT]
+> Enabling password writeback for the first time may trigger password change events 656 and 657, even if a password change has not occurred. This is because all password hashes are re-synchronized after a password hash synchronization cycle has run.
+
 ## Next steps
 
 In this tutorial, you enabled Azure AD SSPR writeback to an on-premises AD DS environment. You learned how to:

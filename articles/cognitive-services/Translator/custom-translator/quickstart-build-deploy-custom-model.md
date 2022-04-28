@@ -22,7 +22,7 @@ This article provides step-by-step instructions to build a translation system wi
     Portal, you will need a [Microsoft account](https://signup.live.com) or [Azure AD account](../../../active-directory/fundamentals/active-directory-whatis.md)
     (organization account hosted on Azure) to sign in.
 
-2. A subscription to the Translator Text API via the Azure portal. You will need the Translator Text API subscription key to associate with your workspace in Custom Translator. See [how to sign up for the Translator Text API](../translator-how-to-signup.md).
+2. A subscription to the Translator Text API via the Azure portal. You will need the Translator Text API key to associate with your workspace in Custom Translator. See [how to sign up for the Translator Text API](../translator-how-to-signup.md).
 
 3. When you have both of the above, sign in to the
     [Custom Translator](https://portal.customtranslator.azure.ai) portal to create workspaces, projects, upload files and create/deploy models.
@@ -46,7 +46,7 @@ If you are first-time user, you will be asked to agree to the Terms of Service t
 ![Create workspace image 5](media/quickstart/create-workspace-5.png)
 ![Create workspace image 6](media/quickstart/create-workspace-6.png)
 
-On subsequent visits to the Custom Translator portal, navigate to the Settings page where you can manage your workspace, create more workspaces, associate your Microsoft Translator Text API subscription key with your workspaces, add co-owners, and change a subscription key.
+On subsequent visits to the Custom Translator portal, navigate to the Settings page where you can manage your workspace, create more workspaces, associate your Microsoft Translator Text API key with your workspaces, add co-owners, and change a key.
 
 ## Create a project
 

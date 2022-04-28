@@ -45,10 +45,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Description |
 |---|---|
-| [az sql db restore](/cli/azure/sql/db#az_sql_db_restore) | Restore database command. |
+| [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Restore database command. |
 
 ## Next steps
 
 For more information on Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../../azure-sql/database/az-cli-script-samples-content-guide.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](/azure/azure-sql/database/az-cli-script-samples-content-guide).

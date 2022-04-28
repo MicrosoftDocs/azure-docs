@@ -172,7 +172,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 
 ### Improved browser experience
 
-While it was possible to use the v2 SDK in the browser, it was not an ideal experience. You needed to Polyfill several node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
+While it was possible to use the v2 SDK in the browser, it was not an ideal experience. You needed to Polyfill several Node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
 
 * Replace request internals with fetch (#245)
 * Remove usage of Buffer (#330)

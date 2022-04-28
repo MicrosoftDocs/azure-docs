@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how Azure routes virtual network traffic, and how you can customize Azure's routing.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: 
 ms.service: virtual-network
 ms.topic: conceptual
@@ -93,12 +93,9 @@ You can specify the following next hop types when creating a user-defined route:
 
 You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the next hop type in user-defined routes. Routes with the **VNet peering** or **VirtualNetworkServiceEndpoint** next hop types are only created by Azure, when you configure a virtual network peering, or a service endpoint.
 
-### Service Tags for user-defined routes (Preview)
+### Service Tags for user-defined routes
 
-You can now specify a [Service Tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A Service Tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with Service Tags in each route table. </br>
-
-> [!IMPORTANT]
-> Service Tags for user-defined routes is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+You can now specify a [service tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with service tags in each route table. With this release, using service tags in routing scenarios for containers is also supported. </br>
 
 #### Exact Match
 When there is an exact prefix match between a route with an explicit IP prefix and a route with a Service Tag, preference is given to the route with the explicit prefix. When multiple routes with Service Tags have matching IP prefixes, routes will be evaluated in the following order: 

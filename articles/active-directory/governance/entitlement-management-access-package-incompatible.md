@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a global administrator or access package manager, I want to configure that a user cannot request an access package if they already have incompatible access.
 
 ---
-# Configure separation of duties checks for an access package in Azure AD entitlement management (Preview)
+# Configure separation of duties checks for an access package in Azure AD entitlement management
 
 In Azure AD entitlement management, you can configure multiple policies, with different settings for each user community that will need access through an access package.  For example, employees might only need manager approval to get access to certain apps, but guests coming in from other organizations may require both a sponsor and a resource team departmental manager to approve. In a policy for users already in the directory, you can specify a particular group of users for who can request access. However, you may have a requirement to avoid a user obtaining excessive access.  To meet this requirement, you will want to further restrict who can request access, based on the access the requestor already has.
 
@@ -57,7 +57,7 @@ Follow these steps to change the list of incompatible groups or other access pac
 
 1.	In the left menu, click **Access packages** and then open the access package which users will request.
 
-1.	In the left menu, click **Separation of duties (preview)**.
+1.	In the left menu, click **Separation of duties**.
 
 1.  If you wish to prevent users who have another access package assignment already from requesting this access package, click on **Add access package** and select the access package that the user would already be assigned.
 
@@ -84,7 +84,7 @@ Follow these steps to view the list of other access packages that have indicated
 
 1.	In the left menu, click **Access packages** and then open the access package.
 
-1.	In the left menu, click **Separation of duties (preview)**.
+1.	In the left menu, click **Separation of duties**.
 
 1. Click on **Incompatible With**.
 

@@ -39,7 +39,7 @@ SQL Server features and capabilities provide a method of security at the data le
 - Use [Azure Security Center](../../../defender-for-cloud/defender-for-cloud-introduction.md) to evaluate and take action to improve the security posture of your data environment. Capabilities such as [Azure Advanced Threat Protection (ATP)](../../database/threat-detection-overview.md) can be leveraged across your hybrid workloads to improve security evaluation and give the ability to react to risks. Registering your SQL Server VM with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md) surfaces Azure Security Center assessments within the [SQL virtual machine resource](manage-sql-vm-portal.md) of the Azure portal. 
 - Leverage [Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-introduction.md) to discover and mitigate potential database vulnerabilities, as well as detect anomalous activities that could indicate a threat to your SQL Server instance and database layer.
 - [Vulnerability Assessment](../../database/sql-vulnerability-assessment.md) is a part of [Microsoft Defender for SQL](../../../defender-for-cloud/defender-for-sql-introduction.md) that can discover and help remediate potential risks to your SQL Server environment. It provides visibility into your security state, and includes actionable steps to resolve security issues.
-- [Azure Advisor](../../../advisor/advisor-security-recommendations.md) analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.. Leverage Azure Advisor at the virtual machine, resource group, or subscription level to help identify and apply best practices to optimize your Azure deployments. 
+- [Azure Advisor](../../../advisor/advisor-security-recommendations.md) analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources. Leverage Azure Advisor at the virtual machine, resource group, or subscription level to help identify and apply best practices to optimize your Azure deployments. 
 - Use [Azure Disk Encryption](../../../virtual-machines/windows/disk-encryption-windows.md) when your compliance and security needs require you to encrypt the data end-to-end using your encryption keys, including encryption of the ephemeral (locally attached temporary) disk.
 - [Managed Disks are encrypted](../../../virtual-machines/disk-encryption.md) at rest by default using Azure Storage Service Encryption, where the encryption keys are Microsoft-managed keys stored in Azure.
 - For a comparison of the managed disk encryption options review the [managed disk encryption comparison chart](../../../virtual-machines/disk-encryption-overview.md#comparison)
@@ -153,6 +153,9 @@ You don't want attackers to easily guess account names or passwords. Use the fol
     > If you do not enable SQL Authentication during provisioning, you must manually change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
   - If you must use the **SA** login, enable the login after provisioning and assign a new strong password.
+
+> [!NOTE]  
+> Connecting to a SQL Server instance that's running on an Azure virtual machine (VM) is not supported using Azure Active Directory or Azure Active Directory Domain Services. Use an Active Directory domain account instead.
 
 ## Auditing and reporting
 

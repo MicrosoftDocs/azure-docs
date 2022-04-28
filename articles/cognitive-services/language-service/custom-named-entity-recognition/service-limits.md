@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
 ---
@@ -27,13 +27,13 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Maximum allowed length for your file is 128,000 characters, which is approximately 28,000 words or 56 pages.
 
-* Your [training dataset](how-to/train-model.md#data-split) should include at least 10 files and not more than 100,000 files.
+* Your [training dataset](how-to/train-model.md) should include at least 10 files and not more than 100,000 files.
 
 ## APIs limits
 
-* When using the Authoring API, there is a maximum of 10 POST requests and 100 GET requests per minute.
+* The Authoring API has a maximum of 10 POST requests and 100 GET requests per minute.
 
-* When using the Analyze API, there is a maximum of 20 GET or POST requests per minute.
+* The Analyze API has a maximum of 20 GET or POST requests per minute.
 
 * The maximum file size per request is 125,000 characters. You can send up to 25 files as long as they collectively do not exceed 125,000 characters.
 
@@ -70,7 +70,7 @@ Custom text classification is only available select Azure regions. When you crea
 
 * Model names have to be unique within the same project.
 
-* Model names must only contain alphnumeric characters,only letters and numbers, no spaces or special characters are allowed). Model name must have a maximum of 50 characters.
+* Model names must only contain alphanumeric characters, only letters and numbers, no spaces or special characters are allowed). Model name must have a maximum of 50 characters.
 
 * You cannot rename your model after creation.
 

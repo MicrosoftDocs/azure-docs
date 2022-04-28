@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](./overview-identity-protection.md) APIs. This article will show you how to use the [Microsoft Graph PowerShell SDK](/graph/powershell/get-started) to get risky user details using PowerShell. Organizations that want to query the Microsoft Graph APIs directly can use the article, [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api) to begin that journey.
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](./overview-identity-protection.md) APIs. This article will show you how to use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started) to get risky user details using PowerShell. Organizations that want to query the Microsoft Graph APIs directly can use the article, [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api) to begin that journey.
 
 
 ## Connect to Microsoft Graph
@@ -90,7 +90,7 @@ Get-MgRiskyUser -All
 
 ## Next steps
 
-- [Get started with the Microsoft Graph PowerShell SDK](/graph/powershell/get-started)
+- [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 - [Tutorial: Identify and remediate risks using Microsoft Graph APIs](/graph/tutorial-riskdetection-api)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
 - [Get access without a user](/graph/auth-v2-service)

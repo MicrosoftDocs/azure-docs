@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 03/28/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -149,7 +149,7 @@ Here are some of the limits and constraints for custom security attributes.
 > | Predefined values per attribute definition | 100 |  |
 > | Attribute value length | 64 | Unicode characters |
 > | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
-> | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` |  |
+> | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` | Attribute set name and attribute name cannot start with a number |
 > | Characters not allowed for:<br/>Attribute values | `# % & * + \ : " / < > ?` |  |
 
 ## Custom security attribute roles
@@ -177,7 +177,6 @@ If you use the Microsoft Graph API, you can use [Graph Explorer](/graph/graph-ex
 
 Here are some of the known issues with custom security attributes:
 
-- Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
 - Global Administrators can read audit logs for custom security attribute definitions and assignments.
 - If you have an Azure AD Premium P2 license, you can't add eligible role assignments at attribute set scope.
 - If you have an Azure AD Premium P2 license, the **Assigned roles** page for a user does not list permanent role assignments at attribute set scope. The role assignments exist, but aren't listed.

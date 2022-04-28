@@ -55,7 +55,6 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |immutableId     |String|An identifier that is typically used for users migrated from on-premises Active Directory.|No|No|Persisted, Output|
 |legalAgeGroupClassification|String|Legal age group classification. Read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult, and adult.|Yes|No|Persisted, Output|
 |legalCountry<sup>1</sup>  |String|Country/Region for legal purposes.|No|No|Persisted, Output|
-|mail    |String|Email address for the user. Example: "bob@contoso.com". NOTE: Accent characters are not allowed.|Yes|No|Persisted, Output|
 |mailNickName    |String|The mail alias for the user. Max length 64.|No|No|Persisted, Output|
 |mobile (mobilePhone) |String|The primary cellular telephone number for the user. Max length 64.|Yes|No|Persisted, Output|
 |netId           |String|Net ID.|No|No|Persisted, Output|

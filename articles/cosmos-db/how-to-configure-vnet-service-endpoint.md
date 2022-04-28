@@ -356,8 +356,11 @@ NSG rules are used to limit connectivity to and from a subnet with virtual netwo
 ### Are service endpoints available for all VNets?
 No, Only Azure Resource Manager virtual networks can have service endpoint enabled. Classic virtual networks don't support service endpoints.
 
-### Can I "Accept connections from within public Azure datacenters" when service endpoint access is enabled for Azure Cosmos DB?  
-This is required only when you want your Azure Cosmos DB account to be accessed by other Azure first party services like Azure Data factory, Azure Cognitive Search or any service that is deployed in given Azure region.
+### When should I "Accept connections from within public Azure datacenters" for an Azure Cosmos DB account?  
+This setting should only be enabled when you want your Azure Cosmos DB account to be accessible to any Azure service in any Azure region. Other Azure first party services such as Azure Data Factory and Azure Cognitive Search provide documentation for how to secure access to data sources including Azure Cosmos DB accounts, for example:
+
+* [Azure Data Factory Managed Virtual Network](../data-factory/managed-virtual-network-private-endpoint.md)
+* [Azure Cognitive Search Indexer access to protected resources](../search/search-indexer-securing-resources.md)
 
 ## Next steps
 

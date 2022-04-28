@@ -28,7 +28,9 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
-By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+* By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+
+* Azure Machine Learning does not support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
 
 [!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
@@ -333,7 +335,7 @@ With the public preview search capability, you can search for machine learning a
 Type search text into the global search bar on the top of portal and hit enter to trigger a 'contains' search.
 A contains search scans across all metadata fields for the given asset and sorts results relevance.
 
-You can use the asset quick links to navigate to search results for jobs, models, and components that you created.
+You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
 
 Also,  you can change the scope of applicable subscriptions and workspaces via the 'Change' link in the search bar drop down.
 
@@ -351,7 +353,7 @@ Select any number of filters to create more specific search queries. The followi
 * Environment:
 * Dataset:
 
-If an asset filter (job, model, component) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
+If an asset filter (job, model, component, environment, dataset) is present, results are scoped to those tabs. Other filters apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters, but are scoped to the tabs chosen by asset filters, if present.
 
 > [!TIP]
 > * Filters search for exact matches of text. Use free text queries for a contains search.
@@ -362,7 +364,7 @@ If an asset filter (job, model, component) is present, results are scoped to tho
 
 ### View search results
 
-You can view your search results in the individual **Jobs**, **Models** and **Components** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Datasets** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
 
 :::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
 
