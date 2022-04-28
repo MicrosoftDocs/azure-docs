@@ -1,12 +1,12 @@
 ---
-title: Extensions - Azure Database for PostgreSQL - Flexible Server
-description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
-ms.author: sunila
-author: sunilagarwal
+title: Autovacuum Tuning
+description: Troublesgooting guide for autovacuum in Azure Database for PostgreSQL - Flexible Server
+ms.author: sbalijepalli
+author: sarat balijepalli
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 4/28/2022
 ---
 
 # Autovacuum Tuning
