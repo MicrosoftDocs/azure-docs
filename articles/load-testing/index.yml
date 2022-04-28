@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Load Testing documentation
-summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, and more. 
+summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, and more.
 
 metadata:
   title: Azure Load Testing documentation
