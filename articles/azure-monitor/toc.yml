@@ -1498,6 +1498,8 @@ items:
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
+  - name: Data reference
+    href: /azure/azure-monitor/reference/
   - name: Monitoring data reference
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
@@ -1560,6 +1562,8 @@ items:
         href: app/data-model-event-telemetry.md
       - name: Metric
         href: app/data-model-metric-telemetry.md
+      - name: PageView
+        href: app/data-model-pageview-telemetry.md
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions

@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 04/26/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure SQL Database in Microsoft Purview
@@ -42,8 +42,9 @@ When setting up scan, you can further scope the scan after providing the databas
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
 * Stored procedures with dynamic SQL, running from remote data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
-* Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed
-* If sql views are referenced in stored procedures, they're captured as sql tables currently
+* Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed.
+* If sql views are referenced in stored procedures, they're captured as sql tables currently.
+* Lineage extraction is currently not supported, if Azure SQL Server is configured behind a private endpoint.
 
 ## Prerequisites
 
@@ -62,8 +63,6 @@ This section will enable you to register the Azure SQL DB data source and set up
 It's important to register the data source in Microsoft Purview before setting up a scan.
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source.":::
 
 1. **Open Microsoft Purview governance portal** and navigate to the **Data Map**
 
@@ -99,7 +98,7 @@ If your database server has a firewall enabled, you'll need to update the firewa
 1. [Install a Self-Hosted Integration Runtime on a machine in your network and give it access through the firewall](#self-hosted-integration-runtime) - if you have a private VNet set up within Azure, or have any other closed network set up, using a self-hosted integration runtime on a machine within that network will allow you to fully manage traffic flow and utilize your existing network.
 1. [Use a managed virtual network](catalog-managed-vnet.md) - setting up a managed virtual network with your Microsoft Purview account will allow you to connect to Azure SQL using the Azure integration runtime in a closed network.
 
-For more information about the Azure SQL Firewall, see the [SQL Database firewall documentation.](../azure-sql/database/firewall-configure.md) To connect Microsoft Purview through the firewall, follow the steps below.
+For more information about the Azure SQL Firewall, see the [SQL Database firewall documentation.](/azure/azure-sql/database/firewall-configure) To connect Microsoft Purview through the firewall, follow the steps below.
 
 #### Allow Azure Connections
 
@@ -134,7 +133,7 @@ The following options are supported:
 
 * **Service Principal**- A service principal is an application that can be assigned permissions like any other group or user, without being associated directly with a person. Their authentication has an expiration date, and so can be useful for temporary projects. For more information, see the [service principal documenatation](/active-directory/develop/app-objects-and-service-principals).
 
-* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
+* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](/azure/azure-sql/database/connect-query-portal), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
     > [!NOTE]
     > Be sure to select the Azure SQL Database option on the page.
 

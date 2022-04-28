@@ -38,8 +38,6 @@ It is important to register the data source in Microsoft Purview prior to settin
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source":::
-
 1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview governance portal":::

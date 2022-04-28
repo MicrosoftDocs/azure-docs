@@ -208,7 +208,7 @@
       items:
       - name: Azure billing product transfers
         href: manage/subscription-transfer.md
-      - name: Transfer subscription ownership
+      - name: Transfer MOSP subscription ownership
         displayName: azure transfer subscription
         href: manage/billing-subscription-transfer.md
       - name: Transfer subscriptions between partners (Preview)
