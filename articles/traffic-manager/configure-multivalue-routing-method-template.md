@@ -45,7 +45,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
     ```azurepowershell-interactive
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/traffic-manager-minchild/azuredeploy.json"
 
-    $resourceGroupName = Read-Host -Prompt "Enter name of resource group of existing traffic manager profile"
+    $resourceGroupName = Read-Host -Prompt "Enter name of resource group of the existing traffic manager profiles"
 
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 
@@ -75,10 +75,10 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 ## Validate the deployment
 
-1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that another endpoint was added to the profile.
+1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manger profile you entered when deploying the template.
 
     ```azurepowershell-interactive
-    Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name ExternalEndpointExample | Select Endpoints
+    Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name ParentEndPointExample | Select Endpoints
     ```
     The output is similar to:
 
@@ -88,7 +88,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 When you no longer need the Traffic Manager profile, delete the resource group. This command removes the Traffic Manager profile and all the related resources.
 
-To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
+To delete the resource group, use the `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group name>
