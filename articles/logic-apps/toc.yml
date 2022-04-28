@@ -94,7 +94,7 @@
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
     - name: Create custom built-in connectors for single-tenant workflows
-      href: create-built-in-custom-connector-standard.md
+      href: create-custom-built-in-connector-standard.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps

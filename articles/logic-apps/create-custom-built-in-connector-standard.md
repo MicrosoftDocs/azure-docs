@@ -15,13 +15,7 @@ If the connectors that you need aren't available for use in Standard logic app w
 
 This article shows how to create an example custom built-in connector using the Azure Functions extensibility framework and the sample built-in Azure Cosmos DB connector.
 
-For more information about connectors and custom connectors, review the following documentation:
-
-* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
-* [Built-in connector operations in Azure Logic Apps](../connectors/built-in.md)
-* [Managed connector operations in Azure Logic Apps](../connectors/managed.md)
-* [Custom connectors in Azure Logic Apps](custom-connector-overview.md)
-* [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md)
+For more information about custom connectors, review [Custom connectors in Azure Logic Apps](custom-connector-overview.md) and [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
 
 ## Prerequisites
 
@@ -166,7 +160,7 @@ When you're done, review the following code map diagram that shows the implement
 * **CosmosDbServiceProvider**
 * **CosmosDbServiceOperationProvider**
 
-![Conceptual code map diagram that shows complete class implementation.](./media/create-built-in-custom-connector-standard/methods-implementation-code-map-diagram.png)
+![Conceptual code map diagram that shows complete class implementation.](./media/create-custom-built-in-connector-standard/methods-implementation-code-map-diagram.png)
 
 ## Install your connector
 
@@ -234,7 +228,7 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
    The operations picker shows your custom built-in connector and trigger, for example:
 
-   ![Screenshot showing Visual Studio Code and the designer for a Standard logic app workflow with the new custom built-in Cosmos DB connector.](./media/create-built-in-custom-connector-standard/visual-studio-code-built-in-connector-picker.png)
+   ![Screenshot showing Visual Studio Code and the designer for a Standard logic app workflow with the new custom built-in Cosmos DB connector.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-picker.png)
 
 1. From the **Triggers** list, select your custom built-in trigger to start your workflow.
 
@@ -246,7 +240,7 @@ To add the NuGet reference from the previous section, in the extension bundle na
    | **Connection String** | Yes | <*Cosmos-DB-connection-string*> | The connection string for the Azure Cosmos DB database collection or lease collection where you want to add each new received document. |
    |||||
 
-   ![Screenshot showing the connection pane when using the connector for the first time.](./media/create-built-in-custom-connector-standard/visual-studio-code-built-in-connector-create-connection.png)
+   ![Screenshot showing the connection pane when using the connector for the first time.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-create-connection.png)
 
 1. When you're done, select **Create**.
 
@@ -258,13 +252,13 @@ To add the NuGet reference from the previous section, in the extension bundle na
    | **collection name** | Yes | <*Cosmos-DB-collection-name*> | The name for the Cosmos DB collection where you want to add each new received document. |
    |||||
 
-   ![Screenshot showing the trigger properties pane.](./media/create-built-in-custom-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
+   ![Screenshot showing the trigger properties pane.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
 
 1. In Visual Studio Code, on the **Run** menu, select **Start Debugging**. (Press F5)
 
 1. To trigger your workflow, in the Azure portal, open your Azure Cosmos DB account. On the account menu, select **Data Explorer**. Browse to the database and collection that you specified in the trigger. Add an item to the collection.
 
-   ![Screenshot showing the Azure portal, Cosmos DB account, and Data Explorer open to the specified database and collection.](./media/create-built-in-custom-connector-standard/cosmos-db-account-test-add-item.png)
+   ![Screenshot showing the Azure portal, Cosmos DB account, and Data Explorer open to the specified database and collection.](./media/create-custom-built-in-connector-standard/cosmos-db-account-test-add-item.png)
 
 ## Next steps
 
