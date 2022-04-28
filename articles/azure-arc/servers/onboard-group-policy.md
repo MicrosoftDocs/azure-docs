@@ -10,7 +10,7 @@ ms.custom: template-how-to
 
 You can onboard Active Directory–joined Windows machines to Azure Arc-enabled servers at scale using Group Policy.
 
-You'll first need to set up a local remote share with the Connected Machine Agent and define a configuration file on the landing zone within Azure. You will then define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
+You'll first need to set up a local remote share with the Connected Machine Agent and define a configuration file specifying the Arc-enabled server's landing zone within Azure. You will then define a Group Policy Object to run an onboarding script using a scheduled task. This Group Policy can be applied at the site, domain, or organizational unit level. Assignment can also use Access Control List (ACL) and other security filtering native to Group Policy. Machines in the scope of the Group Policy will be onboarded to Azure Arc-enabled servers.
 
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
 
@@ -46,7 +46,7 @@ Before you can run the script to connect your machines, you'll need to do the fo
     } 
 ```
 
-The group policy will land assigned machines to the subscription, resource group, and region specified in this configuration file.
+The group policy will project machines as Arc-enabled servers in the Azure subscription, resource group, and region specified in this configuration file.
 
 ## Modify and save the onboarding script
 
