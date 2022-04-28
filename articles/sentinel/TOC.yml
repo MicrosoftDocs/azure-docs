@@ -354,6 +354,8 @@
         href: sap/configure-audit.md
       - name: Collect SAP HANA audit logs
         href: sap/collect-sap-hana-audit-logs.md
+      - name: Deploy SAP connector manually
+        href: sap/sap-solution-deploy-alternate.md
     - name: SAP solution data reference
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview

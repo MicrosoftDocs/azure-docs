@@ -167,13 +167,13 @@ ABAPAppLog = <True/False>
 ABAPWorkflowLog = <True/False>
 ABAPCRLog = <True/False>
 ABAPTableDataLog = <True/False>
-# The following logs are retrieved using SAP Conntrol interface and OS Login
+# The following logs are retrieved using SAP Control interface and OS Login
 ABAPFilesLogs = <True/False>
 SysLog = <True/False>
 ICM = <True/False>
 WP = <True/False>
 GW = <True/False>
-# The following logs are retrieved using SAP Conntrol interface and OS Login
+# The following logs are retrieved using SAP Control interface and OS Login
 JAVAFilesLogs = <True/False>
 ```
 
@@ -185,7 +185,7 @@ auditlogforcexal = <True/False>
 auditlogforcelegacyfiles = <True/False>
 
 timechunk = <value>
-# Default timechunk value is 60 (minutes). For certain tables, data connector retrieves data from the ABAP server using timechunks (colleting all events that occured within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
+# Default timechunk value is 60 (minutes). For certain tables, data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
 ```
 
 #### ABAP Table Selector section
