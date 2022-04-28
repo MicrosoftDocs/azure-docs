@@ -103,7 +103,7 @@ Before deploying the application on OpenShift, we are going to run it locally to
 * Database name: `todos_db`
 * SA password: `Passw0rd!`
 
-To create the database, follow the steps in [Quickstart: Create an Azure SQL Database single database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal), but use the following substitutions.
+To create the database, follow the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal), but use the following substitutions.
 
 * For **Database name** use `todos_db`.
 * For **Password** use `Passw0rd!`.
