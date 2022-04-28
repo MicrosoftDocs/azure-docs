@@ -143,5 +143,5 @@ Reference files:
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 
-For more information, see [Microsoft Sentinel solutions](sentinel-solutions.md).
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
 

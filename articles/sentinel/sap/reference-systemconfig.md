@@ -240,4 +240,4 @@ Reference files:
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 
-For more information, see [Microsoft Sentinel solutions](sentinel-solutions.md).
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).

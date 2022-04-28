@@ -35,7 +35,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 
 > [!IMPORTANT]
-> - This article presents a [**step-by-step guide**](#change-request-and-authorization-configuration-step-by-step-guide) to deploying the required CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
+> - This article presents a [**step-by-step guide**](#deploy-change-requests) to deploying the required CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
 > - Experienced SAP administrators that are familiar with CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900163* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
 
 > [!NOTE]

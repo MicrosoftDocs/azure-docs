@@ -49,45 +49,17 @@ Your SAP authentication infrastructure, and where you deploy your VM, will deter
 - An Azure Key Vault, accessed through an Azure AD **registered-application service principal**
 - A plaintext **configuration file**
 
-If your **SAP authentication** infrastructure is based on **PKI**, using **X.509 certificates**, your only option is to use a configuration file. [Follow these instructions](#deploy-using-configuration-file-for-secrets-storage) to deploy your agent container.
+If your **SAP authentication** infrastructure is based on **PKI**, using **X.509 certificates**, your only option is to use a configuration file. Select the **Configuration file** tab below for the instructions to deploy your agent container.
 
 If not, then your SAP configuration and authentication secrets can and should be stored in an [**Azure Key Vault**](../../key-vault/general/authentication.md). How you access your key vault depends on where your VM is deployed:
 
-- **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. [Follow these instructions](#deploy-using-azure-key-vault-for-secret-storage) to deploy your agent container using managed identity.
+- **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. Select the **Managed identity** tab below for the instructions to deploy your agent container using managed identity.
 
     In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a configuration file.
 
-- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). [Follow these instructions](#deploy-using-enterprise-application-identity-for-secrets-storage-in-key-vault) to deploy your agent container.
+- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the **Registered application** tab below for the instructions to deploy your agent container.
 
     If for some reason a registered-application service principal can't be used, you can use a configuration file, though this is not preferred.
-
-### Prerequisites
-
-> [!NOTE]
-> **FROM YECHIEL:**  
-> I think this section should be eliminated. There is a whole separate document of prerequisites that contains almost all the information that was here. I can move the VM sizing table to that document also. I created an [**alternate version of the prerequisites document**](prerequisites-for-deploying-sap-continuous-threat-monitoring_alternate.md) with this there (and divided the whole table into sections). Let me know what you think.
-
-[See this article](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites) for a full description of all the prerequisites for deploying the SAP data connector.
-
-Deploying the data connector container using a kickstart script requires the Linux distros and versions listed at the link above. If you have a different operating system, you can [deploy and configure the container manually](#manual-sap-data-connector-deployment).
-
-The instructions below require the Azure CLI. [Learn how to install the Azure CLI](/cli/azure/install-azure-cli).
-
-#### Recommended virtual machine sizing
-
-The following table describes the recommended sizing for your virtual machine, depending on your intended usage:
-In general, at least 2 cores and at least 4 GB of memory is recommended for the VM acting as host for the data connector agent container
-
-|Usage  |Recommended sizing  |
-|---------|---------|
-|**Minimum specification**, such as for a lab environment | *Standard_B2s* VM |
-|**Standard connector** (default) | *Standard_D2as_v5* VM or<br>*Standard_D2_v5* VM, with: <br>- 2 cores<br>- 8 GB RAM |
-|**Multiple connectors** | *Standard_D4as_v5* or<br> *Standard_D4_v5* VM, with: <br>- 4 cores<br>- 16 GB RAM |
-| | |
-
-> [!NOTE]
-> **FROM YECHIEL:**  
-> Up to this point should be eliminated.
 
 ## Deploy the data connector agent container
 
@@ -193,12 +165,12 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
     {
       "appId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
       "displayName": "azure-cli-2022-01-28-17-59-06",
-      "password": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+      "password": "ssssssssssssssssssssssssssssssssss",
       "tenant": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
     }
     ```
 
-1. Copy the **appId** from the output, as you'll need it later.
+1. Copy the **appId**, **tenant**, and **password** from the output. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
 1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`):
 
@@ -214,7 +186,7 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
 
     If you'll be using an existing key vault, ignore this step.
 
-1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these when you run the deployment script in the coming steps.
+1. Copy the name of the (newly created or existing) key vault and the name of its resource group. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
 1. Run the following command to **assign a key vault access policy** to the registered application ID that you copied above (substitute actual names or values for the `<placeholders>`):
 
@@ -237,13 +209,11 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
     chmod +x ./sapcon-sentinel-kickstart.sh
     ```
     
-1. **Run the script**, specifying the application ID, secret, tenant ID, and key vault name.
+1. **Run the script**, specifying the application ID, secret (the "password"), tenant ID, and key vault name that you copied in the previous steps.
 
     ```bash
-    ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
+    ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret ssssssssssssssssssssssssssssssssss -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
     ```
-
-    ***WHERE DO YOU GET THE SECRET FROM? -YL***
 
     The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values.
 
@@ -288,7 +258,7 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
 
    Note the Docker container name in the script output. You'll use it in the next step.
 
-1. Run the following command to **configure the Docker container to start automatically**. ***THIS STEP WASN'T HERE BEFORE. DOES IT NOT APPLY WHEN USING A CONFIG FILE? -YL***
+1. Run the following command to **configure the Docker container to start automatically**.
 
     ```bash
     docker update --restart unless-stopped <container-name>
@@ -301,11 +271,7 @@ In general, at least 2 cores and at least 4 GB of memory is recommended for the 
 
 ## Deploy the SAP data connector manually
 
-1. Prepare a machine running a supported OS and version.
-
-***IN THE PREREQUISITES SECTION, IT SAID YOU WOULD DEPLOY MANUALLY IF YOU DON'T HAVE A SUPPORTED VERSION OF THE OPERATING SYSTEM. WHICH IS IT? -YL***
-
-1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the target machine.
+1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
 1. Install [Docker](https://www.docker.com/)
 

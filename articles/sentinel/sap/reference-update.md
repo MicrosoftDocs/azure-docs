@@ -100,4 +100,4 @@ Reference files:
 - [Kickstart script reference](reference-kickstart.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 
-For more information, see [Microsoft Sentinel solutions](sentinel-solutions.md).
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).

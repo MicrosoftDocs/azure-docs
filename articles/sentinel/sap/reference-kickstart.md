@@ -16,24 +16,26 @@ ms.date: 03/02/2022
 
 ## Script overview
 
-Kickstart script (available at [Microsoft Azure Sentinel SAP Continuous Threat Monitoring GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) is used to simplify deployment of the Continuous Threat Monitoring for SAP container, enable different modes of secrets storage, configure SNC and more
+Kickstart script (available at [Microsoft Azure Sentinel SAP Continuous Threat Monitoring GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) is used to simplify deployment of the Continuous Threat Monitoring for SAP container, enable different modes of secrets storage, configure SNC and more.
 
 ## Parameter reference
+
+See examples of how these parameters are used in [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md).
 
 #### Secret storage location
 Parameter name: `--keymode`
 
 Parameter values: `kvmi`, `kvsi`, `cfgf`
 
-Required?: No. `kvmi` assumed if not specified
+Required?: No. `kvmi` is assumed by default.
 
-Explanation: Specifies whether secrets (username, password, log analytics ID and shared key) should be stored in local configuration file, or in Azure Key Vault. Also controls whether authentication to Azure Keyvault is done using Managed VM identity or Enterprise application identity
+Explanation: Specifies whether secrets (username, password, log analytics ID and shared key) should be stored in local configuration file, or in Azure Key Vault. Also controls whether authentication to Azure Key Vault is done using the VM's Azure system-assigned managed identity or an Azure AD registered-application identity.
 
-If set to `kvmi`, implies Azure Keyvault is used to store secrets and authentication to Azure Keyvault is done using Virtual Machine managed identity
+If set to `kvmi`, Azure Key Vault is used to store secrets, and authentication to Azure Key Vault is done using the virtual machine's Azure system-assigned managed identity.
 
-If set to `kvsi`, implies Azure Keyvault is used to store secrets and authentication to Azure Keyvault is done using Enterprise application identity. Usage of `kvsi` mode requires `--appid`, `--appsecret` and `--tenantid` values
+If set to `kvsi`, Azure Key Vault is used to store secrets, and authentication to Azure Key Vault is done using an Azure AD registered-application identity. Usage of `kvsi` mode requires `--appid`, `--appsecret` and `--tenantid` values.
 
-If set to `cfgf`, configuration file stored locally will be used to store secrets
+If set to `cfgf`, configuration file stored locally will be used to store secrets.
 
 #### ABAP server connection mode
 Parameter name: `--connectionmode`
@@ -42,7 +44,7 @@ Parameter values: `abap`, `mserv`
 
 Required?: No. `abap` assumed if not specified
 
-Explanation: Defines whether data collector agent should connect to ABAP server directly, or through a message server. Usage of `abap` value means direct connection to ABAP server and server *may* be defined via `--abapserver` parameter. Usage of `mserv` value means means connection via message server and **requires** usage of `--messageserverhost`, `--messageserverport` and `--logongroup` parameters
+Explanation: Defines whether data collector agent should connect to ABAP server directly, or through a message server. Usage of `abap` value means direct connection to ABAP server and server *may* be defined via `--abapserver` parameter. Usage of `mserv` value means means connection via message server and **requires** usage of `--messageserverhost`, `--messageserverport` and `--logongroup` parameters.
 
 #### Configuration folder location
 Parameter name: `--configpath`
@@ -51,14 +53,14 @@ Parameter values: `<path>`
 
 Required?: No, `/opt/sapcon/<SID>` is assumed if not specified
 
-Explanation: By default kickstart initializes configuration file, metadata location to `/opt/sapcon/<SID>`. To set alternate location of configuration and metadata, use the `--configpath` parameter
+Explanation: By default kickstart initializes configuration file, metadata location to `/opt/sapcon/<SID>`. To set alternate location of configuration and metadata, use the `--configpath` parameter.
 
 #### ABAP server address
 Parameter name: `--apabserver`
 
 Parameter values: `<servername>`
 
-Required?: No, if not specified and [ABAP server connection mode](#abap-server-connection-mode) is set to `abap`, user will be prompted for the server hostname/ip address
+Required?: No, if not specified and [ABAP server connection mode](#abap-server-connection-mode) is set to `abap`, user will be prompted for the server hostname/IP address.
 
 Explanation: Used only if connection mode set to `abap`, contains the fqdn, short name, or ip address of the ABAP server to connect to.
 
@@ -151,7 +153,11 @@ Parameter values: `<guid>`
 
 Required?: Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the application ID. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy-data-connector-agent-container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
+
+deploy-data-connector-agent-container.md?tabs=registered-application#deploy-the-data-connector-agent-container
+
+
+Explanation: When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an enterprise application (service principal) identity. This parameter specifies the application ID.
 
 #### Enterprise Application secret
 Parameter name: `--appsecret`
@@ -160,7 +166,7 @@ Parameter values: `<secret>`
 
 Required?: Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the application secret. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy-data-connector-agent-container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
+Explanation: When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an enterprise application (service principal) identity. This parameter specifies the application secret.
 
 #### Tenant ID
 Parameter name: `--tenantid`
@@ -169,16 +175,16 @@ Parameter values: `<guid>`
 
 Required?: Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-Explanation: When Azure Keyvault authentication mode is set to `kvsi`, authentication to keyvault is done using an enterprise application (service principal) identity. This parameter specifies the Azure Active Directory Tenant ID. For more information see [Deployment of Microsoft Sentinel continuous protection for SAP data connector using Enterprise application identity for secrets storage in Key Vault](deploy-data-connector-agent-container.md#deployment-of-microsoft-sentinel-continuous-protection-for-sap-data-connector-using-enterprise-application-identity-for-secrets-storage-in-key-vault)
+Explanation: When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an enterprise application (service principal) identity. This parameter specifies the Azure Active Directory Tenant ID.
  
 #### Key Vault Name
 Parameter name: `--kvaultname`
 
-Parameter values: `<keyvaultname>`
+Parameter values: `<key vaultname>`
 
 Required?: No, if [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, script will prompt for value if not supplied. 
 
-Explanation: If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, keyvault name, not FQDN should entered here.
+Explanation: If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, key vault name, not FQDN should entered here.
  
 #### Log Analytics workspace ID
 Parameter name: `--loganalyticswsid`
@@ -331,4 +337,4 @@ Reference files:
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 
-For more information, see [Microsoft Sentinel solutions](sentinel-solutions.md).
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
