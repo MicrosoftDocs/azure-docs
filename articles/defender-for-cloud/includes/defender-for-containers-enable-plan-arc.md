@@ -1,8 +1,9 @@
 ---
-author: elkrieger
+author: bmansheim
+ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 04/25/2022
+ms.date: 04/28/2022
 
 ---
 ## Enable the plan
