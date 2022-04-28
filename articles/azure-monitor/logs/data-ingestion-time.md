@@ -103,7 +103,7 @@ Ingestion time may vary for different resources under different circumstances. Y
 
 | Step | Property or Function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. | If at processing time, the Time Generated value is older than 3 days the row will be dropped. |
 | Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field is not optimized for mass processing and should not be used to filter large datasets. |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | It is recommended to use ingestion_time() if there is a need to filter only records that were ingested in a certain time window. In such case, it is recommended to add also TimeGenerated filter with a larger range. |
 
