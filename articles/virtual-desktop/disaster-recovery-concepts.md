@@ -61,9 +61,9 @@ The disaster recovery methods we recommend are:
 
 - Configure and deploy Azure resources across multiple availability zones.
 
-- Configure and deploy Azure resources across multiple regions in either active-active or active-passive configurations as [shared host pools](create-host-pools-azure-marketplace.md).
+- Configure and deploy Azure resources across multiple regions in either active-active or active-passive configurations. These configurations are typically found in [shared host pools](create-host-pools-azure-marketplace.md).
 
-- Use dedicated or personal host pools to [replicate VMs using Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-replication.md) to another region.
+- For personal host pools with dedicated VMs, [replicate VMs using Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-replication.md) to another region.
 
 - Configure a separate "disaster recovery" host pool in the secondary region and use FSLogix Cloud Cache to replicate the user profile. During a disaster, you can switch users over to the secondary region.
 
@@ -140,7 +140,7 @@ When using this disaster recovery strategy, it's important to keep the following
 
 - You may experience integration, performance, or contention issues for resources if a large-scale disaster affects multiple customers or tenants.
 
-- Personal host pools use VMs that are dedicated to one user, which means affinity load load-balancing rules direct all user sessions back to a specific host. This one-to-one mapping between user and host means that if a host is down, the user won't be able to sign in until the asset comes back online or disaster recovery starts.
+- Personal host pools use VMs that are dedicated to one user, which means affinity load load-balancing rules direct all user sessions back to a specific VM. This one-to-one mapping between user and VM means that if a VM is down, the user won't be able to sign in until the VM comes back online or the VM is recovered after disaster recovery is finished.
 
 - VMs in a personal host pool store user profile on drive C. If user profile data is corrupted or unavailable, we recommend starting your disaster recovery plan.
 

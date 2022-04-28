@@ -15,7 +15,7 @@ manager: femila
 
 To keep your organization's data safe, you should adopt and manage a business continuity and disaster recovery (BCDR) strategy. A sound BCDR strategy keeps your apps and workloads up and running during planned and unplanned service or Azure outages. These plans should cover the session host virtual machines (VMs) managed by customers, as opposed to the Azure Virtual Desktop service that's managed by Microsoft. For more information about management areas, see [Azure Virtual Desktop disaster recovery concepts](disaster-recovery-concepts.md).
 
-The Azure Virtual Desktop service is designed with high availabilty in mind. Azure Virtual Desktop is a global service with multiple instances of its independent components distributed across multiple Azure regions. If there's an unexpected outage in any of the components, you can bypass potential issues by diverting traffic to one or more of the remaining instances or do a full failover to redundant infrastructure in another Azure region.
+The Azure Virtual Desktop service is designed with high availability in mind. Azure Virtual Desktop is a global service with multiple instances of its independent components distributed across multiple Azure regions. If there's an unexpected outage in any of the components, you can bypass potential issues by diverting traffic to one or more of the remaining instances or do a full failover to redundant infrastructure in another Azure region.
 
 To make sure users can still connect during a region outage in session host VMs, you need to design your infrastructure with high availability and disaster recovery in mind. A typical disaster recovery plan includes replicating virtual machines (VMs) in a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. On top of VM replication, you'll need to keep user identities accessible at the secondary location. If you're using profile containers, you'll also need to replicate them. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
 
@@ -119,18 +119,16 @@ If the first location is unavailable, the FSLogix agent will automatically fail 
 
 We recommend you configure the FSLogix agent with a path to the secondary location in the main region. Once the primary location shuts down, the FLogix agent will replicate as part of the VM Azure Site Recovery replication. Once the replicated VMs are ready, the agent will automatically attempt to path to the secondary region.
 
-For example, let's say your primary session host VMs are in the Central US region, but your profile container is in the Central US region for performance reasons.
-
-In this case, you would configure the FSLogix agent with a path to the storage in Central US. You would configure the session host VMs to replicate in West US. Once the path to Central US fails, the agent will try to create a new path for storage in West US instead.
+For example, let's say your primary session host VMs are in the Central US region, but your profile container is in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region. Next, you'd configure the the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
 
 ### FSlogix Cloud Cache
 
 FSlogix supports replicating user and office containers from an agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities. However, before you start configuring FSLogic Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
 
-You can configure FSlogix Cloud Cache directly in the registry by either using the VHDLocations example in the previous section or use a group policy. To create or edit a group policy object, go to **Computer Configuration** > **Administrative Templates** > **FSLogix** > **Profiles Containers (and Office 365 Containers) Cloud Cache - Cloud Cache Locations**. Once you've created or edited your policy object, you'll need to enable it, then list all storage provider locations you want the FSLogix to replicate it to, as shown in the following image. 
+You can configure FSlogix Cloud Cache directly in the registry based on the VHDLocations example in the previous section. However, we recommend you configure the cloud cache using a group policy instead. To create or edit a group policy object, go to **Computer Configuration** > **Administrative Templates** > **FSLogix** > **Profiles Containers (and Office 365 Containers, if necessary) > Cloud Cache - Cloud Cache Locations**. Once you've created or edited your policy object, you'll need to enable it, then list all storage provider locations you want the FSLogix to replicate it to, as shown in the following image. 
 
-     > [!div class="mx-imgBorder"]
-     > ![A screenshot of the FSLogix Cloud Cache Group Policy Cloud Cache Locations is selected.](media/fslogix-locations.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the FSLogix Cloud Cache Group Policy Cloud Cache Locations is selected.](media/fslogix-locations.png)
 
 ### S2D
 
