@@ -26,7 +26,7 @@ You can also:
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 This article also assumes you have [a custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
@@ -702,9 +702,9 @@ You can also:
 [aks-ingress-basic]: ingress-basic.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-powershell]: kubernetes-walkthrough-powershell.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md

@@ -8,7 +8,7 @@ ms.date: 04/01/2019
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
 ---
-
+aks-quickstart-cli
 # Manually create and use a volume with Azure disks in Azure Kubernetes Service (AKS)
 
 Container-based applications often need to access and persist data in an external data volume. If a single pod needs access to storage, you can use Azure disks to present a native volume for application use. This article shows you how to manually create an Azure disk and attach it to a pod in AKS.
@@ -20,7 +20,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -158,8 +158,9 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-group-list]: /cli/azure/group#az_group_list
 [az-resource-show]: /cli/azure/resource#az_resource_show
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md

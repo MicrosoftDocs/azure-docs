@@ -13,10 +13,10 @@ ms.custom: mvc
 Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. Thus, AKS is free; you only pay for the agent nodes within your clusters, not for the masters.  
 
 You can create an AKS cluster using:
-* [The Azure CLI](./learn/quick-kubernetes-deploy-cli.md)
-* [The Azure portal](./learn/quick-kubernetes-deploy-portal.md)
-* [Azure PowerShell](./learn/quick-kubernetes-deploy-powershell.md)
-* Using template-driven deployment options, like [Azure Resource Manager templates](./learn/quick-kubernetes-deploy-rm-template.md), [Bicep](../azure-resource-manager/bicep/overview.md) and Terraform.
+* [The Azure CLI][aks-quickstart-cli]
+* [The Azure portal][aks-quickstart-portal]
+* [Azure PowerShell][aks-quickstart-powershell]
+* Using template-driven deployment options, like [Azure Resource Manager templates][aks-quickstart-template], [Bicep](../azure-resource-manager/bicep/overview.md) and Terraform.
 
 When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Advanced networking, Azure Active Directory (Azure AD) integration, monitoring, and other features can be configured during the deployment process.
 
@@ -156,11 +156,13 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
 [aks-aad]: ./azure-ad-integration-cli.md
-[aks-cli]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-template]: ./learn/quick-kubernetes-deploy-rm-template.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
 [aks-networking]: ./concepts-network.md
-[aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: /previous-versions/azure/dev-spaces/
