@@ -33,9 +33,9 @@ You can provision throughput at a container-level or a database-level in terms o
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
 | Minimum RU/s required per 1 GB | 10 RU/s [<sup>\[3\]</sup>](#provisioned-throughput-table-note-3) |
  
-<a id="provisioned-throughput-table-note-1"></a><sup>1</sup> You can increase Maximum RUs per container or datatabase by [filing an Azure support ticket](create-support-request-quota-increase.md).
+<a id="provisioned-throughput-table-note-1"></a><sup>1</sup> You can increase Maximum RUs per container or database by [filing an Azure support ticket](create-support-request-quota-increase.md).
 
-<a id="provisioned-throughput-table-note-2"></a><sup>2</sup> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20GB in production, it is recommended to re-architect your application with a different partition key as a long-term solution. To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Note this is intended as a temporary mitigation and not recommended as a long-term solution, as **SLA guarantees are not honored when the limit is increased**. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have re-architected your application with a different partition key.
+<a id="provisioned-throughput-table-note-2"></a><sup>2</sup> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20 GB in production, it's recommended to rearchitect your application with a different partition key as a long-term solution. To help give time to rearchitect your application, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Requesting a temporary increase is intended as a temporary mitigation and not recommended as a long-term solution, as **SLA guarantees are not honored when the limit is increased**. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. Filing this support ticket can be done after you have either deleted data to fit the 20-GB logical partition limit or have rearchitected your application with a different partition key.
 
 <a id="provisioned-throughput-table-note-3"></a><sup>3</sup> Minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program)
 
@@ -55,7 +55,7 @@ To estimate the minimum throughput required of a container with manual throughpu
 * Current storage in GB * 10 RU/s
 * Highest RU/s ever provisioned on the container / 100
 
-For example, you have a container provisioned with 400 RU/s and 0 GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 200 GB. The minimum RU/s is now `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
+For example, you have a container provisioned with 400 RU/s and 0-GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 200 GB. The minimum RU/s is now `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
 
 > [!NOTE]
 > The minimum throughput of 10 RU/s per GB of storage can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
@@ -86,7 +86,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 ### Serverless
 
-[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database. These limits cannot be increased. It is recommended to provision additional serverless accounts for additional storage needs.
+[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database. These limits can't be increased. It's recommended to provision extra serverless accounts for more storage needs.
 
 | Resource | Limit |
 | --- | --- |
@@ -108,7 +108,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 <a id="control-plane-operation-table-note-1"></a><sup>1</sup> You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
-<a id="control-plane-operation-table-note-2"></a><sup>2</sup> Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
+<a id="control-plane-operation-table-note-2"></a><sup>2</sup> Regional failovers only apply to single region writes accounts. Multi-region write accounts don't require or have any limits on changing the write region.
 
 Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](online-backup-and-restore.md).
 
@@ -148,7 +148,7 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 
 ## Per-item limits
 
-Depending on which API you use, an Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the limits per item in Cosmos DB. 
+An Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph; depending on which API you use. The following table shows the limits per item in Cosmos DB. 
 
 | Resource | Limit |
 | --- | --- |
@@ -161,11 +161,11 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum length of string property value | No practical limit |
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
 | Maximum level of nesting for embedded objects / arrays | 128 |
-| Maximum TTL value |2147483647|
+| Maximum TTL value |2147483647 |
 
-There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
+<a id="per-item-limits-table-note-1"></a><sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
 
-<a id="per-item-limits-table-note-1"></a><sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16MB Document Support” from [Preview Features blade in the portal](./access-previews.md), to try it.
+There are no restrictions on the item payloads (like number of properties and nesting depth), except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 
 ## Per-request limits
 
@@ -178,9 +178,9 @@ Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) again
 | Maximum response size (for example, paginated query) | 4 MB |
 | Maximum number of operations in a transactional batch | 100 |
 
-Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There is no practical limit on the duration a single query can run across pages/continuations.
+Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There's no practical limit on the duration a single query can run across pages/continuations.
 
-Cosmos DB uses HMAC for authorization. You can use either a primary key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
+Cosmos DB uses HMAC for authorization. You can use either a primary key, or a [resource token](secure-access-to-data.md) for fine-grained access control to resources. These resources can include containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
 
 | Resource | Limit |
 | --- | --- |
@@ -213,7 +213,7 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 | Maximum RU/s the system can scale to |  `Tmax`, the autoscale max RU/s set by user|
 | Minimum RU/s the system can scale to | `0.1 * Tmax`|
 | Current RU/s the system is scaled to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
-| Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you are billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
+| Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you're billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
 | Minimum autoscale max RU/s for a container  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` rounded to nearest 1000 RU/s |
 | Minimum autoscale max RU/s for a database  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per additional container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 6000 RU/s (scales between 600 - 6000 RU/s).
 
@@ -247,7 +247,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | Maximum level of nesting for embedded objects / arrays on index definitions | 6 |
 | Idle connection timeout for server side connection closure [<sup>\[1\]</sup>](#mongo-api-limits-table-note-1) | 30 minutes |
 
-<a id="mongo-api-limits-table-note-1"></a><sup>1</sup> We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.
+<a id="mongo-api-limits-table-note-1"></a><sup>1</sup> We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout will ensure that idle connections aren't closed by an intermediate load balancer between the client machine and Azure Cosmos DB.
 
 ## Try Cosmos DB Free limits
 
@@ -271,7 +271,7 @@ The following table lists the limits for [Azure Cosmos DB free tier accounts.](o
 | Resource | Limit |
 | --- | --- |
 | Number of free tier accounts per Azure subscription | 1 |
-| Duration of free-tier discount | Lifetime of the account. Must opt-in during account creation. |
+| Duration of free-tier discount | Lifetime of the account. Must opt in during account creation. |
 | Maximum RU/s for free | 1000 RU/s |
 | Maximum storage for free | 25 GB |
 | Maximum number of shared throughput databases | 5 |
