@@ -170,7 +170,7 @@ Following is the list of configuration options based on usage scenario:
     * For External Table Type:
       * `Constants.DATA_SOURCE` is a required configuration option.
       * Using the storage path set on the data source's location parameter, the connector will derive absolute path to persist external table data.
-      * The absolute path will be a combination of `base path` and `location` argument value on `synapsesql` method. For example `<base_path>/<user_specified_external_table_location_value>"`.
+      * The absolute path will be a combination of `base path` and `location` argument value on `synapsesql` method. For example, `<base_path>/<user_specified_external_table_location_value>"`.
       * If the `location` argument to `synapsesql` method isn't specified, then the connector will derive the location value as `<base_path>/dbName/schemaName/tableName`.
 * **Write using Basic Authentication**
   * Azure Synapse Dedicated SQL End Point
@@ -372,7 +372,7 @@ readDF.
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 ```
 
-In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from a Azure Data Lake Storage Gen2 data source using Service Principal credentials:
+In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
 
  ```Scala
 //Specify options that Spark runtime must support when interfacing and consuming source data
@@ -532,7 +532,7 @@ Upon completion, the read response snippet is displayed in the cell's output. Fa
 
 By default, a write response is printed to the cell output. On failure, the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
 
-## Additional considerations
+## Other considerations
 
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
   * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
