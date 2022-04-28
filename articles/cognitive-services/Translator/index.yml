@@ -55,9 +55,9 @@ landingContent:
             url: quickstart-translator.md
           - text: Document Translation quickstart
             url: document-translation/get-started-with-document-translation.md
-          - text: Custom Translator (preview)
+          - text: Custom Translator quickstart (preview)
             url: custom-translator/v2-preview/quickstart.md
-          - text: Custom Translator (legacy)
+          - text: Custom Translator quickstart (legacy)
             url: custom-translator/quickstart-build-deploy-custom-model.md
 
   # Card 3
