@@ -11,11 +11,11 @@ ms.devlang: golang
 
 # Send messages to and receive messages from Azure Service Bus queues (Go)
 > [!div class="op_single_selector" title1="Select the programming language:"]
+> * [Go](service-bus-go-how-to-use-queues.md)
 > * [C#](service-bus-dotnet-get-started-with-queues.md)
 > * [Java](service-bus-java-how-to-use-queues.md)
 > * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 > * [Python](service-bus-python-how-to-use-queues.md)
-> * [Go](service-bus-go-how-to-use-queues.md)
 
 In this tutorial, you'll learn how to send messages to and receive messages from Azure Service Bus queues using the Go programming language.
 
