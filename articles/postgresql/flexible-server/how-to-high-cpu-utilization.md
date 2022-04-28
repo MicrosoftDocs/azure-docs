@@ -11,7 +11,7 @@ ms.date: 4/28/2022
 
 # High CPU Utilization
 
-On several occasions it is observed that during the performance management of PostgreSQL database, DBA’s come across a situation where CPU utilization is extremely high. In such circumstances an immediate standard process to resolve the issue will be helpful to reduce any downtime/performance management challenges. Keeping this in mind, this document is prepared. This document will help you in the following areas – 
+The purpose of the document is to :
 
 -   Quickly identify the root cause of High CPU utilization 
 -   Remedial action to control CPU utilization 
@@ -32,7 +32,6 @@ Areas which are highlighted in this document are –
 	- Connection Pooling 
 	- Vacuuming the tables 
 
-The following is the list of several reasons which contribute to high CPU utilization. Along with the reasons, listed tools, and techniques to resolve the high CPU utilization issue. 
 
 ### Tools to Identify high CPU Utilization 
 
@@ -44,7 +43,7 @@ Azure Metrics is a good starting point to check the CPU utilization for the defi
 Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](concepts-query-store.md)
 
 #### pg_stat_statements
-pg_stat_statements extension helps in identifying the queries which consume time on the server. pg_stat_statements extension is not available globally but can be enabled for a specific database with following script:
+pg_stat_statements extension helps in identifying the queries which, consume time on the server. pg_stat_statements extension is not available globally but can be enabled for a specific database with following script:
 
 SELECT current_database(). 
 CREATE EXTENSION pg_stat_statements; 
@@ -108,9 +107,11 @@ Run the following command to view the top five SQL statements that consume the m
 ~~~
 ### Identify Root Causes 
 
-In Azure Database for PostgreSQL and in PostgreSQL in general, there are no statistics around memory, CPU, or IO consumption by a query, so the specific bottleneck caused by a query is hard to detect. If CPU consumption levels are high in general, we could do the following - 
+If CPU consumption levels are high in general, we could do the following - 
 
 #### Long Running Transactions  
+
+Long running transactions can consume cpu resources that can lead to high cpu utilization.
 
 Following query helps to find out the connections running for the longest time:  
 ~~~
@@ -120,9 +121,8 @@ Following query helps to find out the connections running for the longest time:
 	ORDER BY duration DESC;   
 ~~~
 
-Apart from this, there are quick executed queries which causes issue if they are executed for number of times for example, you detect a query that finish running in 1 ms but being called thousands of times then it will consume a lot of resources. Query Store and pg_stat_statements should help in identifying such type of queries. 
+#### Total Number of Connections and Number Connections by State 
 
-#### Total Number of Connections and Number Connections by State  
 This query will give information about the number of connections by state – 
 ~~~
 	SELECT state, count(*)  
@@ -130,15 +130,15 @@ This query will give information about the number of connections by state –
 	WHERE pid <> pg_backend_pid()  
 	GROUP BY 1 ORDER BY 1;   
 ~~~
- Idle connections represent connections that are not “doing” anything, those usually, are waiting for additional requests from the client. While this situation of having idle connections does not sound harmful, having many idle connections will consume CPU and memory.  
+Idle connections represent connections that are not doing anything, those usually, are waiting for additional requests from the client. While this situation of having idle connections does not sound harmful, having many idle connections will consume CPU and memory.  
  
- A large of connections to database is also another issue which might lead to increased CPU utilization
+A large of connections to database is also another issue which might lead to increased CPU utilization
 
 ### Resolve High CPU: 
 
 #### Using EXPLAIN ANALZE to debug slow query 
 
-Once you know the query which is running for long time one can use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate the query and tune it. 
+Once you know the query, which is running for long time one can use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate the query and tune it. 
 
 For more information on EXPLAIN command [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html) 
 
@@ -159,7 +159,7 @@ Azure Database for Flexible Server offers PgBouncer as a built-in connection poo
 
 #### Terminating a long running session 
 
-In many scenarios, you would consider terminating (aka “kill”) a session, it can be because of Locks and blocking operations, stale sessions of an application you are trying to stop, or other reasons, such as: long running query  
+You could consider killing a long running transaction as an option.
 
 To terminate a session, you will need to detect the PID.  
 
@@ -185,13 +185,12 @@ Keeping the table statistics up to date helps in improving the performance of qu
 
 The following query helps to identify the tables that need vacuuming 
 ~~~
-	SELECT schemaname, relname, n_dead_tup, n_live_tup, n_dead_tup,
-	round(n_dead_tup::float/n_live_tup::float*100) dead_pct ,autovacuum_count , last_vacuum, last_autovacuum ,last_autoanalyze  
+	SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count , last_vacuum, last_autovacuum ,last_autoanalyze  
 	FROM pg_stat_all_tables    
-	WHERE n_live_tup > 0    
-	ORDER BY 10 DESC;   
+	WHERE n_live_tup > 0 ;   
 ~~~
-If the tables are not being vacuumed on a regular basis steps should be taken to tune autovacuum. The details are found autovacuum tuning troubleshooting guide.
-A more short term solution would be to do manual vacuum analyze of the tables where slow queries are seen:
+last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed.If the tables are not being vacuumed on a regular basis steps should be taken to tune autovacuum. The details are found autovacuum tuning troubleshooting guide.
+
+A more short term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:
 
 	vacuum analyze <table_name>
