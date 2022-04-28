@@ -49,7 +49,7 @@ This section has the instructions to copy data from Snowflake database to an [Az
 1. Select your Data Factory and select **Continue**.
 3. In the left menu, click **Manage** icon.
    
-   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="How to choose Manage icon in Azure Data Factory":::
    
 4. Under **Linked services** click **New**.
    
@@ -266,7 +266,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 4. Click **Save**.
 5. Click **Publish**.
    
-   :::image type="content" source="media/search-power-query-connectors/publish_pipeline.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/publish_pipeline.png" alt-text="How to Publish a Pipeline in Data Factory for Snowflake ingestion to index":::
 
 
 ## Migrate a PostgreSQL data pipeline
@@ -279,7 +279,7 @@ This section has the instructions to copy data from PostgreSQL database to an [A
 1. Choose your Data Factory and select **Continue**.
 1. In the left menu, click **Manage** icon.
    
-   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="How to choose Manage icon in Azure Data Factory":::
    
 4. Under **Linked services**, click **New**.
    
@@ -287,7 +287,7 @@ This section has the instructions to copy data from PostgreSQL database to an [A
    
 5. In the right pane, in the **Data store** search, type *postgresql*. Click **PostgreSQL** icon that represents where your PostgreSQL database is located (Azure or other) and select Continue. In this example, PostgreSQL database is located in Azure.
    
-   :::image type="content" source="media/search-power-query-connectors/search-postgresql-data-store.png" alt-text="Screenshot showing how to choose PostgreSQL data store for a Linked Service in Azure Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/search-postgresql-data-store.png" alt-text="How to choose PostgreSQL data store for a Linked Service in Azure Data Factory":::
    
    
 6. Fill out the **New linked service** form:
@@ -299,7 +299,7 @@ This section has the instructions to copy data from PostgreSQL database to an [A
    - Add the **username password**.
    - Click **Create**.
 
-     :::image type="content" source="media/search-power-query-connectors/new-linked-service-postgresql.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+     :::image type="content" source="media/search-power-query-connectors/new-linked-service-postgresql.png" alt-text="Choose Manage icon in Azure Data Factory":::
      
 
 ### Step 2: Configure PostgreSQL Dataset
@@ -322,7 +322,7 @@ This section has the instructions to copy data from PostgreSQL database to an [A
    - Select the table you would like to import/index.
    - Click **OK**.
      
-     :::image type="content" source="media/search-power-query-connectors/postgresql-set-properties.png" alt-text="Screenshot showing how to choose PostgreSQL data store for a Linked Service in Azure Data Factory":::
+     :::image type="content" source="media/search-power-query-connectors/postgresql-set-properties.png" alt-text="Screenshot showing how to set PostgreSQL properties for dataset in Azure Data Factory":::
      
 6. Click **Save**.
 
@@ -340,7 +340,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 1. In the left menu, click **Manage** icon.
    
-   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory to link a service":::
    
 2. Under **Linked services** click **New**.
    
@@ -348,14 +348,14 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
 3. In the right pane, in the **Data store** search, type *search*. Select **Azure Search** icon and click **Continue**.
    
-   :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Search service in Azure Data Factory":::
 
 4. Fill out the **New linked service** form:
    - Choose the Azure subscription where your Azure Cognitive Search service resides.
    - Choose the Azure Cognitive Search service where your Power Query connector indexer lives.
    - Click **Create**.
      
-     :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Search Linked Service in Azure Data Factory":::
+     :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to fill New Linked Service for search in Azure Data Factory":::
 
 
 ### Step 5: Configure Azure Cognitive Search Dataset
@@ -378,7 +378,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    -  Choose the index that you created as part of [Step 3](#step-3-create-a-new-index-in-azure-cognitive-search).
    -  Click **OK**.
       
-      :::image type="content" source="media/search-power-query-connectors/set-search-postgresql-properties.png" alt-text="Screenshot showing how to choose New Search Linked Service in Azure Data Factory":::
+      :::image type="content" source="media/search-power-query-connectors/set-search-postgresql-properties.png" alt-text="Screenshot showing how to fill out Set Properties for search dataset":::
       
 6. Click **Save**.
 
@@ -387,7 +387,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 1. In the left menu, click **Manage** icon.
    
-   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory to link a service":::
    
 2. Under **Linked services**, click **New**.
 
@@ -395,7 +395,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
 3. In the right pane, in the **Data store** search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
    
-   :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose a new data store":::
    
 4. Fill out the **New linked service** form:
    - Choose the **Authentication type**: *SAS URI*. Only this method can be used to import data from PostgreSQL into Azure Blob Storage.
@@ -444,26 +444,26 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    **a) Configure staging activity to copy from PostgreSQL to Azure Storage container**
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
      
-     :::image type="content" source="media/search-power-query-connectors/postgresql-pipeline-general.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory":::
+     :::image type="content" source="media/search-power-query-connectors/postgresql-pipeline-general.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to copy data from PostgreSQL":::
      
    - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
    - In the **Source** tab, select your PostgreSQL table. Leave the remaining options with the default values.
      
-     :::image type="content" source="media/search-power-query-connectors/source-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob":::
+     :::image type="content" source="media/search-power-query-connectors/source-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob in staging phase":::
      
    - In the **Sink** tab:
       - Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
       - In **File Extension**, add *.csv*
       - Leave the remaining options with the default values.
         
-        :::image type="content" source="media/search-power-query-connectors/sink-storage-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob":::
+        :::image type="content" source="media/search-power-query-connectors/sink-storage-postgresql.png" alt-text="Screenshot showing how to configure sink to import data from PostgreSQL into Azure Storage blob":::
         
    - Click on **Save**.
  
     **b) Configure activity to index from Azure Storage Blob**
      - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
        
-       :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory":::
+       :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to configure a copy activity":::
        
      - In the **General** tab, leave the default values, unless you need to customize the execution.
      - In the **Source** tab:
@@ -503,11 +503,13 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 4. Click **Save**.
 5. Click **Publish**.
    
-   :::image type="content" source="media/search-power-query-connectors/publish_pipeline-postgresql.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory":::
+   :::image type="content" source="media/search-power-query-connectors/publish_pipeline-postgresql.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory for PostgreSQL data copy":::
 
 
 
-# Legacy content for Power Query connector preview
+
+
+## Legacy content for Power Query connector preview
 
 A Power Query connector is used with a search indexer to automate data ingestion from a variety of data sources, including those on other cloud providers. It uses [Power Query](/power-query/power-query-what-is-power-query) to retrieve the data. 
 
