@@ -2,14 +2,14 @@
 title: High Memory Utilization
 description: Troubleshooting guide for high memory utilization in Azure Database for PostgreSQL - Flexible Server
 ms.author: sbalijepalli
-author: sarat balijepalli
+author: sarat0681
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 4/28/2022
 ---
 
-## High Memory Utilization
+# High Memory Utilization
 The purpose of the document is to discuss common scenarios and root causes that might lead to high memory utilization. The documents highlight the following -
 
 -   Tools to Identify high memory utilization. 
@@ -18,14 +18,14 @@ The purpose of the document is to discuss common scenarios and root causes that 
 ### Tools to Identify high Memory Utilization 
 
 ##### Azure Metrics
-We can monitor various metrics including percentage of memory in use for the definite date and time frame with help of Azure Metrics. Metrics gives information about the time duration during which the memory utilization is high, and each metric is emitted at a one-minute frequency, we can get 93 days of historic data. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](https://docs.microsoft.com/bs-latn-ba/azure/postgresql/flexible-server/howto-alert-on-metrics)
+We can monitor various metrics including percentage of memory in use for the definite date and time frame with help of Azure Metrics. Metrics gives information about the time duration during which the memory utilization is high, and each metric is emitted at a one-minute frequency, we can get 93 days of historic data. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](https://docs.microsoft.com/azure/postgresql/flexible-server/howto-alert-on-metrics)
 
 
 ##### Query Store
 
 Query Store automatically captures history of queries and runtime statistics, and it retains them for your review. It can correlate wait event information with query run time statistics. This gives flexibility to identify queries who have high memory waits during the period of interest. 
 
-For more information on setting up and usage of query store, please visit [query store](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-query-store)
+For more information on setting up and usage of query store, please visit [query store](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)
 
 ### Reasons And Remedial Actions
 
