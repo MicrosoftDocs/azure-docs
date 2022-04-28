@@ -11,7 +11,7 @@ ms.date: 04/28/2022
 
 # Model real-time operational analytics apps
 
-## Shard key in real-time analytics colocates large tables
+## Colocate large tables with shard key
 
 To pick the shard key for a real-time analytics application, follow these
 guidelines:
@@ -38,13 +38,13 @@ The `users` and `events` tables are both sharded by `user_id`, so related
 rows for the same user ID are placed together on the same worker node. The
 SQL JOINs can happen without pulling information between workers.
 
-## Optimal data model for real-time operational analytics apps
+## Optimal data model for real-time apps
 
 Let's continue with the example of an application that analyzes user website
 visits and metrics. There are two "fact" tables -- users and events -- and other
 smaller "dimension" tables.
 
-![tables for the example app](../media/howto-hyperscale-build-scalable-apps/rt-join.png)
+![tables for the example app](../media/howto-hyperscale-build-scalable-apps/rt-data-model.png)
 
 To leverage the super power of distributed tables on Hyperscale (Citus), follow
 the following simple steps:
@@ -64,4 +64,4 @@ the following simple steps:
 This completes the how-to for building scalable apps.
 
 * You may now want to know how to [scale a server group](howto-scale-grow.md)
-  to give your scalable app more hardware capacity.
+  to give your app more nodes and hardware capacity.
