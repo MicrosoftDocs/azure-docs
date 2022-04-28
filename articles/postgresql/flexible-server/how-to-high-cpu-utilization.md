@@ -184,5 +184,6 @@ WHERE n_live_tup > 0 ;  
 last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed.If the tables are not being vacuumed on a regular basis steps should be taken to tune autovacuum. The details are found autovacuum tuning troubleshooting guide.
 
 A more short term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:
-
-	vacuum analyze <table_name>
+~~~
+vacuum analyze <table_name>
+~~~
