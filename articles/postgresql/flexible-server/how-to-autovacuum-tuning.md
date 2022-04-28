@@ -214,12 +214,12 @@ Prioritization of autovacuum can also be made on a table basis. Example we hav
 
 In versions of PostgreSQL prior to 13, autovacuum will not run-on tables with an insert-only workload, because if there are no updates or deletes, there would be no dead tuples and no free space that would need to be reclaimed. Autoanalyze will run for insert-only workloads, since there is new data. A disadvantage of this is the visibility map is not updated, and thus the query performance especially where there is Index Only Scans starts to suffer over time.  
 
-Possible Solutions  
+###### Possible Solutions  
 
-For Postgres Versions prior to 13  
+###### For Postgres Versions prior to 13  
 
 Use a cron job and schedule a periodic vacuum analyze on the table. The frequency of the cron job would be dependent on the workload on the table.   
 
-Postgres 13 Or Higher Versions  
+###### Postgres 13 Or Higher Versions  
 
 Autovacuum will run on tables with an insert-only workload. Two new server parameters `autovacuum_vacuum_insert_threshold` and `autovacuum_vacuum_insert_scale_factor` help control when autovacuum can be triggered on insert only tables also.  
