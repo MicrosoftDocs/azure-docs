@@ -39,7 +39,6 @@ Carry out the following steps to upgrade the packet core instance.
 1. Under the **Network function** heading, select the name of the packet core control plane resource shown next to **Packet Core**.
 1. Select **Configuration**.
 1. In the **Version** field, enter the string for the new software version provided to you by your support contact, and then select **Modify**. 
-1. Select **Modify**.
 1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.<!-- We may need a new screenshot here -->
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
