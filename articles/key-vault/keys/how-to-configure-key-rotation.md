@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/24/2021
 ms.author: mbaldwin
 ---
-# Configure key auto-rotation in Azure Key Vault (preview)
+# Configure key auto-rotation in Azure Key Vault
 
 ## Overview
 
@@ -20,13 +20,13 @@ key. Our recommendation is to rotate encryption keys at least every two years to
 
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation.
 
-## Pricing (Preview)
+## Pricing
 
-Key rotation feature is free during preview. Additional cost will occur when a key is automatically rotated once the feature GA. For more information, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
+Additional cost will occur per scheduled key rotation. For more information, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
 
 ## Permissions required
 
-Key Vault key rotation feature requires key management permissions. You can assign a "Key Vault Administrator" role to manage rotation policy and on-demand rotation.
+Key Vault key rotation feature requires key management permissions. You can assign a "Key Vault Crypto Officer" role to manage rotation policy and on-demand rotation.
 
 For more information on how to use RBAC permission model and assign Azure roles, see:
 [Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
