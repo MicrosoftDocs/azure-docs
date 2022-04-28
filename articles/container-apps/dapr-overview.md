@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 04/25/2022
+ms.date: 04/28/2022
 ---
 
 # Dapr integration with Azure Container Apps (preview)
@@ -32,6 +32,9 @@ Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into you
 | [**Actors**][dapr-actors] | Dapr actors apply the scalability and reliability that the underlying platform provides. |
 | **Observability** | Send tracing information to an Application Insights backend. |
 
+> [!TIP]
+> If you use actor reminders, set `minReplicas` to at least 1 to ensure reminders will always be active and thus fire correctly.
+
 ## Dapr settings in Container Apps
 
 In the following Pub/sub example, we demonstrate how:
@@ -39,7 +42,7 @@ In the following Pub/sub example, we demonstrate how:
 - Dapr components are plugged into and scoped to your Container App and Dapr sidecar.
 - Dapr APIs are exposed to your Container App.
 
-:::image type="content" source="media/dapr-overview/aca_dapr_architecture.png" alt-text="diagram demonstrating Dapr pub/sub":::
+:::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
 
 ### 1 - Container App with Dapr enabled
 
@@ -54,37 +57,73 @@ Define Dapr sidecars or control plane settings for your container app using a YA
 
 # [YAML](#tab/yaml)
 
-When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI using the following command:
+When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI. For the publisher Container App:
 
 ```azurecli
 --enable-dapr \
---dapr-app-port 3000 \
+--dapr-app-id publisher-app \
+--dapr-app-port 80 \
 --dapr-app-protocol http \
---dapr-app-id nodeapp \
+--dapr-components ./components.yaml
+```
+
+For the subscriber Container App:
+
+```azurecli
+--enable-dapr \
+--dapr-app-id subscriber-app \
+--dapr-app-port 80 \
+--dapr-app-protocol http \
 --dapr-components ./components.yaml
 ```
 
 # [Bicep](#tab/bicep)
 
+For the publisher Container App:
+
 ```bicep
 dapr: {
       enabled: true
-      appPort: 3000
+      appId: 'publisher-app'
+      appPort: 80
       appProtocol: 'http'
-      appId: 'nodeapp'
+    }
+```
+
+For the subscriber Container App:
+
+```bicep
+dapr: {
+      enabled: true
+      appId: 'subscriber-app'
+      appPort: 80
+      appProtocol: 'http'
     }
 ```
 
 # [ARM](#tab/arm)
 
+For the publisher Container App:
+
 ```json
 "dapr": {
     "enabled": true,
-    "appPort": 3000,
+    "appId": "publisher-app",
+    "appPort": 80,
     "appProtocol": "http",
-    "appId": "nodeapp",
 }
 ```
+For the subscriber Container App:
+
+```json
+"dapr": {
+    "enabled": true,
+    "appId": "subscriber-app",
+    "appPort": 80,
+    "appProtocol": "http",
+}
+```
+
 ---
 
 Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
@@ -117,54 +156,42 @@ When defining a component via the `<component>.yml` spec, you'll pass it to the 
 
 ```yaml
 # components.yaml for Azure Blob storage component
-- name: statestore
-  type: state.azure.blobstorage
+- name: dapr-pubsub
+  type: pubsub.azure.servicebus
   version: v1
   metadata:
-  - name: accountName
-    secretRef: storage-account-name
-  - name: accountKey
-    secretRef: storage-account-key
-  - name: containerName
-    value: mycontainer
-  # Application scope  
+  - name: connectionString
+    secretRef: sb-root-connectionstring
+  # Application scopes  
   scopes:
-  - nodeapp
+  - publisher-app
+  - subscriber-app
 ```
 
 # [Bicep](#tab/bicep)
 
 ```bicep
 resource daprComponent 'daprComponents@2022-01-01-preview' = {
-  name: 'statestore'
+  name: 'dapr-pubsub'
   properties: {
-    componentType: 'state.azure.blobstorage'
+    componentType: 'pubsub.azure.servicebus'
     version: 'v1'
-    ignoreErrors: false
-    initTimeout: '5s'
     secrets: [
       {
-        name: 'storageaccountkey'
-        value: listKeys(resourceId('Microsoft.Storage/storageAccounts/', storage_account_name), '2021-09-01').keys[0].value
+        name: 'sb-root-connectionstring'
+        value: 'value'
       }
     ]
     metadata: [
       {
-        name: 'accountName'
-        value: storage_account_name
-      }
-      {
-        name: 'containerName'
-        value: storage_container_name
-      }
-      {
-        name: 'accountKey'
-        secretRef: 'storageaccountkey'
+        name: 'connectionString'
+        secretRef: 'sb-root-connectionstring'
       }
     ]
-    // Application scope
+    // Application scopes
     scopes: [
-      'nodeapp'
+      'publisher-app'
+      'subscriber-app'
     ]
   }
 }
@@ -177,38 +204,25 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
   "resources": [
     {
       "type": "daprComponents",
-      "name": "statestore",
-      "apiVersion": "2022-01-01-preview",
-      "dependsOn": [
-        "[resourceId('Microsoft.App/managedEnvironments/', parameters('environment_name'))]"
-      ],
+      "name": "dapr-pubsub",
       "properties": {
-        "componentType": "state.azure.blobstorage",
+        "componentType": "pubsub.azure.servicebus",
         "version": "v1",
-        "ignoreErrors": false,
-        "initTimeout": "5s",
         "secrets": [
           {
-            "name": "storageaccountkey",
-            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', parameters('storage_account_name')), '2021-09-01').keys[0].value]"
+            "name": "sb-root-connectionstring",
+            "value": "value"
           }
         ],
         "metadata": [
           {
-            "name": "accountName",
-            "value": "[parameters('storage_account_name')]"
-          },
-          {
-            "name": "containerName",
-            "value": "[parameters('storage_container_name')]"
-          },
-          {
-            "name": "accountKey",
-            "secretRef": "storageaccountkey"
+            "name": "connectionString",
+            "secretRef": "sb-root-connectionstring"
           }
         ],
-        // Application scope
-        "scopes": ["nodeapp"]
+        // Application scopes
+        "scopes": ["publisher-app", "subscriber-app"]
+
       }
     }
   ]
@@ -225,7 +239,7 @@ In Dapr OSS, running `dapr init` generates the following default Redis `<compone
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: mypubsub
+  name: dapr-pubsub
 spec:
   type: pubsub.azure.servicebus
   version: v1
@@ -233,10 +247,11 @@ spec:
   - name: connectionString
     secretKeyRef:
       name: bus-secret
-      key: connection-string
-# Application scope
+      key: sb-root-connectionstring
+# Application scopes
 scopes:
-- nodeapp
+- publisher-app
+- subscriber-app
 ```
 
 > [!NOTE]
@@ -250,10 +265,6 @@ Currently, Azure Container Apps supports Dapr version 1.4.2.
 Version upgrades are handled transparently by the Container Apps platform. You can find the current version via the Azure portal and the CLI. See [known limitations](#limitations) around versioning.
 
 <!-- command -->
-
-## Actor reminders in Container Apps
-
-
 
 ## Limitations
 
