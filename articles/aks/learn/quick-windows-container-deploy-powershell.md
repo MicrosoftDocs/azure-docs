@@ -3,7 +3,7 @@ title: Create a Windows Server container on an AKS cluster by using PowerShell
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 04/28/2022
 ms.custom: devx-track-azurepowershell
 
 
@@ -13,10 +13,10 @@ ms.custom: devx-track-azurepowershell
 # Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using PowerShell
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and
-manage clusters. In this article, you deploy an AKS cluster using PowerShell. You also deploy an
+manage clusters. In this article, you deploy an AKS cluster running Windows Server 2019 containers using PowerShell. You also deploy an
 `ASP.NET` sample application in a Windows Server container to the cluster.
 
-![Image of browsing to ASP.NET sample application](media/windows-container-powershell/asp-net-sample-app.png)
+:::image type="content" source="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
 
 This article assumes a basic understanding of Kubernetes concepts. For more information, see
 [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
@@ -26,17 +26,19 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
+* The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+* If you choose to use PowerShell locally, you need to install the [Az PowerShell](/powershell/azure/new-azureps-module-az)
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell][install-azure-powershell]. You also must install the Az.Aks PowerShell module:
+[Install Azure PowerShell][install-azure-powershell].
+* You also must install the [Az.Aks](/powershell/module/az.aks) PowerShell module:
 
 ```azurepowershell-interactive
 Install-Module Az.Aks
 ```
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription ID using the
@@ -60,7 +62,7 @@ The following additional limitations apply to Windows Server node pools:
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md)
+An [Azure resource group](../../azure-resource-manager/management/overview.md)
 is a logical group in which Azure resources are deployed and managed. When you create a resource
 group, you are asked to specify a location. This location is where resource group metadata is
 stored, it is also where your resources run in Azure if you don't specify another region during
@@ -90,7 +92,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 ## Create an AKS cluster
 
 Use the `ssh-keygen` command-line utility to generate an SSH key pair. For more details, see
-[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to
 use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more
@@ -274,7 +276,7 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the sample app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to ASP.NET sample application](media/windows-container-powershell/asp-net-sample-app.png)
+:::image type="content" source="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
 
 > [!Note]
 > If you receive a connection timeout when trying to load the page then you should verify the sample
@@ -283,19 +285,15 @@ To see the sample app in action, open a web browser to the external IP address o
 
 ## Delete cluster
 
-When the cluster is no longer needed, use the
-[Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove
-the resource group, container service, and all related resources.
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, use the
+[Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster
-> is not removed. For steps on how to remove the service principal, see
-> [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity,
-> the identity is managed by the platform and does not require removal.
+> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
@@ -316,16 +314,16 @@ Kubernetes cluster tutorial.
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
-[kubernetes-concepts]: concepts-clusters-workloads.md
+[kubernetes-concepts]: ../concepts-clusters-workloads.md
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
-[azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
-[use-advanced-networking]: configure-azure-cni.md
+[azure-cni-about]: ../concepts-network.md#azure-cni-advanced-networking
+[use-advanced-networking]: ../configure-azure-cni.md
 [new-azakscluster]: /powershell/module/az.aks/new-azakscluster
-[restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
+[restricted-vm-sizes]: ../quotas-skus-regions.md#restricted-vm-sizes
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: concepts-network.md#services
+[kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
+[kubernetes-service]: ../concepts-network.md#services
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
+[aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
