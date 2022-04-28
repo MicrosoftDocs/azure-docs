@@ -60,7 +60,7 @@
     items:
     - name: Build real-time apps with Azure Functions
       href: signalr-concept-azure-functions.md
-    - name: Develop and configure serverless SignalR Service apps
+    - name: Develop and configure SignalR Service apps
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
@@ -68,7 +68,7 @@
       href: concept-upstream.md
   - name: High availability
     items:
-    - name: Gracefully shutdown your app server
+    - name: Gracefully shut down your app server
       href: server-graceful-shutdown.md
     - name: Resiliency and disaster recovery
       href: signalr-concept-disaster-recovery.md
