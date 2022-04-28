@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 03/31/2022
+ms.date: 05/01/2022
 ---
 
 # Tutorial: Connect a web app to Azure App Configuration with Service Connector
