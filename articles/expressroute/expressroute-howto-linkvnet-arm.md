@@ -198,6 +198,20 @@ $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
+### FastPath and Private Link
+
+With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path. This is supported for connections associated to 100Gb ExpressRoute Direct circuits. To enable this, follow the below guidance:
+1. Send an email to ERFastPathPL@microsoft.com, providing the following information: Target Virtual Network (Vnet) Resource ID, Azure Region where the Private Endpoint/Private Link service is deployed.
+2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
+ ```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
+```
+3. Disable and Enable FastPath on the target connection(s) to enables the changes. Once this step is complete. 100Gb Private Link traffic over ExpressRoute will bypass the ExpressRoute Virtual Network Gateway in the data path.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
+```
+
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 >
@@ -216,9 +230,9 @@ To enroll in this preview, run the follow Azure PowerShell command in the target
 Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
 ```
 
-### FastPath and Private Link
+### FastPath and Private Link for 10Gb ExpressRoute Direct
 
-With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path.
+With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path. This preview supports connections associated to 10Gb ExpressRoute Direct circuits. This preview doesn't support ExpressRoute circuits managed by an ExpressRoute partner.
 
 To enroll in this preview, run the following Azure PowerShell command in the target Azure subscription:
 
