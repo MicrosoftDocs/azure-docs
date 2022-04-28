@@ -99,7 +99,7 @@ At this point, your code should look like this.
 > [!NOTE]
 > We've added some comments to this version.
 
-:::code language="python" source="~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py" id="code":::
+:::code language="python" source="~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py":::
 
 ## Build and run your app
 

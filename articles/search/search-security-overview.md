@@ -94,7 +94,7 @@ Once a request is admitted, it must still undergo authentication and authorizati
 
 + [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
 
-Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user-assigned managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 

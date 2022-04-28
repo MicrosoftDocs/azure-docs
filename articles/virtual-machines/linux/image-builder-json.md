@@ -245,7 +245,7 @@ You can also specify plan information, for example:
 Sets the source image as an existing managed image of a generalized VHD or VM.
 
 > [!NOTE]
-> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template. 
+> The source managed image must be of a supported OS and the image must reside in the same subscription and region as your Azure Image Builder template.
 
 ```json
         "source": { 
@@ -258,10 +258,10 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 
 
 ### SharedImageVersion source
-Sets the source image an existing image version in an Azure Compute Gallery.
+Sets the source image as an existing image version in an Azure Compute Gallery.
 
 > [!NOTE]
-> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
+> The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
 
 
 ```json
@@ -570,7 +570,7 @@ You can distribute an image to both of the target types in the same configuratio
 
 Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying an Azure Compute Gallery distribution:
 
-```bash
+```azurecli
 subscriptionID=<subcriptionID>
 imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
@@ -720,7 +720,7 @@ Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $ima
 ```
 
 
-```bash
+```azurecli
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
@@ -740,7 +740,7 @@ Examples of `cancel` commands:
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
 ```
 
-```bash
+```azurecli
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \

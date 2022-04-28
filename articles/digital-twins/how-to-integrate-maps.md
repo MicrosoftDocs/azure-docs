@@ -49,17 +49,17 @@ Azure Digital Twins instances can emit twin update events whenever a twin's stat
 
 This pattern reads from the room twin directly, rather than the IoT device, which gives you the flexibility to change the underlying data source for temperature without needing to update your mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update your map logic.
 
-1. Create an Event Grid topic, which will receive events from your Azure Digital Twins instance.
+1. Create an Event Grid topic, which will receive events from your Azure Digital Twins instance, using the CLI command below:
     ```azurecli-interactive
     az eventgrid topic create --resource-group <your-resource-group-name> --name <your-topic-name> --location <region>
     ```
 
-2. Create an endpoint to link your Event Grid topic to Azure Digital Twins.
+2. Create an endpoint to link your Event Grid topic to Azure Digital Twins, using the CLI command below:
     ```azurecli-interactive
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> --dt-name <your-Azure-Digital-Twins-instance-name>
     ```
 
-3. Create a route in Azure Digital Twins to send twin update events to your endpoint.
+3. Create a route in Azure Digital Twins to send twin update events to your endpoint, using the CLI command below. For the Azure Digital Twins instance name placeholder in this command, you can use the friendly name or the host name for a boost in performance.
 
     >[!NOTE]
     >There is currently a known issue in Cloud Shell affecting these command groups: `az dt route`, `az dt model`, `az dt twin`.
@@ -67,7 +67,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
     >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](/cli/azure/install-azure-cli) instead of Cloud Shell. For more detail on this, see [Troubleshoot known issues](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
-    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+    az dt route create --dt-name <your-Azure-Digital-Twins-instance-hostname-or-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## Create a function to update maps

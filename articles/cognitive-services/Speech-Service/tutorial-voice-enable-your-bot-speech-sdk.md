@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 01/24/2022
 ms.author: eur
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 ---
 
 # Tutorial: Voice-enable your bot

@@ -43,8 +43,8 @@ Azure shared disks are supported on Windows Server 2008 and newer. Most Windows-
 
 Some popular applications running on WSFC include:
 
-- [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
-    - [Migrate your failover cluster instance to SQL Server on Azure VMs with shared disks](../azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
+- [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure)
+    - [Migrate your failover cluster instance to SQL Server on Azure VMs with shared disks](/azure/azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm)
 - Scale-out File Server (SoFS) [template](https://aka.ms/azure-shared-disk-sofs-template)
 - SAP ASCS/SCS [template](https://aka.ms/azure-shared-disk-sapacs-template)
 - File Server for General Use (IW workload)
@@ -57,7 +57,7 @@ Azure shared disks are supported on:
 - [Ubuntu 18.04 and above](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage-configuring-rhel-high-availability-on-azure)
     - It may be possible to use RHEL 7 or an older version of RHEL 8 with shared disks, contact SharedDiskFeedback @microsoft.com
-- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/)
 
 Linux clusters can use cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
 

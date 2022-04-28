@@ -280,7 +280,7 @@ Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade
 
 Please be advised that your media account is about to hit its quota limits. Please review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Please don't create additional Azure Media accounts in an attempt to obtain higher limits.
 
-Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](/media-services/latest/limits-quotas-constraints-reference).
+Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](/azure/media-services/latest/limits-quotas-constraints-reference).
 
 ## Networking
 
@@ -443,7 +443,7 @@ Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slo
 
 Your app's backups are consistently failing due to invalid storage settings, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup.).
+Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup).
 
 ### Move your App Service resource to Standard or higher and use deployment slots
 

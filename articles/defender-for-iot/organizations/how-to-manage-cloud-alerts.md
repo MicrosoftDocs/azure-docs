@@ -17,14 +17,14 @@ Defender for IoT alerts lets you enhance the security and operation of your netw
 - Protocol and operational anomalies
 - Suspected malware traffic
 
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Screenshot of the Alerts page in the Azure portal.." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
+:::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Screenshot of the Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
 
 Alerts triggered by Defender for IoT are displayed on the Alerts page in the Azure portal. Use the Alerts page to:
 
 - Learn when an alert was detected.
 - Investigate the alert by reviewing an extensive range of alert information. This may include,  source and destination details, PCAP information, vendor, firmware and OS details, and MITRE ATT&CK information.
 - Manage the alert by taking remediation steps on the device or network process, or changing the device status or severity.
-- Integrate alert details with other Microsoft services. For example, with Microsoft Sentinel playbooks and workbooks. See [About the Defender for IoT and Microsoft Sentinel Integration](concept-sentinel-integration.md#about-the-defender-for-iot-and-microsoft-sentinel-integration).
+- Integrate alert details with other Microsoft services. For example, with Microsoft Sentinel playbooks and workbooks. See [About the Defender for IoT and Microsoft Sentinel Integration](concept-sentinel-integration.md).
 
 ### How is the Alerts page populated?
 
@@ -205,9 +205,9 @@ Users working with alerts in Azure and on-premises should understand how alert m
 
  Parameter | Description
 |--|--|
-| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console impact the rules detected by managed sensors. As a result, the alerts excluded be these rules won't be displayed in the Alerts page. See [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules) for more information.
-| **Managing alerts on-premises**  |  Alerts  **Learned**,  **Acknowledged**, or **Muted** in the on-premises management console or in sensors aren't simultaneously updated in Alerts page on the Defender for IoT Cloud Alerts page. This means that this alert will stay open on the Cloud. However another alert  will not be triggered from the on-premises components for this activity.
-| **Managing alert in the portal Alerts page** | Changing the status of an alert to **New**, **Active**, or **Closed** on the Alerts page or changing the alert severity on the Alerts page doesn't impact the alert status or severity  in the on-premises management console or sensors.
+| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console affect the rules detected by managed sensors. As a result, the alerts excluded be these rules won't be displayed in the Alerts page. See [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules) for more information.
+| **Managing alerts on-premises**  |  Alerts  **Learned**,  **Acknowledged**, or **Muted** in the on-premises management console or in sensors aren't simultaneously updated in Alerts page on the Defender for IoT Cloud Alerts page. This means that this alert will stay open on the Cloud. However another alert  won't be triggered from the on-premises components for this activity.
+| **Managing alert in the portal Alerts page** | Changing the status of an alert to **New**, **Active**, or **Closed** on the Alerts page or changing the alert severity on the Alerts page doesn't affect the alert status or severity  in the on-premises management console or sensors.
 
 ## Next steps
 

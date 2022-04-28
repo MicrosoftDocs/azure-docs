@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 02/02/2022
+ms.date: 04/06/2022
 ---
 # DTU-based purchasing model overview 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -71,19 +71,19 @@ The input values for this formula can be obtained from [sys.dm_db_resource_stats
 > [!NOTE]
 > The DTU limit of a database is determined by CPU, reads, writes, and memory available to the database. However, because the SQL Database engine typically uses all available memory for its data cache to improve performance, the `avg_memory_usage_percent` value will usually be close to 100 percent, regardless of current database load. Therefore, even though memory does indirectly influence the DTU limit, it is not used in the DTU utilization formula.
 
-## Hardware generations
+## Hardware configuration
 
-In the DTU-based purchasing model, customers cannot choose the hardware generation used for their databases. While a given database usually stays on a specific hardware generation for a long time (commonly for multiple months), there are certain events that can cause a database to be moved to another hardware generation.
+In the DTU-based purchasing model, customers cannot choose the hardware configuration used for their databases. While a given database usually stays on a specific type of hardware for a long time (commonly for multiple months), there are certain events that can cause a database to be moved to different hardware.
 
-For example, a database can be moved to a different hardware generation if it's scaled up or down to a different service objective, or if the current infrastructure in a datacenter is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life.
+For example, a database can be moved to different hardware if it's scaled up or down to a different service objective, or if the current infrastructure in a datacenter is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life.
 
-If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](dtu-benchmark.md) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same.
+If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](dtu-benchmark.md) workload will remain substantially identical as the database moves to a different hardware type, as long as its service objective (the number of DTUs) stays the same.
 
-However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads will benefit from different hardware configuration and features. Therefore, for workloads other than the [DTU benchmark](dtu-benchmark.md), it's possible to see performance differences if the database moves from one hardware generation to another.
+However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads may benefit from different hardware configurations and features. Therefore, for workloads other than the [DTU benchmark](dtu-benchmark.md), it's possible to see performance differences if the database moves from one type of hardware to another.
 
 For example, an application that is sensitive to network latency can see better performance on Gen5 hardware vs. Gen4 due to the use of Accelerated Networking in Gen5, but an application using intensive read IO can see better performance on Gen4 hardware versus Gen5 due to a higher memory per core ratio on Gen4.
 
-Customers with workloads that are sensitive to hardware changes or customers who wish to control the choice of hardware generation for their database can use the [vCore](service-tiers-vcore.md) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md). For more information about hardware generations in the vCore model, see [Hardware generations for SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) or [Hardware generations for SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
+Customers can use the [vCore](service-tiers-vcore.md) model to choose their preferred hardware configuration during database creation and scaling. In the vCore model, detailed resource limits of each service objective in each hardware configuration are documented for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md). For more information about hardware in the vCore model, see [Hardware configuration for SQL Database](./service-tiers-sql-database-vcore.md#hardware-configuration) or [Hardware configuration for SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-configurations).
 
 ## Compare service tiers
 

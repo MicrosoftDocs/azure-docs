@@ -15,11 +15,11 @@ ms.date: 03/30/2022
 
 In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted service exception](../storage/common/storage-network-security.md#exceptions) to securely access data. This mechanism offers customers who are unable to grant [indexer access using IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure, and free alternative for accessing data in storage accounts.
 
-## Prerequisites 
+## Prerequisites
 
 + A search service with a [**system-assigned managed identity**](search-howto-managed-identities-data-sources.md). 
 
-+ Azure Storage with the **Allow trusted Microsoft services to access this storage account** network option.
++ A storage account with the **Allow trusted Microsoft services to access this storage account** network option.
 
 + Content in Azure Blob Storage or Azure Data Lake Storage Gen2 (ADLS Gen2) that you want to index or enrich.
 
@@ -30,7 +30,7 @@ In Azure Cognitive Search, indexers that access Azure blobs can use the [trusted
 > [!NOTE]
 > In Cognitive Search, a trusted service connection is limited to blobs and ADLS Gen2 on Azure Storage. It's unsupported for indexer connections to Azure Table Storage and Azure File Storage.
 >
-> A trusted service connection must use a system managed identity. Cognitive Search doesn't support a user-assigned managed identity for this scenario.
+> A trusted service connection must use a system managed identity. A user-assigned managed identity isn't currently supported for this scenario.
 
 ## Check service identity
 

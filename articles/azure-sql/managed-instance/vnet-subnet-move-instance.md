@@ -64,13 +64,13 @@ Depending on the subnet state and designation, the following adjustments may be 
 > <sup>1</sup> Custom rules added to the source subnet configuration are not copied to the destination subnet. Any customization of the source subnet configuration must be replicated manually to the destination subnet. One way to achieve this is by using the same route table and network security group for the source and destination subnet.
 
 
-### Destination subnet limitations 
+### Destination subnet limitations
 
-Consider the following limitations when choosing a destination subnet for an existing instance: 
+Consider the following limitations when choosing a destination subnet for an existing instance:
 
-- The destination subnet must be in the same virtual network as the source subnet. 
-- The DNS zone of the destination subnet must match the DNS zone of the source subnet as changing the DNS zone of a managed instance is not currently supported. 
-- Instances running on Gen4 hardware must be upgraded to a newer hardware generation since Gen4 is being deprecated. Upgrading hardware generation and moving to another subnet can be performed in one operation. 
+- The destination subnet must be in the same virtual network as the source subnet.
+- The DNS zone of the destination subnet must match the DNS zone of the source subnet as changing the DNS zone of a managed instance is not currently supported.
+- Instances running on Gen4 hardware must be upgraded to newer hardware since Gen4 is being retired. Upgrading hardware and moving to another subnet can be performed in one operation.
 
 
 ## Operation steps

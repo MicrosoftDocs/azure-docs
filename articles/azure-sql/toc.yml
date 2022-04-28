@@ -226,6 +226,10 @@
         href: database/monitoring-with-dmvs.md
       - name: Log diagnostic telemetry
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
+      - name: Azure Monitor for SQL Database
+        href: database/monitoring-sql-database-azure-monitor.md 
+      - name: Azure Monitor for SQL Database reference 
+        href: database/monitoring-sql-database-azure-monitor-reference.md        
       - name: In-memory OLTP
         items:
         - name: Configure In-Memory OLTP
@@ -294,6 +298,9 @@
       items:
       - name: Azure portal, PowerShell, Az CLI
         href: database/single-database-create-quickstart.md
+      - name: Hyperscale
+        displayName: Create Hyperscale database
+        href: database/hyperscale-database-create-quickstart.md
       - name: ARM template
         displayName: Resource Manager
         href: database/single-database-create-arm-template-quickstart.md
@@ -353,6 +360,7 @@
     - name: Scale out
       items: 
       - name: Configure security for named replicas
+        displayName: Configure named replicas for Hyperscale
         href: database/hyperscale-named-replica-security-configure.md
 
   - name: Concepts
@@ -368,14 +376,18 @@
     - name: Hyperscale
       items: 
       - name: Overview
+        displayName: Hyperscale service tier
         href: database/service-tier-hyperscale.md
+      - name: Hyperscale architecture
+        href: database/hyperscale-architecture.md
       - name: FAQ
-        displayName: Frequently asked questions
+        displayName: Hyperscale frequently asked questions
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
       - name: Replicas
+        displayName: Hyperscale replicas
         href: database/service-tier-hyperscale-replicas.md
       - name: Replicas FAQ
-        displayName: Frequently asked questions
+        displayName: Hyperscale replicas frequently asked questions
         href: database/service-tier-hyperscale-named-replicas-faq.yml
 
     - name: Purchasing models
@@ -584,6 +596,8 @@
         href: database/elastic-pool-manage.md
       - name: Resource management in dense elastic pools
         href: database/elastic-pool-resource-management.md
+      - name: Manage Hyperscale databases
+        href: database/manage-hyperscale-database.md
       - name: Hyperscale performance diagnostics
         href: database/hyperscale-performance-diagnostics.md
       - name: Block T-SQL CRUD
@@ -661,6 +675,8 @@
         href: database/high-cpu-diagnose-troubleshoot.md
       - name: Understand and resolve blocking
         href: database/understand-resolve-blocking.md
+      - name: Analyze and prevent deadlocks
+        href: database/analyze-prevent-deadlocks.md
       - name: Configure the max degree of parallelism (MAXDOP)
         href: database/configure-max-degree-of-parallelism.md
 
@@ -1132,6 +1148,18 @@
                 href: /sql/machine-learning/administration/extended-events?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
               - name: Monitor PREDICT T-SQL
                 href: /sql/machine-learning/administration/extended-events-predict-tsql?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+            - name: SQL Insights (preview)
+              items:
+              - name: Overview
+                href: ../azure-monitor/insights/sql-insights-overview.md
+              - name: FAQ
+                href: ../azure-monitor/faq.yml
+              - name: Enable
+                href: ../azure-monitor/insights/sql-insights-enable.md
+              - name: Alerts
+                href: ../azure-monitor/insights/sql-insights-alerts.md
+              - name: Troubleshoot
+                href: ../azure-monitor/insights/sql-insights-troubleshoot.md
         - name: Security
           items:
           - name: Give users permission
@@ -1651,7 +1679,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sql-database/single/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home
+    href: https://social.msdn.microsoft.com/Forums/home
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sql-database
   - name: Troubleshoot

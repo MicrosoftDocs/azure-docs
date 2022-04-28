@@ -7,8 +7,8 @@ ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
-author: MaraSteiu 
-ms.author: masteiu
+author: rothja 
+ms.author: jroth
 ms.reviewer: kendralittle, mathoma
 ms.date: 2/2/2022
 ---
