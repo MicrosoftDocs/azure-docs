@@ -3,9 +3,9 @@ title: Custom connectors
 description: Learn about creating custom connectors in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, divswa, azla
+ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 04/28/2022
 # As a developer, I want learn about the capability to create custom connectors with operations that I can use in my Azure Logic Apps workflows.
 ---
 
@@ -47,7 +47,7 @@ In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [cust
 
 In [single-tenant Azure Logic Apps](logic-apps-overview.md), the redesigned Azure Logic Apps runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create and use your own built-in connectors in Standard workflows.
 
-In a Standard logic app resource, a connection definition file contains the required configuration for the connections created by connectors. When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server. Over time, this list of built-in connectors continues to grow. However, if you need to use connectors that aren't available in Standard logic app workflows, you can [create your own built-in connectors with the Azure Functions extensibility framework](create-built-in-custom-connector-standard.md) that's used by the built-in connectors available for Standard workflows.
+In a Standard logic app resource, a connection definition file contains the required configuration for the connections created by connectors. When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server. Over time, this list of built-in connectors continues to grow. However, if you need to use connectors that aren't available in Standard logic app workflows, you can [create your own built-in connectors with the Azure Functions extensibility framework](create-custom-built-in-connector-standard.md) that's used by the built-in connectors available for Standard workflows.
 
 The following sections provide more information about how the extensibility model works for built-in connectors.
 
@@ -69,7 +69,7 @@ In this built-in connector extensibility model, you have to implement the follow
 
   At runtime, the Azure Logic Apps runtime uses these implementations to call the specified operation in the workflow definition.
 
-When you're done, you also have to register custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). For the steps, review [Register your connector as an Azure Functions extension](create-built-in-custom-connector-standard.md#register-connector).
+When you're done, you also have to register custom built-in connector with the [Azure Functions runtime extension](../azure-functions/functions-bindings-register.md). For the steps, review [Register your connector as an Azure Functions extension](create-custom-built-in-connector-standard.md#register-connector).
 
 <a name="service-provider-interface-implementation"></a>
 

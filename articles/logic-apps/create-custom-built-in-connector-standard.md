@@ -3,9 +3,9 @@ title: Create built-in connectors for Standard logic apps
 description: Create your own custom built-in connectors for Standard workflows in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 04/28/2022
 # As a developer, I want learn how to create my own custom built-in connector operations to use and run in my Standard logic app workflows.
 ---
 
