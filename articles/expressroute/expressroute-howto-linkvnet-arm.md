@@ -204,7 +204,7 @@ With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypa
 1. Send an email to **ERFastPathPL@microsoft.com**, providing the following information: 
 * Azure Subscription ID
 * Virtual Network (Vnet) Resource ID
-* Azure Region where the Private Endpoint/Private Link service is deployed.
+* Azure Region where the Private Endpoint/Private Link service is deployed
 
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive
