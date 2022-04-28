@@ -61,6 +61,8 @@ Note the following current limitations for DPS when using private endpoints:
 
 * Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. This means that you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the VNET(s)/private endpoint(s) configured on the DPS instance.
 
+* When using private endpoints, we recommend deploying DPS in one of the regions that support [Availability Zones](iot-dps-ha-dr.md). Otherwise, DPS instances with private endpoints enables may see reduced availability in the event of outages.
+
 >[!NOTE]
 >**Data residency consideration:**
 >
