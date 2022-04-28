@@ -22,16 +22,15 @@ ms.custom: references_regions
 
 The Power Query connector preview was announced in May 2021 and will not be moving forward into general availability. The following migration guidance is available for Snowflake and PostgreSQL. If you're using a different connector and need migration instructions, please use the email contact information provided in your preview sign up to request help.
 
-## Migrate a Snowflake data pipeline
-
-This section has the instructions to copy data from Snowflake database to an [Azure Cognitive Search index](search-what-is-an-index.md). There is no process to directly index from Snowflake to Azure Cognitive Search, so this section includes a staging phase of copying the PostgreSQL database contents to Azure Storage blob container and then indexing to an Azure Cognitive Search index from that staging container.
-
-## Prerequisites:
+## Prerequisites
 
 - An Azure Storage account. If you don't have one, [create a Storage account](../storage/common/storage-account-create.md).
 - An Azure Data Factory. If you don't have one, [create a Data Factory](../data-factory/quickstart-create-data-factory-portal.md).
 
-These are the end to end steps to configure a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md) to ingest data from Snowflake database and transform it to index in Azure Cognitive Search.
+## Migrate a Snowflake data pipeline
+
+This section has the instructions to copy data from Snowflake database to an [Azure Cognitive Search index](search-what-is-an-index.md). There is no process to directly index from Snowflake to Azure Cognitive Search, so this section includes a staging phase of copying the PostgreSQL database contents to Azure Storage blob container and then indexing to an Azure Cognitive Search index from that staging container using a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md).
+
 
 ### Step 1: Retrieve Snowflake database information
 
@@ -66,7 +65,7 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 
 ### Step 4: Create a new index in Azure Cognitive Search
 
-[Create a new index](https://docs.microsoft.com/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your Snowflake data.
+[Create a new index](azure-docs-rest-apis/docs-ref-conceptual/searchservice/create-index.md) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your Snowflake data.
 
 Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the Snowflake Power Connector and clicking on **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
 
@@ -116,7 +115,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 ### Step 9: Configure Pipeline
 1. In the left pane, select **Author** icon. 
 1. Click **Pipelines** and "**…**" . Select **New pipeline**.
-1. Create and configure the [Data Factory activities](..data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
+1. Create and configure the [Data Factory activities](../data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
 
    **a) Configure staging activity to copy from Snowflake to Azure Storage container**
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
@@ -151,16 +150,9 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 1. Click **Publish**.
 
 
-## Migrate a PostgreSQL data pipeline
+# Migrate a PostgreSQL data pipeline
 
-This section has the instructions to copy data from PostgreSQL database to an [Azure Cognitive Search index](search-what-is-an-index.md). There is no process to directly index from PostgreSQL to Azure Cognitive Search, so this section includes a staging phase of copying the PostgreSQL database contents to Azure Storage blob container and then indexing to an Azure Cognitive Search index from that staging container.
-
-## Prerequisites:
-
-- An Azure Storage account. If you don't have one, [create a Storage account](../storage/common/storage-account-create.md).
-- An Azure Data Factory. If you don't have one, [create a Data Factory](../data-factory/quickstart-create-data-factory-portal.md).
-
-These are the end to end steps to configure a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md) to ingest data from PostgreSQL database and transform it to index in Azure Cognitive Search.
+This section has the instructions to copy data from PostgreSQL database to an [Azure Cognitive Search index](search-what-is-an-index.md). There is no process to directly index from PostgreSQL to Azure Cognitive Search, so this section includes a staging phase of copying the PostgreSQL database contents to Azure Storage blob container and then indexing to an Azure Cognitive Search index from that staging container using a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md).
 
 ### Step 1: Configure PostgreSQL Linked Service
 
@@ -192,7 +184,7 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 
 ### Step 3: Create a new index in Azure Cognitive Search
 
-[Create a new index](https://docs.microsoft.com/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your PostgreSQL data.
+[Create a new index](azure-docs-rest-apis/docs-ref-conceptual/searchservice/create-index.md) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your PostgreSQL data.
 
 Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the PostgreSQL Power Connector and clicking on **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
 
@@ -241,7 +233,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 ### Step 8: Configure Pipeline
 1. In the left pane, select **Author** icon. 
 1. Click **Pipelines** and "**…**" . Click **New pipeline**.
-1. Create and configure the [Data Factory activities](..data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
+1. Create and configure the [Data Factory activities](../data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
 
    **a) Configure staging activity to copy from PostgreSQL to Azure Storage container**
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
