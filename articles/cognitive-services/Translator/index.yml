@@ -134,12 +134,12 @@ landingContent:
       - linkListType: reference
         links:
           - text: Support and help options
-                url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-
-              - text: Compliance
-                url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-              - text: Confidentiality
-                url: https://www.microsoft.com/translator/business/notrace/
+            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
+          - text: Compliance
+            url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+          - text: Confidentiality
+            url: https://www.microsoft.com/translator/business/notrace/
+  
   # Card 7
   - title: Resources
     linkLists:
@@ -153,12 +153,3 @@ landingContent:
             url: https://www.microsoft.com/translator/business/notrace/
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
-
-        #new card
-
-            - linkListType: reference
-        links:
-
-          
-          - text: Create a subscription
-            url: how-to-create-translator-resource.md
