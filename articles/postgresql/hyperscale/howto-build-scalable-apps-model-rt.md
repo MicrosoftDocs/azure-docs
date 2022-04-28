@@ -41,27 +41,27 @@ SQL JOINs can happen without pulling information between workers.
 ## Optimal data model for real-time apps
 
 Let's continue with the example of an application that analyzes user website
-visits and metrics. There are two "fact" tables -- users and events -- and other
+visits and metrics. There are two "fact" tables--users and events--and other
 smaller "dimension" tables.
 
 ![tables for the example app](../media/howto-hyperscale-build-scalable-apps/rt-data-model.png)
 
-To leverage the super power of distributed tables on Hyperscale (Citus), follow
-the following simple steps:
+To apply the super power of distributed tables on Hyperscale (Citus), follow
+the following steps:
 
 * Distribute large fact tables on a common column. In our case, users and
   events are distributed on `user_id`.
 * Mark the small/dimension tables (`device_types`, `countries`, and
   `event_types) as Hyperscale (Citus) reference tables.
 * Be sure to include the distribution column in primary, unique, and foreign
-  key constraints on distributed tables. This may require making the keys
+  key constraints on distributed tables. Including the column may require making the keys
   composite. There's need to update keys for reference tables.
-* When you are joining large distributed tables, be sure to join using the
+* When you're joining large distributed tables, be sure to join using the
   shard key.
 
 ## Next steps
 
-This completes the how-to for building scalable apps.
+We've completed the how-to for building scalable apps.
 
 * You may now want to know how to [scale a server group](howto-scale-grow.md)
   to give your app more nodes and hardware capacity.

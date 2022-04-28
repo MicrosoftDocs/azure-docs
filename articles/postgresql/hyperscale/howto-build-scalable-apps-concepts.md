@@ -22,16 +22,16 @@ plain PostgreSQL:
 
 ![the coordinator node sharding a table onto worker nodes](../media/howto-hyperscale-build-scalable-apps/architecture.png)
 
-In the Hyperscale (Citus) architecture there are multiple kinds of nodes:
+In the Hyperscale (Citus) architecture, there are multiple kinds of nodes:
 
 * The **coordinator** node stores distributed table metadata and is responsible
   for distributed planning.
-* Whereas the **worker** nodes store the actual data and do the computation.
+* By contrast, the **worker** nodes store the actual data and do the computation.
 * Both the coordinator and workers are plain PostgreSQL databases, with the
   `citus` extension loaded.
 
 To distribute a normal PostgreSQL table, like `campaigns` in the diagram above,
-run a simple command called `create_distributed_table()`.  Once you run this
+run a command called `create_distributed_table()`.  Once you run this
 command, Hyperscale (Citus) transparently creates shards for the table across
 worker nodes. In the diagram, shards are represented as blue boxes.
 
@@ -40,15 +40,15 @@ worker nodes. In the diagram, shards are represented as blue boxes.
 > On the basic tier, shards of distributed tables are on the coordinator node,
 > not worker nodes.
 
-Shards are plain (but specially-named) PostgreSQL tables that hold slices of
+Shards are plain (but specially named) PostgreSQL tables that hold slices of
 your data. In our example, because we distributed `campaigns` by `company_id`,
 the shards hold campaigns, where the campaigns of different companies are
 assigned to different shards.
 
-## Distribution column (a.k.a. shard key)
+## Distribution column (also known as shard key)
 
 `create_distributed_table()` is the magic function that Hyperscale (Citus)
-provides to distribute tables and leverage resources across multiple machines.
+provides to distribute tables and use resources across multiple machines.
 
 ```postgresql
 SELECT create_distributed_table(
@@ -59,7 +59,7 @@ SELECT create_distributed_table(
 The second argument above picks a column from the table as a **distribution
 column**. It can be any column with a native PostgreSQL type (with integer and
 text being most common). The value of the distribution column determines which
-rows go into which shards. That's why the distribution column is also called
+rows go into which shards, which is why the distribution column is also called
 the **shard key**.
 
 Hyperscale (Citus) decides how to run queries based on their use of the shard
@@ -67,20 +67,20 @@ key:
 
 | Query involves | Where it runs |
 |----------------|---------------|
-| just one shard key | on the worker node which holds its shard |
+| just one shard key | on the worker node that holds its shard |
 | multiple shard keys | parallelized across multiple nodes |
 
 The choice of shard key dictates the performance and scalability of your
 applications.
 
-* Uneven data distribution per shard keys (a.k.a. *data skew*) is not optimal
+* Uneven data distribution per shard keys (also known as *data skew*) isn't optimal
   for performance. For example, don’t choose a column for which a single value
   represents 50% of data.
 * Shard keys with low cardinality can affect scalability. You can use only as
   many shards as there are distinct key values. Choose a key with cardinality
-  in the 100s to 1000s.
+  in the hundreds to thousands.
 * Joining two large tables with different shard keys can be slow. Choose a
-  common shard key across large tables. More about this in
+  common shard key across large tables. Learn more in
   [colocation](#colocation).
 
 ## Colocation
@@ -89,7 +89,7 @@ Another concept closely related to shard key is *colocation*. Tables sharded by
 the same distribution column values are colocated - The shards of colocated
 tables are stored together on the same workers.
 
-Below are two tables sharded by the same key, `site_id`. They are colocated.
+Below are two tables sharded by the same key, `site_id`. They're colocated.
 
 ![http_request and http_request_1min colocated by site_id](../media/howto-hyperscale-build-scalable-apps/colocation.png)
 

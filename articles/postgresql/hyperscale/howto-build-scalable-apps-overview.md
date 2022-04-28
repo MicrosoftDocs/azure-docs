@@ -24,8 +24,8 @@ ms.date: 04/26/2022
 
 This series covers how to build scalable relational apps with Hyperscale (Citus).
 
-If you're building an app that a single node database node (8vcore, 32GB RAM
-and 512GB storage) can handle for the near future (~6 months), then you can
+If you're building an app that a single node database node (8vcore, 32-GB RAM
+and 512-GB storage) can handle for the near future (~6 months), then you can
 start with the Hyperscale (Citus) **Basic Tier**. Later, you can add more
 nodes, rebalance your, data and scale out seamlessly.
 

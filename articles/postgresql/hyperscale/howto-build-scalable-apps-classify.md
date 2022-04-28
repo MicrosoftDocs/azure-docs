@@ -16,12 +16,12 @@ Hyperscale (Citus).
 
 ## Characteristics of multi-tenant SaaS
 
-* Tenants see their own data; they cannot see other tenants' data.
+* Tenants see their own data; they can't see other tenants' data.
 * Most B2B SaaS apps are multi-tenant. Examples include Salesforce or Shopify.
-* In most B2B SaaS apps, there are 100s to 10s of thousands of tenants, and
+* In most B2B SaaS apps, there are hundreds to tens of thousands of tenants, and
   more tenants keep joining.
 * Multi-tenant SaaS apps are primarily operational/transactional, with single
-  digit milisecond latency requirements for their database queries.
+  digit millisecond latency requirements for their database queries.
 * These apps have a classic relational data model, and are built using ORMs –
   like RoR, Hibernate, Django etc.
 
@@ -30,10 +30,10 @@ Hyperscale (Citus).
 ## Characteristics of real-time operational analytics
 
 * These apps have a customer/user facing interactive analytics dashboard, with
-  a sub-second query latency requirement.
+  a subsecond query latency requirement.
 * High concurrency required - at least 20 users.
 * Analyzes data that's fresh, within the last one second to few minutes.
-* Most have timeseries data such as events, logs, etc.
+* Most have time series data such as events, logs, etc.
 * Common data models in these apps include:
 	* Star Schema - few large/fact tables, the rest being small/dimension tables
 	* Mostly fewer than 20 major tables
@@ -46,11 +46,11 @@ Hyperscale (Citus).
   transactions, foreign/primary keys, triggers, extension like PostGIS, etc.
 * The workload is based on a single key. It has CRUD and lookups based on that
   key.
-* These apps have high throughput requirements: 1000s to 100s of thousand of
+* These apps have high throughput requirements: thousands to hundreds of thousands of
   TPS.
-* Query latency in single-digit miliseconds, with a high concurrency
+* Query latency in single-digit milliseconds, with a high concurrency
   requirement.
-* Timeseries data, such as internet of things.
+* Time series data, such as internet of things.
 
 > [!VIDEO https://www.youtube.com/embed/A9q7w96yO_E]
 

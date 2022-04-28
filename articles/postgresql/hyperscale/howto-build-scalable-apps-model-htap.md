@@ -1,6 +1,6 @@
 ---
 title: Model real-time apps - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Techniques for scalable real-time analytical apps
+description: Techniques for scalable HTAP apps
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
@@ -16,7 +16,7 @@ ms.date: 04/28/2022
 To pick the shard key for a high-throughput transactional (HTAP) application,
 follow these guidelines:
 
-* Choose a column which is used for point lookups and is present in most
+* Choose a column that is used for point lookups and is present in most
   create, read, update, and delete operations.
 * Choose a column that is a natural dimension in the data, or a central piece
   of the application. For example:
@@ -28,7 +28,7 @@ advantage of memory and compute to achieve millisecond latency.
 ## Optimal data model for HTAP apps
 
 Below is an example of a sample data-model for an IoT app that captures
-telemetry (timeseries data) from devices. There are two tables for capturing
+telemetry (time series data) from devices. There are two tables for capturing
 telemetry: `devices` and `events`. There could be other tables, but they're not
 covered in this example.
 
@@ -42,20 +42,20 @@ When building an HTAP app, keep some optimization in mind.
   tables.
 * The rest of the small tables can be reference tables.
 * As IOT apps have a time dimension, partition your distributed tables based on
-  time. This can be done by using timeseries capabilities that Hyperscale
-  (Citus) natively provides.
+  time. You can use native Hyperscale (Citus) time series capabilities to
+  create and maintain partitions.
   * Partitioning helps efficiently filter data for queries with time filters.
   * Expiring old data is also fast, using the DROP vs DELETE command.
   * The events table in our example is partitioned by month.
-* Leverage the JSONB datatype to store semi-structured data. Device telemetry
+* Use the JSONB datatype to store semi-structured data. Device telemetry
   data is typically not structured, every device has its own metrics.
-  * In our example,  the events table has a `detail` column which is a JSONB.
-* If your IoT app requires geospatial features, you can leverage the PostGIS
+  * In our example,  the events table has a `detail` column, which is JSONB.
+* If your IoT app requires geospatial features, you can use the PostGIS
   extension, which Hyperscale (Citus) supports natively.
 
 ## Next steps
 
-This completes the how-to for building scalable apps.
+We've completed the how-to for building scalable apps.
 
 * You may now want to know how to [scale a server group](howto-scale-grow.md)
   to give your app more nodes and hardware capacity.
