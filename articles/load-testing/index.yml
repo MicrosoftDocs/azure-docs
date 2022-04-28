@@ -75,13 +75,13 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Automated load testing with Azure Pipelines
+          - text: Automate load testing with Azure Pipelines
             url: tutorial-cicd-azure-pipelines.md
-          - text: Automated load testing with GitHub Actions
+          - text: Automate load testing with GitHub Actions
             url: tutorial-cicd-github-actions.md
             
   # Card
-  - title: Security for load tests
+  - title: Security
     linkLists:
       - linkListType: how-to-guide
         links:
