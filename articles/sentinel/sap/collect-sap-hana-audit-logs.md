@@ -28,7 +28,9 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 1. Install and configure a Log Analytics agent on your machine:
 
     1. Sign in to your HANA database operating system as a user with sudo privileges.  
+
     1. In the Azure portal, go to your Log Analytics workspace. On the left pane, under **Settings**, select **Agents management** > **Linux servers**.  
+
     1. Under **Download and onboard agent for Linux**, copy the code that's displayed in the box to your terminal, and then run the script.
 
     The Log Analytics agent is installed on your machine and connected to your workspace. For more information, see [Install Log Analytics agent on Linux computers](../../azure-monitor/agents/agent-linux.md) and [OMS Agent for Linux](https://github.com/microsoft/OMS-Agent-for-Linux) on the Microsoft GitHub repository.
@@ -49,12 +51,26 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 Learn more about the Microsoft Sentinel SAP solutions:
 
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
-- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
+- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
+- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy SAP security content](deploy-sap-security-content.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Enable and configure SAP auditing](configure-audit.md)
+
+Troubleshooting:
+
 - [Troubleshoot your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Configure SAP Transport Management System](configure-transport.md)
+
+Reference files:
+
+- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Kickstart script reference](reference-kickstart.md)
+- [Update script reference](reference-update.md)
+- [Systemconfig.ini file reference](reference-systemconfig.md)
 
 For more information, see [Microsoft Sentinel solutions](sentinel-solutions.md).
 

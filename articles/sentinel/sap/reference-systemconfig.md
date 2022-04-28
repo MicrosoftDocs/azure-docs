@@ -215,3 +215,29 @@ AGR_AGRS_FULL = <True/False>
 USRSTAMP_FULL = <True/False>
 USRSTAMP_INCREMENTAL = <True/False>
 ```
+## Next steps
+
+Learn more about the Microsoft Sentinel SAP solutions:
+
+- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
+- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy SAP security content](deploy-sap-security-content.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Enable and configure SAP auditing](configure-audit.md)
+- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+
+Troubleshooting:
+
+- [Troubleshoot your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Configure SAP Transport Management System](configure-transport.md)
+
+Reference files:
+
+- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Kickstart script reference](reference-kickstart.md)
+- [Update script reference](reference-update.md)
+
+For more information, see [Microsoft Sentinel solutions](sentinel-solutions.md).
