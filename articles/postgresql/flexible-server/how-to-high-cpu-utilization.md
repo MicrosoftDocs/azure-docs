@@ -41,7 +41,7 @@ The following is the list of several reasons which contribute to high CPU utiliz
 Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics gives information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](howto-alert-on-metrics.md)
 
 #### Query Store
-Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)
+Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](concepts-query-store.md)
 
 #### pg_stat_statements
 pg_stat_statements extension helps in identifying the queries which consume time on the server. pg_stat_statements extension is not available globally but can be enabled for a specific database with following script:
