@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -192,7 +192,7 @@ This table provides a list view of the page visits and the calls to action of yo
 | Campaign | Name of the Campaign | Ability to understand web telemetry (page visit and CTA clicks) against the campaign name. | Campaign |
 | Consent given | Consent given | Total count of clicks for customer-provided consent to Microsoft or the partner | consentGivenCount |
 | Platform | Platform | Indicates website or client (in-product store) as the source for page view, CTA, or consent clicks | platforms |
-| n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
+| n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br>- AZUREMARKETPLACE<br>- APPSOURCE | Site |
 
 ## Next steps
 
