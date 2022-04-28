@@ -24,7 +24,7 @@ You can secure the inbound scoring requests from clients to an _online endpoint_
 
 The following diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from clients are received through the workspace private endpoint from your virtual network. Outbound communication with services is handled through private endpoints to those service instances from the deployment:
 
-:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.png" alt-text="Diagram of overall ingress/egress communication.":::
+:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.svg" alt-text="Diagram of overall ingress/egress communication.":::
 
 ## Prerequisites
 
@@ -120,7 +120,7 @@ The following diagram shows the different components created in this architectur
 
 The following diagram shows the overall architecture of this example:
 
-:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.png" alt-text="Diagram of the services created.":::
+:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.svg" alt-text="Diagram of the services created.":::
 
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
