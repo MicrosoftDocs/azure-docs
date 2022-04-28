@@ -12,6 +12,6 @@ ms.author: glenga
 
     :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Screenshot of Execute function now in Azure from Visual Studio Code.":::
 
-1. In the **Enter request body** you'll see the request message body value as `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
+1. In the **Enter request body**, you'll see the request message body value as `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
 
 1. When the function executes in Azure and returns a response, a notification is raised in Visual Studio Code.

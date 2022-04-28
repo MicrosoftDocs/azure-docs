@@ -105,7 +105,7 @@ In this section, you'll create a function app and related resources in your Azur
 
     :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Screenshot of Azure resource creation notification.":::
 
-1. When completed, the following Azure resources are created in your subscription. The resources names are based on your function app name:
+1. When completed, the following Azure resources are created in your subscription. The resources are named based on your function app name:
 
     [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
