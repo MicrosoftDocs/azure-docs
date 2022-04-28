@@ -4,7 +4,7 @@ description: Overview of the architecture used when you set up disaster recovery
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 4/28/2022
 
 ---
 
