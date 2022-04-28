@@ -6,20 +6,20 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 04/28/2022
 ms.author: helohr
 manager: femila
 ---
 
 # Azure Virtual Desktop disaster recovery
 
-To keep your organization's data safe, you may need to adopt a business continuity and disaster recovery (BCDR) strategy. A sound BCDR strategy keeps your apps and workload up and running during planned and unplanned service or Azure outages.
+To keep your organization's data safe, you should adopt and manage a business continuity and disaster recovery (BCDR) strategy. A sound BCDR strategy keeps your apps and workloads up and running during planned and unplanned service or Azure outages. These plans should cover the session host virtual machines (VMs) managed by customers, as opposed to the Azure Virtual Desktop service that's managed by Microsoft. For more information about management areas, see [Azure Virtual Desktop disaster recovery concepts](disaster-recovery-concepts.md).
 
-Azure Virtual Desktop offers BCDR for the Azure Virtual Desktop service to preserve customer metadata during outages. When an outage occurs in a region, the service infrastructure components will fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections will stay online as long as the hosts remain accessible.
+The Azure Virtual Desktop service is designed with high availabilty in mind. Azure Virtual Desktop is a global service with multiple instances of its independent components distributed across multiple Azure regions. If there's an unexpected outage in any of the components, you can bypass potential issues by diverting traffic to one or more of the remaining instances or do a full failover to redundant infrastructure in another Azure region.
 
-To make sure users can still connect during a region outage, you need to replicate their virtual machines (VMs) in a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. On top of VM replication, you'll need to keep user identities accessible at the secondary location. If you're using profile containers, you'll also need to replicate them. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
+To make sure users can still connect during a region outage in session host VMs, you need to design your infrastructure with high availability and disaster recovery in mind. A typical disaster recovery plan includes replicating virtual machines (VMs) in a different location. During outages, the primary site fails over to the replicated VMs in the secondary location. Users can continue to access apps from the secondary location without interruption. On top of VM replication, you'll need to keep user identities accessible at the secondary location. If you're using profile containers, you'll also need to replicate them. Finally, make sure your business apps that rely on data in the primary location can fail over with the rest of the data.
 
-To summarize, to keep your users connected during an outage, you'll need to do the following things in this order:
+To summarize, to keep your users connected during an outage, you'll need to do the following things:
 
 - Replicate the VMs in a secondary location.
 - If you're using profile containers, set up data replication in the secondary location.
@@ -34,7 +34,7 @@ First, you'll need to replicate your VMs to the secondary location. Your options
 - You can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new app groups and workspaces in the failover region. You can then use an Azure Site Recovery plan to turn host pools on.
 - You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an Azure Site Recovery plan to power on host pools with this method.
 
-We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host pools, because Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host poolsWe especially recommend using Azure Site Recovery for personal host pools, because personal host pool by their very nature tend to have something that is personal about it for its user. Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 If you use Azure Site Recovery, you won't need to register these VMs manually. The Azure Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user will have to reconnect during the process, but apart from that, there are no other manual operations.
 
@@ -46,7 +46,7 @@ To disconnect users in Azure Virtual Desktop (classic), run this cmdlet:
 Invoke-RdsUserSessionLogoff
 ```
 
-To disconnect users in the Azure-integrated version of Azure Virtual Desktop, run this cmdlet:
+To disconnect users in Azure Virtual Desktop, run this cmdlet:
 
 ```powershell
 Remove-AzWvdUserSession
@@ -70,7 +70,7 @@ There are three ways to keep the domain controller available:
    - Use an on-premises Active Directory Domain Controller
    - Replicate Active Directory Domain Controller using [Azure Site Recovery](../site-recovery/site-recovery-active-directory.md)
 
-## User and app data
+## User and app profile data
 
 If you're using profile containers, the next step is to set up data replication in the secondary location. You have five options to store FSLogix profiles:
 
@@ -78,25 +78,26 @@ If you're using profile containers, the next step is to set up data replication 
    - Network drives (VM with extra drives)
    - Azure Files
    - Azure NetApp Files
-   - Cloud Cache for replication
+   - Third-party storage services available on the Azure Marketplace
 
 For more information, check out [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
 
-If you're setting up disaster recovery for profiles, these are your options:
+If you're setting up disaster recovery for user profiles, then you'll need to either use the storage service to replicate the data to another region or use FSLogix Cloud Cache to manage the replication without using the underlying storage service to replicate the data.
+
+Here are some examples of ways you can set up disaster recovery for user profiles:
 
    - Set up Native Azure Replication (for example, Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure Files Sync for file servers).
     
      >[!NOTE]
      >NetApp replication is automatic after you first set it up. With Azure Site Recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.
 
-   - Set up FSLogix Cloud Cache for both app and user data.
    - Set up disaster recovery for app data only to ensure access to business-critical data at all times. With this method, you can retrieve user data after the outage is over.
 
 Let’s take a look at how to configure FSLogix to set up disaster recovery for each option.
 
 ### FSLogix configuration
 
-The FSLogix agent can support multiple profile locations if you configure the registry entries for FSLogix.
+The FSLogix agent can support multiple profile locations using the standard "VHDLocations" option if you configure the registry entries for FSLogix. This method doesn't have anything to do with the cloud cache, so if you'd rather use the cache, skip ahead to [FSLogix Cloud Cache](#fslogix-cloud-cache).
 
 To configure the registry entries:
 
@@ -121,6 +122,15 @@ We recommend you configure the FSLogix agent with a path to the secondary locati
 For example, let's say your primary session host VMs are in the Central US region, but your profile container is in the Central US region for performance reasons.
 
 In this case, you would configure the FSLogix agent with a path to the storage in Central US. You would configure the session host VMs to replicate in West US. Once the path to Central US fails, the agent will try to create a new path for storage in West US instead.
+
+### FSlogix Cloud Cache
+
+FSlogix supports replicating user and office containers from an agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service. However, before you start configuring FSLogic Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
+
+You can configure FSlogix Cloud Cache directly in the registry by either using the VHDLocations example in the previous section or use a group policy. To create or edit a group policy object, go to **Computer Configuration** > **Administrative Templates** > **FSLogix** > **Profiles Containers (and Office 365 Containers) Cloud Cache - Cloud Cache Locations**. Once you've created or edited your policy object, you'll need to enable it, then list all storage provider locations you want the FSLogix to replicate it to, as shown in the following image. 
+
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the FSLogix Cloud Cache Group Policy Cloud Cache Locations is selected.](media/fslogix-locations.png)
 
 ### S2D
 
@@ -155,7 +165,7 @@ After you're done setting up disaster recovery, you'll want to test your plan to
 Here are some suggestions for how to test your plan:
 
 - If the test VMs have internet access, they will take over any existing session host for new connections, but all existing connections to the original session host will remain active. Make sure the admin running the test signs out all active users before testing the plan. 
-- You should only do full disaster recovery tests during a maintenance window to not disrupt your users. You can also use a host pool in the validation environment for the test. 
+- You should only do full disaster recovery tests during a maintenance window to not disrupt your users.
 - Make sure your test covers all business-critical apps.
 - We recommend you only failover up to 100 VMs at a time. If you have more VMs than that, we recommend you fail them over in batches 10 minutes apart.
 
