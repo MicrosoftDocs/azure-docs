@@ -38,10 +38,10 @@ The following is the list of several reasons which contribute to high CPU utiliz
 
 #### Azure Metrics 
 
-Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics gives information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](https://docs.microsoft.com/en-us/azure/postgresql/howto-alert-on-metric)
+Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics gives information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](https://docs.microsoft.com/azure/postgresql/howto-alert-on-metric)
 
 #### Query Store
-Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-query-store)
+Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)
 
 #### pg_stat_statements
 pg_stat_statements extension helps in identifying the queries which consume time on the server. pg_stat_statements extension is not available globally but can be enabled for a specific database with following script:
@@ -61,7 +61,7 @@ SQL statements that consume the most time –
 		calls num_calls, 
 		query  
 	FROM pg_stat_statements  
-	ORDER BY 1 DESC LIMIT 10. 
+	ORDER BY 1 DESC LIMIT 10;   
 
 #### Postgres version 9.6, 10, 11, 12
 
@@ -71,7 +71,7 @@ SQL statements that consume the most time –
         calls num_calls, 
         query  
     FROM pg_stat_statements  
-    ORDER BY 1 DESC LIMIT 10. 
+    ORDER BY 1 DESC LIMIT 10;   
 
  
 Run the following command to view the top five SQL statements that consume the most time in one call: 
@@ -81,14 +81,14 @@ Run the following command to view the top five SQL statements that consume the m
 	SELECT userid::regrole, dbid, query, mean_exec_time 
 	FROM pg_stat_statements 
 	ORDER BY mean_exec_time 
-	DESC LIMIT 5. 
+	DESC LIMIT 5;   
 
 #### Postgres version 9.6, 10, 11, 12
 
 	SELECT userid: :regrole, dbid, query 
 	FROM pg_stat_statements 
 	ORDER BY mean_time 
-	DESC LIMIT 5. 
+	DESC LIMIT 5;    
 
 Run the following command to view the top five SQL statements that consume the most time in total: 
 
@@ -97,14 +97,14 @@ Run the following command to view the top five SQL statements that consume the m
 	SELECT userid::regrole, dbid, query 
 	FROM pg_stat_statements 
 	ORDER BY total_exec_time 
-	DESC LIMIT 5. 
+	DESC LIMIT 5;   
 
 #### Postgres version 9.6, 10, 11, 12
 
 	SELECT userid: :regrole, dbid, query, 
 	FROM pg_stat_statements 
 	ORDER BY total_time 
-	DESC LIMIT 5. 
+	DESC LIMIT 5;    
 
 ### Identify Root Causes 
 
@@ -117,7 +117,7 @@ In Azure Database for PostgreSQL and in PostgreSQL in general, there are no stat
 	SELECT pid, usename, datname, query, now() - xact_start as duration 
 	FROM pg_stat_activity  
 	WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active') 
-	ORDER BY duration DESC
+	ORDER BY duration DESC;   
 
 
 Apart from this, there are quick executed queries which causes issue if they are executed for number of times for example, you detect a query that finish running in 1 ms but being called thousands of times then it will consume a lot of resources. Query Store and pg_stat_statements should help in identifying such type of queries. 
@@ -128,7 +128,7 @@ This query will give information about the number of connections by state –
 	SELECT state, count(*)  
 	FROM  pg_stat_activity   
 	WHERE pid <> pg_backend_pid()  
-	GROUP BY 1 ORDER BY 1 
+	GROUP BY 1 ORDER BY 1;   
 
  Idle connections represent connections that are not “doing” anything, those usually, are waiting for additional requests from the client. While this situation of having idle connections does not sound harmful, having many idle connections will consume CPU and memory.  
  
@@ -189,7 +189,7 @@ The following query helps to identify the tables that need vacuuming
 	round(n_dead_tup::float/n_live_tup::float*100) dead_pct ,autovacuum_count , last_vacuum, last_autovacuum ,last_autoanalyze  
 	FROM pg_stat_all_tables    
 	WHERE n_live_tup > 0    
-	ORDER BY 10 DESC.   
+	ORDER BY 10 DESC;   
 
 If the tables are not being vacuumed on a regular basis steps should be taken to tune autovacuum. The details are found autovacuum tuning troubleshooting guide.
 A more short term solution would be to do manual vacuum analyze of the tables where slow queries are seen:
