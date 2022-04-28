@@ -29,10 +29,6 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-<!--
-Need to confirm whether the following link is correct.
--->
-
 The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-new-site).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-new-site/azuredeploy.json":::
@@ -50,7 +46,7 @@ Four Azure resources are defined in the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites). <!-- We should also add a screenshot of a filled out set of parameters. -->
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
     
     | Field | Value |
     |--|--|
@@ -78,7 +74,7 @@ Four Azure resources are defined in the template.
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
 
 1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation. <!-- This step and the following step need checking to confirm that the screenshots and navigation are accurate. -->
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 

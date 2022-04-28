@@ -31,10 +31,6 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-<!--
-Need to confirm whether the following link is correct.
--->
-
 The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-sim-policy).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-sim-policy/azuredeploy.json":::
@@ -50,7 +46,7 @@ Two Azure resources are defined in the template.
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-sim-policy%2Fazuredeploy.json)
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites). <!-- We should also add a screenshot of a filled out set of parameters. -->
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
@@ -76,7 +72,7 @@ Two Azure resources are defined in the template.
 
 1. Confirm that your service and SIM policy have been created in the resource group.
 
-    :::image type="content" source="media/configure-a-service-and-sim-policy-arm-template\service-and-sim-policy-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing newly provisioned SIMs.":::
+    :::image type="content" source="media/configure-service-sim-policy-arm-template\service-and-sim-policy-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing newly provisioned SIMs.":::
 
 ## Next steps
 

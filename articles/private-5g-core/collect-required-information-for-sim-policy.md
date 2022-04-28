@@ -17,7 +17,7 @@ SIM policies allow you to define different sets of policies and interoperability
 In this how-to guide, we'll collect all the required information to configure a SIM policy.
 
 - You can use this information to configure a SIM policy through the Azure portal. You'll enter each value you collect into its corresponding field (given in the **Field name in Azure portal** columns in the tables below) as part of the procedure in [Configure a SIM policy for Azure Private 5G Core Preview - Azure portal](configure-sim-policy-azure-portal.md).
-- Alternatively, you can use the information to create a simple service and SIM policy using the example Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). The example template uses default values for all settings, but you can choose to replace a subset of the default settings with your own values. The **Included in example ARM template** columns in the tables below indicate which settings can be changed.
+- Alternatively, you can use the information to create a simple service and SIM policy using the example Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md). The example template uses default values for all settings, but you can choose to replace a subset of the default settings with your own values. The **Included in example ARM template** columns in the tables below indicate which settings can be changed.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Read [Policy control](policy-control.md) and make sure you're familiar with Azur
 
 ## Collect top-level setting values
 
-SIM policies have top-level settings that are applied to every SIM to which the SIM policy is assigned. These settings include the UE aggregated maximum bit rate (UE-AMBR) and RAT/Frequency Priority ID (RFSP ID).
+SIM policies have top-level settings that are applied to every SIM to which the SIM policy is assigned. These settings include the UE aggregated maximum bit rate (UE-AMBR) and RAT/Frequency Priority ID (RFSP ID). 
 
 Collect each of the values in the table below for your SIM policy.
 
@@ -61,5 +61,5 @@ Collect each of the values in the table below for the network scope.
 You can use this information to either create a SIM policy using the Azure portal, or use the example ARM template to create a simple service and SIM policy.
 
 - [Configure a SIM policy for Azure Private 5G Core](configure-sim-policy-azure-portal.md)
-- [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md)
+- [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md)
 

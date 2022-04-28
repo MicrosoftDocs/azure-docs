@@ -19,7 +19,7 @@ Each service has a set of rules to identify the service data flows (SDFs) to whi
 In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core Preview.
 
 - You can use this information to configure a service through the Azure portal. In this case, you'll enter each value you collect into its corresponding field (given in the **Azure portal field name** columns in the tables below) as part of the procedure in [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md).
-- Alternatively, you can use the information to create a simple service and SIM policy using the example Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md). The example template uses default values for all settings, but you can choose to replace a subset of the default settings with your own values. The **Included in example ARM template** columns in the tables below indicate which settings can be changed.
+- Alternatively, you can use the information to create a simple service and SIM policy using the example Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md). The example template uses default values for all settings, but you can choose to replace a subset of the default settings with your own values. The **Included in example ARM template** columns in the tables below indicate which settings can be changed.
 
 ## Prerequisites
 
@@ -51,7 +51,8 @@ For each data flow policy rule, take the following steps:
 - Collect the values in [Collect data flow policy rule values](#collect-data-flow-policy-rule-values) to determine whether SDFs matching this data flow policy rule will be allowed or blocked, and how this data flow policy rule should be prioritized against other data flow policy rules.
 - Collect the values in [Collect data flow template values](#collect-data-flow-template-values) for one or more data flow templates to use for this data flow policy rule. Data flow templates provide the packet filters the packet core instance will use to match on SDFs.
 
-Note that the ARM template in [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md) only configures a single data flow policy rule and data flow template.
+> [!NOTE]
+> The ARM template in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md) only configures a single data flow policy rule and data flow template.
 
 ### Collect data flow policy rule values
 
@@ -80,4 +81,4 @@ Collect the following values for each data flow template you want to use for a p
 You can use this information to either create a service using the Azure portal, or use the example ARM template to create a simple service and SIM policy.
 
 - [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md)
-- [Configure a service and SIM policy using an ARM template](configure-a-service-and-sim-policy-arm-template.md)
+- [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md)

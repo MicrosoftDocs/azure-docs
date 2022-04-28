@@ -15,7 +15,7 @@ ms.custom: template-how-to
 This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview. 
 
 - You can use this information to deploy a private mobile network through the [Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
-- Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](create-a-full-private-5g-core-deployment-arm-template.md). In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
+- Alternatively, you can use the information to quickly deploy a private mobile network with a single site using an [Azure Resource Manager template (ARM template)](create-full-private-5g-core-deployment-arm-template.md). In this case, you'll also need to [collect information for the site](collect-required-information-for-a-site.md).
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ The following example shows the file format you'll need if you want to provision
 
  Azure Private 5G Core offers a default service and SIM policy that allow all traffic in both directions for all the SIMs you provision. They're designed to allow you to quickly deploy a private mobile network and bring SIMs into service automatically, without the need to design your own policy control configuration. 
 
-- If you're using the ARM template in [Quickstart: Create a full Azure Private 5G Core Preview deployment - ARM template](create-a-full-private-5g-core-deployment-arm-template.md), the default service and SIM policy are automatically included. 
+- If you're using the ARM template in [Quickstart: Create a full Azure Private 5G Core Preview deployment - ARM template](create-full-private-5g-core-deployment-arm-template.md), the default service and SIM policy are automatically included. 
 
 - If you use the Azure portal to deploy your private mobile network, you'll be given the option of creating the default service and SIM policy. You'll need to decide whether the default service and SIM policy are suitable for the initial use of your private mobile network. You can find information on each of the specific settings for these resources in [Default service and SIM policy](default-service-sim-policy.md) if you need it.
 
@@ -98,4 +98,4 @@ For detailed information on services and SIM policies, see [Policy control](poli
 You can now use the information you've collected to deploy your private mobile network.
 
 - [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
-- [Quickstart: Create a full Azure Private 5G Core Preview deployment - ARM template](create-a-full-private-5g-core-deployment-arm-template.md)
+- [Quickstart: Create a full Azure Private 5G Core Preview deployment - ARM template](create-full-private-5g-core-deployment-arm-template.md)
