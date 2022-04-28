@@ -36,7 +36,7 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 ### Step 1: Retrieve Snowflake database information
 
 1. Go to [Snowflake](https://app.snowflake.com/) and type your Snowflake account. Snowflake account looks like: *https://<account_name>.snowflakecomputing.com*. Then introduce your Snowflake user and password.
-1. Once logged on, go to the left pane and copy the following values that will be used in the Data Factory Snowflake Linked Service setup in [Step 2](#step-2-configure-snowflake-linked-service):
+1. Once logged on, go to the left pane and copy the following values in a notepad. They will be used in the Data Factory Snowflake Linked Service setup in [Step 2](#step-2-configure-snowflake-linked-service):
    - From **Data**, select **Databases** and copy the name of the database you will use as source to index.
    - From **Admin**, select **Users & Roles** and copy the name of the user you will utilize to connect to the database. Make sure that the user has enough privileges to read from the database of your choice.
    - From **Admin**, select **Accounts** and copy **LOCATOR** value of the account.
@@ -48,9 +48,9 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 
 1. Logon with your Azure account to [Azure Data Factory Studio](https://ms-adf.azure.com/).
 1. Select your Data Factory and select **Continue**.
-1. In the left pane, click the **Manage** icon.
+1. In the left pane, click **Manage** icon.
 1. Under **Linked services** click **New**.
-1. In the right pane, in the Data store search, type *Snowflake*. Click **Snowflake** icon and select **Continue**.
+1. In the right pane, in the Data store search, type *snowflake*. Click **Snowflake** icon and select **Continue**.
 1. Fill out the **New linked service** form with the data retrieved in [Step 1](#step-1-retrieve-snowflake database information). Keep in mind that **Account name** is formed with Snowflake account **LOCATOR** value and the region. Example: *xy56789south-central-us.azure*.
 1. After completed, at the bottom, click **Test connection**. 
 1. When successful, click **Create**.
@@ -58,7 +58,7 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 ### Step 3: Configure Snowflake Dataset
 1. In the left pane, select **Author** icon.
 1. Click **Datasets** and "**…**". Select **New dataset**.
-1. Search for *Snowflake* data store and select **Snowflake** icon. Click **Continue**.
+1. In the right pane, in the Data store search, type *snowflake*. Select **Snowflake** icon and click **Continue**.
 1. In the **Set Properties** form:
    - Select the **Linked Service** created in [Step 2](#step-2-configure-snowflake-linked-service).
    - Select the **Table** you would like to import and click on **OK**.
@@ -82,10 +82,10 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 ### Step 6: Configure Azure Cognitive Search Dataset
 1. In the left pane, select **Author** icon. 
 1. Click **Datasets** and "**…**". Select **New dataset**.
-1. Look for *search* data store and select **Azure Search** icon. Click **Continue**.
+1. In the right pane, in the Data store search, type *search*. Select **Azure Search** icon and click **Continue**.
 1. In the Set properties form:
-   - Select the Linked service recently created as part of [Step 5](#step-5-configure-azure-cognitive-search-linked-service).
-   - Choose the search index that you created as part of [Step 4](#step-4-create-a-new-index-in-azure-cognitive-search).
+   - Select the Linked service recently created in [Step 5](#step-5-configure-azure-cognitive-search-linked-service).
+   - Choose the search index that you created in [Step 4](#step-4-create-a-new-index-in-azure-cognitive-search).
    - Click **OK**.
 1. Click **Save**.
 
@@ -93,7 +93,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 ### Step 7: Configure Azure Blob Storage Linked Service
 1. In the left pane, click **Manage** icon.
 1. Under **Linked services**, click **New**.
-1. In the right pane, in the Data store search, type *Storage*. Click **Azure Blob Storage** icon and select **Continue**.
+1. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
 1. Fill out the **New linked service** form:
    - Choose the Authentication type: SAS URI. Only this method can be used to import data from Snowflake into Azure Blob Storage.
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
@@ -103,8 +103,8 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 ### Step 8: Configure Storage dataset
 1. In the left pane, select **Author** icon. 
 1. Click **Datasets** and "**…**" . Select **New dataset**.
-1. Search for *storage* data store and select **Azure Blob Storage** icon. Click **Continue**.
-1. Select **DelimitedText format** and click **Continue**.
+1. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
+1. Select **DelimitedText** format and click **Continue**.
 1. In **Set Properties** form:
    - Select the linked service created in [Step 7](#step-7-configure-azure-blob-storage-linked-service)
    - Choose the container that will be the sink for the staging process.
@@ -135,18 +135,19 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
       - In the **File path type** select *Wildcard file path*.
       - Leave all remaining fields with default values.
    - In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
-   - Click on **Save**.
+   - Click **Save**.
 
 ### Step 10: Configure Activity order 
 
-1. In the Pipeline canvas editor, click on the little green square in front of the Pipeline activity that copies data from Snowflake to Azure Blob Storage and drag to the activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
-1. Click on **Save**.
+1. In the Pipeline canvas editor, click the little green square in front of the Pipeline activity that copies data from Snowflake to Azure Blob Storage and drag to the activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
+1. Click **Save**.
 
 ### Step 11: Add a Pipeline trigger
 1. Click on [Add trigger](../data-factory/how-to-create-schedule-trigger.md) to schedule the pipeline run and select **New/Edit**.
 1. From the **Choose trigger** dropdown, select **New**.
-1. Review the trigger options to run the pipeline and click on **OK** when completing selection of the desired options. Then click on **Save**.
-1. Click on **Publish**.
+1. Review the trigger options to run the pipeline and click **OK**.
+1. Click **Save**.
+1. Click **Publish**.
 
 
 ## Migrate a PostgreSQL data pipeline
@@ -164,113 +165,117 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 
 1. Logon with your Azure account to [Azure Data Factory Studio](https://ms-adf.azure.com/).
 1. Choose your Data Factory and select **Continue**.
-1. In the left pane, click on the **Manage** icon.
-1. Under **Linked services** click on **New**.
-1. In the right pane, in the Data store search, type *PostgreSQL*. Then click on the **PostgreSQL** icon that represents where your PostgreSQL database is located (Azuere or other) and select Continue. In this example, PostgreSQL database is located in Azure.
+1. In the left pane, click **Manage** icon.
+1. Under **Linked services**, click **New**.
+1. In the right pane, in the Data store search, type *postgresql*. Click **PostgreSQL** icon that represents where your PostgreSQL database is located (Azure or other) and select Continue. In this example, PostgreSQL database is located in Azure.
 1. Fill out the **New linked service** form:
    - In **Account selection method** select **Enter manually** button.
    - From your Azure Database for PostgreSQL Overview page in the [Azure portal](https://portal.azure.com/) copy the following values in their respective field:
-     - Server name to Fully qualified domain name.
-     - Admin username to user name.
+     - *Server name* to Fully qualified domain name.
+     - *Admin username* to user name.
    - Add the respective database name.
    - Add the username password.
-   - Click on **Create**.
+   - Click **Create**.
 
 ### Step 2: Configure PostgreSQL Dataset
 
 1. In the left pane, select **Author** icon. 
-1. Click on **Datasets** and "**…**" . Select **New dataset**.
-1. Search for *postgresql* data store and select **Azure Blob Storage** icon. Click on **Continue**.
+1. Click **Datasets** and "**…**" . Select **New dataset**.
+1. In the right pane, in the Data store search, type *postgresql*. Select **Azure PostgreSQL** icon. Click **Continue**.
 1. Fill out the **Set properties** form:
-- Choose the PostgreSQL Linked Service created in [Step 1](link to step 1).
-- Select the table you would like to import/index.
-- Click on **OK**.
-5. Click on **Save**.
+   - Choose the PostgreSQL Linked Service created in [Step 1](#step-1-configure-postgresql-linked-service).
+   - Select the table you would like to import/index.
+   - Click **OK**.
+5. Click **Save**.
 
 
 ### Step 3: Create a new index in Azure Cognitive Search
 
-Create a new index in your Azure Cognitive Search service with the same schema as the one you have currently configured for your PostgreSQL data according to Create Index (Azure Cognitive Search REST API) | Microsoft Docs. 
-Note: You can copy the index schema from the Azure Portal, by selecting your Azure Cognitive Search service and from the indexes tab selecting the index you currently are using and clicking on Index Definition (JSON). Select all the content and copy.
-
+[Create a new index](https://docs.microsoft.com/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your PostgreSQL data.
+Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the PostgreSQL Power Connector and clicking on **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
 
 
 ### Step 4: Configure Azure Cognitive Search Linked Service
 
-Under Linked services click on New
-Fill out the New linked service form:
-Choose the Azure subscription where your Azure Cognitive Search service resides.
-Choose the Azure Cognitive Search service where your Power Query connector indexer lives.
-Click on Create.
+1. In the left pane, click **Manage** icon.
+1. Under **Linked services** click **New**.
+1. Fill out the **New linked service** form:
+   - Choose the Azure subscription where your Azure Cognitive Search service resides.
+   - Choose the Azure Cognitive Search service where your Power Query connector indexer lives.
+   - Click **Create**.
 
 ### Step 5: Configure Azure Cognitive Search Dataset
 
-In the left pane, select Author icon. Then click on Datasets and "…" .
-Select New dataset.
-Search for search data store and select Azure Search icon. Click on Continue.
-In the Set properties form:
-Select the Linked service recently created for Azure Cognitive Search
-Choose the index that you created as part of [Step 3] (pointer)
-Click OK.
-Click Save.
+1. In the left pane, select **Author** icon. 
+1. Click **Datasets** and "**…**" . Select **New dataset**.
+1. In the right pane, in the Data store search, type *search*. Select **Azure Search** icon and click **Continue**.
+1. In the **Set properties** form:
+   -  Select the Linked service recently created for Azure Cognitive Search in [Step 4](#step-4-configure-azure-cognitive-search-linked-service).
+   -  Choose the index that you created as part of [Step 3](#step-3-create-a-new-index-in-azure-cognitive-search).
+5. Click **OK**.
+1. Click **Save**.
 
 
 ## Step 6: Configure Azure Blob Storage Linked Service
 
-In the left pane, click on the Manage icon.
-Under Linked services click on New.
-In the right pane, in the Data store search, type Storage. Then click on the Azure Blob Storage icon and select Continue.
-Fill out the New linked service:
-Leave Connect via integration runtime default value (AutoResolveIntegrationRuntime).
-Choose the Authentication type: SAS URI. Only this method can be used to import data from Snowflake into Azure Blob Storage.
-[Generate a SAS URL](Generate shared access signature (SAS) tokens for containers and blobs with Microsoft Storage Explorer - Azure Cognitive Services | Microsoft Docs) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
-Click on Create.
+1. In the left pane, click on the **Manage** icon.
+1. Under **Linked services**, click on **New**.
+1. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
+1. Fill out the **New linked service** form:
+   - Choose the **Authentication type**: *SAS URI*. Only this method can be used to import data from PostgreSQL into Azure Blob Storage.
+   - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
+   - Click **Create**.
 
 
 ## Step 7: Configure Storage dataset
-In the left pane, select Author icon. Then click on Datasets and "…" .
-Select New dataset.
-Search for storage data store and select Azure Blob Storage icon. Click on Continue.
-Select DelimitedText format and click on Continue.
-In Row delimiter, select Line feed (\n)
-Check First row as a header box.
-Click on Save.
+1. In the left pane, select **Author** icon. 
+1. Click **Datasets** and "**…**" . Select **New dataset**.
+1. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
+1. Select **DelimitedText** format and click **Continue**.
+1. In **Row delimiter**, select *Line feed (\n)*.
+1. Check **First row as a header** box.
+1. Click **Save**.
 
 ## Step 8: Configure Pipeline
-In the left pane, select Author icon. Then click on Pipelines and "…" .
-Click on New pipeline.
-Create and configure the Data Factory Activities that will be part of the pipeline:
-A) Configure staging activity to copy from Snowflake to Azure Storage container
-Expand Move & transform and drag and drop Copy Data activity to the blank pipeline editor canvas.
-In the General tab, leave the default values, unless you need to customize the execution.
-In the Source tab, select your PostgreSQL table or query. Leave the remaining options with the default values.
-In the Sink tab:
-Select the Storage DelimitedText PostgreSQL dataset. ----(mention the step it was configured on)----
-Add .csv as File Extension
-Leave the remaining options with the default values. Click on Save.
-B) Configure activity to index from Azure Storage Blob
-Expand Move & transform and drag and drop Copy Data activity to the blank pipeline editor canvas.
-In the General tab, leave the default values, unless you need to customize the execution.
-In the Source tab:
-Select the Storage source dataset.
-In the File path type select Wildcard file path.
-Leave all remaining fields with default values.
-In the Sink tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
-Click on Save.
+1. In the left pane, select **Author** icon. 
+1. Click **Pipelines** and "**…**" . Click **New pipeline**.
+1. Create and configure the [Data Factory activities](..data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
+  
+  **a) Configure staging activity to copy from PostgreSQL to Azure Storage container**
+      -  Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+      -  In the **General** tab, leave the default values, unless you need to customize the execution.
+      -  In the **Source** tab, select your PostgreSQL table or query. Leave the remaining options with the default values.
+      -  In the **Sink** tab:
+         -  Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
+         -  In **File Extension** add *.csv*
+         -  Leave the remaining options with the default values. 
+      -  Click **Save**.
+   
+   **b) Configure activity to index from Azure Storage Blob**
+      -  Expand **Move & transform** and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+      -  In the **General** tab, leave the default values, unless you need to customize the execution.
+      -  In the **Source** tab:
+         -  Select the Storage source dataset configured in [Step 7](#step-7-configure-storage-dataset).
+         -  In the **File path type** select *Wildcard file path*.
+         -  Leave all remaining fields with default values.
+      -  In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
+      -  Click **Save**.
 
 ## Step 9: Configure Activity order 
 
-In the Pipeline canvas editor, click on the little green square in front of the Pipeline Activity that copies data from Snowflake to Azure Blob Storage and drag to the Activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
-Click on Save.
+1. In the Pipeline canvas editor, click on the little green square in front of the Pipeline Activity that copies data from Snowflake to Azure Blob Storage and drag to the Activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
+1. Click **Save**.
 
 ## Step 10: Add a Pipeline trigger
-Click on [Add trigger](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-schedule-trigger?tabs=data-factory) to schedule the pipeline run and select New/Edit.
-From the Choose trigger dropdown, select New.
-Review the trigger options to run the pipeline and click on OK when choosing the desired options. 
-Click on Save.
-Click on Publish.
+1. Click on [Add trigger](../data-factory/how-to-create-schedule-trigger.md) to schedule the pipeline run and select **New/Edit**.
+1. From the **Choose trigger** dropdown, select **New**.
+1. Review the trigger options to run the pipeline and click **OK**.
+1. Click **Save**.
+1. Click **Publish**.
 
-## Legacy content for Power Query connector preview
+
+
+# Legacy content for Power Query connector preview
 
 A Power Query connector is used with a search indexer to automate data ingestion from a variety of data sources, including those on other cloud providers. It uses [Power Query](/power-query/power-query-what-is-power-query) to retrieve the data. 
 
