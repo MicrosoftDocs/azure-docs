@@ -5,15 +5,18 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/27/2022
+ms.date: 04/28/2022
 ms.author: ranku
 ---
 
 # Get started with Azure Health Data Services
 
-This article outlines the basic steps to get started with Azure Health Data Services. Azure Health Data Services is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. Using a set of managed API services and frameworks that’s dedicated to the healthcare industry is important and beneficial because health data collected from patients and healthcare consumers can be fragmented from across multiple systems, device types, and data formats.
+This article outlines the basic steps to get started with Azure Health Data Services. Azure Health Data Services is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. 
 
-To get started with Azure Health Data Services, you'll need to create a workspace in the Azure portal. The workspace is a logical container for all your healthcare service instances such as Fast Healthcare Interoperability Resources (FHIR®) services, Digital Imaging and Communications in Medicine (DICOM®) services, and MedTech service. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel.
+To get started with Azure Health Data Services, you'll need to create a workspace in the Azure portal. 
+
+The workspace is a logical container for all your healthcare service instances such as Fast Healthcare Interoperability Resources (FHIR®) services, Digital Imaging and Communications in Medicine (DICOM®) services, and MedTech service. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel.
+
 Before you can create a workspace in the Azure portal, you must have an Azure account subscription. If you don’t have an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc). 
 
 [![Screenshot of Azure Health Data Services flow diagram.](media/get-started-azure-health-data-services-diagram.png)](media/get-started-azure-health-data-services-diagram.png#lightbox)
@@ -41,23 +44,51 @@ To be guided through these steps, see [Deploy Azure Health Data Services workspa
 
 After you've created a workspace, you can deploy a FHIR service, DICOM service, and MedTech service.
 
-### FHIR service
+## FHIR service
 
 FHIR service in Azure Health Data Services enables rapid exchange of data through FHIR APIs that's backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information PHI in the cloud.  For more information about the FHIR service and how to deploy the FHIR service, see [What is FHIR service?](./../healthcare-apis/fhir/overview.md) and [Deploy FHIR service within Azure Health Data Services](./../healthcare-apis/fhir/fhir-portal-quickstart.md).
 
-### DICOM service
+## DICOM service
 
 DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare.
 
 DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#store-stow-rs), [Search (QIDO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#search-qido-rs), [Retrieve (WADO-RS)](./../healthcare-apis/dicom/dicom-services-conformance-statement.md#retrieve-wado-rs). For more information about the DICOM service, see [Get started with the DICOM service](./../healthcare-apis/dicom/get-started-with-dicom.md) and [Overview of the DICOM service](./../healthcare-apis/dicom/dicom-services-overview.md).
 
-### MedTech service
+## MedTech service
 
 MedTech service is an optional service of the Azure Health Data Services designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service.
 
 MedTech service transforms device data into FHIR-based observation resources and then persists the transformed messages into Azure Health Data Services FHIR service. This allows for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects. For more information about the MedTech service, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
 
-### Access Azure Health Data Services
+## Authentication 
+
+For Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must enable the system managed identity, and grant proper permissions to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+
+Azure Health Data Services doesn't support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Health Data Services by managing client applications and user data access controls.
+
+The client applications are registered in the Azure Active Directory (Azure AD) and can be used to access Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
+
+### Application roles
+
+Authenticated users and client applications of Azure Health Data Services must be granted with proper application roles. To view a list of application roles for the FHIR service and DICOM service, see [Application roles](./../healthcare-apis/authentication-authorization.md#application-roles).
+
+> [!Note] 
+> MedTech service doesn't require application roles, but it does rely on the "Azure Event Hubs Data Receiver" to retrieve data stored in the event hub of the customer's subscription. For more information, see [Granting MedTech service access](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access).
+
+## Authorization
+
+After being granted with proper application roles, the authenticated users and client applications can access Azure Health Data Services by obtaining a valid access token issued by Azure AD, and perform specific operations defined by the application roles.
+
+* For **FHIR service**, the access token is specific to the service or resource.
+* For **DICOM service**, the access token is granted to the dicom.healthcareapis.azure.com resource, not a specific service.
+* For **MedTech service**, the access token isn’t required because it isn’t exposed to the users or client applications.
+
+### Steps for Authorization
+
+For information about obtaining an access token for Azure Health Data Services, see the [steps for using authorization code flow](./../healthcare-apis/authentication-authorization.md#steps-for-authorization). 
+
+
+## Access Azure Health Data Services
 
 After you've provisioned a FHIR service, DICOM service, or MedTech service, you can access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#. For more information, see [Access Azure Health Data Services](./../healthcare-apis/access-healthcare-apis.md).
 
