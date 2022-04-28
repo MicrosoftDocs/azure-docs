@@ -8,7 +8,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 04/15/2022
+ms.date: 04/28/2022
 ms.topic: how-to
 ms.custom: sdkv1
 
@@ -41,7 +41,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
-* You must have the `aureml-core`, `mlflow`, and `azure-mlflow` packages installed. If you do not, use the following command to install them in your development environment:
+* You must have the `aureml-core`, `mlflow`, and `azure-mlflow` packages installed. If you don't, use the following command to install them in your development environment:
 
     ```bash
     pip install azureml-core mlflow azureml-mlflow
@@ -59,38 +59,83 @@ The following table describes how to log specific value types:
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
 
-## Logging with MLflow
+## Log a training run with MLflow
 
-The examples in this section show how to use MLflow to log metrics and artifacts from your training runs.
+To set up for logging with MLflow, import `mlflow` and set the tracking URI:
 
 > [!TIP]
-> You do not need to call `mlflow.set_tracking_url()` if you are using an Azure Machine Learning compute resources (compute instance or compute cluster) to run the training job. On an Azure ML compute, the tracking URL is automatically set.
+> You do not need to set the tracking URI when using a notebook running on an Azure Machine Learning compute instance.
 
 ```python
 from azureml.core import Workspace
 import mlflow
-from mlflow.tracking import MlflowClient
 
 ws = Workspace.from_config()
 # Set the tracking URI to the Azure ML backend
+# Not needed if running on Azure ML compute instance
+# or compute cluster
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
-
-mlflow.create_experiment("mlflow-experiment")
-mlflow.set_experiment("mlflow-experiment")
-mlflow_run = mlflow.start_run()
 ```
 
-You can then log information using a method such as `mlflow.log_metric()`, `mlflow.log_text()`, etc. For more information on MLflow logging APIs, see the [MLflow reference](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
+### Interactive runs
 
-To end the current run, use `mlflow.end_run()`.
+When training interactively, such as in a Jupyter Notebook, use the following pattern:
 
-### Log a model
+1. Create or set the active experiment. 
+1. Start the run.
+1. Use logging methods to log metrics and other information.
+1. End the run.
 
-To save the model from a training run, use the `log_model()` API for the framework you are working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model)
+For example, the following code snippet demonstrates setting the tracking URI, creating an experiment, and then logging during a run
 
-## View run metrics
+```python
+from mlflow.tracking import MlflowClient
 
-You can view the logged information using MLflow through the [MLflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) object. After a training job completes, you can retrieve it using the MlFlowClient().
+# Create a new experiment if one doesn't already exist
+mlflow.create_experiment("mlflow-experiment")
+
+# Start the run, log metrics, end the run
+mlflow_run = mlflow.start_run()
+mlflow.log_metric('mymetric', 1)
+mlflow.end_run()
+```
+
+> [!TIP]
+> Technically you don't have to call `start_run()` as a new run is created if one doesn't exist and you call a logging API. In that case, you can use `mlflow.active_run()` to retrieve the run. However, the `mlflow.ActiveRun` object returned by `mlflow.active_run()` won't contain items like parameters, metrics, etc. For more information, see [mlflow.active_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.active_run).
+
+You can also use the context manager paradigm:
+
+```python
+from mlflow.tracking import MlflowClient
+
+# Create a new experiment if one doesn't already exist
+mlflow.create_experiment("mlflow-experiment")
+
+# Start the run, log metrics, end the run
+with mlflow.start_run() as run:
+    # Run started when context manager is entered, and ended when context manager exits
+    mlflow.log_metric('mymetric', 1)
+    mlflow.log_metric('anothermetric',1)
+    pass
+```
+
+For more information on MLflow logging APIs, see the [MLflow reference](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
+
+### Remote runs
+
+For remote training runs, the tracking URI and experiment are set automatically. Otherwise, the options for logging the run are the same as for interactive logging:
+
+* Call `mlflow.start_run()`, log information, and then call `mlflow.end_run()`.
+* Use the context manager paradigm with `mlflow.start_run()`.
+* Call a logging API such as `mlflow.log_metric()`, which will start a run if one doesn't already exist.
+
+## Log a model
+
+To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For frameworks that MLflow doesn't support, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
+
+## View run information
+
+You can view the logged information using MLflow through the [MLflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) object. After a training job completes, you can retrieve it using the [MlFlowClient()](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient):
 
 ```python
 from mlflow.tracking import MlflowClient
@@ -140,17 +185,17 @@ Log files are an essential resource for debugging the Azure ML workloads. After 
 
 #### user_logs folder
 
-This folder contains information about the user generated logs. This folder is open by default, and the **std_log.txt** log is selected. The **std_log.txt** is where your code's logs (for example, print statements) show up. This file contains `stdout` log and `stderr` logs from your control script and training script, one per process.  In the majority of cases, you will monitor the logs here.
+This folder contains information about the user generated logs. This folder is open by default, and the **std_log.txt** log is selected. The **std_log.txt** is where your code's logs (for example, print statements) show up. This file contains `stdout` log and `stderr` logs from your control script and training script, one per process.  In most cases, you'll monitor the logs here.
 
 #### system_logs folder
 
-This folder contains the logs generated by Azure Machine Learning and it will be closed by default.The logs generated by the system are grouped into different folders, based on the stage of the job in the runtime.
+This folder contains the logs generated by Azure Machine Learning and it will be closed by default. The logs generated by the system are grouped into different folders, based on the stage of the job in the runtime.
 
 #### Other folders
 
-For jobs training on multi-compute clusters, logs are present for each node IP. The structure for each node is the same as single node jobs. There is one more logs folder for overall execution, stderr, and stdout logs.
+For jobs training on multi-compute clusters, logs are present for each node IP. The structure for each node is the same as single node jobs. There's one more logs folder for overall execution, stderr, and stdout logs.
 
-Azure Machine Learning logs information from various sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+Azure Machine Learning logs information from various sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs aren't documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 ## Interactive logging session
 
@@ -172,6 +217,4 @@ The following notebooks demonstrate concepts in this article:
 
 ## Next steps
 
-See these articles to learn more on how to use Azure Machine Learning:
-
-* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
+* [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).

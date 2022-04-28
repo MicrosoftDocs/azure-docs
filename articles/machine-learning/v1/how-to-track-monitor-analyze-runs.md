@@ -25,8 +25,8 @@ The [Azure Machine Learning SDK for Python v1](/python/api/overview/azure/ml/int
 > For information on using studio, see [Track, monitor, and analyze runs with studio](../how-to-track-monitor-analyze-runs.md).
 >
 > If you are using Azure Machine Learning SDK v2, see the following articles:
-> * [Log & view metrics and log files (v2)](../how-to-log-view-metrics-v2.md).
-> * [Track experiments with MLflow and CLI (v2)](../how-to-track-monitor-analyze-runs.md.)
+> * [Log & view metrics and log files (v2)](../how-to-log-view-metrics.md).
+> * [Track experiments with MLflow and CLI (v2)](../how-to-track-monitor-analyze-runs.md).
 
 This article shows how to do the following tasks:
 
@@ -98,7 +98,7 @@ You'll need the following items:
         ```azurecli-interactive
         az login
         ```
-        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]     
+        [!INCLUDE [select-subscription](../../../includes/machine-learning-cli-subscription.md)]     
     
     1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
         
@@ -133,7 +133,7 @@ You'll need the following items:
 
     # [Python](#tab/python)
 
-    [!INCLUDE [sdk v1](../../..]includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
     * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
     
