@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/06/2022
+ms.date: 04/18/2022
 ---
 
 # Revenue dashboard in commercial marketplace analytics
@@ -173,9 +173,8 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 
 ## Data dictionary table
 
-| Data field | Definition |
+| Column name in user interface | Definition |
 |----|---------|
-| <img width=130/> | |
 | Billed revenue | Represents billed sales of a partner for customer’s offer purchases and consumption through the commercial marketplace. This is in transaction currency and will always be present in download reports. |
 | Estimated revenue (USD) | Estimated revenue reported in US dollars. This column will always be present in download reports. |
 | Estimated revenue (PC) | Estimated revenue reported in partner preferred currency. This column will always be present in download reports. |
@@ -214,7 +213,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Exchange rate date | The date used to calculate exchange rates for currency conversions |
 | Estimated pay out month | The month for receiving your estimated earnings |
 | Sales channel | Represents the sales channel for the customer. It is the same as `Azure license type` in the orders report and usage report. The possible values are:<ul><li>Cloud Solution Provider (CSP)</li><li>Enterprise (EA)</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>Go to market (GTM)</li></ul> |
-| Plan Id | Unique identifier for the plan in the offer |
+| PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. |
 | Billing model | Subscription or consumption-based billing model used for calculation of estimated revenue. It can have one of these two values:<ul><li>UsageBased</li><li>SubscriptionBased</li></ul> |
 | Customer postal code | The postal code name provided by the bill-to customer |
 | Customer city | The city name provided by the bill-to customer |

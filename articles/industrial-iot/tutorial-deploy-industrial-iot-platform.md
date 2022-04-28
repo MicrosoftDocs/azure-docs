@@ -39,7 +39,7 @@ The deployment script allows to select which set of components to deploy.
     - [Storage](https://azure.microsoft.com/product-categories/storage/) for Event Hubs checkpointing
 - Standard dependencies: Minimum +
     - [SignalR Service](https://azure.microsoft.com/services/signalr-service/) used to scale out asynchronous API notifications, Azure AD app registrations,
-    - [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) used for deploying and provisioning the simulation gateways
+    - [Device Provisioning Service](../iot-dps/index.yml) used for deploying and provisioning the simulation gateways
     - [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
     - Workbook, Log Analytics, [Application Insights](https://azure.microsoft.com/services/monitor/) for operations monitoring
 - Microservices:

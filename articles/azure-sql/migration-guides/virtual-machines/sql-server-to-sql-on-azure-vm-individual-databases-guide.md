@@ -34,7 +34,7 @@ For information about extra migration strategies, see the [SQL Server VM migrati
 
 Migrating to SQL Server on Azure Virtual Machines requires the following resources:
 
-- [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+- [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
 - An [Azure Migrate project](../../../migrate/create-manage-projects.md) (only required for SQL Server discovery in your data estate).
 - A prepared target [SQL Server on Azure Virtual Machines](../../virtual-machines/windows/create-sql-vm-portal.md) instance that's the same or greater version than the SQL Server source.
 - [Connectivity between Azure and on-premises](/azure/architecture/reference-architectures/hybrid-networking).
@@ -57,18 +57,18 @@ For more discovery tools, see the [services and tools](../../../dms/dms-tools-ma
 
 When migrating from SQL Server on-premises to SQL Server on Azure Virtual Machines, it is unlikely that you'll have any compatibility or feature parity issues if the source and target SQL Server versions are the same. If you're *not* upgrading the version of SQL Server, skip this step and move to the [Migrate](#migrate) section.
 
-Before migration, it's still a good practice to run an assessment of your SQL Server databases to identify migration blockers (if any) and the [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) does that before migration.
+Before migration, it's still a good practice to run an assessment of your SQL Server databases to identify migration blockers (if any) and the [Azure SQL migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) does that before migration.
 
 [!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 #### Assess user databases
 
-The [Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) provides a seamless wizard based experience to assess, get Azure recommendations and migrate your SQL Server databases on-premises to SQL Server on Azure Virtual Machines. Besides, highlighting any migration blockers or warnings, the extension also includes an option for Azure recommendations to collect your databases' performance data to recommend a right-sized SQL Server on Azure Virtual Machines to meet the performance needs of your workload (with the least price).
+The [Azure SQL migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) provides a seamless wizard based experience to assess, get Azure recommendations and migrate your SQL Server databases on-premises to SQL Server on Azure Virtual Machines. Besides, highlighting any migration blockers or warnings, the extension also includes an option for Azure recommendations to collect your databases' performance data to recommend a right-sized SQL Server on Azure Virtual Machines to meet the performance needs of your workload (with the least price).
 
 To learn more about Azure recommendations, see [Get right-sized Azure recommendation for your on-premises SQL Server database(s)](../../../dms/ads-sku-recommend.md).
 
 > [!IMPORTANT]
->To assess databases using the Azure SQL Migration extension, ensure that the logins used to connect the source SQL Server are members of the sysadmin server role or have CONTROL SERVER permission.
+>To assess databases using the Azure SQL migration extension, ensure that the logins used to connect the source SQL Server are members of the sysadmin server role or have CONTROL SERVER permission.
 
 For a version upgrade, use [Data Migration Assistant](/sql/dma/dma-overview) to assess on-premises SQL Server instances if you are upgrading to an instance of SQL Server on Azure Virtual Machines with a higher version to understand the gaps between the source and target versions.
 
@@ -106,11 +106,11 @@ After you've completed the pre-migration steps, you're ready to migrate the user
 
 The following sections provide steps for performing either a migration by using backup and restore or a minimal downtime migration by using backup and restore along with log shipping.
 
-### Migrate using the Azure SQL Migration extension for Azure Data Studio (minimal downtime)
+### Migrate using the Azure SQL migration extension for Azure Data Studio (minimal downtime)
 
 To perform a minimal downtime migration using Azure Data Studio, follow the high level steps below. For a detailed step-by-step tutorial, see [Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio](../../../dms/tutorial-sql-server-to-virtual-machine-online-ads.md):
 
-1. Download and install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) and the [Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
+1. Download and install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) and the [Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
 1. Launch the Migrate to Azure SQL wizard in the extension in Azure Data Studio.
 1. Select databases for assessment and view migration readiness or issues (if any). Additionally, collect performance data and get right-sized Azure recommendation.
 1. Select your Azure account and your target SQL Server on Azure Machine from your subscription.

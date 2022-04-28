@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage erwin Mart servers
-description: This guide describes how to connect to erwin Mart servers in Azure Purview, and use Azure Purview's features to scan and manage your erwin Mart server source.
+description: This guide describes how to connect to erwin Mart servers in Microsoft Purview, and use Microsoft Purview's features to scan and manage your erwin Mart server source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 01/20/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage erwin Mart servers in Azure Purview (Preview)
+# Connect to and manage erwin Mart servers in Microsoft Purview (Preview)
 
-This article outlines how to register erwin Mart servers, and how to authenticate and interact with erwin Mart Servers in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register erwin Mart servers, and how to authenticate and interact with erwin Mart Servers in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -24,7 +24,7 @@ This article outlines how to register erwin Mart servers, and how to authenticat
 
 The supported erwin Mart versions are 9.x to 2021.
 
-When scanning erwin Mart source, Azure Purview supports:
+When scanning erwin Mart source, Microsoft Purview supports:
 
 - Extracting technical metadata including:
 
@@ -55,9 +55,9 @@ When setting up scan, you can choose to scan an entire erwin Mart server, or sco
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -70,13 +70,13 @@ When setting up scan, you can choose to scan an entire erwin Mart server, or sco
 
 ## Register
 
-This section describes how to register erwin Mart servers in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register erwin Mart servers in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 The only supported authentication for an erwin Mart source is **Server Authentication** in the form of username and password.
 
 ### Steps to register
 
-1. Navigate to your Azure Purview account in the [Azure Purview Studio](https://web.purview.azure.com/).
+1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **erwin**. Select **Continue.**
@@ -166,8 +166,8 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

@@ -89,7 +89,7 @@ Microsoft Sentinel provides the built-in, **Azure Synapse - Configure Azure ML a
 
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 
-    The notebook opens in your Azure ML workspace, inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks.md#launch-a-notebook-in-your-azure-ml-workspace).
+    The notebook opens in your Azure ML workspace, inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 
@@ -115,7 +115,7 @@ Microsoft Sentinel provides the built-in **Azure Synapse - Detect potential netw
 
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 
-    The notebook opens in your Azure ML workspace, from inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks.md#launch-a-notebook-in-your-azure-ml-workspace).
+    The notebook opens in your Azure ML workspace, from inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 

@@ -19,7 +19,7 @@ In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to 
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Visual Studio 2022 Preview 2 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
+- Visual Studio 2022 Preview 3 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) for Windows. Visual Studio uses Docker Desktop for various containerization features.
 
 ## Create the project
@@ -43,7 +43,7 @@ Begin by creating the containerized ASP.NET Core application to deploy to Azure.
 
 If this is your first time creating a project using Docker, you may get a prompt instructing you to install Docker Desktop.  This installation is required for working with containerized apps, as mentioned in the prerequisites, so click **Yes**.  You can also  download and [install Docker Desktop for Windows from the official Docker site](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 
-Visual Studio launches the Docker Desktop for Windows installer.  You can follow the installation instructions on this page to setup Docker, which requires a system reboot.
+Visual Studio launches the Docker Desktop for Windows installer.  You can follow the installation instructions on this page to set up Docker, which requires a system reboot.
 
 ## Deploy to Azure Container Apps
 
@@ -81,6 +81,8 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 
 7) Once the resources are created, choose **Next**.
 
+    :::image type="content" source="media/visual-studio/container-apps-select-resource.png" alt-text="A screenshot showing how to select the created resource.":::
+
 8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
     - **DNS prefix**: Enter a value of `msdocscontainerregistry` or a name of your choosing.
@@ -105,7 +107,7 @@ Choose **Publish** in the upper right of the publishing profile screen to deploy
 
 :::image type="content" source="media/visual-studio/container-apps-publish.png" alt-text="A screenshot showing how to publish the app.":::
 
-When the app finishes deploying, Visual Studio opens a browser to the the URL of your deployed site. This page may initially display an error if all of the proper resources have not finished provisioning.  You can continue to refresh the browser periodically to check if the deployment has fully completed.
+When the app finishes deploying, Visual Studio opens a browser to the URL of your deployed site. This page may initially display an error if all of the proper resources have not finished provisioning.  You can continue to refresh the browser periodically to check if the deployment has fully completed.
 
 
 :::image type="content" source="media/visual-studio/container-apps-site.png" alt-text="A screenshot showing the published site.":::

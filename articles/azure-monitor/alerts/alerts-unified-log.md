@@ -182,6 +182,20 @@ Each Log Alert rule is billed based the interval at which the log query is evalu
 
 Prices for Log Alert rules are available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
 
+### Calculating the price for a Log Alert rule without dimensions 
+
+The price of an alert rule which queries 1 resource event every 15-minutes can be calculated as: 
+
+Total monthly price = 1 resource * 1 log alert rule * price per 15-minute internal log alert rule per month.
+
+### Calculating the price for a Log Alert rule with dimensions 
+
+The price of an alert rule which monitors 10 VM resources at 1-minute frequency, using resource centric log monitoring, can be calculated as Price of alert rule + Price of number of dimensions. For example:
+
+Total monthly price = price per 1-minute log alert rule per month + ( 10 time series - 1 included free time series ) * price per 1-min interval monitored per month.
+
+Pricing of at scale log monitoring is applicable from Scheduled Query Rules API version 2021-02-01.
+
 ## View log alerts usage on your Azure bill
 
 Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:

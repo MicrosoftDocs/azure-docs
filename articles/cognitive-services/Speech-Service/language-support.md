@@ -47,6 +47,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Arabic (Tunisia)                  | `ar-TN`         |
 | Arabic (United Arab Emirates)     | `ar-AE`         |
 | Arabic (Yemen)                    | `ar-YE`         |
+| Bengali (India)                   | `bn-IN`         |
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
 | Catalan (Spain)                   | `ca-ES`         |
@@ -1031,6 +1032,14 @@ The following table outlines supported languages for custom keyword and keyword 
 | English (United States) | en-US | Yes | Yes |
 | Japanese (Japan) | ja-JP | No | Yes |
 | Portuguese (Brazil) | pt-BR | No | Yes |
+
+## Intent Recognition Pattern Matcher
+
+The Intent Recognizer Pattern Matcher supports the following locales:
+
+| Locale                            | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| English (United States)           | `en-US`         |
 
 ## Next steps
 

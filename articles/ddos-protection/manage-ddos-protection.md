@@ -114,7 +114,7 @@ Under **Protected resources**, you can view your protected virtual networks and 
 You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. If you don't intend to use this DDoS protection plan, you should remove resources to avoid unnecessary charges.
 
    >[!WARNING]
-   >This action is irreversable.
+   >This action is irreversible.
 
 1. In the Azure portal, search for and select **Resource groups**, or select **Resource groups** from the Azure portal menu.
 

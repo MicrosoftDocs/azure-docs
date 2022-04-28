@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 04/13/2022
+ms.date: 04/25/2022
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -136,7 +136,7 @@ vCore resource limits are listed in the following articles, please be sure to up
 |Max number DBs per pool <sup>1</sup>|100|200|500|500|500|500|500|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|512|756|1536|1536|1536|2048|2048|
+|Max data size (GB)|512|756|1536|2048|2048|2048|2048|
 |Max log size (GB) <sup>2</sup>|154|227|461|461|461|614|614|
 |TempDB max data size (GB)|64|128|192|256|320|384|448|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
@@ -385,7 +385,7 @@ vCore resource limits are listed in the following articles, please be sure to up
 |Max number DBs per pool <sup>1</sup>|50|100|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|3.14|4.71|6.28|8.65|11.02|13.39|
-|Max data size (GB)|1024|1536|1536|1536|3072|3072|
+|Max data size (GB)|1024|1536|2048|2048|3072|3072|
 |Max log size (GB) <sup>2</sup>|307|307|461|461|922|922|
 |TempDB max data size (GB)|128|192|256|320|384|448|
 |[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|

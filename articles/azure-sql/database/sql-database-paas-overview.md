@@ -179,7 +179,7 @@ Microsoft Defender for SQL is a unified package for advanced SQL security capabi
 
 ### Auditing for compliance and security
 
-[Auditing](../../azure-sql/database/auditing-overview.md) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that might indicate business concerns or suspected security violations.
+[Auditing](/azure/azure-sql/database/auditing-overview) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that might indicate business concerns or suspected security violations.
 
 ### Data encryption
 

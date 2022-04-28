@@ -12,9 +12,9 @@ ms.date: 3/11/2022
 
 In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
-Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](/azure/storage/blobs/storage-blobs-introduction).
+Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](./storage-blobs-introduction.md).
 
-Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](/azure/azure-functions/functions-overview).
+Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](../../azure-functions/functions-overview.md).
 
 
 In this tutorial, you will learn how to:
@@ -106,7 +106,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 ---
 
 ## Create the Computer Vision service
-Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/services/cognitive-services/computer-vision/#overview).
+Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/cognitive-services/computer-vision/overview).
 
 ### [Azure portal](#tab/azure-portal)
 

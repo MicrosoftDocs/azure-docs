@@ -148,7 +148,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum size of an item | 2 MB (UTF-8 length of JSON representation) |
+| Maximum size of an item | 2 MB (UTF-8 length of JSON representation) <sup>*</sup> |
 | Maximum length of partition key value | 2048 bytes |
 | Maximum length of ID value | 1023 bytes |
 | Maximum number of properties per item | No practical limit |
@@ -160,6 +160,8 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum TTL value |2147483647|
 
 There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
+
+<sup>*</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16MB Document Support” from [Preview Features blade in the portal](./access-previews.md), to try it.
 
 ## Per-request limits
 

@@ -9,7 +9,7 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 10/21/2021
+ms.date: 04/19/2022
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -49,7 +49,7 @@ Temporary known issues that are discovered in SQL Managed Instance and will be r
 
 ### Backup
 
-SQL Managed Instance has automatic backups, so users can create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups aren't supported.
+Azure SQL Managed Instance has automatic backups, so users can create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups aren't supported.
 
 - With a SQL Managed Instance, you can back up an instance database only to an Azure Blob storage account:
   - Only `BACKUP TO URL` is supported.
@@ -64,7 +64,7 @@ Limitations:
 
 - With a SQL Managed Instance, you can back up an instance database to a backup with up to 32 stripes, which is enough for databases up to 4 TB if backup compression is used.
 - You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup. Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
-- Native backups taken on a Managed Instance cannot be restored to a SQL Server. This is because Managed Instance has higher internal database version compared to any version of SQL Server.
+- Native backups taken on a SQL Managed Instance cannot be restored to a SQL Server. This is because SQL Managed Instance has higher internal database version compared to any version of SQL Server.
 - To backup or restore a database to/from an Azure storage, it is necessary to create a shared access signature (SAS) an URI that grants you restricted access rights to Azure Storage resources [Learn more on this](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql). Using Access keys for these scenarios is not supported.
 - The maximum backup stripe size by using the `BACKUP` command in SQL Managed Instance is 195 GB, which is the maximum blob size. Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
 
@@ -150,7 +150,7 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
 - Setting an Azure AD login mapped to an Azure AD group as the database owner isn't supported. A member of the Azure AD group can be a database owner, even if the login hasn't been created in the database.
 - Impersonation of Azure AD server-level principals by using other Azure AD principals is supported, such as the [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) clause. EXECUTE AS limitations are:
 
-  - EXECUTE AS USER isn't supported for Azure AD users when the name differs from the login name. An example is when the user is created through the syntax CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] and impersonation is attempted through EXEC AS USER = _myAadUser_. When you create a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
+  - EXECUTE AS USER isn't supported for Azure AD users when the name differs from the login name. An example is when the user is created through the syntax `CREATE USER [myAadUser] FROM LOGIN [john@contoso.com]` and impersonation is attempted through `EXEC AS USER = myAadUser`. When you create a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
   - Only the SQL Server-level principals (logins) that are part of the `sysadmin` role can execute the following operations that target Azure AD principals:
 
     - EXECUTE AS USER
@@ -164,19 +164,19 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
     - Export a database from SQL Managed Instance and import to SQL Database within the same Azure AD domain. 
     - Export a database from SQL Database and import to SQL Managed Instance within the same Azure AD domain.
     - Export a database from SQL Managed Instance and import to SQL Server (version 2012 or later).
-      - In this configuration, all Azure AD users are created as SQL Server database principals (users) without logins. The type of users is listed as `SQL` and is visible as `SQL_USER` in sys.database_principals). Their permissions and roles remain in the SQL Server database metadata and can be used for impersonation. However, they cannot be used to access and log in to the SQL Server using their credentials.
+      - In this configuration, all Azure AD users are created as SQL Server database principals (users) without logins. The type of users is listed as `SQL` and is visible as `SQL_USER` in `sys.database_principals`). Their permissions and roles remain in the SQL Server database metadata and can be used for impersonation. However, they cannot be used to access and sign in to the SQL Server using their credentials.
 
 - Only the server-level principal login, which is created by the SQL Managed Instance provisioning process, members of the server roles, such as `securityadmin` or `sysadmin`, or other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for SQL Managed Instance.
 - If the login is a SQL principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
 - The Azure AD login must be a member of an Azure AD within the same directory that's used for Azure SQL Managed Instance.
 - Azure AD server principals (logins) are visible in Object Explorer starting with SQL Server Management Studio 18.0 preview 5.
-- A server principal with *sysadmin* access level is automatically created for the Azure AD admin account once it’s enabled on an instance.
+- A server principal with *sysadmin* access level is automatically created for the Azure AD admin account once it's enabled on an instance.
 - During authentication, the following sequence is applied to resolve the authenticating principal:
 
-    1. If the Azure AD account exists as directly mapped to the Azure AD server principal (login), which is present in sys.server_principals as type "E," grant access and apply permissions of the Azure AD server principal (login).
-    1. If the Azure AD account is a member of an Azure AD group that's mapped to the Azure AD server principal (login), which is present in sys.server_principals as type "X," grant access and apply permissions of the Azure AD group login.
-    1. If the Azure AD account exists as directly mapped to an Azure AD user in a database, which is present in sys.database_principals as type "E," grant access and apply permissions of the Azure AD database user.
-    1. If the Azure AD account is a member of an Azure AD group that's mapped to an Azure AD user in a database, which is present in sys.database_principals as type "X," grant access and apply permissions of the Azure AD group user.
+    1. If the Azure AD account exists as directly mapped to the Azure AD server principal (login), which is present in `sys.server_principals` as type "E," grant access and apply permissions of the Azure AD server principal (login).
+    1. If the Azure AD account is a member of an Azure AD group that's mapped to the Azure AD server principal (login), which is present in `sys.server_principals` as type "X," grant access and apply permissions of the Azure AD group login.
+    1. If the Azure AD account exists as directly mapped to an Azure AD user in a database, which is present in `sys.database_principals` as type "E," grant access and apply permissions of the Azure AD database user.
+    1. If the Azure AD account is a member of an Azure AD group that's mapped to an Azure AD user in a database, which is present in `sys.database_principals` as type "X," grant access and apply permissions of the Azure AD group user.
 
 ### Service key and service master key
 
@@ -300,7 +300,7 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
   - Alerts aren't yet supported.
   - Proxies aren't supported.
 - EventLog isn't supported.
-- User must be directly mapped to Azure AD server principal (login) to create, modify, or execute SQL Agent jobs. Users that are not directly mapped, for example, users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
+- User must be directly mapped to Azure AD server principal (login) to create, modify, or execute SQL Agent jobs. Users that are not directly mapped, for example, users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to SQL Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
 - The Multi Server Administration feature for master/target (MSX/TSX) jobs are not supported.
 
 For information about SQL Server Agent, see [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
@@ -352,7 +352,7 @@ Partial support for [distributed transactions](../database/elastic-transactions-
 * all transaction participants are Azure SQL Managed Instances that are part of the [Server trust group](./server-trust-group-overview.md).
 * transactions are initiated either from .NET (TransactionScope class) or Transact-SQL.
 
-Azure SQL Managed Instance currently does not support other scenarios which are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
+Azure SQL Managed Instance currently does not support other scenarios that are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
 
 ### Extended Events
 
@@ -389,18 +389,18 @@ For more information, see [FILESTREAM](/sql/relational-databases/blob/filestream
 [Linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine) in SQL Managed Instance support a limited number of targets:
 
 - Supported targets are SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) and dedicated pools, and SQL Server instances. 
-- Distributed writable transactions are possible only among Managed Instances. For more information, see [Distributed Transactions](../database/elastic-transactions-overview.md). However, MS DTC is not supported.
+- Distributed writable transactions are possible only among SQL Managed Instances. For more information, see [Distributed Transactions](../database/elastic-transactions-overview.md). However, MS DTC is not supported.
 - Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import, or load files using a [serverless SQL pool in Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operations: 
 
-- [Cross-instance](../database/elastic-transactions-overview.md) write transactions are supported only for Managed Instances.
+- [Cross-instance](../database/elastic-transactions-overview.md) write transactions are supported only for SQL Managed Instances.
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - The `OPENROWSET` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. See [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage, or a [linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/d365community/idea/db80cf6e-3425-ec11-b6e6-000d3a4f0f84)|
 
-Linked servers on Azure SQL Managed Instance support SQL authentication and [AAD authentication](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#linked-servers-with-azure-sql-managed-instance).
+Linked servers on Azure SQL Managed Instance support SQL authentication and [Azure AD authentication](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#linked-servers-with-azure-sql-managed-instance).
 
 ### PolyBase
 
@@ -489,7 +489,7 @@ Service broker is enabled by default and cannot be disabled. The following ALTER
   - `Ole Automation Procedures`
 - `sp_execute_external_scripts` isn't supported. See [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` isn't supported. See [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` aren't supported, and this includes `sp_addextendedproc` and `sp_dropextendedproc`. This functionality won't be supported because it's on a deprecation path for SQL Server. For more details, see [Extended Stored Procedures](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).
+- `Extended stored procedures` aren't supported, and this includes `sp_addextendedproc` and `sp_dropextendedproc`. This functionality won't be supported because it's on a deprecation path for SQL Server. For more information, see [Extended Stored Procedures](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` aren't supported. See [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### System functions and variables
@@ -498,10 +498,10 @@ The following variables, functions, and views return different results:
 
 - `SERVERPROPERTY('EngineEdition')` returns the value 8. This property uniquely identifies a SQL Managed Instance. See [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
 - `SERVERPROPERTY('InstanceName')` returns NULL because the concept of instance as it exists for SQL Server doesn't apply to SQL Managed Instance. See [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME` returns a full DNS "connectable" name, for example, my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql). 
+- `@@SERVERNAME` returns a full DNS "connectable" name, for example, `my-managed-instance.wcus17662feb9ce98.database.windows.net`. See [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS` returns a full DNS "connectable" name, such as `myinstance.domain.database.windows.net` for the properties "name" and "data_source." See [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME` returns NULL because the concept of service as it exists for SQL Server doesn't apply to SQL Managed Instance. See [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID` is supported. It returns NULL if the Azure AD login isn't in sys.syslogins. See [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_ID` is supported. It returns NULL if the Azure AD login isn't in `sys.syslogins`. See [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID` isn't supported. The wrong data is returned, which is a temporary known issue. See [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="Environment"></a>Environment constraints
@@ -515,20 +515,20 @@ The following variables, functions, and views return different results:
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
 - After a SQL Managed Instance is created, moving the SQL Managed Instance or VNet to another resource group or subscription is not supported.
-- For SQL Managed Instances hosted in virtual clusters that are created before 9/22/2020 [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) is not supported. You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
+- For SQL Managed Instances hosted in virtual clusters that are created before September 22, 2020, [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) is not supported. You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ### Failover groups
 System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
 
 ### TEMPDB
-- The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+- The maximum file size of the `tempdb` system database can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 - `Tempdb` is always split into 12 data files: 1 primary, also called master, data file and 11 non-primary data files. The file structure cannot be changed and new files cannot be added to `tempdb`. 
 - [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
 - Objects created in the model database cannot be auto-created in `tempdb` after a restart or a failover because `tempdb` does not get its initial object list from the model database. You must create objects in `tempdb` manually after each restart or a failover.
 
 ### MSDB
 
-The following MSDB schemas in SQL Managed Instance must be owned by their respective predefined roles:
+The following schemas in the `msdb` system database in SQL Managed Instance must be owned by their respective predefined roles:
 
 - General roles
   - TargetServersRole

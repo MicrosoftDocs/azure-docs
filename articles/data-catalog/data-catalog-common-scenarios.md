@@ -7,7 +7,7 @@ ms.date: 02/22/2022
 ---
 # Azure Data Catalog common scenarios
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 This article presents common scenarios where Azure Data Catalog can help your organization get more value from its existing data sources.
 

@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 03/17/2022
+ms.date: 04/15/2022
 ms.topic: conceptual
 ---
 
@@ -37,6 +37,10 @@ This parameter allows you to run network connectivity tests to troubleshoot netw
 When running a network connectivity check, you must provide the name of the Azure region (for example, eastus) that you want to test. It's also recommended to use the `--verbose` parameter to see the results of both successful and unsuccessful tests:
 
 `azcmagent check --location <regionName> --verbose`
+
+If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--use-private-link` parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
+
+`azcmagent check --location <regionName> --use-private-link --verbose`
 
 ### connect
 

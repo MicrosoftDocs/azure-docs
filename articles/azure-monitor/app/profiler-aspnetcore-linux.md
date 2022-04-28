@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 02/23/2018
-ms.reviewer: mbullwin
 ---
 
 # Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler
