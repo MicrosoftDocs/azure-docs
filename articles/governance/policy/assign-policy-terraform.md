@@ -38,7 +38,6 @@ for Azure Policy use the
 
 1. Create `main.tf` with the following code:
 
-
    ```hcl
    provider "azurerm" {
      features {}
@@ -60,6 +59,7 @@ for Azure Policy use the
      description = "Shows all virtual machines not using managed disks" 
      display_name = "Audit VMs without managed disks assignment" 
  }
+ ```
 
 1. Create `variables.tf` with the following code:
 
