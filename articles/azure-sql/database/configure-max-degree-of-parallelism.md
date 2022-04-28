@@ -2,7 +2,7 @@
 title: "Configure the max degree of parallelism (MAXDOP)"
 titleSuffix: Azure SQL Database 
 description: Learn about the max degree of parallelism (MAXDOP). 
-ms.date: "04/12/2021"
+ms.date: "04/06/2022"
 services: sql-database
 dev_langs: 
  - "TSQL"
@@ -71,7 +71,7 @@ ms.reviewer: kendralittle, mathoma
 > [!Tip]
 > We recommend that customers avoid setting MAXDOP to 0 even if it does not appear to cause problems currently.
 
-  Excessive parallelism becomes most problematic when there are more concurrent requests than can be supported by the CPU and worker thread resources provided by the service objective. Avoid MAXDOP 0 to reduce the risk of potential future problems due to excessive parallelism if a database is scaled up, or if future hardware generations in Azure SQL Database provide more cores for the same database service objective.
+  Excessive parallelism becomes most problematic when there are more concurrent requests than can be supported by the CPU and worker thread resources provided by the service objective. Avoid MAXDOP 0 to reduce the risk of potential future problems due to excessive parallelism if a database is scaled up, or if future hardware configurations in Azure SQL Database provide more cores for the same database service objective.
 
 ### Modifying MAXDOP 
 

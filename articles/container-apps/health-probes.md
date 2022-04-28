@@ -57,6 +57,7 @@ TCP probes wait for a connection to be established with the server to indicate s
 - You can only add one of each probe type per container.
 - `exec` probes aren't supported.
 - Port values must be integers; named ports aren't supported.
+- gRPC is not supported.
 
 ## Examples
 
@@ -83,10 +84,10 @@ The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM
               {
                 "name": "Custom-Header",
                 "value": "liveness probe"
-              }],
-            "initialDelaySeconds": 7,
-            "periodSeconds": 3
-          }
+              }]
+          },
+          "initialDelaySeconds": 7,
+          "periodSeconds": 3
         },
         {
           "type": "readiness",
@@ -105,10 +106,10 @@ The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM
               {
                 "name": "Custom-Header",
                 "value": "startup probe"
-              }],
-            "initialDelaySeconds": 3,
-            "periodSeconds": 3
-          }
+              }]
+          },
+          "initialDelaySeconds": 3,
+          "periodSeconds": 3
         }]
     }]
   ...
@@ -130,8 +131,8 @@ containers:
           httpHeaders:
             - name: Custom-Header
               value: "liveness probe"
-          initialDelaySeconds: 7
-          periodSeconds: 3
+        initialDelaySeconds: 7
+        periodSeconds: 3
       - type: readiness
         tcpSocket:
           port: 8081
@@ -144,8 +145,8 @@ containers:
           httpHeaders:
             - name: Custom-Header
               value: "startup probe"
-          initialDelaySeconds: 3
-          periodSeconds: 3
+        initialDelaySeconds: 3
+        periodSeconds: 3
 ...
 ```
 

@@ -128,7 +128,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|| 
     |active|Boolean||
     |title|String|| 
-    |emails[type eq "work"].value|String||  
+    |emails[type eq "work"].value|String||&check; 
     |name.givenName|String||&check;
     |name.familyName|String||&check;
     |phoneNumbers[type eq "work"].value|String||
@@ -171,7 +171,8 @@ Once you've configured provisioning, use the following resources to monitor your
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Change Log
-03/23/2022 - Added support for **Group Provisioning**.
+* 03/23/2022 - Added support for **Group Provisioning**.
+* 04/21/2022 - **emails[type eq "work"].value** has been marked as required attribute.
 
 ## More resources
 

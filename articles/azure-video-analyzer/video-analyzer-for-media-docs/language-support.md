@@ -5,7 +5,7 @@ author: Juliako
 manager: femila
 ms.topic: conceptual
 ms.author: juliako
-ms.date: 02/02/2022
+ms.date: 04/07/2022
 ---
 
 # Language support in Video Analyzer for Media
@@ -24,7 +24,6 @@ This section describes language support in Video Analyzer for Media.
   The following insights are translated, otherwise will remain in English:
   
     - Transcript
-    - OCR
     - Keywords
     - Topics
     - Labels
