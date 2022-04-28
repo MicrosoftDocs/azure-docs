@@ -67,7 +67,7 @@ Azure Container Apps lets you access the consoles of your deployed containers th
 
 ### Access a container console via the Azure portal
 
-You can access your container console from **Console** in the **Monitoring** group of your container app's page in the Azure portal. To connect to a container, select the replica and container from the pull-down lists. When your app is in the *multiple revision mode*, the **Revision** pull-down list is shown so that you can select a revision. 
+You can access your container console by selecting the console **Console** menu item in the **Monitoring** group on your container app's page in the Azure portal. To connect to a container, select it from the drop-down lists. When there are multiple revisions and replicas, first select the revision, replica, and then the container.
 
 You can choose to access your console via bash, sh or a custom application.
 
@@ -86,7 +86,9 @@ TO disconnect from the console, **NEED KEY COMBO OR COMMAND**
 
 ## Azure Monitor metrics
 
-The Azure Monitor metrics feature helps you monitor your app's compute and network usage.  These metrics are available to view and analyze through the [metrics explorer in the Azure portal](../azure-monitor/essentials/metrics-getting-started.md).  Metric data is also available through the [Azure CLI](/cli/azure/monitor/metrics), and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
+The Azure Monitor metrics feature helps you monitor and analyze your app's compute and network usage.  You can create and view metric charts using the [metrics explorer in the Azure portal](../azure-monitor/essentials/metrics-getting-started.md).  
+
+You can access the metrics explorer from your container app page, or from **Monitor>Metrics** page.  You can also access metric data through the [Azure CLI](/cli/azure/monitor/metrics), and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
 
 ### Available metrics for Container Apps
 
@@ -112,11 +114,10 @@ From this view, you can pin one or more charts to your dashboard or select a cha
 
 ### View and analyze metric data with metrics explorer
 
-The Azure Monitor metrics explorer is available from the Azure portal through the **Metrics** menu option on your container app page or the Azure **Monitor>Metrics** page.
+The Azure Monitor metrics explorer lets you create and view charts that  display your container app's resource and network usage over time. You can got to the metrics explorer in Azure portal from  **Metrics**  n the sidebar menu on your container app page.  To learn more about the metrics explorer, go to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
-Use the metrics explorer to create and view charts that  display your container app's resource and network usage over time.  Refer to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
-To create a chart, select metric that you want to include in the chart.  You can add more metrics to the chart by selecting **Add Metric**.
+To create a chart in metrics explorer, select a metric that you want to include in the chart.  Once you select the metric, a chart is created.  You can then add more metrics, change time ranges and intervals, add filters and apply splitting to the chart.
 
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::
 
@@ -134,13 +135,15 @@ You can view metrics across multiple container apps to view resource utilization
 
 ## Azure Monitor Log Analytics
 
-Application logs are collected by Azure Monitor Log Analytics. Each Container Apps environment includes a Log Analytics workspace that provides a common log space for all containers running in the environment.  
+Azure Monitor collects application logs and stores them in a Log Analytics workspace.  Each Container Apps environment includes a Log Analytics workspace that provides a common repository to store the application log data from all containers running in the environment.  
 
-Application logs from each container in your container app are stored in the Log Analytics workspace.  The logs consist of messages written to your container's `stdout` and `stderr`. Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.
+Application logs consist of messages written to each container's `stdout` and `stderr`.  Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.  
 
-To view these logs, you create Log Analytics queries.  The log entries are stored in the ContainerAppConsoleLogs_CL table in the CustomLogs group.
+Log Analytics is a tool to view and analyze the log data.  Using Log Analytics you can create log queries pull log data from the workspace data repository.  You can write simple or advanced queries and then sort, filter and visualize the results in charts to spot particular trends.  You can work interactively with the query results, or used them with other features such as alerts, dashboards and workbooks.
 
-The most commonly used Container Apps specific columns in ContainerAppConsoleLogs_CL:
+Log Analytics workspaces store logs tables organized in separate columns.  Container Apps log entries are stored in the ContainerAppConsoleLogs_CL table in the CustomLogs group.
+
+The most commonly used columns in ContainerAppConsoleLogs_CL:
 
 |Column  |Description |
 |---------|---------|
@@ -152,11 +155,13 @@ The most commonly used Container Apps specific columns in ContainerAppConsoleLog
 |Message    | log message|
 |RevisionName_s|revision name|
 
-You can run log Analytic queries via the Azure portal, the Azure CLI, or PowerShell cmdlets.  
+Log Analytics is available through the Azure portal.  You can also run log queries from the command line using Azure CLI or PowerShell commands.
 
-### Query logs via the Azure portal
+### Use Log Analytics to query logs
 
-In the Azure portal, you can access your container app's application logs from the **Logs** menu item on your container app page.  You can query the logs from the Log Analytics interface using the column listed in the **CustomLogs>ContainerAppConsoleLogs_CL** table.
+Start Log Analytics from **Logs** in the sidebar menu on your container app page.  You can also start from **Monitor>Logs** where you have access to the records from all your resources.  
+
+You can query the logs from the Log Analytics interface using the column listed in the **CustomLogs>ContainerAppConsoleLogs_CL** table on the table tab in the sidebar.
 
 :::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics query editor.":::
 
