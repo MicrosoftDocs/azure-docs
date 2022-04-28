@@ -22,7 +22,7 @@ Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 (preview)
 
 ## Azure Machine Learning CLI v2
 
-The Azure Machine Learning CLI v2 (CLI v2) is the latest extension for the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli). The CLI v2 provides commands in the format `az ml **<noun>** *<verb>* <options>` to create and maintain Azure ML assets and workflows. The assets or workflows themselves are defined using a YAML file. The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on.
+The Azure Machine Learning CLI v2 (CLI v2) is the latest extension for the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli). The CLI v2 provides commands in the format *az ml __\<noun\> \<verb\> \<options\>__* to create and maintain Azure ML assets and workflows. The assets or workflows themselves are defined using a YAML file. The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on.
 
 A few examples of CLI v2 commands:
 
