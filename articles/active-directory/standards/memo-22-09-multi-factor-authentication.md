@@ -25,6 +25,8 @@ Adoption of MFA is critical for preventing unauthorized access to accounts and d
 
 ## Phishing-resistant methods
 
+U.S. Federal agencies will be approaching this guidance from different starting points. Some agencies will have already deployed modern credentials such as FIDO2 or Windows Hello for Business, many are evaluating Azure AD certificate based authentication (currently in Public Preview), some are just starting to modernize their authentication credentials. This guidance is meant to inform agencies on the multiple options available to meet phishing-resistant MFA requirements with Azure AD. The reality is that phishing-resistant MFA is needed sooner then later.  Microsoft recommends adopting phish-resistant MFA method as soon as possible by whichever method below best matches the agency's current capability. Agencies should approach the phishing-resistant MFA requirement of the memorandum from the mindset of what can I do **now** to gain phishing-resistance for my accounts. Implementing phishing-resistant MFA will provide a significant positive impact on improving the agency's overall cybersecurity posture. If the quickest path is not a modern approach below, agencies should take that step as a starting point on their journey towards the more modern approaches.
+
 ![Table of Azure AD phishing-resistant methods.](media/memo-22-09/AAD-PR-Methods.png)
 
 ### Modern approaches
