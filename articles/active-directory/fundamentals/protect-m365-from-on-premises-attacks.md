@@ -24,9 +24,9 @@ Many customers connect their private corporate networks to Microsoft 365 to bene
 
 This article shows you how to configure your systems to help protect your Microsoft 365 cloud environment from on-premises compromise, including the following elements:
 
-- Azure Active Directory (Azure AD) tenant configuration settings.
-- How Azure AD tenants can be safely connected to on-premises systems.
-- The tradeoffs required to operate your systems in ways that protect your cloud systems from on-premises compromise.
+- Azure Active Directory (Azure AD) tenant configuration settings
+- How Azure AD tenants can be safely connected to on-premises systems
+- The tradeoffs required to operate your systems in ways that protect your cloud systems from on-premises compromise
 
 Microsoft strongly recommends that you implement this guidance.
 
@@ -61,7 +61,7 @@ To address the threats described above, we recommend you adhere to the principle
 
    These administrator accounts are restricted-use accounts. No on-premises accounts should have administrative privileges in Microsoft 365.
 
-   For more information, see [About admin roles](/microsoft-365/admin/add-users/about-admin-roles). Also see [Roles for Microsoft 365 in Azure AD](../roles/m365-workload-docs.md).
+   For more information, see [About admin roles](/microsoft-365/admin/add-users/about-admin-roles). Also, see [Roles for Microsoft 365 in Azure AD](../roles/m365-workload-docs.md).
 
 1. Manage devices from Microsoft 365. Use Azure AD join and cloud-based mobile device management (MDM) to eliminate dependencies on your on-premises device management infrastructure. These dependencies can compromise device and security controls.
 
@@ -71,7 +71,7 @@ To address the threats described above, we recommend you adhere to the principle
 
 ## Specific security recommendations
 
-The following sections provide specific guidance about how to implement the principles described above.
+The following sections provide guidance about how to implement the principles described above.
 
 ### Isolate privileged identities
 
@@ -91,7 +91,7 @@ In Azure AD, users who have privileged roles, such as administrators, are the ro
 
 - Deploy emergency access accounts. Do *not* use on-premises password vaults to store credentials. See [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
-For more information, see [Securing privileged access](/security/compass/overview). Also see [Secure access practices for administrators in Azure AD](../roles/security-planning.md).
+For more information, see [Securing privileged access](/security/compass/overview). Also, see [Secure access practices for administrators in Azure AD](../roles/security-planning.md).
 
 ### Use cloud authentication
 
@@ -148,27 +148,26 @@ Owners of groups that are used for access should be considered privileged identi
 
 Use Azure AD capabilities to securely manage devices.
 
-Deploy Azure AD joined Windows 10 workstations with MDM policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Azure AD join implementation](../devices/azureadjoin-plan.md) and [Windows Autopilot](/mem/autopilot/windows-autopilot).
+Deploy Azure AD joined Windows 10 workstations with mobile device management policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Azure AD join implementation](../devices/azureadjoin-plan.md) and [Windows Autopilot](/mem/autopilot/windows-autopilot).
 
 - Deprecate machines that run Windows 8.1 and earlier.
-- Don't deploy computers with server operating systems as workstations.
+- Don't deploy computers that have server operating systems as workstations.
 - Use Microsoft Endpoint Manager as the authority for all device management workloads. See [Microsoft Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager).
-
-Deploy privileged access devices.  For more information, see [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
+- Deploy privileged access devices.  For more information, see [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
 
 ### Workloads, applications, and resources 
 
-- On-premises single-sign-on (SSO) systems.
+- On-premises single-sign-on (SSO) systems
 
   Deprecate any on-premises federation and web access management infrastructure. Configure applications to use Azure AD.
 
-- SaaS and line-of-business (LOB) applications that support modern authentication protocols.
+- SaaS and line-of-business (LOB) applications that support modern authentication protocols
 
   Use Azure AD for SSO. The more apps you configure to use Azure AD for authentication, the less risk in an on-premises compromise. For more information, see [What is single sign-on in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 - Legacy applications
 
-  You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication. Use [Azure AD Application Proxy](../app-proxy/application-proxy.md). Or, enable them through a network or application delivery controller solution by using [secure hybrid access partner integrations](../manage-apps/secure-hybrid-access.md).
+  You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication. Use [Azure AD Application Proxy](../app-proxy/application-proxy.md). Or, enable them through a network or application delivery controller solution by using secure hybrid access partner integrations. See [Secure legacy apps with Azure Active Directory](../manage-apps/secure-hybrid-access.md).
 
    Choose a VPN vendor that supports modern authentication. Integrate its authentication with Azure AD. In an on-premises compromise, you can use Azure AD to disable or block access by disabling the VPN.
 
@@ -194,7 +193,7 @@ Use Azure AD Conditional Access to interpret signals and use them to make authen
 
 ## Monitor
 
-After you configure your environment to protect your Microsoft 365 from an on-premises compromise, proactively monitor the environment. See [What is Azure Active Directory monitoring](../reports-monitoring/overview-monitoring.md).
+After you configure your environment to protect your Microsoft 365 from an on-premises compromise, proactively monitor the environment. For more information, see [What is Azure Active Directory monitoring](../reports-monitoring/overview-monitoring.md).
 
 ### Scenarios to monitor
 
@@ -204,7 +203,7 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
   Monitor all Azure AD risk events for suspicious activity. See [Risk detection and remediation](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation). Azure AD Identity Protection is natively integrated with Microsoft Defender for Cloud. See [What is Identity Protection](../identity-protection/overview-identity-protection.md).
 
-  Define the network [named locations] to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
+  Define the network named locations to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
 
 - User and Entity Behavioral Analytics (UEBA) alerts.
 
@@ -229,21 +228,21 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
   Any change to tenant-wide configurations should generate alerts in the system. These changes include but aren't limited to the following changes:
 
-  - Updated custom domains.
-  - Azure AD B2B changes to allowlists and blocklists.
-  - Azure AD B2B changes to allowed identity providers, such as SAML identity providers through direct federation or social sign-ins.
-  - Conditional Access or Risk policy changes.
+  - Updated custom domains
+  - Azure AD B2B changes to allowlists and blocklists
+  - Azure AD B2B changes to allowed identity providers, such as SAML identity providers through direct federation or social sign-ins
+  - Conditional Access or Risk policy changes
 
 - Application and service principal objects
 
-  - New applications or service principals that might require Conditional Access policies.
-  - Credentials added to service principals.
-  - Application consent activity.
+  - New applications or service principals that might require Conditional Access policies
+  - Credentials added to service principals
+  - Application consent activity
 
 - Custom roles
 
-  - Updates to the custom role definitions.
-  - Newly created custom roles.
+  - Updates to the custom role definitions
+  - Newly created custom roles
 
 ### Log management
 
@@ -263,7 +262,7 @@ Define a log storage and retention strategy, design, and implementation to facil
 
   You can stream Azure AD logs to Azure Monitor logs. See [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
-- Hybrid infrastructure operating system security logs: All hybrid identity infrastructure operating system logs should be archived and carefully monitored as a tier-0 system, because of the surface-area implications. Include the following elements:
+- Hybrid infrastructure operating system security logs. All hybrid identity infrastructure operating system logs should be archived and carefully monitored as a tier-0 system, because of the surface-area implications. Include the following elements:
 
   - Application Proxy agents
   - Password writeback agents

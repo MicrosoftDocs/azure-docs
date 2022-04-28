@@ -58,9 +58,9 @@ Although we discourage the practice, privileged accounts can have standing admin
 * Are protected with multifactor authentication at a minimum.
 * Are run from privileged access workstation (PAW) or secure admin workstation (SAW) devices.
 
-The rest of this article describes what we recommend you monitor and alert on. The article is organized by the type of threat. Where there are specific prebuilt solutions, we link to them following the table. Otherwise, you can build alerts by using the preceding tools.
+The rest of this article describes what we recommend you monitor and alert on. The article is organized by the type of threat. Where there are specific prebuilt solutions, we link to them following the table. Otherwise, you can build alerts by using the tools described above.
 
-Specifically, this article provides details on setting baselines and auditing sign-in and usage of privileged accounts. It also discusses tools and resources you can use to help maintain the integrity of your privileged accounts. The content is organized into the following subjects:
+This article provides details on setting baselines and auditing sign-in and usage of privileged accounts. It also discusses tools and resources you can use to help maintain the integrity of your privileged accounts. The content is organized into the following subjects:
 
 * Emergency "break-glass" accounts
 * Privileged account sign-in
@@ -70,7 +70,7 @@ Specifically, this article provides details on setting baselines and auditing si
 
 ## Emergency access accounts
 
-It's important that you prevent being accidentally locked out of your Azure AD tenant. You can mitigate the effect of an accidental lockout by creating emergency access accounts in your organization. Emergency access accounts are also known as break-glass accounts, as in "break glass in case of emergency" messages found on physical security equipment like fire alarms.
+It's important that you prevent being accidentally locked out of your Azure AD tenant. You can mitigate the effect of an accidental lockout by creating emergency access accounts in your organization. Emergency access accounts are also known as *break-glass accounts*, as in "break glass in case of emergency" messages found on physical security equipment like fire alarms.
 
 Emergency access accounts are highly privileged, and they aren't assigned to specific individuals. Emergency access accounts are limited to emergency or break-glass scenarios where normal privileged accounts can't be used. An example is when a Conditional Access policy is misconfigured and locks out all normal administrative accounts. Restrict emergency account use to only the times when it's absolutely necessary.
 
@@ -79,8 +79,6 @@ For guidance on what to do in an emergency, see [Secure access practices for adm
 Send a high-priority alert every time an emergency access account is used.
 
 Because break-glass accounts are only used if there's an emergency, your monitoring should discover no account activity. Send a high-priority alert every time an emergency access account is used or changed. Any of the following events might indicate a bad actor is trying to compromise your environments:
-
-Account used. Monitor and alert on any activity by using this type of account, such as:
 
 * Sign-in.
 * Account password change.
@@ -111,13 +109,13 @@ You can monitor privileged account sign-in events in the Azure AD Sign-in logs. 
 | Sign-in failure, bad password threshold | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50126 | Define a baseline threshold and then monitor and adjust to suit your organizational behaviors and limit false alerts from being generated.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PrivilegedAccountsSigninFailureSpikes.yaml) |
 | Failure because of Conditional Access requirement |High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 53003<br>-and-<br>Failure reason = Blocked by Conditional Access | This event can be an indication an attacker is trying to get into the account.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/UserAccounts-CABlockedSigninSpikes.yaml) |
 | Privileged accounts that don't follow naming policy| | Azure subscription | [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.md)| List role assignments for subscriptions and alert where the sign-in name doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
-| Interrupt |  High, medium | Azure AD Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure reason = Authentication failed during strong authentication request | This event can be an indication an attacker has the password for the account but can't pass the MFA challenge.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/AADPrivilegedAccountsFailedMFA.yaml) |
+| Interrupt |  High, medium | Azure AD Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure reason = Authentication failed during strong authentication request | This event can be an indication an attacker has the password for the account but can't pass the multifactor authentication challenge.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/AADPrivilegedAccountsFailedMFA.yaml) |
 | Privileged accounts that don't follow naming policy| High | Azure AD directory | [List Azure AD role assignments](../roles/view-assignments.md)| List role assignments for Azure AD roles and alert where the UPN doesn't match your organization's format. An example is the use of ADM_ as a prefix. |
-| Discover privileged accounts not registered for MFA | High | Microsoft Graph API| Query for IsMFARegistered eq false for admin accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audit and investigate to determine if the event is intentional or an oversight. |
+| Discover privileged accounts not registered for multifactor authentication | High | Microsoft Graph API| Query for IsMFARegistered eq false for admin accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audit and investigate to determine if the event is intentional or an oversight. |
 | Account lockout | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50053 | Define a baseline threshold, and then monitor and adjust to suit your organizational behaviors and limit false alerts from being generated.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PrivilegedAccountsLockedOut.yaml) |
 | Account disabled or blocked for sign-ins | Low | Azure AD Sign-ins log | Status = Failure<br>-and-<br>Target = User UPN<br>-and-<br>error code = 50057 | This event could indicate someone is trying to gain access to an account after they've left the organization. Although the account is blocked, it's still important to log and alert on this activity.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/UserAccounts-BlockedAccounts.yaml) |
-| MFA fraud alert or block | High | Azure AD Sign-ins log/Azure Log Analytics | Sign-ins>Authentication details Result details = MFA denied, fraud code entered | Privileged user has indicated they haven't instigated the MFA prompt, which could indicate an attacker has the password for the account.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/MFARejectedbyUser.yaml) |
-| MFA fraud alert or block | High | Azure AD Audit log log/Azure Log Analytics | Activity type = Fraud reported - User is blocked for MFA or fraud reported - No action taken (based on tenant-level settings for fraud report) | Privileged user has indicated they haven't instigated the MFA prompt, which could indicate an attacker has the password for the account.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/MFARejectedbyUser.yaml) |
+| MFA fraud alert or block | High | Azure AD Sign-ins log/Azure Log Analytics | Sign-ins>Authentication details Result details = MFA denied, fraud code entered | Privileged user has indicated they haven't instigated the mulitfactor authentication prompt, which could indicate an attacker has the password for the account.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/MFARejectedbyUser.yaml) |
+| MFA fraud alert or block | High | Azure AD Audit log log/Azure Log Analytics | Activity type = Fraud reported - User is blocked for MFA or fraud reported - No action taken (based on tenant-level settings for fraud report) | Privileged user has indicated they haven't instigated the mulitfactor authentication prompt, which could indicate an attacker has the password for the account.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/MFARejectedbyUser.yaml) |
 | Privileged account sign-ins outside of expected controls |  | Azure AD Sign-ins log | Status = Failure<br>UserPricipalName = \<Admin account\><br>Location = \<unapproved location\><br>IP address = \<unapproved IP\><br>Device info = \<unapproved Browser, Operating System\> | Monitor and alert on any entries that you've defined as unapproved.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Outside of normal sign-in times | High | Azure AD Sign-ins log | Status = Success<br>-and-<br>Location =<br>-and-<br>Time = Outside of working hours | Monitor and alert if sign-ins occur outside of expected times. It's important to find the normal working pattern for each privileged account and to alert if there are unplanned changes outside of normal working times. Sign-ins outside of normal working hours could indicate compromise or possible insider threats.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/AnomolousSignInsBasedonTime.yaml) |
 | Identity protection risk | High | Identity Protection logs | Risk state = At risk<br>-and-<br>Risk level = Low, medium, high<br>-and-<br>Activity = Unfamiliar sign-in/TOR, and so on | This event indicates there's some abnormality detected with the sign-in for the account and should be alerted on. |
@@ -140,7 +138,7 @@ Privileged accounts that have been assigned permissions in Azure AD Domain Servi
 
 | What to monitor  | Risk level | Where               | Filter/subfilter              | Notes                   |
 |------------------|------------|---------------------|-------------------------------|-------------------------|
-| Attempted and completed changes | High       | Azure AD Audit logs | Date and time<br>-and-<br>Service<br>-and-<br>Category and name of the activity (what)<br>-and-<br>Status = Success or failure<br>-and-<br>Target<br>-and-<br>Initiator or actor (who) | Any unplanned changes should be alerted on immediately. These logs should be retained to help with any investigation. Any tenant-level changes should be investigated immediately (link out to Infra doc) that would lower the security posture of your tenant. An example is excluding accounts from MFA or Conditional Access. Alert on any [additions or changes to applications](security-operations-applications.md). |
+| Attempted and completed changes | High       | Azure AD Audit logs | Date and time<br>-and-<br>Service<br>-and-<br>Category and name of the activity (what)<br>-and-<br>Status = Success or failure<br>-and-<br>Target<br>-and-<br>Initiator or actor (who) | Any unplanned changes should be alerted on immediately. These logs should be retained to help with any investigation. Any tenant-level changes should be investigated immediately (link out to Infra doc) that would lower the security posture of your tenant. An example is excluding accounts from multifactor authentication or Conditional Access. Alert on any additions or changes to applications. See [Azure Active Directory security operations guide for Applications](security-operations-applications.md). |
 | **EXAMPLE**<br>Attempted or completed change to high-value apps or services | High       | Audit log           | Service<br>-and-<br>Category and name of the activity | <li>Date and time <li>Service <li>Category and name of the activity <li>Status = Success or failure <li>Target <li>Initiator or actor (who) |
 | Privileged changes in Azure AD Domain Services | High       | Azure AD Domain Services | Look for event [4673](/windows/security/threat-protection/auditing/event-4673) | [Enable security audits for Azure Active Directory Domain Services](../../active-directory-domain-services/security-audit-events.md)<br>For a list of all privileged events, see [Audit Sensitive Privilege use](/windows/security/threat-protection/auditing/audit-sensitive-privilege-use). |
 
@@ -154,7 +152,7 @@ Investigate changes to privileged accounts' authentication rules and privileges,
 | Changes to authentication methods| High| Azure AD Audit logs| Service = Authentication Method<br>-and-<br>Activity type = User registered security information<br>-and-<br>Category = User management| This change could be an indication of an attacker adding an auth method to the account so they can have continued access.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/AuthenticationMethodsChangedforPrivilegedAccount.yaml) |
 | Alert on changes to privileged account permissions| High| Azure AD Audit logs| Category = Role management<br>-and-<br>Activity type = Add eligible member (permanent)<br>-and-<br>Activity type = Add eligible member (eligible)<br>-and-<br>Status = Success or failure<br>-and-<br>Modified properties = Role.DisplayName| This alert is especially for accounts being assigned roles that aren't known or are outside of their normal responsibilities. |
 | Unused privileged accounts| Medium| Azure AD Access Reviews| | Perform a monthly review for inactive privileged user accounts. |
-| Accounts exempt from Conditional Access| High| Azure Monitor Logs<br>-or-<br>Access Reviews| Conditional Access = Insights and reporting| Any account exempt from Conditional Access is most likely bypassing security controls and is more vulnerable to compromise. Break-glass accounts are exempt. See information on how to monitor break-glass accounts in a subsequent section of this article.|
+| Accounts exempt from Conditional Access| High| Azure Monitor Logs<br>-or-<br>Access Reviews| Conditional Access = Insights and reporting| Any account exempt from Conditional Access is most likely bypassing security controls and is more vulnerable to compromise. Break-glass accounts are exempt. See information on how to monitor break-glass accounts later in this article.|
 | Addition of a Temporary Access Pass to a privileged account| High| Azure AD Audit logs| Activity: Admin registered security info<br><br>Status Reason: Admin registered temporary access pass method for user<br><br>Category: UserManagement<br><br>Initiated by (actor): User Principal Name<br><br>Target:User Principal Name|Monitor and alert on a Temporary Access Pass being created for a privileged user.
 
 For more information on how to monitor for exceptions to Conditional Access policies, see [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
@@ -167,22 +165,22 @@ Having privileged accounts that are permanently provisioned with elevated abilit
 
 ### Establish a baseline
 
-To monitor for exceptions, you must first create a baseline. Determine the following information for:
+To monitor for exceptions, you must first create a baseline. Determine the following information for these elements
 
-Admin accounts:
+* Admin accounts
 
-* Your privileged account strategy
-* Use of on-premises accounts to administer on-premises resources
-* Use of cloud-based accounts to administer cloud-based resources
-* Approach to separating and monitoring administrative permissions for on-premises and cloud-based resources
+  * Your privileged account strategy
+  * Use of on-premises accounts to administer on-premises resources
+  * Use of cloud-based accounts to administer cloud-based resources
+  * Approach to separating and monitoring administrative permissions for on-premises and cloud-based resources
 
-Privileged role protection:
+* Privileged role protection
 
-* Protection strategy for roles that have administrative privileges
-* Organizational policy for using privileged accounts
-* Strategy and principles for maintaining permanent privilege versus providing time-bound and approved access
+  * Protection strategy for roles that have administrative privileges
+  * Organizational policy for using privileged accounts
+  * Strategy and principles for maintaining permanent privilege versus providing time-bound and approved access
 
-The following concepts and information will help you determine policies:
+The following concepts and information help determine policies:
 
 * Just-in-time admin principles. Use the Azure AD logs to capture information for performing administrative tasks that are common in your environment. Determine the typical amount of time needed to complete the tasks.
 * Just-enough admin principles. Determine the least-privileged role, which might be a custom role, that's needed for administrative tasks. For more information, see [Least privileged roles by task in Azure Active Directory](../roles/delegate-by-task.md).
@@ -196,7 +194,7 @@ Pay particular attention to and investigate changes in assignment and elevation 
 
 ### Things to monitor
 
-You can monitor privileged account changes by using Azure AD Audit logs and Azure Monitor logs. Specifically, include the following changes in your monitoring process.
+You can monitor privileged account changes by using Azure AD Audit logs and Azure Monitor logs. Include the following changes in your monitoring process.
 
 | What to monitor| Risk level| Where| Filter/subfilter| Notes |
 | - | - | - | - | - |
