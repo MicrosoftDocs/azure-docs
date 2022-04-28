@@ -13,6 +13,9 @@ ms.date: 04/27/2022
 
 This article shows you how to deploy Microsoft Sentinel security content into your Microsoft Sentinel workspace. This content makes up the remaining parts of the Continuous Threat Monitoring solution for SAP.
 
+> [!IMPORTANT]
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Deployment milestones
 
 Track your SAP solution deployment journey through this series of articles:

@@ -10,6 +10,13 @@ ms.date: 11/09/2021
 
 # Deploy the Microsoft Sentinel SAP data connector with SNC
 
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
+
+This article...
+
+> [!IMPORTANT]
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 Continuous Threat Monitoring for SAP data connector agent connects to ABAP server using RFC connection and users username and password for authentication.
 In some environments, requirements may exist, that require connection over an encrypted connection and authentication to be carried out using client certificate.<br>
 Before enabling connectivity over encrypted (SNC) connection, a number of prerequisites must be met

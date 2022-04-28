@@ -342,7 +342,7 @@
         href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
       - name: Prepare SAP environment
         href: sap/preparing-sap.md
-      - name: Deploy and configure the data connector agent container
+      - name: Deploy data connector agent
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
