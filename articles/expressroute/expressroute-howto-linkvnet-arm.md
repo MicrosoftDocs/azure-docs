@@ -201,16 +201,17 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ### FastPath and Private Link
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path. This is supported for connections associated to 100Gb ExpressRoute Direct circuits. To enable this, follow the below guidance:
-1. Send an email to ERFastPathPL@microsoft.com, providing the following information: Target Virtual Network (Vnet) Resource ID, Azure Region where the Private Endpoint/Private Link service is deployed.
+1. Send an email to **ERFastPathPL@microsoft.com**, providing the following information: 
+* Azure Subscription ID
+* Virtual Network (Vnet) Resource ID
+* Azure Region where the Private Endpoint/Private Link service is deployed.
+
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
 ```
 3. Disable and Enable FastPath on the target connection(s) to enables the changes. Once this step is complete. 100Gb Private Link traffic over ExpressRoute will bypass the ExpressRoute Virtual Network Gateway in the data path.
 
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass -ProviderNamespace Microsoft.Network
-```
 
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
