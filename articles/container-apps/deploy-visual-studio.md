@@ -119,7 +119,7 @@ If Visual Studio detects the project you are publishing is hosted in GitHub thro
 
 :::image type="content" source="media/visual-studio/container-apps-deployment-type.png" alt-text="A screenshot showing the deployment type.":::
 
-If you select the GitHub Actions workflow, Visual Studio will add a .github folder  to the root directory of the project, along with a generated yml file inside of it. The yml file contains GitHub Actions configurations to build and deploy your app to Azure every time you push your code.
+If you select the GitHub Actions workflow, Visual Studio will add a *.github* folder  to the root directory of the project, along with a generated YAML file inside of it. The YAML file contains GitHub Actions configurations to build and deploy your app to Azure every time you push your code.
 
 After you make a change and push your code, you can see the progress of the build and deploy process in GitHub under the **Actions** tab. This page provides detailed logs and indicators regarding the progress and health of the workflow.  
 
