@@ -4,19 +4,19 @@ After setting up the Microsoft Security DevOps Extension or Workflow, there is s
 
 ### Steps: GitHub 
 
-*Prerequisite: see* [Microsoft Security DevOps GitHub action](#MSDO_GHaction) *in the How-to Guides section of this document to setup and configure the Microsoft Security DevOps GitHub Action*
+*Prerequisite: see* [Microsoft Security DevOps GitHub action](#MSDO_GHaction) *to setup and configure the Microsoft Security DevOps GitHub Action*
 
 1.  From the Repository home page, click **.github/workflows folder**
 
 ![Graphical user interface, text, application, email Description
-automatically generated](media/image018.png)
+automatically generated](./media/tutorial-iac-vulnerabilities/image018.png)
 
 2.  Click on the **workflow .yml** that you setup in the prerequisite steps
 
 ![Graphical user interface, text, application, email Description
-automatically generated](media/image019.png)
+automatically generated](./media/tutorial-iac-vulnerabilities/image019.png)
 
-3.  Edit the workflow: in the "Run Analyzers" section add the following:![Graphical user interface, application Description automatically generated](media/image020.png)
+3.  Edit the workflow: in the "Run Analyzers" section add the following:![Graphical user interface, application Description automatically generated](./media/tutorial-iac-vulnerabilities/image020.png)
 
 4.  Save the workflow by clicking **Start Commit-\>Commit changes**
 
@@ -33,19 +33,19 @@ automatically generated](media/image019.png)
 9.  Scroll through the results and you will see the scan results. It should look like the following
 
 ![Text Description automatically
-generated](media/image021.png)
+generated](./media/tutorial-iac-vulnerabilities/image021.png)
 
 10. Click on the **Security** tab and then click on **Code scanning alerts** to see the results in the GitHub Code scanning interface
 
 ![Graphical user interface, text, application, email Description
-automatically generated](media/image022.png)
+automatically generated](./media/tutorial-iac-vulnerabilities/image022.png)
 
 ![Graphical user interface, text, application, email Description
-automatically generated](media/image023.png)
+automatically generated](./media/tutorial-iac-vulnerabilities/image023.png)
 
 ### Steps: Azure DevOps 
 
-*Prerequisite: see* [Microsoft Security DevOps Azure DevOps extension](#MSDO_ADOextension) *in the How-to Guides section of this document to setup and configure the Microsoft Security DevOps the Extension*
+*Prerequisite: see* [Microsoft Security DevOps Azure DevOps extension](#MSDO_ADOextension) *to setup and configure the Microsoft Security DevOps the Extension*
 
 1.  From the Pipeline, locate the pipeline with the MSDO Azure DevOps Extension configured
 
@@ -54,7 +54,7 @@ automatically generated](media/image023.png)
 3.  Add the following lines to the YAML file
 
 ![Graphical user interface, application Description automatically
-generated](media/image024.png)
+generated](./media/tutorial-iac-vulnerabilities/image024.png)
 
 4.  Click **Save**
 
@@ -63,10 +63,10 @@ generated](media/image024.png)
 6.  Click on the pipeline to view the results of the IaC scan and click on any result to see the details
 
 ![Graphical user interface, text, application, email Description
-automatically generated](media/image025.png)
+automatically generated](./media/tutorial-iac-vulnerabilities/image025.png)
 
 ![Text Description automatically
-generated](media/image026.png)
+generated](./media/tutorial-iac-vulnerabilities/image026.png)
 
 ### Summary
 

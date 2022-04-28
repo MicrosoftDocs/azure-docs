@@ -33,7 +33,7 @@ generated](./media/msdo-github-action/image031.png)
 ![Graphical user interface, text, application Description automatically
 generated](./media/msdo-github-action/image032.png)
 
-1.  On the Get started with GitHub Actions page, click **set up a workflow yourself**
+5.  On the Get started with GitHub Actions page, click **set up a workflow yourself**
 
 ![Graphical user interface, application Description automatically
 generated](./media/msdo-github-action/image033.png)
@@ -109,5 +109,3 @@ automatically generated](./media/msdo-github-action/image037.png)
 
 ![Graphical user interface, application Description automatically
 generated](./media/msdo-github-action/image038.png)
-
->*See the Tutorials section to learn how to configure the Microsoft DevOps Security Action to scan Infrastructure as Code templates.*
