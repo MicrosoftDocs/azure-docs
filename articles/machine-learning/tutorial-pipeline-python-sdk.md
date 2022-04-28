@@ -107,7 +107,7 @@ The image below shows the pipeline as you'll see it in the AzureML portal once s
 
 The two steps are first data preparation and second training. 
 
-:::image type="content" source="media/tutorial-pipeline-python-sdk/pipeline-overview.jpg" alt-text="Overview of the pipeline.":::
+:::image type="content" source="media/tutorial-pipeline-python-sdk/pipeline-overview.jpg" alt-text="Diagram shows overview of the pipeline.":::
 
 ## Set up the pipeline resources
 
@@ -132,8 +132,8 @@ from azure.identity import DefaultAzureCredential
 ```
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
-1. In the upper right Azure Machine Learning Studio toolbar, select your workspace name.
-1. At the bottom, select **View all properties in Azure Portal**
+1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
+1. At the bottom, select **View all properties in Azure portal**
 1. Copy the value from Azure Portal into the code.
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
@@ -265,7 +265,7 @@ Azure ML pipelines are reusable ML workflows that usually consist of several com
 * Write the yaml specification of the component, or create it programmatically using `ComponentMethod`.
 * Optionally, register the component with a name and version in your workspace, to make it reusable and shareable.
 * Load that component from the pipeline code.
-* Implement the pipeline using this component inputs, outputs and parameters. @@ Not sure what this means?
+* Implement the pipeline using the component's inputs, outputs and parameters
 * Submit the pipeline.
 
 ## Create component 1: data prep (using programmatic definition)
@@ -683,13 +683,13 @@ There are two important parts to look for at this stage:
 * `Outputs+logs` > `user_logs` > `std_log.txt`
 This section shows the script run sdtout.
 
-    :::image type="content" source="media/tutorial-pipeline-python-sdk/user-logs.jpg" alt-text="Screenshot of std_log.txt":::
+    :::image type="content" source="media/tutorial-pipeline-python-sdk/user-logs.jpg" alt-text="Screenshot of std_log.txt." lightbox="media/tutorial-pipeline-python-sdk/user-logs.jpg":::
 
 
 * `Outputs+logs` > `Metric`
 This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
 
-    :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt":::
+    :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt." lightbox="media/tutorial-pipeline-python-sdk/metrics.jpg":::
 
 ## Deploy the model as an online endpoint
 
@@ -860,7 +860,7 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
-## Next Steps
+## Next steps
 
 Learn more about [Azure ML logging](https://github.com/Azure/azureml-examples/blob/sdk-preview/notebooks/mlflow/mlflow-v1-comparison.ipynb). 
 
