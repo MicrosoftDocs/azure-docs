@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 03/03/2022
+ms.date: 04/04/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,29 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## March 2022
+
+### New articles
+
+- [Configure eID-Me with Azure Active Directory B2C for identity verification](partner-eid-me.md)
+- [Configure xID with Azure Active Directory B2C for passwordless authentication](partner-xid.md)
+- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md)
+
+### Updated articles
+
+- [Configure eID-Me with Azure Active Directory B2C for identity verification](partner-eid-me.md)
+- [Language customization in Azure Active Directory B2C](language-customization.md)
+- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md)
+- [Set up direct sign in using Azure Active Directory B2C](direct-signin.md)
+- [Single-page application sign in using the OAuth 2.0 implicit flow in Azure Active Directory B2C](implicit-flow-single-page-application.md)
+- [Azure AD B2C: Authentication protocols](protocols-overview.md)
+- [Configure Akamai with Azure Active Directory B2C](partner-akamai.md)
+- [Cookies definitions for Azure AD B2C](cookie-definitions.md)
+- [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md)
+- [Azure Active Directory B2C: What's new](whats-new-docs.md)
+- [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md)
+- [Options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md)
 
 ## February 2022
 

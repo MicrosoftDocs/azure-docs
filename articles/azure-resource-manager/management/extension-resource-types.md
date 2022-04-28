@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 04/20/2022
 ---
 
 # Resource types that extend capabilities of other resources
@@ -22,7 +22,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Authorization
 
-* batchResourceCheckAccess
+* accessReviewHistoryDefinitions
 * denyAssignments
 * eligibleChildResources
 * locks
@@ -60,10 +60,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * blueprintAssignments
 * blueprints
-
-## Microsoft.Capacity
-
-* listSkus
 
 ## Microsoft.ChangeAnalysis
 
@@ -106,17 +102,17 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.CostManagement
 
 * Alerts
+* BenefitRecommendations
 * BenefitUtilizationSummaries
 * Budgets
-* CheckNameAvailability
 * Dimensions
 * Exports
 * ExternalSubscriptions
 * Forecast
 * GenerateDetailedCostReport
 * Insights
-* OperationResults
-* OperationStatus
+* Pricesheets
+* Publish
 * Query
 * Reportconfigs
 * Reports
@@ -131,10 +127,15 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * DatabaseMigrations
 
+## Microsoft.DataProtection
+
+* backupInstances
+
 ## Microsoft.Diagnostics
 
-* InsightDiagnostics
-* Solutions
+* apollo
+* insights
+* solutions
 
 ## Microsoft.EventGrid
 
@@ -143,9 +144,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.GuestConfiguration
 
-* configurationProfileAssignments
 * guestConfigurationAssignments
-* software
 
 ## Microsoft.HybridConnectivity
 
@@ -200,14 +199,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * networkManagerConnections
 
-## Microsoft.OperationalInsights
-
-* storageInsightConfigs
-
-## Microsoft.OperationsManagement
-
-* managementassociations
-
 ## Microsoft.PolicyInsights
 
 * attestations
@@ -219,7 +210,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Quota
 
-* operationsStatus
 * quotaRequests
 * quotas
 * usages
@@ -227,7 +217,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.RecoveryServices
 
 * backupProtectedItems
-* replicationEligibilityResults
 
 ## Microsoft.ResourceHealth
 
@@ -253,6 +242,8 @@ An extension resource is a resource that adds to another resource's capabilities
 * InformationProtectionPolicies
 * insights
 * jitPolicies
+* secureScoreControls
+* secureScores
 * serverVulnerabilityAssessments
 * sqlVulnerabilityAssessments
 
@@ -265,19 +256,18 @@ An extension resource is a resource that adds to another resource's capabilities
 * bookmarks
 * cases
 * dataConnectors
-* dataConnectorsCheckRequirements
 * enrichment
 * entities
 * entityQueryTemplates
+* fileImports
 * incidents
-* listrepositories
 * metadata
 * MitreCoverageRecords
 * onboardingStates
+* securityMLAnalyticsSettings
 * settings
 * sourceControls
 * threatIntelligence
-* watchlists
 
 ## Microsoft.SerialConsole
 

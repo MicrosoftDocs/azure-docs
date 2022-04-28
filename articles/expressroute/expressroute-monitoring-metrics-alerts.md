@@ -77,14 +77,14 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| [BitsInPerSecond](#directin) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | Link | Yes | 
-| [BitsOutPerSecond](#directout) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | Link | Yes | 
-| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Link | Yes | 
-| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Link  | Yes | 
-| [AdminState](#admin) | Physical Connectivity | Count | Average | Admin state of the port | Link | Yes | 
-| [LineProtocol](#line) | Physical Connectivity | Count | Average | Line protocol status of the port | Link | Yes | 
-| [RxLightLevel](#rxlight) | Physical Connectivity | Count | Average | Rx Light level in dBm | Link, Lane | Yes | 
-| [TxLightLevel](#txlight) | Physical Connectivity | Count | Average | Tx light level in dBm | Link, Lane | Yes |
+| [BitsInPerSecond](#directin) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | Link | No | 
+| [BitsOutPerSecond](#directout) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | Link | No | 
+| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Link | No | 
+| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Link  | No | 
+| [AdminState](#admin) | Physical Connectivity | Count | Average | Admin state of the port | Link | No | 
+| [LineProtocol](#line) | Physical Connectivity | Count | Average | Line protocol status of the port | Link | No | 
+| [RxLightLevel](#rxlight) | Physical Connectivity | Count | Average | Rx Light level in dBm | Link, Lane | No | 
+| [TxLightLevel](#txlight) | Physical Connectivity | Count | Average | Tx light level in dBm | Link, Lane | No |
 
 ## Circuits metrics
 

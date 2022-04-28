@@ -18,6 +18,8 @@ This article explains how to:
 
 * Create public IP prefixes from provisioned custom IP prefixes
 
+* Migrate active IP prefixes from outside Microsoft
+
 * View information about a custom IP prefix
 
 * Decommission a custom IP prefix
@@ -44,7 +46,7 @@ Use the following CLI and PowerShell commands to create public IP prefixes with 
 
 Once created, the IPs in the child public IP prefix can be associated with resources like any other standard SKU static public IPs.  To learn more about using IPs from a public IP prefix, including selection of a specific IP from the range, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
 
-### Migration of active prefixes from outside Microsoft
+## Migration of active prefixes from outside Microsoft
 
 If the provisioned range is being advertised to the Internet by another network, it's important to plan the migration to Azure to avoid unplanned downtime. Regardless of the method used, make the transition during a maintenance window. 
 
@@ -144,8 +146,8 @@ To migrate a custom IP prefix, it must first be deprovisioned from one region. A
 
 ## Next steps
 
-- To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md)
+- To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md).
 
-- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md)
+- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
 
-- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md)
+- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md).

@@ -11,6 +11,9 @@
   items:
   - name: Share data - Azure portal
     href: share-your-data-portal.md
+  - name: Share data - Bicep
+    displayName: ARM, Resource Manager, Template 
+    href: share-your-data-bicep.md
   - name: Share data - ARM template
     displayName: Resource Manager
     href: share-your-data-arm.md
@@ -68,6 +71,8 @@
     href: disaster-recovery.md
   - name: Troubleshoot
     href: data-share-troubleshoot.md
+  - name: Move Data Share account to new region
+    href: move-to-new-region.md
 
 - name: Reference
   items:

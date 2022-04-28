@@ -22,11 +22,11 @@ When you're uploading videos by using the API, you have the following options:
 
 * Upload your video from a URL (preferred).
 * Send the video file as a byte array in the request body.
-* Use existing an Azure Media Services asset by providing the [asset ID](/media-services/latest/assets-concept). This option is supported in paid accounts only.
+* Use existing an Azure Media Services asset by providing the [asset ID](/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
 
 ## Supported file formats
 
-For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Storage of video files
 
@@ -107,7 +107,7 @@ When you're using the [Upload Video](https://api-portal.videoindexer.ai/api-deta
 After the indexing and encoding jobs are done, the video is published so you can also stream your video. The streaming endpoint from which you want to stream the video must be in the **Running** state.
 
 For `SingleBitrate`, the standard encoder cost will apply for the output. If the video height is greater than or equal to 720, Video Analyzer for Media encodes it as 1280 x 720. Otherwise, it's encoded as 640 x 468.
-The default setting is [content-aware encoding](/media-services/latest/encode-content-aware-concept).
+The default setting is [content-aware encoding](/azure/media-services/latest/encode-content-aware-concept).
 
 If you only want to index your video and not encode it, set `streamingPreset` to `NoStreaming`.
 
@@ -175,17 +175,19 @@ public async Task Sample()
     client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 
     // Upload a video
-    var content = new MultipartFormDataContent();
+    MultipartFormDataContent content = null;
     Console.WriteLine("Uploading...");
+    
     // Get the video from URL
     var videoUrl = "VIDEO_URL"; // Replace with the video URL
 
     // As an alternative to specifying video URL, you can upload a file.
     // Remove the videoUrl parameter from the query parameters below and add the following lines:
-    //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =new byte[video.Length];
+    //content = new MultipartFormDataContent();
+    //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
+    //byte[] buffer = new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(new ByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()
@@ -398,16 +400,16 @@ namespace VideoIndexerArm
             var client = new HttpClient(handler);
 
             // Upload a video
-            var content = new MultipartFormDataContent();
+            MultipartFormDataContent content = null;
             Console.WriteLine("Uploading...");
-            // Get the video from URL
 
             // As an alternative to specifying video URL, you can upload a file.
             // Remove the videoUrl parameter from the query parameters below and add the following lines:
-            // FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-            // byte[] buffer =new byte[video.Length];
-            // video.Read(buffer, 0, buffer.Length);
-            // content.Add(new ByteArrayContent(buffer));
+            //content = new MultipartFormDataContent();
+            //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
+            //byte[] buffer = new byte[video.Length];
+            //video.Read(buffer, 0, buffer.Length);
+            //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
 
             var queryParams = CreateQueryString(
                 new Dictionary<string, string>()

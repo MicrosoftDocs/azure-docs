@@ -361,7 +361,7 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
             {
                 Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                 Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
             }
 
             stopRecognition.TrySetResult(0);
@@ -781,7 +781,7 @@ public static async Task MultiLingualTranslation()
                 {
                     Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                     Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                    Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                 }
 
                 stopTranslation.TrySetResult(0);
@@ -883,7 +883,7 @@ else if (result->Reason == ResultReason::Canceled)
     {
         cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
         cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-        cout << "CANCELED: Did you update the subscription info?" << std::endl;
+        cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
     }
 }
 ```
@@ -956,7 +956,7 @@ void MultiLingualTranslation()
             {
                 cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << std::endl;
                 cout << "CANCELED: ErrorDetails=" << e.ErrorDetails << std::endl;
-                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+                cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
 
                 recognitionEnd.set_value();
             }

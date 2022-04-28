@@ -75,14 +75,6 @@ Use for Peering Services: 	**Enabled**
 > *Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
 
 
-  **2a. Use Existing Direct peering connection for Peering Services**
-
-If you have an existing Direct peering that you want to use to support Peering Service, you can activate on Azure portal.
-1.	Follow the instructions to [Convert a legacy Direct peering to Azure resource using the portal](./howto-legacy-direct-portal.md).
-As required, order additional circuits to meet high-availability requirement.
-
-2.	Follow steps to [Enable Peering Service](./howto-peering-service-portal.md) on a Direct peering using the portal.
-
 
 
 

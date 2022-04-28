@@ -40,12 +40,14 @@ Independent of network security, all inbound requests must be authenticated. Key
 
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations. Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset.
+Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations.
 
+Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or custom skill:
+
++ Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 + Indexers [connect to external data sources](search-indexer-securing-resources.md) to read in data for indexing.
 + Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
 + Custom skills connect to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
-+ Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
@@ -92,7 +94,7 @@ Once a request is admitted, it must still undergo authentication and authorizati
 
 + [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
 
-Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user-assigned managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 

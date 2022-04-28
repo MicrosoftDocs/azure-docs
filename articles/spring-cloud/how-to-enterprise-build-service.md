@@ -22,7 +22,7 @@ In Azure Spring Cloud, the existing Standard tier already supports compiling use
 
 Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after creating a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Create page with 'VMWare Tanzu settings' highlighted and 'Allocated Resources' dropdown showing.":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing.":::
 
 The Build Agent Pool scale set sizes available are:
 
