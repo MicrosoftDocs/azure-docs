@@ -51,7 +51,7 @@ The following table describes resource limits for Azure NetApp Files:
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
-For limits and constraints related to Azure NetApp Files network features, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies#considerations).
+For limits and constraints related to Azure NetApp Files network features, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
 ## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
 
