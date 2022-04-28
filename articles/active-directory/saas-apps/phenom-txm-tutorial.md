@@ -69,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 ### Create an Azure AD test user
 
@@ -135,47 +135,45 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Identity Provider** section, perform the following steps:
     
-    ![Screenshot that shows the Configuration](./media/phenom-txm-tutorial/input.png "Configuration")
+    ![Screenshot that shows the Configuration Settings.](./media/phenom-txm-tutorial/input.png "Configuration")
 
-    ![Screenshot that shows the Metadata](./media/phenom-txm-tutorial/certificate.png "Metadata")
+    ![Screenshot that shows the Identity Provider Metadata.](./media/phenom-txm-tutorial/certificate.png "Metadata")
 
-    a. Select **SAML** as an **Identity Provider** from the dropdown.
+    a. Enter a valid name in the **Display Name** textbox.
 
-    b. Enter a valid name in the **Display Name** textbox.
+    b. In the **Single SignOn URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    c. In the **Single SignOn URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    c. In the **Meta data URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
 
-    d. In the **Meta data URL** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
+    d. Click **Save Changes**.
 
-    e. Click **Save Changes**.
+    e. Copy **Entity ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    f. Copy **Entity ID** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
-
-    g. Copy **Redirect URI (ACS URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    f. Copy **Redirect URI (ACS URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
 ### Create Phenom TXM test user
 
 1. In a different web browser window, log into your Phenom TXM website as an administrator.
 
-1. Go to **Users** tab and click **Create Users**.
+1. Go to **Users** tab and click **Create Users** > **Create single new User**.
 
 1. In the **Create User** page, perform the following steps:
 
     a. In the **User Information** section, enter a valid **First Name**, **Last Name** and **Work Email** in the textboxes and click **Continue**.
 
-    ![Screenshot that shows the User Information ](./media/phenom-txm-tutorial/name.png "User Information")
+    ![Screenshot that shows the User Information fields.](./media/phenom-txm-tutorial/name.png "User Information")
 
     b. In the **Assign Tenants** section, **Select Tenants** and click **Continue**.
 
-    ![Screenshot that shows the Tenants Information ](./media/phenom-txm-tutorial/details.png "Tenants")
+    ![Screenshot that shows the Tenants Information fields.](./media/phenom-txm-tutorial/details.png "Tenants")
 
     c. In the **Assign Roles** section, **Select roles** from the dropdown and click **Continue**.
 
-    ![Screenshot that shows the Roles Mapping](./media/phenom-txm-tutorial/role.png "Mapping")
+    ![Screenshot that shows the Roles Mapping for Users.](./media/phenom-txm-tutorial/role.png "Mapping")
 
     d. In the **Summary** section, review your selections and click **Finish** to create a user.
 
-    ![Screenshot that shows the Summary](./media/phenom-txm-tutorial/finish.png "Summary")
+    ![Screenshot that shows the Phenom TXM Summary section.](./media/phenom-txm-tutorial/finish.png "Summary")
 
 ## Test SSO 
 
