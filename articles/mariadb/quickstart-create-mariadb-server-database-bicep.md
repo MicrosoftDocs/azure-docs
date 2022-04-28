@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure DB for MariaDB - Bicep'
 description: In this Quickstart article, learn how to create an Azure Database for MariaDB server using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 04/27/2022
+ms.date: 04/28/2022
 ms.topic: quickstart
 ms.service: mariadb
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
@@ -54,26 +54,26 @@ The Bicep file defines five Azure resources:
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-# [CLI](#tab/CLI)
+    # [CLI](#tab/CLI)
 
-```azurecli
-az group create --name exampleRG --location eastus
-az deployment group create --resource-group exampleRG --template-file main.bicep --parameters serverName=<server-name> administratorLogin=<admin-login>
-```
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters serverName=<server-name> administratorLogin=<admin-login>
+    ```
 
-# [PowerShell](#tab/PowerShell)
+    # [PowerShell](#tab/PowerShell)
 
-```azurepowershell
-New-AzResourceGroup -Name exampleRG -Location eastus
-New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -serverName "<server-name>" -administratorLogin "<admin-login>"
-```
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -serverName "<server-name>" -administratorLogin "<admin-login>"
+    ```
 
----
+    ---
 
-> [!NOTE]
-> Replace **\<server-name\>** with the name of the server. Replace **\<admin-login\>** with the database administrator login name. The minimum required length is one character. You'll also be prompted to enter **administratorLoginPassword**. The minimum password length is eight characters.
+    > [!NOTE]
+    > Replace **\<server-name\>** with the name of the server. Replace **\<admin-login\>** with the database administrator login name. The minimum required length is one character. You'll also be prompted to enter **administratorLoginPassword**. The minimum password length is eight characters.
 
-When the deployment finishes, you should see a messaged indicating the deployment succeeded.
+    When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
