@@ -36,10 +36,10 @@ Areas which are highlighted in this document are –
 
 #### Azure Metrics 
 
-Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics gives information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](howto-alert-on-metrics.md)
+Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics gives information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
 
 #### Query Store
-Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](concepts-query-store.md)
+Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](./concepts-query-store.md)
 
 #### pg_stat_statements
 pg_stat_statements extension helps in identifying the queries which, consume time on the server.
@@ -149,7 +149,7 @@ For more details of pg bouncer
 [Pg Bouncer Setup](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
 
 
-Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](concepts-pgbouncer.md)
+Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](./concepts-pgbouncer.md)
 
 #### Terminating a long running session 
 
