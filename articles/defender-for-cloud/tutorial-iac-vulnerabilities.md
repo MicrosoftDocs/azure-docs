@@ -17,6 +17,7 @@ automatically generated](./media/tutorial-iac-vulnerabilities/image018.png)
 automatically generated](./media/tutorial-iac-vulnerabilities/image019.png)
 
 3.  Edit the workflow: in the "Run Analyzers" section add the following:
+
 ![Graphical user interface, application Description automatically generated](./media/tutorial-iac-vulnerabilities/image020.png)
 
 4.  Save the workflow by clicking **Start Commit-\>Commit changes**
