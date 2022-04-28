@@ -8,7 +8,7 @@ ms.date: 04/01/2019
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
 ---
-aks-quickstart-cli
+
 # Manually create and use a volume with Azure disks in Azure Kubernetes Service (AKS)
 
 Container-based applications often need to access and persist data in an external data volume. If a single pod needs access to storage, you can use Azure disks to present a native volume for application use. This article shows you how to manually create an Azure disk and attach it to a pod in AKS.
