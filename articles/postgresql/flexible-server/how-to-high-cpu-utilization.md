@@ -54,7 +54,7 @@ SELECT (total_exec_time / 1000 / 3600) as total_hours,
 calls num_calls, 
 query  
 FROM pg_stat_statements  
-ORDER BY 1 DESC LIMIT 10;   	
+ORDER BY 2 DESC LIMIT 10;   	
 ~~~
 #### Postgres version 9.6, 10, 11, 12
 ~~~
@@ -64,7 +64,7 @@ SELECT (total_time / 1000 / 3600) as total_hours,
 calls num_calls, 
 query  
 FROM pg_stat_statements  
-ORDER BY 1 DESC LIMIT 10;   
+ORDER BY 2 DESC LIMIT 10;   
 ~~~
  
 Run the following command to view the top five SQL statements that consume the most time in one call: 
