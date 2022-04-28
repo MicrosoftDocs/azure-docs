@@ -12,9 +12,6 @@ ms.date: 04/07/2022
 
 This article lists the prerequisites required for deployment of the Microsoft Sentinel Continuous Threat Monitoring solution for SAP.
 
-> [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Deployment milestones
 
 Track your SAP solution deployment journey through this series of articles:
@@ -27,11 +24,11 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
-1. [Deploy SAP security content](deploy_sap_security_content.md)
+1. [Deploy SAP security content](deploy-sap-security-content.md)
 
 1. Optional deployment steps
-   - [Configure auditing](configure_audit.md)
-   - [Configure SAP data connector to use SNC](configure_snc.md)
+   - [Configure auditing](configure-audit.md)
+   - [Configure SAP data connector to use SNC](configure-snc.md)
 
 ## Table of prerequisites
 
@@ -47,7 +44,7 @@ To successfully deploy the SAP Continuous Threat Monitoring solution, you must m
 
 ### Automatically installed software
 
-The [SAP data connector deployment script](reference_kickstart.md) installs the following software on the container host VM (depending on the Linux distribution used, the list may vary slightly):
+The [SAP data connector deployment script](reference-kickstart.md) installs the following software on the container host VM (depending on the Linux distribution used, the list may vary slightly):
 
 - [Unzip](http://infozip.sourceforge.net/UnZip.html)
 - [NetCat](https://sectools.org/tool/netcat/)

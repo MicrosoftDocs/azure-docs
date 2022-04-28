@@ -13,9 +13,6 @@ ms.date: 04/12/2022
 
 This article introduces you to the process of deploying the Microsoft Sentinel Continuous Threat Monitoring solution for SAP. The full process is detailed in a whole set of articles linked under [Deployment milestones](#deployment-milestones) below.
 
-> [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Overview
 
 **Continuous Threat Monitoring for SAP** is a [Microsoft Sentinel solution](../sentinel-solutions.md) that you can use to monitor your SAP systems and detect sophisticated threats throughout the business logic and application layers. The solution includes the following components:
@@ -35,11 +32,11 @@ Follow your deployment journey through this series of articles, in which you'll 
 | **2. Deployment prerequisites** | [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
 | **3. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing-sap.md) |
 | **4. Deploy data connector agent** | [Deploy and configure the data connector agent container](deploy-data-connector-agent-container.md) |
-| **5. Deploy SAP security content** | [Deploy SAP security content](deploy_sap_security_content.md)
-| **6. Optional steps** | <li>[Configure auditing](configure_audit.md)<li>[Configure SAP data connector to use SNC](configure_snc.md)
+| **5. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
+| **6. Optional steps** | <li>[Configure auditing](configure-audit.md)<li>[Configure SAP data connector to use SNC](configure-snc.md)
 
 > [!NOTE]
-> Extra steps are required to configure communications between SAP data connector and SAP over a Secure Network Communications (SNC) connection. This is covered in [Deploy the Microsoft Sentinel SAP data connector with SNC](configure_snc.md) section of the guide.
+> Extra steps are required to configure communications between SAP data connector and SAP over a Secure Network Communications (SNC) connection. This is covered in [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md) section of the guide.
 
 ## Next steps
 
