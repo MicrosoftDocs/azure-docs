@@ -45,27 +45,26 @@ Start by creating your Azure resources.
     git clone https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet.git
     ```
 
-1. Create an ASP.NET Core application.
+
+1. Deploy the web app to Azure
+    
+    Run `az login` to sign in to and follow these steps to create an App Service and deploy the sample app. Make sure you have the Subscription Contributor role.
 
     ### [SMI](#tab/smi)
 
     Create an Azure Web app with runtime ASP.NET Core.
 
     ```azurecli
-    # Login to the Azure CLI. Skip if you're using Cloud Shell.
-    az login
-
-    # Switch to a subscription where you have Subscription Contributor role.
-    az account set -s <myTestSubsId>
-
-    # Create a resource group
-    az group create -n <myResourceGroupName> -l eastus
-    
-    # Create an App Service plan
-    az appservice plan create -g <myResourceGroupName> -n <myPlanName> --is-linux --sku B1
+    # Change directory to the SMI sample
+    cd system-managed-identity
 
     # Create a web app
-    az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime "DOTNETCORE|6.0" --plan <myPlanName>
+
+    LOCATION='eastus'
+    RESOURCE_GROUP_NAME='service-connector-tutorial-rg'
+    APP_SERVICE_NAME='webapp-appconfig-smi'
+
+    az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
     ```
 
     ### [UMI](#tab/umi)
