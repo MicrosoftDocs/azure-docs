@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Custom domain names and certificates in Azure Container Apps
+description: Learn to manage custom domain names and certificates in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
