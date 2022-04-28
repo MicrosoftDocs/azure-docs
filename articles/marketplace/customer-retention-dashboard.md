@@ -28,7 +28,7 @@ The dashboard uses the 18 months of data prior to the current system date to plo
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+    [ ![Screenshot that illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. In the left menu, select **Marketplace insights**.
 
@@ -77,7 +77,7 @@ Provide your feedback in the dialog box that appears.
 
 ### Filters for category and marketplace offer
 
-Select the **Category** for an offer from the **Categor** list, and then select one of your offers from the **Marketplace offer** list.
+Select the **Category** for an offer from the **Category** list, and then select one of your offers from the **Marketplace offer** list.
 
 :::image type="content" source="media/customer-retention-dashboard/category-and-offer.png" lightbox="media/customer-retention-dashboard/category-and-offer.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes.":::
 
