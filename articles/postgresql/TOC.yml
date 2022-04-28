@@ -691,6 +691,8 @@
         href: hyperscale/howto-build-scalable-apps-classify.md
       - name: Model multi-tenant apps
         href: hyperscale/howto-build-scalable-apps-model-mt.md
+      - name: Model real-time apps
+        href: hyperscale/howto-build-scalable-apps-model-rt.md
     - name: Server group size
       items:
       - name: Pick initial size
