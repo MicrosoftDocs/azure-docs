@@ -5,7 +5,7 @@ services: database-migration
 author: mokabiru
 ms.author: mokabiru
 manager: 
-ms.reviewer: cheryl.adams
+ms.reviewer: randolphwest
 ms.service: dms
 ms.workload: data-services
 ms.topic: conceptual
@@ -23,6 +23,10 @@ The key benefits of using the Azure SQL migration extension for Azure Data Studi
 1. Perform online (minimal downtime) and offline database migrations using an easy-to-use wizard. To see step-by-step tutorial, see sample [Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS](tutorial-sql-server-managed-instance-online-ads.md).
 1. Monitor all migrations started in Azure Data Studio from the Azure portal. To learn more, see [Monitor database migration progress from the Azure portal](#monitor-database-migration-progress-from-the-azure-portal).
 1. Leverage the capabilities of the Azure SQL migration extension to assess and migrate databases at scale using automation with Azure PowerShell and Azure CLI. To learn more, see [Migrate databases at scale using automation](migration-dms-powershell-cli.md).
+
+The following 16-minute video explains recent updates and features added to the Azure SQL migration extension in Azure Data Studio, including the new workflow for SQL Server database assessments and Azure recommendations described in this article.
+
+<iframe src="https://aka.ms/docs/player?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio" width="800" height="450"></iframe>
 
 ## Architecture of Azure SQL migration extension for Azure Data Studio
 

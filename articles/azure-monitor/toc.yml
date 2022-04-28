@@ -1016,8 +1016,10 @@ items:
         href: app/profiler-servicefabric.md
       - name: Enable Profiler for an Azure VM
         href: app/profiler-vm.md
-      - name: Profiler for Linux App services (preview)
+      - name: Enable Profiler for Linux App services (preview)
         href: app/profiler-aspnetcore-linux.md
+      - name: Enable Profiler for a Container
+        href: app/profiler-containers.md
       - name: Profiler Settings
         href: app/profiler-settings.md
       - name: Track Requests for Profiling
@@ -1496,6 +1498,8 @@ items:
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
+  - name: Data reference
+    href: /azure/azure-monitor/reference/
   - name: Monitoring data reference
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics

@@ -10,7 +10,7 @@ author: rsethur
 ms.reviewer: larryfr
 ms.custom: devplatv2, cliv2
 
-ms.date: 04/26/2022
+ms.date: 04/27/2022
 
 ---
 # Autoscale a managed online endpoint

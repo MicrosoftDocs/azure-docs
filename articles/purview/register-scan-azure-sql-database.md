@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 04/26/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure SQL Database in Microsoft Purview
@@ -42,8 +42,9 @@ When setting up scan, you can further scope the scan after providing the databas
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
 * Stored procedures with dynamic SQL, running from remote data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
-* Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed
-* If sql views are referenced in stored procedures, they're captured as sql tables currently
+* Lineage extraction scan is scheduled and defaulted to run every six hours. Frequency can't be changed.
+* If sql views are referenced in stored procedures, they're captured as sql tables currently.
+* Lineage extraction is currently not supported, if Azure SQL Server is configured behind a private endpoint.
 
 ## Prerequisites
 
@@ -134,7 +135,7 @@ The following options are supported:
 
 * **Service Principal**- A service principal is an application that can be assigned permissions like any other group or user, without being associated directly with a person. Their authentication has an expiration date, and so can be useful for temporary projects. For more information, see the [service principal documenatation](/active-directory/develop/app-objects-and-service-principals).
 
-* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documenation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
+* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](../azure-sql/database/connect-query-portal.md), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
     > [!NOTE]
     > Be sure to select the Azure SQL Database option on the page.
 
