@@ -72,7 +72,7 @@ The following Azure resources are defined in the template.
     |**Mobile Network Code**     | Enter the mobile network code for the private mobile network.        |
     |**Site Name**     | Enter a name for your site.        |
     |**Service Name**     | Leave this field unchanged.        |
-    |**SIM Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field blank.       |
+    |**SIM Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
     |**Control Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
