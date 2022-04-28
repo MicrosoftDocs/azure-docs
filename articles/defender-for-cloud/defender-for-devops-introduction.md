@@ -129,7 +129,7 @@ Please read this document carefully. It includes prerequisites and limitations t
     -   **Limitation** -- please choose only up to 15 repositories for testing
 
     -   **Solution** -- This limitation is expected to continue throughout the Private Preview period
-<br>
+
 -   Regions supported
 
     -   **Limitation** -- Defender for DevOps is only available in limited regions during Preview
@@ -137,13 +137,13 @@ Please read this document carefully. It includes prerequisites and limitations t
         -   Central US
 
     -   **Solution** -- Additional regions will be added based on regional capacity, availability, and customer feedback
-<br>
+
 -   Customers will pay for GitHub Advanced Security
 
     -   **Limitation** -- In the Preview release many aspects of Defender for DevOps are being paid for by Microsoft. One of the exceptions is **GitHub Advanced Security (GHAS)** functionality. Customers will receive the best Preview experience with GHAS enabled. Because it is a third-party owned service, it is the customer's choice whether or not to utilize the GHAS service, and therefore any costs associated with running this service are paid by the customer.
 
     -   **Solution** -- Because GitHub is a third-party service, this pricing scenario is expected functionality
-<br>
+
 -   The Defender for DevOps portal experience includes, by design, inactive features during the Preview release.
 
     -   **Limitation** -- Several inactive, backlogged features can be found in the Defender for DevOps portal. Icons for these features are set to 50% opacity so that they are visually distinguishable from active, functional Preview features. The intention is to solicit early feedback from customers on feature requirements, locations, behaviors, and priorities.
