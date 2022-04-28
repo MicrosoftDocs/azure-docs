@@ -43,7 +43,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Text Translation
+          - text: Text Translator
             url: text-translation-overview.md
           - text: Document Translation
             url:  document-translation/overview.md
@@ -51,7 +51,7 @@ landingContent:
             url: custom-translator/overview.md
       - linkListType: get-started
         links:
-          - text: Translator Text quickstart
+          - text: Text Translator quickstart
             url: quickstart-translator.md
           - text: Document Translation quickstart
             url: document-translation/get-started-with-document-translation.md
@@ -61,11 +61,11 @@ landingContent:
             url: custom-translator/quickstart-build-deploy-custom-model.md
 
   # Card 3
-  - title: Translator Text
+  - title: Text Translator
     linkLists:
       - linkListType: reference
         links:
-          - text: Translator Text REST API
+          - text: Text Translator REST API
             url: reference/v3-0-reference.md
           - text: Translator reference (v3)
             url: reference/v3-0-reference.md
