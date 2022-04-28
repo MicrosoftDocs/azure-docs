@@ -149,7 +149,7 @@ For more details of pg bouncer
 [Pg Bouncer Setup](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
 
 
-Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-pgbouncer )
+Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](concepts-pgbouncer.md)
 
 #### Terminating a long running session 
 
