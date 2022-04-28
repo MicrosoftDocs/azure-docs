@@ -204,26 +204,27 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
 4. Create and configure the [Data Factory activities](../data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
 
-   **a) Configure staging activity to copy from Snowflake to Azure Storage container**
-   - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
-     
-     :::image type="content" source="media/search-power-query-connectors/drag-and-drop-snowflake-copy-data.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas to copy data from Snowflake.":::
-     
-   - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
-   - In the **Source** tab, select your Snowflake table. Leave the remaining options with the default values.
-     
-     :::image type="content" source="media/search-power-query-connectors/source-snowflake.png" alt-text="Screenshot showing how to configure the Source in a pipeline to import data from Snowflake.":::
-     
-   - In the **Sink** tab:
-     - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
-     - In **File Extension**, add *.csv*.
-     - Leave the remaining options with the default values. 
-       
-       :::image type="content" source="media/search-power-query-connectors/delimited-text-sink.png" alt-text="Screenshot showing how to configure the sink in a Pipeline to move the data to Azure Storage from Snowflake.":::
-       
-   - Click on **Save**.
+   #### Configure staging activity to copy from Snowflake to Azure Storage container
+      - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+
+        :::image type="content" source="media/search-power-query-connectors/drag-and-drop-snowflake-copy-data.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas to copy data from Snowflake.":::
+
+      - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
+      - In the **Source** tab, select your Snowflake table. Leave the remaining options with the default values.
+
+        :::image type="content" source="media/search-power-query-connectors/source-snowflake.png" alt-text="Screenshot showing how to configure the Source in a pipeline to import data from Snowflake.":::
+
+      - In the **Sink** tab:
+        - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
+        - In **File Extension**, add *.csv*.
+        - Leave the remaining options with the default values. 
+
+          :::image type="content" source="media/search-power-query-connectors/delimited-text-sink.png" alt-text="Screenshot showing how to configure the sink in a Pipeline to move the data to Azure Storage from Snowflake.":::
+
+      - Click on **Save**.
  
-    **b) Configure activity to index from Azure Storage Blob**
+ 
+   #### Configure activity to index from Azure Storage Blob
      - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
        
        :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas to index from Storage.":::
@@ -441,26 +442,27 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
 4. Create and configure the [Data Factory activities](../data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
 
-   **a) Configure staging activity to copy from PostgreSQL to Azure Storage container**
-   - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
-     
-     :::image type="content" source="media/search-power-query-connectors/postgresql-pipeline-general.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to copy data from PostgreSQL.":::
-     
-   - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
-   - In the **Source** tab, select your PostgreSQL table. Leave the remaining options with the default values.
-     
-     :::image type="content" source="media/search-power-query-connectors/source-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob in staging phase.":::
-     
-   - In the **Sink** tab:
-      - Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
-      - In **File Extension**, add *.csv*
-      - Leave the remaining options with the default values.
-        
-        :::image type="content" source="media/search-power-query-connectors/sink-storage-postgresql.png" alt-text="Screenshot showing how to configure sink to import data from PostgreSQL into Azure Storage blob.":::
-        
-   - Click on **Save**.
+   ### Configure staging activity to copy from PostgreSQL to Azure Storage container
+      - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+
+        :::image type="content" source="media/search-power-query-connectors/postgresql-pipeline-general.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to copy data from PostgreSQL.":::
+
+      - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
+      - In the **Source** tab, select your PostgreSQL table. Leave the remaining options with the default values.
+
+        :::image type="content" source="media/search-power-query-connectors/source-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob in staging phase.":::
+
+      - In the **Sink** tab:
+         - Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
+         - In **File Extension**, add *.csv*
+         - Leave the remaining options with the default values.
+
+           :::image type="content" source="media/search-power-query-connectors/sink-storage-postgresql.png" alt-text="Screenshot showing how to configure sink to import data from PostgreSQL into Azure Storage blob.":::
+
+      - Click on **Save**.
  
-    **b) Configure activity to index from Azure Storage Blob**
+ 
+    ### Configure activity to index from Azure Storage Blob
      - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
        
        :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to configure a copy activity.":::
