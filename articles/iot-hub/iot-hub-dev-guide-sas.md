@@ -242,7 +242,7 @@ When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a sin
 
 Services can generate SAS tokens by using a shared access policy which defines the appropriate permissions as explained previously in [Access control and permissions](#access-control-and-permissions).
 
-As an example, a service generating using the pre-created shared access policy called **registryRead** would create a token with the following parameters:
+As an example, a service using the pre-created shared access policy called **registryRead** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net`,
 * signing key: one of the keys of the `registryRead` policy,
