@@ -83,6 +83,10 @@
     items:
     - name: DevTest Labs
       href: ../../devtest-labs/create-lab-windows-vm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Integration
+    items:
+    - name: Logic Apps
+      href: ../../logic-apps/quickstart-create-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Networking
     items:
     - name: Application Gateway
