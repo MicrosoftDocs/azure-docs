@@ -31,7 +31,7 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 * [Add or remove regions](#add-or-remove-regions)
 * [Enable multi-region writes](#enable-multiple-write-regions)
 * [Set regional failover priority](#set-failover-priority)
-* [Enable service-managed failover](#enable-automatic-failover)
+* [Enable service-managed failover](#enable-service-managed-failover)
 * [Trigger manual failover](#trigger-manual-failover)
 * [List account keys](#list-account-keys)
 * [List read-only account keys](#list-read-only-account-keys)
