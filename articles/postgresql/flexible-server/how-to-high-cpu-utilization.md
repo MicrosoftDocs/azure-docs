@@ -2,7 +2,7 @@
 title: High CPU Utilization
 description: Troubleshooting guide for high cpu utilization in Azure Database for PostgreSQL - Flexible Server
 ms.author: sbalijepalli
-author: sarat balijepalli
+author: sarat0681
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
