@@ -1,10 +1,10 @@
 items:
-- name: Translator Service Documentation
+- name: Azure Cognitive Services Translator Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Translator?
+  - name: Azure Cognitive Services Translator?
     href: translator-overview.md
   - name: Language Support
     href: language-support.md
