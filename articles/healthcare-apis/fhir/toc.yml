@@ -84,7 +84,7 @@ items:
     - name: $import
       expanded: false
       items:
-      - name: Configure bulk-import settings 
+      - name: Configure settings for bulk-import  
         href: configure-import-data.md
       - name: Use bulk-import
         href: import-data.md 
