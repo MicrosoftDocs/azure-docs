@@ -420,6 +420,9 @@ You can synchronize the contents of a local file system with a file share or syn
 > [!NOTE]
 > Currently, this scenario is supported for accounts that have enabled hierarchical namespace via the blob endpoint.
 
+> [!Warning]  
+> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync doesn't support differential copies at scale, and some file fidelity might be lost. To learn more, see [Migrate to Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools).
+
 ### Guidelines
 
 - The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination directory if those files no longer exist in the source directory.

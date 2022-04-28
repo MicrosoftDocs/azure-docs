@@ -66,7 +66,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 ## Build transformation logic in the data flow canvas
 
-You will generate two data flows in this tutorial. The fist data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
+You will generate two data flows in this tutorial. The first data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
 
 :::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="Final flow":::
 

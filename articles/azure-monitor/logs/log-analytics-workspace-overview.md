@@ -26,7 +26,7 @@ Each workspace contains multiple tables that are organized into separate columns
 ## Cost
 There is no direct cost for creating or maintaining a workspace. You're charged for the data sent to it (data ingestion) and how long that data is stored (data retention). These costs may vary based on the data plan of each table as described in [Log data plans (preview)](#log-data-plans-preview). 
 
-See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
+See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Azure Monitor best practices - Cost management](../best-practices-cost.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
 
 ## Log data plans (preview)
 By default, all tables in a workspace are **Analytics** tables, which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** to reduce the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. 
@@ -41,7 +41,7 @@ The following table summarizes the differences between the plans.
 | Category | Analytics Logs | Basic Logs |
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No additional cost. Full query language. | Additional cost. Subset of query language. |
+| Log queries | No additional cost. Full query capabilities. | Additional cost. [Subset of query capabilities](basic-logs-query.md#limitations). |
 | Retention |  Configure retention from 30 days to 730 days. | Retention fixed at 8 days. |
 | Alerts | Supported. | Not supported. |
 

@@ -40,6 +40,8 @@
       href: how-tos/test-automation.md
     - name: 'How to: Delete a Fluid container'
       href: how-tos/container-deletion.md
+    - name: 'How to: Validate a User Created a Document'
+      href: how-tos/validate-document-creator.md
 - name: Reference
   items:
     - name: API documentation

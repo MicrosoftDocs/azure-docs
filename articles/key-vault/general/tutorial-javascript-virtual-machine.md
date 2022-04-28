@@ -79,7 +79,7 @@ Note the value of `publicIpAddress` in the output.
 
 ## Assign an identity to the VM
 
-Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) command:
+Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

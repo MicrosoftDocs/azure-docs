@@ -574,7 +574,7 @@ az sql db create \
     --tier Hyperscale \
     --backup-storage-redundancy Zone
 ```
-For more information, see [az sql db create](/cli/azure/sql/db#az_sql_db_create) and [az sql db update](/cli/azure/sql/db#az_sql_db_update).
+For more information, see [az sql db create](/cli/azure/sql/db#az-sql-db-create) and [az sql db update](/cli/azure/sql/db#az-sql-db-update).
 
 Except for Hyperscale and Basic tier databases, you can update the backup storage redundancy setting for an existing database with the `--backup-storage-redundancy` parameter and the `az sql db update` command. It may take up to 48 hours for the changes to be applied on the database. Switching from geo-redundant backup storage to local or zone redundant storage disables geo-restore.
 
@@ -603,7 +603,7 @@ az sql db copy \
     --backup-storage-redundancy Zone
 ```
 
-For syntax details, see [az sql db copy](/cli/azure/sql/db#az_sql_db_copy). For an overview of database copy, visit [Copy a transactionally consistent copy of a database in Azure SQL Database](database-copy.md).
+For syntax details, see [az sql db copy](/cli/azure/sql/db#az-sql-db-copy). For an overview of database copy, visit [Copy a transactionally consistent copy of a database in Azure SQL Database](database-copy.md).
 
 #### [SQL Managed Instance](#tab/managed-instance)
 

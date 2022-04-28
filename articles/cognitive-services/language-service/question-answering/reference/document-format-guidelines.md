@@ -61,7 +61,8 @@ Below is an example of an unstructured PDF document:
 > [!div class="mx-imgBorder"]
 > ![Unstructured  document example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
 
- Currently this functionality is available only via document upload and only for PDF and DOC file formats.
+> [!NOTE]
+> QnA pairs are not extracted in the "Edit sources" tab for unstructured sources.
 
 > [!IMPORTANT]
 > Support for unstructured file/content is available only in question answering.

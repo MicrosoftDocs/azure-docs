@@ -18,15 +18,11 @@ ms.custom: mvc, devx-track-azurecli
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
 ## Limitations
-
-> [!IMPORTANT]
-> Managed identity-authenticated container image pulls from ACR are not supported in Canada Central, South India, and West Central US at this time.  
-
-* Virtual Network injected container groups don't support managed identity authentication image pulls with ACR.
+* Container groups running in Azure Virtual Networks don't support managed identity authentication image pulls with ACR.
 
 * Windows containers don't support managed identity-authenticated image pulls with ACR.
 
-* Container groups don't support pulling images from an Azure Container Registry using [private DNS zones][private-dns-zones].
+* The Azure container registry must have [Public Access set to either 'Select networks' or 'None'](../container-registry/container-registry-access-selected-networks.md). To set the Azure container registry's Public Access to 'All networks', visit ACI's article on [how to authenticate with ACR with service principal based authentication](container-instances-using-azure-container-registry.md).
 
 ## Configure registry authentication
 
@@ -180,8 +176,8 @@ az group delete --name myResourceGroup
 <!-- Links Internal -->
 
 [use-service-principal]: ./container-instances-using-azure-container-registry.md
-[az-identity-show]: /cli/azure/identity#az_identity_show
-[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-identity-create]: /cli/azure/identity#az-identity-create
 [acr-overview]: ../container-registry/container-registry-intro.md
 [acr-get-started]: ../container-registry/container-registry-get-started-azure-cli.md
 [private-dns-zones]: ../dns/private-dns-privatednszone.md

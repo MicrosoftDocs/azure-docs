@@ -7,32 +7,64 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: AlainDormehlMSFT
-ms.author: aldorme
+author: dimitri-furman 
+ms.author: dfurman
 ms.reviewer: kendralittle, mathoma, urmilano, wiassaf
-ms.date: 03/17/2021
+ms.date: 04/14/2022
 ---
 # Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-To monitor the performance of a database in Azure SQL Database and Azure SQL Managed Instance, start by monitoring the CPU and IO resources used by your workload relative to the level of database performance you chose in selecting a particular service tier and performance level. To accomplish this, Azure SQL Database and Azure SQL Managed Instance emit resource metrics that can be viewed in the Azure portal or by using one of these SQL Server management tools: [Azure Data Studio](/sql/azure-data-studio/what-is) or [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+To monitor the performance of a database in Azure SQL Database and Azure SQL Managed Instance, start by monitoring the CPU and IO resources used by your workload relative to the level of database performance you chose in selecting a particular service tier and performance level. To accomplish this, Azure SQL Database and Azure SQL Managed Instance emit resource metrics that can be viewed in the Azure portal or by using one of these SQL Server management tools: 
+ - [Azure Data Studio](/sql/azure-data-studio/what-is), based on [Visual Studio Code](https://code.visualstudio.com/).
+ - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS), based on [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/).
 
-Azure SQL Database provides a number of Database Advisors to provide intelligent performance tuning recommendations and automatic tuning options to improve performance. Additionally, Query Performance Insight shows you details about the queries responsible for the most CPU and IO usage for single and pooled databases.
+| Monitoring solution | SQL Database | SQL Managed Instance | Requires agent on a customer-owned VM |  
+|:--|:--|:--| 
+| [Query Performance Insight](#generate-intelligent-assessments-of-performance-issues) | **Yes** | No | No |
+| [Monitor using DMVs](monitoring-with-dmvs.md) | **Yes** | **Yes** | No |
+| [Monitor using query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)  | **Yes** | **Yes** | No |
+| [SQL Insights (preview)](../../azure-monitor/insights/sql-insights-overview.md) in [Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) | **Yes** |  **Yes** | **Yes** | 
+| [Azure SQL Analytics (preview)](../../azure-monitor/insights/azure-sql.md) using [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) \* | **Yes** | **Yes** | No |
 
-Azure SQL Database and Azure SQL Managed Instance provide advanced monitoring and tuning capabilities backed by artificial intelligence to assist you in troubleshooting and maximizing the performance of your databases and solutions. You can choose to configure the [streaming export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) of these [Intelligent Insights](intelligent-insights-overview.md) and other database resource logs and metrics to one of several destinations for consumption and analysis, particularly using [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of all of your databases at scale and across multiple subscriptions in a single view. For a list of the logs and metrics that you can export, see [diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
+\* For solutions requiring low latency monitoring, Azure SQL Analytics (preview) is not recommended.
 
-SQL Server has its own monitoring and diagnostic capabilities that SQL Database and SQL Managed Instance leverage, such as [query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) and [dynamic management views (DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). See [Monitoring using DMVs](monitoring-with-dmvs.md) for scripts to monitor for a variety of performance issues.
+## Database advisors in the Azure portal 
 
-## Monitoring and tuning capabilities in the Azure portal
+Azure SQL Database provides a number of Database Advisors to provide intelligent performance tuning recommendations and automatic tuning options to improve performance. 
+
+Additionally, the [Query Performance Insight](query-performance-insight-use.md) page shows you details about the queries responsible for the most CPU and IO usage for single and pooled databases. 
+
+ - Query Performance Insight is available in the Azure portal in the Overview pane of your Azure SQL Database under "Intelligent Performance". Use the automatically collected information to identify queries and begin optimizing your workload performance. 
+ - You can also configure [automatic tuning](automatic-tuning-overview.md) to implement these recommendations automatically, such as forcing a query execution plan to prevent regression, or creating and dropping nonclustered indexes based on workload patterns. Automatic tuning also is available in the Azure portal in the Overview pane of your Azure SQL Database under "Intelligent Performance".
+
+Azure SQL Database and Azure SQL Managed Instance provide advanced monitoring and tuning capabilities backed by artificial intelligence to assist you in troubleshooting and maximizing the performance of your databases and solutions. You can choose to configure the [streaming export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export) of these [Intelligent Insights](intelligent-insights-overview.md) and other database resource logs and metrics to one of several destinations for consumption and analysis. 
+
+Outside of the Azure portal, the database engine has its own monitoring and diagnostic capabilities that Azure SQL Database and SQL Managed Instance leverage, such as [query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) and [dynamic management views (DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). See [Monitoring using DMVs](monitoring-with-dmvs.md) for scripts to monitor for a variety of performance issues in Azure SQL Database and Azure SQL Managed Instance.
+
+### Azure SQL Insights (preview) and Azure SQL Analytics (preview)
+
+Both offerings use different pipelines to present data to a variety of endpoints for coming Azure SQL Database metrics. 
+
+- [Azure SQL Insights (preview)](../../azure-monitor/insights/sql-insights-overview.md) is project inside Azure Monitor that can provide advanced insights into Azure SQL database activity. It is deployed via a customer-managed VM using Telegraf as a collection agent that connects to SQL sources, collects data, and moves data into Log Analytics.
+
+- [Azure SQL Analytics (preview)](../../azure-monitor/insights/azure-sql.md) also requires Log Analytics to provide advanced insights into Azure SQL database activity.
+
+- Azure diagnostic telemetry is a separate, streaming source of data for Azure SQL Database and Azure SQL Managed Instance. Not to be confused with the Azure SQL Insights (preview) product, SQLInsights is a log inside Intelligent Insights, and is one of several packages of telemetry emitted by Azure diagnostic settings. Diagnostic settings are a feature that contains Resource Log categories (formerly known as Diagnostic Logs). For more information, see [Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#diagnostic-telemetry-for-export).
+    - Azure SQL Analytics (preview) consumes the resource logs coming from the diagnostic telemetry (configurable under **Diagnostic Settings** in the Azure portal), while Azure SQL Insights (preview) uses a different pipeline to collect Azure SQL telemetry.
+
+### Monitoring and diagnostic telemetry
+
+The following diagram details all the database engine, platform metrics, resource logs, and Azure activity logs generated by Azure SQL products, how they are processed, and how they can be surfaced for analysis.
+
+:::image type="content" source="media/monitor-tune-overview/azure-sql-insights-horizontal-analytics-full-diagram.svg" alt-text="Diagram showing complete logging and diagnostic information paths for Azure SQL products.":::
+
+## Monitor and tune Azure SQL in the Azure portal
 
 In the Azure portal, Azure SQL Database and Azure SQL Managed Instance provide monitoring of resource metrics. Azure SQL Database provides database advisors, and Query Performance Insight provides query tuning recommendations and query performance analysis. In the Azure portal, you can enable automatic tuning for [logical SQL servers](logical-servers.md) and their single and pooled databases.
 
 > [!NOTE]
 > Databases with extremely low usage may show in the portal with less than actual usage. Due to the way telemetry is emitted when converting a double value to the nearest integer certain usage amounts less than 0.5 will be rounded to 0 which causes a loss in granularity of the emitted telemetry. For details, see [Low database and elastic pool metrics rounding to zero](#low-database-and-elastic-pool-metrics-rounding-to-zero).
-
-### Monitor with SQL insights
-
-[Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md) is a tool for monitoring Azure SQL managed instances, Azure SQL databases, and SQL Server instances in Azure SQL VMs. This service uses a remote agent to capture data from dynamic management views (DMVs) and routes the data to Azure Log Analytics, where it can be monitored and analyzed. You can view this data from [Azure Monitor](../../azure-monitor/overview.md) in provided views, or access the Log data directly to run queries and analyze trends. To start using Azure Monitor SQL insights, see [Enable SQL insights](../../azure-monitor/insights/sql-insights-enable.md).
 
 ### Azure SQL Database and Azure SQL Managed Instance resource monitoring
 
@@ -77,7 +109,7 @@ Affected elastic pool metrics:
 
 ## Generate intelligent assessments of performance issues
 
-[Intelligent Insights](intelligent-insights-overview.md) for Azure SQL Database and Azure SQL Managed Instance uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Intelligent Insights automatically detects performance issues with databases based on query execution wait times, errors, or time-outs. Once detected, a detailed analysis is performed that generates a resource log (called SQLInsights) with an [intelligent assessment of the issues](intelligent-insights-troubleshoot-performance.md). This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
+[Intelligent Insights](intelligent-insights-overview.md) for Azure SQL Database and Azure SQL Managed Instance uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Intelligent Insights automatically detects performance issues with databases based on query execution wait times, errors, or time-outs. Once detected, a detailed analysis is performed by Intelligent Insights that generates a resource log called SQLInsights (unrelated to the [Azure Monitor SQL Insights (preview)](../../azure-sql/database/monitoring-sql-database-azure-monitor.md)). SQLInsights is an [intelligent assessment of the issues](intelligent-insights-troubleshoot-performance.md). This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
 
 Intelligent Insights is a unique capability of Azure built-in intelligence that provides the following value:
 
@@ -91,13 +123,16 @@ Intelligent Insights is a unique capability of Azure built-in intelligence that 
 
 ## Enable the streaming export of metrics and resource logs
 
-You can enable and configure the [streaming export of diagnostic telemetry](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) to one of several destinations, including the Intelligent Insights resource log. Use [SQL Analytics](../../azure-monitor/insights/azure-sql.md) and other capabilities to consume this additional diagnostic telemetry to identify and resolve performance problems.
+You can enable and configure the [streaming export of diagnostic telemetry](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export) to one of several destinations, including the Intelligent Insights resource log.
 
 You configure diagnostic settings to stream categories of metrics and resource logs for single databases, pooled databases, elastic pools, managed instances, and instance databases to one of the following Azure resources.
 
 ### Log Analytics workspace in Azure Monitor
 
-You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Data streamed here can be consumed by [SQL Analytics](../../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
+You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Data streamed here can be consumed by [SQL Analytics (preview)](../../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
+
+> [!NOTE]
+> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. [Monitor your SQL deployments with SQL Insights (preview)](../../azure-monitor/insights/sql-insights-overview.md).
 
 ### Azure Event Hubs
 
@@ -117,11 +152,12 @@ You can stream metrics and resource logs to [Azure Event Hubs](../../azure-monit
 
 Stream metrics and resource logs to [Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Use Azure storage to archive vast amounts of diagnostic telemetry for a fraction of the cost of the previous two streaming options.
 
-## Use extended events 
+## Use Extended Events 
 
-Additionally, you can use [extended events](/sql/relational-databases/extended-events/extended-events) in SQL Server for advanced monitoring and troubleshooting. The extended events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. For information about using extended events in Azure SQL Database, see [Extended events in Azure SQL Database](xevent-db-diff-from-svr.md).
+Additionally, you can use [Extended Events](/sql/relational-databases/extended-events/extended-events) for advanced monitoring and troubleshooting in SQL Server, Azure SQL Database, and Azure SQL Managed Instance. Extended Events is a "tracing" tool and event architecture, superior to SQL Trace, that enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem, while mitigating impact to ongoing application performance. Extended Events replace deprecated SQL Trace and SQL Server Profiler features. For information about using extended events in Azure SQL Database, see [Extended events in Azure SQL Database](xevent-db-diff-from-svr.md). In Azure SQL Database and SQL Managed Instance, use an [Event File target hosted in Azure Blob Storage](xevent-code-event-file.md).
 
 ## Next steps
 
 - For more information about intelligent performance recommendations for single and pooled databases, see [Database advisor performance recommendations](database-advisor-implement-performance-recommendations.md).
 - For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](intelligent-insights-overview.md).
+- [Monitor your SQL deployments with SQL Insights (preview)](../../azure-monitor/insights/sql-insights-overview.md)

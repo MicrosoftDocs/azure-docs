@@ -118,7 +118,7 @@ When you're done with the container, remove it using the [az container delete][a
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az_container_list) command:
+To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az-container-list) command:
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table

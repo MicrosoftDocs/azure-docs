@@ -7,10 +7,10 @@ ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: DavidTrigano
-ms.author: datrigan
+author: Madhumitatripathy
+ms.author: matripathy
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 09/12/2021
+ms.date: 04/05/2022
 tags: azure-synpase
 ---
 # Dynamic data masking 
@@ -98,6 +98,166 @@ Write:
 -	Microsoft.Sql/servers/databases/dataMaskingPolicies/write
 
 To learn more about permissions when using dynamic data masking with T-SQL command, see [Permissions](/sql/relational-databases/security/dynamic-data-masking#permissions)
+
+## Granular permission example
+
+Prevent unauthorized access to sensitive data and gain control by masking it to an unauthorized user at different levels of the database. You can grant or revoke UNMASK permission at the database-level, schema-level, table-level or at the column-level to a user. Using UNMASK permission provides a more granular way to control and limit unauthorized access to data stored in the database and improve data security management.
+
+1. Create schema to contain user tables
+
+   ```sql
+   CREATE SCHEMA Data; 
+   GO 
+   ```
+
+1. Create table with masked columns
+
+   ```sql
+   CREATE TABLE Data.Membership (
+     MemberID int IDENTITY(1,1) NOT NULL PRIMARY KEY CLUSTERED,
+     FirstName varchar(100) MASKED WITH (FUNCTION = 'partial(1, "xxxxx", 1)') NULL,
+     LastName varchar(100) NOT NULL,
+     Phone varchar(12) MASKED WITH (FUNCTION = 'default()') NULL,
+     Email varchar(100) MASKED WITH (FUNCTION = 'email()') NOT NULL,
+     DiscountCode smallint MASKED WITH (FUNCTION = 'random(1, 100)') NULL,
+     BirthDay datetime MASKED WITH (FUNCTION = 'default()') NULL
+   ); 
+   ```
+
+1. Insert sample data
+
+   ```sql
+   INSERT INTO Data.Membership (FirstName, LastName, Phone, Email, DiscountCode, BirthDay) 
+   VALUES    
+   ('Roberto', 'Tamburello', '555.123.4567', 'RTamburello@contoso.com', 10, '1985-01-25 03:25:05'),   
+   ('Janice', 'Galvin', '555.123.4568', 'JGalvin@contoso.com.co', 5,'1990-05-14 11:30:00'),   
+   ('Shakti', 'Menon', '555.123.4570', 'SMenon@contoso.net', 50,'2004-02-29 14:20:10'),   
+   ('Zheng', 'Mu', '555.123.4569', 'ZMu@contoso.net', 40,'1990-03-01 06:00:00'); 
+   ```
+
+1. Create schema to contain service tables
+
+   ```sql
+   CREATE SCHEMA Service; 
+   GO 
+   ```
+
+1. Create service table with masked columns
+
+   ```sql
+   CREATE TABLE Service.Feedback ( 
+       MemberID int IDENTITY(1,1) NOT NULL PRIMARY KEY CLUSTERED, 
+       Feedback varchar(100) MASKED WITH (FUNCTION = 'default()') NULL, 
+       Rating int MASKED WITH (FUNCTION='default()'), 
+       Received_On datetime) 
+       );
+   ```
+
+1. Insert sample data
+
+   ```sql
+   INSERT INTO Service.Feedback(Feedback,Rating,Received_On)
+   VALUES  
+   ('Good',4,'2022-01-25 11:25:05'),   
+   ('Excellent', 5, '2021-12-22 08:10:07'),   
+   ('Average', 3, '2021-09-15 09:00:00'); 
+   ```
+
+1. Create different users in the database
+
+   ```sql
+   CREATE USER ServiceAttendant WITHOUT LOGIN;  
+   GO
+   
+   CREATE USER ServiceLead WITHOUT LOGIN;  
+   GO
+   
+   CREATE USER ServiceManager WITHOUT LOGIN;  
+   GO  
+   
+   CREATE USER ServiceHead WITHOUT LOGIN;  
+   GO
+   ```
+
+1. Grant read permissions to the users in the database 
+
+   ```sql
+   ALTER ROLE db_datareader ADD MEMBER ServiceAttendant; 
+   
+   ALTER ROLE db_datareader ADD MEMBER ServiceLead; 
+   
+   ALTER ROLE db_datareader ADD MEMBER ServiceManager; 
+   
+   ALTER ROLE db_datareader ADD MEMBER ServiceHead; 
+   ```
+
+1. Grant different UNMASK permissions to users
+
+   ```sql
+   --Grant column level UNMASK permission to ServiceAttendant  
+   GRANT UNMASK ON Data.Membership(FirstName) TO ServiceAttendant;  
+   
+   -- Grant table level UNMASK permission to ServiceLead  
+   GRANT UNMASK ON Data.Membership TO ServiceLead;  
+   
+   -- Grant schema level UNMASK permission to ServiceManager  
+   GRANT UNMASK ON SCHEMA::Data TO ServiceManager;  
+   GRANT UNMASK ON SCHEMA::Service TO ServiceManager;  
+   
+   --Grant database level UNMASK permission to ServiceHead;  
+   GRANT UNMASK TO ServiceHead;
+   ```
+
+1. Query the data under the context of user `ServiceAttendant`
+
+   ```sql
+   EXECUTE AS USER='ServiceAttendant';  
+   SELECT MemberID,FirstName,LastName,Phone,Email,BirthDay FROM Data.   Membership;  
+   SELECT MemberID,Feedback,Rating FROM Service.Feedback;  
+   REVERT; 
+   ```
+
+1. Query the data under the context of user `ServiceLead`  
+
+   ```sql
+   EXECUTE AS USER='ServiceLead';  
+   SELECT MemberID,FirstName,LastName,Phone,Email,BirthDay FROM Data.   Membership;  
+   SELECT MemberID,Feedback,Rating FROM Service.Feedback;  
+   REVERT; 
+   ```
+ 
+1. Query the data under the context of user `ServiceManager`  
+
+   ```sql
+   EXECUTE AS USER='ServiceManager';  
+   SELECT MemberID,FirstName,LastName,Phone,Email FROM Data.Membership;  
+   SELECT MemberID,Feedback,Rating FROM Service.Feedback;  
+   REVERT; 
+   ```
+ 
+1. Query the data under the context of user `ServiceHead` 
+
+   ```sql
+   EXECUTE AS USER='ServiceHead';  
+   SELECT MemberID,FirstName,LastName,Phone,Email,BirthDay FROM Data.Membership;  
+   SELECT MemberID,Feedback,Rating FROM Service.Feedback;  
+   REVERT;  
+   ```
+ 
+
+1. To revoke UNMASK permissions, use the following T-SQL statements:
+
+   ```sql
+   REVOKE UNMASK ON Data.Membership(FirstName) FROM ServiceAttendant; 
+   
+   REVOKE UNMASK ON Data.Membership FROM ServiceLead; 
+   
+   REVOKE UNMASK ON SCHEMA::Data FROM ServiceManager; 
+   
+   REVOKE UNMASK ON SCHEMA::Service FROM ServiceManager; 
+   
+   REVOKE UNMASK FROM ServiceHead; 
+   ```
 
 ## See also
 

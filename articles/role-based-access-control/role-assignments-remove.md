@@ -75,7 +75,7 @@ If you get the error message: "The provided information does not map to a role a
 
 ## Azure CLI
 
-In Azure CLI, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete).
+In Azure CLI, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete).
 
 The following example removes the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role assignment from the *patlong\@contoso.com* user on the *pharma-sales* resource group:
 

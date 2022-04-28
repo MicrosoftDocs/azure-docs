@@ -30,10 +30,13 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
 | North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Norway East | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/v1` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sweden Central | `https://swedencentral.tts.speech.microsoft.com/cognitiveservices/v1`|
 | Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/v1`|
 | Switzerland West | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/v1`|
+| UAE North | `https://uaenorth.tts.speech.microsoft.com/cognitiveservices/v1`|
 | US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/v1`|
 | US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/v1`|
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -41,6 +44,7 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West US 3 | `https://westus3.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > [Voices in preview](../language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
@@ -55,7 +59,6 @@ If you've created a custom neural voice font, use the endpoint that you've creat
 | Brazil South | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Canada Central | `https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Central US | `https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| China East 2 | `https://chinaeast2.voice.speech.azure.cn/cognitiveservices/v1?deploymentId={deploymentId}` |
 | East Asia | `https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | East US | `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | East US 2 | `https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
@@ -68,16 +71,19 @@ If you've created a custom neural voice font, use the endpoint that you've creat
 | Korea Central | `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | North Central US | `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | North Europe | `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Norway East| `https://norwayeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | South Africa North | `https://southafricanorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | South Central US | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Southeast Asia | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Switzerland North | `https://switzerlandnorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Switzerland West | `https://switzerlandwest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| UAE North | `https://uaenorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}`|
 | UK South | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West Central US | `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West Europe | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| West US 3 | `https://westus3.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
 > [!NOTE]
 > The preceding regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is available in only these three regions: East US, Southeast Asia, and UK South. But users can easily copy a neural voice model from the three regions to other regions in the preceding list.

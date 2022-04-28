@@ -1,6 +1,6 @@
 ---
 title: 'Check data source readiness at scale'
-description: In this tutorial, you'll verify the readiness of your Azure data sources before you register and scan them in Azure Purview. 
+description: In this tutorial, you'll verify the readiness of your Azure data sources before you register and scan them in Microsoft Purview. 
 author: zeinam
 ms.author: zeinam
 ms.service: purview
@@ -11,14 +11,14 @@ ms.date: 09/27/2021
 ---
 # Tutorial: Check data source readiness at scale
 
-To scan data sources, Azure Purview requires access to them. It uses credentials to obtain this access. A *credential* is the authentication information that Azure Purview can use to authenticate to your registered data sources. There are a few ways to set up the credentials for Azure Purview, including: 
-- The managed identity assigned to the Azure Purview account.
+To scan data sources, Microsoft Purview requires access to them. It uses credentials to obtain this access. A *credential* is the authentication information that Microsoft Purview can use to authenticate to your registered data sources. There are a few ways to set up the credentials for Microsoft Purview, including: 
+- The managed identity assigned to the Microsoft Purview account.
 - Secrets stored in Azure Key Vault. 
 - Service principals.
 
-In this two-part tutorial series, we'll help you verify and configure required Azure role assignments and network access for various Azure data sources across your Azure subscriptions at scale. You can then register and scan your Azure data sources in Azure Purview. 
+In this two-part tutorial series, we'll help you verify and configure required Azure role assignments and network access for various Azure data sources across your Azure subscriptions at scale. You can then register and scan your Azure data sources in Microsoft Purview. 
 
-Run the [Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script after you deploy your Azure Purview account and before you register and scan your Azure data sources. 
+Run the [Microsoft Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script after you deploy your Microsoft Purview account and before you register and scan your Azure data sources. 
 
 In part 1 of this tutorial series, you'll:
 
@@ -26,19 +26,19 @@ In part 1 of this tutorial series, you'll:
 >
 > * Locate your data sources and prepare a list of data source subscriptions.
 > * Run the readiness checklist script to find any missing role-based access control (RBAC) or network configurations across your data sources in Azure.
-> * In the output report, review missing network configurations and role assignments required by Azure Purview Managed Identity (MSI). 
+> * In the output report, review missing network configurations and role assignments required by Microsoft Purview Managed Identity (MSI). 
 > * Share the report with data Azure subscription owners so they can take suggested actions.
 
 ## Prerequisites
 
 * Azure subscriptions where your data sources are located. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* An [Azure Purview account](create-catalog-portal.md).
+* A [Microsoft Purview account](create-catalog-portal.md).
 * An Azure Key Vault resource in each subscription that has data sources like Azure SQL Database, Azure Synapse Analytics, or Azure SQL Managed Instance.
-* The [Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script.
+* The [Microsoft Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script.
 
 > [!NOTE]
-> The Azure Purview data sources readiness checklist is available only for Windows.
-> This readiness checklist script is currently supported for Azure Purview MSI.
+> The Microsoft Purview data sources readiness checklist is available only for Windows.
+> This readiness checklist script is currently supported for Microsoft Purview MSI.
 
 ## Prepare Azure subscriptions list for data sources
 
@@ -65,7 +65,7 @@ Before running the script, create a .csv file (for example, C:\temp\Subscription
 
 Follow these steps to run the script from your Windows computer:
 
-1. [Download the Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script to the location of your choice.
+1. [Download the Microsoft Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script to the location of your choice.
 
 2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, select and hold (or right-click) **Windows PowerShell** and then select **Run as administrator**.
 
@@ -109,9 +109,9 @@ Before you run the PowerShell script to verify the readiness of data source subs
     
     - `All`
 
-- `PurviewAccount`: Your existing Azure Purview account resource name.
+- `PurviewAccount`: Your existing Microsoft Purview account resource name.
 
-- `PurviewSub`: Subscription ID where the Azure Purview account is deployed.
+- `PurviewSub`: Subscription ID where the Microsoft Purview account is deployed.
 
 ## Verify your permissions
 
@@ -121,7 +121,7 @@ Role or permission | Scope |
 |-------|--------|
 | **Global Reader** | Azure AD tenant |
 | **Reader** | Azure subscriptions where your Azure data sources are located |
-| **Reader** | Subscription where your Azure Purview account was created |
+| **Reader** | Subscription where your Microsoft Purview account was created |
 | **SQL Admin** (Azure AD Authentication) | Azure Synapse dedicated pools, Azure SQL Database instances, Azure SQL managed instances |
 | Access to your Azure key vault | Access to get/list key vault's secret or Azure Key Vault secret user |  
 
@@ -175,22 +175,22 @@ You can choose all or any of these data sources as the input parameter when you 
 
 #### Azure Blob Storage (BlobStorage)
 
-- RBAC. Check whether Azure Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
-- RBAC. Check whether Azure Purview MSI is assigned the **Reader** role on the selected scope.
+- RBAC. Check whether Microsoft Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
+- RBAC. Check whether Microsoft Purview MSI is assigned the **Reader** role on the selected scope.
 - Service endpoint. Check whether service endpoint is on, and check whether **Allow trusted Microsoft services to access this storage account** is enabled.
 - Networking: Check whether private endpoint is created for storage and enabled for Blob Storage.
 
 #### Azure Data Lake Storage Gen2 (ADLSGen2)
 
-- RBAC. Check whether Azure Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
-- RBAC. Check whether Azure Purview MSI is assigned the **Reader** role on the selected scope.
+- RBAC. Check whether Microsoft Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
+- RBAC. Check whether Microsoft Purview MSI is assigned the **Reader** role on the selected scope.
 - Service endpoint. Check whether service endpoint is on, and check whether **Allow trusted Microsoft services to access this storage account** is enabled.
 - Networking: Check whether private endpoint is created for storage and enabled for Blob Storage.
 
 #### Azure Data Lake Storage Gen1 (ADLSGen1)
 
 - Networking. Check whether service endpoint is on, and check whether **Allow all Azure services to access this Data Lake Storage Gen1 account** is enabled.
-- Permissions. Check whether Azure Purview MSI has Read/Execute permissions.
+- Permissions. Check whether Microsoft Purview MSI has Read/Execute permissions.
 
 #### Azure SQL Database (AzureSQLDB)
 
@@ -201,7 +201,7 @@ You can choose all or any of these data sources as the input parameter when you 
   - Azure AD administration. Populate the Azure SQL Server Azure AD admin user or group.
 
 - SQL databases:
-  - SQL role. Check whether Azure Purview MSI is assigned the **db_datareader** role.
+  - SQL role. Check whether Microsoft Purview MSI is assigned the **db_datareader** role.
 
 #### Azure SQL Managed Instance (AzureSQLMI)
 
@@ -216,12 +216,12 @@ You can choose all or any of these data sources as the input parameter when you 
   - Azure AD administration. Populate the Azure SQL Server Azure AD admin user or group.
 
 - SQL databases:
-  - SQL role. Check whether Azure Purview MSI is assigned the **db_datareader** role.
+  - SQL role. Check whether Microsoft Purview MSI is assigned the **db_datareader** role.
 
 #### Azure Synapse (Synapse) dedicated pool
 
-- RBAC. Check whether Azure Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
-- RBAC. Check whether Azure Purview MSI is assigned the **Reader** role on the selected scope.
+- RBAC. Check whether Microsoft Purview MSI is assigned the **Storage Blob Data Reader** role in each of the subscriptions below the selected scope.
+- RBAC. Check whether Microsoft Purview MSI is assigned the **Reader** role on the selected scope.
 - SQL Server instances (dedicated pools):
   - Network: Check whether public endpoint or private endpoint is enabled.
   - Firewall: Check whether **Allow Azure services and resources to access this server** is enabled.
@@ -229,16 +229,16 @@ You can choose all or any of these data sources as the input parameter when you 
   - Azure AD administration: Populate the Azure SQL Server Azure AD admin user or group.
 
 - SQL databases:
-  - SQL role. Check whether Azure Purview MSI is assigned the **db_datareader** role.
+  - SQL role. Check whether Microsoft Purview MSI is assigned the **db_datareader** role.
 
 ## Next steps
 
 In this tutorial, you learned how to:
 > [!div class="checklist"]
 >
-> * Run the Azure Purview readiness checklist to check, at scale, whether your Azure subscriptions are missing configuration, before you register and scan them in Azure Purview.
+> * Run the Microsoft Purview readiness checklist to check, at scale, whether your Azure subscriptions are missing configuration, before you register and scan them in Microsoft Purview.
 
-Go to the next tutorial to learn how to identify the required access and set up required authentication and network rules for Azure Purview across Azure data sources:
+Go to the next tutorial to learn how to identify the required access and set up required authentication and network rules for Microsoft Purview across Azure data sources:
 
 > [!div class="nextstepaction"]
-> [Configure access to data sources for Azure Purview MSI at scale](tutorial-msi-configuration.md)
+> [Configure access to data sources for Microsoft Purview MSI at scale](tutorial-msi-configuration.md)
