@@ -79,26 +79,17 @@ landingContent:
             url: document-translation/managed-identity.md
 
   # Card 4
-  - title: Features and quickstarts
+  - title: Resources
     linkLists:
-      - linkListType: concept
+      - linkListType: reference
         links:
-          - text: Text Translation
-            url: text-translation-overview.md
-          - text: Document Translation
-            url:  document-translation/overview.md
-          - text: Custom Translator
-            url: custom-translator/overview.md
-      - linkListType: get-started
-        links:
-          - text: Translator Text quickstart
-            url: quickstart-translator.md
-          - text: Document Translation quickstart
-            url: document-translation/get-started-with-document-translation.md
-          - text: Custom Translator (preview)
-            url: custom-translator/v2-preview/quickstart.md
-          - text: Custom Translator (legacy)
-            url: custom-translator/quickstart-build-deploy-custom-model.md
+          - text: Translator in sovereign clouds
+            url: sovereign-clouds.md
+          - text: Text translation code samples on GitHub
+            url: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
+          - text: Compliance and certification
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-translator
 
   # Card 5
   - title: Custom Translator (preview)
@@ -129,6 +120,29 @@ landingContent:
             url: custom-translator/v2-preview/how-to/translate-with-custom-model.md
 
   # Card 6
+  - title: Features and quickstarts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Text Translation
+            url: text-translation-overview.md
+          - text: Document Translation
+            url:  document-translation/overview.md
+          - text: Custom Translator
+            url: custom-translator/overview.md
+      - linkListType: get-started
+        links:
+          - text: Translator Text quickstart
+            url: quickstart-translator.md
+          - text: Document Translation quickstart
+            url: document-translation/get-started-with-document-translation.md
+          - text: Custom Translator (preview)
+            url: custom-translator/v2-preview/quickstart.md
+          - text: Custom Translator (legacy)
+            url: custom-translator/quickstart-build-deploy-custom-model.md
+
+
+  # Card 7
   - title: Help and support
     linkLists:
       - linkListType: reference
@@ -140,16 +154,3 @@ landingContent:
           - text: Confidentiality
             url: https://www.microsoft.com/translator/business/notrace/
   
-  # Card 7
-  - title: Resources
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Translator in sovereign clouds
-            url: sovereign-clouds.md
-          - text: Text translation code samples on GitHub
-            url: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
-          - text: Compliance and certification
-            url: https://www.microsoft.com/translator/business/notrace/
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-translator
