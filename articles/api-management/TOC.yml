@@ -115,6 +115,8 @@
               href: api-management-role-based-access-control.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
+            - name: Send events to Event Grid
+              href: how-to-event-grid.md
             - name: Move instances between regions
               href: api-management-howto-migrate.md
             - name: Recover a deleted instance                
@@ -168,7 +170,7 @@
                   href: how-to-configure-local-metrics-logs.md
       - name: Define and manage APIs
         items:
-          - name: Define APIs
+          - name: Create APIs
             items:
                 - name: Add an API manually
                   href: add-api-manually.md
@@ -198,7 +200,7 @@
                   href: how-to-server-sent-events.md
                 - name: API import restrictions
                   href: api-management-api-import-restrictions.md
-          - name: Manage APIs
+          - name: Define APIs
             items:
                 - name: Edit an API
                   href: edit-api.md
@@ -239,35 +241,25 @@
                 - name: Manage secrets using named values
                   displayName: Azure CLI, az apim nv
                   href: api-management-howto-properties.md
-          - name: Secure your APIs
+      - name: Secure your APIs
+        items:
+          - name: Secure API access
             items:
-              - name: Secure API access
-                items:
-                - name: Protect your API with Azure AD
-                  href: api-management-howto-protect-backend-with-aad.md
-                - name: Protect your API with Azure AD B2C
-                  href: howto-protect-backend-frontend-azure-ad-b2c.md
-                - name: Secure APIs using client certificate authentication
-                  href: api-management-howto-mutual-certificates-for-clients.md
-                - name: Manage CA certificates
-                  href: api-management-howto-ca-certificates.md
-                - name: Manage protocols and ciphers
-                  href: api-management-howto-manage-protocols-ciphers.md
-              - name: Set up backend authentication
-                items:
-                - name: Mutual certificate authentication
-                  href: api-management-howto-mutual-certificates.md
-          - name: Monitor APIs
+            - name: Protect your API with Azure AD
+              href: api-management-howto-protect-backend-with-aad.md
+            - name: Protect your API with Azure AD B2C
+              href: howto-protect-backend-frontend-azure-ad-b2c.md
+            - name: Secure APIs using client certificate authentication
+              href: api-management-howto-mutual-certificates-for-clients.md
+            - name: Manage CA certificates
+              href: api-management-howto-ca-certificates.md
+            - name: Manage protocols and ciphers
+              href: api-management-howto-manage-protocols-ciphers.md
+          - name: Set up backend authentication
             items:
-            - name: Get API analytics
-              href: howto-use-analytics.md
-            - name: Log events to Azure Event Hubs
-              href: api-management-howto-log-event-hubs.md
-            - name: Send events to Event Grid
-              href: how-to-event-grid.md
-            - name: Log requests with Azure Application Insights
-              href: api-management-howto-app-insights.md        
-      - name: Manage developer experience
+            - name: Mutual certificate authentication
+              href: api-management-howto-mutual-certificates.md
+      - name: Publish APIs
         items:
             - name: Use subscriptions
               items: 
@@ -325,6 +317,14 @@
                   href: developer-portal-use-community-widgets.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
+      - name: Monitor APIs
+        items:
+        - name: Get API analytics
+          href: howto-use-analytics.md
+        - name: Log events to Azure Event Hubs
+          href: api-management-howto-log-event-hubs.md
+        - name: Log requests with Azure Application Insights
+          href: api-management-howto-app-insights.md        
       - name: Troubleshoot
         items:
           - name: Diagnose issues in production
