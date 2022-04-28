@@ -1,9 +1,0 @@
-{
-    "redirections": [
-        {
-            "source_path_from_root": "/articles/sql-database/sql-database-customer-implementations.md",
-            "redirect_url": "https://customers.microsoft.com",
-            "redirect_document_id": false
-        }      
-    ]
-}
