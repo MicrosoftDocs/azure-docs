@@ -17,7 +17,7 @@ ms.author: lajanuar
 
 Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-* Translator is a language service that enables users to translate text and documents, helps businesses expand their global outreach, and supports at-risk and endangered language preservation.
+* Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
 * Translator supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
@@ -35,11 +35,7 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 ### [Text and document translation support for Somali and Zulu languages](https://www.microsoft.com/translator/blog/2022/03/29/translator-welcomes-two-new-languages-somali-and-zulu/)
 
-* Translator service has [text and document translation language support](language-support.md) for Somali and Zulu.
-
-* The Somali language is spoken throughout Africa by more than 21 million people. It's in the Cushitic branch of the Afroasiatic language family.
-
-* The Zulu language is spoken by 12 million people and is recognized as one of South Africa's 11 official languages.
+* Translator service has [text and document translation language support](language-support.md) for Somali and Zulu. The Somali language is spoken throughout Africa by more than 21 million people. It's in the Cushitic branch of the Afroasiatic language family. The Zulu language is spoken by 12 million people and is recognized as one of South Africa's 11 official languages.
 
 ## February 2022
 
@@ -65,16 +61,16 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 * Translator service has added [text and document language support](language-support.md) for the following languages:
   * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three dialect groups: Southern, Eastern, and Northwestern.
-  * **Dhivehi**. Also known as Maldivian, it is an Indo-Aryan language primarily spoken in the island country of Maldives.
+  * **Dhivehi**. Also known as Maldivian, it's an Indo-Aryan language primarily spoken in the island country of Maldives.
   * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
   * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
-  * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It is spoken by approximately two million people.
+  * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It's spoken by approximately 2 million people.
   * **Mongolian (Traditional)**. Traditional Mongolian script is the first writing system created specifically for the Mongolian language. Mongolian is the official language of Mongolia.
-  * **Tatar**. 
-  * **Tibetan**
-  * **Turkmen**
-  * **Uyghur**
-  * **Uzbek (Latin)**. 
+  * **Tatar**. A Turkic language used by speakers in modern Tatarstan. It's closely related to Crimean Tatar and Siberian Tatar but each belongs to different subgroups.
+  * **Tibetan**. It has nearly 6 million speakers and can be found in many Tibetan Buddhist publications.
+  * **Turkmen**. The official language of Turkmenistan. It's very similar to Turkish and Azerbaijani.
+  * **Uyghur**. A Turkic language with nearly 15 million speakers. It is spoken primarily in Western China.
+  * **Uzbek (Latin)**. A Turkic language that is the official language of Uzbekistan. It's spoken by 34 million native speakers.
 
 These additions bring the total number of languages supported in Translator to 103.
 
