@@ -38,15 +38,15 @@ This template defines 3 parameters:
 
 1. Go to template **PII detection and masking**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
 
-:::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-1.png" alt-text="Create a new connection or select an existing connection to the source":::
+:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-1.png" alt-text="Create a new connection or select an existing connection to the source":::
 
 2.	Create a **New** connection to your destination storage store or choose an existing connection.
 
- :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-2.png" alt-text="Create a new connection or select existing connection to Cognitive Services":::
+ :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Create a new connection or select existing connection to Cognitive Services":::
 
 3. Select **Use this template**. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-3.png" alt-text="Use this template":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-3.png" alt-text="Use this template":::
 
 4. You should see the following pipeline: 
 
@@ -54,29 +54,29 @@ This template defines 3 parameters:
 
 5. Clicking into the dataflow activity will show the following dataflow: 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-5.png" alt-text="Dataflow view":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-5.png" alt-text="Dataflow view":::
 
 6. Turn on **Data flow debug**. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-6.png" alt-text="Data flow debug button":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-6.png" alt-text="Data flow debug button":::
 
 7. Update **Parameters** in **Debug Settings** and **Save**. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-7.png" alt-text="Debug settings":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7.png" alt-text="Debug settings":::
   
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-7b.png" alt-text="Debug settings parameters":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-7b.png" alt-text="Debug settings parameters":::
 
 8. Preview the results in **Data Preview**. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-8.png" alt-text="Dataflow data preview":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-8.png" alt-text="Dataflow data preview":::
   
 9. When data preview results are as expected, update the **Parameters**.
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-9.png" alt-text="Update dataflow parameters":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-9.png" alt-text="Update dataflow parameters":::
 
 10. Return to pipeline and select **Debug**. Review results and publish. 
 
-  :::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-10.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
+  :::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-10.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
 
 
 
