@@ -383,7 +383,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
 - If you have authentication issues directly after running the script `prepare_region.sh`, run:
 
-    ```bash
+    ```azurecli
     az logout
 
     az login
@@ -529,7 +529,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     > [!NOTE]
     > The use of single quotes when setting `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results!
 
-    ```bash
+    ```azurecli
     sap_user_password='<sap-password>'
 
     az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
