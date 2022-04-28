@@ -301,7 +301,7 @@ items:
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Register data sources for data use management
+    - name: Register data sources for Data Use Management
       href: how-to-enable-data-use-management.md
     - name: Author and publish data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md

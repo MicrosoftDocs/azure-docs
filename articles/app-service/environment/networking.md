@@ -77,7 +77,9 @@ The normal app access ports inbound are as follows:
 
 You can set route tables without restriction. You can tunnel all of the outbound application traffic from your App Service Environment to an egress firewall device, such as Azure Firewall. In this scenario, the only thing you have to worry about is your application dependencies.
 
-You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so exposes specific apps on that App Service Environment. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
+You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so allows you to expose specific apps on that App Service Environment.
+
+Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
 ## Private endpoint
 

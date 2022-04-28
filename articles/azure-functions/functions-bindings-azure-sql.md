@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Azure SQL bindings for Azure Functions overview (preview)
 
-This set of articles explains how to work with [Azure SQL](../azure-sql/index.yml) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
+This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
 
 | Action | Type |
 |---------|---------|
