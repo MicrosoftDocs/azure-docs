@@ -31,16 +31,14 @@ Follow the steps below to create a policy assignment and assign the policy defin
 1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
    for and selecting **Policy**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/all-services-page.png" alt-text="Search for Policy in All Services" border="true":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/all-services-page.png" alt-text="Screenshot of All services window showing search for policy service" border="true":::
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-    :::image type="content" source="./media/tutorial-assign-policy-portal/assignments-tab.png" alt-text="Select Assignments page from Policy Overview page" border="true":::
+    :::image type="content" source="./media/tutorial-assign-policy-portal/assignments-tab.png" alt-text="Screenshot of All services Policy window showing policy assignments" border="true":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
-
-   <!--- :::image type="content" source="./media/tutorial-assign-policy-portal/assign-policy-button.png" alt-text="Assign a policy definition from Assignments page" border="true"::: --->
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either
    a management group or subscription. Optionally, select a resource group. A scope determines what
@@ -76,7 +74,7 @@ environment.
 
 Select **Compliance** in the left side of the page. Then locate the **\[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines** policy assignment you created.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/compliance-policy.png" alt-text="Compliance details on the Policy Compliance page" border="true":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/compliance-policy.png" alt-text="Screenshot of Policy Compliance page showing policy compliance for the selected scope" border="true":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
