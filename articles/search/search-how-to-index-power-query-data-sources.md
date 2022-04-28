@@ -67,6 +67,7 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 ### Step 4: Create a new index in Azure Cognitive Search
 
 [Create a new index](https://docs.microsoft.com/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your Snowflake data.
+
 Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the Snowflake Power Connector and clicking on **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
 
 
@@ -122,20 +123,20 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    - In the **General** tab, leave the default values, unless you need to customize the execution.
    - In the **Source** tab, select your Snowflake table. Leave the remaining options with the default values.
    - In the **Sink** tab:
-     - Select the *Storage DelimitedText* dataset. 
+     - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
      - In **File Extension**, add *.csv*.
      - Leave the remaining options with the default values. 
    - Click on **Save**.
  
-  **b) Configure activity to index from Azure Storage Blob**
-   - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
-   - In the **General** tab, leave the default values, unless you need to customize the execution.
-   - In the **Source** tab:
-      - Select the *Storage* source dataset.
-      - In the **File path type** select *Wildcard file path*.
-      - Leave all remaining fields with default values.
-   - In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
-   - Click **Save**.
+    **b) Configure activity to index from Azure Storage Blob**
+     - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+     - In the **General** tab, leave the default values, unless you need to customize the execution.
+     - In the **Source** tab:
+        - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
+        - In the **File path type** select *Wildcard file path*.
+        - Leave all remaining fields with default values.
+     - In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
+     - Click **Save**.
 
 ### Step 10: Configure Activity order 
 
@@ -192,6 +193,7 @@ These are the end to end steps to configure a [Data Factory pipeline](../data-fa
 ### Step 3: Create a new index in Azure Cognitive Search
 
 [Create a new index](https://docs.microsoft.com/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your PostgreSQL data.
+
 Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the PostgreSQL Power Connector and clicking on **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
 
 
@@ -216,7 +218,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 1. Click **Save**.
 
 
-## Step 6: Configure Azure Blob Storage Linked Service
+### Step 6: Configure Azure Blob Storage Linked Service
 
 1. In the left pane, click on the **Manage** icon.
 1. Under **Linked services**, click on **New**.
@@ -227,7 +229,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    - Click **Create**.
 
 
-## Step 7: Configure Storage dataset
+### Step 7: Configure Storage dataset
 1. In the left pane, select **Author** icon. 
 1. Click **Datasets** and "**…**" . Select **New dataset**.
 1. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
@@ -236,37 +238,37 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 1. Check **First row as a header** box.
 1. Click **Save**.
 
-## Step 8: Configure Pipeline
+### Step 8: Configure Pipeline
 1. In the left pane, select **Author** icon. 
 1. Click **Pipelines** and "**…**" . Click **New pipeline**.
 1. Create and configure the [Data Factory activities](..data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
-  
-  **a) Configure staging activity to copy from PostgreSQL to Azure Storage container**
-      -  Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
-      -  In the **General** tab, leave the default values, unless you need to customize the execution.
-      -  In the **Source** tab, select your PostgreSQL table or query. Leave the remaining options with the default values.
-      -  In the **Sink** tab:
-         -  Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
-         -  In **File Extension** add *.csv*
-         -  Leave the remaining options with the default values. 
-      -  Click **Save**.
-   
-   **b) Configure activity to index from Azure Storage Blob**
-      -  Expand **Move & transform** and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
-      -  In the **General** tab, leave the default values, unless you need to customize the execution.
-      -  In the **Source** tab:
-         -  Select the Storage source dataset configured in [Step 7](#step-7-configure-storage-dataset).
-         -  In the **File path type** select *Wildcard file path*.
-         -  Leave all remaining fields with default values.
-      -  In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
-      -  Click **Save**.
 
-## Step 9: Configure Activity order 
+   **a) Configure staging activity to copy from PostgreSQL to Azure Storage container**
+   - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+   - In the **General** tab, leave the default values, unless you need to customize the execution.
+   - In the **Source** tab, select your PostgreSQL table. Leave the remaining options with the default values.
+   - In the **Sink** tab:
+      - Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
+      - In **File Extension**, add *.csv*
+      - Leave the remaining options with the default values.
+   - Click on **Save**.
+ 
+    **b) Configure activity to index from Azure Storage Blob**
+     - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+     - In the **General** tab, leave the default values, unless you need to customize the execution.
+     - In the **Source** tab:
+        - Select the Storage source dataset configured in [Step 7](#step-7-configure-storage-dataset).
+        - In the **File path type** select *Wildcard file path*.
+        - Leave all remaining fields with default values.
+     - In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
+     - Click **Save**.
+
+### Step 9: Configure Activity order 
 
 1. In the Pipeline canvas editor, click on the little green square in front of the Pipeline Activity that copies data from Snowflake to Azure Blob Storage and drag to the Activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
 1. Click **Save**.
 
-## Step 10: Add a Pipeline trigger
+### Step 10: Add a Pipeline trigger
 1. Click on [Add trigger](../data-factory/how-to-create-schedule-trigger.md) to schedule the pipeline run and select **New/Edit**.
 1. From the **Choose trigger** dropdown, select **New**.
 1. Review the trigger options to run the pipeline and click **OK**.
