@@ -34,21 +34,21 @@ At a high-level, the connector provides the following capabilities:
   * Introduces an optional call-back handle (a Scala function argument) that clients can use to receive post-write metrics.
     * Few examples include - number of records, duration to complete certain action, and failure reason.
 
-## Orchestration Approach
+## Orchestration approach
 
 ### Read
 
-![Read-Orchestration](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-read-orchestration.png)
+![A high-level data flow diagram to describe the connector's orchestration of a read request.](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-read-orchestration.png)
 
 ### Write
 
-![Write-Orchestration](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-write-orchestration.png)
+![A high-level data flow diagram to describe the connector's orchestration of a write request.](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-write-orchestration.png)
 
 ## Pre-requisites
 
 Pre-requisites such as setting up required Azure resources and steps to configure them are discussed in this section.
 
-### Azure Resources
+### Azure resources
 
 Review and setup following dependent Azure Resources:
 
@@ -57,7 +57,7 @@ Review and setup following dependent Azure Resources:
 * [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - provides enterprise Data Warehousing features.
 * [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Spark runtime where the jobs are executed as Spark Applications.
 
-#### Prepare the Database
+#### Prepare the database
 
 Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
@@ -75,11 +75,11 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 ### Authentication
 
-#### Azure Active Directory based Authentication
+#### Azure Active Directory based authentication
 
 Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
 
-#### Basic Authentication
+#### Basic authentication
 
 A basic authentication approach requires user to configure `username` and `password` options. Refer to the section - [Configuration Options](#configuration-options) to learn about relevant configuration parameters for reading from and writing to tables in Azure Synapse Dedicated SQL Pool.
   
@@ -113,14 +113,14 @@ There are two ways to grant access permissions to Azure Data Lake Storage Gen2 -
 
 To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization is necessary unless you're a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
 
-* Read Scenario
+* Read scenario
   * Grant the user `db_exporter` using the system stored procedure `sp_addrolemember`.
 
     ```sql
     EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
     ```
 
-* Write Scenario
+* Write scenario
   * Connector uses the COPY command to write data from staging to the internal table's managed location.
     * Configure required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
     * Following is a quick access snippet of the same:
@@ -137,30 +137,58 @@ To enable successful interaction with Azure Synapse Dedicated SQL Pool, followin
       GRANT INSERT ON <your_table> TO [<your_domain_user>@<your_domain_name>.com]
       ```
 
-## Connector API Documentation
+## API documentation
 
 Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/latest/scala/index.html).
 
-### Configuration Options
+### Configuration options
 
 To successfully bootstrap and orchestrate the read or write operation, the Connector expects certain configuration parameters. The object definition - `com.microsoft.spark.sqlanalytics.utils.Constants` provides a list of standardized constants for each parameter key.
 
-The following table describes the essential configuration options that must be set for each usage scenario:
+Following is the list of configuration options based on usage scenario:
 
-|Usage Scenario| Options to configure |
-|--------------|----------------------------------|
-|Read using Azure AD based authentication|<ul><li>Credentials are auto-mapped, and user isn't required to provide specific configuration options.</li><li>Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.</li></ul>|
-|Read using basic authentication|<ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li></ul></li><li>Azure Data Lake Storage (Gen 2) End Point  - Staging Folders<ul><li>`Constants.DATA_SOURCE` - Location setting from data source is used to stage extracted data from Azure Synapse Dedicated SQL End Point.</li></ul></li></ul>|
-| Write using Azure AD based authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER`<ul><li>By default, the Connector will infer the Synapse Dedicated SQL End Point associated with the database name (from the three part table name argument to `synapsesql` method).</li><li>Alternatively, users can provide the `Constants.SERVER` option.</li></ul></ul></li><li>Azure Data Lake Storage (Gen 2) End Point  - Staging Folders<ul><li>For Internal Table Type:<ul><li>Configure either `Constants.TEMP_FOLDER` or `Constants.DATA_SOURCE` option.</li><li>If user chose to provide `Constants.DATA_SOURCE` option, staging folder will be derived by using the `location` value from the DataSource.</li><li>If both are provided, then the `Constants.TEMP_FOLDER` option value will be used.</li><li>In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.</li></ul></li><li>For External Table Type:<ul><li>`Constants.DATA_SOURCE` is a required configuration option.</li><li>The storage path defined on the Data Source's `location` parameter will be used as the base path to establish final absolute path.</li><li>The base path is then appended with the value set on the `synapsesql` method's `location` argument, example `/<external_table_name>`.</li><li>If the `location` argument to `synapsesql` method isn't provided, then the connector will derive the location value as  `<base_path>/dbName/schemaName/tableName`.</li></ul></li></ul></li></ul>|
-| Write using Basic Authentication | <ul><li>Azure Synapse Dedicated SQL End Point<ul><li>`Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)</li><li>`Constants.USER` - SQL User Name.</li><li>`Constants.PASSWORD` - SQL User Password.</li><li>`Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` (internal table types only) or `Constants.DATA_SOURCE`.</li></ul></li><li>Azure Data Lake Storage (Gen 2) End Point  - Staging Folders<ul><li>SQL basic authentication credentials don't apply to access storage end points. Hence it's required that the workspace user identity is given relevant access permissions (reference the section - [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2).</li></ul></li></ul>|
+* **Read using Azure AD based authentication**
+  * Credentials are auto-mapped, and user isn't required to provide specific configuration options.
+  * Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.
+* **Read using basic authentication**
+  * Azure Synapse Dedicated SQL End Point
+    * `Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)
+    * `Constants.USER` - SQL User Name.
+    * `Constants.PASSWORD` - SQL User Password.
+  * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
+    * `Constants.DATA_SOURCE` - Storage path set on the data source location parameter is used for data staging.
+* **Write using Azure AD based authentication**
+  * Azure Synapse Dedicated SQL End Point
+    * By default, the Connector infers the Synapse Dedicated SQL end point by using the database name set on the `synapsesql` method's three-part table name parameter.
+    * Alternatively, users can use the `Constants.SERVER` option to specify the sql end point. Ensure the end point hosts the corresponding database with respective schema.
+  * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
+    * For Internal Table Type:
+      * Configure either `Constants.TEMP_FOLDER` or `Constants.DATA_SOURCE` option.
+      * If user chose to provide `Constants.DATA_SOURCE` option, staging folder will be derived by using the `location` value from the DataSource.
+      * If both are provided, then the `Constants.TEMP_FOLDER` option value will be used.
+      * In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.
+    * For External Table Type:
+      * `Constants.DATA_SOURCE` is a required configuration option.
+      * Using the storage path set on the data source's location parameter, the connector will derive absolute path to persist external table data.
+      * The absolute path will be a combination of `base path` and `location` argument value on `synapsesql` method. For example `<base_path>/<user_specified_external_table_location_value>"`.
+      * If the `location` argument to `synapsesql` method isn't specified, then the connector will derive the location value as `<base_path>/dbName/schemaName/tableName`.
+* **Write using Basic Authentication**
+  * Azure Synapse Dedicated SQL End Point
+    * `Constants.SERVER` - - Synapse Dedicated SQL Pool End Point (Server FQDN).
+    * `Constants.USER` - SQL User Name.
+    * `Constants.PASSWORD` - SQL User Password.
+    * `Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` (internal table types only) or `Constants.DATA_SOURCE`.
+  * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
+    * SQL basic authentication credentials don't apply to access storage end points.
+    * Hence, ensure to assign relevant storage access permissions as described in the section [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2).
   
-## Code Templates
+## Code templates
 
 This section presents reference code templates to describe how to use and invoke the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
 
 ### Read from Azure Synapse Dedicated SQL Pool
 
-#### Read Request - `synapsesql` Method Signature
+#### Read Request - `synapsesql` method signature
 
 ```Scala
 synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
@@ -231,7 +259,7 @@ dfToReadFromTable.show()
 
 ### Write to Azure Synapse Dedicated SQL Pool
 
-#### Write Request - `synapsesql` Method Signature
+#### Write Request - `synapsesql` method signature
 
 The method signature for the Connector version built for Spark 2.4.8 has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
 
@@ -252,7 +280,7 @@ synapsesql(tableName:String,
            callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit]):Unit
 ```
 
-#### Write using Azure AD based Authentication
+#### Write using Azure AD based authentication
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
@@ -374,9 +402,9 @@ val df:DataFrame = spark.
             limit(100)
 ```
 
-#### DataFrame Write SaveMode Support
+#### Supported DataFrame save modes
 
-Following SaveModes are supported when writing source data to a destination table in Azure Synapse Dedicated SQL Pool:
+Following save modes are supported when writing source data to a destination table in Azure Synapse Dedicated SQL Pool:
 
 * ErrorIfExists (default save mode)
   * If destination table exists, then the write is aborted with an exception returned to the callee. Else, a new table is created with data from the staging folders.
@@ -387,7 +415,7 @@ Following SaveModes are supported when writing source data to a destination tabl
 * Append
   * If the destination table exists, then the new data is appended to it. Else, a new table is created with data from the staging folders.
   
-#### Write Request Callback Handle
+#### Write request callback handle
 
 The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. Keys for the metrics are defined in the new Object definition - `Constants.FeedbackConstants`. Metrics can be retrieved as a JSON string by passing in the callback handle (a `Scala Function`). Following is the function signature:
 
@@ -438,9 +466,9 @@ Following is a sample JSON string with post-write metrics:
    }
    ```
 
-### More Code Samples
+### More code samples
 
-#### Using the Connector with Other language preferences
+#### Using the Connector with other language preferences
 
 Example that demonstrates how to use the Connector with `PySpark (Python)` language preference:
 
@@ -492,19 +520,19 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
         spark.sql("select * from <temporary_view_name>").show()
     ```
 
-## Response Handling
+## Response handling
 
 Invoking `synapsesql` has two possible end states - Success or a Failed State. This section describes how to handle the request response for each scenario.
 
-### Read Request Response
+### Read request response
 
 Upon completion, the read response snippet is displayed in the cell's output. Failure in the current cell will also cancel subsequent cell executions. Detailed error information is available in the Spark Application Logs.
 
-### Write Request Response
+### Write request response
 
 By default, a write response is printed to the cell output. On failure, the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
 
-## Additional Considerations
+## Additional considerations
 
 * When reading from the Azure Synapse Dedicated SQL Pool tables:
   * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
