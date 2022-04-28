@@ -21,7 +21,9 @@ This article explains how to deploy Spring Boot applications in Azure Spring Clo
 > [!NOTE]
 > The web application must listen on port `1025` for Standard tier and on port `8080` for Enterprise tier. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. The probe can be disabled for applications that do not listen on any port.
 
-## How to deploy your application 
+## Deploy your application
+
+To deploy an application to a custom container image, use the following steps:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -77,23 +79,21 @@ This article explains how to deploy Spring Boot applications in Azure Spring Clo
 
 # [Portal](#tab/azure-portal)
 
-To deploy an application to a custom container image, use the following steps:
-
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open your existing Spring Cloud service instance.
 1. Select **Apps** from left the menu, then select **Create App**.
 1. Name your app, and in the **Runtime platform** pulldown list, select **Custom Container**.
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of where to select Custom Container in Create App section." lightbox="how-to-deploy-with-custom-container-image/create-app-custom-container.png":::
+   :::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of where to select Custom Container in Create App section." lightbox="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png":::
 
 1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot showing the custom image settings fields to be filled in." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
+   :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot showing the custom image settings fields to be filled in." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
 
-> [!NOTE]
-> The `Commands` and `Arguments` field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
->
-> You need to also specify the `Language Framework`, which is the web framework of the container image used. Currently only `Spring Boot` is supported. For other Java applications or non-Java (polyglot) applications please choose `Polyglot`.
+   > [!NOTE]
+   > The `Commands` and `Arguments` field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
+   >
+   > You need to also specify the `Language Framework`, which is the web framework of the container image used. Currently only `Spring Boot` is supported. For other Java applications or non-Java (polyglot) applications please choose `Polyglot`.
 
 1. Select **Save**, then select **Create** to deploy your application.
 
@@ -105,35 +105,35 @@ The following matrix shows what features are supported in each application type.
 
 | Feature  | Spring Boot Apps - container deployment  | Polyglot Apps - container deployment  | Notes  |
 |---|---|---|---|
-| App lifecycle management                                        | Y | Y |   |
-| Support for container registries                                | Y | Y |   | 
-| Assign endpoint                                                 | Y | Y |   |
-| Azure Monitor                                                   | Y | Y |   |
-| APM integration                                                 | Y | Y | Supported by [manual installation](#how-to-install-an-apm-into-the-image-manually)  |
-| Blue/green deployment                                           | Y | Y |   |
-| Custom domain                                                   | Y | Y |   |
-| Scaling - auto scaling                                          | Y | Y |   |
-| Scaling - manual scaling (in/out, up/down)                      | Y | Y |   |
-| Managed Identity                                                | Y | Y |   |
-| Spring Cloud Eureka & Config Server                             | Y | N |   |
-| API portal for VMware Tanzu®                                    | Y | Y | Enterprise tier only  |
-| Spring Cloud Gateway for VMware Tanzu®                          | Y | Y | Enterprise tier only  |
-| Application Configuration Service for VMware Tanzu®             | Y | N | Enterprise tier only  |
-| VMware Tanzu® Service Registry                                  | Y | N | Enterprise tier only  |
-| VNET                                                            | Y | Y | Add registry to [allowlist in NSG or Azure Firewall](#how-to-avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet)  |
-| Outgoing IP Address                                             | Y | Y |   |
-| E2E TLS                                                         | Y | Y | Trust a self-signed CA is supported by [manual installation](#how-to-trust-a-certificate-authority-in-the-image)  |
-| Liveness and readiness settings                                 | Y | Y |   |
-| Advanced troubleshooting - thread/heap/JFR dump                 | Y | N | The image must include `bash` and JDK with `PATH` specified.   |
-| Bring your own storage                                          | Y | Y |   |
-| Integrate service binding with Resource Connector               | Y | N |   |
-| Availability Zone                                               | Y | Y |   |
-| App Lifecycle events                                            | Y | Y |   |
-| Reduced app size - 0.5 vCPU and 512 MB                          | Y | Y |   |
-| Automate app deployments with Terraform                         | Y | Y |   |
-| Soft Deletion                                                   | Y | Y |   |
-| Interactive diagnostic experience (AppLens-based)               | Y | Y |   |
-| SLA                                                             | Y | Y |   |
+| App lifecycle management                                        | ✔️ | ✔️ |   |
+| Support for container registries                                | ✔️ | ✔️ |   | 
+| Assign endpoint                                                 | ✔️ | ✔️ |   |
+| Azure Monitor                                                   | ✔️ | ✔️ |   |
+| APM integration                                                 | ✔️ | ✔️ | Supported by [manual installation](#how-to-install-an-apm-into-the-image-manually)  |
+| Blue/green deployment                                           | ✔️ | ✔️ |   |
+| Custom domain                                                   | ✔️ | ✔️ |   |
+| Scaling - auto scaling                                          | ✔️ | ✔️ |   |
+| Scaling - manual scaling (in/out, up/down)                      | ✔️ | ✔️ |   |
+| Managed Identity                                                | ✔️ | ✔️ |   |
+| Spring Cloud Eureka & Config Server                             | ✔️ | ❌  |   |
+| API portal for VMware Tanzu®                                    | ✔️ | ✔️ | Enterprise tier only  |
+| Spring Cloud Gateway for VMware Tanzu®                          | ✔️ | ✔️ | Enterprise tier only  |
+| Application Configuration Service for VMware Tanzu®             | ✔️ | ❌  | Enterprise tier only  |
+| VMware Tanzu® Service Registry                                  | ✔️ | ❌  | Enterprise tier only  |
+| VNET                                                            | ✔️ | ✔️ | Add registry to [allowlist in NSG or Azure Firewall](#how-to-avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet)  |
+| Outgoing IP Address                                             | ✔️ | ✔️ |   |
+| E2E TLS                                                         | ✔️ | ✔️ | Trust a self-signed CA is supported by [manual installation](#how-to-trust-a-certificate-authority-in-the-image)  |
+| Liveness and readiness settings                                 | ✔️ | ✔️ |   |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️ | ❌  | The image must include `bash` and JDK with `PATH` specified.   |
+| Bring your own storage                                          | ✔️ | ✔️ |   |
+| Integrate service binding with Resource Connector               | ✔️ | ❌  |   |
+| Availability Zone                                               | ✔️ | ✔️ |   |
+| App Lifecycle events                                            | ✔️ | ✔️ |   |
+| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️ | ✔️ |   |
+| Automate app deployments with Terraform                         | ✔️ | ✔️ |   |
+| Soft Deletion                                                   | ✔️ | ✔️ |   |
+| Interactive diagnostic experience (AppLens-based)               | ✔️ | ✔️ |   |
+| SLA                                                             | ✔️ | ✔️ |   |
 
 
 > [!NOTE]
@@ -142,7 +142,7 @@ The following matrix shows what features are supported in each application type.
 ## Common points to be aware of when deploying with a custom container
 
 The following points will help you address common situations when deploying with a custom image.
-### How to trust a Certificate Authority in the image
+### Trust a Certificate Authority in the image
 
 To trust a CA in the image, set the following variables depending on your environment:
 
@@ -172,15 +172,15 @@ To trust a CA in the image, set the following variables depending on your enviro
    ADD EnterpriseRootCA.crt /etc/pki/ca-trust/source/anchors/
    RUN /usr/bin/update-ca-trust
    ``` 
-### How to avoid unexpected behavior when images change
+### Avoid unexpected behavior when images change
 
 When your application is restarted or scaled out, the latest image will always be pulled. If the image has been changed, the newly started application instances will use the new image while the old instances will continue to use the old image. Avoid using the `latest` tag or overwrite the image without a tag change to avoid unexpected application behavior.
 
-### How to avoid not being able to connect to the container registry in a VNet
+### Avoid not being able to connect to the container registry in a VNet
 
 If you deployed the instance to a VNet, make sure you allow the network traffic to your container registry in the NSG or Azure Firewall (if used). For more information, see [Customer responsibilities for running in VNet](/azure/spring-cloud/vnet-customer-responsibilities) to add the needed security rules.
 
-### How to install an APM into the image manually
+### Install an APM into the image manually
 
 The installation steps vary on different APMs and languages. The following steps are for `New Relic` with Java applications. You must modify the `Dockerfile` using the following steps:
 
@@ -215,7 +215,7 @@ AppDynamics:
 * Python: [Install the Python Agent](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/python-agent/install-the-python-agent)
 * Node.js: [Installing the Node.js Agent](https://docs.appdynamics.com/4.5.x/en/application-monitoring/install-app-server-agents/node-js-agent/install-the-node-js-agent#InstalltheNode.jsAgent-install_nodejsInstallingtheNode.jsAgent)
 
-### How to view the container logs
+### View the container logs
 
 To view the console logs of your container application, the following CLI command can be used:
 
@@ -236,11 +236,11 @@ AppPlatformContainerEventLogs
 
 :::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the container events log.":::
 
-### How to scan your image for vulnerabilities
+### Scan your image for vulnerabilities
 
 It's recommended that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
 
-### How to switch between JAR deployment and container deployment
+### Switch between JAR deployment and container deployment
 
 The deployment type can be switched directly by redeploying using the following command:
 
@@ -252,7 +252,7 @@ az spring-cloud app deploy \
    --container-image contoso/your-app:v1
 ```
 
-### How to create another deployment with an existing JAR deployment
+### Create another deployment with an existing JAR deployment
 
 You can create another deployment using an existing JAR deployment using the following command:
 
