@@ -54,7 +54,6 @@ To begin, create a new Go module.
     import (
       "context"
       "fmt"
-      "log"
       "os"
 
       "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
@@ -79,12 +78,12 @@ func GetClient() *azservicebus.Client {
 
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 
 	client, err := azservicebus.NewClient(namespace, cred, nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 	return client
 }
@@ -104,14 +103,14 @@ In the `main.go` file, create a new function named `SendMessage` and add the fol
 func SendMessage(message string, client *azservicebus.Client) {
 	sender, err := client.NewSender("myqueue", nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 	sbMessage := &azservicebus.Message{
 		Body: []byte(message),
 	}
 	err = sender.SendMessage(context.TODO(), sbMessage, nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 }
 ```
@@ -122,21 +121,21 @@ func SendMessage(message string, client *azservicebus.Client) {
 func SendMessageBatch(messages []string, client *azservicebus.Client) {
 	sender, err := client.NewSender("myqueue", nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	batch, err := sender.NewMessageBatch(context.TODO(), nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
 		if err := batch.AddMessage(&azservicebus.Message{Body: []byte(message)}, nil); err != nil {
-			log.Fatal("%v", err)
+			panic(err)
 		}
 	}
 	if err := sender.SendMessageBatch(context.TODO(), batch, nil); err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 }
 ```
@@ -153,23 +152,23 @@ After you've sent messages to the queue, you can receive them with the `azservic
 func ReceiveMessage(client *azservicebus.Client) {
 	receiver, err := client.NewReceiverForQueue("myqueue", nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 	messages, err := receiver.ReceiveMessages(context.TODO(), 3, nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
 		body, err := message.Body()
 		if err != nil {
-			log.Fatalf("%v", err)
+			panic(err)
 		}
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)
 		if err != nil {
-			log.Fatalf("%v", err)
+			panic(err)
 		}
 	}
 }
@@ -187,12 +186,12 @@ func DeadLetterMessage(client *azservicebus.Client) {
 
 	receiver, err := client.NewReceiverForQueue("myqueue", nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
@@ -204,7 +203,7 @@ func DeadLetterMessage(client *azservicebus.Client) {
 			Reason:           &reason,
 		}
 		if err := receiver.DeadLetterMessage(context.TODO(), message, deadLetterOptions); err != nil {
-			log.Fatal("%v", err)
+			panic(err)
 		}
 	}
 }
@@ -224,12 +223,12 @@ func ReceiveDeadLetterMessage(client *azservicebus.Client) {
 		},
 	)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
@@ -248,7 +247,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
@@ -263,12 +261,12 @@ func GetClient() *azservicebus.Client {
 
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 
 	client, err := azservicebus.NewClient(namespace, cred, nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 	return client
 }
@@ -276,58 +274,58 @@ func GetClient() *azservicebus.Client {
 func SendMessage(message string, client *azservicebus.Client) {
 	sender, err := client.NewSender("myqueue", nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 	sbMessage := &azservicebus.Message{
 		Body: []byte(message),
 	}
 	err = sender.SendMessage(context.TODO(), sbMessage, nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 }
 
 func SendMessageBatch(messages []string, client *azservicebus.Client) {
 	sender, err := client.NewSender("myqueue", nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	batch, err := sender.NewMessageBatch(context.TODO(), nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
 		if err := batch.AddMessage(&azservicebus.Message{Body: []byte(message)}, nil); err != nil {
-			log.Fatal("%v", err)
+			panic(err)
 		}
 	}
 	if err := sender.SendMessageBatch(context.TODO(), batch, nil); err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 }
 
 func ReceiveMessage(client *azservicebus.Client) {
 	receiver, err := client.NewReceiverForQueue("myqueue", nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 	messages, err := receiver.ReceiveMessages(context.TODO(), 3, nil)
 	if err != nil {
-		log.Fatalf("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
 		body, err := message.Body()
 		if err != nil {
-			log.Fatalf("%v", err)
+			panic(err)
 		}
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)
 		if err != nil {
-			log.Fatalf("%v", err)
+			panic(err)
 		}
 	}
 }
@@ -336,12 +334,12 @@ func DeadLetterMessage(client *azservicebus.Client) {
 
 	receiver, err := client.NewReceiverForQueue("myqueue", nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
@@ -353,7 +351,7 @@ func DeadLetterMessage(client *azservicebus.Client) {
 			Reason:           &reason,
 		}
 		if err := receiver.DeadLetterMessage(context.TODO(), message, deadLetterOptions); err != nil {
-			log.Fatal("%v", err)
+			panic(err)
 		}
 	}
 }
@@ -367,12 +365,12 @@ func ReceiveDeadLetterMessage(client *azservicebus.Client) {
 		},
 	)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	messages, err := receiver.ReceiveMessages(context.TODO(), 1, nil)
 	if err != nil {
-		log.Fatal("%v", err)
+		panic(err)
 	}
 
 	for _, message := range messages {
