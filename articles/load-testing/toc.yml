@@ -32,6 +32,7 @@
   expanded: true
   items: 
     - name: Configure load tests
+      expanded: true
       items:
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
@@ -43,9 +44,10 @@
           href: how-to-define-test-criteria.md
         - name: Parameterize load tests
           href: how-to-parameterize-load-tests.md
-        - name: Read a CSV file in load tests
+        - name: Read data from a CSV file
           href: how-to-read-csv-data.md
     - name: Analyze test results
+      expanded: true
       items:
         - name: Compare test runs
           href: how-to-compare-multiple-test-runs.md
@@ -54,12 +56,14 @@
         - name: Export test results
           href: how-to-export-test-results.md
     - name: Security
+      expanded: true
       items:
         - name: Manage users and roles
           href: how-to-assign-roles.md
         - name: Use a managed identity
           href: how-to-use-a-managed-identity.md
     - name: Manage load testing resources
+      expanded: true
       items:
         - name: Move between regions
           href: how-to-move-between-regions.md
