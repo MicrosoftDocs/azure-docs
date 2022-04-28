@@ -33,11 +33,11 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
     | Setting | Value | Notes |
     |--|--|--|
     | Domain | Enter your domain name. | Make sure the value is just the domain without the protocol. For instance, `example.com`, or `www.example.com`. |
-    | Hostname record type | Accept the default value. | The value selected automatically is Azure's best guess based on the form of the domain name you entered. For an apex domain, the value should be `CNAME`, for a subdomain the value should be an `A` record. |
+    | Hostname record type | Verify the default value. | The value selected automatically is Azure's best guess based on the form of the domain name you entered. For an apex domain, the value should be `CNAME`, for a subdomain the value should be an `A` record. |
 
 1. Next, you need to add the DNS records shown on this window to your domain via your domain provider's website. Open a new browser window to add the DNS records and return here once you're finished.
 
-1. Select the **Validate** button.
+1. Once the required DNS records are created on your domain provider's account, select the **Validate** button.
 
 1. Once validation succeeds, select the **Next** button.
 
@@ -45,15 +45,15 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
     | Setting | Value | Notes |
     |--|--|--|
-    | Certificate | Select an existing certificate from the list, or select the **Create new** link. | If you create a new certificate, window opens up that allows you to select a certificate file from your local machine. Once you select a certificate file, you're prompted to add the certificate password. |
+    | Certificate | Select an existing certificate from the list, or select the **Create new** link. | If you create a new certificate, a window appears that allows you to select a certificate file from your local machine. Once you select a certificate file, you're prompted to add the certificate password. |
 
     Once you select a certificate, the binding operation may take up to a minute to complete.
 
-The portal is now adding your custom domain. Once the operation is complete, you see your domain name in the list of custom domains.
+Once the add operation is complete, you see your domain name in the list of custom domains.
 
 ## Managing certificates
 
-You can manage certificates via the Container Apps environment or through the individual container app.
+You can manage certificates via the Container Apps environment or through an individual container app.
 
 ### Environment
 
@@ -71,7 +71,7 @@ You can manage your certificates through the following actions:
 
 The *Custom domains* window of the container app presents a list of custom domains associated with the container app.
 
-You can manage your certificates for an individual domain name by selecting the **...** button, which opens the certificate binding window. From the following window, you can select a certificate to bind to the selected domain name.
+You can manage your certificates for an individual domain name by selecting the ellipsis (**...**) button, which opens the certificate binding window. From the following window, you can select a certificate to bind to the selected domain name.
 
 ## Next steps
 
