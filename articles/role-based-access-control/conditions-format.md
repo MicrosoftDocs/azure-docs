@@ -297,7 +297,7 @@ This section lists the operators that are available to construct conditions.
 > | `OR`<br/>`||` | Or operator. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z' OR NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId`
 > | `NOT`<br/>`!` | Not or negation operator. | `NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]` |
 
-### Logical comparison
+### Boolean comparison
 
 > [!div class="mx-tableFixed"]
 > | Operator | Description | Example |
@@ -322,6 +322,13 @@ This section lists the operators that are available to construct conditions.
 > | Operator | Description | Example |
 > | --- | --- | --- |
 > | `NumericEquals`<br/>`NumericNotEquals`<br/>`NumericGreaterThan`<br/>`NumericGreaterThanEquals`<br/>`NumericLessThan`<br/>`NumericLessThanEquals` | Currently, only integers are supported. |  |
+
+### DateTime comparison
+
+> [!div class="mx-tableFixed"]
+> | Operator | Description | Example |
+> | --- | --- | --- |
+> | `DateTimeEquals`<br/>`DateTimeNotEquals`<br/>`DateTimeGreaterThan`<br/>`DateTimeGreaterThanEquals`<br/>`DateTimeLessThan`<br/>`DateTimeLessThanEquals` | Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID and blob snapshot. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z'` |
 
 ### Cross product comparison
 
