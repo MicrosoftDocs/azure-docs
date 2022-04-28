@@ -34,35 +34,35 @@ This template defines 4 parameters:
 ## Prerequisites
 
 *	Azure Form Recognizer Resource (endpoint URL and key)
-> * Create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)
+	* Create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)
 
 
 ## How to use this solution template
 
 1. Go to template **Extract data from PDF**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
 
-:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Create a new connection or select an existing connection to the source":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Create a new connection or select an existing connection to the source":::
 
 2.	Create a **New** connection to your destination storage store or choose an existing connection.
 
- :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-2.png" alt-text="Create a new connection or select existing connection to Cognitive Services":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-2.png" alt-text="Create a new connection or select existing connection to Cognitive Services":::
 
 3. Select **Use this template**. 
 
-  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-3.png" alt-text="Use this template":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-3.png" alt-text="Use this template":::
 
 4. You should see the following pipeline: 
 
-   :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-4.png" alt-text="Pipeline view":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-4.png" alt-text="Pipeline view":::
 
 5. Select **Debug**.
 
-  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-5.png" alt-text="Debug pipeline":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-5.png" alt-text="Debug pipeline":::
 
 6. Enter parameter values, review results, and publish. 
 
-  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-6.png" alt-text="Enter pipeline debug parameters":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-6.png" alt-text="Enter pipeline debug parameters":::
 
-  :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-7.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-7.png" alt-text="Screenshot that shows the results that return when the pipeline is triggered.":::
  
 
