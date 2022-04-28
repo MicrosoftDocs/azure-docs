@@ -163,7 +163,7 @@ You can add/remove tables on Synapse Studio as following:
 
 1. Select **+New** table to add tables on Synapse Studio or remove the existing tables. You can add or remove tables when the link connection is running.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Link connection add table.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of link connection to add table.":::
 
 ## Stop the Synapse Link connection
 
@@ -175,7 +175,7 @@ You can stop the Synapse link connection on Synapse Studio as following:
 
 1. Select **Stop** to stop the link connection, and it will stop replicating your data.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Link connection stop link.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Screenshot of link connection to stop link.":::
 
 
 ## <a name="known-issues"></a>Known limitations
