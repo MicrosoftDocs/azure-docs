@@ -146,7 +146,7 @@ AKS is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see [O
 Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 
 > [!div class="nextstepaction"]
-> [Deploy an AKS Cluster using Azure CLI][./learn/quick-kubernetes-deploy-cli]
+> [Deploy an AKS Cluster using Azure CLI][aks-quickstart-cli]
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
