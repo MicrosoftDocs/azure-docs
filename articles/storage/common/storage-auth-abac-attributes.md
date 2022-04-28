@@ -108,26 +108,26 @@ The following table lists which attributes you can use in your condition express
 > [!div class="mx-tableFixed"]
 > | Action | Attribute |
 > | --- | --- |
-> | Delete a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot |
 > | All read operations | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
-> | Read content from a blob with tag conditions | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
 > | List blobs | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob prefix |
 > | Read a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
+> | Read content from a blob with tag conditions | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
+> | Read blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Version ID<br/>Snapshot |
+> | Find blobs by tags | Account name<br/>Is hierarchical namespace enabled |
 > | Write to a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
-> Write to a blob with blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name |
 > | Sets the access tier on a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
+> Write to a blob with blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name |
 > | Create a blob or snapshot, or append data | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | Write to a blob with blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name |
-> | Delete a version of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID |
-> | Find blobs by tags | Account name<br/>Is hierarchical namespace enabled |
-> | Change ownership of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | Modify permissions of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | Rename a file or a directory | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | Permanently delete a blob overriding soft-delete | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot |
-> | All data operations for accounts with hierarchical namespace enabled | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | Read blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Version ID<br/>Snapshot |
 > | Write blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Version ID<br/>Snapshot |
 > | Write Blob legal hold and immutability policy | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
+> | Delete a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot |
+> | Delete a version of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID |
+> | Permanently delete a blob overriding soft-delete | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot |
+> | Modify permissions of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
+> | Change ownership of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
+> | Rename a file or a directory | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
+> | All data operations for accounts with hierarchical namespace enabled | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 
 ## See also
 
