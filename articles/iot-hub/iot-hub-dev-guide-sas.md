@@ -11,7 +11,7 @@ ms.date: 04/07/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
 
-# Control access to IoT Hub using Shared Access Signatures and security tokens
+# Control access to IoT Hub using Shared Access Signatures
 
 This article describes the options for securing your IoT hub. IoT Hub uses *permissions* to grant access to each IoT hub endpoint. Permissions limit the access to an IoT hub based on functionality.
 
