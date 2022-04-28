@@ -175,7 +175,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 ### [Java](#tab/java)
 
-The following code generates a SAS token using the resource URI, signing key, policy name, and expiration period. The next sections detail how to initialize the different inputs for the different token use cases.
+The following code generates a SAS token using the resource URI and signing key. The expiration period is set to one hour from the current time. The next sections detail how to initialize the different inputs for the different token use cases.
 
 ```java
     public static String generateSasToken(String resourceUri, String key) throws Exception {
@@ -353,7 +353,7 @@ A protocol gateway could use the same token for all devices simply setting the r
 
 ## Create a token service to integrate existing devices
 
-You can use the IoT Hub [identity registry](iot-hub-devguide-identity-registry.md) to configure per-device/module security credentials and access control using [tokens](iot-hub-dev-guide-sas.md#security-tokens). If an IoT solution already has a custom identity registry and/or authentication scheme, consider creating a *token service* to integrate this infrastructure with IoT Hub. In this way, you can use other IoT features in your solution.
+You can use the IoT Hub [identity registry](iot-hub-devguide-identity-registry.md) to configure per-device/module security credentials and access control using [tokens](#sas-tokens). If an IoT solution already has a custom identity registry and/or authentication scheme, consider creating a *token service* to integrate this infrastructure with IoT Hub. In this way, you can use other IoT features in your solution.
 
 A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with the **DeviceConnect** permission to create *device-scoped* or *module-scoped* tokens. These tokens enable a device and module to connect to your IoT hub.
 
