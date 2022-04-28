@@ -693,6 +693,8 @@
         href: hyperscale/howto-build-scalable-apps-model-mt.md
       - name: Model real-time apps
         href: hyperscale/howto-build-scalable-apps-model-rt.md
+      - name: Model HTAP apps
+        href: hyperscale/howto-build-scalable-apps-model-htap.md
     - name: Server group size
       items:
       - name: Pick initial size
