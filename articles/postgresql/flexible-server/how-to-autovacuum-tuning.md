@@ -87,7 +87,7 @@ Note: The query does not take into consideration that autovacuum can be conf
 
 Cost based vacuuming limits the amount of disk I/O autovacuum process is expected to do per unit of time. The autovacuum process estimates cost to every I/O operation, accumulates a total for each operation it performs and pauses once the upper limit of the cost is reached.  
 
-The `autovacuum_vacuum_cost_delay` and `autovacuum_vacuum_cost_limit` are the 2 server parameters that are used in the process.  
+The `autovacuum_vacuum_cost_delay` and `autovacuum_vacuum_cost_limit` are the two server parameters that are used in the process.  
 
 By default, `autovacuum_vacuum_cost_limit` is set to –1 meaning autovacuum cost limit would be same value as the parameter – `vacuum_cost_limt` that defaults to 200. 
 
@@ -112,7 +112,7 @@ There might be two reasons 
 
 Autovacuum daemon uses `autovacuum_work_mem` which is by default set to -1 meaning `autovacuum_work_mem` would be same value as the parameter – `maintenance_work_mem`. In this document we are assuming `autovacuum_work_mem` is set to -1 value and `maintenance_work_mem` is used by autovacuum by daemon.
 
-If the `maintenance_work_mem` is low, then value of `maintenance_work_mem` can be increased upto 2GB on flexible server. A general rule of thumb is 50 MB is allocated to `maintenance_work_mem` for every 1 GB of RAM.  
+If the `maintenance_work_mem` is low, then value of `maintenance_work_mem` can be increased upto 2 GB on flexible server. A general rule of thumb is 50 MB is allocated to `maintenance_work_mem` for every 1 GB of RAM.  
 
 
 ###### Large number of databases.
@@ -123,7 +123,7 @@ We have 60 databases and autovacuum_naptime is 60 seconds then every second 
 It might be a good idea to increase the `autovacuum_naptime` if we have more databases in a cluster. At the same time, the autovacuum process can be made more aggressive by changing the `autovacuum_cost_limit` & `autovacuum_cost_delay` parameters and increasing the `autovacuum_max_workers` from default 3 to 4 or 5. 
 
 ##### Out Of Memory Errors  
-Too aggressive `maintenance_work_mem` value may periodically cause out of memory errors in the system. It is important to know the available RAM on the system before setting the parameter and not forget that each `autovacuum_max_workers` when active uses the entire memory assigned as per `maintenance_work_mem`. Example: If the parameter is set to 1 GB, then when an autovacuum worker is active then it uses 1 GB of memory with it. So, if 3 workers are running then 3 GB is used.  
+Too aggressive `maintenance_work_mem` value may periodically cause out of memory errors in the system. It is important to know the available RAM on the system before setting the parameter and not forget that each `autovacuum_max_workers` when active uses the entire memory assigned as per `maintenance_work_mem`. Example: If the parameter is set to 1 GB, then when an autovacuum worker is active then it uses 1 GB of memory with it. So, if three workers are running then 3 GB is used.  
 
 #####  Autovacuum Is Too Disruptive
 In case where autovacuum is consuming lot of resources following can be done  
