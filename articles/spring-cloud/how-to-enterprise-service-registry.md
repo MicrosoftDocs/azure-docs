@@ -121,7 +121,7 @@ public class SampleServiceAApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SampleServiceAApplication.class, args);
-    }    
+    }
 }
 ```
 
@@ -197,12 +197,12 @@ Specifically, after binding the application to the Service Registry, you can get
 In practice, the following environment variables are added to the JAVA_TOOL_OPTIONS:
 
 ```options
--Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_CLOUD_NAME.svc.azuremicroservices.io/eureka/default/eureka 
+-Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_CLOUD_NAME.svc.azuremicroservices.io/eureka/default/eureka
 ```
 
 ### Bind a service to the Service Registry
 
-Run the following command to bind the service to Azure Service Registry. This command enables you to bind the application to the Service Registry and will be able to connect to the server.
+Use the following command to bind the service to Azure Service Registry, enabling it to connect to the server.
 
 ```azurecli
 az spring-cloud service-registry bind \
@@ -211,19 +211,18 @@ az spring-cloud service-registry bind \
     --app serviceA
 ```
 
-You can also be set up the Application bindings from the Azure portal, as shown in the following screenshot.
+You can also set up the application bindings from the Azure portal, as shown in the following screenshot.
 
 :::image type="content" source="./media/how-to-enterprise-service-registry/spring-cloud-service-registry-bind-app.png" alt-text="Azure portal screenshot of 'Service Registry' screen with 'App binding' section showing.":::
 
 > [!NOTE]
-> It will take a few minutes to propagate to all applications when it changes the service registry status.
-
-> [!NOTE]
-> If you change the binding/unbinding status, you need to restart or redeploy the application.
+> These changes will take a few minutes to propagate to all applications when the service registry status changes.
+>
+> If you change the binding/unbinding status, you'll need to restart or redeploy the application.
 
 ### Deploy an application to Azure Spring Cloud
 
-Now that you've bound your application, you'll deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Cloud. To deploy, run the following command:
+Now that you've bound your application, you'll deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Cloud. To deploy, use the following command:
 
 ```azurecli
 az spring-cloud app deploy \
@@ -234,7 +233,7 @@ az spring-cloud app deploy \
     --jvm-options="-Xms1024m -Xmx1024m"
 ```
 
-Run the following command to see if your deployment is successful.
+Use the following command to see if your deployment is successful.
 
 ```azurecli
 az spring-cloud app list \
@@ -243,7 +242,7 @@ az spring-cloud app list \
     --output table
 ```
 
-This command produces results similar to the following output.
+This command produces output similar to the following example.
 
 ```output
 Name                      Location       ResourceGroup           Public Url                                                           Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
@@ -253,7 +252,7 @@ servicea                  southeastasia  $RESOURCE_GROUP         https://$AZURE_
 
 ### Confirm that the Service A application is running
 
-The output of the previous command includes the public URL for the service. To access the RESTful endpoint, append `/serviceA` to this URL, as shown in the following command:
+The output of the previous command includes the public URL for the service. To access the RESTful endpoint, append `/serviceA` to the URL, as shown in the following command:
 
 ```bash
 curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/serviceA
@@ -265,7 +264,7 @@ This command produces the following output.
 This is a result of Service A
 ```
 
-Service A includes a RESTful endpoint that displays a list of environment variables. Access the endpoint with `/env` to see the environment variables.
+Service A includes a RESTful endpoint that displays a list of environment variables. Access the endpoint with `/env` to see the environment variables, as shown in the following command:
 
 ```bash
 curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/env
@@ -316,9 +315,7 @@ public class SampleServiceBApplication {
 
 ### Implement service endpoints in Service B
 
-Next, implement a new service endpoint (`/invoke-serviceA`) that invokes Service A. For simplicity, it implements with `RestTemplate` in the sample, and it returns the string with another string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by Service B.
-
-We've also implemented another endpoint (`/list-all`) for validation. This implementation ensures that the service is communicating correctly with the Service Registry. You can call this endpoint to get the list of applications registered in the Service Registry.
+Next, implement a new service endpoint (`/invoke-serviceA`) that invokes Service A. Add a *ServiceBEndpoint.java* file to your project with the following code.
 
 ```java
 package com.example.Sample.Service.B;
@@ -336,16 +333,16 @@ import org.springframework.web.client.RestTemplate;
 public class ServiceBEndpoint {
     @Autowired
     private EurekaClient discoveryClient;
-    
+
     @GetMapping(value = "/invoke-serviceA")
-    public String invokeServiceA() 
-    {   
+    public String invokeServiceA()
+    {
         RestTemplate  restTemplate = new RestTemplate();
-        String response = restTemplate.getForObject("http://servicea/serviceA",String.class);   
+        String response = restTemplate.getForObject("http://servicea/serviceA",String.class);
         return "INVOKE SERVICE A FROM SERVICE B: " + response;
     }
 
-    @GetMapping(value = "/list-all")    
+    @GetMapping(value = "/list-all")
     public List<String> listsAllServices() {
         Applications applications = discoveryClient.getApplications();
         List<Application> registeredApplications = applications.getRegisteredApplications();
@@ -355,9 +352,15 @@ public class ServiceBEndpoint {
 }
 ```
 
+This example uses `RestTemplate` for simplicity. The endpoint returns the response string with another string (`INVOKE SERVICE A FROM SERVICE B: "`) to indicate that it was called by Service B.
+
+This example also implements another endpoint (`/list-all`) for validation. This implementation ensures that the service is communicating correctly with the Service Registry. You can call this endpoint to get the list of applications registered in the Service Registry.
+
+This example invokes Service A as `http://servicea`. The service name is the name that you specified during the creation of the Azure Spring Cloud application. (For example: `az spring-cloud app create --name ServiceA`.) The application name matches the service name you registered with the service registry, making it easier to manage the service name.
+
 ### Build Service B
 
-Run the following command to build your project.
+Use the following command to build your project.
 
 ```bash
 mvn clean package
@@ -406,7 +409,7 @@ az spring-cloud app list \
     --output table
 ```
 
-If Service A and Service B are deployed correctly, this command will produce a result similar to the following output.
+If Service A and Service B are deployed correctly, this command will produce output similar to the following example.
 
 ```output
 Name      Location       ResourceGroup           Public Url                                                       Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
@@ -417,31 +420,17 @@ serviceb  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_CLOUD_NAM
 
 ## Invoke Service A from Service B
 
-You can get the access URL of Service B from the result of the above command. Access the service endpoint with `/invoke-serviceA`. You can see the string `INVOKE SERVICE A FROM SERVICE B: This is a result of Service A` in your terminal or browser. From the result, we were able to invoke Service A from Service B and see that the result was returned correctly.
+The output of the previous command includes the public URL for the service. To access the RESTful endpoint, append `/invoke-serviceA` to the URL, as shown in the following command:
 
 ```bash
 curl https://$AZURE_SPRING_CLOUD_NAME-serviceb.azuremicroservices.io/invoke-serviceA
 ```
 
-This command produces the following output.
+This command produces the following output:
 
 ```output
 INVOKE SERVICE A FROM SERVICE B: This is a result of Service A
 ```
-
-Let's review the implementation that invokes Service A in the source code of Service B.
-
-```java
-@GetMapping(value = "/invoke-serviceA")
-public String invokeServiceA() 
-{   
-    RestTemplate  restTemplate = new RestTemplate();
-    String response = restTemplate.getForObject("http://servicea/serviceA",String.class);   
-    return "INVOKE SERVICE A FROM SERVICE B: " + response;
-}
-```
-
-Like this, you had invoked Service A as `http://servicea`. The service name is the name that you specified during the creation of the Azure Spring Cloud application. (For example: `az spring-cloud app create --name ServiceA`.) The application name matches the service name you register with the service registry, making it easier to manage the service name.
 
 ### Get some information from Service Registry
 
