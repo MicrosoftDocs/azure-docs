@@ -84,6 +84,8 @@ This table shows the availability details for the auto provisioning **feature** 
 
 This table shows the availability details for the components that are required for auto provisioning to provide the protections offered by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
+By default, auto provisioning is enabled when you enable Defender for Containers from the Azure portal.
+
 | Aspect                                               | Azure Kubernetes Service clusters                                                      | Azure Arc-enabled Kubernetes clusters                                                       |
 |------------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Release state:                                       | • Defender profile is in preview<br> • Azure Policy add-on: Generally available (GA) | • Defender extension: Preview<br> • Azure Policy extension: Preview |
