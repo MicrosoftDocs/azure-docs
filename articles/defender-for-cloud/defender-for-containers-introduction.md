@@ -2,9 +2,9 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.author: elkrieger
-author: ElazarK
-ms.date: 04/07/2022
+ms.author: benmansheim
+author: bmansheim
+ms.date: 04/28/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -50,7 +50,7 @@ When reviewing the outstanding recommendations for your container-related resour
 
 ### Kubernetes data plane hardening
 
-For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the **Azure Policy for Kubernetes**. You can also auto deploy this component as explained in [enable auto provisioning of agents and extensions](enable-data-collection.md#auto-provision-mma). By default, auto provisioning is enabled when you enable Defender for Containers. 
+For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the **Azure Policy for Kubernetes**. You can also auto deploy this component as explained in [enable auto provisioning of agents and extensions](enable-data-collection.md#auto-provision-mma).
 
 With the add-on on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to **enforce** the best practices and mandate them for future workloads.
 
