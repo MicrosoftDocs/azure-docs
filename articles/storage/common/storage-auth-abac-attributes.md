@@ -72,6 +72,11 @@ The following table lists the supported actions and suboperations for conditions
 > | Changes ownership of a blob | DataAction for changing ownership of a blob. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action` |
 > | Rename file or directory | DataAction for renaming files or directories. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` |
 > | All data operations for accounts with hierarchical namespace enabled | DataAction for all data operations on storage accounts with hierarchical namespace enabled. | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
+> | Peek messages | DataAction for peeking messages. | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |
+> | Put a message | DataAction for putting a message. | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action` |
+> | Put or update a message | DataAction for putting or updating a message. | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/write` |
+> | Clear messages | DataAction for clearing messages. | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` |
+> | Get or delete messages | DataAction for getting or deleting messages. | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 ## Attributes
 
@@ -88,6 +93,7 @@ The following table lists the descriptions for the supported attributes for cond
 > | Container name| Name of a storage container or file system. Use when you want to check the container name. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]` | String |
 > | Encryption scope name | Name of the encryption scope used to encrypt data. Available only for storage accounts where hierarchical namespace is not enabled. | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name]` | String |
 > | Is hierarchical namespace enabled | Indicates whether hierarchical namespace is enabled on a storage account. Available only at resource group or above scope. | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled]` | Boolean |
+> | Queue name | Name of a storage queue. | `@Request[Microsoft.Storage/storageAccounts/queueServices/queues:name]` | String |
 > | Snapshot | Snapshot identifier for a blob snapshot. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` | DateTime |
 > | Version ID | Version ID of a version blob. Available only for storage accounts where hierarchical namespace is not enabled. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]` | DateTime |
 
@@ -106,28 +112,33 @@ The following table lists which attributes you can use in your condition express
 
 
 > [!div class="mx-tableFixed"]
-> | Action | Attributes |
+> | DataAction | Attributes |
 > | --- | --- |
-> | All read operations | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
-> | List blobs | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob prefix |
-> | Read a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
-> | Read content from a blob with tag conditions | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
-> | Read blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Version ID<br/>Snapshot |
-> | Find blobs by tags | Account name<br/>Is hierarchical namespace enabled |
-> | Write to a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
-> | Sets the access tier on a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Version ID<br/>Snapshot |
-> Write to a blob with blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name |
-> | Create a blob or snapshot, or append data | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
-> | Write to a blob with blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name |
-> | Write blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Version ID<br/>Snapshot |
-> | Write Blob legal hold and immutability policy | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | Delete a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot |
-> | Delete a version of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID |
-> | Permanently delete a blob overriding soft-delete | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot |
-> | Modify permissions of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | Change ownership of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | Rename a file or a directory | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
-> | All data operations for accounts with hierarchical namespace enabled | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
+> | All read operations | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Principal |
+> | List blobs | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob prefix<br/>Principal |
+> | Read a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Version ID<br/>Snapshot<br/>Principal |
+> | Read content from a blob with tag conditions | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name<br/>Version ID<br/>Snapshot<br/>Principal |
+> | Read blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Version ID<br/>Snapshot<br/>Principal |
+> | Find blobs by tags | Account name<br/>Is hierarchical namespace enabled<br/>Principal |
+> | Write to a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Principal |
+> | Sets the access tier on a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Version ID<br/>Snapshot<br/>Principal |
+> Write to a blob with blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name<br/>Principal |
+> | Create a blob or snapshot, or append data | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name<br/>Principal |
+> | Write to a blob with blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name<br/>Principal |
+> | Write blob index tags | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Version ID<br/>Snapshot<br/>Principal |
+> | Write Blob legal hold and immutability policy | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Principal |
+> | Delete a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot<br/>Principal |
+> | Delete a version of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Principal |
+> | Permanently delete a blob overriding soft-delete | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Version ID<br/>Snapshot<br/>Principal |
+> | Modify permissions of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Principal |
+> | Change ownership of a blob | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Principal |
+> | Rename a file or a directory | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Principal |
+> | All data operations for accounts with hierarchical namespace enabled | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Principal |
+> | Peek messages | Account name<br/>Queue name<br/>Principal |
+> | Put a message | Account name<br/>Queue name<br/>Principal |
+> | Put or update a message | Account name<br/>Queue name<br/>Principal |
+> | Clear messages | Account name<br/>Queue name<br/>Principal |
+> | Get or delete messages | Account name<br/>Queue name<br/>Principal |
 
 ## See also
 
