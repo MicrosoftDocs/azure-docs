@@ -1,4 +1,15 @@
-## Introduction 
+---
+title: Extensions - Azure Database for PostgreSQL - Flexible Server
+description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
+ms.author: sunila
+author: sunilagarwal
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: conceptual
+ms.date: 11/30/2021
+---
+
+# High CPU Utilization
 
 On several occasions it is observed that during the performance management of PostgreSQL database, DBA’s come across a situation where CPU utilization is extremely high. In such circumstances an immediate standard process to resolve the issue will be helpful to reduce any downtime/performance management challenges. Keeping this in mind, this document is prepared. This document will help you in the following areas – 
 
