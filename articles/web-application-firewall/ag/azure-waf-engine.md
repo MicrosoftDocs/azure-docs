@@ -54,9 +54,9 @@ We also observed significant improvements in P99 tail latencies with up to \~8x 
 
 ### Increased scale
 
-Our next-gen engine can scale up to 8 times more RPS using the same compute power and has an ability to process 16 times larger request sizes (up to 2MB sizes), which was not possible earlier with the previous engine.
+Our next-gen engine can scale up to 8 times more RPS using the same compute power and has an ability to process 16 times larger request sizes (up to 2MB sizes), which wasn't possible earlier with the previous engine.
 
-The following charts shows the scale improvements with POST and GET requests per second with the new engine and with different payload sizes.
+The following charts show the scale improvements with POST and GET requests per second with the new engine and with different payload sizes.
 
 ![Chart that shows the requests per second for both POST and GET requests.](../media/azure-waf-engine/requests-per-second.png)
 
