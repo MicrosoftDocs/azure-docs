@@ -1,4 +1,15 @@
-## Introduction 
+---
+title: Extensions - Azure Database for PostgreSQL - Flexible Server
+description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
+ms.author: sunila
+author: sunilagarwal
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: conceptual
+ms.date: 11/30/2021
+---
+
+# Autovacuum Tuning
 
 Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row. This provides greater concurrency with minimal blocking between the different processes. The downside of it is it needs appropriate maintenance done by VACUUM and ANALYZE commands.  
 
@@ -10,10 +21,12 @@ The purpose of autovacuum process is to automate the execution of VACUUM and ANA
 
 Autovacuum can be monitored by using the query below  
 
-    SELECT schemaname, relname, n_dead_tup, n_live_tup, round(n_dead_tup::float/n_live_tup::float*100) dead_pct, autovacuum_count, last_vacuum, last_autovacuum, last_autoanalyze  
-    FROM    pg_stat_all_tables    
-    WHERE n_live_tup > 0 ; 
+```
+SELECT schemaname, relname, n_dead_tup, n_live_tup, round(n_dead_tup::float/n_live_tup::float*100) dead_pct, autovacuum_count, last_vacuum, last_autovacuum, last_autoanalyze  
+FROM pg_stat_all_tables WHERE n_live_tup > 0 ;
+```   
   
+
 The following columns help determine if autovacuum is catching up with table activity.  
 
 <b>Dead_pct</b> : percentage of dead tuples when compared to live tuples  
@@ -31,7 +44,8 @@ Threshold --> autovacuum_vacuum_scale_factor * tuples + autovacuum_vacuum_
 
 The query below gives a list of tables in the database and let us know if it qualifies for the autovacuum processing  
 
-    SELECT *
+```
+ SELECT *
       ,n_dead_tup > av_threshold AS av_needed
       ,CASE 
         WHEN reltuples > 0
@@ -62,7 +76,8 @@ The query below gives a list of tables in the database and let us know if it qua
           )
         AND N.nspname ! ~ '^pg_toast'
       ) AS av
-    ORDER BY av_needed DESC ,n_dead_tup DESC;
+    ORDER BY av_needed DESC ,n_dead_tup DESC;  
+```
 
 Note: The query does not take into consideration that autovacuum can be configured per table basis using "alter table" DDL command.  
 
@@ -126,12 +141,12 @@ However, if we have changed table level `autovacuum_vacuum_cost_delay` or 
 ##### Autovacuum transaction ID (TXID) wraparound protection
 
 When a database runs into transaction ID wrapround protection, an error message like below is seen 
-
+```
   <i>database is not accepting commands to avoid wraparound data loss in database ‘xx’   
   Stop the postmaster and vacuum that database in single-user mode. </i>
     
     Note: This error message is a long-standing oversight. Usually, you do not need to switch to single-user mode. Instead, you can run the required VACUUM commands and perform tuning for VACUUM to run fast. While you can't run any data manipulation language (DML), you can still run VACUUM.
-
+```
 The wraparound problem occurs when the database is either not vacuumed or there are a large number of dead tuples which could not be removed by autovacuum. The reasons for this might be: 
  
 ###### Workload induced 
@@ -141,11 +156,10 @@ The workload causes too many dead tuples in a short period of time which makes i
  
 ###### Long Running Transactions 
 
-Any long-running transactions in the system will not allow dead tuples to be removed when autovacuum is running. They are a blocker to vacuum process. Removing the long running transactions frees up dead tuples for deletion when autovacuum runs. 
-
+Any long-running transactions in the system will not allow dead tuples to be removed when autovacuum is running. They are a blocker to vacuum process. Removing the long running transactions frees up dead tuples for deletion when autovacuum runs.    
 The long-running transactions can be checked in the system by following query: 
 
-
+```
     SELECT pid, 
            age(backend_xid) AS age_in_xids, 
            now () - xact_start AS xact_age, 
@@ -156,28 +170,27 @@ The long-running transactions can be checked in the system by following query:
      WHERE state != 'idle' 
      ORDER BY 2 DESC 
      LIMIT 10; 
-
+```
  
 ###### Prepared Statements 
 
-If there are prepared statements which are not committed, then that would also hold dead tuples from being removed. 
-
+If there are prepared statements which are not committed, then that would also hold dead tuples from being removed.   
 The query helps to find the non-committed prepared statements 
-
+```
     SELECT gid, prepared, owner, database, transaction 
     FROM pg_prepared_xacts 
     ORDER BY age(transaction) DESC; 
-
+```
 Use commit prepared or rollback prepared to remove them. 
 
 ###### Replication Slots 
 
-The replication slots which are not used. The query below helps identify it. 
-
+The replication slots which are not used. The query below helps identify it.   
+```
     SELECT slot_name, slot_type, database, xmin 
     FROM pg_replication_slots 
     ORDER BY age(xmin) DESC; 
-
+```
 Use pg_drop_replication_slot() to delete an unused replication slot. 
 
 
@@ -187,16 +200,16 @@ When the database runs into transaction ID wrapround protection one can look if 
 
 We can set the autovacuum parameters to an individual table as per the requirement.   
 
-To set auto-vacuum setting per table we use DDL and change the storage parameters as shown below
-
+To set auto-vacuum setting per table we use DDL and change the storage parameters as shown below   
+```
     ALTER TABLE <table name> SET (autovacuum_vacuum_scale_factor = 0.0); 
     ALTER TABLE <table name> SET (autovacuum_vacuum_threshold = 1000); 
-
-Prioritization of autovacuum can also be made on a table basis. Example we have a table where growth of dead tuples is faster compared to other tables in this scenario we could set `autovacuum_vacuum_cost_delay` or `auto_vacuum_cost_limit parameters` at the table level to make vacuuming on the particular table more aggressive.  
-
+```
+Prioritization of autovacuum can also be made on a table basis. Example we have a table where growth of dead tuples is faster compared to other tables in this scenario we could set `autovacuum_vacuum_cost_delay` or `auto_vacuum_cost_limit parameters` at the table level to make vacuuming on the particular table more aggressive.     
+```
     ALTER TABLE <table name> SET (autovacuum_vacuum_cost_delay = xx);  
     ALTER TABLE <table name> SET (autovacuum_vacuum_cost_limit = xx);  
-
+```
 ##### Insert Only Workloads  
 
 In versions of PostgreSQL prior to 13, autovacuum will not run-on tables with an insert-only workload, because if there are no updates or deletes, there would be no dead tuples and no free space that would need to be reclaimed. Autoanalyze will run for insert-only workloads, since there is new data. A disadvantage of this is the visibility map is not updated, and thus the query performance especially where there is Index Only Scans starts to suffer over time.  
