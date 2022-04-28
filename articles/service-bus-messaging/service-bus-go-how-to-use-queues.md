@@ -19,11 +19,11 @@ ms.devlang: golang
 
 In this tutorial, you'll learn how to send messages to and receive messages from Azure Service Bus queues using the Go programming language.
 
-Azure Service Bus is a fully managed enterprise message broker with message queues and publish/subscribe capabilities. Service bus is used to decouple applications and services from each other. Providing a distributed, reliable, and high performance message transport.
+Azure Service Bus is a fully managed enterprise message broker with message queues and publish/subscribe capabilities. Service Bus is used to decouple applications and services from each other, providing a distributed, reliable, and high performance message transport.
 
-The Azure SDK for GO's [azservicebus](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus) package allows you to send and receive messages from Azure Service Bus and using the Go programming language. 
+The Azure SDK for Go's [azservicebus](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus) package allows you to send and receive messages from Azure Service Bus and using the Go programming language. 
 
-By the end of this tutorial, you'll be able to: send a single or bulk message to a queue, receive messages, and dead letter messages that aren't processed.
+By the end of this tutorial, you'll be able to: send a single message or batch of messages to a queue, receive messages, and dead-letter messages that aren't processed.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To begin, create a new Go module.
 
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     
-    go get github.com/Azure/azure-sdk-for-go/sdk/azservicebus
+    go get github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus
     ```
 1. Next, create a new file named `main.go` with the following code:
   
@@ -90,7 +90,7 @@ func GetClient() *azservicebus.Client {
 }
 ```
 
-The `GetClient` function returns a new `azservicebus.Client` object that's created by using an Azure Service Bus namespace and a credential. The name space is provided by the `AZURE_SERVICEBUS_HOSTNAME` environment variable. And the credential is created by using the `azidentity.NewDefaultAzureCredential` function. 
+The `GetClient` function returns a new `azservicebus.Client` object that's created by using an Azure Service Bus namespace and a credential. The namespace is provided by the `AZURE_SERVICEBUS_HOSTNAME` environment variable. And the credential is created by using the `azidentity.NewDefaultAzureCredential` function. 
 
 For local development, the `DefaultAzureCredential` used the access token from Azure CLI, which can be created by running the `az login` command to authenticate to Azure. 
 
@@ -147,7 +147,7 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 
 ## Receive messages from a queue
 
-After you've sent messages to the queue, you can receive them with the `receiver` type. To receive messaged from a queue, add the `ReceiveMessage` function to your `main.go` file.
+After you've sent messages to the queue, you can receive them with the `azservicebus.Receiver` type. To receive messages from a queue, add the `ReceiveMessage` function to your `main.go` file.
 
 ```go
 func ReceiveMessage(client *azservicebus.Client) {
@@ -175,7 +175,7 @@ func ReceiveMessage(client *azservicebus.Client) {
 }
 ```
 
-`RecieveMessage` takes a `azservicebus.Client` object and creates a new `azservicebus.Receiver` object. It then receives the messages from the queue. The `ReceiveMessages` function takes two parameters: a context and the number of messages to receive. The `ReceiveMessages` function returns a slice of `azservicebus.Message` objects. 
+`ReceiveMessage` takes an `azservicebus.Client` object and creates a new `azservicebus.Receiver` object. It then receives the messages from the queue. The `Receiver.ReceiveMessages` function takes two parameters: a context and the number of messages to receive. The `Receiver.ReceiveMessages` function returns a slice of `azservicebus.ReceivedMessage` objects. 
 
 Next, a `for` loop iterates through the messages and prints the message body. Then the `CompleteMessage` function is called to complete the message, removing it from the queue.
 
@@ -210,7 +210,7 @@ func DeadLetterMessage(client *azservicebus.Client) {
 }
 ```
 
-`DeadLetterMessage` takes a `azservicebus.Client` object and a `azservicebus.Message` object. It then sends the message to the dead letter queue. The function takes two parameters: a context and a `azservicebus.DeadLetterOptions` object. The `DeadLetterMessage` function returns an error if the message fails to be sent to the dead letter queue.
+`DeadLetterMessage` takes an `azservicebus.Client` object and a `azservicebus.ReceivedMessage` object. It then sends the message to the dead letter queue. The function takes two parameters: a context and a `azservicebus.DeadLetterOptions` object. The `Receiver.DeadLetterMessage` function returns an error if the message fails to be sent to the dead letter queue.
 
 To receive messages from the dead letter queue, add the `ReceiveDeadLetterMessage` function to your `main.go` file.
 
@@ -384,7 +384,7 @@ func main() {
 	client := GetClient()
 	SendMessage("singleMessage", client)
 
-	messages := [2]string{"batchMessage1", "batchMessage2"}
+	messages := []string{"batchMessage1", "batchMessage2"}
 	SendMessageBatch(messages[:], client)
 
 	ReceiveMessage(client)
@@ -398,7 +398,7 @@ func main() {
 
 ## Run the code
 
-Before you run the code, create an environment variable named `AZURE_SERVICEBUS_HOSTNAME`. Set the environment variable's value to the service bus namespace.
+Before you run the code, create an environment variable named `AZURE_SERVICEBUS_HOSTNAME`. Set the environment variable's value to the Service Bus namespace.
 
 # [Bash](#tab/bash)
 
