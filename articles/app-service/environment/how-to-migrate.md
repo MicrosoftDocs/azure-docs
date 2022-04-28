@@ -76,8 +76,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 ```azurecli
 az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
-
-![subnet delegation sample](./media/migration/subnet-delegation.png)
+:::image type="content" source="./media/migration/subnet-delegation.png" alt-text="Subnet delegation sample.":::
 
 ## 6. Migrate to App Service Environment v3
 
