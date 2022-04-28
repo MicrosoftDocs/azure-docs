@@ -4,8 +4,8 @@ description: Create, deploy, and manage a cloud-native Public Key Infrastructure
 services: security
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: CA details
-ms.date: 04/04/2022
+ms.topic: article
+ms.date: 04/28/2022
 
 ms.author: sarahlipsey
 author: shlipsey3
@@ -15,7 +15,7 @@ ms.reviewer: person
 
 # Azure Certificate Authority details
 
-This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure, including Public Key Infrastructure (PKI) and SSL/TLS information. You'll also find URLs that may need to be added to your firewall allowlists, client compatibility for public PKIs, as well as past and upcoming changes related to certificates and PKIs.
+This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure. This article also includes Public Key Infrastructure (PKI) and SSL/TLS information. You'll find URLs that may need to be added to your firewall allowlists, client compatibility for public PKIs, as well as past and upcoming changes related to certificates and PKIs.
 
 **How to read the certificate details:**
 - The Serial Number (top string in the table) contains the hexadecimal value of the certificate serial number.
@@ -94,5 +94,5 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 To learn more about Certificate Authorities and PKI, see:
 
 - [Azure Firewall Premium certificates](../../firewall/premium-certificates.md)
-- [Plan for PKI certificates in Configuration Manager](/mem/configmgr/core/plan-design/security/plan-for-certificates)
-- [Securing PKI](../previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11))
+- [Plan for PKI certificates in Configuration Manager](/mem/configmgr/core/plan-design/security/plan-for-certificates.md)
+- [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786443(v=ws.11).md)

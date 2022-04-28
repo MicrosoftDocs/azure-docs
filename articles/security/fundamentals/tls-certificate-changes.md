@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/05/2022
+ms.date: 04/28/2022
 ms.author: mbaldwin
 
 ---
@@ -21,9 +21,9 @@ All Azure services are impacted by this change. Details for some services are li
 
 - [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
 - [Azure IoT Hub](../../iot-hub/iot-hub-tls-support.md) and [DPS](../../iot-dps/tls-support.md) remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. Explore other details provided in [this Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
-- [Azure Cosmos DB](/security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context#dp-4-encrypt-sensitive-information-in-transit) began this transition in July 2022 with an expected completion in October 2022.
+- [Azure Cosmos DB](/security/benchmark/azure/baselines/cosmos-db-security-baseline.md) began this transition in July 2022 with an expected completion in October 2022.
 - Details on [Azure Storage](../../storage/common/transport-layer-security-configure-minimum-version.md) TLS certificate changes can be found in [this Azure Storage blog post](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
-- [Azure Cache for Redis](/security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json#44-encrypt-all-sensitive-information-in-transit) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](../../azure-cache-for-redis/cache-whats-new.md)
+- [Azure Cache for Redis](/security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline.md) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](../../azure-cache-for-redis/cache-whats-new.md)
 - Details on the [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md) can be found in [this Azure Governance and Management blog post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
 
 ## What changed?
