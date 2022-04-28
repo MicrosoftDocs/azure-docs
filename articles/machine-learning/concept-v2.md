@@ -22,7 +22,7 @@ Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 (preview)
 
 ## Azure Machine Learning CLI v2
 
-The Azure Machine Learning CLI v2 (CLI v2) is the latest extension for the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli). The CLI v2 provides commands in the format *az ml __\<noun\> \<verb\> \<options\>__* to create and maintain Azure ML assets and workflows. The assets or workflows themselves are defined using a YAML file. The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on.
+The Azure Machine Learning CLI v2 (CLI v2) is the latest extension for the [Azure CLI](/cli/azure/what-is-azure-cli). The CLI v2 provides commands in the format *az ml __\<noun\> \<verb\> \<options\>__* to create and maintain Azure ML assets and workflows. The assets or workflows themselves are defined using a YAML file. The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on.
 
 A few examples of CLI v2 commands:
 
@@ -50,7 +50,6 @@ The CLI v2 is useful in the following scenarios:
 * Reusable components in pipelines
 
     Azure ML introduces [components](concept-component) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
-
 
 
 ## Azure Machine Learning Python SDK v2 (preview)
@@ -105,4 +104,5 @@ The SDK v2 is useful in the following scenarios:
 * Get started with SDK v2
 
     * [Install and set up SDK (v2)](LINKTBD)
+    * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-sdk.md)
     * [Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](LINKTBD)
