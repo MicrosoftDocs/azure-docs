@@ -73,7 +73,7 @@ All Synapse RBAC permissions/actions shown in the table are prefixed `Microsoft/
 
 Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 --|--|--
-|Open Synapse Studio on a workspace|Synapse User, or |read
+|Open Synapse Studio on a workspace|Synapse User or |read
 | |Azure Owner, Contributor, or Reader on the workspace|none
 |List SQL pools, Data Explorer pools, Apache Spark pools, Integration runtimes and access their configuration details|Synapse User, or|read|
 ||Azure Owner, Contributor, or Reader on the workspace|none
@@ -81,7 +81,7 @@ Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 SQL POOLS|
 Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the workspace|none
 Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
-Create a SQL script</br>|Synapse User, or </br>Azure Owner or Contributor on the workspace, </br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
+Create a SQL script</br>|Synapse User or </br>Azure Owner or Contributor on the workspace, </br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
 List and open any published SQL script| Synapse Artifact User, Artifact Publisher, Synapse Contributor|artifacts/read
 Run a SQL script on a serverless SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
 Run a SQL script on a dedicated SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
