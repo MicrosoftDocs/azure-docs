@@ -109,6 +109,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 From the [Azure portal](https://portal.azure.com), navigate to the **Migration** page for the App Service Environment you'll be migrating. You can do this by clicking on the banner at the top of the **Overview** page for your App Service Environment or by clicking the **Migration** item on the left-hand side.
 
 ![migration access points](./media/migration/portal-overview.png)
+:::image type="content" source="./media/migration/portal-overview.png" alt-text="Migration access points.":::
 
 On the migration page, the platform will validate if migration is supported for your App Service Environment. If your environment isn't supported for migration, a banner will appear at the top of the page and include an error message with a reason. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the error messages you may see if you aren't eligible for migration. If your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state, you won't be able to use the migration feature. If your environment [won't be supported for migration with the migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the migration feature, see the [manual migration options](migration-alternatives.md).
 
