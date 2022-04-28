@@ -67,7 +67,7 @@ In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary 
 > Azure AD Conditional Access policies are not evaluated when PRTs are issued.
 
 > [!NOTE]
-> We do not support 3rd party credential providers for Azure AD PRTs.
+> We do not support 3rd party credential providers for issuance and renewal of Azure AD PRTs.
 
 ## What is the lifetime of a PRT?
 
