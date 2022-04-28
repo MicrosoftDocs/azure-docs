@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/21/2022
+ms.date: 04/28/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -105,6 +105,9 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 ### OWASP CRS 2.2.9
 
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+
+> [!NOTE]
+> We strongly encourage customers to move to CRS 3.2 or newer. We are in the process of retiring CRS 2.2.9, and will stop onboarding new customers on the older CRS 2.2.9 version. Existing customers using CRS 2.2.9 will continue to be supported.
 
 |Rule group|Description|
 |---|---|
