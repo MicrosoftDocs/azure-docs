@@ -45,7 +45,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
 1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale out.
 
-:::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Discover machines page for scale-out onboarding":::
+    :::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Discover machines page for scale-out onboarding":::
 
 ### 1. Generate the Azure Migrate project key
 
@@ -79,7 +79,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
 
 4. Run the script named `AzureMigrateInstaller.ps1` by running the following command:
 
-  `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
+      `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. Select from the scenario, cloud, configuration and connectivity options to deploy the desired appliance. For instance, the selection shown below sets up a **scale-out appliance** to initiate concurrent replications on servers running in your VMware environment to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 

@@ -101,7 +101,7 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1.	In **Migration Goals** > **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1.	In **Migration Goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
 2.	In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. Provide an appliance name and generate a project key in the portal.
 3. Click **Download**, to download the zipped file. 
