@@ -88,7 +88,7 @@ To create the storage account and container, we can run the CLI commands seen be
 ```azurecli-interactive
 az group create --location eastus --name msdocs-storage-function \
 
-az storage account create --name msdocsstorageaccount -resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
+az storage account create --name msdocsstorageaccount --resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
 
 az storage container create --name imageanalysis --account-name msdocsstorageaccount --resource-group msdocs-storage-function
 ```
