@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/27/2022
+ms.date: 04/28/2022
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -92,11 +92,11 @@ Filter the data by offer names. Filter options are dynamic and based on the sele
 
 To select the filters, in the top-right of the page, select **Filters**.
 
-[ ![Screenshot of the Filters button in the top menu.](./media/insights-dashboard/dashboard-filters.png) ](./media/insights-dashboard/dashboard-filters.png#lightbox)
+:::image type="content" source="./media/insights-dashboard/dashboard-filters.png" alt-text="Screenshot of the Filters button in the top menu..":::
 
 In the panel that appears on the right, select the offer names you want, and then select **Apply**.
 
-[ ![Screenshot of the dashboard filters panel.](./media/insights-dashboard/dashboard-filters-panel.png) ](./media/insights-dashboard/dashboard-filters-panel.png#lightbox)
+:::image type="content" source="./media/insights-dashboard/dashboard-filters-panel.png" alt-text="Screenshot of the dashboard filters panel.":::
 
 ### Page visits trends
 
@@ -133,8 +133,6 @@ This widget provides page visits and calls to action against offers, referral do
 #### Offers
 
 Select the **Offer alias** tab to select a specific offer to see the monthly trend of page visits, calls to action, and consent-given clicks on the chart.
-
-:::image type="content" source="./media/insights-dashboard/offer-alias-tab.png" alt-text="Shows a sample funnel graph of offers.":::
 
 Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as .CSV file, and download the image as a .PDF.
 
