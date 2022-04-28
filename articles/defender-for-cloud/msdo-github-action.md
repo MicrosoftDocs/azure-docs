@@ -13,7 +13,7 @@ The MSDO leverages the following Open Source tools:
 |[Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE)
 
 
-*Prerequisite: follow the guidance to setup* [GitHub Advanced Security](#how-to-guide-github-advanced-security-ghas).
+*Prerequisite: follow the guidance to setup* [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 
 Browse to the Microsoft DevOps Security GitHub Action [here](https://github.com/marketplace/actions/security-devops-action)
 
