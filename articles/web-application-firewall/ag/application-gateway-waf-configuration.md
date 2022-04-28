@@ -83,7 +83,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-So if the URL `http://www.contoso.com/?user%281%29=fdafdasfda` is passed to the WAF, it won't evaluate the string **fdafdasfda**, but it will still evaluate the parameter name **user%281%29**. 
+So if the URL `http://www.contoso.com/?user%3c%3e=joe` is passed to the WAF, it won't evaluate the string **joe**, but it will still evaluate the parameter name **user%3c%3e**. 
 
 ## Next steps
 
