@@ -59,7 +59,7 @@ Each replica set contains one primary replica and three secondaries. Write opera
 
 Because the container and routing information don't change often, it's cached locally on the SDKs so subsequent operations can benefit from this information. The TCP connections already established are also reused across operations. Unless otherwise configured through the SDKs options, connections are permanently maintained during the lifetime of the SDK instance.
 
-As with any distributed architecture, the machines holding replicas might undergo upgrades or maintenance. The service will ensure the replica set maintains consistency but any replica movement would cause existing TCP addresses to change. In these cases, the SDKs need to refresh the routing information and re-connect to the new addresses through new Gateway requests. These events do not affect the overall P99 SLA.
+As with any distributed architecture, the machines holding replicas might undergo upgrades or maintenance. The service will ensure the replica set maintains consistency but any replica movement would cause existing TCP addresses to change. In these cases, the SDKs need to refresh the routing information and re-connect to the new addresses through new Gateway requests. These events should not affect the overall P99 SLA.
 
 ### Volume of connections
 
