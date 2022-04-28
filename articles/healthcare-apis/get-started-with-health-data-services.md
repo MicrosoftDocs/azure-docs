@@ -72,7 +72,7 @@ The client applications are registered in the Azure Active Directory (Azure AD) 
 
 The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
-For more information about how to register a client application in Azure AD to access Azure Health Data Services, see [Register a client application in Azure Active Directory](./../healthcare-apis/register-application).
+For more information about how to register a client application in Azure AD to access Azure Health Data Services, see [Register a client application in Azure Active Directory](./../healthcare-apis/register-application.md).
 
 ### Assign application roles
 
@@ -80,7 +80,7 @@ Authenticated users and client applications of Azure Health Data Services must b
 
 * For information about assigning roles to the FHIR service, see [Assign roles for the FHIR service](./../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-fhir-service).
 
-* For information about assigning roles to the DICOM service, see [Assign roles for the DICOM service](./../healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)
+* For information about assigning roles to the DICOM service, see [Assign roles for the DICOM service](./../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-dicom-service)
 
 > [!Note] 
 > MedTech service doesn't require application roles, but it does rely on the "Azure Event Hubs Data Receiver" to retrieve data stored in the event hub of the customer's subscription. For more information, see [Granting MedTech service access](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access).
