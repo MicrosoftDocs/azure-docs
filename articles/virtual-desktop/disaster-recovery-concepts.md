@@ -49,7 +49,7 @@ Basically, the disaster recovery strategy we recommend for Azure Virtual Desktop
 
 Something else you should keep in mind is the difference between active-passive and active-active plans. Active-passive plans are when you have a region with one set of resources that's active and one that's turned off until it's needed (passive). If the active region is taken offline by an emergency, the organization can switch to the passive region by turning it on and moving all their users there.
 
-Another option is an active-active deployment, where you use both sets of infrastructure at the same time. While some users may be affected by outages, the damage is limited to the users in the region that went down. Users in the other region that's still online won't be affected, and damage recovery is limited to moving the users in the affected region to the functioning active region. Active-active deployments can take many forms, including:
+Another option is an active-active deployment, where you use both sets of infrastructure at the same time. While some users may be affected by outages, the impact is limited to the users in the region that went down. Users in the other region that's still online won't be affected, and the recovery is limited to the users in the affected region reconnecting to the functioning active region. Active-active deployments can take many forms, including:
 
 - Overprovisioning infrastructure in each region to accommodate affected users in the event one of the regions goes down. A potential drawback to this method is that maintaining the additional resources costs more.
 - Have extra session hosts in both active regions, but deallocate them when they aren't needed, which reduces costs.
@@ -119,7 +119,7 @@ The following table lists deployment recommendations for host pool disaster reco
 
 ## Disaster recovery for personal host pools
 
-For personal host pools, your disaster recovery strategy should involve replicating your resources to a secondary region using Azure Recovery Services Vault. If your primary region goes down during a disaster, Azure Recovery Services Vault can failover and turn on the resources in your secondary region.
+For personal host pools, your disaster recovery strategy should involve replicating your resources to a secondary region using Azure Site Recovery Services Vault. If your primary region goes down during a disaster, Azure Site Recovery can failover and turn on the resources in your secondary region.
 
 For example, let's say we have a deployment with a primary region in the West US and a secondary region in the East US. The primary region has a personal host pool with two session hosts each. Each session host has their own local disk containing the user profile data and their own VNET that's not paired with anything. If there's a disaster, you can use Azure Backup Vault to failover to the secondary region in East US (or to a different availability zone in the same region). Unlike the primary region, the secondary region doesn't have local machines or disks. During the failover, Azure Site Recovery Vault takes the replicated data from the Azure Backup Vault and uses it to create two new VMs that are copies of the original session hosts, including the local disk and user profile data. The secondary region has its own independent VNET, so the VNET going offline in the primary region won't affect functionality.
 
