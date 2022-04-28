@@ -120,7 +120,7 @@ If you receive an error similar to "Row size too large (> 8126)", you may want t
 This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters).
 
 > [!NOTE]
-> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas.
+> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to ON if you have read replicas.
 
 ### time_zone
 

@@ -10,7 +10,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 07/06/2021
+ms.date: 04/14/2022
 ms.author: mbender
 ms.custom: 
 ---

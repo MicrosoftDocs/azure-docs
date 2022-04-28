@@ -56,7 +56,7 @@ Processing data to stream logs is charged for [certain services](resource-logs-c
 
 The charge is based on the number of bytes in the exported JSON formatted log data, measured in GB (10^9 bytes).
 
-Pricing is availalble on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
+Pricing is available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
 
 ## Next steps
 

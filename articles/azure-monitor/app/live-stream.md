@@ -268,7 +268,31 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
-As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2 by default. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version. 
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
+
+> [!WARNING]
+> Currently, authenticated channel only supports manual SDK instrumentation. The authenticated channel cannot be configured with auto-instrumentation (used to be known as "codeless attach").
+
+### Missing configuration for .NET
+
+1. Verify you are using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+2. Edit the `ApplicationInsights.config` file
+    * Verify that the connection string points to the Application Insights resource you are using
+    * Locate the `QuickPulseTelemetryModule` configuration option; if it is not there add it
+    * Locate the `QuickPulseTelemetryProcessor` configuration option; if it is not there add it
+     
+ ```xml
+<TelemetryModules>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+</TelemetryModules>
+
+<TelemetryProcessors>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryProcessor, Microsoft.AI.PerfCounterCollector"/>
+<TelemetryProcessors>
+````
+3. Restart the application
 
 ## Next steps
 

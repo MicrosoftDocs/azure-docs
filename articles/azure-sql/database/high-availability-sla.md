@@ -110,8 +110,8 @@ Zone redundancy for the Azure SQL Database Hyperscale service tier is [now in pu
 
 Consider the following limitations: 
 
-- Currently, only the following Azure regions are supported: UK South, Brazil South, West US 2, Japan East, North Europe, and Southeast Asia.
-- Zone redundant configuration can only be specified during database creation. This setting cannot be modified once the resource is provisioned. Use [Database copy](database-copy.md), [point-in-time restore](recovery-using-backups.md#point-in-time-restore), or create a [geo-replica](active-geo-replication-overview.md) to update the zone redundant configuration for an existing Hyperscale database. When using one of these update options, if the target database is in a different region than the source or if the database backup storage redundancy from the target differs from the source database, the [copy operation](database-copy.md#database-copy-for-azure-sql-hyperscale) will be a size of data operation.
+- Currently, only the following Azure regions are supported: UK South, Brazil South, West US 2, Japan East, North Europe, Southeast Asia, Canada Central, Central US, South Central US, France Central, Australia East, Germany West Central, East Asia, Korea Central, Norway East, and West US 3.
+- Zone redundant configuration can only be specified during database creation. This setting cannot be modified once the resource is provisioned. Use [Database copy](database-copy.md), [point-in-time restore](recovery-using-backups.md#point-in-time-restore), or create a [geo-replica](active-geo-replication-overview.md) to update the zone redundant configuration for an existing Hyperscale database. When using one of these update options, if the target database is in a different region than the source or if the database backup storage redundancy from the target differs from the source database, the [copy operation](database-copy.md#database-copy-for-azure-sql-hyperscale) will be a size of data operation. Additionally, when using one of these update options the target database will not have the historical backup data from the source database for point-in-time restore.
 - Named replicas are not supported.
 - Only [zone-redundant backup](automated-backups-overview.md) is supported.
 - Only Gen5 hardware is supported.
@@ -173,7 +173,34 @@ Specify the `-zone-redundant parameter` to enable zone redundancy for your Hyper
 To enable zone redundancy using the Azure CLI, use the following example command: 
 
 ```azurecli
-az sql db replica create -g mygroup -s myserver -n originalDb --partner-server newDb –ha-replicas 1 –zone-redundant –backup-storage-redundancy Zone
+az sql db replica create -g mygroup -s myserver -n originalDb --partner-server newDb -–ha-replicas 1 -–zone-redundant -–backup-storage-redundancy Zone
+```
+
+* * *
+
+### Create a zone redundant Hyperscale database by creating a database copy
+
+To make an existing Hyperscale database zone redundant, use Azure PowerShell or the Azure CLI to create a zone redundant Hyperscale database using database copy.  The database copy can be in the same or different region as the existing Hyperscale database. 
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Specify the `-ZoneRedundant` parameter to enable zone redundancy for your Hyperscale database copy. The database copy must have at least 1 high availability replica and zone-redundant backup storage must be specified. 
+
+To create your zone redundant database using Azure PowerShell, use the following example command: 
+
+```powershell
+New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" -ServerName $sourceserver -DatabaseName "databaseName" -CopyResourceGroupName "myCopyResourceGroup" -CopyServerName $copyserver -CopyDatabaseName "zoneRedundantCopyOfMySampleDatabase” -ZoneRedundant -BackupStorageRedundancy Zone 
+```
+
+
+# [Azure CLI](#tab/azure-cli)
+
+Specify the `-zone-redundant parameter` to enable zone redundancy for your Hyperscale database copy. The database copy must have at least 1 high availability replica and zone-redundant backup storage. 
+
+To enable zone redundancy using the Azure CLI, use the following example command: 
+
+```azurecli
+az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myResourceGroup" --dest-server $targetserver --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver -–ha-replicas 1 -–zone-redundant -–backup-storage-redundancy Zone
 ```
 
 * * *

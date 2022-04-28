@@ -459,7 +459,6 @@ Repeat the same steps for your replicated project using `{YOUR-SECONDARY-ENDPOIN
 
 In this article, you have learned how to use the export and import APIs to replicate your project to a secondary Language resource in other region. Next, explore the API reference docs to see what else you can do with authoring APIs.
 
-* [Authoring REST API reference ](https://aka.ms/ct-authoring-swagger)
+* [Authoring REST API reference ](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob)
 
 * [Runtime prediction REST API reference ](https://aka.ms/ct-runtime-swagger)
-

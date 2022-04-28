@@ -157,7 +157,7 @@ We're now ready to deploy our .NET app to the App Service.
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing how to install the Azure Account and App Service extensions in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02-240px.png" alt-text="A screenshot showing how to use the Azure App Service extension to deploy an app to Azure from Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder-small.png" alt-text="A screenshot showing how to deploy using the publish folder." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder.png"::: :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow-small.png" alt-text="A screenshot showing the command palette deployment workflow." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow.png"::: |
 
 ### [Deploy using Local Git](#tab/azure-cli-deploy)
 

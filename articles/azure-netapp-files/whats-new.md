@@ -22,9 +22,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## April 2022
 
-* The [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users) feature is now generally available (GA).    
+* Features that are now generally available (GA)   
 
-    You no longer need to register this feature before using it.
+    The following features are now GA. You no longer need to register the features before using them.   
+    * [Dynamic change of service level](dynamic-change-volume-service-level.md)
+    * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)    
 
 ## March 2022
 

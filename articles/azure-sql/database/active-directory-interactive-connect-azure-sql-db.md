@@ -17,7 +17,7 @@ ms.date: 04/06/2022
 
 This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-For more information about Multi-Factor Authentication support for SQL tools, see [Using multi-factor Azure Active Directory authentication](/azure/azure-sql/database/authentication-mfa-ssms-overview).
+For more information about Multi-Factor Authentication support for SQL tools, see [Using multi-factor Azure Active Directory authentication](./authentication-mfa-ssms-overview.md).
 
 ## Multi-Factor Authentication for Azure SQL Database
 
@@ -59,7 +59,7 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 The C# example relies on the [Microsoft.Data.SqlClient](/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace) namespace. For more information, see [Using Azure Active Directory authentication with SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication).
 
 > [!NOTE]
-> [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) uses the Azure Active Directory Authentication Library (ADAL), which will be deprecated. If you're using the [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) namespace for Azure Active Directory authentication, migrate applications to [Microsoft.Data.SqlClient](/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace) and the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration). For more information about using Azure AD authentication with SqlClient, see [Using Azure Active Directory authentication with SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication).
+> [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) uses the Azure Active Directory Authentication Library (ADAL), which will be deprecated. If you're using the [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) namespace for Azure Active Directory authentication, migrate applications to [Microsoft.Data.SqlClient](/sql/connect/ado-net/introduction-microsoft-data-sqlclient-namespace) and the [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-migration.md). For more information about using Azure AD authentication with SqlClient, see [Using Azure Active Directory authentication with SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication).
 
 ## Verify with SQL Server Management Studio
 

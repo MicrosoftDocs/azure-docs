@@ -12,7 +12,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer:
-ms.date: 02/23/2022
+ms.date: 04/19/2022
 ---
 # Automate management tasks using SQL Agent jobs in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQ
 
 ### SQL Agent job limitations in SQL Managed Instance
 
-It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent). 
+It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#sql-server-agent). 
 
 Some of the SQL Agent features that are available in SQL Server are not supported in SQL Managed Instance:
 
@@ -78,7 +78,7 @@ SQL Agent enables you to create different types of job steps, such as Transact-S
 > [!Note]
 > For more information on leveraging the Azure SSIS Integration Runtime with SSISDB hosted by SQL Managed Instance, see [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
-[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
+[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/replication-between-two-instances-configure-tutorial). 
 
 Other types of job steps are not currently supported in SQL Managed Instance, including:
 
@@ -118,7 +118,12 @@ GO
 RECONFIGURE
 ```
 
-As an example exercise, set up the email account that will be used to send the email notifications. Assign the account to the email profile called `AzureManagedInstance_dbmail_profile`. To send e-mail using SQL Agent jobs in SQL Managed Instance, there should be a profile that must be called `AzureManagedInstance_dbmail_profile`. Otherwise, SQL Managed Instance will be unable to send emails via SQL Agent. See the following sample:
+As an example exercise, set up the email account that will be used to send the email notifications. Assign the account to the email profile called `AzureManagedInstance_dbmail_profile`. To send e-mail using SQL Agent jobs in SQL Managed Instance, there should be a profile that must be called `AzureManagedInstance_dbmail_profile`. Otherwise, SQL Managed Instance will be unable to send emails via SQL Agent. 
+
+> [!NOTE]
+> For the mail server, we recommend you use authenticated SMTP relay services to send email. These relay services typically connect through TCP ports 25 or 587 for connections over TLS, or port 465 for SSL connections, however Database Mail can be configured to use any port. These ports require a new outbound rule in your managed instance's network security group. These services are used to maintain IP and domain reputation to minimize the possibility that external domains reject your messages or put them to the SPAM folder. Consider an authenticated SMTP relay service already in your on-premises servers. In Azure, [SendGrid](https://sendgrid.com/partners/azure/) is one such SMTP relay service, but there are others. 
+
+Use the following sample script to create a Database Mail account and profile, then associate them together:
 
 ```sql
 -- Create a Database Mail account
@@ -169,7 +174,7 @@ EXEC msdb.dbo.sp_add_operator
 
 Confirm the email's success or failure via the [Database Mail Log](/sql/relational-databases/database-mail/database-mail-log-and-audits) in SSMS.
 
-You can then [modify any SQL Agent job](/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql) and assign operators that will be notified via email if the job completes, fails, or succeeds using SSMS or the following Transact-SQL script:
+You can then [modify any SQL Agent job](/sql/relational-databases/system-stored-procedures/sp-update-job-transact-sql) and assign operators that will be notified via email if the job completes, fails, or succeeds using SSMS or the following T-SQL script:
 
 ```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
@@ -185,9 +190,9 @@ For more information, see [View SQL Agent job history](/sql/ssms/agent/view-the-
 
 ### SQL Agent fixed database role membership
 
-If users linked to non-sysadmin logins are added to any of the three SQL Agent fixed database roles in the msdb system database, there exists an issue in which explicit EXECUTE permissions need to be granted to three system stored procedures in the master database. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown. 
+If users linked to non-sysadmin logins are added to any of the three SQL Agent fixed database roles in the `msdb` system database, there exists an issue in which explicit EXECUTE permissions need to be granted to three system stored procedures in the master database. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown. 
 
-Once you add users to a SQL Agent fixed database role (SQLAgentUserRole, SQLAgentReaderRole, or SQLAgentOperatorRole) in msdb, for each of the user's logins added to these roles, execute the below T-SQL script to explicitly grant EXECUTE permissions to the system stored procedures listed. This example assumes that the user name and login name are the same:
+Once you add users to a SQL Agent fixed database role (SQLAgentUserRole, SQLAgentReaderRole, or SQLAgentOperatorRole) in `msdb`, for each of the user's logins added to these roles, execute the below T-SQL script to explicitly grant EXECUTE permissions to the system stored procedures listed. This example assumes that the user name and login name are the same:
 
 ```sql
 USE [master]
@@ -203,5 +208,11 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 
 - [What is Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
 - [What's new in Azure SQL Managed Instance?](doc-changes-updates-release-notes-whats-new.md)
-- [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
-- [Features comparison: Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/features-comparison.md)
+- [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server#sql-server-agent)
+- [Features comparison: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/features-comparison)
+
+
+## Next steps
+
+- [Configure Database Mail](/sql/relational-databases/database-mail/configure-database-mail)
+- [Troubleshoot outbound SMTP connectivity problems in Azure](/azure/virtual-network/troubleshoot-outbound-smtp-connectivity)
