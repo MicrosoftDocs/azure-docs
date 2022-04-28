@@ -18,14 +18,14 @@ The purpose of the document is to discuss common scenarios and root causes that 
 ### Tools to Identify high Memory Utilization 
 
 ##### Azure Metrics
-We can monitor various metrics including percentage of memory in use for the definite date and time frame with help of Azure Metrics.For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](howto-alert-on-metrics.md)
+We can monitor various metrics including percentage of memory in use for the definite date and time frame with help of Azure Metrics.For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
 
 
 ##### Query Store
 
 Query Store automatically captures history of queries and runtime statistics, and it retains them for your review. It can correlate wait event information with query run time statistics. Query store gives flexibility to identify queries who have high memory waits during the period of interest. 
 
-For more information on setting up and usage of query store, please visit [query store](concepts-query-store.md)
+For more information on setting up and usage of query store, please visit [query store](./concepts-query-store.md)
 
 ### Reasons And Remedial Actions
 
@@ -80,7 +80,7 @@ For more details of pg bouncer
 [Pg Bouncer Setup](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
 
 
-Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](concepts-pgbouncer.md)
+Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](./concepts-pgbouncer.md)
 
 #### Explain Analyze 
 
