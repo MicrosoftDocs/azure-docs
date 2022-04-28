@@ -47,7 +47,7 @@ The information in the rest of this document provides information on what featur
 | **[Integrated notebooks](how-to-run-jupyter-notebooks.md)** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
-| Virtual Network support                                                    | Public Preview       | NO                 | NO          |
+| Virtual Network support                                                    | GA       | YES                 | YES          |
 | **[Compute instance](concept-compute-instance.md)** |   |  | | 
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
@@ -157,7 +157,7 @@ The information in the rest of this document provides information on what featur
 | **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
-| Virtual Network support                                                    |  Preview   | YES        | N/A        |
+| Virtual Network support                                                    |  GA   | YES        | N/A        |
 | **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |

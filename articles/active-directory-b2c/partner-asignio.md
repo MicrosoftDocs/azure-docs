@@ -266,10 +266,6 @@ Use the following steps to add Asignio as a claims provider:
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-            <!-- <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" /> -->
-            <!-- <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" /> -->
-            <!-- <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" /> -->
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="https://authorization.asignio.com" />
             <OutputClaim ClaimTypeReferenceId="identityProviderAccessToken" PartnerClaimType="{oauth2:access_token}" />
