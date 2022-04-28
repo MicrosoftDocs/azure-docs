@@ -277,13 +277,12 @@ The policy inserts the policy fragment as-is at the location you select in the p
 
 ### Example
 
-In the following example, the policy fragment named *myFragment* is added i
-n the inbound section of a policy definition.
+In the following example, the policy fragment named *myFragment* is added in the inbound section of a policy definition.
 
 ```xml
 <inbound>
     <include-fragment fragment-id="myFragment" />
-    <base/>
+    <base />
 </inbound>
 [...]
 ```
