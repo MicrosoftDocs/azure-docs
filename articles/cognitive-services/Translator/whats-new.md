@@ -16,16 +16,18 @@ ms.author: lajanuar
 # What's new in Azure Cognitive Services Translator
 
 Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+
 * Translator is a language service that enables users to translate text and documents, helps businesses expand their global outreach, and supports at-risk and endangered language preservation.
 
 * Translator supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
 
-
 ## April 2022
 
-### [Text and document translation support for Faroese](https://www.microsoft.com/translator/blog/2022/04/25/introducing-faroese-translation-for-faroese-flag-day/), [Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/)
+### [Text and document translation support for Faroese](https://www.microsoft.com/translator/blog/2022/04/25/introducing-faroese-translation-for-faroese-flag-day/)
 
 * Translator service has [text and document translation language support](language-support.md) for Faroese, a Germanic language originating on the Faroe Islands. The Faroe Islands are a self-governing country within the Kingdom of Denmark located between Norway and Iceland. Faroese is descended from Old West Norse spoken by Vikings in the Middle Ages.
+
+### [Text and document translation support for Basque and Galician](https://www.microsoft.com/translator/blog/2022/04/12/break-the-language-barrier-with-translator-now-with-two-new-languages/)
 
 * Translator service has [text and document translation language support](language-support.md) for Basque and Galician. Basque is a language isolate, meaning it isn't related to any other modern language. It's spoken in parts of northern Spain and southern France. Galician is spoken in northern Portugal and western Spain. Both Basque and Galician are co-official languages of Spain.
 
@@ -41,9 +43,11 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 ## February 2022
 
-### [Text and document translation support for Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/), [Inuinnaqtun, and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/)
+### [Text and document translation support for Upper Sorbian](https://www.microsoft.com/translator/blog/2022/02/21/translator-celebrates-international-mother-language-day-by-adding-upper-sorbian/), 
 
 * Translator service has [text and document translation language support](language-support.md) for Upper Sorbian. The Translator team has worked tirelessly to preserve indigenous and endangered languages around the world. Language data provided by the Upper Sorbian language community was instrumental in introducing this language to Translator.
+
+### [Text and document translation support for Inuinnaqtun and Romanized Inuktitut](https://www.microsoft.com/translator/blog/2022/02/01/introducing-inuinnaqtun-and-romanized-inuktitut/)
 
 * Translator service has [text and document translation language support](language-support.md) for Inuinnaqtun and Romanized Inuktitut. Both are indigenous languages that are essential and treasured foundations of Canadian culture and society.
 
@@ -59,7 +63,20 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 ### [Text and document support for more than 100 languages](https://www.microsoft.com/translator/blog/2021/10/11/translator-now-translates-more-than-100-languages/)
 
-* Translator service has added **Bashkir**, **Dhivehi**, **Georgian**, **Kyrgyz**, **Macedonian (Cyrillic)**, **Mongolian (Traditional)**, **Tatar**, **Tibetan**, **Turkmen**, **Uyghur**, and **Uzbek (Latin)**. This addition brings the total number of languages supported in Translator to 103.
+* Translator service has added [text and document language support](language-support.md) for the following languages:
+  * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three dialect groups: Southern, Eastern, and Northwestern.
+  * **Dhivehi**. Also known as Maldivian, it is an Indo-Aryan language primarily spoken in the island country of Maldives.
+  * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
+  * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
+  * **Macedonian (Cyrillic)**. An Eastern South Slavic language that is the official language of North Macedonia. It is spoken by approximately two million people.
+  * **Mongolian (Traditional)**. Traditional Mongolian script is the first writing system created specifically for the Mongolian language. Mongolian is the official language of Mongolia.
+  * **Tatar**. 
+  * **Tibetan**
+  * **Turkmen**
+  * **Uyghur**
+  * **Uzbek (Latin)**. 
+
+These additions bring the total number of languages supported in Translator to 103.
 
 ## August 2021
 
