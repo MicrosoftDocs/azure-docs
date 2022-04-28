@@ -69,11 +69,11 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Mv2](msv2-mdsv2-series.md) | 240 - 280 | 2:1\*\*\* |
 | [NVv4](nvv4-series.md) |230 - 260** | 2:1\*\*\*\* |
 
-Processor model information for each SKU is available in the SKU documentation (see links above).  Optimal performance may require the latest VM images (OS and [VM generation](generation-2)) to ensure the latest updates and fastest drivers.
+Processor model information for each SKU is available in the SKU documentation (see links above).  Optimal performance may require the latest VM images (OS and [VM generation](generation-2.md)) to ensure the latest updates and fastest drivers.
 
 ### VM Series Retiring
 
-The following VM series are retiring on or before [August 31, 2024](av1-series-retirement):
+The following VM series are retiring on or before August 31, 2024:
 
 | SKU Family | ACU \ vCPU | vCPU: Core |  Retirement Date |
 | --- | --- |---| --- |
