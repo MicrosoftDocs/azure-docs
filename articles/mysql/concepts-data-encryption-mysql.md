@@ -119,7 +119,8 @@ To monitor the database state, and to enable alerting for the loss of transparen
 
 ## Restore and replicate with a customer's managed key in Key Vault
 
-After Azure Database for MySQL is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through read replicas. However, the copy can be changed to reflect a new customer's managed key for encryption. When the customer-managed key is changed, old backups of the server start using the latest key.
+After Azure Database for MySQL is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through read replicas. However, the copy can be changed to reflect a new customer's managed key for encryption. 
+When the customer-managed key is changed or rotated to a new one, while MySQL files and new backups start to use the latest key, the existing backups of the server will also be refreshed to use the latest key. The key change or rotation operation will be quick with minimal impact to the database.
 
 To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's important to follow these steps on the source and restored/replica servers:
 
