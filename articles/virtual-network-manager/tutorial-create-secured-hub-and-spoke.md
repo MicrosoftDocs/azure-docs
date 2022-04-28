@@ -37,9 +37,7 @@ This procedure walks you through creating three virtual networks. One will be in
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select **+ Create a resource** and search for **Virtual network**. Then select **Virtual network gateway** under *Plan* and select **Create** to begin configuring the virtual network.
-
-
+1. Select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
 
 1. On the *Basics* tab, enter or select the following information:
 
@@ -52,7 +50,7 @@ This procedure walks you through creating three virtual networks. One will be in
     | Name | Enter **VNet-A-WestUS** for the virtual network name. |
     | Region | Select the **West US** region. |
 
- 1. On the *IP Addresses* tab, configure the following network address space:
+ 1. Select **Next: IP Addresses** and configure the following network address space:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/create-hub-vnet-addresses.png" alt-text="Screenshot of IP addresses tab for hub and spoke virtual network.":::
 
