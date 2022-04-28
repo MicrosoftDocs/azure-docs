@@ -1793,6 +1793,15 @@ groups:
     title: Azure Resource Manager
   - id: aro-bicep
     title: Bicep   
+ # Owner: rahulmehta
+- id: azure-red-hat-openshift-service-principal
+  title: Azure CLI and Azure portal
+  prompt: Choose an option
+  pivots:
+  - id: aro-azurecli
+    title: Azure CLI  
+  - id: aro-azureportal
+    title: Azure portal  
 # Owner: cshoe
 - id: devops-or-github
   title: Code host
@@ -1810,4 +1819,4 @@ groups:
   - id: framework-dotnet
     title: .Net
   - id: framework-spring
-    title: Spring
+    title: Spring Framework
