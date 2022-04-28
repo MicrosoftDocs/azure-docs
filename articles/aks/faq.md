@@ -54,7 +54,7 @@ Microsoft provides guidance on additional actions you can take to secure your wo
 
 ## How does the managed Control Plane communicate with my Nodes?
 
-AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through TLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Please ensure that all network rules follow the [Azure required network rules and FQDNs](https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic).
+AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through TLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Please ensure that all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
 
 ## Why are two resource groups created with AKS?
 
