@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 03/31/2022
+ms.date: 04/28/2022
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
@@ -34,6 +34,8 @@ Two Azure resources are defined in the Bicep file:
 
 - [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores): create an App Configuration store.
 - [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues): create a key-value inside the App Configuration store.
+
+With this Bicep file, we create one key with two different values.
 
 ## Deploy the Bicep file
 
