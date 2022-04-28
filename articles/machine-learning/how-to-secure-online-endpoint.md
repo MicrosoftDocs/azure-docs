@@ -22,6 +22,10 @@ When deploying a machine learning model to a managed online endpoint, you can se
 
 You can secure the inbound scoring requests from clients to an _online endpoint_. You can also secure the outbound communications between a _deployment_ and the Azure resources used by the deployment. Security for inbound and outbound communication is configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints.md#what-are-endpoints-and-deployments).
 
+The following diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from clients are received through the workspace private endpoint from your virtual network. Outbound communication with services is handled through private endpoints to those service instances from the deployment:
+
+:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.png" alt-text="Diagram of overall ingress/egress communication.":::
+
 ## Prerequisites
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
@@ -71,6 +75,8 @@ The following are the resources that the deployment communicates with over the p
 
 When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `true` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
 
+The following diagram 
+
 ```azurecli
 az ml online-deployment create -f deployment.yml --set egress_public_network_access=disabled
 ```
@@ -109,6 +115,12 @@ Public access is disabled for all the services. While the Azure Machine Learning
 * Azure Resource Manager
 * Azure Front Door
 * Microsoft Container Registries
+
+The following diagram shows the different components created in this architecture:
+
+The following diagram shows the overall architecture of this example:
+
+:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.png" alt-text="Diagram of the services created.":::
 
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
