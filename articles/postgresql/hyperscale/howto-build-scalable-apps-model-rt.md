@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/28/2022
 ---
 
-# Model real-time operational analytics apps
+# Model real-time analytics apps
 
 ## Colocate large tables with shard key
 
-To pick the shard key for a real-time analytics application, follow these
-guidelines:
+To pick the shard key for a real-time operational analytics application, follow
+these guidelines:
 
 * Choose a column that is common on large tables
 * Choose a column that is a natural dimension in the data, or a central piece
