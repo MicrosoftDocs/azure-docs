@@ -169,8 +169,7 @@ Following is the list of configuration options based on usage scenario:
       * In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.
     * For External Table Type:
       * `Constants.DATA_SOURCE` is a required configuration option.
-      * Using the storage path set on the data source's location parameter, the connector will derive absolute path to persist external table data.
-      * The absolute path will be a combination of `base path` and `location` argument value on `synapsesql` method. For example, `<base_path>/<user_specified_external_table_location_value>"`.
+      * The connector uses the storage path set on the data source's location parameter in combination with the `location` argument to the `synapsesql` method and derives the absolute path to persist external table data.
       * If the `location` argument to `synapsesql` method isn't specified, then the connector will derive the location value as `<base_path>/dbName/schemaName/tableName`.
 * **Write using Basic Authentication**
   * Azure Synapse Dedicated SQL End Point
