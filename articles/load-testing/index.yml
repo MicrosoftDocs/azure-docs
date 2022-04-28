@@ -55,7 +55,7 @@ landingContent:
             url: how-to-monitor-server-side-metrics.md
           - text: 'Define pass/fail criteria'
             url: how-to-define-test-criteria.md
-          - text: Read a CSV file in load tests
+          - text: Read data from a CSV file
             url: how-to-read-csv-data.md
 
   # Card
