@@ -788,13 +788,6 @@ The following template creates a policy definition, and assign the policy defint
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_generator": {
-      "name": "bicep",
-      "version": "0.4.1.14562",
-      "templateHash": "2350252618174097128"
-    }
-  },
   "parameters": {
     "targetMG": {
       "type": "string",
