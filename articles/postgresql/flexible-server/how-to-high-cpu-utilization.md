@@ -54,7 +54,7 @@ CREATE EXTENSION pg_stat_statements;
 SQL statements that consume the most time –   
 
 #### Postgres version 13 and above
-
+~~~
 	SELECT (total_exec_time / 1000 / 3600) as total_hours, 
 		(total_exec_time / 1000) as total_seconds, 
 		(total_exec_time / calls) as avg_millis,  
@@ -62,9 +62,9 @@ SQL statements that consume the most time –
 		query  
 	FROM pg_stat_statements  
 	ORDER BY 1 DESC LIMIT 10;   
-
+~~~
 #### Postgres version 9.6, 10, 11, 12
-
+~~~
  	SELECT (total_time / 1000 / 3600) as total_hours, 
   	   (total_time / 1000) as total_seconds, 
         (total_time / calls) as avg_millis,  
@@ -72,64 +72,64 @@ SQL statements that consume the most time –
         query  
     FROM pg_stat_statements  
     ORDER BY 1 DESC LIMIT 10;   
-
+~~~
  
 Run the following command to view the top five SQL statements that consume the most time in one call: 
 
 #### Postgres version 13 and above
-
+~~~
 	SELECT userid::regrole, dbid, query, mean_exec_time 
 	FROM pg_stat_statements 
 	ORDER BY mean_exec_time 
 	DESC LIMIT 5;   
-
+~~~
 #### Postgres version 9.6, 10, 11, 12
-
+~~~
 	SELECT userid: :regrole, dbid, query 
 	FROM pg_stat_statements 
 	ORDER BY mean_time 
 	DESC LIMIT 5;    
-
+~~~
 Run the following command to view the top five SQL statements that consume the most time in total: 
 
 #### Postgres version 13 and above
-
+~~~
 	SELECT userid::regrole, dbid, query 
 	FROM pg_stat_statements 
 	ORDER BY total_exec_time 
 	DESC LIMIT 5;   
-
+~~~
 #### Postgres version 9.6, 10, 11, 12
-
+~~~
 	SELECT userid: :regrole, dbid, query, 
 	FROM pg_stat_statements 
 	ORDER BY total_time 
 	DESC LIMIT 5;    
-
+~~~
 ### Identify Root Causes 
 
 In Azure Database for PostgreSQL and in PostgreSQL in general, there are no statistics around memory, CPU, or IO consumption by a query, so the specific bottleneck caused by a query is hard to detect. If CPU consumption levels are high in general, we could do the following - 
 
 #### Long Running Transactions  
 
- Following query helps to find out the connections running for the longest time:  
-
+Following query helps to find out the connections running for the longest time:  
+~~~
 	SELECT pid, usename, datname, query, now() - xact_start as duration 
 	FROM pg_stat_activity  
 	WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active') 
 	ORDER BY duration DESC;   
-
+~~~
 
 Apart from this, there are quick executed queries which causes issue if they are executed for number of times for example, you detect a query that finish running in 1 ms but being called thousands of times then it will consume a lot of resources. Query Store and pg_stat_statements should help in identifying such type of queries. 
 
 #### Total Number of Connections and Number Connections by State  
 This query will give information about the number of connections by state – 
-
+~~~
 	SELECT state, count(*)  
 	FROM  pg_stat_activity   
 	WHERE pid <> pg_backend_pid()  
 	GROUP BY 1 ORDER BY 1;   
-
+~~~
  Idle connections represent connections that are not “doing” anything, those usually, are waiting for additional requests from the client. While this situation of having idle connections does not sound harmful, having many idle connections will consume CPU and memory.  
  
  A large of connections to database is also another issue which might lead to increased CPU utilization
@@ -164,34 +164,34 @@ In many scenarios, you would consider terminating (aka “kill”) a session, it
 To terminate a session, you will need to detect the PID.  
 
 Using a query like the following: 
-
+~~~
 	SELECT * FROM pg_stat_activity  
 	WHERE usename != 'azure_superuser'  
 	AND application_name LIKE '<YOUR APPLICATION NAME>'; 
-
+~~~
 
 You can also filter by other properties like usename (username), datname (database name), client_addr (client’s address), state, etc.  
 Once you have the sessions that you want to terminate, replace the “SELECT *” with “pg_terminate_backend(pid)” and those sessions will be terminated 
 
 For example, to the updated query for one above you can use: 
-
+~~~
 	SELECT pg_terminate_backend(pid) FROM pg_stat_activity  
 	WHERE usename != 'azure_superuser'  
 	AND application_name LIKE '<YOUR APPLICATION NAME>' ; 
-
+~~~
 #### Monitoring Vacuum and Table Stats 
 
 Keeping the table statistics up to date helps in improving the performance of queries. Monitor whether regular auto vacuuming is being carried out. 
 
 The following query helps to identify the tables that need vacuuming 
-
+~~~
 	SELECT schemaname, relname, n_dead_tup, n_live_tup, n_dead_tup,
 	round(n_dead_tup::float/n_live_tup::float*100) dead_pct ,autovacuum_count , last_vacuum, last_autovacuum ,last_autoanalyze  
 	FROM pg_stat_all_tables    
 	WHERE n_live_tup > 0    
 	ORDER BY 10 DESC;   
-
+~~~
 If the tables are not being vacuumed on a regular basis steps should be taken to tune autovacuum. The details are found autovacuum tuning troubleshooting guide.
 A more short term solution would be to do manual vacuum analyze of the tables where slow queries are seen:
 
-	vacuum Analyze <table_name>
+	vacuum analyze <table_name>
