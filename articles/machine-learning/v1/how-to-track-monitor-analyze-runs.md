@@ -449,7 +449,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
     ![New alert rule](./media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
 
-1. See [how to create and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
+1. See [how to create and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
 
 ## Example notebooks
 
