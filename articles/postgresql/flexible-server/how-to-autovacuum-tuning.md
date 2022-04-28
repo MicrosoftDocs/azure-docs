@@ -13,9 +13,9 @@ ms.date: 4/28/2022
 
 Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes. The downside of it is it needs appropriate maintenance done by VACUUM and ANALYZE commands.  
 
-For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, it marks the existing row as “dead” and inserts a new version of this row. These operations leave behind the dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, these dead tuples will stay, consuming disk space,increasing table and index bloat which results in slow query performance.   
+For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, it marks the existing row as “dead” and inserts a new version of this row. These operations leave behind the dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, these dead tuples will stay, consuming disk space, increasing table and index bloat that results in slow query performance.   
 
-The purpose of autovacuum process is to automate the execution of VACUUM and ANALYZE commands. The AUTOVACUUM daemon is made up of multiple processes that reclaim storage by removing obsolete data or tuples from the database. It checks for tables that have a significant number of inserted, updated, or deleted records and vacuums these tables.  
+The purpose of autovacuum process is to automate the execution of VACUUM and ANALYZE commands. The autovacuum daemon is made up of multiple processes that reclaim storage by removing obsolete data or tuples from the database. It checks for tables that have a significant number of inserted, updated, or deleted records and vacuums these tables.  
 
 ### Monitoring Autovacuum 
 
@@ -110,7 +110,7 @@ There might be two reasons 
 
 ###### maintenance_work_mem  
 
-Autovacuum daemon uses `autovacuum_work_mem` which is by default set to -1 meaning `autovacuum_work_mem` would be same value as the parameter – `maintenance_work_mem`. In this document we are assuming `autovacuum_work_mem` is set to -1 value and `maintenance_work_mem` is used by autovacuum by daemon.
+Autovacuum daemon uses `autovacuum_work_mem` that is by default set to -1 meaning `autovacuum_work_mem` would be same value as the parameter – `maintenance_work_mem`. In this document we are assuming `autovacuum_work_mem` is set to -1 value and `maintenance_work_mem` is used by autovacuum by daemon.
 
 If the `maintenance_work_mem` is low, then value of `maintenance_work_mem` can be increased upto 2 GB on flexible server. A general rule of thumb is 50 MB is allocated to `maintenance_work_mem` for every 1 GB of RAM.  
 
@@ -133,7 +133,7 @@ In case where autovacuum is consuming lot of resources following can be done 
 
 ##### Number Of Autovacuum Workers  
 
-Increasing the number of autovacuum workers will not necessarily increase the speed of vacuum. Generally, it is not recommended to have a high number of autovacuum workers. In fact, increasing the number of autovacuum workers will have them consume more memory depending on the value set in `maintenance_work_mem`. The processes may become too disruptive also that is generally not recommended. Rather than making it faster it makes the vacuum processing slow the reason being each worker process only gets (1/autovacuum_max_workers) of the total `autovacuum_cost_limit`, so increasing the number of workers will only make them go slower.
+Increasing the number of autovacuum workers will not necessarily increase the speed of vacuum. Generally, it is not recommended to have a high number of autovacuum workers. In fact, increasing the number of autovacuum workers will have them consume more memory depending on the value set in `maintenance_work_mem`. The processes may become too disruptive. Rather than making it faster it makes the vacuum processing slow the reason being each worker process only gets (1/autovacuum_max_workers) of the total `autovacuum_cost_limit`, so increasing the number of workers will only make them go slower.
 If the number of workers is increased `autovacuum_vacuum_cost_limit` will also have to be increased or/and reduce `autovacuum_vacuum_cost_delay` to make the vacuum process faster. 
 
 However, if we have changed table level `autovacuum_vacuum_cost_delay` or `autovacuum_vacuum_cost_limit` storage parameters then those workers running on those tables are not considered in the balancing algorithm [autovacuum_cost_limit/autovacuum_max_workers].
@@ -174,7 +174,7 @@ The long-running transactions can be checked in the system by following query:
  
 ###### Prepared Statements 
 
-If there are prepared statements which are not committed, then that would also hold dead tuples from being removed.   
+If there are prepared statements that are not committed, then that would also hold dead tuples from being removed.   
 The query helps to find the non-committed prepared statements 
 ```
     SELECT gid, prepared, owner, database, transaction 
@@ -200,7 +200,7 @@ When the database runs into transaction ID wraparound protection one can look if
 
 We can set the autovacuum parameters to an individual table as per the requirement.   
 
-To set auto-vacuum setting per table we use DDL and change the storage parameters as shown below   
+To set auto-vacuum setting per table, we use DDL and change the storage parameters as shown below   
 ```
     ALTER TABLE <table name> SET (autovacuum_vacuum_scale_factor = 0.0); 
     ALTER TABLE <table name> SET (autovacuum_vacuum_threshold = 1000); 
