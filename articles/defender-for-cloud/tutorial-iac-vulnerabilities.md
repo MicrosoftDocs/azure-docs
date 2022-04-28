@@ -1,4 +1,4 @@
-## Tutorial: Discover vulnerabilities in Infrastructure as Code (IaC)
+## Discover vulnerabilities in Infrastructure as Code (IaC)
 
 After setting up the Microsoft Security DevOps Extension or Workflow, there is support in the YAML configuration to run several of the tools, or a single tool. For instance, if you are only interested in Infrastructure as Code scanning, this tutorial guides you through setting up only IaC scanning.
 
@@ -16,7 +16,8 @@ automatically generated](./media/tutorial-iac-vulnerabilities/image018.png)
 ![Graphical user interface, text, application, email Description
 automatically generated](./media/tutorial-iac-vulnerabilities/image019.png)
 
-3.  Edit the workflow: in the "Run Analyzers" section add the following:![Graphical user interface, application Description automatically generated](./media/tutorial-iac-vulnerabilities/image020.png)
+3.  Edit the workflow: in the "Run Analyzers" section add the following:
+![Graphical user interface, application Description automatically generated](./media/tutorial-iac-vulnerabilities/image020.png)
 
 4.  Save the workflow by clicking **Start Commit-\>Commit changes**
 
