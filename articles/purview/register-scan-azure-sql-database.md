@@ -64,8 +64,6 @@ It's important to register the data source in Microsoft Purview before setting u
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source.":::
-
 1. **Open Microsoft Purview governance portal** and navigate to the **Data Map**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-open-purview-studio.png" alt-text="Screenshot that navigates to the Sources link in the Data Map.":::

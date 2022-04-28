@@ -807,6 +807,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-b2c-javascript-spa",
+      "url": "https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
       "branch": "master",
