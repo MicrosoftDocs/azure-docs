@@ -48,28 +48,44 @@ This section has the instructions to copy data from Snowflake database to an [Az
 1. Logon with your Azure account to [Azure Data Factory Studio](https://ms-adf.azure.com/).
 1. Select your Data Factory and select **Continue**.
 3. In the left menu, click **Manage** icon.
+   
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   
 4. Under **Linked services** click **New**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory":::
+   
 5. In the right pane, in the **Data store** search, type *snowflake*. Click **Snowflake** icon and select **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/snowflake-icon.png" alt-text="Screenshot showing how to choose Snowflake icon in new Linked Service data store":::
+   
 6. Fill out the **New linked service** form with the data retrieved in [Step 1](#step-1-retrieve-snowflake database information). Keep in mind that **Account name** is formed with Snowflake account **LOCATOR** value and the region. Example: *xy56789south-central-us.azure*.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service-snowflake-form.png" alt-text="Screenshot showing how to fill out Snowflake Linked Service form":::
+   
 7. After completed, at the bottom, click **Test connection**. 
 8. When successful, click **Create**.
 
 ### Step 3: Configure Snowflake Dataset
 1. In the left menu, select **Author** icon.
 1. Click **Datasets** and "**…**". 
+   
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option":::
+   
 3. Select **New dataset**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory":::
+   
 4. In the right pane, in the **Data store** search, type *snowflake*. Select **Snowflake** icon and click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset-snowflake.png" alt-text="Screenshot showing how to choose Snowflake from data source for Dataset":::
+   
 5. In the **Set Properties** form:
    - Select the Linked Service created in [Step 2](#step-2-configure-snowflake-linked-service).
    - Select the table that you would like to import and click **OK**.
+   
    :::image type="content" source="media/search-power-query-connectors/set-snowflake-properties.png" alt-text="Screenshot showing how to configure dataset properties for Snowflake":::
+   
 6. Click on **Save**.
 
 ### Step 4: Create a new index in Azure Cognitive Search
@@ -78,46 +94,71 @@ This section has the instructions to copy data from Snowflake database to an [Az
 
 Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the Snowflake Power Connector and clicking on **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
 
-:::image type="content" source="media/search-power-query-connectors/snowflake-index.png" alt-text="Screenshot showing how to copy existing Azure Cognitive Search index JSON configuration":::
+   :::image type="content" source="media/search-power-query-connectors/snowflake-index.png" alt-text="Screenshot showing how to copy existing Azure Cognitive Search index JSON configuration":::
+
 
 ### Step 5: Configure Azure Cognitive Search Linked Service
 1. In the left menu, click **Manage** icon.
+   
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   
 2. Under **Linked services**, click **New**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory":::
-3. Fill out the **New linked service** form:
+   
+3. In the right pane, in the **Data store** search, type *search*. Select **Azure Search** icon and click **Continue**.
+   
+   :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory":::
+   
+4. Fill out the **New linked service** form:
    - Choose the Azure subscription where your Azure Cognitive Search service resides.
    - Choose the Azure Cognitive Search service where your Power Query connector indexer lives.
    - Click **Create**.
+     
      :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Search Linked Service in Azure Data Factory":::
 
 ### Step 6: Configure Azure Cognitive Search Dataset
 1. In the left menu, select **Author** icon. 
 1. Click **Datasets** and "**…**". 
+   
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option":::
+   
 3. Select **New dataset**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory":::
+   
 4. In the right pane, in the **Data store** search, type *search*. Select **Azure Search** icon and click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset-search.png" alt-text="Screenshot showing how to choose an Azure Cognitive Search service for a Dataset in Azure Data Factory":::
+   
 5. In the **Set properties** form:
    - Select the Linked service recently created in [Step 5](#step-5-configure-azure-cognitive-search-linked-service).
    - Choose the search index that you created in [Step 4](#step-4-create-a-new-index-in-azure-cognitive-search).
    - Click **OK**.
+     
      :::image type="content" source="media/search-power-query-connectors/set-search-snowflake-properties.png" alt-text="Screenshot showing how to choose New Search Linked Service in Azure Data Factory":::
+     
 6. Click **Save**.
 
 
 ### Step 7: Configure Azure Blob Storage Linked Service
 1. In the left menu, click **Manage** icon.
+   
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   
 2. Under **Linked services**, click **New**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory":::
+   
 3. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory":::
+   
 4. Fill out the **New linked service** form:
    - Choose the Authentication type: SAS URI. Only this method can be used to import data from Snowflake into Azure Blob Storage.
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
    - Click on **Create**.
+     
      :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose New Linked Storage Service in Azure Data Factory":::
 
 
@@ -125,72 +166,108 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 ### Step 8: Configure Storage dataset
 1. In the left menu, select **Author** icon. 
 1. Click **Datasets** and "**…**" . 
+   
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option":::
+   
 3. Select **New dataset**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory":::
+   
 4. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset-blob-storage.png" alt-text="Screenshot showing how to choose a new blob storage data store in Azure Data Factory":::
+   
 5. Select **DelimitedText** format and click **Continue**.
 6. In **Set Properties** form:
    - Under **Linked Service** select the linked service created in [Step 7](#step-7-configure-azure-blob-storage-linked-service)
    - Under **File path** Choose the container that will be the sink for the staging process and click **OK**
+     
      :::image type="content" source="media/search-power-query-connectors/storage-set-properties-snowflake.png" alt-text="Screenshot showing how configure properties for storage dataset for Snowflake in Azure Data Factory":::
+     
    - In **Row delimiter**, select *Line feed (\n)*.
    - Check **First row as a header** box.
    - Click **Save**.
-   :::image type="content" source="media/search-power-query-connectors/delimited-text-snowflake-save.png" alt-text="Screenshot showing how to save a DelimitedText configuration to be used as sink for Snowflake":::
+   
+     :::image type="content" source="media/search-power-query-connectors/delimited-text-snowflake-save.png" alt-text="Screenshot showing how to save a DelimitedText configuration to be used as sink for Snowflake":::
+     
 
 ### Step 9: Configure Pipeline
 1. In the left menu, select **Author** icon. 
 1. Click **Pipelines** and "**…**". 
+   
    :::image type="content" source="media/search-power-query-connectors/author-pipelines.png" alt-text="Screenshot showing how to choose Author icon and Pipelines option":::
+   
 3. Select **New pipeline**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-pipeline.png" alt-text="Screenshot showing how to choose a new Pipeline in Azure Data Factory":::
+   
+   
 4. Create and configure the [Data Factory activities](../data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
 
    **a) Configure staging activity to copy from Snowflake to Azure Storage container**
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+     
      :::image type="content" source="media/search-power-query-connectors/drag-and-drop-snowflake-copy-data.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas":::
+     
    - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
    - In the **Source** tab, select your Snowflake table. Leave the remaining options with the default values.
+     
      :::image type="content" source="media/search-power-query-connectors/source-snowflake.png" alt-text="Screenshot showing how to configure the Source in a pipeline to import data from Snowflake":::
+     
    - In the **Sink** tab:
      - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
      - In **File Extension**, add *.csv*.
      - Leave the remaining options with the default values. 
+       
        :::image type="content" source="media/search-power-query-connectors/delimited-text-sink.png" alt-text="Screenshot showing how to configure the sink in a Pipeline to move the data to Azure Storage":::
+       
    - Click on **Save**.
  
     **b) Configure activity to index from Azure Storage Blob**
      - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
-:::image type="content" source="media/search-power-query-connectors/index-from-storage-activity.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas":::
+       
+       :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas":::
+       
      - In the **General** tab, leave the default values, unless you need to customize the execution.
      - In the **Source** tab:
        - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
        - In the **File path type** select *Wildcard file path*.
        - Leave all remaining fields with default values.
-       :::image type="content" source="media/search-power-query-connectors/source-snowflake.png" alt-text="Screenshot showing how to configure the Source in a pipeline to import data from blob storage to Azure Cognitive Search index":::
+         
+         :::image type="content" source="media/search-power-query-connectors/source-snowflake.png" alt-text="Screenshot showing how to configure the Source in a pipeline to import data from blob storage to Azure Cognitive Search index":::
+         
      - In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
+       
        :::image type="content" source="media/search-power-query-connectors/search-sink.png" alt-text="Screenshot showing how to configure the Sink in a pipeline to import data from blob storage to Azure Cognitive Search index":::
+       
      - Click **Save**.
 
 ### Step 10: Configure Activity order 
 
 1. In the Pipeline canvas editor, click the little green square in front of the Pipeline activity that copies data from Snowflake to Azure Blob Storage and drag to the activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
 1. Click **Save**.
-:::image type="content" source="media/search-power-query-connectors/pipeline-link-activities-snowflake-storage-index.png" alt-text="Screenshot showing how to link Pipeline activities to provide the order of execution":::
+   :::image type="content" source="media/search-power-query-connectors/pipeline-link-activities-snowflake-storage-index.png" alt-text="Screenshot showing how to link Pipeline activities to provide the order of execution":::
+
 
 
 ### Step 11: Add a Pipeline trigger
 1. Click on [Add trigger](../data-factory/how-to-create-schedule-trigger.md) to schedule the pipeline run and select **New/Edit**.
+   
    :::image type="content" source="media/search-power-query-connectors/add-pipeline-trigger.png" alt-text="Screenshot showing how to add a new trigger for a Pipeline in Data Factory":::
+   
 2. From the **Choose trigger** dropdown, select **New**.
+   
    :::image type="content" source="media/search-power-query-connectors/choose-trigger-new.png" alt-text="Screenshot showing how to select adding a new trigger for a Pipeline in Data Factory":::
+   
 3. Review the trigger options to run the pipeline and click **OK**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-trigger.png" alt-text="Screenshot showing how to configure a trigger to run a Pipeline in Data Factory":::
+   
 4. Click **Save**.
 5. Click **Publish**.
+   
    :::image type="content" source="media/search-power-query-connectors/publish_pipeline.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory":::
+
 
 # Migrate a PostgreSQL data pipeline
 
@@ -201,11 +278,18 @@ This section has the instructions to copy data from PostgreSQL database to an [A
 1. Logon with your Azure account to [Azure Data Factory Studio](https://ms-adf.azure.com/).
 1. Choose your Data Factory and select **Continue**.
 1. In the left menu, click **Manage** icon.
+   
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   
 4. Under **Linked services**, click **New**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory":::
+   
 5. In the right pane, in the **Data store** search, type *postgresql*. Click **PostgreSQL** icon that represents where your PostgreSQL database is located (Azure or other) and select Continue. In this example, PostgreSQL database is located in Azure.
+   
    :::image type="content" source="media/search-power-query-connectors/search-postgresql-data-store.png" alt-text="Screenshot showing how to choose PostgreSQL data store for a Linked Service in Azure Data Factory":::
+   
+   
 6. Fill out the **New linked service** form:
    - In **Account selection method** select **Enter manually** button.
    - From your Azure Database for PostgreSQL Overview page in the [Azure portal](https://portal.azure.com/) copy the following values in their respective field:
@@ -215,21 +299,31 @@ This section has the instructions to copy data from PostgreSQL database to an [A
    - Add the **username password**.
    - Click **Create**.
 
+     :::image type="content" source="media/search-power-query-connectors/new-linked-service-postgresql.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+     
 
 ### Step 2: Configure PostgreSQL Dataset
 
 1. In the left menu, select **Author** icon. 
 1. Click **Datasets** and "**…**". 
+   
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option":::
+   
 3. Select **New dataset**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory":::
+   
 4. In the right pane, in the **Data store** search, type *postgresql*. Select **Azure PostgreSQL** icon. Click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset-postgresql.png" alt-text="Screenshot showing how to choose PostgreSQL data store for a Dataset in Azure Data Factory":::
+   
 5. Fill out the **Set properties** form:
    - Choose the PostgreSQL Linked Service created in [Step 1](#step-1-configure-postgresql-linked-service).
    - Select the table you would like to import/index.
    - Click **OK**.
+     
      :::image type="content" source="media/search-power-query-connectors/postgresql-set-properties.png" alt-text="Screenshot showing how to choose PostgreSQL data store for a Linked Service in Azure Data Factory":::
+     
 6. Click **Save**.
 
 
@@ -239,18 +333,28 @@ This section has the instructions to copy data from PostgreSQL database to an [A
 
 Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the PostgreSQL Power Connector and clicking on **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
 
-:::image type="content" source="media/search-power-query-connectors/postgresql-index.png" alt-text="Screenshot showing how to copy existing Azure Cognitive Search index JSON configuration":::
+   :::image type="content" source="media/search-power-query-connectors/postgresql-index.png" alt-text="Screenshot showing how to copy existing Azure Cognitive Search index JSON configuration":::
+   
 
 ### Step 4: Configure Azure Cognitive Search Linked Service
 
 1. In the left menu, click **Manage** icon.
+   
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   
 2. Under **Linked services** click **New**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory":::
-3. Fill out the **New linked service** form:
+   
+3. In the right pane, in the **Data store** search, type *search*. Select **Azure Search** icon and click **Continue**.
+   
+   :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory":::
+
+4. Fill out the **New linked service** form:
    - Choose the Azure subscription where your Azure Cognitive Search service resides.
    - Choose the Azure Cognitive Search service where your Power Query connector indexer lives.
    - Click **Create**.
+     
      :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Search Linked Service in Azure Data Factory":::
 
 
@@ -258,98 +362,147 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 1. In the left menu, select **Author** icon. 
 1. Click **Datasets** and "**…**". 
+   
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option":::
+   
 3. Select **New dataset**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory":::
+   
 4. In the right pane, in the Data store search, type *search*. Select **Azure Search** icon and click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset-search.png" alt-text="Screenshot showing how to choose an Azure Cognitive Search service for a Dataset in Azure Data Factory":::
+   
 5. In the **Set properties** form:
    -  Select the Linked service created for Azure Cognitive Search in [Step 4](#step-4-configure-azure-cognitive-search-linked-service).
    -  Choose the index that you created as part of [Step 3](#step-3-create-a-new-index-in-azure-cognitive-search).
    -  Click **OK**.
+      
       :::image type="content" source="media/search-power-query-connectors/set-search-postgresql-properties.png" alt-text="Screenshot showing how to choose New Search Linked Service in Azure Data Factory":::
+      
 6. Click **Save**.
 
 
 ### Step 6: Configure Azure Blob Storage Linked Service
 
 1. In the left menu, click **Manage** icon.
+   
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory":::
+   
 2. Under **Linked services**, click **New**.
+
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory":::
+   
 3. In the right pane, in the **Data store** search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory":::
+   
 4. Fill out the **New linked service** form:
    - Choose the **Authentication type**: *SAS URI*. Only this method can be used to import data from PostgreSQL into Azure Blob Storage.
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
    - Click **Create**.
+     
      :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose New Linked Storage Service in Azure Data Factory":::
+
 
 
 ### Step 7: Configure Storage dataset
 1. In the left menu, select **Author** icon. 
 1. Click **Datasets** and "**…**". 
+   
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option":::
+   
 3. Select **New dataset**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory":::
+   
 4. In the right pane, in the **Data store** search, type *storage*. Select **Azure Blob Storage** icon and click **Continue**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-dataset-blob-storage.png" alt-text="Screenshot showing how to choose a new blob storage data store in Azure Data Factory":::
+   
 5. Select **DelimitedText** format and click **Continue**.
 6. In **Row delimiter**, select *Line feed (\n)*.
 7. Check **First row as a header** box.
 8. Click **Save**.
+   
    :::image type="content" source="media/search-power-query-connectors/delimited-text-save-postgresql.png" alt-text="Screenshot showing options to import data to Azure Storage blob":::
+   
 
 
 ### Step 8: Configure Pipeline
 1. In the left menu, select **Author** icon. 
 2. Click **Pipelines** and "**…**" . 
+   
    :::image type="content" source="media/search-power-query-connectors/author-pipelines.png" alt-text="Screenshot showing how to choose Author icon and Pipelines option":::
+   
 3. Select **New pipeline**.
+   
    :::image type="content" source="media/search-power-query-connectors/new-pipeline.png" alt-text="Screenshot showing how to choose a new Pipeline in Azure Data Factory":::
+   
 4. Create and configure the [Data Factory activities](../data-factory/concepts-pipelines-activities.md) that will be part of the pipeline:
 
    **a) Configure staging activity to copy from PostgreSQL to Azure Storage container**
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+     
      :::image type="content" source="media/search-power-query-connectors/postgresql-pipeline-general.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory":::
+     
    - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
    - In the **Source** tab, select your PostgreSQL table. Leave the remaining options with the default values.
+     
      :::image type="content" source="media/search-power-query-connectors/source-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob":::
+     
    - In the **Sink** tab:
       - Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
       - In **File Extension**, add *.csv*
       - Leave the remaining options with the default values.
+        
         :::image type="content" source="media/search-power-query-connectors/sink-storage-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob":::
+        
    - Click on **Save**.
  
     **b) Configure activity to index from Azure Storage Blob**
      - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
+       
        :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory":::
+       
      - In the **General** tab, leave the default values, unless you need to customize the execution.
      - In the **Source** tab:
        - Select the Storage source dataset configured in [Step 7](#step-7-configure-storage-dataset).
        - In the **File path type** select *Wildcard file path*.
        - Leave all remaining fields with default values.
+         
          :::image type="content" source="media/search-power-query-connectors/source-storage-postgresql.png" alt-text="Screenshot showing how to configure Source for indexing from Storage to Azure Cognitive Search index":::
+         
      - In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
+       
        :::image type="content" source="media/search-power-query-connectors/sink-search-index-postgresql.png" alt-text="Screenshot showing how to configure Sink for indexing from Storage to Azure Cognitive Search index":::
+       
      - Click **Save**.
 
 ### Step 9: Configure Activity order 
 
 1. In the Pipeline canvas editor, click on the little green square in front of the Pipeline Activity that copies data from Snowflake to Azure Blob Storage and drag to the Activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
 1. Click **Save**.
-:::image type="content" source="media/search-power-query-connectors/pipeline-link-acitivities-postgresql.png" alt-text="Screenshot showing how to configure activity order in the pipeline for proper execution":::
+   
+   :::image type="content" source="media/search-power-query-connectors/pipeline-link-acitivities-postgresql.png" alt-text="Screenshot showing how to configure activity order in the pipeline for proper execution":::
+   
 
 ### Step 10: Add a Pipeline trigger
 1. Click on [Add trigger](../data-factory/how-to-create-schedule-trigger.md) to schedule the pipeline run and select **New/Edit**.
+   
    :::image type="content" source="media/search-power-query-connectors/add-pipeline-trigger-postgresql.png" alt-text="Screenshot showing how to add a new trigger for a Pipeline in Data Factory":::
+   
 2. From the **Choose trigger** dropdown, select **New**.
+   
    :::image type="content" source="media/search-power-query-connectors/choose-trigger-new.png" alt-text="Screenshot showing how to select adding a new trigger for a Pipeline in Data Factory":::
+   
 3. Review the trigger options to run the pipeline and click **OK**.
+   
    :::image type="content" source="media/search-power-query-connectors/trigger-postgresql.png" alt-text="Screenshot showing how to configure a trigger to run a Pipeline in Data Factory":::
+   
 4. Click **Save**.
 5. Click **Publish**.
+   
    :::image type="content" source="media/search-power-query-connectors/publish_pipeline-postgresql.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory":::
 
 
