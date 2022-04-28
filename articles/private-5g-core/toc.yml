@@ -63,7 +63,7 @@ items:
     - name: Configure a SIM policy - Azure portal
       href: configure-sim-policy-azure-portal.md
     - name: Configure a service and SIM policy - ARM template
-      href: configure-service-and-sim-policy-arm-template.md
+      href: configure-service-sim-policy-arm-template.md
   - name: SIMs
     items:
     - name: Provision SIMs - Azure portal

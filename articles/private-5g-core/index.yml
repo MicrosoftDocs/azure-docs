@@ -78,7 +78,7 @@ landingContent:
           - text: Configure a SIM policy - Azure portal
             url: configure-sim-policy-azure-portal.md
           - text: Configure a service and SIM policy - ARM template
-            url: configure-service-and-sim-policy-arm-template.md
+            url: configure-service-sim-policy-arm-template.md
   # Card
   - title: Provision SIMs
     linkLists:
