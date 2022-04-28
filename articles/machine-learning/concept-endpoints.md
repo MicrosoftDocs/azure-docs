@@ -200,4 +200,4 @@ Specify the storage output location to any datastore and path. By default, batch
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view managed online endpoint costs](how-to-view-online-endpoints-costs.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
