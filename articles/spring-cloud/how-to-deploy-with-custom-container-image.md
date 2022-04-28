@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-cloud
-ms.date: 4/27/2022
+ms.date: 4/28/2022
 ---
 
 # Deploy an application with a custom container image (Preview)
@@ -29,51 +29,39 @@ To deploy an application to a custom container image, use the following steps:
 
 1. To deploy a container image, use one of the following commands:
 
-    1. To deploy a container image `contoso/your-app:v1` on the public Docker Hub to an app, use the following command:
+    1. To deploy a container image to the public Docker Hub to an app, use the following command:
 
        ```azurecli
        az spring-cloud app deploy \
-          -name <MyApp> \
-          -service <MyCluster> \
-          -group <MyResourceGroup> \
-          --container-image contoso/your-app:v1
+          --name <your-app-name> \
+          --resource-group <your-resource-group> \
+          --container-image <your-container-image> \
+          --service <your-service-name>
        ```
 
-    1. To deploy a container image `myacr.azurecr.io/your-app:v1` from ACR to an app, use the following command:
+    1. To deploy a container image from ACR to an app, or from another private registry to an app, use the following command:
 
        ```azurecli
        az spring-cloud app deploy \
-          -name <MyApp> \
-          -service <MyCluster> \
-          -group <MyResourceGroup> \
-          --container-image your-app:v1 \
-          --container-registry myacr.azurecr.io \
-          --registry-username myacr \
-          --registry-password <password>
-        ```
-
-    1. To deploy a container image `registry.consoto.com/your-app:v1` from another private registry to an app, use the following command:
-
-       ```azurecli
-       az spring-cloud app deploy \
-          -name <MyApp> \
-          -service <MyCluster> \
-          -group <MyResourceGroup> \
-          --container-image your-app:v1 \
-          --container-registry registry.consoto.com \
-          --registry-username <username> \
-          --registry-password <password>
+          --name <your-app-name> \
+          --resource-group <your-resource-group> \
+          --container-image <your-container-image> \
+          --service <your-service-name>
+          --container-registry <your-container-registry> \
+          --registry-password <your-password> |
+          --registry-username <your-username>
         ```
 
 1. To overwrite the entry point of the image, add the following two arguments to any of the above commands:
 
-   ```xml
+   ```
    --container-command "java" \
    --container-args "-jar /app.jar -Dkey=value"
    ```
 
 1. To disable listening on a port for images that aren't web applications, add the following argument to the above commands:
-   ```xml
+
+   ```
    --disable-probe true
    ```
 
@@ -109,7 +97,7 @@ The following matrix shows what features are supported in each application type.
 | Support for container registries                                | ✔️ | ✔️ |   | 
 | Assign endpoint                                                 | ✔️ | ✔️ |   |
 | Azure Monitor                                                   | ✔️ | ✔️ |   |
-| APM integration                                                 | ✔️ | ✔️ | Supported by [manual installation](#how-to-install-an-apm-into-the-image-manually)  |
+| APM integration                                                 | ✔️ | ✔️ | Supported by [manual installation](#install-an-apm-into-the-image-manually)  |
 | Blue/green deployment                                           | ✔️ | ✔️ |   |
 | Custom domain                                                   | ✔️ | ✔️ |   |
 | Scaling - auto scaling                                          | ✔️ | ✔️ |   |
@@ -120,9 +108,9 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Gateway for VMware Tanzu®                          | ✔️ | ✔️ | Enterprise tier only  |
 | Application Configuration Service for VMware Tanzu®             | ✔️ | ❌  | Enterprise tier only  |
 | VMware Tanzu® Service Registry                                  | ✔️ | ❌  | Enterprise tier only  |
-| VNET                                                            | ✔️ | ✔️ | Add registry to [allowlist in NSG or Azure Firewall](#how-to-avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet)  |
+| VNET                                                            | ✔️ | ✔️ | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet)  |
 | Outgoing IP Address                                             | ✔️ | ✔️ |   |
-| E2E TLS                                                         | ✔️ | ✔️ | Trust a self-signed CA is supported by [manual installation](#how-to-trust-a-certificate-authority-in-the-image)  |
+| E2E TLS                                                         | ✔️ | ✔️ | Trust a self-signed CA is supported by [manual installation](#trust-a-certificate-authority-in-the-image)  |
 | Liveness and readiness settings                                 | ✔️ | ✔️ |   |
 | Advanced troubleshooting - thread/heap/JFR dump                 | ✔️ | ❌  | The image must include `bash` and JDK with `PATH` specified.   |
 | Bring your own storage                                          | ✔️ | ✔️ |   |
@@ -148,27 +136,28 @@ To trust a CA in the image, set the following variables depending on your enviro
 
 1. Java applications must be imported into the trust store by adding the following lines into your `Dockerfile`:
 
-   ```xml
+   ```
    ADD EnterpriseRootCA.crt /opt/
    RUN keytool -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias EnterpriseRootCA -file /opt/EnterpriseRootCA.crt
    ```
 
 1. Node.js applications must set the `NODE_EXTRA_CA_CERTS` environment variable:
 
-   ```xml
+   ```
    ADD EnterpriseRootCA.crt /opt/
    ENV NODE_EXTRA_CA_CERTS="/opt/EnterpriseRootCA.crt"
    ```
 
 1. For Python, or other languages relying on the system CA store, on Debian or Ubuntu images, add the following environment variables:
 
-   ```xml
+   ```
    ADD EnterpriseRootCA.crt /usr/local/share/ca-certificates/
    RUN /usr/sbin/update-ca-certificates
    ```
 
 1. For Python, or other languages relying on the system CA store, on CentOS or Fedora based images, add the following environment variables:
-   ```xml
+
+   ```
    ADD EnterpriseRootCA.crt /etc/pki/ca-trust/source/anchors/
    RUN /usr/bin/update-ca-trust
    ``` 
@@ -188,7 +177,7 @@ The installation steps vary on different APMs and languages. The following steps
 
 1. Add the environment variables required by the APM:
 
-    ```xml
+    ```
     ENV NEW_RELIC_APP_NAME=appName
     ENV NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
@@ -221,15 +210,15 @@ To view the console logs of your container application, the following CLI comman
 
 ```azurecli
 az spring-cloud app logs \
-   -name <AppName> \
-   -group <ResoureGroup> \
-   -service <ServiceName> \
-   -instance <AppInstanceName>
+   --name <your-app-name> \
+   --resource-group <your-resource-group> \
+   --service <your-service-name> \
+   --instance <your-instance-name>
 ```
 
 To view the container events logs from the Azure Monitor, enter the query:
 
-```xml
+```
 AppPlatformContainerEventLogs
 | where App == "hw-20220317-1b"
 ```
@@ -246,10 +235,10 @@ The deployment type can be switched directly by redeploying using the following 
 
 ```azurecli
 az spring-cloud app deploy \ 
-   -name <MyApp> \
-   -service <MyCluster> \
-   -group <MyResourceGroup> \
-   --container-image contoso/your-app:v1
+   --name <your-app-name> \
+   --resource-group <your-resource-group> \
+   --container-image <your-container-image> \
+   --service <your-service-name>
 ```
 
 ### Create another deployment with an existing JAR deployment
@@ -258,11 +247,11 @@ You can create another deployment using an existing JAR deployment using the fol
 
 ```azurecli
 az spring-cloud app deployment create \
-   --app <MyApp> \
-   -service <MyCluster>
-   -group <MyResourceGroup>
-   -name <greenDeployment> \
-   --container-image contoso/your-app:v1
+   --app <your-app-name> \
+   --name <your-deployment-name> \
+   --resource-group <your-resource-group> \
+   --container-image <your-container-image> \
+   --service <your-service-name>
 ```
 
 > [!NOTE]
