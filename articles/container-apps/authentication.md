@@ -142,7 +142,7 @@ In a client-directed sign-in, the application signs in the user to the identity 
 To validate the provider token, container app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
 ```console
-POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+POST https://<hostname>.azurecontainerapps.io/.auth/login/aad HTTP/1.1
 Content-Type: application/json
 
 {"id_token":"<token>","access_token":"<token>"}
