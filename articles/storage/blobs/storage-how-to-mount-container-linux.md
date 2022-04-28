@@ -5,7 +5,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 04/28/2022
 ms.author: tamram
 ms.reviewer: twooley
 ---
@@ -65,8 +65,14 @@ sudo apt-get install blobfuse
 
 On an Enterprise Linux distribution:
 
-```bash    
+```bash
 sudo yum install blobfuse
+```
+
+On a SUSE distribution:
+
+```bash
+sudo zypper install blobfuse
 ```
 
 ## Prepare for mounting
