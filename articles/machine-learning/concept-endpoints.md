@@ -42,7 +42,7 @@ A **deployment** is a set of resources required for hosting the model that does 
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
-Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](#what-are-online-endpoints-preview) and [batch endpoints](#what-are-batch-endpoints-preview).
+Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [online endpoints](#what-are-online-endpoints) and [batch endpoints](#what-are-batch-endpoints).
 
 ### Multiple developer interfaces
 
@@ -92,7 +92,7 @@ Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-
 
 All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
 
-However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
+However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-online-endpoints) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 ### Security
 
