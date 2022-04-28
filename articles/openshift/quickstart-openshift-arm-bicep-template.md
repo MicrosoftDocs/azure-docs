@@ -21,7 +21,7 @@ This quickstart describes how to use either Azure Resource Manager template (ARM
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
-## Prerequisites
+## Prerequisites 
 
 * Install [Azure CLI](/cli/azure/install-azure-cli)
 
