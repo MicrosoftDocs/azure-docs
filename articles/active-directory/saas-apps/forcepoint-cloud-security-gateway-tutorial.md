@@ -125,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Single Sign-On** page, perform the following steps:
     
-    ![Screenshot that shows the Configuration](./media/forcepoint-cloud-security-gateway-tutorial/general.png "Configuration")
+    ![Screenshot that shows the Single Sign-On Configuration.](./media/forcepoint-cloud-security-gateway-tutorial/general.png "Configuration")
 
     a. Enable **Use identity provider for single sign-on** checkbox.
 
