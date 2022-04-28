@@ -106,7 +106,7 @@ The following table lists which attributes you can use in your condition express
 
 
 > [!div class="mx-tableFixed"]
-> | Action | Attribute |
+> | Action | Attributes |
 > | --- | --- |
 > | All read operations | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
 > | List blobs | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob prefix |
