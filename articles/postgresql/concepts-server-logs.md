@@ -13,7 +13,7 @@ ms.date: 06/25/2020
 
 Azure Database for PostgreSQL allows you to configure and access Postgres's standard logs. The logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. Logging information you can configure and access includes errors, query information, autovacuum records, connections, and checkpoints. (Access to transaction logs is not available).
 
-Audit logging is made available through a Postgres extension, pgaudit. To learn more, visit the [auditing concepts](concepts-audit.md) article.
+Audit logging is made available through a PostgreSQL extension, pgaudit. To learn more, visit the [auditing concepts](concepts-audit.md) article.
 
 
 ## Configure logging 
