@@ -26,13 +26,11 @@ IoT Central enables you to build highly available, scalable, and secure solution
 
 ## Connect your industrial assets
 
-:::image type="content" source="media/concepts-iiot-architecture/iiot-connections.png" alt-text="iiot-connection-options" border="false":::
-
 Operational technology (OT) is the hardware and software that monitors and controls the equipment and infrastructure in industrial facilities. There are four ways to connect your industrial assets to Azure IoT Central:
 
 - Proxy through on-premises partner solutions that have built-in support to connect to Azure IoT Central.
 
-- Use IoT Plug and Play support to simplify the connectivity and asset modelling experience in Azure IoT Central.
+- Use IoT Plug and Play support to simplify the connectivity and asset modeling experience in Azure IoT Central.
 
 - Proxy through on-premises Microsoft solutions from the Azure IoT Edge marketplace that have built-in support to connect to Azure IoT Central.
 
@@ -45,7 +43,7 @@ Manage industrial assets and perform software updates to OT using features such 
 - Update asset configurations.
 - Manage asset properties.
 - Command and control your assets.
-- Update Microsoft-provided, partner-provided, or custom software modules that run on Azure IoT Edge devices
+- Update Microsoft-provided, partner-provided, or custom software modules that run on Azure IoT Edge devices.
 
 ## Monitor and analyze your industrial assets
 
@@ -85,9 +83,9 @@ Secure your IIoT solution by using the following IoT Central features:
 
 The automation pyramid represents the layers of automation in a typical factory:
 
-- Production floor (level one) represents sensors and related technologies such as flow meters, valves, pumps which keep variables such as flow, heat and pressure under allowable parameters.
+- Production floor (level one) represents sensors and related technologies such as flow meters, valves, pumps that keep variables such as flow, heat and pressure under allowable parameters.
 
-- Control or programmable logic controller (PLC) layer (level two) is the brains behind shop floor processes which help monitor the sensors and maintain parameters throughout the production lines.
+- Control or programmable logic controller (PLC) layer (level two) is the brains behind shop floor processes that help monitor the sensors and maintain parameters throughout the production lines.
 
 - Supervisory control and data acquisition layer, SCADA (level three) provides human machine interfaces (HMI) as process data is monitored and controlled through human interactions and stored in databases.
 
