@@ -35,8 +35,8 @@ You'll also need the following to use Form Recognizer containers:
 |----------|---------|
 | **Familiarity with Docker** | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology). |
 | **Docker Engine installed** | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer-requirements). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul>  |
-|**Form Recognizer resource** | A [**single-service Azure Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**multi-service Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. To use the containers, you must have the associated API key and endpoint URI. Both values are available on the Azure portal Form Recognizer **Keys and Endpoint** page: <ul><li>**{FORM_RECOGNIZER_API_KEY}**: one of the two available resource keys.<li>**{FORM_RECOGNIZER_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></li></ul>|
-| **Computer Vision API resource** | **To process business cards, ID documents, or Receipts, you'll need a Computer Vision resource.** <ul><li>You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../cognitive-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). The usual [billing](#billing) fees apply.</li> <li>If you use the **cognitive-services-recognize-text** container, make sure that your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision `docker run`  or `docker compose` command for the **cognitive-services-recognize-text** container and  your billing endpoint is the container's endpoint (for example, `http://localhost:5000`). If you use both the Computer Vision container and Form Recognizer container together on the same host, they can't both be started with the default port of *5000*. </li></ul></br>Pass in both the API key and endpoints for your Computer Vision Azure cloud or Cognitive Services container:<ul><li>**{COMPUTER_VISION_API_KEY}**: one of the two available resource keys.</li><li> **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></ul> |
+|**Form Recognizer resource** | A [**single-service Azure Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**multi-service Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. To use the containers, you must have the associated key and endpoint URI. Both values are available on the Azure portal Form Recognizer **Keys and Endpoint** page: <ul><li>**{FORM_RECOGNIZER_API_KEY}**: one of the two available resource keys.<li>**{FORM_RECOGNIZER_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></li></ul>|
+| **Computer Vision API resource** | **To process business cards, ID documents, or Receipts, you'll need a Computer Vision resource.** <ul><li>You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../cognitive-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). The usual [billing](#billing) fees apply.</li> <li>If you use the **cognitive-services-recognize-text** container, make sure that your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision `docker run`  or `docker compose` command for the **cognitive-services-recognize-text** container and  your billing endpoint is the container's endpoint (for example, `http://localhost:5000`). If you use both the Computer Vision container and Form Recognizer container together on the same host, they can't both be started with the default port of *5000*. </li></ul></br>Pass in both the key and endpoints for your Computer Vision Azure cloud or Cognitive Services container:<ul><li>**{COMPUTER_VISION_API_KEY}**: one of the two available resource keys.</li><li> **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.</li></ul> |
 
 |Optional|Purpose|
 |---------|----------|
@@ -120,16 +120,16 @@ If you are only making analyze calls, the host machine requirements are as follo
 
 ## Run the container with the **docker-compose up** command
 
-* Replace the {ENDPOINT_URI} and {API_KEY} values with your resource Endpoint URI and the API Key from the Azure resource page.
+* Replace the {ENDPOINT_URI} and {API_KEY} values with your resource Endpoint URI and the key from the Azure resource page.
 
    :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 * Ensure that the EULA value is set to "accept".
 
-* The `EULA`, `Billing`, and `ApiKey`  values must be specified; otherwise the container won't start.
+* The `EULA`, `Billing`, and `Key`  values must be specified; otherwise the container won't start.
 
 > [!IMPORTANT]
-> The subscription keys are used to access your Form Recognizer resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
+> The keys are used to access your Form Recognizer resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
 ### [Layout](#tab/layout)
 
@@ -144,7 +144,7 @@ azure-cognitive-service-layout:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_API_KEY}
     ports:
       - "5000"
     networks:
@@ -173,7 +173,7 @@ services:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_API_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
       - "5000:5050"
@@ -185,7 +185,7 @@ services:
     environment:
       - EULA=accept
       - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - apikey={COMPUTER_VISION_API_KEY}
+      - key={COMPUTER_VISION_API_KEY}
     networks:
       - ocrvnet
 
@@ -213,7 +213,7 @@ services:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_API_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
       - "5000:5050"
@@ -225,7 +225,7 @@ services:
     environment:
       - EULA=accept
       - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - apikey={COMPUTER_VISION_API_KEY}
+      - key={COMPUTER_VISION_API_KEY}
     networks:
       - ocrvnet
 
@@ -253,7 +253,7 @@ services:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_API_KEY}
       - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
       - "5000:5050"
@@ -266,7 +266,7 @@ services:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_API_KEY}
     networks:
       - ocrvnet
 
@@ -294,7 +294,7 @@ services:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apikey={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_API_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
       - "5000:5050"
@@ -306,7 +306,7 @@ services:
     environment:
       - EULA=accept
        - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - apikey={COMPUTER_VISION_API_KEY}
+      - key={COMPUTER_VISION_API_KEY}
     networks:
       - ocrvnet
 
@@ -353,7 +353,7 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
   SHARED_MOUNT_PATH="<file-path-to-shared-folder>"
   OUTPUT_MOUNT_PATH="<file -path-to-output-folder>"
   FORM_RECOGNIZER_ENDPOINT_URI="<your-form-recognizer-endpoint>"
-  FORM_RECOGNIZER_API_KEY="<your-form-recognizer-apiKey>"
+  FORM_RECOGNIZER_API_KEY="<your-form-recognizer-key>"
   RABBITMQ_HOSTNAME="rabbitmq"
   RABBITMQ_PORT=5672
   NGINX_CONF_FILE="<file-path>"
@@ -467,7 +467,7 @@ http {
       - rabbitmq
     environment:
       eula: accept
-      apikey: ${FORM_RECOGNIZER_API_KEY}
+      key: ${FORM_RECOGNIZER_API_KEY}
       billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
       Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
       Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
@@ -493,7 +493,7 @@ http {
       - rabbitmq
     environment:
       eula: accept
-      apikey: ${FORM_RECOGNIZER_API_KEY}
+      key: ${FORM_RECOGNIZER_API_KEY}
       billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
       Logging:Console:LogLevel:Default: Information
       Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
@@ -519,7 +519,7 @@ http {
       - rabbitmq
     environment:
       eula: accept
-      apikey: ${FORM_RECOGNIZER_API_KEY}
+      key: ${FORM_RECOGNIZER_API_KEY}
       billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
       CustomFormRecognizer:ContainerPhase: All
       CustomFormRecognizer:LayoutAnalyzeUri: http://azure-cognitive-service-layout:5000/formrecognizer/v2.1/layout/analyze
@@ -592,7 +592,7 @@ docker-compose down
 
 The Form Recognizer containers send billing information to Azure by using a Form Recognizer resource on your Azure account.
 
-Queries to the container are billed at the pricing tier of the Azure resource that's used for the `ApiKey`. You will be billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you will be billed for the Form Recognizer `BusinessCard` and `Computer Vision Read` container instances. For the invoice feature, you will be billed for the Form Recognizer `Invoice` and `Layout` container instances. *See*, [Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer/) and Computer Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
+Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You will be billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you will be billed for the Form Recognizer `BusinessCard` and `Computer Vision Read` container instances. For the invoice feature, you will be billed for the Form Recognizer `Invoice` and `Layout` container instances. *See*, [Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer/) and Computer Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
 
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 
@@ -606,7 +606,7 @@ The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | The API key of the Cognitive Services resource that's used to track billing information.<br/>The value of this option must be set to an API key for the provisioned resource that's specified in `Billing`. |
+| `Key` | The key of the Cognitive Services resource that's used to track billing information.<br/>The value of this option must be set to an key for the provisioned resource that's specified in `Billing`. |
 | `Billing` | The endpoint of the Cognitive Services resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 
