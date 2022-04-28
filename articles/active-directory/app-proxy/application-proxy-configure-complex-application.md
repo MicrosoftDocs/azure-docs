@@ -46,7 +46,7 @@ This article provides you with the information you need to configure wildcard ap
 4. CORS Rules (optional) can be configured per application segment.
 5. Access will only be granted to defined application segments for a complex application.
     - Note - If all application segments are deleted, a complex application will behave as a wildcard application opening access to all valid URL by specified domain. 
-7. You can have an internal URL defined both as an application segment and a regular application.
+6. You can have an internal URL defined both as an application segment and a regular application.
     - Note - Regular application will always take precedence over a complex app (wildcard application).
 
 ## Pre-requisites
@@ -56,7 +56,7 @@ Before you get started with single sign-on for header-based authentication apps,
 
 ## Configure application segment(s) for complex application. 
 
-To configure Application Segments for a complex app using the API, you first [create a wildcard application](application-proxy-wildcard.md#create-a-wildcard-application), and then update the application's onPremisesPublishing property to configure the application segments and respective CORS settings.
+To configure (and update) Application Segments for a complex app using the API, you first [create a wildcard application](application-proxy-wildcard.md#create-a-wildcard-application), and then update the application's onPremisesPublishing property to configure the application segments and respective CORS settings.
 
 > [!NOTE]
 > One application segment is supported in preview. Support for multiple application segment to be announced soon.
