@@ -83,7 +83,7 @@ Virtual nodes are deployed to an additional subnet in the same virtual network a
 
 ## Next steps
 
-To get started with scaling applications, first follow the [quickstart to create an AKS cluster with the Azure CLI][./learn/quick-kubernetes-deploy-cli]. You can then start to manually or automatically scale applications in your AKS cluster:
+To get started with scaling applications, first follow the [quickstart to create an AKS cluster with the Azure CLI][aks-quickstart]. You can then start to manually or automatically scale applications in your AKS cluster:
 
 - Manually scale [pods][aks-manually-scale-pods] or [nodes][aks-manually-scale-nodes]
 - Use the [horizontal pod autoscaler][aks-hpa]
@@ -101,7 +101,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [virtual-kubelet]: https://virtual-kubelet.io/
 
 <!-- LINKS - internal -->
-[aks-quickstart]: kubernetes-walkthrough.md
+[aks-quickstart]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-hpa]: tutorial-kubernetes-scale.md#autoscale-pods
 [aks-scale]: tutorial-kubernetes-scale.md
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
