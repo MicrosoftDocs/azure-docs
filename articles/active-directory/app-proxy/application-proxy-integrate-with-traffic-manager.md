@@ -43,22 +43,22 @@ Follow these steps to configure Application Proxy for Traffic Manager:
 
 1. To give your Traffic Manager a user-friendly URL, create a CNAME record that points the alternate URL to the Traffic Manager's endpoint.
 
-1. With the `alternateUrl` property, configure the alternate URL on the [onPremisesPublishing resource type](https://docs.microsoft.com/graph/api/resources/onpremisespublishing?view=graph-rest-beta) of the app.
+1. With the `alternateUrl` property, configure the alternate URL on the [onPremisesPublishing resource type](/graph/api/resources/onpremisespublishing) of the app.
 
 1. If you want the alternate URL to be maintained throughout the user session, call `onPremisesPublishing` and set the  `useAlternateUrlForTranslationAndRedirect` flag to `true`.
 
 ## Sample Application Proxy configuration
 
-The following table shows a sample Application Proxy configuration. This sample uses the sample app domain www.contoso.com as the alternate URL.
+The following table shows a sample Application Proxy configuration. This sample uses the sample app domain \www.contoso.com as the alternate URL.
 
 |     | North America-based app | India-based app | Additional Information |
 |---- | ----------------------- | --------------- | ---------------------- |
 | **Internal URL** | contoso.com | contoso.com | If the apps are hosted in different regions, you can use the same internal URL for each app. |
 | **External URL** | nam.contoso.com | india.contoso.com | Configure a custom domain for each app.|
-| **Custom domain certificate** | DNS: nam.contoso.com SAN: www.contoso.com | DNS: nam.contoso.com SAN: www.contoso.com | The certificate uploaded for each app must include the SAN value equal to the alternate URL desired. The alternate URL is the URL all users use to reach the app.|
-| **Connector group** | NAM Geo Group | India Geo Group | Ensure each app is assigned to the correct connector group by using the geo-routing functionality. |
-| **Redirects** | (Optional) To maintain redirects for the alternate URL, add the application registration for the app.  | (Optional) To maintain redirects for the alternate URL, add in the application registration for the app.  | This step is required if the alternate URL (www.contoso.com) is to be maintained for all redirections. |
-| **Reply URL** | www.contoso.com.| www.contoso.com. |
+| **Custom domain certificate** | DNS: nam.contoso.com SAN: \www.contoso.com | DNS: nam.contoso.com SAN: \www.contoso.com | In the certificate you upload for each app, set the SAN value to the alternate URL. The alternate URL is the URL all users use to reach the app.|
+| **Connector group** | NAM Geo Group | India Geo Group | Ensure you assign each app to the correct connector group by using the geo-routing functionality. |
+| **Redirects** | (Optional) To maintain redirects for the alternate URL, add the application registration for the app.  | (Optional) To maintain redirects for the alternate URL, add the application registration for the app.  | This step is required if the alternate URL (\www.contoso.com) is to be maintained for all redirections. |
+| **Reply URL** | \www.contoso.com.| \www.contoso.com. |
 
 ## Traffic manager configuration
 
@@ -72,10 +72,10 @@ Follow these steps to configure the Traffic Manager:
 
 1. Add the app proxy endpoints.
 
-1. Add a CNAME record to point www.contoso.com to the Traffic Manager's URL. For example, contoso.trafficmanager.net.
+1. Add a CNAME record to point \www.contoso.com to the Traffic Manager's URL. For example, contoso.trafficmanager.net.
 
-    The alternate URL is now pointed to the Traffic Manager.
+    The alternate URL now points to the Traffic Manager.
 
 ## Next steps
 
-[Publish applications on separate networks and locations using connector groups](application-proxy-connector-groups)
+[Publish applications on separate networks and locations using connector groups](application-proxy-connector-groups.md)
