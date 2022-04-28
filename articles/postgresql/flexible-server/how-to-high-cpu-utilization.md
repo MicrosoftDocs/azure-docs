@@ -26,7 +26,7 @@ Areas which are highlighted in this document are –
 	- Long running queries 
 	- Total Connections 
 
-- Resolve high CPU  
+- Resolve high CPU Utilization
 	- Using Explain Analyze 
 	- Connection Pooling 
 	- Vacuuming the tables 
