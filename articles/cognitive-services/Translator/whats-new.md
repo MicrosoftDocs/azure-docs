@@ -35,7 +35,7 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 
 ### [Text and document translation support for Somali and Zulu languages](https://www.microsoft.com/translator/blog/2022/03/29/translator-welcomes-two-new-languages-somali-and-zulu/)
 
-* Translator service has [text and document translation language support](language-support.md) for Somali and Zulu. The Somali language is spoken throughout Africa by more than 21 million people. It's in the Cushitic branch of the Afroasiatic language family. The Zulu language is spoken by 12 million people and is recognized as one of South Africa's 11 official languages.
+* Translator service has [text and document translation language support](language-support.md) for Somali and Zulu. The Somali language is spoken throughout Africa by more than 21 million people and is in the Cushitic branch of the Afroasiatic language family. The Zulu language is spoken by 12 million people and is recognized as one of South Africa's 11 official languages.
 
 ## February 2022
 
