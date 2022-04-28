@@ -89,7 +89,14 @@ dapr: {
 
 Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
 
-### 2 - Dapr components
+### 2 - Dapr sidecar
+
+:::image type="content" source="media/dapr-overview/sidecar_architecture.png" alt-text="Visualization of Dapr sidecar architecture":::
+
+The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. These APIs are available through HTTP and gRPC protocols.
+
+
+### 3 - Dapr components
 
 Dapr components are scoped to a Container App environment and are pluggable modules that:
 
@@ -218,15 +225,15 @@ In Dapr OSS, running `dapr init` generates the following default Redis `<compone
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: pubsub
+  name: mypubsub
 spec:
-  type: pubsub.redis
+  type: pubsub.azure.servicebus
   version: v1
   metadata:
-  - name: redisHost
-    value: localhost:6379
-  - name: redisPassword
-    value: ""
+  - name: connectionString
+    secretKeyRef:
+      name: bus-secret
+      key: connection-string
 # Application scope
 scopes:
 - nodeapp
@@ -235,11 +242,6 @@ scopes:
 > [!NOTE]
 > Since Dapr components and settings aren't revisionable, all running instances of a revision share the same set of Dapr components. 
 
-### 3 - Dapr sidecar
-
-:::image type="content" source="media/dapr-overview/sidecar_architecture.png" alt-text="Visualization of Dapr sidecar architecture":::
-
-The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. These APIs are available through HTTP and gRPC protocols.
 
 ## Current supported Dapr version
 
@@ -248,6 +250,10 @@ Currently, Azure Container Apps supports Dapr version 1.4.2.
 Version upgrades are handled transparently by the Container Apps platform. You can find the current version via the Azure portal and the CLI. See [known limitations](#limitations) around versioning.
 
 <!-- command -->
+
+## Actor reminders in Container Apps
+
+
 
 ## Limitations
 
