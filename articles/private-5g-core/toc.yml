@@ -9,7 +9,7 @@ items:
 - name: Quickstarts
   items:
   - name: Create a full Azure Private 5G Core deployment - ARM template
-    href: create-a-full-private-5g-core-deployment-arm-template.md
+    href: create-full-private-5g-core-deployment-arm-template.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
@@ -51,7 +51,7 @@ items:
     - name: Create a site - Azure portal
       href: create-a-site.md
     - name: Create a site - ARM template
-      href: create-a-site-arm-template.md
+      href: create-site-arm-template.md
   - name: Policy control
     items:
     - name: Collect the required information for a service
@@ -63,7 +63,7 @@ items:
     - name: Configure a SIM policy - Azure portal
       href: configure-sim-policy-azure-portal.md
     - name: Configure a service and SIM policy - ARM template
-      href: configure-a-service-and-sim-policy-arm-template.md
+      href: configure-service-and-sim-policy-arm-template.md
   - name: SIMs
     items:
     - name: Provision SIMs - Azure portal
