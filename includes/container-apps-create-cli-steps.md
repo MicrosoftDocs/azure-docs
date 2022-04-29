@@ -29,13 +29,13 @@ Next, install the Azure Container Apps extension for the CLI.
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 ---
