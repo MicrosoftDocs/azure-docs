@@ -17,7 +17,7 @@ The tenant ID is the column at the root of the workload, or the top of the
 hierarchy in your data-model. For example, in this SaaS e-commerce schema,
 it would be the store ID:
 
-![Diagram of tables, with the store_id column highlighted.](../media/howto-hyperscale-build-scalable-apps/multi-tenant-tenant-id.png)
+![Diagram of tables, with the store_id column highlighted.](../media/howto-hyperscale-build-scalable-apps/multi-tenant-id.png)
 
 This data model would be typical for a business such as Shopify. It hosts sites
 for multiple online stores, where each store interacts with its own data.
