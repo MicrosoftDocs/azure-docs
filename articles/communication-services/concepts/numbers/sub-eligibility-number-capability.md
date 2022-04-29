@@ -58,12 +58,12 @@ The tables below summarize current availability:
 
 ## Customers with Ireland Azure billing addresses
 
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Ireland           | Toll-Free | Not Available        | Not Available        | Public Preview       | Public Preview\*       |
-| Ireland           | Local     | Not Available        | Not Available        | Public Preview       | Public Preview\*       |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local     | Not Available        | Not Available        | General Availability | General Availability\* |
+| Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls    |
+| :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------- |
+| Ireland           | Toll-Free | Not Available        | Not Available        | Public Preview       | Public Preview\* |
+| Ireland           | Local     | Not Available        | Not Available        | Public Preview       | Public Preview\* |
+| USA & Puerto Rico | Toll-Free | General Availability | General Availability | Public Preview       | Public Preview\* |
+| USA & Puerto Rico | Local     | Not Available        | Not Available        | Public Preview       | Public Preview\* |
 | Canada            | Toll-Free | Public Preview       | Public Preview       | Public Preview       | Public Preview\* |
 | Canada            | Local     | Not Available        | Not Available        | Public Preview       | Public Preview\* |
 | UK                | Toll-Free | Not Available        | Not Available        | Public Preview       | Public Preview\* |
