@@ -1,27 +1,29 @@
 ---
-title: Monitoring [Azure Load Testing data reference #Required; *your official service name*  
-description: Important reference material needed when you monitor [Azure Load Testing 
+title: Monitoring [Azure Load Testing data reference
+description: Important reference material needed when you monitor Azure Load Testing
 author: Sachid26
 ms.topic: reference
 ms.author: sacsh
-ms.service: load testing
+ms.service: load-testing
 ms.custom: subject-monitoring
 ms.date: 04/22/2022
 ---
 # Monitoring Azure Load Testing data reference #
-See [Monitoring Azure Load Testing](monitor-load-testing.md) for details on collecting and analyzing monitoring data.
 
-# Resource logs #
+Learn about the data and resources collected by Azure Monitor from your Azure Load Testing instance. See [Monitoring Azure Load Testing](monitor-load-testing.md) for details on collecting and analyzing monitoring data.
+
+## Resource logs
+
 This section lists the types of resource logs you can collect for Azure Load Testing.
 
 
-# Operational logs #
+# Operational logs
 
 Operational log entries include elements listed in the following table:
 
 |Name  |Description  |
 |---------|---------|
-|Time generated     | Date and time when the record was created       |
+|TimeGenerated     | Date and time when the record was created       |
 |RequestMethod     | HTTP Method of the API request       |
 |HttpStatusCode     | HTTP status code of the API response        |
 |CorrelationId     | Unique identifier to be used to correlate logs        |
