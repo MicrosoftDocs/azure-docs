@@ -1,13 +1,13 @@
 ---
 title: Configure Multi-user authorization using Resource Guard
-description: This article explains how to configutr Multi-user authorization using Resource Guard.
+description: This article explains how to configure Multi-user authorization using Resource Guard.
 ms.topic: how-to
 ms.date: 05/05/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
-# Configure Multi-user authorization using Resource Guard in Azure Backup
+# Multi-user authorization using Resource Guard in Azure Backup
 
 This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Recovery Services vaults
 
@@ -28,7 +28,7 @@ This document includes the following:
 ## Before you start
 
 -  The Resource Guard and the Recovery Services vault must be in the same Azure region.
--  As stated in the previous section, ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
+-  Ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
 - Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the **Microsoft.RecoveryServices** provider. For more details, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 
 ## Usage scenarios
@@ -154,7 +154,7 @@ The following sub-sections discuss authorizing these requests using PIM. There a
 
 ### Create an eligible assignment for the Backup admin (if using Azure AD Privileged Identity Management)
 
-Using PIM, the Security admin can create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation. To do so, the **security admin** performs the following:
+The Security admin can use PIM to create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation. To do so, the **security admin** performs the following:
 
 1. In the security tenant (which contains the Resource Guard), go to **Privileged Identity Management** (search for this in the search bar in the Azure portal) and then go to  **Azure Resources** (under **Manage** on the left menu).
 1. Select the resource (the Resource Guard or the containing subscription/RG) to which you want to assign the **Contributor** role.
