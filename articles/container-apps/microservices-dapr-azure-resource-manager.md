@@ -124,19 +124,16 @@ az upgrade
 
 Next, install the Azure Container Apps extension for the Azure CLI.
 
-> [!NOTE]
-> If you have worked with earlier versions of Container Apps, make sure to first remove the old extension version by running `az extension remove -n containerapp`.
-
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 ---

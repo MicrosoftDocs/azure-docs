@@ -1645,7 +1645,7 @@ groups:
     title: Europe
   - id: asia-australia
     title: Asia, Australia
-  - id: Africa
+  - id: africa
     title: Africa
   - id: self-managed
     title: Self-managed
