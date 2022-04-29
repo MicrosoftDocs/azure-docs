@@ -14,7 +14,6 @@ ms.custom: template-how-to, ignite-fall-2021
 
 This article outlines how to register a Power BI tenant in a cross-tenant scenario, and how to authenticate and interact with the tenant in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
@@ -130,7 +129,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 ---
 
-## Cross Power BI tenant registration
+## Register Power BI tenant
 
 1. Select the **Data Map** on the left navigation.
 
