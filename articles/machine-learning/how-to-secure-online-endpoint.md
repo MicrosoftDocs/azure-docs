@@ -124,12 +124,9 @@ The following diagram shows the overall architecture of this example:
 
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
-```azurecli
-# SUFFIX will be used as resource name suffix in created workspace and related resources
-export SUFFIX="<UNIQUE_SUFFIX>"
-# This bicep template sets up secure workspace and relevant resources
-az deployment group create --template-file endpoints/online/managed/vnet/setup_vm/vm-main.bicep --parameters suffix=$SUFFIX
-```
+:::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
+
+:::code language="azurecli" source="~/azureml-examples-online-endpoint-vnet/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
 
 ### Create the virtual machine jump box
 
