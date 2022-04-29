@@ -164,8 +164,8 @@ Use the `kubectl` run command to schedule work using single strategy:
 kubectl run -it --rm \
 --image=nvidia/cuda:11.0-base \
 --restart=Never \
---limits=nvidia.com/mig-1g.5gb=1 \
-mixed-strategy-example -- nvidia-smi -L
+--limits=nvidia.com/gpu=1 \
+single-strategy-example -- nvidia-smi -L
 ```
 
 Use the `kubectl` run command to schedule work using mixed strategy:
@@ -173,8 +173,8 @@ Use the `kubectl` run command to schedule work using mixed strategy:
 kubectl run -it --rm \
 --image=nvidia/cuda:11.0-base \
 --restart=Never \
---limits=nvidia.com/gpu=1 \
-single-strategy-example -- nvidia-smi -L
+--limits=nvidia.com/mig-1g.5gb=1 \
+mixed-strategy-example -- nvidia-smi -L
 ```
 
 

@@ -1,10 +1,10 @@
 ---
 title: Schema reference for trigger and action types
-description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps
+description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: reference
 ms.date: 07/19/2021
 ms.custom: devx-track-js
 ---

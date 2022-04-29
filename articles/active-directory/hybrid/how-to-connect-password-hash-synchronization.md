@@ -119,7 +119,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> For hybrid users that have a PasswordPolicies value set to `DisablePassordExpiration`, this value switches to `None` after a password change is executed on-premises.
+> For hybrid users that have a PasswordPolicies value set to `DisablePasswordExpiration`, this value switches to `None` after a password change is executed on-premises.
 
 > [!NOTE]
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
@@ -136,13 +136,15 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 
 > [!NOTE]
 > Forcing a user to change their password on next logon requires a password change at the same time.  Azure AD Connect will not pick up the force password change flag by itself; it is supplemental to the detected password change that occurs during password hash sync.
+> 
+> If the user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in.
 
 > [!CAUTION]
 > You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.
 
 #### Account expiration
 
-If your organization uses the accountExpires attribute as part of user account management, this attribute is not synchronized to Azure AD. As a result, an expired Active Directory account in an environment configured for password hash synchronization will still be active in Azure AD. We recommend that if the account is expired, a workflow action should trigger a PowerShell script that disables the user's Azure AD account (use the [Set-AzureADUser](/powershell/module/azuread/set-azureaduser) cmdlet). Conversely, when the account is turned on, the Azure AD instance should be turned on.
+If your organization uses the accountExpires attribute as part of user account management, this attribute is not synchronized to Azure AD. As a result, an expired Active Directory account in an environment configured for password hash synchronization will still be active in Azure AD. We recommend using a scheduled PowerShell script that disables users' AD accounts, once they expire (use the [Set-ADUser](/powershell/module/activedirectory/set-aduser) cmdlet). Conversely, during the process of removing the expiration from an AD account, the account should be re-enabled.
 
 ### Overwrite synchronized passwords
 

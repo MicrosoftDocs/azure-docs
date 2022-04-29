@@ -6,7 +6,7 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 
-ms.service: key-vault
+ms.service: dedicated-hsm
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: overview

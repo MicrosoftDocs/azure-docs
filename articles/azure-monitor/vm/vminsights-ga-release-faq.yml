@@ -2,12 +2,11 @@
 metadata:
   title: 'VM insights (GA) frequently asked questions | Microsoft Docs'
   description: 'VM insights is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.'
-  ms.topic: article
+  ms.topic: faq
   author: bwren
   ms.author: bwren
   ms.date: 01/31/2020
   ms.service: azure-monitor
-    
 title: VM insights Generally Available (GA) Frequently Asked Questions
 summary: This General Availability FAQ covers changes that were made in Q4 2019 and Q1 2020 as we prepared for GA.
 

@@ -1,11 +1,11 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.author: rogarana
+ms.date: 04/05/2022
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -50,7 +50,7 @@ A sync group contains one cloud endpoint, or Azure file share, and at least one 
 > You can make changes to the namespace of any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-change-detection).
 
 ### Consider the count of Storage Sync Services needed
-A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers that it. 
+A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers on it. 
 
 Create multiple Storage Sync Services only if you have:
 * distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
@@ -69,6 +69,7 @@ Azure File Sync is supported with the following versions of Windows Server:
 
 | Version | Supported SKUs | Supported deployment options |
 |---------|----------------|------------------------------|
+| Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
 | Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |

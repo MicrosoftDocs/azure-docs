@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision an X.509 certificate simulated device to Microsoft Azure IoT Hub
 description: Learn how to provision a simulated device that authenticates with an X.509 certificate in the Azure IoT Hub Device Provisioning Service
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 09/07/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -37,7 +37,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info

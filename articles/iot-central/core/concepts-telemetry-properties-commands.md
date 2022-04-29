@@ -757,6 +757,7 @@ IoT Central expects a response from the device to writable property updates. The
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | The property change operation was successfully completed. |
 | `'ac': 202`  or `'ac': 201` | Pending | The property change operation is pending or in progress |
+| `'ac': 203` | Pending | The property change operation was initiated by the device |
 | `'ac': 4xx` | Error | The requested property change wasn't valid or had an error |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 
@@ -1131,4 +1132,4 @@ If you enable the **Queue if offline** option in the device template UI for the 
 
 ## Next steps
 
-Now that you've learned about device templates, a suggested next steps is to read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+Now that you've learned about device templates, a suggested next steps is to read [IoT Central device connectivity guide](overview-iot-central-developer.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

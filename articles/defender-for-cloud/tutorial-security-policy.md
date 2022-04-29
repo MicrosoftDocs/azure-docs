@@ -105,7 +105,7 @@ To enable a disabled policy and ensure it's assessed for your resources:
 
 1. Open the **Security policy** page.
 
-1. From the **Default initiative**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
+1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 

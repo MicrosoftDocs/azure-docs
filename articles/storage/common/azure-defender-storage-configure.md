@@ -107,7 +107,7 @@ Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable Microsoft Defender for Storage for a storage account via Azure CLI, call the [az security atp storage update](/cli/azure/security/atp/storage#az_security_atp_storage_update) command. Remember to replace values in angle brackets with your own values:
+To enable Microsoft Defender for Storage for a storage account via Azure CLI, call the [az security atp storage update](/cli/azure/security/atp/storage#az-security-atp-storage-update) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az security atp storage update \
@@ -116,7 +116,7 @@ az security atp storage update \
     --is-enabled true
 ```
 
-To check the Microsoft Defender for Storage setting for a storage account via Azure CLI, call the [az security atp storage show](/cli/azure/security/atp/storage#az_security_atp_storage_show) command. Remember to replace values in angle brackets with your own values:
+To check the Microsoft Defender for Storage setting for a storage account via Azure CLI, call the [az security atp storage show](/cli/azure/security/atp/storage#az-security-atp-storage-show) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
 az security atp storage show \

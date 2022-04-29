@@ -1,14 +1,13 @@
 ---
 title: Configuration and Optimization of InfiniBand enabled H-series and N-series Azure Virtual Machines
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: amverma
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Configure and optimize VMs
@@ -54,7 +53,7 @@ All of the VM sizes in the N-series support [Gen 2 VMs](../../generation-2.md), 
 
 #### SR-IOV enabled VMs
 For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
    "offer": "CentOS-HPC",
@@ -82,7 +81,7 @@ For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instan
 
 ### Ubuntu-HPC VM images
 For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, Nvidia GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",
    "offer": "Ubuntu-HPC",

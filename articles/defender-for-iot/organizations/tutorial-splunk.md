@@ -1,10 +1,8 @@
 ---
 title: Integrate Splunk with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate Splunk with Microsoft Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 02/07/2022
 ms.custom: template-tutorial
 ---
 
@@ -77,7 +75,7 @@ The Defender for IoT alerts provides information about an extensive range of sec
 
 - Protocol deviations from protocol specifications.
 
-    :::image type="content" source="media/tutorial-splunk/address-scan.png" alt-text="The detections screen.":::
+    :::image type="content" source="media/tutorial-splunk/address-scan.png" alt-text="A screen capture if an Address Scan Detected alert.":::
 
 You can also configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
 
@@ -89,11 +87,9 @@ To send alert information to the Splunk servers from Defender for IoT, you will 
 
 1. Sign in to the sensor, and select **Forwarding** from the left side pane.
 
-    :::image type="content" source="media/tutorial-splunk/forwarding.png" alt-text="Select the blue button Create Forwarding Alert.":::
+1. Select **Create nre rule**.
 
-1. Select **Create Forwarding Rules**.
-
-1. In the **Create Forwarding Rule** window, define the rule parameters.
+1. In the **Add forwarding rule** dialog box, define the rule parameters.
 
     :::image type="content" source="media/tutorial-splunk/forwarding-rule.png" alt-text="Create the rules for your forwarding rule." lightbox="media/tutorial-splunk/forwarding-rule-expanded.png":::
 
@@ -103,13 +99,11 @@ To send alert information to the Splunk servers from Defender for IoT, you will 
     | **Select Severity** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
     | **Protocols** | By default, all the protocols are selected. To select a specific protocol, select **Specific** and select the protocol for which this rule is applied. |
     | **Engines** | By default, all the security engines are involved. To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
-    | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the Central Manager. |
+    | **System Notifications** | Forward sensor system notifications to the Splunk server. For example, send the online/offline status of connected sensor. This option is only available if you have logged into the Central Manager. |
 
 1. Select **Action**, and then select **Send to Splunk Server**.
 
 1. Enter the following Splunk parameters.
-
-    :::image type="content" source="media/tutorial-splunk/parameters.png" alt-text="The Splunk parameters you should enter on this screen." lightbox="media/tutorial-splunk/parameters-expanded.png":::
 
     | Parameter | Description |
     |--|--|

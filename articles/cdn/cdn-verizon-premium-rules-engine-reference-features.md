@@ -116,8 +116,8 @@ These features determine whether a request will undergo the optimizations provid
 
 | Name       | Purpose                                                           |
 |------------|-------------------------------------------------------------------|
-| [Edge Optimizer](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer.htm) | Determines whether Edge Optimizer can be applied to a request. |
-| [Edge Optimizer – Instantiate Configuration](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer-Instantiate-Configuration.htm) | Instantiates or activates the Edge Optimizer configuration associated with a site. |
+| Edge Optimizer | Determines whether Edge Optimizer can be applied to a request. |
+| Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site. |
 
 **[Back to the top](#top)**
 
@@ -160,7 +160,7 @@ These features allow a request to be redirected or rewritten to a different URL.
 
 ### <a name="waf"></a>Web Application Firewall
 
-The [Web Application Firewall](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) feature determines whether a request will be screened by Web Application Firewall.
+The [Web Application Firewall](https://docs.edgecast.com/pci-cdn/Content/Web-Security/Web-Application-Firewall-WAF.htm) feature determines whether a request will be screened by Web Application Firewall.
 
 **[Back to the top](#top)**
 

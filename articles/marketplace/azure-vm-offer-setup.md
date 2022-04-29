@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/15/2021
+ms.date: 03/28/2022
 ---
 
 # Create a virtual machine offer on Azure Marketplace
@@ -31,20 +31,25 @@ If you haven't done so yet, review [Plan a virtual machine offer](marketplace-vi
 
     [ ![Screenshot showing the left pane menu options and the "New offer" button.](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png) ](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png#lightbox)
 
-> [!NOTE]
-> After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after making changes to it.
+    > [!NOTE]
+    > After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after making changes to it.
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the Azure Marketplace offer and in Azure PowerShell and the Azure CLI, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
+    - This ID is visible to customers in the web address for the Azure Marketplace offer and in Azure PowerShell and the Azure CLI, if applicable.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+    - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. The offer alias is the name that's used for the offer in Partner Center.
+1. Enter an **Offer alias**. The offer alias is the name that's used for the offer in Partner Center.
 
-- This name is not used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
+    - This name is not used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
 
-Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
 
 ## Test drive (optional)
 

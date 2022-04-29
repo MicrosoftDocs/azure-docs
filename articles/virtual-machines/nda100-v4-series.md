@@ -3,6 +3,8 @@ title: ND A100 v4-series
 description: Specifications for the ND A100 v4-series VMs.
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
+author: sherrywangms
+ms.author: sherrywang
 ms.topic: conceptual
 ms.date: 05/26/2021
 ---
@@ -32,7 +34,7 @@ These instances provide excellent performance for many AI, ML, and analytics too
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 InfiniBand: Supported, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Nvidia NVLink Interconnect: Supported<br>

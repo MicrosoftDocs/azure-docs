@@ -2,7 +2,7 @@
 title: Manage smart groups (preview)
 description: Managing Smart Groups created over your alert instances
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 2/23/2022
 
 ---
 

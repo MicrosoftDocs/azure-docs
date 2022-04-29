@@ -27,6 +27,9 @@ You can control the BGP timers by configuring a lower BGP keep-alive and hold-ti
 
 In this scenario, BFD can help. BFD provides low-overhead link failure detection in a subsecond time interval. 
 
+> [!NOTE]
+> BFD provides faster failover time when a link failure is detected, but the overall connection convergence will take up to a minute for failover between ExpressRoute virtual network gateways and MSEEs. 
+>
 
 ## Enabling BFD
 

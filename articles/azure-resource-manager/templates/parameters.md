@@ -14,7 +14,7 @@ Resource Manager resolves parameter values before starting the deployment operat
 Each parameter must be set to one of the [data types](data-types.md).
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [parameters](../bicep/parameters.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
 
 ## Minimal declaration
 

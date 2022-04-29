@@ -1,9 +1,9 @@
 ---
 title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about using Azure Migrate Server Migration to migrate machines.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: conceptual
 ms.date: 08/28/2020
 ---
@@ -44,7 +44,7 @@ To learn more, review this [article](./server-migrate-overview.md) to compare mi
 
 ### What geographies are supported for migration with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ### Can I use the same Azure Migrate project to migrate to multiple regions?
 
@@ -67,8 +67,11 @@ We do not recommend using the recovery services vault created by Azure Migrate f
 
 ### What is the difference between the Test Migration and Migrate operations?
 
-Test migration provides a way to test and validate migrations prior to the actual migration. Test migration works by letting you create test copies of replicating VMs in a sandbox environment in Azure. The sandbox environment is demarcated by a test virtual network you specify. The test migration operation is non-disruptive, with applications continuing to run at the source while letting you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests as needed to validate the migration, perform app testing, and address any issues before the actual migration.
+Test migration provides a way to test and validate migrations prior to the actual migration. Test migration works by letting you use a sandbox environment in Azure to test the virtual machines before actual migration. The sandbox environment is demarcated by a test virtual network you specify. The test migration operation is non-disruptive, provided the test VNet is sufficiently isolated. Isolated VNet here means the inbound and outbound connection rules are designed to avoid unwanted connections. For example – connection to On-premise machines is restricted.  
 
+The applications can continue to run at the source while letting you perform tests on a cloned copy in an isolated sandbox environment. You can perform multiple tests, as needed, to validate the migration, perform app testing, and address any issues before the actual migration.
+
+:::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot shows the difference in test migration and actual migration.":::
 
 ### Is there a Rollback option for Azure Migrate?
 
@@ -119,8 +122,8 @@ Azure Migrate: Server Migration tool migrates all the UEFI-based machines to Azu
 | SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
-| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requires [manual preparation](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
-| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requires [manual preparation](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y      | Y                              | Y                                                          |
+| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y | Y                              | Y                                                          |
 | Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ### Can I migrate Active Directory domain-controllers using Azure Migrate?

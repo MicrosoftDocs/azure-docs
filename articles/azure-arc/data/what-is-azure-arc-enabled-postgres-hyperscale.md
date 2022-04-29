@@ -48,7 +48,7 @@ Microsoft offers Postgres database services in Azure in two ways:
 - As a semi-managed service with Azure Arc as it is operated by customers or their partners/vendors
 
 ### In Azure PaaS
-**In [Azure PaaS](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)**, Microsoft offers several deployment options for PostgreSQL as a managed service:
+**In [Azure PaaS](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)**, Microsoft offers several deployment options for PostgreSQL as a managed service:
 
 :::row:::
     :::column:::
@@ -140,8 +140,8 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 
 - **Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to potentially benefit from better performances**:
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
-    * [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
-    * [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
     * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
     * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
     * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*

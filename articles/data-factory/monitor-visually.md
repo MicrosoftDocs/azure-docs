@@ -37,6 +37,7 @@ The pipeline run grid contains the following columns:
 | Annotations | Filterable tags associated with a pipeline  |
 | Parameters | Parameters for the pipeline run (name/value pairs) |
 | Error | If the pipeline failed, the run error |
+| Run | **Original**, **Rerun**,  or **Rerun (Latest)** |
 | Run ID | ID of the pipeline run |
 
 You need to manually select the **Refresh** button to refresh the list of pipeline and activity runs. Autorefresh is currently not supported.

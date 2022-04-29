@@ -15,7 +15,7 @@ After you have created an Azure storage account and linked it to your Language r
 
 1. [Download the example data](https://go.microsoft.com/fwlink/?linkid=2175226) for this quickstart from GitHub. Open the .zip file, and extract the folder containing text files within it. 
 
-2. In the [Azure portal](https://ms.portal.azure.com), navigate to the storage account you created, and select it.
+2. In the [Azure portal](https://portal.azure.com), navigate to the storage account you created, and select it.
 
 3. In your storage account, select **Containers** from the left menu, located below **Data storage**. On the screen that appears, select **+ Container**. Give the container the name *example-data* and leave the default **Public access level**.
 

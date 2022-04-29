@@ -8,8 +8,8 @@ author: eric-urban
 ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 01/11/2022
+ms.topic: reference
+ms.date: 03/22/2022
 ms.custom: ignite-fall-2021, references_regions
 ---
 
@@ -19,11 +19,10 @@ See below for information about changes to Speech services and resources.
 
 ## What's new?
 
-* Speaker Recognition service is generally available (GA). With [Speaker Recognition](./speaker-recognition-overview.md) you can accurately verify and identify speakers by their unique voice characteristics.
-* Speech SDK 1.19.0 release including Speaker Recognition support, Mac M1 ARM support, OpenSSL linking in Linux is dynamic, and Ubuntu 16.04 is no longer supported.
-* Custom Neural Voice extended to support [49 locales](./language-support.md#custom-neural-voice).
-* Prebuilt Neural Voice added new [languages and variants](./language-support.md#prebuilt-neural-voices).
-* Commitment Tiers added to [pricing options](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+* Speech SDK 1.21.0 and Speech CLI 1.21.0 were released in April 2022. See details below.
+* Custom speech-to-text container v3.1.0 released in March 2022, with support to get display models.
+* TTS Service March 2022, public preview of Cheerful and Sad styles with fr-FR-DeniseNeural.
+* TTS Service February 2022, public preview of Custom Neural Voice Lite, extended CNV language support to 49 locales.  
 
 ## Release notes
 
@@ -37,11 +36,11 @@ See below for information about changes to Speech services and resources.
 
 [!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md)]
 
-# [Text-to-speech](#tab/text-to-speech)
+# [Text-to-speech service](#tab/text-to-speech)
 
 [!INCLUDE [text-to-speech](./includes/release-notes/release-notes-tts.md)]
 
-# [Speech-to-text](#tab/speech-to-text)
+# [Speech-to-text service](#tab/speech-to-text)
 
 [!INCLUDE [speech-to-text](./includes/release-notes/release-notes-stt.md)]
 

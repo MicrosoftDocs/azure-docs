@@ -19,12 +19,12 @@ ms.collection: M365-identity-device-management
 ms.custom: 
 ---
 
-# Known issues with Managed Identities
+# Known issues with managed identities for Azure resources
 
 This article discusses a couple of issues around managed identities and how to address them. Common questions about managed identities are documented in our [frequently asked questions](managed-identities-faq.md) article.
 ## VM fails to start after being moved 
 
-If you move a VM in a running state from a resource group or subscription, it continues to run during the move. However, after the move, if the VM is stopped and restarted, it will fail to start. This issue happens because the VM is not updating the reference to the managed identities for Azure resources identity and continues to point to it in the old resource group.
+If you move a VM in a running state from a resource group or subscription, it continues to run during the move. However, after the move, if the VM is stopped and restarted, it fails to start. This issue happens because the VM doesn't update the managed identity reference and it continues to use an outdated URI.
 
 **Workaround** 
  
@@ -46,7 +46,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 ## Transferring a subscription between Azure AD directories
 
-Managed identities do not get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
+Managed identities don't get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
 
 Workaround for managed identities in a subscription that has been moved to another directory:
 

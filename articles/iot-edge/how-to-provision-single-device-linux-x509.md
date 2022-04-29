@@ -1,12 +1,12 @@
 ---
 title: Create and provision an IoT Edge device on Linux using X.509 certificates - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with X.509 certificates
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 10/28/2021
-ms.author: kgremban
+ms.author: patricka
 ---
 
 # Create and provision an IoT Edge device on Linux using X.509 certificates
@@ -43,16 +43,8 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
-### Device requirements
-
-An X64, ARM32, or ARM64 Linux device.
-
-Microsoft provides installation packages for Ubuntu Server 18.04 and Raspberry Pi OS Stretch operating systems.
-
-For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
-
->[!NOTE]
->Support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+<!-- Device requirements prerequisites H3 and content -->
+[!INCLUDE [iot-edge-prerequisites-device-requirements-linux.md](../../includes/iot-edge-prerequisites-device-requirements-linux.md)]
 
 <!-- Generate device identity certificates H2 and content -->
 [!INCLUDE [iot-edge-generate-device-identity-certs.md](../../includes/iot-edge-generate-device-identity-certs.md)]

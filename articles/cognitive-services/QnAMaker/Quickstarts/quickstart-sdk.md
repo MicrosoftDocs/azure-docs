@@ -4,8 +4,8 @@ description: This quickstart shows you how to create and manage your knowledge b
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.date: 01/26/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-api
@@ -27,7 +27,7 @@ Get started with the QnA Maker client library. Follow these steps to install the
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [QnA Maker Javascript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
+[!INCLUDE [QnA Maker JavaScript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

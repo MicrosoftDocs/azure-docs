@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 02/02/2022
 
 ---
 
@@ -29,7 +29,7 @@ This section discusses troubleshooting issues caused by conditions on an Azure C
 
 ## High server load
 
-High server load means the Redis server is busy and unable to keep up with requests, leading to timeouts. Check the **Redis Server Load** metric on your cache by selecting **Monitor** from the Resource menu on the left. You can Redis Server Load graph in the working pane.
+High server load means the Redis server is busy and unable to keep up with requests, leading to timeouts. Check the *Server Load* metric on your cache by selecting **Monitoring** from the Resource menu on the left. You see the **Server Load** graph in the working pane under **Insights**. Or, add a metric set to *Server Load* under **Metrics**.
 
 Following are some options to consider for high server load.
 
@@ -57,19 +57,28 @@ If your Azure Cache for Redis underwent a failover, all client connections from 
 
 Memory pressure on the server can lead to various performance problems that delay processing of requests. When memory pressure hits, the system pages data to disk, which causes the system to slow down significantly.
 
-Several possible can cause this memory pressure:
+Here are some possible causes of memory pressure:
 
-- The cache is filled with data near its maximum capacity.
-- Redis server is seeing high memory fragmentation. Fragmentation is most often caused by storing large objects. Redis is optimized for small objects. If the `used_memory_rss` value is higher than the `used_memory` metric, it means part of Redis memory has been swapped off by the operating system, and you can expect some significant latencies. Because Redis server does not have control over how its allocations are mapped to memory pages, high `used_memory_rss` is often the result of a spike in memory usage.
+- The cache is filled with data near its maximum capacity
+- Redis server is seeing high memory fragmentation
 
-Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) using the portal.
+Fragmentation is likely to be caused when a load pattern is storing data with high variation in size. For example, fragmentation might happen when data is spread across 1 KB and 1 MB in size. When a 1-KB key is deleted from existing memory, a 1-MB key can’t fit into it causing fragmentation. Similarly, if 1-MB key is deleted and 1.5-MB key is added, it can’t fit into the existing reclaimed memory. This causes unused free memory and results in more fragmentation.
+
+If the `used_memory_rss` value is higher than 1.5 times the `used_memory` metric, there's fragmentation in memory. The fragmentation can cause issues when:
+
+1. Memory usage is close to the max memory limit for the cache, or
+2. `UsedMemory_RSS` is higher than the Max Memory limit, potentially resulting in page faulting in memory.
+
+If a cache is fragmented and is running under high memory pressure, the system does a failover to try recovering Resident Set Size (RSS) memory.
+
+Redis exposes two stats, `used_memory` and `used_memory_rss`, through the [INFO](https://redis.io/commands/info) command that can help you identify this issue. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) using the portal.
 
 Validate that the `maxmemory-reserved` and `maxfragmentationmemory-reserved` values are set appropriately.
 
 There are several possible changes you can make to help keep memory usage healthy:
 
-- [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
-- [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
+- [Configure a memory policy](cache-configure.md#memory-policies) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
+- [Configure a maxmemory-reserved value](cache-configure.md#memory-policies) that is large enough to compensate for memory fragmentation.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 

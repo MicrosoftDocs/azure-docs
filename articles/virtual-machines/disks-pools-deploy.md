@@ -7,7 +7,8 @@ ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Deploy an Azure disk pool (preview)
 
@@ -28,7 +29,7 @@ To successfully deploy a disk pool, you must have:
 - A set of managed disks you want to add to a disk pool.
 - A virtual network with a dedicated subnet deployed for your disk pool.
     - Outbound ports 53, 443, and 5671 must be open.
-    - Ensure that your network setting don't block any of your disk pool's required outbound dependencies. You can use either the [Azure PowerShell module](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint) or [Azure CLI](/cli/azure/disk-pool#az_disk_pool_list_outbound_network_dependency_endpoint) to get the complete list of all outbound dependencies.
+    - Ensure that your network setting don't block any of your disk pool's required outbound dependencies. You can use either the [Azure PowerShell module](/powershell/module/az.diskpool/get-azdiskpooloutboundnetworkdependencyendpoint) or [Azure CLI](/cli/azure/disk-pool#az-disk-pool-list-outbound-network-dependency-endpoint) to get the complete list of all outbound dependencies.
 
 If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
@@ -201,14 +202,14 @@ targetName='<desirediSCSITargetName>'
 lunName='<desiredLunName>'
 
 #You can skip this step if you have already created the disk and assigned permission in the prerequisite step. Below is an example for premium disks.
-az disk create --name $diskName --resource-group $resourceGroupName --zone $zone --location $location --sku Premium_LRS --max-shares 2 --size-gb 1024
+az disk create --name $diskName --resource-group $resourceGroupName --zone $zone --location $location --sku Premium-LRS --max-shares 2 --size-gb 1024
 
 #You can deploy all your disks into one resource group and assign StoragePool Resource Provider permission to the group
 storagePoolObjectId=$(az ad sp list --filter "displayName eq 'StoragePool Resource Provider'" --query "[0].objectId" -o json)
 storagePoolObjectId="${storagePoolObjectId%"}"
 storagePoolObjectId="${storagePoolObjectId#"}"
 
-az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
+az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName --resource-group $resourceGroupName
 
 #Create a disk pool
 #To create a disk pool configured for ultra disks, add --additional-capabilities "DiskPool.Disk.Sku.UltraSSD_LRS" to your command

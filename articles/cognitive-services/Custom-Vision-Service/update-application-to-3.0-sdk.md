@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/04/2019
 ms.author: areddish
 ---

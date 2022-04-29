@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/16/2021
+ms.date: 04/13/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -883,13 +883,15 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 * When **regexPattern** and **replacementValue** are provided:
 
   * The function applies the **regexPattern** to the **source** string and you can use the regex group names to construct the string for **replacementValue**
+> [!NOTE] 
+> To learn more about regex grouping constructs and named sub-expressions, see [Grouping Constructs in Regular Expressions](/dotnet/standard/base-types/grouping-constructs-in-regular-expressions).
 * When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
   * The function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with **replacementValue**
 * When **regexPattern**, **regexGroupName**, **replacementAttributeName** are provided:
   
-  * If **source** has no value, **source** is returned
-  * If **source** has a value, the function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with the value associated with **replacementAttributeName**
+  * If **source** has a value, **source** is returned
+  * If **source** has no value, the function applies the **regexPattern** to the **replacementAttributeName** and returns the value matching **regexGroupName**
 
 **Parameters:** 
 
@@ -897,24 +899,104 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the **source** object. |
 | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
-| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
+| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. When **replacementAttributeName** is used, the **regexPattern** is applied to extract a value from **replacementAttributeName**. |
+| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. When named **replacementAttributeName** is used, we will extract the value of the named regex group from the **replacementAttributeName** and return it as the replacement value. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 #### Replace characters using a regular expression
-Example: You need to find characters that match a regular expression value and remove them.
+**Example 1:** Using **oldValue** and **replacementValue** to replace the entire source string with another string.
 
-**Expression:** 
+Let's say your HR system has an attribute `BusinessTitle`. As part of recent job title changes, your company wants to update anyone with the business title "Product Developer" to "Software Engineer". 
+Then in this case, you can use the following expression in your attribute mapping. 
 
-Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+`Replace([BusinessTitle],"Product Developer", , , "Software Engineer", , )`
 
-**Sample input/output:**
+* **source**: `[BusinessTitle]`
+* **oldValue**: "Product Developer"
+* **replacementValue**: "Software Engineer"
+* **Expression output**: Software Engineer
 
-* **INPUT** (mailNickname: "john_doe72"
-* **OUTPUT**: "72"
+**Example 2:** Using **oldValue** and **template** to insert the source string into another *templatized* string. 
 
+The parameter **oldValue** is a misnomer in this scenario. It is actually the value that will get replaced.  
+Let's say you want to always generate login id in the format `<username>@contoso.com`. There is a source attribute called **UserID** and you want that value to be used for the `<username>` portion of the login id. 
+Then in this case, you can use the following expression in your attribute mapping. 
+
+`Replace([UserID],"<username>", , , , , "<username>@contoso.com")`
+
+* **source:** `[UserID]` = "jsmith"
+* **oldValue:** "`<username>`"
+* **template:** "`<username>@contoso.com`"
+* **Expression output:** "jsmith@contoso.com"
+
+**Example 3:** Using **regexPattern** and **replacementValue** to extract a portion of the source string and replace it with an empty string or a custom value built using regex patterns or regex group names.
+ 
+Let's say you have a source attribute `telephoneNumber` that has components `country code` and `phone number` separated by a space character. E.g. `+91 9998887777`
+Then in this case, you can use the following expression in your attribute mapping to extract the 10 digit phone number. 
+
+`Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", , "${phoneNumber}", , )`
+
+* **source:** `[telephoneNumber]` = "+91 9998887777"
+* **regexPattern:** "`\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})`"
+* **replacementValue:** "`${phoneNumber}`"
+* **Expression output:** 9998887777
+
+You can also use this pattern to remove characters and collapse a string. 
+For example, the expression below removes parenthesis, dashes and space characters in the mobile number string and returns only digits. 
+
+`Replace([mobile], , "[()\\s-]+", , "", , )`
+
+* **source:** `[mobile] = "+1 (999) 888-7777"`
+* **regexPattern:** "`[()\\s-]+`"
+* **replacementValue:** "" (empty string)
+* **Expression output:** 19998887777
+
+**Example 4:** Using **regexPattern**, **regexGroupName** and **replacementValue** to extract a portion of the source string and replace it with another literal value or empty string.
+
+Let's say your source system has an attribute AddressLineData with two components street number and street name. As part of a recent move, let's say the street number of the address changed and you want to update only the street number portion of the address line. 
+Then in this case, you can use the following expression in your attribute mapping to extract the street number.
+
+`Replace([AddressLineData], ,"(?<streetNumber>^\\d*)","streetNumber", "888", , )`
+
+* **source:** `[AddressLineData]` = "545 Tremont Street"
+* **regexPattern:** "`(?<streetNumber>^\\d*)`"
+* **regexGroupName:** "streetNumber"
+* **replacementValue:** "888"
+* **Expression output:** 888 Tremont Street
+
+Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login id without domain suffix. 
+
+`Replace([userPrincipalName], , "(?<Suffix>@(.)*)", "Suffix", "", , )`
+
+* **source:** `[userPrincipalName]` = "jsmith@contoso.com"
+* **regexPattern:** "`(?<Suffix>@(.)*)`"
+* **regexGroupName:** "Suffix"
+* **replacementValue:** "" (empty string)
+* **Expression output:** jsmith
+
+**Example 5:** Using **regexPattern**, **regexGroupName** and **replacementAttributeName** to handle scenarios when the source attribute is empty or doesn't have a value.
+
+Let's say your source system has an attribute telephoneNumber. If telephoneNumber is empty, you want to extract the 10 digits of the mobile number attribute.
+Then in this case, you can use the following expression in your attribute mapping. 
+
+`Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", "phoneNumber" , , [mobile], )`
+
+* **source:** `[telephoneNumber]` = "" (empty string)
+* **regexPattern:** "`\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})`"
+* **regexGroupName:** "phoneNumber"
+* **replacementAttributeName:** `[mobile]` = "+91 8887779999"
+* **Expression output:** 8887779999
+
+**Example 6:** You need to find characters that match a regular expression value and remove them.
+
+`Replace([mailNickname], , "[a-zA-Z_]*", , "", , )`
+
+* **source** \[mailNickname\]
+* **oldValue**: "john_doe72"
+* **replaceValue**: ""
+* **Expression output**: 72
 
 ---
 ### SelectUniqueValue
@@ -967,7 +1049,7 @@ Example: Based on the user's first name, middle name and last name, you need to 
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:** 
-Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time. This function is not supported in scenarios where users have multiple app role assignments. 
 
 **Parameters:** 
 
@@ -1023,6 +1105,10 @@ Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description:** 
 When **source** value matches a **key**, returns **value** for that **key**. If **source** value doesn't match any keys, returns **defaultValue**.  **Key** and **value** parameters must always come in pairs. The function always expects an even number of parameters. The function should not be used for referential attributes such as manager. 
+
+> [!NOTE] 
+> Switch function performs a case-sensitive string comparison of the **source** and **key** values. If you'd like to perform a case-insensitive comparison, normalize the **source** string before comparison using a nested ToLower function and ensure that all **key** strings use lowercase. 
+> Example: `Switch(ToLower([statusFlag]), "0", "true", "1", "false", "0")`. In this example, the **source** attribute `statusFlag` may have values ("True" / "true" / "TRUE"). However, the Switch function will always convert it to lowercase string "true" before comparison with **key** parameters. 
 
 **Parameters:** 
 
@@ -1150,6 +1236,18 @@ Generate a user alias by taking first three letters of user's first name and fir
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
 * **OUTPUT**:  "JohDoe"
+
+### Add a comma between last name and first name. 
+Add a comma between last name and first name. 
+
+**Expression:** 
+`Join(", ", "", [surname], [givenName])`
+
+**Sample input/output:** 
+
+* **INPUT** (givenName): "John"
+* **INPUT** (surname): "Doe"
+* **OUTPUT**:  "Doe, John"
 
 
 ## Related Articles

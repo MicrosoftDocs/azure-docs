@@ -71,7 +71,7 @@ Datetime | String | String |  Datetime | String
 ## Limitations and best practices
 Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work). Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction. We recommend using a Tumbling window or Hopping window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements.
 
-For more info on output batch size, see [Power BI Rest API limits](/power-bi/developer/automation/api-rest-api-limitations).
+For more info on output batch size, see [Power BI REST API limits](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## Next steps
 

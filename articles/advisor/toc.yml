@@ -8,10 +8,15 @@
     href: advisor-release-notes.md
 - name: Quickstarts
   items:
+  - name: Get started with Advisor
+    href: advisor-get-started.md
   - name: Configure alerts for new recommendations
     items:
     - name: Azure portal
       href: advisor-alerts-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: advisor-alerts-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
@@ -19,26 +24,26 @@
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
-- name: Tutorials
-  items:
-  - name: Get started with Advisor
-    href: advisor-get-started.md
-- name: Samples
+  - name: Recommendations
+    items:
+    - name: Cost
+      href: advisor-reference-cost-recommendations.md
+    - name: Operational Excellence
+      href: advisor-reference-operational-excellence-recommendations.md
+    - name: Performance
+      href: advisor-reference-performance-recommendations.md
+    - name: Reliability
+      href: advisor-reference-reliability-recommendations.md    
+- name: Samples 
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
 - name: How-to guides
   items:
-  - name: Reliability
-    href: advisor-high-availability-recommendations.md
   - name: Security
     href: advisor-security-recommendations.md
-  - name: Performance efficiency
-    href: advisor-performance-recommendations.md
-  - name: Cost optimization
+  - name: Optimize costs
     href: advisor-cost-recommendations.md
-  - name: Operational excellence
-    href: advisor-operational-excellence-recommendations.md
   - name: Configure recommendations
     href: view-recommendations.md
   - name: Permissions and blocked actions
@@ -58,7 +63,7 @@
   - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
-    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
+    href: /azure/azure-sql/database/database-advisor-implement-performance-recommendations
   - name: App Service
     href: ../app-service/app-service-best-practices.md
   - name: REST API

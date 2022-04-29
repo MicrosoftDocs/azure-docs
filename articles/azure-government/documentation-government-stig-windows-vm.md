@@ -25,7 +25,7 @@ This quickstart shows how to deploy a STIG-compliant Windows virtual machine (Pr
 
 ## Sign in to Azure
 
-Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
+Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
 
 ## Create a STIG-compliant virtual machine
 

@@ -21,7 +21,7 @@ Azure Stack Edge Pro with GPU is a Hardware-as-a-Service solution. Microsoft shi
 
 Here are the various scenarios where Azure Stack Edge Pro GPU can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
-- **Inference with Azure Machine Learning** - With Azure Stack Edge Pro GPU, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro GPU device, see 
+- **Inference with Azure Machine Learning** - With Azure Stack Edge Pro GPU, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information, see how to use 
 [Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro GPU](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure via compute options such as containerized workloads and Virtual Machines to create a more actionable dataset. Preprocessing can be used to: 
@@ -44,11 +44,12 @@ Azure Stack Edge Pro GPU has the following capabilities:
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.|
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
-|Supported file transfer protocols      | Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge Pro GPU system requirements](azure-stack-edge-system-requirements.md).|
+|Supported file transfer protocols      | Support for standard Server Message Block (SMB), Network File System (NFS), and Representational State Transfer (REST) protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge Pro GPU system requirements](azure-stack-edge-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud. <br> For more information, see [Refresh a share on your Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
 |Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview). <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
+|Scale out | Devices can be deployed as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md).|
 |Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions such as mobile packet core, SD-WAN edge, and VPN services to an Azure Stack Edge device running in your on-premises environment. For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
@@ -63,6 +64,8 @@ The Azure Stack Edge Pro GPU solution includes the Azure Stack Edge resource, Az
 
     For more information, go to [Create an order for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
     
+    The devices can be deployed as a single node or a two-node cluster. For more information, see [What is clustering for Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md) and how to [Deploy a two-node cluster](azure-stack-edge-gpu-deploy-prep.md). 
+
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro GPU device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
    
 
@@ -74,7 +77,7 @@ The Azure Stack Edge Pro GPU solution includes the Azure Stack Edge resource, Az
 
 ## Region availability
 
-Azure Stack Edge Pro GPU physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
+Azure Stack Edge Pro GPU physical device, Azure resource, and target storage account to which you transfer data don’t all have to be in the same region.
 
 - **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
@@ -82,13 +85,13 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. For best performance, the regions where the storage accounts store Azure Stack Edge Pro GPU data should be close to the device location. A storage account located far from the device results in long latencies and slower performance.
 
-Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
+Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
 
 ## Billing model
 
-Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there is a onetime fee for shipping. There is no on-premises software license for the device although guest virtual machine (VMs) may require their own licenses under Bring Your Own License (BYOL).
+The users are charged a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there’s a onetime fee for shipping. There’s no on-premises software license for the device although guest virtual machine (VMs) may require their own licenses under Bring Your Own License (BYOL).
 
 Currency conversion and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
 

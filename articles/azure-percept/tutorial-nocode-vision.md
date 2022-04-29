@@ -153,7 +153,7 @@ After you have trained your model and deployed it to the device, you can improve
 
 If you created a new Azure resource for this tutorial and you no longer wish to develop or use your vision solution, perform the following steps to delete your resource:
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 1. Click on **All resources**.
 1. Click the checkbox next to the resource created during this tutorial. The resource type will be listed as **Cognitive Services**.
 1. Click the **Delete** icon near the top of the screen.

@@ -3,7 +3,7 @@ title: Integrate Azure Key Vault with Service Connector
 description: Integrate Azure Key Vault into your application with Service Connector
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: how-to
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
@@ -25,11 +25,11 @@ This page shows the supported authentication types and client types of Azure Key
 
 | Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
 | --- | --- | --- | --- | --- |
-| .Net | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | | | | ![yes icon](./media/green-check.png) |
-| Node.js | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python | | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| .Net | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
+| Java | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot | | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
+| Node.js | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
+| Python | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
 
 ## Default environment variable names or application properties
 
@@ -63,6 +63,7 @@ This page shows the supported authentication types and client types of Azure Key
 ### Java - Spring Boot
 
 **Service Principal**
+
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | azure.keyvault.uri | Your Key Vault endpoint URL | `"https://{yourKeyVaultName}.vault.azure.net/"` |

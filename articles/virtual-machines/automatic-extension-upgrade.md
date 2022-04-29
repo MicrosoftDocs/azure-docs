@@ -1,13 +1,11 @@
 ---
 title: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 description: Learn how to enable the Automatic Extension Upgrade for your virtual machines and virtual machine scale sets in Azure.
-author: mayanknayar
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: manayar
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -163,7 +161,7 @@ Update the scale set using [Update-AzVmss](/powershell/module/az.compute/update-
 
 
 ### Azure CLI for Virtual Machines
-Use the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) cmdlet:
+Use the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) cmdlet:
 
 ```azurecli-interactive
 az vm extension set \
@@ -176,7 +174,7 @@ az vm extension set \
 ```
 
 ### Azure CLI for Virtual Machine Scale Sets
-Use the [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) cmdlet to add the extension to the scale set model:
+Use the [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) cmdlet to add the extension to the scale set model:
 
 ```azurecli-interactive
 az vmss extension set \

@@ -13,6 +13,8 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ❌ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article describes how to manually generate a heap dump or thread dump, and how to start Java Flight Recorder (JFR).
 
 Effective troubleshooting is critical to ensure you can fix issues in production environments and keep your business online. Azure Spring Cloud provides application log streaming and query, rich metrics emitting, alerts, distributed tracing, and so forth. However, when you get alerts about requests with high latency, JVM heap leak, or high CPU usage, there's no last-mile solution. For this reason, we've enabled you to manually generate a heap dump, generate a thread dump, and start JFR.
@@ -68,10 +70,19 @@ az spring-cloud app deployment start-jfr \
 
 The default value for `duration` is 60 seconds.
 
+## Generate a dump using the Azure portal
+
+Use the following steps to generate a heap or thread dump of your app in Azure Spring Cloud.
+
+1. In the Azure portal, navigate to your target app, then select **Troubleshooting**.
+2. In the **Troubleshooting** pane, select the app instance and the type of dump you'd like to collect.
+3. In the **File path** field, specify the mount path of your persistent storage.
+4. Select **Collect**.
+
 ## Get your diagnostic files
 
 Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *`<app-instance>_heapdump_<time-stamp>.hprof`* for the heap dump, *`<app-instance>_threaddump_<time-stamp>.txt`* for the thread dump, and *`<app-instance>_JFR_<time-stamp>.jfr`* for the JFR file.
 
 ## Next steps
 
-- [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)
+* [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)

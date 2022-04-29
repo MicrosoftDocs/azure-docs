@@ -44,14 +44,14 @@ To add a setting in the portal, select **New application setting** and add the n
 
 # [Azure CLI](#tab/azure-cli)
 
-The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) command returns the existing application settings, as in the following example:
+The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command returns the existing application settings, as in the following example:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command adds or updates an application setting. The following example creates a setting with a key named `CUSTOM_FUNCTION_APP_SETTING` and a value of `12345`:
+The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command adds or updates an application setting. The following example creates a setting with a key named `CUSTOM_FUNCTION_APP_SETTING` and a value of `12345`:
 
 
 ```azurecli-interactive
@@ -141,19 +141,19 @@ This migration isn't supported on Linux.
 
 Use the following procedure to migrate from a Consumption plan to a Premium plan on Windows:
 
-1. Run the following command to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app.  
+1. Run the [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) command as follows to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app: 
 
     ```azurecli-interactive
     az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
     ```
 
-1. Run the following command to migrate the existing function app to the new Premium plan
+1. Run the [az functionapp update](/cli/azure/functionapp#az-functionapp-update) command as follows to migrate the existing function app to the new Premium plan:
 
     ```azurecli-interactive
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
     ```
 
-1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Run the following command to get a list of all Consumption plans in your resource group.
+1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Consumption plans in your resource group:
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
@@ -161,7 +161,7 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 
     You can safely delete the plan with zero sites, which is the one you migrated from.
 
-1. Run the following command to delete the Consumption plan you migrated from.
+1. Run the [az functionapp plan delete](/cli/azure/functionapp/plan#az-functionapp-plan-delete) command as follows to delete the Consumption plan you migrated from.
 
     ```azurecli-interactive
     az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
@@ -171,31 +171,31 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 
 Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
 
-1. Run the following command to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs.
+1. Run the [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) command as follows to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs.
 
     ```azurecli-interactive
     az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
     ```
 
-1. Run the following command to migrate the existing function app to the new Consumption plan.
+1. Run the [az functionapp update](/cli/azure/functionapp#az-functionapp-update) command as follows to migrate the existing function app to the new Consumption plan.
 
     ```azurecli-interactive
-    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN>
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN> --force
     ```
 
-1. Delete the function app you created in step 1, since you only need the plan that was created to run the existing function app.
+1. Run the [az functionapp delete](/cli/azure/functionapp#az-functionapp-delete) command as follows to delete the function app you created in step 1, since you only need the plan that was created to run the existing function app.
 
     ```azurecli-interactive
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan. Run the following command to get a list of all Premium plans in your resource group.
+1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
     ```
 
-1. Run the following command to delete the Premium plan you migrated from.
+1. Run the [az functionapp plan delete](/cli/azure/functionapp/plan#az-functionapp-plan-delete) command as follows  to delete the Premium plan you migrated from.
 
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
@@ -249,12 +249,18 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 ## Platform features
 
-Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
+Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. When working in the [Azure portal](https://portal.azure.com), the left pane is where you access the many features of the App Service platform that you can use in your function apps. 
 
-> [!NOTE]
-> Not all App Service features are available when a function app runs on the Consumption hosting plan.
+The following matrix indicates portal feature support by hosting plan and operating system:
 
-The rest of this article focuses on the following App Service features in the Azure portal that are useful for Functions:
+| Feature | Consumption plan | Premium plan  | Dedicated plan | 
+| --- | --- | --- | --- |
+| [Advanced tools (Kudu)](#kudu) | Windows: ✔ <br/>Linux: **X** | ✔ | ✔|
+| [App Service editor](#editor) | Windows: ✔ <br/>Linux: **X**   | Windows: ✔ <br/>Linux: **X** | Windows: ✔ <br/>Linux: **X**|
+| [Backups](../app-service/manage-backup.md) |**X** |**X** | ✔|
+| [Console](#console) | Windows: command-line <br/>Linux: **X** | Windows: command-line <br/>Linux: SSH | Windows: command-line <br/>Linux: SSH |
+
+The rest of this article focuses on the following features in the portal that are useful for your function apps:
 
 + [App Service editor](#editor)
 + [Console](#console)
@@ -304,7 +310,7 @@ When you configure the **Allowed origins** list for your function app, the `Acce
 
 When the wildcard (`*`) is used, all other domains are ignored. 
 
-Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az_functionapp_cors_add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
+Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -312,7 +318,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az_functionapp_cors_show) command to list the current allowed origins.
+Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) command to list the current allowed origins.
 
 ### <a name="auth"></a>Authentication
 

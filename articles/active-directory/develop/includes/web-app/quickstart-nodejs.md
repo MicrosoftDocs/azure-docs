@@ -54,15 +54,21 @@ Next, clone the sample repo and install the NPM modules.
 
 From your shell or command line:
 
-`$ git clone git@github.com:AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
-
+```
+$ git clone git@github.com:AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git 
+```
 or
 
-`$ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
+```
+$ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git
+```
 
 From the project root directory, run the command:
 
-`$ npm install`
+```
+$ npm install
+
+```
 
 ## Configure the application
 
@@ -78,7 +84,7 @@ Provide the parameters in `exports.creds` in config.js as instructed.
 * Update `exports.destroySessionUrl` in config.js, if you want to use a different `post_logout_redirect_uri`.
 
 * Set `exports.useMongoDBSessionStore` in config.js to true, if you want to use [mongoDB](https://www.mongodb.com) or other [compatible session stores](https://github.com/expressjs/session#compatible-session-stores).
-The default session store in this sample is `express-session`. The default session store is not suitable for production.
+The default session store in this sample is `express-session`. The default session store isn't suitable for production.
 
 * Update `exports.databaseUri`, if you want to use mongoDB session store and a different database URI.
 
@@ -86,7 +92,7 @@ The default session store in this sample is `express-session`. The default sessi
 
 ## Build and run the application
 
-Start mongoDB service. If you are using mongoDB session store in this app, you have to [install mongoDB](http://www.mongodb.org/) and start the service first. If you are using the default session store, you can skip this step.
+Start mongoDB service. If you're using mongoDB session store in this app, you have to [install mongoDB](http://www.mongodb.org/) and start the service first. If you're using the default session store, you can skip this step.
 
 Run the app using the following command from your command line.
 
@@ -104,7 +110,7 @@ $ node app.js | bunyan
 
 ### You're done!
 
-You will have a server successfully running on `http://localhost:3000`.
+You'll have a server successfully running on `http://localhost:3000`.
 
 [!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 

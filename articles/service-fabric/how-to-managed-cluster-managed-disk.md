@@ -2,7 +2,7 @@
 title: Select managed disk types for Service Fabric managed cluster nodes
 description: Learn how to select managed disk types for Service Fabric managed cluster nodes and configure in an ARM template.
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 2/14/2022
 ---
 
 # Select managed disk types for Service Fabric managed cluster nodes
@@ -24,7 +24,7 @@ Azure Service Fabric manged clusters support the following managed disk types:
     * Premium SSD locally redundant storage. Best for production and performance sensitive workloads.
 
 >[!NOTE]
-> Any temp disk associated with VM Size will *not* be used for storing any Service Fabric or application related data
+> Any temp disk associated with VM Size will *not* be used for storing any Service Fabric or application related data by default. [Stateless node types](how-to-managed-cluster-stateless-node-type.md) do support temp disks if required.
 
 ## Specifying a Service Fabric managed cluster disk type
 

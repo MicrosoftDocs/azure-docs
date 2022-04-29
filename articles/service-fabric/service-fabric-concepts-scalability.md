@@ -33,7 +33,7 @@ updateDescription.InstanceCount = 50;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/service"), updateDescription);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 Update-ServiceFabricService -Stateless -ServiceName $serviceName -InstanceCount 50
@@ -50,7 +50,7 @@ serviceDescription.InstanceCount = -1;
 await fc.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless -PartitionSchemeSingleton -InstanceCount "-1"

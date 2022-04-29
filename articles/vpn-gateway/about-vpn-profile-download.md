@@ -7,13 +7,13 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/20/2021
 ms.author: cherylmc
 
 ---
 # Working with P2S VPN client profile files
 
-Profile files contain information that is necessary to configure a VPN connection. This article will help you obtain and understand the information necessary for a VPN client profile.
+Client profile files contain information that is necessary to configure a VPN connection. This article helps you obtain and understand the information needed for a VPN client profile.
 
 ## Generate and download profile
 

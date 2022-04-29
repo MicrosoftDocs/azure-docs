@@ -11,13 +11,15 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer (Preview)
 
-This document explains how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights java in-process agent. With this feature you can monitor metrics of resilience4j circuit breaker from Application Insights with Micrometer.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights Java in-process agent. With this feature you can monitor metrics of resilience4j circuit breaker from Application Insights with Micrometer.
 
 We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) to show how it works.
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights).
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
 * Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 * Install git, Maven, and Java, if not already in use by the development computer.
 
@@ -117,7 +119,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
-## See also
+## Next steps
 
 * [Application insights](./how-to-application-insights.md)
 * [Distributed tracing](./how-to-distributed-tracing.md)

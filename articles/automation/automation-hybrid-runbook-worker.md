@@ -16,8 +16,9 @@ Azure Automation provides native integration of the Hybrid Runbook Worker role t
 
 | Platform | Description |
 |---|---|
-|Agent-based (V1)  |Installed after the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) is completed.|
-|Extension-based (V2)  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. This is the recommended platform.|
+|**Extension-based (V2)**  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. **This is the recommended platform**.|
+|**Agent-based (V1)** |Installed after the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) is completed.|
+
 
 :::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform.png" alt-text="Hybrid worker group showing platform field":::
 
@@ -84,6 +85,9 @@ The process to install a user Hybrid Runbook Worker depends on the operating sys
 |Windows | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment). |
 |Linux   | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
 |Either  | For user Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md). This is the recommended method. |
+
+>[!NOTE]
+> Hybrid Runbook Worker is currently not supported on VM Scale Sets.
 
 ## <a name="network-planning"></a>Network planning
 

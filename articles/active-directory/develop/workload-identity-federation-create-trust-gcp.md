@@ -31,7 +31,7 @@ Take note of the *object ID* of the app (not the application (client) ID) which 
 
 ## Grant your app permissions to resources
 
-Grant your app the permissions necessary to access the Azure AD protected resources targeted by your software workload running in Google Cloud.  For example, [assign the Storage Blob Data Contributor role](/azure/storage/blobs/assign-azure-role-data-access) to your app if your application needs to read, write, and delete blob data in [Azure Storage](/azure/storage/blobs/storage-blobs-introduction).
+Grant your app the permissions necessary to access the Azure AD protected resources targeted by your software workload running in Google Cloud.  For example, [assign the Storage Blob Data Contributor role](../../storage/blobs/assign-azure-role-data-access.md) to your app if your application needs to read, write, and delete blob data in [Azure Storage](../../storage/blobs/storage-blobs-introduction.md).
 
 ## Set up an identity in Google Cloud
 

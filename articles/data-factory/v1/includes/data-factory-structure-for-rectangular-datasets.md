@@ -1,10 +1,10 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
 ms.date: 10/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 ## Specifying structure definition for rectangular datasets
 The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 

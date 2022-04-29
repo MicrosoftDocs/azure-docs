@@ -1,8 +1,6 @@
 ---
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
-author: bwren
-ms.author: bwren
 ms.topic: overview
 ms.date: 01/10/2022
 ms.custom: mvc
@@ -39,6 +37,64 @@ You can pull in telemetry like performance counters, Azure diagnostics, or Docke
 The following diagram shows how Application Insights instrumentation in an app sends telemetry to an Application Insights resource.
 
 ![Diagram that shows Application Insights instrumentation in an app sending telemetry to an Application Insights resource.](./media/app-insights-overview/diagram.png)
+
+## How to use Application Insights
+
+There are several ways to get started with Application Insights. Begin with whatever works best for you, and you can add others later.
+
+### Prerequisites
+
+- You need an Azure account. Application Insights is hosted in Azure, and sends its telemetry to Azure for analysis and presentation. If you don't have an Azure subscription, you can [sign up for free](https://azure.microsoft.com/free). If your organization already has an Azure subscription, an administrator can [add you to it](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+
+- The basic [Application Insights pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) has no charge until your app has substantial usage. 
+
+### Get started
+
+To use Application Insights at run time, you can instrument your web app on the server. This approach is ideal for apps that are already deployed, because it avoids any updates to the app code.
+
+See the following articles for details and instructions:
+
+- [Application monitoring for Azure App Service overview](./azure-web-apps.md)
+- [Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
+- [Deploy Azure Monitor Application Insights Agent for on-premises servers](./status-monitor-v2-overview.md)
+- [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md)
+
+You can also add Application Insights to your app code at development time. This approach lets you customize and add to telemetry collection.
+
+See the following articles for details and instructions:
+
+- [Configure Application Insights for your ASP.NET website](./asp-net.md)
+- [Application Insights for ASP.NET Core applications](./asp-net-core.md)
+- [Application Insights for .NET console applications](./console.md)
+- [Application Insights for web pages](./javascript.md)
+- [Monitor your Node.js services and apps with Application Insights](./nodejs.md)
+- [Set up Azure Monitor for your Python application](./opencensus-python.md)
+
+For all supported languages, platforms, and frameworks, see [Supported languages](./platforms.md).
+
+### Monitor
+
+After you set up Application Insights, monitor your app.
+
+- Set up [availability web tests](./monitor-web-app-availability.md).
+- Use the default [application dashboard](./overview-dashboard.md) for your team room, to track load, responsiveness, and performance. Monitor your dependencies, page loads, and AJAX calls.
+- Discover which requests are the slowest and fail most often.
+- Watch [Live Stream](./live-stream.md) when you deploy a new release, to know immediately about any degradation.
+
+### Detect and diagnose
+
+When you receive an alert or discover a problem:
+
+- Assess how many users are affected.
+- Correlate failures with exceptions, dependency calls, and traces.
+- Examine profiler, snapshots, stack dumps, and trace logs.
+
+### Measure, learn, and build
+
+- Plan to measure how customers use new user experience or business features.
+- Write custom telemetry into your code.
+- [Measure the effectiveness](./usage-overview.md) of each new feature that you deploy.
+- Base the next development cycle on evidence from your telemetry.
 
 ## What Application Insights monitors
 
@@ -129,69 +185,28 @@ There are many ways to explore Application Insights telemetry. For more informat
 
   Use continuous export to bulk export raw data to storage as soon as it arrives.
 
-## How to use Application Insights
-
-There are several ways to get started with Application Insights. Begin with whatever works best for you, and you can add others later.
-
-### Prerequisites
-
-- You need an Azure account. Application Insights is hosted in Azure, and sends its telemetry to Azure for analysis and presentation. If you don't have an Azure subscription, you can [sign up for free](https://azure.microsoft.com/free). If your organization already has an Azure subscription, an administrator can [add you to it](/azure/active-directory/fundamentals/add-users-azure-active-directory).
-
-- The basic [Application Insights pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) has no charge until your app has substantial usage. 
-
-### Get started
-
-To use Application Insights at run time, you can instrument your web app on the server. This approach is ideal for apps that are already deployed, because it avoids any updates to the app code.
-
-See the following articles for details and instructions:
-
-- [Application monitoring for Azure App Service overview](./azure-web-apps.md)
-- [Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
-- [Deploy Azure Monitor Application Insights Agent for on-premises servers](./status-monitor-v2-overview.md)
-- [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md)
-
-You can also add Application Insights to your app code at development time. This approach lets you customize and add to telemetry collection.
-
-See the following articles for details and instructions:
-
-- [Configure Application Insights for your ASP.NET website](./asp-net.md)
-- [Application Insights for ASP.NET Core applications](./asp-net-core.md)
-- [Application Insights for .NET console applications](./console.md)
-- [Application Insights for web pages](./javascript.md)
-- [Monitor your Node.js services and apps with Application Insights](./nodejs.md)
-- [Set up Azure Monitor for your Python application](./opencensus-python.md)
-
-For all supported languages, platforms, and frameworks, see [Supported languages](./platforms.md).
-
-### Monitor
-
-After you set up Application Insights, monitor your app.
-
-- Set up [availability web tests](./monitor-web-app-availability.md).
-- Use the default [application dashboard](./overview-dashboard.md) for your team room, to track load, responsiveness, and performance. Monitor your dependencies, page loads, and AJAX calls.
-- Discover which requests are the slowest and fail most often.
-- Watch [Live Stream](./live-stream.md) when you deploy a new release, to know immediately about any degradation.
-
-### Detect and diagnose
-
-When you receive an alert or discover a problem:
-
-- Assess how many users are affected.
-- Correlate failures with exceptions, dependency calls, and traces.
-- Examine profiler, snapshots, stack dumps, and trace logs.
-
-### Measure, learn, and build
-
-- Plan to measure how customers use new user experience or business features.
-- Write custom telemetry into your code.
-- [Measure the effectiveness](./usage-overview.md) of each new feature that you deploy.
-- Base the next development cycle on evidence from your telemetry.
-
 ## Next steps
 
 - [Instrument your web pages](./javascript.md) for page view, AJAX, and other client-side telemetry.
 - [Analyze mobile app usage](../app/mobile-center-quickstart.md) by integrating with Visual Studio App Center.
 - [Monitor availability with URL ping tests](./monitor-web-app-availability.md) to your website from Application Insights servers.
+
+## Troubleshooting
+
+### FAQ
+
+Review [frequently asked questions](../faq.yml).
+### Microsoft Q&A questions forum
+
+Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+
+### Stack Overflow
+
+Post coding questions to [Stack Overflow]() using an Application Insights tag.
+
+### User Voice
+
+Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0).
 
 <!-- ## Support and feedback
 * Questions and Issues:
@@ -217,4 +232,3 @@ When you receive an alert or discover a problem:
 [portal]: https://portal.azure.com/
 [qna]: ../faq.yml
 [redfield]: ./status-monitor-v2-overview.md
-

@@ -18,6 +18,9 @@ In this tutorial you will learn how to:
 > - Investigate security recommendation details
 > - Investigate recommendations in Log Analytics workspace
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -38,7 +41,7 @@ In this tutorial you will learn how to:
 
 The IoT Hub recommendations list displays all of the aggregated security recommendations for your IoT Hub.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 
@@ -48,7 +51,7 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 Open each aggregated recommendation to display the detailed recommendation description, remediation steps, device ID for each device that triggered a recommendation. It also displays recommendation severity and direct-investigation access using Log Analytics.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 
@@ -66,7 +69,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
 **To access your recommendations in Log Analytics workspace**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 

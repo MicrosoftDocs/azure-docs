@@ -18,4 +18,5 @@ ms.author: adhal
 * [Import an Azure Function App](../articles/api-management/import-function-app-as-api.md)
 * [Import an Azure Logic App](../articles/api-management/import-logic-app-as-api.md)
 * [Import a Service Fabric service](../articles/service-fabric/service-fabric-tutorial-deploy-api-management.md)
+* [Import SAP OData metadata](../articles/api-management/sap-api.md)
 * [Edit an API](../articles/api-management/edit-api.md)

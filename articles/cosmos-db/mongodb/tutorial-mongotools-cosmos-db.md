@@ -44,7 +44,7 @@ If you don't have a MongoDB source set up already, see the article [Install and 
 To complete this tutorial, you need to:
 
 * [Complete the pre-migration](pre-migration-steps.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
-* [Create an Azure Cosmos DB API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+* [Create an Azure Cosmos DB API for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB).
 * Log into your MongoDB instance
     * [Download and install the MongoDB native tools from this link](https://www.mongodb.com/try/download/database-tools).
         * **Ensure that your MongoDB native tools version matches your existing MongoDB instance.**

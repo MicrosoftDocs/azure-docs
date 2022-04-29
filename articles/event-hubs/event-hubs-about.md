@@ -2,7 +2,8 @@
 title: What is Azure Event Hubs? - a Big Data ingestion service | Microsoft Docs
 description: Learn about Azure Event Hubs, a Big Data streaming service that ingests millions of events per second.
 ms.topic: overview
-ms.date: 05/25/2021
+ms.date: 02/28/2022
+ms.custom: contperf-fy22q3
 ---
 
 # Azure Event Hubs — A big data streaming platform and event ingestion service
@@ -13,7 +14,7 @@ The following scenarios are some of the scenarios where you can use Event Hubs:
 - Anomaly detection (fraud/outliers)
 - Application logging
 - Analytics pipelines, such as clickstreams
-- Live dashboarding
+- Live dashboards
 - Archiving data
 - Transaction processing
 - User telemetry processing
@@ -47,7 +48,7 @@ With a broad ecosystem based on the industry-standard AMQP 1.0 protocol and avai
 [Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) furthermore enables [Apache Kafka (1.0 and later)](https://kafka.apache.org/) clients and applications to talk to Event Hubs. You don't need to set up, configure, and manage your own Kafka and Zookeeper clusters or use some Kafka-as-a-Service offering not native to Azure.
 
 ## Event Hubs premium and dedicated 
-Event Hubs **premium** caters to high-end streaming needs that require superior performance, better isolation with predictable latency and minimal interference in a managed multitenant PaaS environment. On top of all the features of the standard offering, the premium tier offers several extra features such as dynamic partition scale up, extended retention, and customer-managed-keys. For more information, see [Event Hubs Premium](event-hubs-premium-overview.md).
+Event Hubs **premium** caters to high-end streaming needs that require superior performance, better isolation with predictable latency and minimal interference in a managed multitenant PaaS environment. On top of all the features of the standard offering, the premium tier offers several extra features such as [dynamic partition scale up](dynamically-add-partitions.md), extended retention, and [customer-managed-keys](configure-customer-managed-key.md). For more information, see [Event Hubs Premium](event-hubs-premium-overview.md).
 
 Event Hubs **dedicated** tier offers single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the premium offering and more. For more information, see [Event Hubs Dedicated](event-hubs-dedicated-overview.md).
 
@@ -58,7 +59,7 @@ Event Hubs on Azure Stack Hub allows you to realize hybrid cloud scenarios. Stre
 
 The Event Hubs editions (on Azure Stack Hub and on Azure) offer a high degree of feature parity. This parity means SDKs, samples, PowerShell, CLI, and portals offer a similar experience, with few differences. 
 
-Event Hubs on Stack is free during public preview. For more information, see [Event Hubs on Azure Stack Hub overview](/azure-stack/user/event-hubs-overview).
+For more information, see [Event Hubs on Azure Stack Hub overview](/azure-stack/user/event-hubs-overview).
 
 ## Key architecture components
 Event Hubs contains the following [key components](event-hubs-features.md):
@@ -66,12 +67,12 @@ Event Hubs contains the following [key components](event-hubs-features.md):
 - **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0 or Apache Kafka (1.0 and above)
 - **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
 - **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable consuming applications to each have a separate view of the event stream. They read the stream independently at their own pace and with their own offsets.
-- [Throughput units](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units): Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
+- [Throughput units (standard tier)](event-hubs-scalability.md#throughput-units) or [processing units (premium tier)](event-hubs-scalability.md#processing-units) or [capacity units (dedicated)](event-hubs-dedicated-overview.md) : Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
 - **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session. The Event Hubs service delivers events through a session as they become available. All Kafka consumers connect via the Kafka protocol 1.0 and later.
 
 The following figure shows the Event Hubs stream processing architecture:
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
 
 ## Next steps

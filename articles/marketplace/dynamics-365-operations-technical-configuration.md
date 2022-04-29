@@ -24,7 +24,7 @@ Provide the solution identifier (GUID) for your solution. To find your solution 
 
 Select the version of Dynamics 365 Operations Apps this solution works with.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](./co-sell-overview.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
+Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
 
 ## Test drive technical configuration
 

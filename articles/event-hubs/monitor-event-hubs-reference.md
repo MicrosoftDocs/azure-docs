@@ -3,12 +3,16 @@ title: Monitoring Azure Event Hubs data reference
 description: Important reference material needed when you monitor Azure Event Hubs. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 01/20/2022
+ms.date: 02/10/2022
 ---
 
 
 # Monitoring Azure Event Hubs data reference
 See [Monitoring Azure Event Hubs](monitor-event-hubs.md) for details on collecting and analyzing monitoring data for Azure Event Hubs.
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
+
 
 ## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is **Microsoft.EventHub/clusters** or **Microsoft.EventHub/clusters**.
@@ -80,11 +84,11 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 
-## Runtime audit Logs
+## Runtime audit logs
 Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in the Event Hubs dedicated cluster. 
 
 > [!NOTE] 
-> Runtime audit logs are currently available only in the **dedicated** tier.  
+> Runtime audit logs are currently available only in **premium** and **dedicated** tiers.  
 
 Runtime audit logs include the elements listed in the following table:
 
@@ -98,7 +102,7 @@ Name | Description
 `Protocol` | Type of the protocol associated with the operation.
 `AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
 `AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
-`NetworkType` | Type of the network access: `PublicNetworkAccess`, `PrivateNetworkAccess`.
+`NetworkType` | Type of the network access: `Public` or `Private`.
 `ClientIP` | IP address of the client application.
 `Count` | Total number of operations performed during the aggregated period of 1 minute. 
 `Properties` | Metadata that are specific to the data plane operation. 
@@ -109,27 +113,26 @@ Here's an example of a runtime audit log entry:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authenticate | SendMessage | ReceiveMessage | GetRuntimeInfo",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace>/eventhubs/<event hub name>",
     "Time": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",
     "Protocol": "AMQP | KAFKA | HTTP | Web Sockets", 
     "AuthType": "SAS | Azure Active Directory", 
-    "AuthId": "<app name | SAS policy name>",
-    "NetworkType": "PublicNetworkAccess | PrivateNetworkAccess", 
+    "AuthId": "<AAD application name | SAS policy name>",
+    "NetworkType": "Public | Private", 
     "ClientIp": "x.x.x.x",
     "Count": 1,
-    "Properties": {
-        "key1": "value1",
-        "key2": "value2"
-    }, 
     "Category": "RuntimeAuditLogs"
  }
 
 ```
 
-## Application metrics Logs
+## Application metrics logs
 Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
+
+> [!NOTE] 
+> Application metrics logs are currently available only in **premium** and **dedicated** tiers.  
 
 Name | Description
 ------- | -------
@@ -141,6 +144,9 @@ Name | Description
 
 ## Azure Monitor Logs tables
 Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
+
+> [!IMPORTANT]
+> Dimensions aren't exported to a Log Analytics workspace. 
 
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Connect Provance with IT Service Management Connector
 description: This article provides information about how to Provance with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 2/23/2022
 
 ---
 

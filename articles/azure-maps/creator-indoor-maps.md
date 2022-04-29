@@ -3,7 +3,7 @@ title: Work with indoor maps in Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/11/2021
+ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -26,7 +26,7 @@ The following diagram illustrates the entire workflow.
 
 ## Create Azure Maps Creator
 
-To use Creator services, Azure Maps Creator must be created in an Azure Maps account with the Gen 2 pricing tier. For information about how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
+To use Creator services, an Azure Maps Creator resource must be created and associated to an Azure Maps account with the Gen 2 pricing tier. For information about how to create an Azure Maps Creator resource in Azure, see [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 > [!TIP]
 > For pricing information see the *Creator* section in [Azure Maps pricing](https://aka.ms/CreatorPricing).
@@ -57,7 +57,7 @@ Creator services create, store, and use various data types that are defined and 
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information about Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update-preview) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
@@ -122,7 +122,7 @@ Applications can use the Render V2-Get Map Tile API to request tilesets. The til
 
 ### Web Feature Service API
 
-You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r4.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
 ### Alias API
 

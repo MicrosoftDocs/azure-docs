@@ -40,7 +40,7 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## [Javascript](#tab/javascript)
+## [JavaScript](#tab/javascript)
 
 ```javascript
 return myMSALObj.acquireTokenSilent(request).catch(error => {

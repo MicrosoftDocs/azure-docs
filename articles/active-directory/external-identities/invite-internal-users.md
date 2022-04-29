@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 03/02/2022
 
 ms.author: mimart
 author: msmimart
@@ -37,15 +37,35 @@ Sending an invitation to an existing internal account lets you retain that user�
 > In Azure AD Connect sync, there’s a default rule that writes the [onPremisesUserPrincipalName attribute](../hybrid/reference-connect-sync-attributes-synchronized.md#notes) to the user object. Because the presence of this attribute can prevent a user from signing in using external credentials, we block internal-to-external conversions for user objects with this attribute. If you’re using Azure AD Connect and you want to be able to invite internal users to B2B collaboration, you'll need to [modify the default rule](../hybrid/how-to-connect-sync-change-the-configuration.md) so the onPremisesUserPrincipalName attribute isn’t written to the user object.
 ## How to invite internal users to B2B collaboration
 
-You can use PowerShell or the invitation API to send a B2B invitation to the internal user. Make sure the email address you want to use for the invitation is set as the external email address on the internal user object.
+You can use the Azure portal, PowerShell, or the invitation API to send a B2B invitation to the internal user. Some things to note:
 
-- You must use the the email address in the User.Mail property for the invitation.
-- The domain in the user’s Mail property must match the account they’re using to sign in. Otherwise, some services such as Teams won't be able to authenticate the user.
+- Before you invite the user, make sure the `User.Mail` property of the internal user object (the user's **Email** property in the Azure portal) is set to the external email address they'll use for B2B collaboration.
 
-By default, the invitation will send the user an email letting them know they’ve been invited, but you can suppress this email and send your own instead.
+- When you invite the user, an invitation is sent to the user via email. If you're using PowerShell or the invitation API, you can suppress this email by setting `SendInvitationMessage` to `False`. Then you can notify the user in another way. [Learn more about the invitation API](customize-invitation-api.md).
 
-> [!NOTE]
-> To send your own email or other communication, you can use `New-AzureADMSInvitation` with `-SendInvitationMessage:$false` to invite users silently, and then send your own email message to the converted user. See [Azure AD B2B collaboration API and customization](customize-invitation-api.md).
+- When the user redeems the invitation, the account they're using must match the domain in the `User.Mail` property. Otherwise, some services, such as Teams, won't be able to authenticate the user.
+
+## Use the Azure portal to send a B2B invitation
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or User administrator account for the directory.
+1. Select the **Azure Active Directory** service.
+1. Select **Users**.
+1. Find the user in the list or use the search box. Then select the user.
+1. On the user's profile page, in the **Identity** section, select **Manage B2B collaboration**. 
+
+   ![Screenshot of the user profile](media/invite-internal-users/manage-b2b-collaboration-link.png)
+
+   > [!NOTE]
+   > If you see **Invitation accepted** instead of **Manage B2B collaboration**, the user has already been invited to use external credentials for B2B collaboration.
+
+1. Next to **Invite internal user to B2B collaboration?** select **Yes**, and then select **Done**. 
+
+   ![Screenshot showing the invite internal user radio button](media/invite-internal-users/invite-internal-user-selector.png)
+
+   > [!NOTE]
+   > If the option is unavailable, make sure the user's **Email** property is set to the external email address they should use for B2B collaboration.
+
+1. A confirmation message appears and an invitation is sent to the user via email. The user is then able to redeem the invitation using their external credentials.
 
 ## Use PowerShell to send a B2B invitation
 

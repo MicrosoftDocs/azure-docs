@@ -15,7 +15,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
+- A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) 13+, along with a valid developer certificate installed into your Keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. [See example.](../../../identity/quick-create-identity.md)
 
@@ -23,7 +23,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Creating the Xcode project
 
-In Xcode, create a new iOS project and select the **App** template. We will be using UIKit storyboards. You're not going to create tests during this quickstart. Feel free to uncheck **Include Tests**.
+In Xcode, create a new iOS project and select the **App** template. We'll be using UIKit storyboards. You're not going to create tests during this quickstart. Feel free to uncheck **Include Tests**.
 
 ![Screenshot showing the New Project template selection within Xcode.](../../media/xcode-new-project-template-select.png)
 
@@ -42,12 +42,13 @@ platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-beta.1'
+    pod 'AzureCommunicationUI', '1.0.0-beta.2'
 end
 ```
 
 3. Run `pod install --repo-update`.
 4. Open the generated `.xcworkspace` with Xcode.
+5. (Optional) For Mackbook Pro M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 ### Request access to the microphone, camera, etc.
 
@@ -73,7 +74,7 @@ Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the
 
 ## Initialize composite
 
-Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with either your call group ID or `UUID()` to generate one. Also replace `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
+Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with either your call group ID or `UUID()` to generate one. Also replace `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token. The limit for string length of `<DISPLAY_NAME>` is 256.
 
 ```swift
 import UIKit
@@ -107,7 +108,7 @@ class ViewController: UIViewController {
 
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
-        let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
+        let options = GroupCallOptions(credential: communicationTokenCredential,
                                        groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
                                        displayName: "<DISPLAY_NAME>")
         callComposite?.launch(with: options)
@@ -136,6 +137,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [GroupCallOptions](#group-call) | The options for joining a group call, such as groupId. |
 | [TeamsMeetingOptions](#teams-meeting) | The options for joining a Team's meeting, such as the meeting link. |
 | [ThemeConfiguration](#apply-theme-configuration) | Allows you to customize the theme. |
+| [LocalizationConfiguration](#apply-localization-configuration) | Allows you to set the language for the composite. |
 
 ## UI Library functionality
 
@@ -163,7 +165,7 @@ Refer to the [user access token](../../../identity/quick-create-identity.md) doc
 
 ### Setup group call or Teams meeting options
 
-Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
+Depending on what type of Call/Meeting you would like to set up, use the appropriate options object.
 
 #### Group call
 
@@ -172,7 +174,7 @@ Initialize a `GroupCallOptions` instance inside the `startCallComposite` functio
 ```swift
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
-let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
+let options = GroupCallOptions(credential: communicationTokenCredential,
                                groupId: uuid,
                                displayName: "<DISPLAY_NAME>")
 ```
@@ -182,7 +184,7 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
-let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
+let options = TeamsMeetingOptions(credential: communicationTokenCredential,
                                   meetingLink: "<TEAMS_MEETING_LINK>",
                                   displayName: "<DISPLAY_NAME>")
 ```
@@ -223,7 +225,18 @@ class CustomThemeConfiguration: ThemeConfiguration {
 ```
 
 ```swift
-let callCompositeOptions = CallCompositeOptions(themeConfiguration: CustomThemeConfiguration())
+let callCompositeOptions = CallCompositeOptions(theme: CustomThemeConfiguration())
+```
+
+### Apply localization configuration
+
+You can change the language by creating a custom localization configuration and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`LanguageCode.en.rawValue`) strings. If desired, `LocalizationConfiguration` can be used to set a different `languageCode`. Out of the box, the UI library includes a set of `languageCode` usable with the UI components. `LocalizationConfiguration.supportedLanguages` provides a list of all supported languages. 
+
+For the example below, the composite will be localized to French (`fr`). 
+
+```swift
+let localizationConfiguration = LocalizationConfiguration(languageCode: "fr") 
+let callCompositeOptions = CallCompositeOptions(localizationConfiguration: localizationConfiguration) 
 ```
 
 ## Add notifications into your mobile app

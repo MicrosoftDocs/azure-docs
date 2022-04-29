@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 07/09/2020
+ms.date: 03/04/2022
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -30,8 +30,8 @@ To complete this article, you need the following resources:
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Azure AD](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
-* You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
-* You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to enable Azure AD DS.
+* You need Domain Services Contributor Azure role to create the required Azure AD DS resources.
 
 ## DNS naming requirements
 

@@ -1,20 +1,20 @@
 ---
-title: Alternative methods for migrating to App Service Environment v3
-description: Migrate to App Service Environment v3 Without Using the Migration Feature
+title: Migrate to App Service Environment v3
+description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 1/28/2022
+ms.date: 3/15/2022
 ms.author: jordanselig
 ---
-# Migrate to App Service Environment v3 without using the migration feature
+# Migrate to App Service Environment v3
 
 > [!NOTE]
-> The App Service Environment v3 [migration feature](migrate.md) is now available for a set of supported environment configurations. Consider that feature which provides an automated migration path to [App Service Environment v3](overview.md).
+> The App Service Environment v3 [migration feature](migrate.md) is now available for a set of supported environment configurations in certain regions. Consider that feature which provides an automated migration path to [App Service Environment v3](overview.md).
 >
 
-If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration feature](migrate.md) if your environment falls into one of the [supported scenarios](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration feature, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#migration-feature-limitations). Otherwise, you can choose to use one of the alternative migration options given in this article.
+If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration feature](migrate.md) if your environment falls into one of the [supported scenarios](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration feature, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#migration-feature-limitations). Otherwise, you can choose to use one of the manual migration options given in this article.
 
-If your App Service Environment [won't be supported for migration](migrate.md#migration-feature-limitations) with the migration feature, you must use one of the alternative methods to migrate to App Service Environment v3.
+If your App Service Environment [won't be supported for migration](migrate.md#migration-feature-limitations) with the migration feature, you must use one of the manual methods to migrate to App Service Environment v3.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Scenario: An existing app running on an App Service Environment v1 or App Servic
 
 For any migration method that doesn't use the [migration feature](migrate.md), you'll need to [create the App Service Environment v3](creation.md) and a new subnet using the method of your choice. There are [feature differences](overview.md#feature-differences) between App Service Environment v1/v2 and App Service Environment v3 as well as [networking changes](networking.md) that will involve new (and for internet-facing environments, additional) IP addresses. You'll need to update any infrastructure that relies on these IPs.
 
-Note that multiple App Service Environments can't exist in a single subnet. If you need to use your existing subnet for your new App Service Environment v3, you'll need to delete the existing App Service Environment before you create a new one. For this scenario, the recommended migration method is to [back up your apps and then restore them](#back-up-and-restore) on the new environment after it gets created and configured. There will be application downtime during this process because of the time it takes to delete the old environment, create the new App Service Environment v3, configure any infrastructure and connected resources to work with the new environment, and deploy your apps onto the new environment.
+Note that multiple App Service Environments can't exist in a single subnet. If you need to use your existing subnet for your new App Service Environment v3, you'll need to delete the existing App Service Environment before you create a new one. For this scenario, the recommended migration method is to [back up your apps and then restore them](#back-up-and-restore) in the new environment after it gets created and configured. There will be application downtime during this process because of the time it takes to delete the old environment, create the new App Service Environment v3, configure any infrastructure and connected resources to work with the new environment, and deploy your apps onto the new environment.
 
 ### Checklist before migrating apps
 
@@ -69,7 +69,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 1. Use your App Service Environment v3 name for **Region**.
 1. Choose whether or not to clone your deployment source.
 1. You can use an existing Windows **App Service plan** from your new environment if you created one already, or create a new one. The available Windows App Service plans in your new App Service Environment v3, if any, will be listed in the dropdown.
-1. Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plan. For more information, see [App Service Environment v3 pricing](overview.md#pricing).
+1. Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plan. For more information, see [App Service Environment v3 SKU details](overview.md#pricing).
 
 ![clone sample](./media/migration/portal-clone-sample.png)
 
@@ -83,7 +83,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 
 If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your existing App Service Environment. At this time, all deployment methods except FTP are supported on App Service Environment v3. You don't need to make updates when you deploy your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features.
 
-You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**.
+You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in or with your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**.
 
 ![export from toc](./media/migration/export-toc.png)
 
@@ -144,6 +144,21 @@ You can distribute traffic between your old and new environment using an [Applic
 
 Once your migration and any testing with your new environment is complete, delete your old App Service Environment, the apps that are on it, and any supporting resources that you no longer need. You'll continue to be charged for any resources that haven't been deleted.
 
+## Frequently asked questions
+
+- **Will I experience downtime during the migration?**  
+  Downtime is dependent on your migration process. If you have a different App Service Environment that you can point traffic to while you migrate or if you can use a different subnet to create your new environment, you won't have downtime. However, if you must use the same subnet, there will be downtime resulting from the time it takes to delete the old environment, create the App Service Environment v3, create the new App Service plans, re-create the apps, and update any resources that need to know about the new IP addresses.
+- **Do I need to change anything about my apps to get them to run on App Service Environment v3?**  
+  No, apps that run on App Service Environment v1 and v2 shouldn't need any modifications to run on App Service Environment v3.
+- **What if my App Service Environment has a custom domain suffix?**  
+  App Service Environment v3 doesn't support custom domain suffixes at this time. You won't be able to migrate until it's supported if you want to continue using this feature.
+- **What if my App Service Environment is zone pinned?**  
+  Zone pinning isn't a supported feature on App Service Environment v3. Use [zone redundancy](overview-zone-redundancy.md) instead.
+- **What properties of my App Service Environment will change?**  
+  You'll now be on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB App Service Environment, you'll keep the same ILB IP address. For internet facing App Service Environment, the public IP address and the outbound IP address will change. Note for internet facing App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses).
+- **What will happen to my App Service Environment v1/v2 resources after 31 August 2024?**  
+  After 31 August 2024, if you haven't migrated to App Service Environment v3, your App Service Environment v1/v2s and the apps deployed in them will no longer be available. App Service Environment v1/v2 is hosted on App Service scale units running on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) architecture that will be [retired on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Because of this, [App Service Environment v1/v2 will no longer be available after that date](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Migrate to App Service Environment v3 to keep your apps running or save or back up any resources or data that you need to maintain.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -154,3 +169,6 @@ Once your migration and any testing with your new environment is complete, delet
 
 > [!div class="nextstepaction"]
 > [Integrate your ILB App Service Environment with the Azure Application Gateway](integrate-with-application-gateway.md)
+
+> [!div class="nextstepaction"]
+> [Migrate to App Service Environment v3 by using the migration feature](migrate.md)

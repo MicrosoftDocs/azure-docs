@@ -6,7 +6,7 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 01/11/2022
+ms.date: 02/15/2022
 ms.custom: template-quickstart, mode-other
 adobe-target: true
 ---
@@ -16,6 +16,8 @@ adobe-target: true
 This quickstart describes how to create an Azure Load Testing Preview resource by using the Azure portal. With this resource, you'll create a load test with an Apache JMeter script and run the test against an external website. 
 
 After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials. 
+
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

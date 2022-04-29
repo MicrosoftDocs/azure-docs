@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 01/20/2022
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Train a custom model | Preview
 

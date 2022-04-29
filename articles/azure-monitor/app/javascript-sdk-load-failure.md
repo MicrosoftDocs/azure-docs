@@ -2,8 +2,6 @@
 title: Troubleshooting SDK load failure for JavaScript web applications - Azure Application Insights 
 description: How to troubleshoot SDK load failure for JavaScript web applications
 ms.topic: conceptual
-author: MSNev
-ms.author: newylie
 ms.date: 06/05/2020
 ms.devlang: javascript
 ms.custom: devx-track-js
@@ -101,6 +99,8 @@ First lets check for JavaScript exceptions, using a browser that supports develo
 If there are exceptions being reported in the SDK script (for example ai.2.min.js), then this may indicate that the configuration passed into the SDK contains unexpected or missing required configuration or a faulty release has been deployed to the CDN.
 
 To check for faulty configuration, change the configuration passed into the snippet (if not already) so that it only includes your instrumentation key as a string value.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ```js
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",

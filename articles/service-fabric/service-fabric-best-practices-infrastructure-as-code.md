@@ -70,7 +70,7 @@ You can deploy applications and services onto your Service Fabric cluster via Az
 }
 ```
 
-To deploy your application using Azure Resource Manager, you first must [create a sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
+To deploy your application using Azure Resource Manager, you first must [create a sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) Service Fabric Application package. The following Python script is an example of how to create a sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container

@@ -1,17 +1,20 @@
 ---
 title: Azure API Management with an Azure virtual network
-description: Learn about scenarios and requirements to connect you API Management instance to an Azure virtual network.
+description: Learn about scenarios and requirements to connect your API Management instance to an Azure virtual network.
 author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 01/14/2022
 ms.author: danlep
 ms.custom: 
 ---
 # Use a virtual network with Azure API Management
 
-With Azure virtual networks (VNets), you can place ("inject") your API Management instance in a non-internet-routable network to which you control access. You can then connect VNets to your on-premises networks using various VPN technologies. To learn more about Azure VNets, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+With Azure virtual networks (VNets), you can place ("inject") your API Management instance in a non-internet-routable network to which you control access. In a virtual network, your API Management instance can securely access other networked Azure resources and also connect to on-premises networks using various VPN technologies. To learn more about Azure VNets, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+
+> [!TIP]
+> API Management also supports [private endpoints](../private-link/private-endpoint-overview.md). A private endpoint enables secure client connectivity to your API Management instance using a private IP address from your virtual network and Azure Private Link. [Learn more](private-endpoint.md) about using private endpoints with API Management.
 
 This article explains VNet connectivity options, requirements, and considerations for your API Management instance. You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the configuration. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups].
 

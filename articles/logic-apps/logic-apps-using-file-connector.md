@@ -1,13 +1,13 @@
 ---
 title: Connect to file systems on premises
-description: Automate tasks and workflows that connect to on-premises file systems with the File System connector through the on-premises data gateway in Azure Logic Apps
+description: Connect to on-premises file systems with the File System connector through the on-premises data gateway in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 10/08/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 03/11/2022
 ---
 
 # Connect to on-premises file systems with Azure Logic Apps
@@ -19,7 +19,9 @@ With Azure Logic Apps and the File System connector, you can create automated ta
 - Get file content and metadata.
 
   > [!IMPORTANT]
-  > The File System connector currently supports only Windows file systems on Windows operating systems.  
+  > - The File System connector currently supports only Windows file systems on Windows operating systems.
+  > - The gateway machine and the file server must exist in the same Windows domain.
+  > - Mapped network drives aren't supported.
 
 This article shows how you can connect to an on-premises file system as described by this example scenario: copy a file that's uploaded to Dropbox to a file share, and then send an email. To securely connect and access on-premises systems, logic apps use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). For connector-specific technical information, see the [File System connector reference](/connectors/filesystem/).
 

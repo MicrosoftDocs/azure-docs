@@ -56,12 +56,12 @@ An IoT Edge device is composed of an IoT Edge Runtime and IoT Edge Modules.
 - **OPC Publisher**: The OPC Publisher module connects to OPC UA server systems and publishes JSON encoded telemetry data from these servers in OPC UA "Pub/Sub" format to Azure. The OPC Publisher can run in two modes:
   - In combination with and controlled by the Industrial-IoT cloud microservices (orchestrated mode)
   - Configured by a local configuration file to allow operation without any Industrial-IoT cloud microservice (standalone mode)
-- **OPC Twin**: The OPC Twin module enables connection from the cloud to OPC UA server systems on the factory network. OPC Twin provides access to OPC UA server systems through REST APIs exposed by the Industrial-IoT cloud microservices.
-- **Discovery**: The Discovery module works only in combination with the Industrial-IoT cloud microservices. The Discovery module implements OPC UA server system discovery and reports the results to the Industrial-IoT cloud microservices.
+- **OPC Twin**: The OPC Twin module enables connection from the cloud to OPC UA server systems on the factory network. OPC Twin provides access to OPC UA server systems through REST APIs exposed by the Industrial-IoT cloud microservices. In contrast to OPC Publisher, in OPC Twin, working in standalone mode (module only) isn't supported. The OPC Twin module must work in combination with the Industrial-IoT cloud microservices.
+- **Discovery**: The Discovery module works only in combination with the Industrial-IoT cloud microservices. The Discovery module implements OPC UA server system discovery and reports the results to the Industrial-IoT cloud microservices. In contrast to OPC Publisher, in the Discovery module, working in standalone mode (module only) isn't supported. The Discovery module must work in combination with the Industrial-IoT cloud microservices.
 
 ## Next steps
 
-Now that you have learned what Industrial IoT is, you can read more about the OPC Publisher or get started with deploying the IIoT Platform:
+You can read more about the OPC Publisher or get started with deploying the IIoT Platform:
 
 > [!div class="nextstepaction"]
 > [What is the OPC Publisher?](overview-what-is-opc-publisher.md)

@@ -6,7 +6,8 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 06/17/2021
 ms.topic: quickstart
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Route cloud events to Webhooks with Azure Event Grid on Kubernetes
@@ -68,7 +69,7 @@ In this section, you'll create a topic in the custom location you created in the
     az eventgrid topic create -g $resourcegroupname --name $topicname --kind azurearc --extended-location-name $customlocationid --extended-location-type customlocation --input-schema CloudEventSchemaV1_0 --location $region    
     ```
 
-    For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
+    For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az-eventgrid-topic-create).
 
 ## Create a message endpoint
 
@@ -76,7 +77,7 @@ Before you create a subscription for the custom topic, create an endpoint for th
 
 1. In the article page, select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to deploy to Azure."></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../../media/template-deployments/deploy-to-azure.svg"  alt="Button to deploy to Azure."></a>
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
 
@@ -96,7 +97,7 @@ az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> --source
 ```
 
 
-For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
+For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
 
 ## Send events to the topic
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You'll publish sample events to this topic endpoint. 

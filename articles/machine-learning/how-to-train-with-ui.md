@@ -1,7 +1,7 @@
 ---
 title: Create a Training Job with the job creation UI
 titleSuffix: Azure Machine Learning
-description: Learn how to use the job creation UI in Azure Machine Learning Studio to create a training job. 
+description: Learn how to use the job creation UI in Azure Machine Learning studio to create a training job. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.reviewer: laobri
 
 # Create a training job with the job creation UI (preview)
 
-There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs) with the CLI (v2) (preview)](how-to-train-cli.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning Studio.
+There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs) with the CLI (v2) (preview)](how-to-train-cli.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning studio.
 
 ## Prerequisites
 
@@ -130,16 +130,9 @@ Here, the source code is in the `src` subdirectory. The command would be `python
 
 #### Inputs
 
-There are two ways to do input binding: 
+When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `${{inputs.input_name}}`. For instance, `${{inputs.wiki}}`. You can then refer to it in the command, for instance, `--data ${{inputs.wiki}}`.
 
-* Input name: When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `{inputs.input_name}`. For instance, `{inputs.wiki}`. You can then refer to it in the command, for instance, `--data {inputs.wiki}`.
 [![Refer input name in the command](media/how-to-train-with-ui/input-command-name.png)](media/how-to-train-with-ui/input-command-name.png)
-
-* Path: You can use `--data .path` to specify a cloud location. The path is what you enter in the **Path on compute** field.
-[![Refer input path in the command](media/how-to-train-with-ui/input-command-path.png)](media/how-to-train-with-ui/input-command-path.png)
-
->[!NOTE] 
->In the **command to start the job**, you must add a period to the **Path on compute** value. For instance, `/data/wikitext-2` becomes `./data/wikitext-2`.
 
 ## Review and Create 
 
@@ -150,6 +143,8 @@ You may choose **view the YAML spec** to review and download the yaml file gener
 [![Yaml spec](media/how-to-train-with-ui/yaml-spec.png)](media/how-to-train-with-ui/yaml-spec.png)
 
 To launch the job, choose **Create**. Once the job is created, Azure will show you the run details page, where you can monitor and manage your training job. 
+
+  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
 ## Next steps
 
