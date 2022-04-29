@@ -113,7 +113,7 @@
   - name: Security
     items:
     - name: Multi-user authorization
-       href: multi-user-authorization-concept.md
+      href: multi-user-authorization-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices

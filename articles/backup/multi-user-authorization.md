@@ -13,7 +13,8 @@ This article describes how to configure Multi-user authorization (MUA) for Azure
 
 This document includes the following:
 
->[!div class="checklist"]- Before you start
+>[!div class="checklist"]
+>- Before you start
 >- Testing scenarios
 >- Create a Resource Guard
 >- Enable MUA on a Recovery Services vault
