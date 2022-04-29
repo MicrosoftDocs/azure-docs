@@ -17,7 +17,7 @@ Learn about the data and resources collected by Azure Monitor from your Azure Lo
 This section lists the types of resource logs you can collect for Azure Load Testing.
 
 
-# Operational logs #
+# Operational logs
 
 Operational log entries include elements listed in the following table:
 
