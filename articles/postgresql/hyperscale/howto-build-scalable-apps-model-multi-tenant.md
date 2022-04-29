@@ -58,6 +58,19 @@ Notice that tenant-specific tables have the tenant ID and are distributed. In
 our example, stores, products and line\_items are distributed. The rest of the
 tables are reference tables. In our example, the countries table is a reference table.
 
+```sql
+-- Distribute large tables by the tenant ID
+
+SELECT create_distributed_table('stores', 'store_id');
+SELECT create_distributed_table('products', 'store_id', colocate_with => 'stores');
+-- etc for the rest of the tenant tables...
+
+-- Then, make "countries" a reference table, with a synchronized copy of the
+-- table maintained on every worker node
+
+SELECT create_reference_table('countries');
+```
+
 Large tables should all have the tenant ID.
 
 * If you're **migrating an existing** multi-tenant app to Hyperscale (Citus),

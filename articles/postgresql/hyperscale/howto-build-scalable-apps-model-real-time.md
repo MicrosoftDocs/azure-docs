@@ -59,6 +59,19 @@ the following steps:
 * When you're joining large distributed tables, be sure to join using the
   shard key.
 
+```sql
+-- Distribute the fact tables
+
+SELECT create_distributed_table('users', 'user_id');
+SELECT create_distributed_table('products', 'user_id', colocate_with => 'users');
+
+-- Turn dimension tables into reference tables, with synchronized copies
+-- maintained on every worker node
+
+SELECT create_reference_table('countries');
+-- similarly for device_types and event_types...
+```
+
 ## Next steps
 
 We've completed the how-to for building scalable apps.
