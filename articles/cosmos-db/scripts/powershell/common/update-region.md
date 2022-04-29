@@ -1,6 +1,6 @@
 ---
 title: PowerShell script to update regions for an Azure Cosmos DB account
-description: Run this Azure PowerShell script to add regions or change failover order for an Azure Cosmos DB account.
+description: Run this Azure PowerShell script to add regions or change region failover order for an Azure Cosmos DB account.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
@@ -13,12 +13,9 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
-
 This PowerShell script updates the Azure regions that an Azure Cosmos DB account uses. You can use this script to add an Azure region or change region failover order.
 
-- You must use separate operations to add a region to an account and to change the region failover order.
-- You must use separate operations to update regions and to [change other account properties](account-update.md).
+[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -30,7 +27,10 @@ This PowerShell script updates the Azure regions that an Azure Cosmos DB account
 
 ## Sample script
 
-In this script, [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) gets the Azure Cosmos DB account you specify. [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) creates a `PSLocation` object, which [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) uses as a parameter to update the account regions.
+In this script, [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) gets the Azure Cosmos DB account you specify. [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) creates an object of type `PSLocation`. [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) uses `PSLocation`as a parameter to update the account regions.
+
+- You must use separate operations to add a region to an account and to change the region failover order.
+- You must use separate operations to update regions and to [change other account properties](account-update.md).
 
 This sample uses a SQL (Core) API account. To use this sample for other APIs, copy the related properties and apply them to your API-specific script.
 
