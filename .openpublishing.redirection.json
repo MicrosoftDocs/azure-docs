@@ -24214,7 +24214,7 @@
       "redirect_document_id": false
     },  
     {
-      "source_path_from_root": "/articles/azure/sql-database/sql-database-managed-instance.md",
+      "source_path_from_root": "/articles/sql-database/sql-database-managed-instance.md",
       "redirect_url": "/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview",
       "redirect_document_id": false
     },
