@@ -14,7 +14,7 @@ ms.custom:
 
 ---
 
-# Secure managed online endpoints with private endpoints (preview)
+# Use network isolation with managed online endpoints (preview)
 
 When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](/azure/private-link/private-endpoint-overview). Using a private endpoint with online endpoints is currently a preview feature.
 
