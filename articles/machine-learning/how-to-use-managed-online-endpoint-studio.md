@@ -150,7 +150,7 @@ Deleting a managed online endpoint also deletes any deployments associated with 
 1. Select an endpoint by checking the circle next to the model name.
 1. Select **Delete**.
 
-Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](#view-managed-online-endpoints-preview). 
+Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](#view-managed-online-endpoints). 
 
 ### Delete an individual deployment
 
