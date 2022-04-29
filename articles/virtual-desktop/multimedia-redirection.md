@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/29/2022
+ms.date: 04/29/2022
 ms.author: helohr
 manager: femila
 ---
@@ -28,6 +28,15 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Facebook
 - Fox Sports
 - IMDB
+- [Microsoft Learn](/learn)
+- LinkedIn Learning
+- Fox Weather
+- Yammer
+- The Guardian
+- Fidelity
+- Udemy
+- BBC
+- Pluralsight
 - Sites with embedded YouTube videos, such as Medium, Udacity, Los Angeles Times, and so on.
 - Teams Live Events (on web)
   - Currently, Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop.  
