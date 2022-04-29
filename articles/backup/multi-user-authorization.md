@@ -94,7 +94,7 @@ Now that the Backup admin has the Reader role on the Resource Guard, they can ea
 
 1. Go to the Recovery Services vault. Go to **Properties** on the left navigation panel, then to **Multi-User Authorization** and click **Update**.
 
-   :::image type="content" source="./media/multi-user-authorization/test-vault-properties.png" alt-text="Screenshot showing the Recovery services vault-properties.":::
+   :::image type="content" source="./media/multi-user-authorization/test-vault-properties.png" alt-text="Screenshot showing the Recovery services vault properties.":::
 
 1. Now you are presented with the option to enable MUA and choose a Resource Guard using one of the following ways:
 
