@@ -136,12 +136,14 @@ Based on your selections in **Upon completion settings**, auto-apply will be exe
 
 ## Impact of groups assigned to Azure AD roles and Azure resource roles in access reviews
 
-- For **Azure AD roles**, role-assignable groups can be assigned to the role using [role-assignable groups](../roles/groups-concept.md). When a review is created on an Azure AD role with role-assignable groups assigned, the group name shows up in the review without expanding the group membership. The reviewer can approve or deny access of the entire group to the role. Denied groups will lose their assignment to the role when review results are applied.
+- For **Azure AD roles**, role-assignable groups can be assigned to the role using [role-assignable groups](../roles/groups-concept.md). When a review is created on an Azure AD role with role-assignable groups assigned, by default, the group name shows up in the review without expanding the group membership. The reviewer can approve or deny access of the entire group to the role. Denied groups will lose their assignment to the role when review results are applied.
 
-- For **Azure resource roles**, any security group can be assigned to the role. When a review is created on an Azure resource role with a security group assigned, the users assigned to that security group will be fully expanded and shown to the reviewer of the role. When a reviewer denies a user that was assigned to the role via the security group, the user will not be removed from the group, and therefore the apply of the deny result will be unsuccessful.
+- For **Azure resource roles**, any security group can be assigned to the role. When a review is created on an Azure resource role with a security group assigned, by default, the users assigned to that security group will be fully expanded and shown to the reviewer of the role. When a reviewer denies a user that was assigned to the role via the security group, the user will not be removed from the group, and therefore the apply of the deny result will be unsuccessful.
 
 > [!NOTE]
-> It'ss possible for a security group to have other groups assigned to it. In this case, only the users assigned directly to the security group assigned to the role will appear in the review of the role.
+> It's possible for a security group to have other groups assigned to it. In this case, only the users assigned directly to the security group assigned to the role will appear in the review of the role.
+
+These default applications will change if the administrator specifies settings for access reviews of nested groups. For more information, go to [Review access of nested group membership (preview)](manage-access-review.md#review-access-of-nested-group-membership-preview).
 
 
 ## Update the access review

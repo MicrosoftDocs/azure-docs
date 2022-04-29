@@ -133,7 +133,7 @@ If a Team you review has shared channels, all B2B direct connect users and teams
 To review access of nested group members:
 
 1. Follow the link in the notification email or go directly to 
-http://myaccess.microsoft.com/ to complete the review. 
+https://myaccess.microsoft.com/ to complete the review. 
 
 1. If the review creator chooses to include groups in the review, you’ll see them listed in the 
 review as either a user or a group within the resource. 
