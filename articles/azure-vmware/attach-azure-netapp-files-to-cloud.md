@@ -3,6 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Prev
 description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.date: 04/20/2022
+ms.custom: references_regions
 ---
 
 # Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
@@ -17,8 +18,6 @@ ms.date: 04/20/2022
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware environments for the secondary site. 
 
 Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in the virtual network connected to it using an ExpressRoute. Ensure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, no other permissions configured via vSphere are needed.
-
-For best performance, create multiple datastores. Create your VMs with Virtual Machine Disks (VMDKs) from those datastores and stripe your logical volumes across the disks.
 
 The diagram below demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
 
@@ -39,13 +38,19 @@ The diagram below demonstrates a typical architecture of Azure NetApp Files back
     1. Under the **Protocol** section, select the **Azure VMware Solution Datastore** option to indicate the volume is being created to be used as a datastore for Azure VMware Solution private cloud.
     1. If you're using [export policies](/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) to control access to Azure NetApp Files volumes, be sure to enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced so if the IP isn't enabled, connectivity to datastore will be impacted.
 
+## Supported Regions
+
+These are the Azure VMware Solution regions that are currently supported: East US, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany West Central, Japan West, North Central US, North Europe, Southeast Asia, Switzerland West, UK South, UK West , US South Central, West Europe, West US are currently supported and will be expanded to other Azure VMware Solution regions later in the preview. 
+
 ## Performance best practices
 
 There are some important best practices to follow for optimal performance of NFS datastores on Azure NetApp Files volumes.
 
+- Create Azure NetApp Files volumes using **Standard** network features to enable optimized connectivity from Azure VMware Solution private cloud via ExpressRoute FastPath connectivity.
 - For optimized performance, choose **UltraPerformance** gateway and enable [ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](/azure/expressroute/expressroute-about-virtual-network-gateways).
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For best performance, it's recommended to use the Ultra tier.
-- Create multiple datastores of 4-TB size for better performance. The current default datastore limit is 8. The limit can be increased up to a maximum of 64 through submitting a Support ticket.  
+- Create multiple datastores of 4-TB size for better performance. The current default datastore limit is 8. The limit can be increased up to a maximum of 64 through submitting a support ticket. For information on how to submit a support ticket go to [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+-  Work with your Microsoft representative to ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within same [Availability Zone](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones). 
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -156,7 +161,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **Should Azure NetApp Files be in the same subscription as the private cloud?** 
 
-    It's recommended to use the Premium or Ultra tier for optimal performance.
+    It's recommended to create the Azure NetApp Files volumes for the datastores in the same VNet that has connectivity to the private cloud.
 
 - **How many datastores are we supporting with Azure VMware Solution?**
 
@@ -164,8 +169,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 
-    We're currently validating and working on benchmarking. For now, create multiple datastores of 4-TB size for better performance. 
-    For more information, see [Guidelines for Azure NEtApp Files network planning](/azure/azure-netapp-files/azure-netapp-files-network-topologies) and [About Azure ExpressRoute FastPath](/azure/expressroute/about-fastpath).
+    We're currently validating and working on benchmarking. For now, follow the [Performance best practices](#performance-best-practices) outlined in this article.
 
 - **What are my options for backup and recovery?**
     
@@ -173,7 +177,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **How do I monitor Storage Usage?**
     
-    Use [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics) to monitor storage and performance usage for datastores.
+    Use [Metrics for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-metrics) to monitor storage and performance usage for the Datastore volume and to set alerts.
 
 - **What metrics are available for monitoring?**
 
@@ -194,3 +198,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - **What regions are currently supported by Azure VMware Solutions?**
 
     To check the regions Azure VMware Solutions supports, go to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+
+- **Is connectivity to Azure NetApp Files datastores over VWAN supported?**
+
+     No, Connectivity to Azure NetApp Files connectivity over VWAN is currently not supported. For supported connectivity patterns, refer to [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies#).
