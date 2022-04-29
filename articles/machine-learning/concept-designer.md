@@ -41,7 +41,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 + [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
-1. [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
+1. [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
 
@@ -85,7 +85,7 @@ For some help navigating through the library of machine learning algorithms avai
 
 ## <a name="compute"></a> Compute resources
 
-Use compute resources from your workspace to run your pipeline and host your deployed models as real-time endpoints or pipeline endpoints (for batch inference). The supported compute targets are:
+Use compute resources from your workspace to run your pipeline and host your deployed models as online endpoints or pipeline endpoints (for batch inference). The supported compute targets are:
 
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
@@ -96,9 +96,9 @@ Compute targets are attached to your [Azure Machine Learning workspace](concept-
 
 ## Deploy
 
-To perform real-time inferencing, you must deploy a pipeline as a **real-time endpoint**. The real-time endpoint creates an interface between an external application and your scoring model. A call to a real-time endpoint returns prediction results to the application in real time. To make a call to a real-time endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
+To perform real-time inferencing, you must deploy a pipeline as a [online endpoint](concept-endpoints.md#what-are-online-endpoints?). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
-Real-time endpoints must be deployed to an Azure Kubernetes Service cluster.
+Online endpoints must be deployed to an Azure Kubernetes Service cluster.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
 
@@ -106,7 +106,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 ## Publish
 
-You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real time using a pipeline endpoint.
+You can also publish a pipeline to a **pipeline endpoint**. Similar to an online endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real time using a pipeline endpoint.
 
 Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 
