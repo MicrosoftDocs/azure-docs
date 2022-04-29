@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 04/20/2022
+ms.date: 04/28/2022
 ---
 
 # Run queries

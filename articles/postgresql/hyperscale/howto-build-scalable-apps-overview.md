@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ---
 
 # Build scalable apps
