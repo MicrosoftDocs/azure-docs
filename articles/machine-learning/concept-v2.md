@@ -45,11 +45,11 @@ The CLI v2 is useful in the following scenarios:
 
 * Managed inference deployments
 
-    Azure ML offers [endpoints](concept-endpoints) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2 (preview).
+    Azure ML offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2 (preview).
 
 * Reusable components in pipelines
 
-    Azure ML introduces [components](concept-component) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
+    Azure ML introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
 
 
 ## Azure Machine Learning Python SDK v2 (preview)
@@ -87,11 +87,11 @@ The SDK v2 is useful in the following scenarios:
 
 * Reusable components in pipelines
 
-    Azure ML introduces [components](concept-component) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
+    Azure ML introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
 
 * Managed Inferencing
 
-    Azure ML offers [endpoints](concept-endpoints) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2.
+    Azure ML offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2.
 
 ## Next steps
 
