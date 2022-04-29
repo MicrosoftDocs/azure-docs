@@ -18,7 +18,7 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](/register-scan-power-bi-tenant.md#deploymentchecklist)| [Yes](/register-scan-power-bi-tenant.md#deploymentchecklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 ## Error code: Test connection failed - AASDST50079
 
