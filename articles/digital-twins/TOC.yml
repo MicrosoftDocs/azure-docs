@@ -168,13 +168,13 @@
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true
+          href: /java/api/com.azure.resourcemanager.digitaltwins
       - name: Data plane
         items:
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true
+          href: /java/api/overview/azure/digitaltwins
         - name: JavaScript SDK
           href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
         - name: Python SDK

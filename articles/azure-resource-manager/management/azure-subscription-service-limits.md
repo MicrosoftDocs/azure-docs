@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/17/2022
+ms.date: 04/27/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -374,6 +374,38 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 The latest values for Microsoft Purview quotas can be found in the [Microsoft Purview quota page](../../purview/how-to-manage-quotas.md).
 
+## Microsoft Sentinel limits
+
+This section lists the most common service limits you might encounter as you use Microsoft Sentinel.
+
+### Analytics rule limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-analytics-rules.md)]
+
+### Incident limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-incidents.md)]
+
+### Machine learning-based limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
+
+### Notebook limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
+
+### Threat intelligence limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
+
+### Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
+
+### User and Entity Behavior Analytics (UEBA) limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
+
 ## Service Bus limits
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/service-bus-quotas-table.md)]
@@ -384,7 +416,7 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 ## SQL Database limits
 
-For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](/azure/azure-sql/database/resource-limits-vcore-single-databases), [SQL Database resource limits for elastic pools and pooled databases](/azure/azure-sql/database/resource-limits-vcore-elastic-pools), and [SQL Database resource limits for SQL Managed Instance](/azure/azure-sql/managed-instance/resource-limits).
 
 The maximum number of private endpoints per Azure SQL Database logical server is 250.
 
