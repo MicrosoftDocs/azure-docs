@@ -35,6 +35,8 @@ For information on how to create and manage files, including notebooks, see [Cre
 1. Select your workspace, if it isn't already open
 1. On the left, select **Notebooks**
 
+Everything you need to interact with your notebooks is in this part of your workspace.
+
 ## Edit a notebook
 
 To edit a notebook, open any notebook located in the **User files** section of your workspace. Click on the cell you wish to edit.  If you don't have any notebooks in this section, see [Create and manage files in your workspace](how-to-manage-files.md).
