@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ms.custom: cliv2, sdkv2
 #Customer intent: As a data scientist, I want to know whether to use v1 or v2 of CLI, SDK.
 ---
 
-# What is Azure Machine Learning CLI & SDK v2?
+# What is Azure Machine Learning CLI & Python SDK v2?
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -89,7 +89,7 @@ The SDK v2 is useful in the following scenarios:
 
     Azure ML introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
 
-* Managed Inferencing
+* Managed inferencing
 
     Azure ML offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2.
 
@@ -103,6 +103,6 @@ The SDK v2 is useful in the following scenarios:
     
 * Get started with SDK v2
 
-    * [Install and set up SDK (v2)](LINKTBD)
+    * [Install and set up SDK (v2)]()
     * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-sdk.md)
     * [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
