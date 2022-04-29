@@ -11,12 +11,12 @@ ms.date: 4/28/2022
 
 # High CPU Utilization
 
-The purpose of the document is to :
+The purpose of the document is to:
 
 -   Quickly identify the root cause of High CPU utilization 
 -   Remedial actions to control CPU utilization 
 
-Areas which are highlighted in this document are –  
+The document covers –  
 -   Tools to identify high CPU utilization  
 	- Azure Metrics  
 	- Query Store  
@@ -36,13 +36,13 @@ Areas which are highlighted in this document are –
 
 #### Azure Metrics 
 
-Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics gives information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
+Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
 
 #### Query Store
 Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](./concepts-query-store.md)
 
 #### pg_stat_statements
-pg_stat_statements extension helps in identifying the queries which, consume time on the server.
+pg_stat_statements extension helps in identifying the queries that, consume time on the server.
 
 SQL statements that consume the most time –   
 
@@ -117,16 +117,16 @@ ORDER BY duration DESC;
 
 #### Total Number of Connections and Number Connections by State 
 
-This query will give information about the number of connections by state – 
+A large of connections to database are also another issue that might lead to increased CPU as well as memory utilization.
+
+Following query will give information about the number of connections by state – 
 ~~~
 SELECT state, count(*)  
 FROM  pg_stat_activity   
 WHERE pid <> pg_backend_pid()  
 GROUP BY 1 ORDER BY 1;   
 ~~~
-Idle connections represent connections that are not doing anything, those usually, are waiting for additional requests from the client. While this situation of having idle connections does not sound harmful, having many idle connections will consume CPU and memory.  
- 
-A large of connections to database is also another issue which might lead to increased CPU utilization
+  
 
 ### Resolve High CPU Utilization: 
 
@@ -146,16 +146,14 @@ For more details of pg bouncer
 
 [Best Practices](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/connection-handling-best-practice-with-postgresql/ba-p/790883)
 
-[Pg Bouncer Setup](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-proxy/ba-p/730555)
 
-
-Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more details, see [Pg Bouncer](./concepts-pgbouncer.md)
+Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [Pg Bouncer](./concepts-pgbouncer.md)
 
 #### Terminating a long running session 
 
 You could consider killing a long running transaction as an option.
 
-To terminate a session, you will need to detect the PID Using a query like the following: 
+To terminate a session, you will need to detect the PID using the following query: 
 ~~~
 SELECT * FROM pg_stat_activity  
 WHERE usename != 'azure_superuser'  
@@ -181,7 +179,7 @@ SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count ,
 FROM pg_stat_all_tables    
 WHERE n_live_tup > 0 ;   
 ~~~
-last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed.If the tables are not being vacuumed on a regular basis steps should be taken to tune autovacuum. The details are found autovacuum tuning troubleshooting guide.
+last_autovacuum and last_autoanalyze columns will give date time when the table was last autovacuumed or analyzed. If the tables are not being vacuumed regularly steps should be taken to tune autovacuum. The details are found in the autovacuum tuning troubleshooting guide.
 
 A more short term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:
 ~~~
