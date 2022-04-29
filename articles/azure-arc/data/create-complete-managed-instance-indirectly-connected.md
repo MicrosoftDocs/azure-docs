@@ -20,7 +20,7 @@ When you complete the steps in this article, you will have:
 
 - A Kubernetes cluster on Azure Kubernetes Services (AKS).
 - A data controller in indirectly connected mode.
-- An instance of Azure Arc-enabled SQL Managed Instance.
+- An Azure Arc-enabled SQL Managed Instance.
 - A connection to the instance with Azure Data Studio.
 
 Use these objects to experience Azure Arc-enabled data services. 
