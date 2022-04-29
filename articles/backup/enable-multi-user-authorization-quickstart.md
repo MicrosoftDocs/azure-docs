@@ -18,7 +18,7 @@ This quickstart describes how to enable Multi-user authorization (MUA) for Azure
 
 Before you start:
 
--  The Resource Guard and the Recovery Services vault must be in the same Azure region.
+-  Ensure the Resource Guard and the Recovery Services vault are in the same Azure region.
 -  Ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
 - Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the **Microsoft.RecoveryServices** provider. For more details, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 - Ensure that you [create a Resource Guard](multi-user-authorization.md#create-a-resource-guard) in a different subsctiption/tenant as that of the vault located in the same region.
@@ -26,30 +26,24 @@ Before you start:
 
 ## Enable MUA
 
-Now that the Backup admin has the Reader role on the Resource Guard, they can easily enable multi-user authorization on vaults managed by them. The following steps are performed by the **Backup admin**.
+The Backup admin now has the Reader role on the Resource Guard and can easily enable multi-user authorization on vaults managed by them.
 
-1. Go to the Recovery Services vault. Go to **Properties** on the left navigation panel, then to **Multi-User Authorization** and click **Update**.
+Follow these steps:
 
-   :::image type="content" source="./media/multi-user-authorization/test-vault-properties.png" alt-text="Screenshot showing the Recovery services vault-properties.":::
-
-1. Now you are presented with the option to enable MUA and choose a Resource Guard using one of the following ways:
+1. Go to the Recovery Services vault.
+1. Go to **Properties** on the left navigation panel, then to **Multi-User Authorization** and click **Update**.
+1. The option to enable MUA appears. Choose a Resource Guard using one of the following ways:
 
    1. You can either specify the URI of the Resource Guard, make sure you specify the URI of a Resource Guard you have **Reader** access to and that is the same regions as the vault. You can find the URI (Resource Guard ID) of the Resource Guard in its **Overview** screen:
 
-      :::image type="content" source="./media/multi-user-authorization/resource-guard-rg-inline.png" alt-text="Screenshot showing the Resource Guard." lightbox="./media/multi-user-authorization/resource-guard-rg-expanded.png":::
-    
-   1. Or you can select the Resource Guard from the list of Resource Guards you have **Reader** access to, and those available in the region.
+   1. Or, you can select the Resource Guard from the list of Resource Guards you have **Reader** access to, and those available in the region.
 
       1. Click **Select Resource Guard**
       1. Click on the dropdown and select the directory the Resource Guard is in.
       1. Click **Authenticate** to validate your identity and access.
       1. After authentication, choose the **Resource Guard** from the list displayed.
 
-      :::image type="content" source="./media/multi-user-authorization/testvault1-multi-user-authorization-inline.png" alt-text="Screenshot showing multi-user authorization." lightbox="./media/multi-user-authorization/testvault1-multi-user-authorization-expanded.png" :::
-
-1. Click **Save** once done to enable MUA
-
-   :::image type="content" source="./media/multi-user-authorization/testvault1-enable-mua.png" alt-text="Screenshot showing how to enable Multi-user authentication.":::
+1. Click **Save** once done to enable MUA.
 
 ## Next steps
 
