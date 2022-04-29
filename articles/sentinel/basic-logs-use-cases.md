@@ -29,7 +29,7 @@ Many cloud providers allow you to log all activity. You can use these logs to in
 
 ## NetFlow logs
 
-Typically, you use NetFlow data to get a picture of the network traffic flow and volume.  Most often, you use this data to investigate command and control activity because it records source and destination IPs and ports. Use the metadata provided by NetFlow to help you piece together information about an adversary on the network.
+NetFlow logs are used to understand network communication within your infrastructure, and between your infrastructure and other services over Internet. Most often, you use this data to investigate command and control activity because it records source and destination IPs and ports. Use the metadata provided by NetFlow to help you piece together information about an adversary on the network.
 
 ## VPC flow logs for cloud providers
 
@@ -57,12 +57,11 @@ When you dig into the network as part of an investigation, proxy log data overla
 
 ## Firewall logs
 
-Firewall event logs are often the most fundamental network log sources for threat hunting and investigations. Firewall event logs can reveal abnormally large file transfers, volume, and frequency of communication by a host. These logs can also show important events such as failed sequential connection attempts. Firewall logs are also useful as a data source for various unstructured hunting techniques, such as stacking ephemeral ports, or grouping and clustering different communication patterns.
+Firewall event logs are often the most fundamental network log sources for threat hunting and investigations. Firewall event logs can reveal abnormally large file transfers, volume, frequency of communication by a host, probing connection attempts, and port scanning. Firewall logs are also useful as a data source for various unstructured hunting techniques, such as stacking ephemeral ports, or grouping and clustering different communication patterns.
 
 ## IoT Logs
 
 A new and growing source of log data is Internet of Things (IoT) connected devices. IoT devices might log their own activity and/or sensor data captured by the device. IoT visibility for security investigations and threat hunting is a major challenge. Advanced IoT deployments save log data to a central cloud service like Azure.
-
 
 ## Next steps
 
