@@ -29,6 +29,14 @@ For information on how to create and manage files, including notebooks, see [Cre
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 * Your user identity must have access to your workspace's default storage account. Whether you can read, edit, or create notebooks depends on your [access level](how-to-assign-roles.md) to your workspace. For example, a Contributor can edit the notebook, while a Reader could only view it.
 
+## Access notebooks from your workspace
+
+1. Sign into [Azure Machine Learning studio](https://ml.azure.com)
+1. Select your workspace, if it isn't already open
+1. On the left, select **Notebooks**
+
+You'll use this section of your workspace to interact with your notebooks.  
+
 ## Edit a notebook
 
 To edit a notebook, open any notebook located in the **User files** section of your workspace. Click on the cell you wish to edit.  If you don't have any notebooks in this section, see [Create and manage files in your workspace](how-to-manage-files.md).
