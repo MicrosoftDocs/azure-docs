@@ -90,7 +90,7 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-    - name: $purge-history operation
+    - name: Purge history operation
       href: purge-history.md
   - name: Bulk-import data
     expanded: true
