@@ -94,8 +94,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - Symbolic links are not supported.
 
-- `ssh-keyscan` is not supported.
-
 - SSH and SCP commands, that are not SFTP, are not supported.
 
 - FTPS and FTP are not supported.
