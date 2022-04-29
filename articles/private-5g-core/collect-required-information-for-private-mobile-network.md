@@ -27,7 +27,7 @@ Collect all of the following values for the mobile network resource that will re
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. This is the subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
+   |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
    |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
    |The region in which you're deploying the private mobile network. We recommend you use the East US region.                         |**Instance details: Region**|
@@ -42,19 +42,19 @@ As part of creating your private mobile network, you can provision one or more S
 
 If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods:
 
-- Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a small number of SIMs.
-- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [JSON file format for provisioning SIMs](#json-file-format-for-provisioning-sims). Note that you'll need to use this option if you're deploying your private mobile network with an ARM template.
+- Manually entering values for each SIM into fields in the Azure portal. This option is best when provisioning a few SIMs.
+- Importing a JSON file containing values for one or more SIM resources. This option is best when provisioning a large number of SIMs. The file format required for this JSON file is given in [JSON file format for provisioning SIMs](#json-file-format-for-provisioning-sims). You'll need to use this option if you're deploying your private mobile network with an ARM template.
 
 You must then collect each of the values given in the following table for each SIM resource you want to provision.
 
  |Value  |Field name in Azure portal  | JSON file parameter name |
    |---------|---------|---------|
-   |The name for the SIM resource. This must only contain alphanumeric characters, dashes, and underscores. |**SIM name**|`simName`|
-   |The Integrated Circuit Card Identification Number (ICCID). This identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. This is a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
-   |The international mobile subscriber identity (IMSI). This is a unique number (usually 15 digits) identifying a device or user in a mobile network. |**IMSI**|`internationalMobileSubscriberIdentity`|
-   |The Authentication Key (Ki). This is a unique 128-bit value assigned to the SIM by an operator, and is used in conjunction with the derived operator code (OPc) to authenticate a user. This must be a 32-character string, containing hexadecimal characters only. |**Ki**|`authenticationKey`|
-   |The derived operator code (OPc). This is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. This must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
-   |The type of device that is using this SIM. This is an optional, free-form string. You can use it as required to easily identify device types that are using the enterprise's mobile networks. |**Device type**|`deviceType`|
+   |The name for the SIM resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM name**|`simName`|
+   |The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country and issuer. It's a unique numerical value between 19 and 20 digits in length, beginning with 89. |**ICCID**|`integratedCircuitCardIdentifier`|
+   |The international mobile subscriber identity (IMSI). The IMSI is a unique number (usually 15 digits) identifying a device or user in a mobile network. |**IMSI**|`internationalMobileSubscriberIdentity`|
+   |The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. The Ki must be a 32-character string, containing hexadecimal characters only. |**Ki**|`authenticationKey`|
+   |The derived operator code (OPc). The OPc is derived from the SIM's Ki and the network's operator code (OP), and is used by the packet core to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. |**Opc**|`operatorKeyCode`|
+   |The type of device that is using this SIM. This value is an optional, free-form string. You can use it as required to easily identify device types that are using the enterprise's mobile networks. |**Device type**|`deviceType`|
 
 ### JSON file format for provisioning SIMs
 

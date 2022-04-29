@@ -1,6 +1,7 @@
 ---
-title: Create a full Azure Private 5G Core Preview deployment - ARM template
-description: Learn how to create a full Azure Private 5G Core private deployment using an Azure Resource Manager template (ARM template).
+title: Deploy a private mobile network and site - ARM template
+titleSuffix: Azure Private 5G Core Preview
+description: Learn how to deploy a private mobile network and site using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager 
 author: djrmetaswitch
 ms.author: drichards
@@ -8,14 +9,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms-custom: subject-armqs
 ms.date: 03/23/2022
-ms.custom: template-how-to 
 ---
 
-# Quickstart: Create a full Azure Private 5G Core Preview deployment - ARM template
+# Quickstart: Deploy a private mobile network and site - ARM template
 
 Azure Private 5G Core is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy the following.
 
-- Your private mobile network.
+- A private mobile network.
 - A site.
 - The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs.
