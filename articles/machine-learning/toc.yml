@@ -98,7 +98,7 @@
       href: "tutorial-create-secure-workspace.md"
     - name: "Create a secure workspace with templates"
       href: "tutorial-create-secure-workspace-template.md"
-    - name: "Build a training pipeline (Python)"
+    - name: "Build a training pipeline (Python SDK V2)(preview)"
       href: "tutorial-pipeline-python-sdk.md"
 - name: Samples
   items:
