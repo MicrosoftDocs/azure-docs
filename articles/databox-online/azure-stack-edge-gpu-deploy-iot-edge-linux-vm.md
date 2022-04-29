@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 04/29/2022
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ ms.author: alkohli
 This article describes how to deploy IoT Edge runtime on an Ubuntu VM running on your Azure Stack Edge device. 
 
 > [!NOTE]
-> IoT Edge solution on Kubernetes running on Azure Stack Edge will soon be deprecated. If you have production workloads deployed that use the native IoT Edge solution on Azure Stack Edge, we recommend that you plan to migrate those workloads to a recent, [Supported version of IoT Edge runtime](../iot-edge/version-history.md?view=iotedge-2020-11&preserve-view=true). 
+> IoT Edge solution on Kubernetes running on Azure Stack Edge will be deprecated soon. If you have deployed production workloads that use the native IoT Edge solution on Azure Stack Edge, we recommend that you plan to migrate those workloads to a [recent, supported version of IoT Edge runtime](../iot-edge/version-history.md?view=iotedge-2020-11&preserve-view=true). 
 
 
 ## About IoT Edge runtime on Ubuntu VM
@@ -32,17 +32,17 @@ Going forward, we recommend that you do not use the native version of IoT Edge s
 
 Before you begin, make sure you have:
 
-- An Azure Stack Edge device that you've activated as described in [Activate Azure Stack Edge Pro].
-- You have access to a VM image. This could be an image from Azure marketplace. 
+- An Azure Stack Edge device that you've activated. For detailed steps, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md).
+- You have access to a VM image. This could be an image from Azure marketplace or a custom image that you are bringing. 
 
-    - If you intend to run a non-GPU Ubuntu VM, see the [Supported versions of Ubuntu Operating System for Azure IoT Edge](../iot-edge/support.md#operating-systems).
-    - For GPU VMs, see the [Supported versions of OS for your GPU VM on Azure Stack Edge device](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-for-gpu-extension-for-linux).
+    - For a non-GPU Ubuntu VM, see the [Supported versions of Ubuntu Operating System for Azure IoT Edge](../iot-edge/support.md#operating-systems).
+    - For a GPU VM, see the [Supported versions of OS for your GPU VM on Azure Stack Edge device](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-for-gpu-extension-for-linux).
 
 ## Deploy IoT Edge runtime
 
-Begin by deploying IoT Edge runtime. Follow these steps to deploy IoT Edge runtime:
+Begin by deploying IoT Edge runtime. Follow these high-level steps to deploy IoT Edge runtime:
 
-1. In the Azure portal, go to Azure marketplace. 
+1. In the [Azure portal](https://portal.azure.com), go to Azure Marketplace. 
     1. Connect to the Azure Cloud Shell or a client with Azure CLI installed. 
     1. Search the Azure Marketplace and identify your preferred image. Make sure that the VM image is included in the list of [Azure IoT Edge supported systems](../iot-edge/support.md#linux-containers).
     1. Create a new managed disk from the Marketplace image.
@@ -78,13 +78,13 @@ If you are migrating workloads from IoT Edge solution on Kubernetes to IoT Edge 
 1. First review the considerations for GPU deployments in [GPU VMs and Kubernetes on Azure Stack Edge](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
 1. When you enable Kubernetes services on Azure Stack Edge, Kubernetes may take over the GPU resources and not allow the deployment of a GPU-enabled VM. To deploy the VM:
 
-    1. Stop any running modules. 
+    1. Stop any running modules. These would include IoT Edge modules or any other modules.
     1. Remove the IoT Edge on Kubernetes deployment. For detailed instructions, see [Remove IoT Edge service](azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
     
         ![Screenshot of removal of IoT Edge role configured on Kubernetes deployment.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/remove-iot-configuration-1.png)
 
     1. Deploy a GPU-enabled VM using the instructions in [Deploy GPU VMs on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal&preserve-view=true).
-    1. You may need to make modifications to the modules themselves before you run these on the Ubuntu VM.
+    1. Modify your modules so that these can run these on the Ubuntu VM.
 
 ## Next steps
 
