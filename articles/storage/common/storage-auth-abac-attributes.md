@@ -42,8 +42,8 @@ In this preview, storage accounts support the following suboperations:
 > [!div class="mx-tableFixed"]
 > | Display name | DataAction | Suboperation |
 > | :--- | :--- | :--- |
-> | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | NOT `Blob.List` |
-> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
+> | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
+> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | NOT `Blob.List` |
 > | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` |
 > | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
 > | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
@@ -73,7 +73,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Display name** | List blobs |
 > | **Description** | List blobs operation. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | **Suboperation** | NOT `Blob.List` |
+> | **Suboperation** | `Blob.List` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
 > | **Request attributes** | Blob prefix |
 > | **Principal attributes** | Supported |
@@ -86,7 +86,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Display name** | Read a blob |
 > | **Description** | All blob read operations excluding list. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
-> | **Suboperation** | `Blob.List` |
+> | **Suboperation** | NOT `Blob.List` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** | Version ID<br/>Snapshot |
 > | **Principal attributes** | Supported |
