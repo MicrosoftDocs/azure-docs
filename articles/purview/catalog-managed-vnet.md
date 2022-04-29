@@ -121,7 +121,7 @@ Interactive authoring capabilities is used for functionalities like test connect
 
 Before deploying a Managed VNet and Managed VNet Runtime for a Microsoft Purview account, ensure you meet the following prerequisites:
 
-1. An Microsoft Purview account deployed in one of the [supported regions](#supported-regions).
+1. A Microsoft Purview account deployed in one of the [supported regions](#supported-regions).
 2. From Microsoft Purview roles, you must be a data curator at root collection level in your Microsoft Purview account.
 3. From Azure RBAC roles, you must be contributor on the Microsoft Purview account and data source to approve private links.
 

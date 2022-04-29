@@ -29,15 +29,15 @@ Storage accounts with VNET and private endpoints are not supported.
 ## Prerequisites to receive shared data
 
 * [A Purview account](create-catalog-portal.md) in the supported Azure region. If you are getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit. 
-* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Azure Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
+* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
 * If the target Azure data store is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
 * Different Azure data stores have different permission requirements for receiving share. To receive data into a target storage account, you need **Contributor**, **Owner**, **Blob Storage Data Contributor**, or **Blob Storage Data Owner** role to the target storage account. You can find additional details on the [ADLS Gen2](register-scan-adls-gen2.md#data-share) or [Blob storage](register-scan-azure-blob-storage-source.md#data-share) data source page.
 
 ## Receive share
 
-1. You can view pending share in any Purview account. Select a Purview account you want to use to receive the share, and open Purview Studio. If you received an email invitation, you can click on the **View pending share** link in the email to select a Purview account. 
+1. You can view pending share in any Purview account. Select a Purview account you want to use to receive the share, and open the Microsoft Purview governance portal. If you received an email invitation, you can click on the **View pending share** link in the email to select a Purview account. 
 
-1. In Purview Studio, select **Data Share** icon from the left navigation. Then select **pending received share**.
+1. In the Microsoft Purview governance portal, select **Data Share** icon from the left navigation. Then select **pending received share**.
 
     If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing pending received share for the first time. Once verified, it is valid for 12 months.
 

@@ -43,7 +43,7 @@ For more information, see our [introduction to Data Insights](concept-insights.m
 
 ## Data Share
 
-Azure Purview Data Share enables organizations to securely share data both within your organization, or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
+Microsoft Purview Data Share enables organizations to securely share data both within your organization, or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
 
 For more information, see our [introduction to Data Share](concept-data-share.md).
 

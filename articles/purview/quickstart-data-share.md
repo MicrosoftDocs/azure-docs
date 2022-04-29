@@ -29,7 +29,7 @@ Storage accounts with VNET and private endpoints are not supported.
 ## Prerequisites
 
 * [A Purview account](create-catalog-portal.md) in the supported Azure region. You can also use two Purview accounts, one for data provider and one for data consumer. If you are getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit. 
-* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Azure Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
+* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
 * A source storage account in the supported regions with files and folders you like to share. 
 * **Owner** or **Blob Storage Data Owner** role to the source storage account. 
 * A target storage account which you will use to access shared data. The target storage account must be in the same region as the source storage account. Both source and target need to be of the same type. If the source is ADLS Gen2, then target must be ADLS Gen2. If the source is Blob storage, then target must be Blob storage. 
@@ -38,7 +38,7 @@ Storage accounts with VNET and private endpoints are not supported.
 * Your recipient's Azure sign-in email address which you can use to send the invitation to. The recipient's email alias won't work.
 
 ## Create a share
-1. Within Purview Studio, select **Data Share** icon from the left navigation, and then **Create a new share**.
+1. Within the Microsoft Purview governance portal, select **Data Share** icon from the left navigation, and then **Create a new share**.
 
    :::image type="content" source="./media/how-to-share-data/create-share.png" alt-text="Screenshot showing the data share overview.":::
 
@@ -76,9 +76,9 @@ You've now created your Azure data share. The recipients of your share will rece
 
 ## Receive share
 
-1. You can view pending share in any Purview account. Select a Purview account you want to use to receive the share, and open Purview Studio. If you received an email invitation, you can click on the **View pending share** link in the email to select a Purview account. 
+1. You can view pending share in any Purview account. Select a Purview account you want to use to receive the share, and open the Microsoft Purview governance portal. If you received an email invitation, you can click on the **View pending share** link in the email to select a Purview account. 
 
-1. In Purview Studio, select **Data Share** icon from the left navigation. Then select **pending received share**.
+1. In the Microsoft Purview governance portal, select **Data Share** icon from the left navigation. Then select **pending received share**.
 
     If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing pending received share for the first time. Once verified, it is valid for 12 months.
 

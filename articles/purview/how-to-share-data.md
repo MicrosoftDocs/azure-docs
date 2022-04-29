@@ -29,14 +29,14 @@ Storage accounts with VNET and private endpoints are not supported.
 ## Prerequisites to share data
 
 * [A Purview account](create-catalog-portal.md) in the supported Azure region. If you are getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit. 
-* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Azure Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
+* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
 * Your recipient's Azure sign-in email address which you can use to send the invitation to. The recipient's email alias won't work.
 * If the source Azure data store is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the Azure data store is located.
 * Different Azure data stores have different permission requirements for sharing. To share data from storage account, you need **Owner** or **Blob Storage Data Owner** role to the source storage account. You can find additional details on the [ADLS Gen2](register-scan-adls-gen2.md#data-share) or [Blob storage](register-scan-azure-blob-storage-source.md#data-share) data source page.
 
 ## Create a share
 
-1. Within Purview Studio, select **Data Share** icon from the left navigation, and then **Create a new share**.
+1. Within the Microsoft Purview governance portal, select **Data Share** icon from the left navigation, and then **Create a new share**.
 
    :::image type="content" source="./media/how-to-share-data/create-share.png" alt-text="Screenshot showing the data share overview.":::
 
@@ -66,7 +66,7 @@ Storage accounts with VNET and private endpoints are not supported.
 
 1. Select **Add Recipient**. Enter the Azure login email address of who you want to share data with. Select **Create and Share**. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
-    Note in Purview Studio, you can only use user's Azure login email address as recipient. In Purview SDK or API, you can use object ID of the user or service principal as a recipient, and you can also optionally specify a target tenant ID (i.e. the Azure tenant recipient can receive the share into).
+    Note in the Microsoft Purview governance portal, you can only use user's Azure login email address as recipient. In Purview SDK or API, you can use object ID of the user or service principal as a recipient, and you can also optionally specify a target tenant ID (i.e. the Azure tenant recipient can receive the share into).
 
     <img src="./media/how-to-share-data/create-share-add-recipient.png" alt="Add recipients" width=500/>   
 

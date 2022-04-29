@@ -122,7 +122,7 @@ landingContent:
         - text: Search for assets, terms, annotations, and contacts
           url: how-to-search-catalog.md
   #Card
-  - title: Share data in Azure Purview
+  - title: Share data in Microsoft Purview
     linkLists:
     - linkListType: how-to-guide
       links:
