@@ -32,28 +32,28 @@ The document covers –
 	- Vacuuming the tables 
 
 
-### Tools to Identify high CPU Utilization 
+## Tools to Identify high CPU Utilization 
 
-#### Azure Metrics 
+### Azure Metrics 
 
 Azure Metrics is a good starting point to check the CPU utilization for the definite date and period. Metrics give information about the time duration during which the CPU utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput with the CPU utilization to find out the times at which the workload caused high CPU. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
 
-#### Query Store
+### Query Store
 Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance.For step-by-step guidance, see [Query Store](./concepts-query-store.md)
 
-#### pg_stat_statements
+### pg_stat_statements
 pg_stat_statements extension helps in identifying the queries that, consume time on the server.
 
 Execute the following statements to view the top five SQL statements by mean or average time taken: 
 
-#### Postgres version 13 and above
+##### Postgres version 13 and above
 ~~~
 SELECT userid::regrole, dbid, query, mean_exec_time 
 FROM pg_stat_statements 
 ORDER BY mean_exec_time 
 DESC LIMIT 5;   
 ~~~
-#### Postgres version 9.6, 10, 11, 12
+##### Postgres version 9.6, 10, 11, 12
 ~~~
 SELECT userid: :regrole, dbid, query 
 FROM pg_stat_statements 
@@ -62,25 +62,25 @@ DESC LIMIT 5;
 ~~~
 Execute the following statements to view the top five SQL statements by total time taken: 
 
-#### Postgres version 13 and above
+##### Postgres version 13 and above
 ~~~
 SELECT userid::regrole, dbid, query 
 FROM pg_stat_statements 
 ORDER BY total_exec_time 
 DESC LIMIT 5;   
 ~~~
-#### Postgres version 9.6, 10, 11, 12
+##### Postgres version 9.6, 10, 11, 12
 ~~~
 SELECT userid: :regrole, dbid, query, 
 FROM pg_stat_statements 
 ORDER BY total_time 
 DESC LIMIT 5;    
 ~~~
-### Identify Root Causes 
+## Identify Root Causes 
 
 If CPU consumption levels are high in general, we could do the following - 
 
-#### Long Running Transactions  
+### Long Running Transactions  
 
 Long running transactions can consume cpu resources that can lead to high cpu utilization.
 
@@ -92,7 +92,7 @@ WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active')
 ORDER BY duration DESC;   
 ~~~
 
-#### Total Number of Connections and Number Connections by State 
+### Total Number of Connections and Number Connections by State 
 
 A large of connections to database are also another issue that might lead to increased CPU as well as memory utilization.
 
@@ -105,16 +105,16 @@ GROUP BY 1 ORDER BY 1;
 ~~~
   
 
-### Resolve High CPU Utilization: 
+## Resolve High CPU Utilization: 
 
-#### Using EXPLAIN ANALZE to debug slow query 
+### Using EXPLAIN ANALZE to debug slow query 
 
 Once you know the query, which is running for long time one can use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate the query and tune it. 
 
 For more information on EXPLAIN command [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html) 
 
  
-#### PG Bouncer or Connection Pooling 
+### PG Bouncer or Connection Pooling 
 
 In situations where there are lot of idle connections or lot of connections which are consuming the CPU consider use of a connection pooler like pg bouncer.
 For more details of pg bouncer
@@ -126,7 +126,7 @@ For more details of pg bouncer
 
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [Pg Bouncer](./concepts-pgbouncer.md)
 
-#### Terminating a long running session 
+### Terminating a long running session 
 
 You could consider killing a long running transaction as an option.
 
@@ -146,7 +146,7 @@ SELECT pg_terminate_backend(pid) FROM pg_stat_activity
 WHERE usename != 'azure_superuser'  
 AND application_name LIKE '<YOUR APPLICATION NAME>' ; 
 ~~~
-#### Monitoring Vacuum and Table Stats 
+### Monitoring Vacuum and Table Stats 
 
 Keeping the table statistics up to date helps in improving the performance of queries. Monitor whether regular auto vacuuming is being carried out. 
 
