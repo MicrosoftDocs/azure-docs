@@ -204,7 +204,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-IdPropertyMissed
 - **Message**: 'id' property should be mapped for delete and update operations.
 - **Cause**: The `id` property is missed for update and delete operations.
-- **Recommendation**: Make sure that the input data has an `id` column in Azure Cosmos DB sink transformation settings. If not, use select or derived column transformation to generate this column before sink transformation.
+- **Recommendation**: Make sure that the input data has an `id` column in Azure Cosmos DB sink transformation settings. If not, use a select or derived column transformation to generate this column before the sink transformation.
 
 ## Error code: DF-Cosmos-InvalidPartitionKeyContent
 - **Message**: partition key should start with /.
@@ -427,7 +427,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-FailToResetThroughput
 - **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
 - **Cause**: The throughput scale operation of the Azure Cosmos DB cannot be performed because another scale operation is in progress.
-- **Recommendation**: Login to Azure Cosmos DB account, and manually change its container's throughput to be auto scale or add custom activity after mapping data flows to reset the throughput.
+- **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
 ## Error code: DF-Executor-InvalidPath
 - **Message**: Path does not resolve to any file(s). Please make sure the file/folder exists and is not hidden.
@@ -566,8 +566,8 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Snowflake-IncompatibleDataType
 - **Message**: Expression type does not match column data type, expecting VARIANT but got VARCHAR.
-- **Cause**: The column(s) type of input data which is string is different from the related column(s) type in Snowflake sink transformation which is VARIANT.
-- **Recommendation**: For the snowflake VARIANT, it can only accept data flow value which is struct, map or array type. If the value of your input data column(s) is JSON or XML or other string, use parse transformation before Snowflake sink transformation to covert value into struct, map or array type.
+- **Cause**: The column(s) type of input data which is string is different from the related column(s) type in the Snowflake sink transformation which is VARIANT.
+- **Recommendation**: For the snowflake VARIANT, it can only accept data flow value which is struct, map or array type. If the value of your input data column(s) is JSON or XML or other string, use a parse transformation before the Snowflake sink transformation to covert value into struct, map or array type.
 
 ## Error code: DF-JSON-WrongDocumentForm
 - **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST.
@@ -576,7 +576,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-File-InvalidSparkFolder
 - **Message**: Failed to read footer for file 
-- **Cause**: Folder *_spark_metadata* is created by structured streaming job.
+- **Cause**: Folder *_spark_metadata* is created by the structured streaming job.
 - **Recommendation**: Delete *_spark_metadata* folder if it exists. For more information, refer to this [article](https://forums.databricks.com/questions/12447/javaioioexception-could-not-read-footer-for-file-f.html).
 
 ## Error code: DF-Executor-InternalServerError
@@ -601,12 +601,12 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-AzureDataExplorer-WriteTimeout
 - **Message**: Operation timeout while writing data.
-- **Cause**: Operation timeout while writing data.
+- **Cause**: Operation times out while writing data.
 - **Recommendation**: Increase the value in **Timeout** option in sink transformation settings.
  
 ## Error code: DF-AzureDataExplorer-ReadTimeout
 - **Message**: Operation timeout while reading data.
-- **Cause**: Operation timeout while reading data.
+- **Cause**: Operation times out while reading data.
 - **Recommendation**: Increase the value in **Timeout** option in source transformation settings.
 
 ## Next steps
