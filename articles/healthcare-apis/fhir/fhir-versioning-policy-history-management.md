@@ -40,7 +40,7 @@ Versioning policy available to configure at as a system-wide setting and also to
 | `no-version`     | History isn't stored | Increments from last value | No      |
 
 > [!NOTE]
-> Changing the versioning policy to `no-version` has no effect on existing resource history. If history needs to be removed for resources, use the [purge history operation](overview.md).
+> Changing the versioning policy to `no-version` has no effect on existing resource history. If history needs to be removed for resources, use the [$purge-history](purge-history.md) operation.
 
 ## Configuring versioning policy
 
@@ -65,13 +65,13 @@ When configuring resource level configuration, you'll be able to select the FHIR
 
 History in FHIR is important for end users to see how a resource has changed over time. It's also useful in coordination with audit logs to see the state of a resource before and after a user modified it. In general, it's recommended to keep history for a resource unless you know that the history isn't needed. Frequent updates of resources can result in a large amount of data storage, which can be undesired in FHIR services with a large amount of data.
 
-Changing the versioning policy either at a system level or resource level won't remove the existing history for any resources in your FHIR service. If you're looking to reduce the history data size in your FHIR service, you must use the [purge history](overview.md) operation.
+Changing the versioning policy either at a system level or resource level won't remove the existing history for any resources in your FHIR service. If you're looking to reduce the history data size in your FHIR service, you must use the [$purge-history](purge-history.md) operation.
 
 ## Next steps
 
 In this article, you learned how to purge the history for resources in the FHIR service. For more information about how to disable history and some concepts about history management, see
 
 >[!div class="nextstepaction"]
->[Purge History Operation](overview.md)
+>[Purge history operation](purge-history.md)
 
 
