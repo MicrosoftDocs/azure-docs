@@ -20,7 +20,7 @@ In this article, you'll use the Azure portal to:
 
 ## Pre-requisites
 
-[An Azure Function App](../azure-functions/functions-create-function-app-portal.md). Verify your Function App is:
+[An Azure Function App](./functions-create-function-app-portal.md). Verify your Function App is:
 - On either the Premium or App Service plan.
       
   :::image type="content" source="./media/profiler-azurefunctions/choose-plan.png" alt-text="Where to select plan from drop-down in Function App creation":::
