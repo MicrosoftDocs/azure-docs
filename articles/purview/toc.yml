@@ -192,7 +192,7 @@ items:
     - name: Power BI tenant
       items:
         - name: Power BI same-tenant
-        - href: href: register-scan-power-bi-tenant.md
+        - href: register-scan-power-bi-tenant.md
         - name: Power BI cross-tenant
         - href: register-scan-power-bi-tenant-cross-tenant.md
         - name: Troubleshoot Power BI scans
