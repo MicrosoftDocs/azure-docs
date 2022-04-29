@@ -38,7 +38,7 @@ The `work_mem` parameter basically provides the amount of memory to be used 
 
 The guidance is that if the workload has lot of short running queries with simple joins and minimal sort operations it is advised to keep lower `work_mem`. In scenarios where we have few active queries but have complex joins, sorts then it is advised to keep a higher work_mem. 
 
-Its tough to get a right value of `work_mem`. But in cases where we see high memory utilization or worse out of memory issues decrease `work_mem` because that is the amount of memory that can be consumed by each process on the database
+It's tough to get a right value of `work_mem`. But in cases where we see high memory utilization or worse out of memory issues decrease `work_mem` because that is the amount of memory that can be consumed by each process on the database
 
 A safer setting for `work_mem` is 
 
