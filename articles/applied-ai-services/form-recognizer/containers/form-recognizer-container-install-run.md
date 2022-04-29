@@ -23,7 +23,7 @@ ms.custom: ignite-fall-2021
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine-learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container).
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you'll also need the **Read** OCR container).
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ You'll also need the following to use Form Recognizer containers:
 
 |Optional|Purpose|
 |---------|----------|
-|**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It is available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
+|**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 |||
 
 ## Request approval to run the container
@@ -49,7 +49,7 @@ Complete and submit the [Application for Gated Services form](https://aka.ms/csg
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision within 10 business days.
 
-On the form, you must use an email address associated with an Azure subscription ID. The Azure resource you use to run the container must have been created with the approved Azure subscription ID. Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft. After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
+On the form, you must use an email address associated with an Azure subscription ID. The Azure resource you use to run the container must have been created with the approved Azure subscription ID. Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft. After you're approved, you'll be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
 
 ## Host computer requirements
 
@@ -63,7 +63,7 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 
 #### Required containers
 
-The following table lists the additional supporting container(s) for each Form Recognizer container you download. Refer to the [Billing](#billing) section for more information.
+The following table lists the supporting container(s) for each Form Recognizer container you download. For more information, see the [Billing](#billing) section.
 
 | Feature container | Supporting container(s) |
 |---------|-----------|
@@ -99,7 +99,7 @@ The following host machine requirements are applicable to **train and analyze** 
 | Custom API| 0.5 cores, 0.5-GB memory| 1 cores, 1-GB memory |
 |Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
 
-If you are only making analyze calls, the host machine requirements are as follows:
+If you're only making analyze calls, the host machine requirements are as follows:
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
@@ -323,7 +323,7 @@ docker-compose up
 
 ### [Custom](#tab/custom)
 
-In addition to the [prerequisites](#prerequisites) mentioned above, you will need to do the following to process a custom document:
+In addition to the [prerequisites](#prerequisites) mentioned above, you'll need to do the following to process a custom document:
 
 ####  &bullet; Create a folder to store the following files:
 
@@ -334,13 +334,13 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
 #### &bullet; Create a folder to store your input data
 
   1. Name this folder **shared**.
-  1. We will reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
+  1. We'll reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
   1. Copy the file path in a convenient location, such as *Microsoft Notepad*. You'll need to add it to your **.env** file, below.
 
 #### &bullet; Create a folder to store the logs  written by the Form Recognizer service on your local machine.
 
   1. Name this folder **output**.
-  1. We will reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
+  1. We'll reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
   1. Copy the file path in a convenient location, such as *Microsoft Notepad*. You'll need to add it to your **.env** file, below.
 
 #### &bullet; Create an environment file
@@ -592,7 +592,7 @@ docker-compose down
 
 The Form Recognizer containers send billing information to Azure by using a Form Recognizer resource on your Azure account.
 
-Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You will be billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you will be billed for the Form Recognizer `BusinessCard` and `Computer Vision Read` container instances. For the invoice feature, you will be billed for the Form Recognizer `Invoice` and `Layout` container instances. *See*, [Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer/) and Computer Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
+Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You'll be billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you'll be billed for the Form Recognizer `BusinessCard` and `Computer Vision Read` container instances. For the invoice feature, you'll be billed for the Form Recognizer `Invoice` and `Layout` container instances. *See*, [Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer/) and Computer Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
 
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 
@@ -606,7 +606,7 @@ The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline
 
 | Option | Description |
 |--------|-------------|
-| `Key` | The key of the Cognitive Services resource that's used to track billing information.<br/>The value of this option must be set to an key for the provisioned resource that's specified in `Billing`. |
+| `Key` | The key of the Cognitive Services resource that's used to track billing information.<br/>The value of this option must be set to a key for the provisioned resource that's specified in `Billing`. |
 | `Billing` | The endpoint of the Cognitive Services resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 

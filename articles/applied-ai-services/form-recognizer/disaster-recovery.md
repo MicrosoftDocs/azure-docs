@@ -110,9 +110,9 @@ Content-Type: application/json; charset=utf-8
 |Error|Resolution|
 |:--|:--|
 |"errors":[{"code":"AuthorizationError",<br>"message":"Authorization failure due to <br>missing or invalid authorization claims."}]   | Occurs when the `copyAuthorization` payload or content is modified from what was returned by the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
-|"errors":[{"code":"AuthorizationError",<br>"message":"Could not retrieve authorization <br>metadata. If this issue persists use a different <br>target model to copy into."}] | Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds will not allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you subsequently retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
-|"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request is not allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
-|"errors":[{"code":"ResourceResolverError",<br>"message":"Could not fetch information for Cognitive resource with Id '...'. Ensure the resource is valid and exists in the specified region 'westus2'.."}] | Indicates that the Azure resource indicated by the `targetResourceId` is not a valid Cognitive resource or does not exist. Verify and reissue the copy request to resolve this issue.|
+|"errors":[{"code":"AuthorizationError",<br>"message":"Couldn't retrieve authorization <br>metadata. If this issue persists use a different <br>target model to copy into."}] | Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds won't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
+|"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request isn't allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
+|"errors":[{"code":"ResourceResolverError",<br>"message":"Couldn't fetch information for Cognitive resource with ID '...'. Ensure the resource is valid and exists in the specified region 'westus2'.."}] | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.|
 
 
 ### [Optional] Track the target model ID 
@@ -134,7 +134,7 @@ Content-Type: application/json; charset=utf-8
 
 ## cURL sample code
 
-The following code snippets use cURL to make the API calls outlined in the steps above. You'll still need to fill in the model IDs and subscription information specific to your own resources.
+The following code snippets use cURL to make API calls outlined in the steps above. You'll still need to fill in the model IDs and subscription information specific to your own resources.
 
 ### Generate Copy authorization request
 
