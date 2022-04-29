@@ -86,13 +86,13 @@ Get-AzResource -ResourceGroupName exampleRG
 ## Validate the deployment
 
 > [!NOTE]
-> The Bicep file generates a unique name for the virtual machine myConsumerVm<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
+> The Bicep file generates a unique name for the virtual machine myConsumerVm**{uniqueid}** resource. Substitute your generated value for **{uniqueid}**.
 
 ### Connect to a VM from the internet
 
 Connect to the VM _myConsumerVm{uniqueid}_ from the internet as follows:
 
-1.  In the Azure Portal search bar, enter _myConsumerVm{uniqueid}_.
+1.  In the Azure portal search bar, enter _myConsumerVm{uniqueid}_.
 
 2.  Select **Connect**. **Connect to virtual machine** opens.
 
