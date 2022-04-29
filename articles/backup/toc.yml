@@ -110,6 +110,10 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: Security
+    items:
+    - name: Multi-user authorization
+       href: multi-user-authorization-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
