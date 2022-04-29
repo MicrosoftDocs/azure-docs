@@ -52,7 +52,7 @@ Start by creating your Azure resources.
 
     ### [SMI](#tab/smi)
 
-    Create an Azure Web app with runtime ASP.NET Core.
+    Create an app service and deploy the sample app that uses system-assigned managed identity to interact with App Config.
 
     ```azurecli
     # Change directory to the SMI sample
@@ -67,81 +67,92 @@ Start by creating your Azure resources.
     az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
     ```
 
+    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
+    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
+    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-smi-\<unique-id>` where `\<unique-id>` is any three characters.
+
     ### [UMI](#tab/umi)
 
-    Create an ASP.NET Core app using a user-assigned managed identity.
+    Create an app service and deploy the sample app that uses user-assigned managed identity to interact with App Config. 
 
     ```azurecli
-    # Login to the Azure CLI. Skip if you're using Cloud Shell.
-    az login
-
-    # Switch to a subscription where you have Subscription Contributor role.
-    az account set -s <myTestSubsId>
-
-    # Create a resource group
-    az group create -n <myResourceGroupName> -l eastus
-
-    # Create an App Service plan
-    az appservice plan create -g <myResourceGroupName> -n <myPlanName> --is-linux --sku B1
+    # Change directory to the UMI sample
+    cd user-assigned-managed-identity
 
     # Create a web app
-    az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime '"DOTNETCORE|3.1"' --plan <myPlanName>
 
-    # [Optional]: Create a user-assigned managed identity, and save the output for a later use.  Skip this step if you have a user-assigned managed identity.
-    az identity create -g <myResourceGroupName> -n <myIdentityName>
+    LOCATION='eastus'
+    RESOURCE_GROUP_NAME='service-connector-tutorial-rg'
+    APP_SERVICE_NAME='webapp-appconfig-umi'
+
+    az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
+    ```
+
+    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
+    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
+    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-umi-\<unique-id>` where `\<unique-id>` is any three characters.
+
+    Create a user-assigned managed idendity. Save the output into a temporary notepad.
+    ```azurecli
+    az identity create --resource-group $RESOURCE_GROUP_NAME -n "myIdentity"
     ```
 
     ### [Service principal](#tab/serviceprincipal)
 
-    Create an ASP.NET Core app using a service principal.
+    Create an app service and deploy the sample app that uses service principal to interact with App Config.
 
     ```azurecli
-    # Login to the Azure CLI. Skip if you're using Cloud Shell.
-    az login
-
-    # Switch to a subscription where you have Subscription Contributor role.
-    az account set -s <myTestSubsId>
-
-    # Create a resource group
-    az group create -n <myResourceGroupName> -l eastus
-
-    # Create an App Service plan
-    az appservice plan create -g <myResourceGroupName> -n <myPlanName> --is-linux --sku B1
+    # Change directory to the service principal sample
+    cd service-principal
 
     # Create a web app
-    az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime '"DOTNETCORE|3.1"' --plan <myPlanName>
 
-    # [Optional]: Create a service principal, and save the output for a later use. Skip this step if you have a service principal.
-    az ad sp create-for-rbac --name <mySPName> --role Contributor
+    LOCATION='eastus'
+    RESOURCE_GROUP_NAME='service-connector-tutorial-rg'
+    APP_SERVICE_NAME='webapp-appconfig-sp'
+
+    az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
+    ```
+
+    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
+    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
+    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-sp-\<unique-id>` where `\<unique-id>` is any three characters.
+
+    Create a service pricipal, make sure replace the `yourSubscriptionID` with your actual subscription ID. Save the output into a temporary notepad.
+    
+    ```azurecli
+    az ad sp create-for-rbac --name myServicePrincipal --role Contributor --scopes /subscriptions/{yourSubscriptionID}/resourceGroups/$RESOURCE_GROUP_NAME
     ```
 
     ### [Connection string](#tab/connectionstring)
 
-    Create an ASP.NET Core app using a connection string.
+    Create an app service and deploy the sample app that uses connection string to interact with App Config. .
 
     ```azurecli
-    # Login to the Azure CLI. Skip if you're using Cloud Shell.
-    az login
-
-    # Switch to a subscription where you have Subscription Contributor role.
-    az account set -s <myTestSubsId>
-
-    # Create a resource group
-    az group create -n <myResourceGroupName> -l eastus
-
-    # Create an App Service plan
-    az appservice plan create -g <myResourceGroupName> -n <myPlanName> --is-linux --sku B1
+    # Change directory to the service principal sample
+    cd connection-string
 
     # Create a web app
-    az webapp create -g <myResourceGroupName> -n <myWebAppName> --runtime '"DOTNETCORE|3.1"' --plan <myPlanName>
+
+    LOCATION='eastus'
+    RESOURCE_GROUP_NAME='service-connector-tutorial-rg'
+    APP_SERVICE_NAME='webapp-appconfig-cs'
+
+    az webapp up --location $LOCATION --resource-group $RESOURCE_GROUP_NAME --name $APP_SERVICE_NAME
     ```
+
+    * *location* &rarr; A location near you, for example `eastus`. Use `az account list-locations --output table` to list locations.
+    * *resource-group* &rarr; You will use this resource group to organize all the Azure resources needed to complete this tutorial. (for example, `service-connector-tutorial-rg`)
+    * *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `webapp-appconfig-cs-\<unique-id>` where `\<unique-id>` is any three characters.
 
     ---
 
 1. Create an Azure App Configuration store
 
-   ```azurecli
-   az appconfig create -g <myResourceGroupName> -n <myAppConfigStoreName> --sku Free -l eastus
+    ```azurecli
+    APP_CONFIG_NAME='my-app-config'
+
+    az appconfig create -g $RESOURCE_GROUP_NAME -n $APP_CONFIG_NAME --sku Free -l eastus
     ```
 
 1. Import the test configuration file to Azure App Configuration.
@@ -154,7 +165,7 @@ Start by creating your Azure resources.
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
-        az appconfig kv import -n <myAppConfigStoreName> --source file --format json --path ./sampleconfigs.json --separator : --yes
+        az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
         ```
 
     ### [UMI](#tab/umi)
@@ -165,7 +176,7 @@ Start by creating your Azure resources.
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
-        az appconfig kv import -n <myAppConfigStoreName> --source file --format json --path ./sampleconfigs.json --separator : --yes
+        az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
         ```
 
     ### [Service principal](#tab/serviceprincipal)
@@ -176,7 +187,7 @@ Start by creating your Azure resources.
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
-        az appconfig kv import -n <myAppConfigStoreName> --source file --format json --path ./sampleconfigs.json --separator : --yes
+        az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
         ```
 
     ### [Connection string](#tab/connectionstring)
@@ -187,7 +198,7 @@ Start by creating your Azure resources.
     1. Import the [./sampleconfigs.json](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/sampleconfigs.json) test configuration file into the App Configuration store. If you're using Cloud Shell, upload [sampleconfigs.json](../cloud-shell/persisting-shell-storage.md) before running the command.
 
         ```azurecli
-        az appconfig kv import -n <myAppConfigStoreName> --source file --format json --path ./sampleconfigs.json --separator : --yes
+        az appconfig kv import -n $APP_CONFIG_NAME --source file --format json --path ./sampleconfigs.json --separator : --yes
         ```
 
     ---
@@ -201,7 +212,7 @@ Create a connection between your web application and your App Configuration stor
 Create a connection between your web application and your App Configuration store, using a system-assigned managed identity authentication. This connection is done through Service Connector.
 
 ```azurecli
-az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --system-identity
+az webapp connection create appconfig -g $RESOURCE_GROUP_NAME -n $APP_SERVICE_NAME --app-config $APP_CONFIG_NAME --tg $RESOURCE_GROUP_NAME --connection "app_config_smi" --system-identity
 ```
 
 `system-identity` refers to the system-assigned managed identity (SMI) authentication type. Service Connector also supports the following authentications: user-assigned managed identity (UMI), connection string (secret) and service principal.
@@ -211,14 +222,14 @@ az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName>
 Create a connection between your web application and your App Configuration store, using a user-assigned managed identity authentication. This connection is done through Service Connector.
 
 ```azurecli
-az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --user-identity client-id=<myIdentityClientId> subs-id=<myTestSubsId>
+az webapp connection create appconfig -g $RESOURCE_GROUP_NAME -n $APP_SERVICE_NAME --app-config $APP_CONFIG_NAME --tg $RESOURCE_GROUP_NAME --connection "app_config_umi" --user-identity client-id=<myIdentityClientId> subs-id=<myTestSubsId>
 ```
 
 `user-identity` refers to the user-assigned managed identity authentication type. Service Connector also supports the following authentications: system-assigned managed identity, connection string (secret) and service principal.
 
 There are two ways you can find the `client-id`:
 
-- In the Azure CLI, enter `az identity show -n <myIdentityName> -g <myResourceGroupName>  --query 'clientId'`.
+- In the Azure CLI, enter `az identity show -n "myIdentity" -g $RESOURCE_GROUP_NAME  --query 'clientId'`.
 - In the Azure portal, open the Managed Identity that was created earlier and in **Overview**, get the value under **Client ID**.
 
 ### [Service principal](#tab/serviceprincipal)
@@ -226,7 +237,7 @@ There are two ways you can find the `client-id`:
 Create a connection between your web application and your App Configuration store, using a service principal. This is done through Service Connector.
 
 ```azurecli
-az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --service-principal client-id=<mySPClientId>  secret=<mySPSecret>
+az webapp connection create appconfig -g $RESOURCE_GROUP_NAME -n $APP_SERVICE_NAME --app-config $APP_CONFIG_NAME --tg $RESOURCE_GROUP_NAME --connection "app_config_sp" --service-principal client-id=<mySPClientId>  secret=<mySPSecret>
 ```
 
 `service-principal` refers to the service principal authentication type. Service Connector also supports the following authentications: system-assigned managed identity (UMI), user-assigned managed identity (UMI) and connection string (secret).
@@ -236,118 +247,14 @@ az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName>
 Create a connection between your web application and your App Configuration store, using a connection string. This connection is done through Service Connector.
 
 ```azurecli
-az webapp connection create appconfig -g <myResourceGroupName> -n <myWebAppName> --app-config <myAppConfigStoreName> --tg <myResourceGroupName> --connection <myConnectionName> --secret
+az webapp connection create appconfig -g $RESOURCE_GROUP_NAME -n $APP_SERVICE_NAME --app-config $APP_CONFIG_NAME --tg $RESOURCE_GROUP_NAME --connection "app_config_cs" --secret
 ```
 
 `secret` refers to the connection-string authentication type. Service Connector also supports the following authentications: system-assigned managed identity, user-assigned managed identity, and service principal.
 
 ---
 
-## Build and deploy to Azure
-
-Use the following steps or any other approach you're familiar with to build and deploy the ASP.NET Core app to Azure.
-
-1. Launch the build:
-
-    ```bash
-    dotnet publish .\Microsoft.Azure.ServiceConnector.Sample.csproj -c Release
-    ```
-
-1. Deploy the Azure web app.
-
-   ### [SMI](#tab/smi)
-
-    Deploy your Azure web app with SMI using one of the following tools:
-
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&&preserve-view=true).
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisual-studio-code-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&preserve-view=true).
-    3. Azure CLI:
-
-        ```azurecli
-        # Set up the deployment of the web app in Microsoft Azure App Service
-        az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=system-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
-
-        # Config the deployment source to the local git repo
-        az webapp deployment source config-local-git -g <myResourceGroupName> -n <myWebAppName>
-
-        # Get the publish credentials
-        az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
-        git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
-        
-        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:main
-        ```
-
-    ### [UMI](#tab/umi)
-
-    Deploy your Azure web app with UMI using one of the following tools:
-
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&&preserve-view=true).
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisual-studio-code-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&preserve-view=true).
-    3. Azure CLI:
-
-        ```azurecli
-        # Set up the deployment of the web app in Microsoft Azure App Service
-        az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=user-assigned-managed-identity/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
-
-        # Set up the deployment source to the local git repo
-        az webapp deployment source config-local-git -g <myResourceGroupName> -n <myWebAppName>
-
-        # Get the publish credentials
-        az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
-        git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
-        
-        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:main
-        ```
-
-    ### [Service principal](#tab/serviceprincipal)
-
-    Deploy your Azure web app with a service principal using one of the following tools:
-
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&&preserve-view=true).
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisual-studio-code-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&preserve-view=true).
-    3. Azure CLI:
-
-        ```azurecli
-        # Set up the deployment of the web app in Microsoft Azure App Service
-        az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=service-principal/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
-
-        # Set up the deployment source to the local git repo
-        az webapp deployment source config-local-git -g <myResourceGroupName> -n <myWebAppName>
-
-        # Get the publish credentials
-        az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
-        git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
-        
-        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:main
-        ```
-
-    ### [Connection string](#tab/connectionstring)
-
-    Deploy your Azure web app with a connection string using one of the following tools:
-
-    1. Visual Studio: open the sample solution in Visual Studio, right click on the project name, select Publish, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisualstudio-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&&preserve-view=true).
-    2. Visual Studio Code, install the code editor's [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Open the sample folder with Visual Studio Code, right click on the project name, select **Deploy to WebApp**, and follow the wizard to publish to Azure. For more details: [deploy using Visual Studio Code - step 4](/azure/app-service/tutorial-dotnetcore-sqldb-app?tabs=azure-portal%2Cvisual-studio-code-deploy%2Cdeploy-instructions-azure-portal%2Cazure-portal-logs%2Cazure-portal-resources&preserve-view=true).
-    3. Azure CLI:
-
-        ```azurecli
-        # Set up the deployment of the web app in Microsoft Azure App Service
-        az webapp config appsettings set -g <myResourceGroupName> -n <myWebAppName> --settings PROJECT=connection-string/Microsoft.Azure.ServiceConnector.Sample/Microsoft.Azure.ServiceConnector.Sample.csproj
-
-        # Set up the deployment source to the local git repo
-        az webapp deployment source config-local-git -g <myResourceGroupName> -n <myWebAppName>
-
-        # Get the publish credentials
-        az webapp deployment list-publishing-credentials -g <myResourceGroupName> -n <myWebAppName>  --query "{Username:publishingUserName, Password:publishingPassword}"
-        git remote add azure https://<myWebAppName>.scm.azurewebsites.net/<myWebAppName>.git
-        
-        # Push local main to the remote main branch. The command will prompt for a username and a password, which are in output of the above list-publishing-credentials command.
-        git push azure main:main
-        ```
-
-    ---
+## Validate the connection
 
 1. To check if the connection is working, navigate to your web app at `https://<myWebAppName>.azurewebsites.net/` from your browser. Once the website is up, you'll see it displaying "Hello. Your Azure WebApp is connected to App Configuration by ServiceConnector now".
 
