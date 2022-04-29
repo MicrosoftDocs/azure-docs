@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning
 description: 'Learn to how work with data using the Python SDK v2 preview for Azure Machine Learning.'
 services: machine-learning
 ms.service: machine-learning
-author: sdgilley
-ms.author: sgilley
+author: blackmist
+ms.author: larryfr
 ms.subservice: core
 ms.date: 05/03/2021
 ms.topic: how-to
