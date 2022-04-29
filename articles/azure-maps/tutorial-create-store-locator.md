@@ -213,7 +213,7 @@ To create the HTML:
     </main>
     ```
 
-After you finish, *index.html* should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html).
+After you finish, *index.html* should look like [Simple Store Locator.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html).
 
 ## Define the CSS styles
 
@@ -1015,7 +1015,7 @@ In this tutorial, you learned how to create a basic store locator by using Azure
 
 ## Additional information
 
-* For the completed code used in this tutorial, see [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) on GitHub.
+* For the completed code used in this tutorial, see the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) tutorial on GitHub.
 * To view this sample live, see [Simple Store Locator](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) on the **Azure Maps Code Samples** site.
 * learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 * You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) to apply to your business logic.
