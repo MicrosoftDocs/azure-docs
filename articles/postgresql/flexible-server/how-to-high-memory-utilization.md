@@ -15,7 +15,7 @@ The purpose of the document is to discuss common scenarios and root causes that 
 -   Tools to Identify high memory utilization. 
 -   Reasons & Remedial actions  
 
-## Tools to Identify high Memory Utilization 
+## Tools To Identify High Memory Utilization 
 
 ### Azure Metrics
 We can monitor various metrics including percentage of memory in use for the definite date and time frame with help of Azure Metrics.For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
