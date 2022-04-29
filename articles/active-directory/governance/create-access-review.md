@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2022
+ms.date: 04/29/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -74,11 +74,18 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
-1. Select **Next: Reviews**.
+1. After you select the scope of the review, you can determine how nested group membership is reviewed (Preview). On the **Nested groups** setting, select:
+    - **Review all users assignments, including assignment from nested group membership** if you want to include indirect members in your review. Deny decisions won't be applied to indirect users.
+    - Or, **Review only direct assignments, including direct users and unexpanded nested groups** if you want to only review direct members and groups. Indirect members won't be included in the review and decision are applied to direct users only. For more information about access reviews of nested group memberships see [Review access of a nested group (preview)](manage-access-review.md#review-access-of-nested-group-membership-preview).
+1. If you scoped the review to **All users and groups** and chose **Review only direct assignments, including direct users and unexpanded nested groups**, when you select a reviewer, your selection options are limited:
+     - If you select **Managers of users** as the reviewer, a fallback reviewer must be selected to review the groups with access to the nested group.
+     - If you select **Users review their own access** as the reviewer, the nested groups won't be included in the review. To have the groups reviewed, you must select a different reviewer and not a self-review.
+
+1. Select **Next: Reviews** and continue creating the access review to suit your needs.
 
 ### Next: Reviews
  
-1. You can create a single-stage or multi-stage review (preview). For a single stage review continue here. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview)
+1. You can create a single-stage or multi-stage review (preview). For a single stage review continue here. To create a multi-stage access review (preview), follow the steps in [Create a multi-stage access review (preview)](#create-a-multi-stage-access-review-preview).
 
 1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to make decisions in the access reviews. You can choose from:
 

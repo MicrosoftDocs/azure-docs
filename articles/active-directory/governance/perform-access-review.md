@@ -129,6 +129,24 @@ To review access of B2B direct connect users, use the following instructions:
 
 If a Team you review has shared channels, all B2B direct connect users and teams that access those shared channels are part of the review. This includes B2B collaboration users and internal users. When a B2B direct connect user or team is denied access in an access review, the user will lose access to every shared channel in the Team. To learn more about B2B direct connect users, read [B2B direct connect](../external-identities/b2b-direct-connect-overview.md).
 
+## Review access for nested group memberships (preview)
+To review access of nested group members:
+
+1. Follow the link in the notification email or go directly to 
+http://myaccess.microsoft.com/ to complete the review. 
+
+1. If the review creator chooses to include groups in the review, you’ll see them listed in the 
+review as either a user or a group within the resource. 
+
+Resources include:
+- security groups
+- applications
+- Azure roles
+- Azure AD roles
+
+> [!Note]
+> M365 groups and access packages don't support nested groups, so you can't review access for these resource types in a nested group scenario.
+
 ## If no action is taken on access review
 When the access review is setup, the administrator has the option to use advanced settings to determine what will happen in the event a reviewer doesn't respond to an access review request. 
 
