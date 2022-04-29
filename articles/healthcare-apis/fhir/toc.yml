@@ -106,6 +106,8 @@ items:
     href: fhir-service-autoscale.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
+  - name: Versioning policy and history management
+    href: fhir-versioning-policy-history-management.md
 - name: Resources
   expanded: true
   items:
