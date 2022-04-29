@@ -145,9 +145,9 @@ Use any of the following deployment checklists during the setup or for troublesh
 
      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/register-cross-tenant.png" alt-text="Image showing the registration experience for cross tenant Power BI":::
 
-## Cross Power BI tenant scanning
+## Scan cross-tenant Power BI
 
-### Scan cross Power BI tenant using Delegated authentication 
+### Scan cross-tenant Power BI using Delegated authentication 
 
 Delegated authentication is the only supported option for cross-tenant scan option, however, you can use either Azure runtime or a self-hosted integration runtime to run a scan. 
 
