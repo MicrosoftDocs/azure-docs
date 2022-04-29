@@ -15,7 +15,7 @@ ms.date: 04/29/2022
 
 # How Azure Machine Learning works: resources and assets (v2)
 
-[!INCLUDE [dev v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 This article applies to the second version of the Azure Machine Learning CLI & SDK (v2). For version one (v1), see [How Azure Machine Learning works: Architecture and concepts (v1)](v1/concept-azure-machine-learning-architecture.md)
 
@@ -229,7 +229,7 @@ To create an environment using CLI v2 use the following command:
 ```bash
 az ml environment create --file my_environment.yml
 ```
-For more details, see [environment YAML schema](reference-yaml-environment).
+For more details, see [environment YAML schema](reference-yaml-environment.md).
 
 
 
@@ -273,7 +273,7 @@ For the vast majority of scenarios you will use URIs (`uri_folder` and `uri_file
 
 ## Component
 
-An Azure Machine Learning [component](https://docs.microsoft.com/azure/machine-learning/concept-component) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines. Components can do tasks such as data processing, model training, model scoring, and so on. A component is analogous to a function - it has a name, parameters, expects input, and returns output. 
+An Azure Machine Learning [component](concept-component.md) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines. Components can do tasks such as data processing, model training, model scoring, and so on. A component is analogous to a function - it has a name, parameters, expects input, and returns output. 
 
 ## Next steps
 

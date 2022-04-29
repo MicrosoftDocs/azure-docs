@@ -167,7 +167,7 @@ Alternatively, use the `> Azure ML: View Environment` command in the command pal
 
 ## Experiments
 
-For more information, see [experiments](concept-azure-machine-learning-architecture.md#experiments).
+For more information, see [experiments](v1/concept-azure-machine-learning-architecture.md#experiments).
 
 ### Create job
 
@@ -338,7 +338,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 
 ## Models
 
-For more information, see [models](concept-azure-machine-learning-architecture.md#models)
+For more information, see [models](v1/concept-azure-machine-learning-architecture.md#models)
 
 ### Create model
 
@@ -377,7 +377,7 @@ Alternatively, use the `> Azure ML: Remove Model` command in the command palette
 
 ## Endpoints
 
-For more information, see [endpoints](concept-azure-machine-learning-architecture.md#endpoints).
+For more information, see [endpoints](v1/concept-azure-machine-learning-architecture.md#endpoints).
 
 ### Create endpoint
 

@@ -29,7 +29,7 @@ A [machine learning workspace](../concept-workspace.md) is the top-level resourc
 
 The workspace is the centralized place to:
 
-* Manage resources you use for training and deployment of models, such as [computes](#compute)
+* Manage resources you use for training and deployment of models, such as [computes](#computes)
 * Store assets you create when you use Azure Machine Learning, including:
   * [Environments](#environments)
   * [Experiments](#experiments)
@@ -64,7 +64,7 @@ For more information about training compute targets, see [Training compute targe
 
 [**Azure Machine Learning Datasets**](../concept-data.md#datasets)  make it easier to access and work with your data. By creating a dataset, you create a reference to the data source location along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources.
 
-For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
+For more information, see [Create and register Azure Machine Learning Datasets](../how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 
 Datasets use [datastores](../concept-data.md#datastores) to securely connect to your Azure storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your Key Vault associated with the workspace, so you can securely access your storage without having to hard code them in your script.
 
@@ -74,7 +74,7 @@ Datasets use [datastores](../concept-data.md#datastores) to securely connect to 
 
 An [environment](../concept-environments.md) is the encapsulation of the environment where training or scoring of your machine learning model happens. The environment specifies the Python packages, environment variables, and software settings around your training and scoring scripts.  
 
-For code samples, see the "Manage environments" section of [How to use environments](how-to-use-environments.md#manage-environments).
+For code samples, see the "Manage environments" section of [How to use environments](../how-to-use-environments.md#manage-environments).
 
 ## Experiments
 
@@ -158,13 +158,13 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
 
 ## Models
 
-At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and [tuning hyperparameters](how-to-tune-hyperparameters.md). Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
+At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and [tuning hyperparameters](../how-to-tune-hyperparameters.md). Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
 You can bring a model that was trained outside of Azure Machine Learning. Or you can train a model by submitting a [run](#runs) of an [experiment](#experiments) to a [compute target](#compute-targets) in Azure Machine Learning. Once you have a model, you [register the model](#model-registry) in the workspace.
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
+For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](../tutorial-train-deploy-notebook.md).
 
 
 ### Model registry
@@ -182,7 +182,7 @@ When you register the model, you can provide additional metadata tags and then u
 
 You can't delete a registered model that is being used by an active deployment.
 
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](../tutorial-train-deploy-notebook.md).
 
 ## Deployment
 
@@ -192,7 +192,7 @@ You deploy a [registered model](#model-registry) as a service endpoint. You need
 * **Scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
 * **Inference configuration**. The inference configuration specifies the environment, entry script, and other components needed to run the model as a service.
 
-For more information about these components, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+For more information about these components, see [Deploy models with Azure Machine Learning](../how-to-deploy-and-where.md).
 
 ### Endpoints
 
@@ -220,11 +220,11 @@ Here are the details:
 [![Inference workflow](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
 
 
-For an example of deploying a model as a web service, see [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
+For an example of deploying a model as a web service, see [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md).
 
 #### Real-time endpoints
 
-When you deploy a trained model in the designer, you can [deploy the model as a real-time endpoint](tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
+When you deploy a trained model in the designer, you can [deploy the model as a real-time endpoint](../tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
 
 #### Pipeline endpoints
 
