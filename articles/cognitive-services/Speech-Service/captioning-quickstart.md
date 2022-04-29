@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 04/23/2022
 ms.author: eur
 ms.devlang: cpp, csharp
-zone_pivot_groups: programming-languages-speech-sdk
+zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
 
 # Quickstart: Create captions with speech to text
@@ -46,6 +46,10 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](./includes/quickstarts/captioning/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-cli"
+[!INCLUDE [CLI include](includes/quickstarts/captioning/cli.md)]
 ::: zone-end
 
 ## Next steps

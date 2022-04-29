@@ -34,6 +34,32 @@ The following are aspects to consider when using captioning:
 
 Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
+## Caption output format
+
+The Speech service supports output formats such as SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
+
+The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Subtitle) timespan output format is `hh:mm:ss,fff`. 
+
+```srt
+1
+00:00:00,180 --> 00:00:03,230
+Welcome to applied Mathematics course 201.
+```
+
+The [WebVTT](https://www.w3.org/TR/webvtt1/#introduction) (Web Video Text Tracks) timespan output format is `hh:mm:ss,fff`. 
+
+```
+WEBVTT
+
+00:00:00.180 --> 00:00:03.230
+Welcome to applied Mathematics course 201.
+{
+  "ResultId": "8e89437b4b9349088a933f8db4ccc263",
+  "Duration": "00:00:03.0500000"
+}
+```
+
+
 ## Input audio to the Speech service
 
 For real time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
