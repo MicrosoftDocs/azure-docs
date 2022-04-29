@@ -25,7 +25,7 @@ View graphical representations of the following items:
 - Quality by deployment duration
 - Geographical spread
 
-Additionally, view [offer deployment details](#detail-data) in tabular form.
+Additionally, view [offer deployment details](#detailed-data) in tabular form.
 
 > [!IMPORTANT]
 > This dashboard is currently only available for **Azure application** offers available to all (not private offers).
