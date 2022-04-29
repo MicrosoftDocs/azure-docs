@@ -72,7 +72,7 @@ Partial document update feature supports the following modes of operation. Refer
 
 - **Multi-document patch**: Multiple documents within the same partition key can be patched as a [part of a transaction](transactional-batch.md). This transaction will be committed only if all the operations succeed in the order they are described. If any operation fails, the entire transaction is rolled back.
 
-- **Conditional Update** For the aforementioned modes, it is also possible to add a SQL-like filter predicate (for example, ``from c where c.taskNum = 3``) such that the operation fails if the pre-condition specified in the predicate is not satisfied.
+- **Conditional Update**: For the aforementioned modes, it is also possible to add a SQL-like filter predicate (for example, `from c where c.taskNum = 3`) such that the operation fails if the pre-condition specified in the predicate is not satisfied.
 
 - You can also use the bulk APIs of supported SDKs to execute one or more patch operations on multiple documents.
 
