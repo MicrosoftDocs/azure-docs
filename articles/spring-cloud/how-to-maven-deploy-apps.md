@@ -111,7 +111,7 @@ To generate configurations and deploy the app, follow these steps:
 1. Run the following command from the *hellospring* root folder, which contains the POM file. If you've already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, the command will prompt you with sign-in instructions. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) repository on GitHub.
 
    ```azurecli
-   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.7.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
    ```
 
    You'll be asked to select:
@@ -128,8 +128,8 @@ To generate configurations and deploy the app, follow these steps:
        <plugins>
            <plugin>
                <groupId>com.microsoft.azure</groupId>
-               <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-               <version>1.7.0</version>
+               <artifactId>azure-spring-apps-maven-plugin</artifactId>
+               <version>1.10.0</version>
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>
@@ -141,7 +141,7 @@ To generate configurations and deploy the app, follow these steps:
 1. Deploy the app using the following command.
 
    ```azurecli
-   mvn azure-spring-cloud:deploy
+   mvn azure-spring-apps:deploy
    ```
 
 ## Verify the services
