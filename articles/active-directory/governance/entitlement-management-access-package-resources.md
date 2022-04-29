@@ -30,7 +30,7 @@ This video provides an overview of how to change an access package.
 
 ## Check catalog for resources
 
-If you need to add resources to an access package, you should check whether the resources your need are available in the catalog. If you are an access package manager, you cannot add resources to a catalog, even if you own them. You are restricted to using the resources available in the catalog.
+If you need to add resources to an access package, you should check whether the resources your need are available in the access package's catalog.  If you are an access package manager, you cannot add resources to a catalog, even if you own them. You are restricted to using the resources available in the catalog.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
@@ -42,11 +42,13 @@ If you need to add resources to an access package, you should check whether the 
 
     ![List of resources in a catalog](./media/entitlement-management-access-package-resources/catalog-resources.png)
 
+1. If the resources are not already in the catalog, and you are an administrator or a catalog owner, you can [add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
+
 1. If you are an access package manager and you need to add resources to the catalog, you can ask the catalog owner to add them.
 
 ## Add resource roles
 
-A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles from each of the catalog's resources to your access package. You can add resource roles that are provided by groups, teams, applications, and SharePoint sites.
+A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles from each of the catalog's resources to your access package. You can add resource roles that are provided by groups, teams, applications, and SharePoint sites.  When a user receives an assignment to an access package, they will then be assigned all the resource roles in the access packages.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -109,7 +111,10 @@ For more information, see [Compare groups](/office365/admin/create-groups/compar
 
 You can have Azure AD automatically assign users access to an Azure AD enterprise application, including both SaaS applications and your organization's applications integrated with Azure AD, when a user is assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD will issue federation tokens for users assigned to the application.
 
-Applications can have multiple roles. When adding an application to an access package, if that application has more than one role, you will need to specify the appropriate role for those users. If you are developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
+Applications can have multiple roles. When adding an application to an access package, if that application has more than one role, you will need to specify the appropriate role for those users in each access package. If you are developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
+
+> [!NOTE]
+> If an application has multiple roles, and more than one role of that application are in an access package, then the user will receive all the roles.  If instead you want users to only have some of the roles, then you will need to create multiple access packages in the catalog, with separate access packages for each of roles.
 
 Once an application role is part of an access package:
 
@@ -159,6 +164,20 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 1. Click **Add**.
 
     Any users with existing assignments to the access package will automatically be given access to this SharePoint Online site when it is added.
+
+## Adding resource roles programmatically
+
+You can also add a resource role to an access package using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
+
+1. [List the accessPackageResources in the catalog](/graph/api/entitlementmanagement-list-accesspackagecatalogs?tabs=http&view=graph-rest-beta&preserve-view=true) and [create an accessPackageResourceRequest](/graph/api/entitlementmanagement-post-accesspackageresourcerequests?tabs=http&view=graph-rest-beta&preserve-view=true) for any resources that are not yet in the catalog.
+1. [List the accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
+1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) for each resource role needed in the access package.
+
+## Handling users with existing access to the resource
+
+When a resource role is added to an access package, users who are in that resource role, but do not have assignments to the access package, will remain in the resource role, but will not be assigned to the access package. For example, if a user is a member of a group, and then an access package is created and that group's member role is added to an access package, the user will not have an assignment to the access package.
+
+If you wish to have them also become assigned to the access package, you can [directly assign users](entitlement-management-access-package-assignments.md#directly-assign-a-user) to an access package using the Azure portal, or in bulk via Graph or PowerShell. They will then also receive access to the other resource in the access package.  As those users already have access prior to being added to the access package, when their access package assignment is removed, they will remain in the resource role.
 
 ## Remove resource roles
 
