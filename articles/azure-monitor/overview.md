@@ -27,7 +27,8 @@ Just a few examples of what you can do with Azure Monitor include:
 
 The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](agents/data-sources.md) that populate these [data stores](data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and streaming to external systems.
 
-![Azure Monitor overview](media/overview/overview.svg)
+:::image type="content" source="media/overview/overview.svg" alt-text="Overview diagram of Azure Monitor":::
+
 
 The video below uses an early version of the diagram above, but it's still relevant. 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
