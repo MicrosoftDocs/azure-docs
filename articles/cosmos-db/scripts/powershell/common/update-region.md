@@ -29,11 +29,7 @@ This PowerShell script updates the Azure regions that an Azure Cosmos DB account
 
 The [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) command updates Azure regions for an Azure Cosmos DB account. The command requires a resource group name, an Azure Cosmos DB account name, and a list of Azure regions in desired failover order.
 
-In this script:
-
-- The [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) command gets the Azure Cosmos DB account you specify.
-- [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) creates an object of type `PSLocation`.
-- `Update-AzCosmosDBAccountRegion` uses the `PSLocation` parameter to update the account regions.
+In this script, the [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) command gets the Azure Cosmos DB account you specify. [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) creates an object of type `PSLocation`. `Update-AzCosmosDBAccountRegion` uses the `PSLocation` parameter to update the account regions.
 
 - If you add a region, don't change the first failover region in the same operation. Change failover priority order in a separate operation.
 - You can't modify regions in the same operation as changing other Azure Cosmos DB account properties. Do these operations separately.

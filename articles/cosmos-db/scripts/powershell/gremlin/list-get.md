@@ -1,6 +1,6 @@
 ---
-title: PowerShell script to list and get Azure Cosmos DB Gremlin API accounts, databases, and graphs
-description: Run this Azure PowerShell script to list and get operations for an Azure Cosmos DB Gremlin API account.
+title: PowerShell script to list or get Azure Cosmos DB Gremlin API databases and graphs
+description: Run this Azure PowerShell script to list all or get specific Azure Cosmos DB Gremlin API databases and graphs.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -10,11 +10,11 @@ ms.author: mjbrown
 ms.custom: devx-track-azurepowershell
 ---
 
-# PowerShell script to list and get databases and graphs for an Azure Cosmos DB Gremlin API account
+# PowerShell script to list or get Azure Cosmos DB Gremlin API databases and graphs
 
 [!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
-This PowerShell script lists or gets specific Azure Cosmos DB Gremlin API accounts, databases, and graphs in an Azure resource group.
+This PowerShell script lists or gets specific Azure Cosmos DB accounts, Gremlin API databases, and  Gremlin API graphs.
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -28,9 +28,9 @@ This PowerShell script lists or gets specific Azure Cosmos DB Gremlin API accoun
 
 In this script:
 
-- [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) lists Azure Cosmos DB accounts, or gets a specific Azure Cosmos DB account, in a resource group.
-- [Get-AzCosmosDBGremlinDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) lists Gremlin API databases, or gets a specific Gremlin API database, in an Azure Cosmos DB account.
-- [Get-AzCosmosDBGremlinGraph](/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) lists Gremlin API graphs, or gets a specific Gremlin API graph, in a Gremlin API database.
+- [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) lists all or gets a specific Azure Cosmos DB account in an Azure resource group.
+- [Get-AzCosmosDBGremlinDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) lists all or gets a specific Gremlin API database in an Azure Cosmos DB account.
+- [Get-AzCosmosDBGremlinGraph](/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) lists all or gets a specific Gremlin API graph in a Gremlin API database.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-list-get.ps1 "List or get databases or graphs for Gremlin API")]
 
@@ -41,17 +41,6 @@ If you want to delete your Azure Cosmos DB account, you can use the [Remove-AzRe
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 ```
-
-## Script explanation
-
-This script uses the following commands. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-|---|---|
-|**Azure Cosmos DB**| |
-|**Azure Resource Groups**| |
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
-|||
 
 ## Next steps
 
