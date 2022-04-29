@@ -16,7 +16,7 @@ The Azure Web Application Firewall (WAF) engine is the component that inspects t
 
 ## Next generation of WAF engine
 
-The new WAF engine is a high-performance, scalable Microsoft proprietary engine and has significant improvements over the previous WAF engine. The previous version of WAF engine on Azure Application Gateway is implemented based on [ModSecurity](https://github.com/SpiderLabs/ModSecurity). ModSecurity provides support for its [Core Rule Set (CRS)](https://github.com/SpiderLabs/owasp-modsecurity-crs), which is an industry standard that has existed for the past two decades and is mandated for protecting against the top 10 OWASP attacks by many organizations. 
+The new WAF engine is a high-performance, scalable Microsoft proprietary engine and has significant improvements over the previous WAF engine.
 
 The new engine, released with CRS 3.2, provides the following benefits:
 
@@ -45,11 +45,11 @@ The following charts show some performance comparisons. Comparison is done betwe
 
 In our testing lab, the new engine resulted in up to ~24x reduction in WAF latencies for JSON POST requests with different payload sizes.
 
-![Chart that shows the POST request latency for different size payloads.](../media/azure-waf-engine/latency-post-json-body.png)
+![Chart that shows the POST request latency for different size payloads.](../media/waf-engine/latency-post-json-body.png)
 
 We also observed significant improvements in P99 tail latencies with up to \~8x reduction in POST requests and \~4x reduction in GET requests. The following two charts show the comparison of P99 latencies of the new WAF engine and the old WAF engine.
 
-![Chart that shows the latency for both POST and GET requests.](../media/azure-waf-engine/latency-post-get.png)
+![Chart that shows the latency for both POST and GET requests.](../media/waf-engine/latency-post-get.png)
 
 ### Increased scale
 
@@ -57,15 +57,11 @@ Our next-gen engine can scale up to 8 times more RPS using the same compute powe
 
 The following charts show the scale improvements with POST and GET requests per second with the new engine and with different payload sizes.
 
-![Chart that shows the requests per second for both POST and GET requests.](../media/azure-waf-engine/requests-per-second.png)
+![Chart that shows the requests per second for both POST and GET requests.](../media/waf-engine/requests-per-second.png)
 
 ### Better protection
 
-Under a regex DoS (ReDoS) attack simulation on the previous engine, we observed that latency of post request increased exponentially as the request size increased. The same attack simulation on the new engine introduces only a slight increase in latency and results in a fairly linear graph, demonstrating superior protection against such ReDoS attack patterns.
-
-The following chart shows how the existing WAF engine vs new WAF engine performs against ReDOS attacks.
-
-![Chart that shows the processing latency during a regex denial of service attack.](../media/azure-waf-engine/redos.png)
+Under a regex DoS (ReDoS) attack simulation on the previous engine, we observed that latency of post request increased exponentially as the request size increased. The same attack simulation on the new engine introduces only a slight increase in latency and resulted in a fairly consistent latency, demonstrating superior protection against such ReDoS attack patterns.
 
 ## Request logging for custom rules
 
