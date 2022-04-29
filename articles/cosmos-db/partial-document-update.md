@@ -5,7 +5,7 @@ author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 04/29/2022
 ms.author: jroth
 ms.custom: ignite-fall-2021
 ---
