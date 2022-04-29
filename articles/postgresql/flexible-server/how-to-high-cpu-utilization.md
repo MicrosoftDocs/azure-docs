@@ -44,30 +44,7 @@ Query Store automatically captures the history of queries and runtime statistics
 #### pg_stat_statements
 pg_stat_statements extension helps in identifying the queries that, consume time on the server.
 
-SQL statements that consume the most time –   
-
-#### Postgres version 13 and above
-~~~
-SELECT (total_exec_time / 1000 / 3600) as total_hours, 
-(total_exec_time / 1000) as total_seconds, 
-(total_exec_time / calls) as avg_millis,  
-calls num_calls, 
-query  
-FROM pg_stat_statements  
-ORDER BY 2 DESC LIMIT 10;   	
-~~~
-#### Postgres version 9.6, 10, 11, 12
-~~~
-SELECT (total_time / 1000 / 3600) as total_hours, 
-(total_time / 1000) as total_seconds, 
-(total_time / calls) as avg_millis,  
-calls num_calls, 
-query  
-FROM pg_stat_statements  
-ORDER BY 2 DESC LIMIT 10;   
-~~~
- 
-Run the following command to view the top five SQL statements that consume the most time in one call: 
+Execute the following statements to view the top five SQL statements by mean or average time taken: 
 
 #### Postgres version 13 and above
 ~~~
@@ -83,7 +60,7 @@ FROM pg_stat_statements
 ORDER BY mean_time 
 DESC LIMIT 5;    
 ~~~
-Run the following command to view the top five SQL statements that consume the most time in total: 
+Execute the following statements to view the top five SQL statements by total time taken: 
 
 #### Postgres version 13 and above
 ~~~
