@@ -17,6 +17,8 @@ ms.reviewer: person
 
 This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure. This article also includes Public Key Infrastructure (PKI) and SSL/TLS information. You'll find URLs that may need to be added to your firewall allowlists, client compatibility for public PKIs, as well as past and upcoming changes related to certificates and PKIs.
 
+Looking for CA details specific to Azure Active Directory? See the [Certificate authorities used by Azure Active Directory](../../active-directory/fundamentals/certificate-authorities.md) article.
+
 **How to read the certificate details:**
 - The Serial Number (top string in the table) contains the hexadecimal value of the certificate serial number.
 - The Thumbprint (bottom string in the table) is the SHA-1 thumbprint.
@@ -93,6 +95,8 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 
 To learn more about Certificate Authorities and PKI, see:
 
+- [Microsoft PKI Repository](https://www.microsoft.com/pkiops/docs/repository.htm)
+- [Microsoft PKI Repository, including CRL and policy information](https://www.microsoft.com/pki/mscorp/cps/default.htm)
 - [Azure Firewall Premium certificates](../../firewall/premium-certificates.md)
-- [Plan for PKI certificates in Configuration Manager](/mem/configmgr/core/plan-design/security/plan-for-certificates.md)
-- [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786443(v=ws.11).md)
+- [PKI certificates and Configuration Manager](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/plan-for-certificates)
+- [Securing PKI](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11))

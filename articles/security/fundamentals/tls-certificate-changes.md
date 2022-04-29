@@ -21,10 +21,10 @@ All Azure services are impacted by this change. Details for some services are li
 
 - [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
 - [Azure IoT Hub](../../iot-hub/iot-hub-tls-support.md) and [DPS](../../iot-dps/tls-support.md) remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. Explore other details provided in [this Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
-- [Azure Cosmos DB](/security/benchmark/azure/baselines/cosmos-db-security-baseline.md) began this transition in July 2022 with an expected completion in October 2022.
+- [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) began this transition in July 2022 with an expected completion in October 2022.
 - Details on [Azure Storage](../../storage/common/transport-layer-security-configure-minimum-version.md) TLS certificate changes can be found in [this Azure Storage blog post](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
-- [Azure Cache for Redis](/security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline.md) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](../../azure-cache-for-redis/cache-whats-new.md)
-- Details on the [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md) can be found in [this Azure Governance and Management blog post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
+- [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](../../azure-cache-for-redis/cache-whats-new.md)
+- [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md) has an expected completion in May 2022, as described in [this Azure Governance and Management blog post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
 
 ## What changed?
 
@@ -51,7 +51,7 @@ If your application explicitly specifies a list of acceptable CAs, your applicat
 
 Here are some ways to detect if your application was impacted:
 
-- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there's a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice, ensure that CAs can be added or edited on short notice. Industry regulations require CA certificates to be replaced within seven days of the change and hence customers relying on pinning need to react swiftly.
+- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs in the [Microsoft PKI repository](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there's a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice, ensure that CAs can be added or edited on short notice. Industry regulations require CA certificates to be replaced within seven days of the change and hence customers relying on pinning need to react swiftly.
 
 - If you have an application that integrates with Azure APIs or other Azure services and you're unsure if it uses certificate pinning, check with the application vendor.
 
