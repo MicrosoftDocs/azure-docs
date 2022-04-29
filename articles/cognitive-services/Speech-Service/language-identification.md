@@ -225,6 +225,8 @@ You use standalone language identification when you only need to identify the la
 > Standalone source language identification is only supported with the Speech SDKs for C#, C++, and Python.
 ::: zone pivot="programming-language-csharp"
 
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs).
+
 ### [Recognize once](#tab/once)
 
 :::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionInAccuracyWithFile":::
@@ -235,11 +237,11 @@ You use standalone language identification when you only need to identify the la
 
 ---
 
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -251,11 +253,11 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ---
 
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -266,8 +268,6 @@ See more examples of standalone language identification on [GitHub](https://gith
 :::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechContinuousLanguageDetectionWithFile":::
 
 ---
-
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py).
 
 ::: zone-end
 
@@ -280,6 +280,8 @@ You use Speech-to-text recognition when you need to identify the language in an 
 > Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
 ::: zone pivot="programming-language-csharp"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -394,11 +396,12 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
 }
 ```
 ---
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -428,11 +431,11 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp" id="SpeechContinuousRecognitionAndLanguageIdWithMultiLingualFile":::
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
 
 ```java
 AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
@@ -457,11 +460,11 @@ result.close();
 ```
 ---
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -525,8 +528,6 @@ while not done:
 
 speech_recognizer.stop_continuous_recognition()
 ```
-
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
 
 ::: zone-end
 
@@ -659,6 +660,8 @@ You use Speech translation when you need to identify the language in an audio so
 > Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
 > Currently for speech translation with language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 ::: zone pivot="programming-language-csharp"
+
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -820,11 +823,11 @@ public static async Task MultiLingualTranslation()
 ```
 ---
 
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -987,11 +990,11 @@ void MultiLingualTranslation()
 ```
 ---
 
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -1146,8 +1149,6 @@ recognizer.stop_continuous_recognition()
 ```
 
 ---
-
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
 
 ::: zone-end
 
