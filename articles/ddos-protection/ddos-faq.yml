@@ -30,11 +30,11 @@ sections:
       - question: |
           How does pricing work?
         answer: |
-          DDoS protection plans have a fixed monthly charge which covers up to 100 public IP addresses. Protection for additional resources is available. 
+          DDoS protection plans have a fixed monthly charge that covers up to 100 public IP addresses. Protection for additional resources is available. 
           
           Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there is no need to create more than one DDoS protection plan.
           
-          When Application Gateway with WAF is deployed in a DDoS protected VNet, there are no additional charges for WAF - you pay for the Application Gateway at the [lower non-WAF rate](https://azure.microsoft.com/pricing/details/application-gateway/). This applies to both Application Gateway v1 and v2 SKUs.
+          When Application Gateway with WAF is deployed in a DDoS protected VNet, there are no additional charges for WAF - you pay for the Application Gateway at the [lower non-WAF rate](https://azure.microsoft.com/pricing/details/application-gateway/). This policy applies to both Application Gateway v1 and v2 SKUs.
           
           See [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for pricing and more details.
           
@@ -65,7 +65,7 @@ sections:
         answer: |
           Public IPs in ARM based VNETs are currently the only type of protected resource. Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs).
 
-          PaaS services (multitenant) are not supported at present. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
+          PaaS services (multitenant) are not supported now. See [Azure DDoS Protection Standard reference architectures](ddos-protection-reference-architectures.md) for more details.
 
       - question: |
           Are Classic/RDFE protected resources supported?
