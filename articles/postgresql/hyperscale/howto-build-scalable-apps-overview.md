@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 04/26/2022
 ---
 
-# Build scalable apps with Hyperscale (Citus)
+# Build scalable apps
 
 > [!NOTE]
 > This article is for you if:
@@ -39,7 +39,7 @@ with the Hyperscale (Citus) **Standard Tier**.
 > distributed data modeling techniques while building your app. If you decide
 > to go that route, you can skip this section.
 
-## The three steps for building highly scalable apps
+## Three steps for building highly scalable apps
 
 There are three steps involved in building scalable apps with Hyperscale
 (Citus):

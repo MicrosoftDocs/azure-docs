@@ -14,6 +14,12 @@ ms.date: 04/26/2022
 Here are common characteristics of the workloads that are the best fit for
 Hyperscale (Citus).
 
+## Prerequisites
+
+This article assumes you know the [fundamental concepts for
+scaling](howto-build-scalable-apps-concepts.md). If you haven't read about
+them, please take a moment to do so.
+
 ## Characteristics of multi-tenant SaaS
 
 * Tenants see their own data; they can't see other tenants' data.

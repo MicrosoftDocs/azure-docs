@@ -1,6 +1,6 @@
 ---
-title: Model real-time apps - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Techniques for scalable HTAP apps
+title: Model HTAP apps - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Techniques for scalable high-throughput transactional apps
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 04/28/2022
 ---
 
-# Model high-throughput transactional apps
+# Model HTAP apps
 
-## Pick shard key by common filter
+## Common filter as shard key
 
 To pick the shard key for a high-throughput transactional (HTAP) application,
 follow these guidelines:

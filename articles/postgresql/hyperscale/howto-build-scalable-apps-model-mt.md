@@ -11,7 +11,7 @@ ms.date: 04/27/2022
 
 # Model multi-tenant SaaS apps
 
-## Tenant ID is the shard key for multi-tenant SaaS apps
+## Tenant ID as the shard key
 
 The tenant ID is the column at the root of the workload, or the top of the
 hierarchy in your data-model. For example, in this SaaS e-commerce schema,
@@ -47,7 +47,7 @@ Colocating tables by store has advantages:
 
 ![colocated tables in multi-tenant app](../media/howto-hyperscale-build-scalable-apps/mt-colocation.png)
 
-## Optimal data model for multi-tenant SaaS apps
+## Optimal data model for multi-tenant apps
 
 In this example, we should distribute the store-specific tables by store ID,
 and make `countries` a reference table.
@@ -71,7 +71,7 @@ on distributed tables in the form of a composite key. For example, if a table
 has a primary key of `id`, turn it into the composite key `(tenant_id,id)`.
 There's no need to change keys for reference tables.
 
-## Query considerations for optimal performance
+## Query considerations for best performance
 
 Distributed queries that filter on the tenant ID run most efficiently in
 multi-tenant apps. Ensure that your queries are always scoped to a single
