@@ -20,8 +20,8 @@ In this article, you'll use the Azure portal to:
 
 ## Pre-requisites
 
-[An Azure Function App](./azure-functions/functions-create-function-app-portal.md). Verify your Function App is:
-- On either Premium or App Service plan.
+[An Azure Function App](../azure-functions/functions-create-function-app-portal.md). Verify your Function App is:
+- On either the Premium or App Service plan.
       
   :::image type="content" source="./media/profiler-azurefunctions/choose-plan.png" alt-text="Where to select plan from drop-down in Function App creation":::
 
@@ -87,7 +87,7 @@ The app settings now show up in the table:
 
 1. Select **Profiler** from the top menu of the Performance blade.
 
-   :::image type="content" source="./media/profiler-azurefunctions/profiler-function-app.png" alt-text="Screenshot outlining the save button in the top menu of the configuration blade":::
+   :::image type="content" source="./media/profiler-azurefunctions/profiler-function-app.png" alt-text="Screenshot showing link to profiler for function app":::
 
 
 ## Next Steps
