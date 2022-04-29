@@ -516,6 +516,7 @@ sections:
           * [Page view counts](app/usage-overview.md)
           * [AJAX calls](app/asp-net-dependencies.md) Requests made from a running script.
           * Page view load data
+          * Configurable Page [visit time](./app/data-model-pageview-telemetry.md)
           * User and session counts
           * [Authenticated user IDs](app/api-custom-events-metrics.md#authenticated-users)
           
