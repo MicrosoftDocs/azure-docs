@@ -43,7 +43,7 @@ In Microsoft Purview, you can create glossary terms and attach them to assets. L
 
 1. Go to the **Microsoft Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Microsoft Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select **Open Microsoft Purview Studio** account tile.
+1. On the **Overview** page, in the **Get Started** section, select **Open Microsoft Purview governance portal** account tile.
 
    :::image type="content" source="./media/glossary-insights/portal-access.png" alt-text="Launch Microsoft Purview from the Azure portal":::
 

@@ -260,7 +260,7 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
  2. Select **Get started**.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
  4. Select **Add New Mapping**.
- 5. Specify the source and target attributes, and add all the mappings in the following table. Change the distinguished names in the second row to match that of the organizational unit or other container in your target directory. If you are not using AD LDS, then omit provisioning the `msDS-UserAccountDisabled` attribute. Learn more about attribute mapping [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#understanding-attribute-mapping-properties). 
+ 5. Specify the source and target attributes, and add all the mappings in the following table. Change the distinguished names in the second row to match that of the organizational unit or other container in your target directory. If you are not using AD LDS, then omit provisioning the `msDS-UserAccountDisabled` attribute. Learn more about attribute mapping [here](../articles/active-directory/app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-properties). 
 
      |Mapping type|Source attribute|Target attribute|Matching precedence|
      |-----|-----|-----|-----|

@@ -266,6 +266,7 @@ This zone covers the global endpoints used by Azure Monitor, meaning endpoints t
 * **live** - Application Insights live metrics endpoint
 * **profiler** - Application Insights profiler endpoint
 * **snapshot** - Application Insights snapshots endpoint
+* **diagservices-query** - Application Insights Profiler and Snapshot Debugger (used when accessing profiler/debugger results in the Azure Portal)
 
 This zone also covers the resource specific endpoints for [Data Collection Endpoints](../essentials/data-collection-endpoint-overview.md):
 * `<unique-dce-identifier>.<regionname>.handler.control` - Private configuration endpoint, part of a Data Collection Endpoint (DCE) resource 

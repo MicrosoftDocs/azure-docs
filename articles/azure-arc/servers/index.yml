@@ -74,7 +74,7 @@ landingContent:
           - text: REST
             url: /rest/api/hybridcompute/
           - text: Java
-            url: /java/api/overview/azure/compute/resourcemanagement
+            url: /java/api/com.azure.resourcemanager.compute
           - text: JavaScript
             url: /javascript/api/@azure/arm-hybridcompute/
 

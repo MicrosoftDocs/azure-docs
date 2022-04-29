@@ -48,7 +48,7 @@ When setting up scan, you can choose to scan an entire Looker server, or scope t
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 If your data store is publicly accessible, you can use the managed Azure integration runtime for scan without additional settings. Otherwise, if your data store limits access from on-premises network, private network or specific IPs, you need to configure a self-hosted integration runtime to connect to it:
 
@@ -60,7 +60,7 @@ If your data store is publicly accessible, you can use the managed Azure integra
 
 ## Register
 
-This section describes how to register Looker in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Looker in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 

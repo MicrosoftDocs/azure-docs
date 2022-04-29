@@ -517,7 +517,7 @@ The Application Insights extension in Azure Web Apps uses the new provider. You 
 
 ### I can't see some of the logs from my application in the workspace. 
 
-This may happen because of adaptive sampling. Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). See the [Sampling in Application Insights](/azure/azure-monitor/app/sampling) for more details. 
+This may happen because of adaptive sampling. Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). See the [Sampling in Application Insights](./sampling.md) for more details. 
 
 ## Next steps
 

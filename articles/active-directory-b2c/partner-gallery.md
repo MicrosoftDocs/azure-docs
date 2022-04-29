@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 04/21/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -42,7 +42,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-|![Screenshot of a bindid logo](./media/partner-gallery/bindid-logo.png) | [Transmit Security's](./partner-bindid.md) solution BindID is a passwordless authentication service that uses strong FIDO2 biometric authentication for a reliable omni-channel authentication experience, which ensures a smooth login experience for customers across every device and channel eliminating fraud, phishing, and credential reuse. |
+| ![Screenshot of a asignio logo](./media/partner-gallery/asignio-logo.png) | [Asignio](./partner-asignio.md) is a passwordless, soft biometric, and MFA solution. Asignio uses a combination of the patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature eliminates passwords, fraud, phishing, and credential reuse through omni-channel authentication. |
 | ![Screenshot of a bloksec logo](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) is a passwordless authentication and tokenless MFA solution, which provides real-time consent-based services and protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks. |
 | ![Screenshot of a haventec logo](./media/partner-gallery/haventec-logo.png) | [Haventec](./partner-haventec.md) is a passwordless authentication provider, which provides decentralized identity platform that eliminates passwords, shared secrets, and friction. |
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
@@ -51,6 +51,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 |![Screenshot of a Keyless logo.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) is a passwordless authentication provider that provides authentication in the form of a facial biometric scan and eliminates fraud, phishing, and credential reuse.
 | ![Screenshot of a nevis logo](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) enables passwordless authentication and provides a mobile-first, fully branded end-user experience with Nevis Access app for strong customer authentication and to comply with PSD2 transaction requirements. |
 | ![Screenshot of a nok nok logo](./media/partner-gallery/nok-nok-logo.png) | [Nok Nok](./partner-nok-nok.md) provides passwordless authentication and enables FIDO certified multifactor authentication such as FIDO UAF, FIDO U2F, WebAuthn, and FIDO2 for mobile and web applications. Using Nok Nok customers can improve their security posture while balancing user experience.
+|![Screenshot of a bindid logo](./media/partner-gallery/bindid-logo.png) | [Transmit Security's](./partner-bindid.md) solution BindID is a passwordless authentication service that uses strong FIDO2 biometric authentication for a reliable omni-channel authentication experience, which ensures a smooth login experience for customers across every device and channel eliminating fraud, phishing, and credential reuse. |
 | ![Screenshot of a trusona logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, MFA, and digital license scanning. |
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |

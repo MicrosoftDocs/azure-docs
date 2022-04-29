@@ -46,7 +46,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 - An active [Microsoft Purview account](create-catalog-portal.md).
 
-- You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+- You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 - If delegated auth is used:
   -  Make sure proper [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to Power BI admin user that is used for the scan.
@@ -154,7 +154,7 @@ This is a suitable scenario, if both Microsoft Purview and Power BI tenant are c
 
 To create and run a new scan, do the following:
 
-1. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
+1. In the Microsoft Purview governance portal, navigate to the **Data map** in the left menu.
 
 1. Navigate to **Sources**.
 
@@ -225,7 +225,7 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
 
-8. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
+8. In the Microsoft Purview governance portal, navigate to the **Data map** in the left menu.
 
 9. Navigate to **Sources**.
 
@@ -335,7 +335,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
 
 11. Under **Advanced settings**, enable **Allow Public client flows**.
 
-12. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu. Navigate to **Sources**.
+12. In the Microsoft Purview governance portal, navigate to the **Data map** in the left menu. Navigate to **Sources**.
 
 13. Select the registered Power BI source from cross tenant.
 

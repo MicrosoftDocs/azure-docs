@@ -75,7 +75,7 @@ Organizations need a failover mechanism for their Microsoft Purview instances, s
 > Not all Azure mirrored regions support deploying Microsoft Purview accounts. For example, For a DR scenario, you cannot choose to deploy a new Microsoft Purview account in Canada East if the primary region is Canada Central. Even with Customers managed DR, not all customer may able to trigger a DR.
 
 ## Implementation steps
-This section provides high level guidance on required tasks to copy assets, glossaries, classifications & relationships across regions or subscriptions either using the Microsoft Purview Studio or the REST APIs. The approach is to perform the tasks as programmatically as possible at scale.
+This section provides high level guidance on required tasks to copy assets, glossaries, classifications & relationships across regions or subscriptions either using the Microsoft Purview governance portal or the REST APIs. The approach is to perform the tasks as programmatically as possible at scale.
 
 ### High-level task outline
 1.	Create the new account
@@ -324,8 +324,8 @@ To complete the asset migration, you must remap the relationships. There are thr
 > [!Note]
 > Before migrating terms, you need to migrate the term templates. This step should be already covered in the custom `typedef` migration.
 
-#### Using Microsoft Purview Portal
-The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-create-import-export-glossary.md). You can do this using the Microsoft Purview Studio.
+#### Using the Microsoft Purview governance portal
+The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-create-import-export-glossary.md). You can do this using the Microsoft Purview governance portal.
 
 #### Using Microsoft Purview API
 To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.

@@ -55,7 +55,7 @@ Create a compute cluster that will autoscale between zero and four nodes:
 
 1. Still in the **Compute** section, in the top tab, select **Compute clusters**.
 1. Select **+New** to create a new compute cluster.
-1. Keep all the defaults on the first page, select **Next**.
+1. Keep all the defaults on the first page, select **Next**. If you don't see any available compute, you'll need to request a quota increase. Learn more about [managing and increasing quotas](how-to-manage-quotas.md).
 1. Name the cluster **cpu-cluster**.  If this name already exists, add your initials to the name to make it unique.
 1. Leave the **Minimum number of nodes** at 0.
 1. Change the **Maximum number of nodes** to 4 if possible.  Depending on your settings, you may have a smaller limit.

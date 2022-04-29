@@ -31,7 +31,7 @@ With outbound rules, you can explicitly define outbound **SNAT** behavior.
 Outbound rules allow you to control:
 
 * **Which virtual machines are translated to which public IP addresses.**
-     * Two rules were backend pool 1 uses the blue IP address 1 and 2, backend pool 2 uses the yellow IP prefix.
+     * Two rules where backend pool 1 uses both blue IP addresses, and backend pool 2 uses the yellow IP prefix.
 * **How outbound SNAT ports are allocated.**
      * If backend pool 2 is the only pool making outbound connections, give all SNAT ports to backend pool 2 and none to backend pool 1.
 * **Which protocols to provide outbound translation for.**
@@ -56,7 +56,7 @@ The _parameters_ provide additional fine grained control over the outbound NAT a
 
 Each additional IP address provided by a frontend provides additional 64,000 ephemeral ports for load balancer to use as SNAT ports. 
 
-Use multiple IP addresses to plan for large-scale scenarios. Use outbound rules to mitigate [SNAT exhaustion](troubleshoot-outbound-connection.md#snatexhaust). 
+Use multiple IP addresses to plan for large-scale scenarios. Use outbound rules to mitigate [SNAT exhaustion](troubleshoot-outbound-connection.md#configure-load-balancer-outbound-rules-to-maximize-snat-ports-per-vm). 
 
 You can also use a [public IP prefix](./load-balancer-outbound-connections.md#outboundrules) directly with an outbound rule. 
 
