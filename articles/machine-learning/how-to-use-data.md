@@ -50,7 +50,7 @@ These snippets use `uri_file` and `uri_folder`.
 - `uri_folder` is a type that refers to a specific folder. For example, `'https://<account_name>.blob.core.windows.net/<container_name>/path'`. 
 
 > [!TIP]
-We recommend using an argument parser to pass folder information into _data-plane_ code. By data-plane code, we mean your data processing and/or training code that you run in the cloud. The code that runs in your development environment and submits code to the data-plane is _control-plane_ code.
+> zzsWe recommend using an argument parser to pass folder information into _data-plane_ code. By data-plane code, we mean your data processing and/or training code that you run in the cloud. The code that runs in your development environment and submits code to the data-plane is _control-plane_ code.
 >
 > Data-plane code is typically a Python script, but can be any programming language. Passing the folder as part of job submission allows you to easily adjust the path from training locally using local data, to training in the cloud. For example, the following example uses `argparse` to get a `uri_folder`, which is joined with the file name to form a path:
 > 
@@ -82,7 +82,7 @@ Below are some common data access patterns that you can use in your *control-pla
 
 Use the tabs below to select where your data is located.
 
-# [local data](#tab/use-local)
+# [Local data](#tab/use-local)
 
 When you pass local data, the data is automatically uploaded to cloud storage as part of the job submission.
 
