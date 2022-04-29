@@ -24,6 +24,7 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - Australia Southeast
 - Brazil South
 - Canada Central
+- Canada East
 - Central India
 - Central US
 - East Asia
