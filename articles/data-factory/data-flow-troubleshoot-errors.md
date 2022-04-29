@@ -562,7 +562,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-ResourceNotFound
 - **Message**: Resource not found.
 - **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource does not exist.
-- **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](../cosmos-db/troubleshoot-not-found.md)
+- **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](../cosmos-db/troubleshoot-not-found.md).
 
 ## Error code: DF-Snowflake-IncompatibleDataType
 - **Message**: Expression type does not match column data type, expecting VARIANT but got VARCHAR.
