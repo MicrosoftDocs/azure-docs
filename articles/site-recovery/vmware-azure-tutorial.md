@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 Complete the previous tutorials:
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises VMware disaster recovery to Azure.
 2. Follow [these steps](vmware-azure-tutorial-prepare-on-premises.md) to prepare your on-premises VMware deployment for disaster recovery to Azure.
-3. In this tutorial we show you how to replicate a single VM. If you're deploying multiple VMware VMs you should use the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner). [Learn more](site-recovery-deployment-planner.md) about this tool.
+3. In this tutorial, we show you how to replicate a single VM. If you're deploying multiple VMware VMs, you should use the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner). [Learn more](site-recovery-deployment-planner.md) about this tool.
 4. This tutorial uses a number of options you might want to do differently:
     - The tutorial uses an OVA template to create the configuration server VMware VM. If you can't do this for some reason, follow [these instructions](physical-manage-configuration-server.md) to set up the configuration server manually.
     - In this tutorial, Site Recovery automatically downloads and installs MySQL to the configuration server. If you prefer, you can set it up manually instead. [Learn more](vmware-azure-deploy-configuration-server.md#configure-settings).
