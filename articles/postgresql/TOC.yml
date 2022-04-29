@@ -693,8 +693,8 @@
         href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
       - name: Model real-time apps
         href: hyperscale/howto-build-scalable-apps-model-real-time.md
-      - name: Model HTAP apps
-        href: hyperscale/howto-build-scalable-apps-model-htap.md
+      - name: Model high-throughput apps
+        href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
     - name: Server group size
       items:
       - name: Pick initial size

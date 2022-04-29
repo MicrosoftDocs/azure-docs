@@ -1,5 +1,5 @@
 ---
-title: Model HTAP apps - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Model high throughput apps - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Techniques for scalable high-throughput transactional apps
 ms.author: jonels
 author: jonels-msft
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 04/28/2022
 ---
 
-# Model HTAP apps
+# Model high-throughput transactional apps
 
 ## Common filter as shard key
 
@@ -25,16 +25,16 @@ follow these guidelines:
 The choice of a good shard key helps optimize network hops, while taking
 advantage of memory and compute to achieve millisecond latency.
 
-## Optimal data model for HTAP apps
+## Optimal data model for high-throughput apps
 
 Below is an example of a sample data-model for an IoT app that captures
 telemetry (time series data) from devices. There are two tables for capturing
 telemetry: `devices` and `events`. There could be other tables, but they're not
 covered in this example.
 
-![Diagram of events and devices tables, and partitions of events.](../media/howto-hyperscale-build-scalable-apps/htap-data-model.png)
+![Diagram of events and devices tables, and partitions of events.](../media/howto-hyperscale-build-scalable-apps/high-throughput-data-model.png)
 
-When building an HTAP app, keep some optimization in mind.
+When building a high-throughput app, keep some optimization in mind.
 
 * Distribute large tables on a common column that is central piece of the app,
   and the column that your app mostly queries. In the above example of an IOT

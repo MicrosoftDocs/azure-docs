@@ -68,4 +68,4 @@ Choose whichever fits your application the best:
 > [Model real-time analytics app](howto-build-scalable-apps-model-real-time.md)
 
 > [!div class="nextstepaction"]
-> [Model high-throughput app](howto-build-scalable-apps-model-htap.md)
+> [Model high-throughput app](howto-build-scalable-apps-model-high-throughput.md)
