@@ -18,7 +18,7 @@ Hyperscale (Citus).
 
 This article assumes you know the [fundamental concepts for
 scaling](howto-build-scalable-apps-concepts.md). If you haven't read about
-them, please take a moment to do so.
+them, take a moment to do so.
 
 ## Characteristics of multi-tenant SaaS
 
