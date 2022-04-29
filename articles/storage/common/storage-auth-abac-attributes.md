@@ -35,7 +35,7 @@ In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used 
 Similarly, only select operations on the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` action can have support blob index tags as a precondition for access. This subset of operations is identified by the `Blob.Read.WithTagConditions` suboperation.
 
 > [!NOTE]
-> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find data on Azure Blob Storage with Blob Index (preview)](../blobs/storage-manage-find-blobs.md).
+> Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
 
 In this preview, storage accounts support the following suboperations:
 
@@ -55,7 +55,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### All read operations
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | All read operations |
 > | **Description** | All Blob read operations. |
@@ -68,7 +68,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### List blobs
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | List blobs |
 > | **Description** | List blobs operation. |
@@ -81,7 +81,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Read a blob
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Read a blob |
 > | **Description** | All blob read operations excluding list. |
@@ -94,7 +94,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Read content from a blob with tag conditions
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Read content from a blob with tag conditions |
 > | **Description** | Read blobs with tags. |
@@ -107,7 +107,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Read blob index tags
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Read blob index tags |
 > | **Description** | DataAction for reading blob index tags. |
@@ -120,7 +120,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Find blobs by tags
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Find blobs by tags |
 > | **Description** | DataAction for finding blobs by index tags. |
@@ -133,7 +133,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Write to a blob
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Write to a blob |
 > | **Description** | DataAction for writing to blobs. |
@@ -146,7 +146,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Sets the access tier on a blob
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Sets the access tier on a blob |
 > | **Description** | DataAction for writing to blobs. |
@@ -159,7 +159,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Write to a blob with blob index tags
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Write to a blob with blob index tags |
 > | **Description** | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |
@@ -172,7 +172,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Create a blob or snapshot, or append data
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Create a blob or snapshot, or append data |
 > | **Description** | DataAction for creating blobs. |
@@ -185,7 +185,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Write blob index tags
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Write blob index tags |
 > | **Description** | DataAction for writing blob index tags. |
@@ -198,7 +198,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Write Blob legal hold and immutability policy
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Write Blob legal hold and immutability policy |
 > | **Description** | DataAction for writing Blob legal hold and immutability policy. |
@@ -211,7 +211,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Delete a blob
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Delete a blob |
 > | **Description** | DataAction for deleting blobs. |
@@ -224,7 +224,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Delete a version of a blob
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Delete a version of a blob |
 > | **Description** | DataAction for deleting a version of a blob. |
@@ -237,7 +237,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Permanently delete a blob overriding soft-delete
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Permanently delete a blob overriding soft-delete |
 > | **Description** | DataAction for permanently deleting a blob overriding soft-delete. |
@@ -250,7 +250,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Modify permissions of a blob
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Modify permissions of a blob |
 > | **Description** | DataAction for modifying permissions of a blob. |
@@ -263,7 +263,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Change ownership of a blob
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Change ownership of a blob |
 > | **Description** | DataAction for changing ownership of a blob. |
@@ -276,7 +276,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### Rename a file or a directory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Rename a file or a directory |
 > | **Description** | DataAction for renaming files or directories. |
@@ -289,7 +289,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 ### All data operations for accounts with hierarchical namespace enabled
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | All data operations for accounts with hierarchical namespace enabled |
 > | **Description** | DataAction for all data operations on storage accounts with hierarchical namespace enabled. |
@@ -306,7 +306,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 ### Peek messages
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Peek messages |
 > | **Description** | DataAction for peeking messages. |
@@ -318,7 +318,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 ### Put a message
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Put a message |
 > | **Description** | DataAction for putting a message. |
@@ -330,7 +330,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 ### Put or update a message
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Put or update a message |
 > | **Description** | DataAction for putting or updating a message. |
@@ -342,7 +342,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 ### Clear messages
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Clear messages |
 > | **Description** | DataAction for clearing messages. |
@@ -354,7 +354,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 ### Get or delete messages
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Get or delete messages |
 > | **Description** | DataAction for getting or deleting messages. |
@@ -373,24 +373,24 @@ This section lists the Azure Storage attributes you can use in your condition ex
 ### Account name
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Account name |
 > | **Description** | Name of a storage account. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:name` |
-> | **Source** | Resource |
-> | **Type** | String |
+> | **Attribute source** | Resource |
+> | **Attribute type** | String |
 
 ### Blob index tags [Keys]
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob index tags [Keys] |
 > | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check the key in blob index tags. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&` |
-> | **Source** | Resource<br/>Request |
-> | **Type** | StringList |
+> | **Attribute source** | Resource<br/>Request |
+> | **Attribute type** | StringList |
 > | **Is key case sensitive** | true |
 
 > [!NOTE]
@@ -399,14 +399,14 @@ This section lists the Azure Storage attributes you can use in your condition ex
 ### Blob index tags [Values in key]
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob index tags [Keys] |
 > | **Description** | Index tags on a blob resource.<br/>Arbitrary user-defined key-value properties that you can store alongside a blob resource. Use when you want to check both the key (case-sensitive) and value in blob index tags. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags` |
 > | **Example** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>` |
-> | **Source** | Resource<br/>Request |
-> | **Type** | String |
+> | **Attribute source** | Resource<br/>Request |
+> | **Attribute type** | String |
 > | **Is key case sensitive** | true |
 
 > [!NOTE]
@@ -415,13 +415,13 @@ This section lists the Azure Storage attributes you can use in your condition ex
 ### Blob path
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob path |
 > | **Description** | Path of a virtual directory, blob, folder or file resource.<br/>Use when you want to check the blob name or folders in a blob path. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` |
-> | **Source** | Resource |
-> | **Type** | String |
+> | **Attribute source** | Resource |
+> | **Attribute type** | String |
 
 > [!NOTE]
 > When specifying conditions for the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` attribute, the values shouldn't include the container name or a preceding slash (`/`) character. Use the path characters without any URL encoding.
@@ -429,71 +429,71 @@ This section lists the Azure Storage attributes you can use in your condition ex
 ### Blob prefix
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Blob prefix |
 > | **Description** | Allowed prefix of blobs to be listed. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:prefix` |
-> | **Source** | Request |
-> | **Type** | String |
+> | **Attribute source** | Request |
+> | **Attribute type** | String |
 
 ### Container name
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Container name |
 > | **Description** | Name of a storage container or file system.<br/>Use when you want to check the container name. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers:name` |
-> | **Source** | Resource |
-> | **Type** | String |
+> | **Attribute source** | Resource |
+> | **Attribute type** | String |
 
 ### Encryption scope name
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Encryption scope name |
 > | **Description** | Name of the encryption scope used to encrypt data.<br/>Available only for storage accounts where hierarchical namespace is not enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/encryptionScopes:name` |
-> | **Source** | Resource |
-> | **Type** | String |
-> | **Exists supported** | true |
+> | **Attribute source** | Resource |
+> | **Attribute type** | String |
+> | **Exists support** | true |
 
 ### Is hierarchical namespace enabled
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Is hierarchical namespace enabled |
 > | **Description** | Whether hierarchical namespace is enabled on the storage account.<br/>Available only at resource group or above scope. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts:isHnsEnabled` |
-> | **Source** | Resource |
-> | **Type** | Boolean |
+> | **Attribute source** | Resource |
+> | **Attribute type** | Boolean |
 
 ### Snapshot
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Snapshot |
 > | **Description** | The Snapshot identifier for the Blob snapshot. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot` |
-> | **Source** | Request |
-> | **Type** | DateTime |
-> | **Exists supported** | true |
+> | **Attribute source** | Request |
+> | **Attribute type** | DateTime |
+> | **Exists support** | true |
 
 ### Version ID
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Version ID |
 > | **Description** | The version ID of the versioned Blob.<br/>Available only for storage accounts where hierarchical namespace is not enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId` |
-> | **Source** | Request |
-> | **Type** | DateTime |
-> | **Exists supported** | true |
+> | **Attribute source** | Request |
+> | **Attribute type** | DateTime |
+> | **Exists support** | true |
 
 ## Azure Queue Storage attributes
 
@@ -502,13 +502,13 @@ This section lists the Azure Queue Storage attributes you can use in your condit
 ### Queue name
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Display name** | Queue name |
 > | **Description** | Name of a storage queue. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/queueServices/queues:name` |
-> | **Source** | Resource |
-> | **Type** | String |
+> | **Attribute source** | Resource |
+> | **Attribute type** | String |
 
 ## See also
 

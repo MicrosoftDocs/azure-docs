@@ -282,7 +282,7 @@ This section lists the function operators that are available to construct condit
 ### ActionMatches
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operator** | `ActionMatches` |
 > | **Description** | Checks if the current action matches the specified action pattern. |
@@ -291,7 +291,7 @@ This section lists the function operators that are available to construct condit
 #### SubOperationMatches
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operator** | `SubOperationMatches` |
 > | **Description** | Checks if the current suboperation matches the specified suboperation pattern. |
@@ -300,7 +300,7 @@ This section lists the function operators that are available to construct condit
 #### Exists
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operator** | `Exists` |
 > | **Description** | Checks if the specified attribute exists. |
@@ -313,7 +313,7 @@ This section lists the logical operators that are available to construct conditi
 ### And
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `AND`<br/>`&&` |
 > | **Description** | And operator. |
@@ -322,7 +322,7 @@ This section lists the logical operators that are available to construct conditi
 ### Or
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `OR`<br/>`||` |
 > | **Description** | Or operator. |
@@ -331,7 +331,7 @@ This section lists the logical operators that are available to construct conditi
 ### Not
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `NOT`<br/>`!` |
 > | **Description** | Not or negation operator. |
@@ -342,7 +342,7 @@ This section lists the logical operators that are available to construct conditi
 This section lists the Boolean comparison operators that are available to construct conditions.
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `BoolEquals`<br/>`BoolNotEquals` |
 > | **Description** | Boolean comparison. |
@@ -355,7 +355,7 @@ This section lists the string comparison operators that are available to constru
 ### StringEquals
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `StringEquals`<br/>`StringEqualsIgnoreCase` |
 > | **Description** | Case-sensitive (or case-insensitive) matching. The values must exactly match the string. |
@@ -364,7 +364,7 @@ This section lists the string comparison operators that are available to constru
 ### StringNotEquals
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `StringNotEquals`<br/>`StringNotEqualsIgnoreCase` |
 > | **Description** | Negation of `StringEquals` (or `StringEqualsIgnoreCase`) operator. |
@@ -372,7 +372,7 @@ This section lists the string comparison operators that are available to constru
 ### StringStartsWith
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `StringStartsWith`<br/>`StringStartsWithIgnoreCase` |
 > | **Description** | Case-sensitive (or case-insensitive) matching. The values start with the string. |
@@ -380,7 +380,7 @@ This section lists the string comparison operators that are available to constru
 ### StringNotStartsWith
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `StringNotStartsWith`<br/>`StringNotStartsWithIgnoreCase` |
 > | **Description** | Negation of `StringStartsWith` (or `StringStartsWithIgnoreCase`) operator. |
@@ -388,7 +388,7 @@ This section lists the string comparison operators that are available to constru
 ### StringLike
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `StringLike`<br/>`StringLikeIgnoreCase` |
 > | **Description** | Case-sensitive (or case-insensitive) matching. The values can include a multi-character match wildcard (`*`) or a single-character match wildcard (`?`) anywhere in the string. If needed, these characters can be escaped by add a backslash `\*` and `\?`. |
@@ -397,7 +397,7 @@ This section lists the string comparison operators that are available to constru
 ### StringNotLike
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `StringNotLike`<br/>`StringNotLikeIgnoreCase` |
 > | **Description** | Negation of `StringLike` (or `StringLikeIgnoreCase`) operator. |
@@ -407,7 +407,7 @@ This section lists the string comparison operators that are available to constru
 This section lists the numeric comparison operators that are available to construct conditions.
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `NumericEquals`<br/>`NumericNotEquals`<br/>`NumericGreaterThan`<br/>`NumericGreaterThanEquals`<br/>`NumericLessThan`<br/>`NumericLessThanEquals` |
 > | **Description** | Number matching. Only integers are supported. |
@@ -417,7 +417,7 @@ This section lists the numeric comparison operators that are available to constr
 This section lists the date/time comparison operators that are available to construct conditions.
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `DateTimeEquals`<br/>`DateTimeNotEquals`<br/>`DateTimeGreaterThan`<br/>`DateTimeGreaterThanEquals`<br/>`DateTimeLessThan`<br/>`DateTimeLessThanEquals` |
 > | **Description** |Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID and blob snapshot. |
@@ -430,7 +430,7 @@ This section lists the cross product comparison operators that are available to 
 ### ForAnyOfAnyValues
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` |
 > | **Description** | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
@@ -439,7 +439,7 @@ This section lists the cross product comparison operators that are available to 
 ### ForAllOfAnyValues
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `ForAllOfAnyValues:StringEquals`<br/>`ForAllOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringNotEquals`<br/>`ForAllOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringLike`<br/>`ForAllOfAnyValues:StringLikeIgnoreCase`<br/>`ForAllOfAnyValues:StringNotLike`<br/>`ForAllOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAnyValues:NumericEquals`<br/>`ForAllOfAnyValues:NumericNotEquals`<br/>`ForAllOfAnyValues:NumericGreaterThan`<br/>`ForAllOfAnyValues:NumericGreaterThanEquals`<br/>`ForAllOfAnyValues:NumericLessThan`<br/>`ForAllOfAnyValues:NumericLessThanEquals` |
 > | **Description** | If every value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
@@ -448,7 +448,7 @@ This section lists the cross product comparison operators that are available to 
 ### ForAnyOfAllValues
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `ForAnyOfAllValues:StringEquals`<br/>`ForAnyOfAllValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringNotEquals`<br/>`ForAnyOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringLike`<br/>`ForAnyOfAllValues:StringLikeIgnoreCase`<br/>`ForAnyOfAllValues:StringNotLike`<br/>`ForAnyOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAllValues:NumericEquals`<br/>`ForAnyOfAllValues:NumericNotEquals`<br/>`ForAnyOfAllValues:NumericGreaterThan`<br/>`ForAnyOfAllValues:NumericGreaterThanEquals`<br/>`ForAnyOfAllValues:NumericLessThan`<br/>`ForAnyOfAllValues:NumericLessThanEquals` |
 > | **Description** | If at least one value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
@@ -457,7 +457,7 @@ This section lists the cross product comparison operators that are available to 
 ### ForAllOfAllValues
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Element | Value |
+> | Property | Value |
 > | --- | --- |
 > | **Operators** | `ForAllOfAllValues:StringEquals`<br/>`ForAllOfAllValues:StringEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringNotEquals`<br/>`ForAllOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringLike`<br/>`ForAllOfAllValues:StringLikeIgnoreCase`<br/>`ForAllOfAllValues:StringNotLike`<br/>`ForAllOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAllValues:NumericEquals`<br/>`ForAllOfAllValues:NumericNotEquals`<br/>`ForAllOfAllValues:NumericGreaterThan`<br/>`ForAllOfAllValues:NumericGreaterThanEquals`<br/>`ForAllOfAllValues:NumericLessThan`<br/>`ForAllOfAllValues:NumericLessThanEquals` |
 > | **Description** | If every value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
