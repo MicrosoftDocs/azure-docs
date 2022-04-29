@@ -27,40 +27,40 @@ These features include:
 
 ## Log streaming
 
-While developing and troubleshooting an app, you often want to see your application logs in real-time.  Container Apps lets you view a stream of your container's `stdout` and `stderr` log messages.  
+While developing and troubleshooting your container app, you often want to see a container's logs in real-time.  Container Apps lets you view a stream of your container's `stdout` and `stderr` log messages using the Azure portal or the Azure CLI.
 
-<!--
-You can view log streams in the Azure portal or the Azure CLI.
--->
 ### View log streams from the Azure portal
 
-Go you your container app page in the Azure portal.   Select **Log stream** under the **Monitoring** section of the sidebar menu.  Select a container from the drop-down lists. When there are multiple revisions and replicas, select the **Revision**, **Replica**, and then **Container**.
+Go you your container app page in the Azure portal.   Select **Log stream** under the **Monitoring** section of the sidebar menu.  Choose a container from the drop-down lists. When there are multiple revisions and replicas, choose the **Revision**, **Replica**, and then **Container**.
 
 Select **Start** to begin the log streaming the logs. You can also pause and stop the log stream and clear the log messages from the page. To save the displayed log messages, you can copy and paste them into the editor of your choice.
 
 :::image type="content" source="media/observability/log-stream.png" alt-text="Screenshot of Azure Container Apps Log stream page.":::
 
-<!-- Add this in after the CLI is completed
-
 ### Tail log streams from Azure CLI
 
-Tail a container's application logs from the Azure CLI with the ***need the command*** command.
+Tail a container's application logs from the Azure CLI with the `az containerapp log` command.  You can view previous log entries using the `--tail` argument.  To view a live stream, use the `--follow` argument.  Select Ctrl-C to stop the live stream.
 
-***There may need to be some instructions to get the revision, replica, and container name if the command requires those parameters.***
+Examples:
+
+To see the last 50 container log entries in a container app with a single revision, replica, and container:
 
 ```azurecli
-
+az containerapp logs show --name album-api --resource-group album-api-rg --tail 50
 ```
--->
+
+To view a log stream from a container in a container app with multiple revisions, replicas, and containers:
+
+```azurecli
+az containerapp logs show --name album-api \
+  --resource-group album-api-rg \
+  --replica album-api--v2-5fdd5b4ff5-6mblw \
+  --container album-api-container --follow
+```
 
 ## Container console
 
-Connecting to a container's console is useful when you want to see what's happening inside a container.  If your app isn't behaving as expected, you can access a container's console to run commands to troubleshoot issues.
-
-<!-- Add this back in when the CLI is complete.
-
-Azure Container Apps lets you access the consoles of your deployed containers through the Azure portal or the Azure CLI.
--->
+Connecting to a container's console is useful when you want to see what's happening inside a container.  If your app isn't behaving as expected, you can access a container's console to run commands to troubleshoot issues.  Azure Container Apps lets you connect to a container's console using the Azure portal or the Azure CLI.
 
 ### Connect to a container console via the Azure portal
 
@@ -70,16 +70,26 @@ You can choose to access your console via bash, sh, or a custom application.
 
 :::image type="content" source="media/observability/console-ss.png" alt-text="Screenshot of Azure Container Apps Console page.":::
 
-<!-- Add this back in when the CLI is complete
-
 ### Access container console via the Azure CLI
 
-You can connect to a container console through the Azure CLI.  
+Use the `az containerapp exec` command to connect to a container console.  Use Ctrl-C to exit the console. 
 
-***Need command information and how to terminate the console session.***
+Examples:
 
-TO disconnect from the console, **NEED KEY COMBO OR COMMAND**
- -->
+To connect to a container console in a container app with a single revision, replica, and container:
+
+```azurecli
+az containerapp exec --name album-api --resource-group album-api-rg 
+```
+
+To connect to a container console in a container app with multiple revisions, replicas, and containers:
+
+```azurecli
+az containerapp exec --name album-api \
+  --resource-group album-api-rg \
+  --replica album-api--v2-5fdd5b4ff5-6mblw \
+  --container album-api-container 
+```
 
 ## Azure Monitor metrics
 
