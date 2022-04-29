@@ -28,9 +28,10 @@ An access package enables you to do a one-time setup of resources and policies t
 
 All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the General catalog. Currently, you can't move an existing access package to a different catalog.
 
+An access package can be used to assign access to roles of multiple resources that are in the catalog. If you are an administrator or catalog owner, you can add resources to the catalog while creating an access package.
 If you are an access package manager, you cannot add resources you own to a catalog. You are restricted to using the resources available in the catalog. If you need to add resources to a catalog, you can ask the catalog owner.
 
-All access packages must have at least one policy. Policies specify who can request the access package and also approval and lifecycle settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
+All access packages must have at least one policy for users to be assigned to the access package. Policies specify who can request the access package and also approval and lifecycle settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
 
 ![Create an access package](./media/entitlement-management-access-package-create/access-package-create.png)
 
@@ -40,11 +41,9 @@ Here are the high-level steps to create a new access package.
 
 1. Select the catalog you want to create the access package in.
 
-1. Add resources from catalog to your access package.
+1. Add resource roles from resources in the catalog to your access package.
 
-1. Assign resource roles for each resource.
-
-1. Specify users that can request access.
+1. Specify an initial policy for users that can request access.
 
 1. Specify any approval settings.
 
