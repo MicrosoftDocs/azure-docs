@@ -1,5 +1,5 @@
 ---
-title: Define policies for access to critical applications in your environment| Microsoft Docs
+title: Define policies for governing access to critical applications in your environment| Microsoft Docs
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can define policies for how users should obtain access to your business critical applications integrated with Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# Define policies for access to critical applications in your environment
+# Define policies for governing access to critical applications in your environment
 
 > [!div class="step-by-step"]
 > [« Prepare](identity-governance-critical-applications-prepare.md)
@@ -25,14 +25,22 @@ ms.collection: M365-identity-device-management
  
 Once you have identified one or more applications for which applications are to be governed from Azure AD, write down the policies for which users should have access, and any other constraints which the system should provide.
 
-## Define a policy for a critical application
-
-<!-- TODO Could we summarize this section with a table that has 5 columns and a few example values that they fill in? App name, Role name, Access duration, Pre-requisite, Exception management -->
-
+## Collect application role definitions
 
 Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications.  If this application is an existing application in your environment, you may already have documented the access policies for who 'should have access' to this application.  If not, you may need to consult with various stakeholders, such as compliance and risk management teams, to ensure that the policies being used to automate access decisions are appropriate for your scenario.
 
-1. First, collect the roles and permissions that the app provides which are to be governed in Azure AD.  Some apps may have only a single role, for example only "User". More complex apps may surface multiple roles to be managed through Azure AD.  These app roles typically make broad constraints on the access a user with that role would have within the app. For example, an app that has an administrator persona might have two roles, "User" and "Administrator".  Other apps may also rely upon group memberships or claims for finer-grained role checks, which can be provided to the app from Azure AD in provisioning or federation protocols.  Finally, there may be roles which the application does not surface in Azure AD - perhaps the application does not permit defining the administrators in Azure AD, instead relying upon its own authorization rules to identify administrators.
+1. First, collect the roles and permissions that the application provides, which are to be governed in Azure AD.  Some apps may have only a single role, for example only "User". More complex apps may surface multiple roles to be managed through Azure AD.  These application roles typically make broad constraints on the access a user with that role would have within the app. For example, an application that has an administrator persona might have two roles, "User" and "Administrator".  Other apps may also rely upon group memberships or claims for finer-grained role checks, which can be provided to the application from Azure AD in provisioning or federation protocols.  Finally, there may be roles which the application does not surface in Azure AD - perhaps the application does not permit defining the administrators in Azure AD, instead relying upon its own authorization rules to identify administrators.
+
+## Define a policy for access a critical application
+
+In this section, you'll write down the policies you wish to have expressed for the application. You may wish to record this in a spreadsheet, for example
+
+|Role|Prerequisite for access|Approvers|Duration of access|Separation of duties constraints|Conditional access policies|Exception approvers|Exception duration of access|
+|:--|-|-|-|-|-|-|-|
+|*Western Sales*|Sales team|Manager|Yearly review|Cannot have *Eastern Sales* access|Access from registered device only|head of Sales department|90 days|
+|*Eastern Sales*|Sales team|Manager|Yearly review|Cannot have *Western Sales* access|Access from registered device only|head of Sales department|90 days|
+
+<!-- TODO Could we summarize this section with a table that has 5 columns and a few example values that they fill in? App name, Role name, Access duration, Pre-requisite, Exception management -->
 
 1. Identify if there are requirements for prerequisite criteria that a user must meet prior to that user having access to an application. For example, under normal circumstances, only full time employees, or those in a particular department or cost center, should be allowed to obtain access to a particular department's application, even as a non-administrator user.  In addition, you may wish to require, in the policy for a user getting access, one or more approvers, to ensure access requests are appropriate and decisions are accountable.  For example, requests for access by an employee could have two stages of approval, first by the requesting user's manager, and second by one of the resource owners responsible for data held in the application.
 
@@ -44,11 +52,9 @@ Organizations with compliance requirements or risk management plans will have se
 
 1. Determine how exceptions to your criteria should be handled.  For example, an application may typically only be available for designated employees, but an auditor or vendor may need temporary access for a specific project. Or, an employee who is traveling may require access from a location that is normally blocked as your organization has no presence in that location.   In these situations, you may wish to also have a policy for approval that may have different stages, or a different time limit, or a different approver.  A vendor who is signed in as a guest user in your Azure AD tenant may not have a manager, so instead their access requests could be approved by a sponsor for their organization, or by a resource owner, or a security officer.
 
-1. Select the appopriate terms of use. <!-- TODO -->
+1. Determine if users are to be required to agree to [a terms of use](../conditional-access/require-tou.md).
 
-1. Determine what data that application is allowed to handle.  <!-- TODO guidance for apps that use Graph? -->
-
-1. <!-- TODO guidance for in-house apps and use of the underlying platform -->
+As the policy is being reviewed by the stakeholders, then you can begin integrating the application with Azure AD so that you will be ready to deploy the approved policy in Azure AD identity governance.
 
 ## Next steps
 
