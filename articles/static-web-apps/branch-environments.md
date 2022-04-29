@@ -76,6 +76,8 @@ steps:
       production_branch: 'main'
 ```
 
+--- 
+
 > [!NOTE]
 > The `...` denotes code skipped for clarity.
 
