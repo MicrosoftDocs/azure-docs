@@ -247,9 +247,6 @@ The encoding is as follows:
 
 ## Environment Assertion
 
-An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority that contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The KEK is a public RSA key owned by the target execution environment (and protected by it) that is used for key export, it must appear in one of, in preference order:
-
-- The TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set.
-- The Enclave Held Data claim (maa-ehd) claim. The maa-ehd claim is expected to contain a string that is the Base64 URL encoding of an array of octets that contain a JSON document; within this document, AKV requires that there be a keys element containing a JSON Web Key Set.
+An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority that contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The KEK is a public RSA key owned by the target execution environment (and protected by it) that is used for key export. It must appear in the TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set.
 
 Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
