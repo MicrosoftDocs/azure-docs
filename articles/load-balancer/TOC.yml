@@ -26,6 +26,9 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: CLI
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-load-balancer-standard-internal-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
