@@ -39,3 +39,9 @@ In this article, you learned how to purge the history for resources in the FHIR 
 
 >[!div class="nextstepaction"]
 >[Versioning policy and history management](fhir-versioning-policy-history-management.md)
+
+>[!div class="nextstepaction"]
+>[Supported FHIR features](fhir-features-supported.md)
+
+>[!div class="nextstepaction"]
+>[FHIR REST API capabilities](fhir-rest-api-capabilities.md)
