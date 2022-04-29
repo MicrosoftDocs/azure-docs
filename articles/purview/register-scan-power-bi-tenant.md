@@ -151,9 +151,9 @@ This section describes how to register a Power BI tenant in Microsoft Purview fo
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Image showing the registered Power BI data source.":::
 
-## Scan same Power BI tenant
+## Scan same-tenant Power BI
 
-### Scan same tenant using Azure IR and Managed Identity
+### Scan same-tenant Power BI using Azure IR and Managed Identity
 This is a suitable scenario, if both Microsoft Purview and Power BI tenant are configured to allow public access in the network settings. 
 
 #### Authenticate to Power BI tenant-managed identity only
