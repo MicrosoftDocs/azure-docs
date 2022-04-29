@@ -374,7 +374,7 @@ When using customer-managed keys, the data you store in your Azure Cosmos DB acc
 - Once through the default encryption performed with Microsoft-managed keys.
 - Once through the additional encryption performed with customer-managed keys.
 
-Note that **this only applies to the main Azure Cosmos DB transactional storage**. Some features include internal replication of your data to a second tier of storage where double encryption isn't provided, even when using customer-managed keys. These features include:
+Note that **this only applies to the main Azure Cosmos DB transactional storage**. Some features involve internal replication of your data to a second tier of storage where double encryption isn't provided, even when using customer-managed keys. These features include:
 
 - [Synapse Link](./synapse-link.md)
 - [Continuous backups with point-in-time restore](./continuous-backup-restore-introduction.md)
