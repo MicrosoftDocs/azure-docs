@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 The following table includes links to sample Azure PowerShell scripts that apply to all Cosmos DB APIs. For API specific samples, see [API specific samples](#api-specific-samples). Common samples are the same across all APIs.
 
-[!INCLUDE [updated-for-az](includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 These samples require Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
