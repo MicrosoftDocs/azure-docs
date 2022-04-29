@@ -18,7 +18,7 @@ This article outlines how to register a Power BI tenant in a cross-tenant scenar
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#prerequisites)| [Yes](#prerequisites)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](#deployment-checklist)| [Yes](#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 ### Supported scenarios for Power BI scans
 
