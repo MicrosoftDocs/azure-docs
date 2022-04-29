@@ -53,7 +53,7 @@ provides to distribute tables and use resources across multiple machines.
 ```postgresql
 SELECT create_distributed_table(
 	'table_name',
-	'distribution_column);
+	'distribution_column');
 ```
 
 The second argument above picks a column from the table as a **distribution
