@@ -32,7 +32,7 @@ efficiently executed.
 To visualize parallel distributed queries on colocated tables, consider this
 diagram:
 
-![joins happening within worker nodes](../media/howto-hyperscale-build-scalable-apps/rt-join.png)
+![joins happening within worker nodes](../media/howto-hyperscale-build-scalable-apps/real-time-join.png)
 
 The `users` and `events` tables are both sharded by `user_id`, so related
 rows for the same user ID are placed together on the same worker node. The
@@ -44,7 +44,7 @@ Let's continue with the example of an application that analyzes user website
 visits and metrics. There are two "fact" tables--users and events--and other
 smaller "dimension" tables.
 
-![tables for the example app](../media/howto-hyperscale-build-scalable-apps/rt-data-model.png)
+![tables for the example app](../media/howto-hyperscale-build-scalable-apps/real-time-data-model.png)
 
 To apply the super power of distributed tables on Hyperscale (Citus), follow
 the following steps:

@@ -690,9 +690,9 @@
       - name: Classify workload
         href: hyperscale/howto-build-scalable-apps-classify.md
       - name: Model multi-tenant apps
-        href: hyperscale/howto-build-scalable-apps-model-mt.md
+        href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
       - name: Model real-time apps
-        href: hyperscale/howto-build-scalable-apps-model-rt.md
+        href: hyperscale/howto-build-scalable-apps-model-real-time.md
       - name: Model HTAP apps
         href: hyperscale/howto-build-scalable-apps-model-htap.md
     - name: Server group size

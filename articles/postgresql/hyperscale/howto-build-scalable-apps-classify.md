@@ -65,10 +65,10 @@ them, take a moment to do so.
 Choose whichever fits your application the best:
 
 > [!div class="nextstepaction"]
-> [Model multi-tenant SaaS app >](howto-build-scalable-apps-model-mt.md)
+> [Model multi-tenant SaaS app >](howto-build-scalable-apps-model-multi-tenant.md)
 
 > [!div class="nextstepaction"]
-> [Model real-time analytics app](howto-build-scalable-apps-model-rt.md)
+> [Model real-time analytics app](howto-build-scalable-apps-model-real-time.md)
 
 > [!div class="nextstepaction"]
 > [Model high-throughput app](howto-build-scalable-apps-model-htap.md)
