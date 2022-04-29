@@ -41,8 +41,6 @@ It is important to register the data source in Microsoft Purview prior to settin
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
 
-    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-purview-acct.png" alt-text="Screenshot that shows the Microsoft Purview account used to register the data source":::
-
 1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview governance portal":::
@@ -148,8 +146,6 @@ It is important to give your service principal the permission to scan the ADLS G
 ### Creating the scan
 
 1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**
-
-    :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-purview-acct.png" alt-text="Screenshot that shows the Open Microsoft Purview governance portal":::
 
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 

@@ -133,7 +133,7 @@ On the **Register sources (Oracle)** screen, do the following:
 
 1. Finish to register the data source.
 
-    :::image type="content" source="media/register-scan-oracle-source/register-sources-2.png" alt-text="register sources options" border="true":::
+    :::image type="content" source="media/register-scan-oracle-source/register-sources-2-inline.png" alt-text="register sources options" lightbox="media/register-scan-oracle-source/register-sources-2-expanded.png" border="true":::
 
 ## Scan
 

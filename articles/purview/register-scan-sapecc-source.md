@@ -135,7 +135,7 @@ Follow the steps below to scan SAP ECC to automatically identify assets and clas
 
     1. **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP ECC source to be scanned. It's recommended to provide large available memory, for example,  100.
 
-        :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
+        :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc-inline.png" alt-text="scan SAPECC" lightbox="media/register-scan-sapecc-source/scan-sapecc-expanded.png" border="true":::
 
 1. Select **Continue**.
 
