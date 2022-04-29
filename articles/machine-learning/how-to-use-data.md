@@ -242,6 +242,7 @@ returned_job = ml_client.create_or_update(job)
 #get a URL for the status of the job
 returned_job.services["Studio"].endpoint
 ```
+---
 
 ### Register data assets
 
