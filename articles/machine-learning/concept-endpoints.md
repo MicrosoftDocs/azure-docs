@@ -1,5 +1,5 @@
 ---
-title: What are endpoints (preview)?
+title: What are endpoints?
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
 services: machine-learning
@@ -10,11 +10,11 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021
-ms.date: 03/31/2022
+ms.date: 04/29/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# What are Azure Machine Learning endpoints? 
+# What are Azure Machine Learning endpoints?
 
 [!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
