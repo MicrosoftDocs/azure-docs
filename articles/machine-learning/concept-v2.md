@@ -97,8 +97,8 @@ The SDK v2 is useful in the following scenarios:
 
 * Get started with CLI v2
 
-    * [Install and set up CLI (v2)](how-to-configure-cli)
-    * [Train models with the CLI (v2)](how-to-train-cli)
+    * [Install and set up CLI (v2)](how-to-configure-cli.md)
+    * [Train models with the CLI (v2)](how-to-train-cli.md)
     * [Deploy and score models with managed online endpoint](how-to-deploy-managed-online-endpoints)
     
 * Get started with SDK v2
