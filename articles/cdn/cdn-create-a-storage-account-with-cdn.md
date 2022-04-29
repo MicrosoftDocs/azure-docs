@@ -49,7 +49,7 @@ To create a storage account, you must be either the service administrator or a c
 
 1. On the page for your storage account, select **Blob service** > **Azure CDN** from the left menu. The **Azure CDN** page appears.
 
-	![Create CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png" alt-text="Screenshot of create a CDN endpoint.":::
 	
 1. In the **New endpoint** section, enter the following information:
 
