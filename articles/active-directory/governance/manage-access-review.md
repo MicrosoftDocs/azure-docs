@@ -82,7 +82,7 @@ You can then decide whether to ask each guest to review their own access or to a
  These scenarios are covered in the following sections.
 
 ### Review access of nested group membership (Preview)
-For some scenarios, access to resources such as security groups, enterprise applications, and privileged roles can be granted through a security group assigned access to the resource. Learn more (Add or remove a group from another group - Azure AD | Microsoft Docs)
+For some scenarios, access to resources such as security groups, enterprise applications, and privileged roles can be granted through a security group assigned access to the resource. To learn more, go to [Add or remove a group from another group](../fundamentals/active-directory-groups-membership-azure-portal.md).
 
 Administrators can perform an access review of members of nested groups. When the administrator creates the review, they can choose whether their reviewers can make decisions on indirect members or only on direct members. An example of an indirect user is a user that has access to a security group that has access to another security group, application or role. 
 
