@@ -2,6 +2,7 @@
 title: Monitoring Azure Load Testing
 description: Start here to learn how to monitor Azure Load Testing
 author: Sachid26
+ms.topic: how-to
 ms.author: sacsh
 ms.service: load-testing
 ms.custom: subject-monitoring
@@ -59,7 +60,7 @@ The following sections describe which types of logs you can collect.
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). You can find the schema for Azure Load Testing resource logs in the [Azure Load Testing data reference](monitor-load-testing-reference.md#schemas).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). You can find the schema for Azure Load Testing resource logs in the [Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
 
 The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
