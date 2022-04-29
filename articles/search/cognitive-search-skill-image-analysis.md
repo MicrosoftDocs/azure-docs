@@ -34,10 +34,10 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 Parameters are case-sensitive.
 
-| Parameter name	 | Description |
+| Parameter name | Description |
 |--------------------|-------------|
-| `defaultLanguageCode`	|  A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *es* - Spanish <br/> *ja* - Japanese <br/> *pt* - Portuguese <br/> *zh* - Simplified Chinese|
-| `visualFeatures` |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (also known as racy content) is also detected.</li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age.</li><li>	*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Note that the *color* and *imageType* visual features have been deprecated, but this functionality could still be accessed via a [custom skill](./cognitive-search-custom-skill-interface.md).|
+| `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *es* - Spanish <br/> *ja* - Japanese <br/> *pt* - Portuguese <br/> *zh* - Simplified Chinese|
+| `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (also known as racy content) is also detected.</li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age.</li><li>	*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Note that the *color* and *imageType* visual features have been deprecated, but this functionality could still be accessed via a [custom skill](./cognitive-search-custom-skill-interface.md).|
 | `details`	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
 
 ## Skill inputs
@@ -46,55 +46,55 @@ Parameters are case-sensitive.
 |---------------|------------------------------------------------------|
 | `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
 
-<!-- ## Skill outputs
+## Skill outputs
 
-| Output name      | Description                   |
+| Output name   | Description                   |
 |---------------|-------------------------------|
 | `categories` | Complex type that ...  |
-| `tags` | Complex type that ...  |
 | `description` | Complex type that ...  |
 | `faces` | Complex type that ... |
-| `brands` | Complex type that ...  | -->
+| `tags` | Complex type that ...  |
+
+<!-- No adult, brands, object outputs -->
 
 ## Sample skill definition
 
 ```json
+{
+    "description": "Extract image analysis.",
+    "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
+    "defaultLanguageCode": "en",
+    "visualFeatures": [
+        "adult",
+        "brands",
+        "categories",
+        "description",
+        "faces",
+        "objects",
+        "tags",
+    ],
+    "inputs": [
         {
-            "description": "Extract image analysis.",
-            "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-            "context": "/document/normalized_images/*",
-            "defaultLanguageCode": "en",
-            "visualFeatures": [
-                "tags",
-                "categories",
-                "description",
-                "faces",
-                "brands"
-            ],
-            "inputs": [
-                {
-                    "name": "image",
-                    "source": "/document/normalized_images/*"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "categories"
-                },
-                {
-                    "name": "tags"
-                },
-                {
-                    "name": "description"
-                },
-                {
-                    "name": "faces"
-                },
-                {
-                    "name": "brands"
-                }
-            ]
+            "name": "image",
+            "source": "/document/normalized_images/*"
         }
+    ],
+    "outputs": [
+        {
+            "name": "categories"
+        },
+        {
+            "name": "description"
+        },
+        {
+            "name": "faces"
+        },
+        {
+            "name": "tags"
+        }
+    ]
+}
 ```
 
 ### Sample index (for only the categories, description, faces and tags fields)
@@ -298,6 +298,13 @@ Parameters are case-sensitive.
                     "facetable": false
                 },
                 {
+                    "name": "hint",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
                     "name": "confidence",
                     "type": "Edm.Double",
                     "searchable": false,
@@ -313,40 +320,54 @@ Parameters are case-sensitive.
 
 ### Sample output field mapping (for the above index)
 
+The target field can be a complex field or collection. The index definition specifies any subfields. 
+
 ```json
-    "outputFieldMappings": [
-        {
-            "sourceFieldName": "/document/normalized_images/*/categories/*",
-            "targetFieldName": "categories"
-        },
-        {
-            "sourceFieldName": "/document/normalized_images/*/tags/*",
-            "targetFieldName": "tags"
-        },
-        {
-            "sourceFieldName": "/document/normalized_images/*/description",
-            "targetFieldName": "description"
-        },
-        {
-            "sourceFieldName": "/document/normalized_images/*/faces/*",
-            "targetFieldName": "faces"
-        },
-        {
-            "sourceFieldName": "/document/normalized_images/*/brands/*/name",
-            "targetFieldName": "brands"
-        }
+"outputFieldMappings": [
+    {
+        "sourceFieldName": "/document/normalized_images/*/adult/*/isAdultContent",
+        "targetFieldName": "adult"
+    },
+    {
+        "sourceFieldName": "/document/normalized_images/*/brands/*/name",
+        "targetFieldName": "brands"
+    },
+    {
+        "sourceFieldName": "/document/normalized_images/*/categories/*",
+        "targetFieldName": "categories"
+    },
+    {
+        "sourceFieldName": "/document/normalized_images/*/description",
+        "targetFieldName": "description"
+    },
+    {
+        "sourceFieldName": "/document/normalized_images/*/faces/*",
+        "targetFieldName": "faces"
+    },
+    {
+        "sourceFieldName": "/document/normalized_images/*/objects/*",
+        "targetFieldName": "objects"
+    },
+    {
+        "sourceFieldName": "/document/normalized_images/*/tags/*",
+        "targetFieldName": "tags"
+    }
 ```
 
 ### Variation on output field mappings (nested properties)
 
-You can define output field mappings to lower-level properties, such as just landmarks or celebrities. In this case, make sure your index schema has a field to contain landmarks specifically.
+You can define output field mappings to lower-level properties, such as just celebrities or landmarks. In this case, make sure your index schema has a field to contain each detail specifically.
 
 ```json
-    "outputFieldMappings": [
-        {
-            "sourceFieldName": "/document/normalized_images/*/categories/detail/celebrities/*",
-            "targetFieldName": "celebrities"
-        }
+"outputFieldMappings": [
+    {
+        "sourceFieldName": "/document/normalized_images/*/categories/detail/celebrities/*",
+        "targetFieldName": "celebrities"
+    },
+    {
+        "sourceFieldName": "/document/normalized_images/*/categories/detail/landmarks/*",
+        "targetFieldName": "landmarks"
+    }
 ```
 
 ## Sample input
@@ -463,12 +484,6 @@ You can define output field mappings to lower-level properties, such as just lan
               "confidence": 0.48293603002174407
             }
           ]
-        },
-        "requestId": "0dbec5ad-a3d3-4f7e-96b4-dfd57efe967d",
-        "metadata": {
-          "width": 1500,
-          "height": 1000,
-          "format": "Jpeg"
         },
         "faces": [
           {
