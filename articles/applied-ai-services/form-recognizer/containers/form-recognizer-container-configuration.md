@@ -83,7 +83,7 @@ The **docker compose** method is built from three steps:
 
 ### Single container example
 
-In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Layout container instance.
+In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
 
 #### **Layout container**
 
@@ -96,7 +96,7 @@ services:
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - key={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_KEY}
 
     ports:
       - "5000"
@@ -111,7 +111,7 @@ networks:
 
 #### **Receipt and OCR Read containers**
 
-In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
+In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt container and {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Computer Vision Read container.
 
 ```yml
 version: "3"
@@ -122,7 +122,7 @@ services:
     environment:
       - EULA=accept 
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - key={FORM_RECOGNIZER_API_KEY}
+      - key={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
       - "5000:5050"
@@ -134,7 +134,7 @@ services:
     environment:
       - EULA=accept 
       - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - key={COMPUTER_VISION_API_KEY}
+      - key={COMPUTER_VISION_KEY}
     networks:
       - ocrvnet
 
