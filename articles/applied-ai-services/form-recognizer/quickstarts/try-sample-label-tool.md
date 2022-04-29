@@ -74,7 +74,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
-1. In the **API key** field, paste  the subscription key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
     :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
 
@@ -103,7 +103,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
-1. In the **API key** field, paste  the subscription key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
 1. In the **Source: URL** field, paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`  and select the **Fetch** button.
 
@@ -193,7 +193,7 @@ Configure the **Project Settings** fields with the following values:
 
 1. **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
 
-1. **API Key**. Your Form Recognizer subscription key.
+1. **Key**. Your Form Recognizer key.
 
 1. **API  version**. Keep the v2.1 (default) value.
 

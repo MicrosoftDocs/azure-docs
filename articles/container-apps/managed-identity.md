@@ -49,10 +49,11 @@ The identity is only available within a running container, which means you can't
 - Define scaling rules or Dapr configuration
   - To access resources that require a connection string or key, such as  storage resources, you'll still need to include the connection string or key in the `secretRef` of the scaling rule.
 
-## How to configure managed identities
+## Configure managed identities
 
 You can configure your managed identities through:  
 
+- the Azure portal
 - the Azure CLI
 - your Azure Resource Manager (ARM) template
 
@@ -62,6 +63,16 @@ When a managed identity is added, deleted, or modified on a running container ap
 > When adding a managed identity to a container app deployed before  April 11, 2022, you must create a new revision.
 
 ### Add a system-assigned identity
+
+# [Azure portal](#tab/portal)
+
+1. In the left navigation of your container app's page, scroll down to the **Settings** group.
+
+1. Select **Identity**.
+
+1. Within the **System assigned** tab, switch **Status** to **On**. Select **Save**.
+
+:::image type="content" source="media/managed-identity/screenshot-system-assigned-identity.png" alt-text="Screenshot of system-assigned identities.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -88,6 +99,22 @@ Adding the system-assigned type tells Azure to create and manage the identity fo
 ### Add a user-assigned identity
 
 Configuring a container app with a user-assigned identity requires that you first create the identity then add its resource identifier to your container app's configuration.  You can create user-assigned identities via the Azure portal or the Azure CLI.  For information on creating and managing user-assigned identities, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
+
+# [Azure portal](#tab/portal)
+
+First, you'll need to create a user-assigned identity resource.
+
+1. Create a user-assigned managed identity resource according to the steps found in [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+1. In the left navigation for your container app's page, scroll down to the **Settings** group.
+
+1. Select **Identity**.
+
+1. Within the **User assigned** tab, select **Add**.
+
+1. Search for the identity you created earlier and select it. Select **Add**.
+
+:::image type="content" source="media/managed-identity/screenshot-user-assigned-identity.png" alt-text="Screenshot of user-assigned identities.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -269,6 +296,15 @@ az containerapps identity show --name <APP_NAME> --resource-group <GROUP_NAME>
 ## Remove a managed identity
 
 When you remove a system-assigned identity, it's deleted from Azure Active Directory. System-assigned identities are also automatically removed from Azure Active Directory when you delete the container app resource itself.  Removing user-assigned managed identities from your container app doesn't remove them from Azure Active Directory.
+
+# [Azure portal](#tab/portal)
+
+1. In the left navigation of your app's page, scroll down to the **Settings** group.
+
+1. Select **Identity**. Then follow the steps based on the identity type:
+
+    - **System-assigned identity**: Within the **System assigned** tab, switch **Status** to **Off**. Select **Save**.
+    - **User-assigned identity**: Select the **User assigned** tab, select the checkbox for the identity, and select **Remove**. Select **Yes** to confirm.
 
 # [Azure CLI](#tab/cli)
 
