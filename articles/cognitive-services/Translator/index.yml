@@ -67,7 +67,7 @@ landingContent:
         links:
           - text: Text Translator REST API
             url: reference/v3-0-reference.md
-          - text: Translator reference (v3)
+          - text: Text Translator reference (v3)
             url: reference/v3-0-reference.md
           - text: Request limits
             url: request-limits.md
