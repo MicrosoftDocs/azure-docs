@@ -34,7 +34,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## April 2022
 
-### General Availability- Microsoft Microsoft Defender for Cloud for Endpoint Signal in Identity Protection
+### General Availability- Microsoft Defender for Cloud for Endpoint Signal in Identity Protection
 
 
 **Type:** New feature  
@@ -42,7 +42,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Product capability:** Identity Security & Protection  
  
 
-Identity Protection now integrates a signal from Microsoft Microsoft Defender for Cloud for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
+Identity Protection now integrates a signal from Microsoft Defender for Cloud for Endpoint (MDE) that will protect against PRT theft detection. To learn more, see: [What is risk? Azure AD Identity Protection | Microsoft Docs](../identity-protection/concept-identity-protection-risks.md).
  
 
 ---
