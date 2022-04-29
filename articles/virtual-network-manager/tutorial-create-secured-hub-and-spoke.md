@@ -196,7 +196,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-configuration.png" alt-text="Screenshot of deploy a configuration page.":::
 
 
-1. Select **Deploy**. You should now see the deployment show up in the list for those regions. The deployment of the configuration can take about 15-20 minutes to complete.
+1. Select **Deploy**. You should now see the deployment show up in the list for those regions. The deployment of the configuration can take several minutes to complete.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
