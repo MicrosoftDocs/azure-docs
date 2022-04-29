@@ -3,7 +3,7 @@ title: Create a Windows Server container on an AKS cluster by using Azure CLI
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
@@ -220,7 +220,7 @@ aksnpwin987654                      Ready    agent   25m    v1.20.7   10.240.0.6
 > [!NOTE]
 > The container runtime for each node pool is shown under *CONTAINER-RUNTIME*. Notice *aksnpwin987654* begins with `docker://` which means it is using Docker for the container runtime. Notice *aksnpwcd123456* begins with `containerd://` which means it is using `containerd` for the container runtime.
 
-## Run the application
+## Deploy the application
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. In this article, a manifest is used to create all objects needed to run the ASP.NET sample application in a Windows Server container. This manifest includes a [Kubernetes deployment][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] to access the application from the internet.
 
