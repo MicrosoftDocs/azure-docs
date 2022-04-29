@@ -138,7 +138,7 @@ If the number of workers is increased `autovacuum_vacuum_cost_limit` will also h
 
 However, if we have changed table level `autovacuum_vacuum_cost_delay` or `autovacuum_vacuum_cost_limit` storage parameters then those workers running on those tables are not considered in the balancing algorithm [autovacuum_cost_limit/autovacuum_max_workers].
  
-##### Autovacuum transaction ID (TXID) wraparound protection
+##### Autovacuum Transaction ID (TXID) Wraparound Protection
 
 When a database runs into transaction ID wraparound protection, an error message like below is seen 
 ```
@@ -149,7 +149,7 @@ When a database runs into transaction ID wraparound protection, an error message
 ```
 The wraparound problem occurs when the database is either not vacuumed or there are a large number of dead tuples that could not be removed by autovacuum. The reasons for this might be: 
  
-###### Workload induced 
+###### Workload Induced 
 
 The workload causes too many dead tuples in a short period of time that makes it difficult for autovacuum to catch up. The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation. 
 
