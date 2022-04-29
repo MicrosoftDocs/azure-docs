@@ -192,11 +192,11 @@ items:
     - name: Power BI tenant
       items:
       - name: Power BI same-tenant
-      - href: register-scan-power-bi-tenant.md
+        href: register-scan-power-bi-tenant.md
       - name: Power BI cross-tenant
-      - href: register-scan-power-bi-tenant-cross-tenant.md
+        href: register-scan-power-bi-tenant-cross-tenant.md
       - name: Troubleshoot Power BI scans
-      - href: register-scan-power-bi-tenant-troubleshoot.md
+        href: register-scan-power-bi-tenant-troubleshoot.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
