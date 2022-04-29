@@ -23,15 +23,15 @@ The following table shows the configurations available for each WAN type:
 
 1. On the page for your virtual WAN, select **Configuration** to open the Configuration page.
 
-   :::image type="content" source="./media/upgrade-virtual-wan/configuration.png" alt-text="Screenshot that shows the "Configuration" page with an information text box about upgrading to a Standard-type virtual WAN highlighted on the bottom." lightbox="./media/upgrade-virtual-wan/configuration.png":::
+   :::image type="content" source="./media/upgrade-virtual-wan/configuration.png" alt-text="Screenshot that shows the Configuration page with an information text box about upgrading to a Standard-type virtual WAN highlighted on the bottom." lightbox="./media/upgrade-virtual-wan/configuration.png":::
 
 1. For the Virtual WAN type, select **Standard** from the drop-down.
 
-   :::image type="content" source="./media/upgrade-virtual-wan/type.png" alt-text="Screenshot that shows the "Screenshot that shows the "Virtual WAN type" drop-down menu." lightbox="./media/upgrade-virtual-wan/type.png":::
+   :::image type="content" source="./media/upgrade-virtual-wan/type.png" alt-text="Screenshot that shows the Virtual WAN type drop-down menu." lightbox="./media/upgrade-virtual-wan/type.png":::
 
 1. Understand that if you upgrade to a Standard virtual WAN, you can't revert back to a Basic virtual WAN. Select **Confirm** if you want to upgrade. Then, click **Save**.
 
-   :::image type="content" source="./media/upgrade-virtual-wan/confirm.png" alt-text="Screenshot that shows the "Screenshot that shows the "upgrade confirmation" dialog." lightbox="./media/upgrade-virtual-wan/confirm.png":::
+   :::image type="content" source="./media/upgrade-virtual-wan/confirm.png" alt-text="Screenshot that shows the upgrade confirmation dialog box." lightbox="./media/upgrade-virtual-wan/confirm.png":::
 
 1. Once the change has been saved, your virtual WAN and the hubs within it are updated to the Standard SKU type.
 
