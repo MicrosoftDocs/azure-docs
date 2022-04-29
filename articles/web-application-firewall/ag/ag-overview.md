@@ -57,13 +57,13 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 ## Features
 
-- SQL-injection protection.
-- Cross-site scripting protection.
-- Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion.
-- Protection against HTTP protocol violations.
-- Protection against HTTP protocol anomalies, such as missing host user-agent and accept headers.
-- Protection against crawlers and scanners.
-- Detection of common application misconfigurations (for example, Apache and IIS).
+- SQL injection protection.
+- Cross-site scripting protection.
+- Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion.
+- Protection against HTTP protocol violations.
+- Protection against HTTP protocol anomalies, such as missing host user-agent and accept headers.
+- Protection against crawlers and scanners.
+- Detection of common application misconfigurations (for example, Apache and IIS).
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 - Create custom rules to suit the specific needs of your applications.
@@ -101,7 +101,7 @@ The geomatch operator is now available for custom rules. See [geomatch custom ru
 
 For more information on custom rules, see [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
 
-### Bot Mitigation
+### Bot mitigation
 
 A managed Bot protection rule set can be enabled for your WAF to block or log requests from known malicious IP addresses, alongside the managed ruleset. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Microsoft Defender for Cloud.
 
@@ -119,7 +119,7 @@ The Application Gateway WAF can be configured to run in the following two modes:
 
 ### WAF engines
 
-The Azure web application firewall (WAF) engine is the component that inspects traffic and determines whether a request includes a signature that represents a potential attack. When you use CRS 3.2 or later, your WAF runs the [Azure WAF engine](azure-waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of the CRS, your WAF runs on a ModSecurity-based engine. New features will only be available on the new Azure WAF engine.
+The Azure web application firewall (WAF) engine is the component that inspects traffic and determines whether a request includes a signature that represents a potential attack. When you use CRS 3.2 or later, your WAF runs the new [WAF engine](waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of the CRS, your WAF runs on an older engine. New features will only be available on the new Azure WAF engine.
 
 ### Anomaly Scoring mode
 
