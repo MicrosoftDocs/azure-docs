@@ -1,6 +1,6 @@
 ---
 title: Purge history operation for Azure Health Data Services FHIR service
-description: This article describes the $purge-history operation for the FHIR service
+description: This article describes the $purge-history operation for the FHIR service.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -44,4 +44,4 @@ In this article, you learned how to purge the history for resources in the FHIR 
 >[Supported FHIR features](fhir-features-supported.md)
 
 >[!div class="nextstepaction"]
->[FHIR REST API capabilities](fhir-rest-api-capabilities.md)
+>[FHIR REST API capabilities for Azure Health Data Services FHIR service](fhir-rest-api-capabilities.md)

@@ -1,6 +1,6 @@
 ---
-title: Versioning policy and history management for Azure Health Data Services FHIR service
-description: This article describes the concepts of versioning policy and history management for Azure Health Data Services FHIR service.
+title: Versioning policy and history management for Azure API for FHIR
+description: This article describes the concepts of versioning policy and history management for Azure API for FHIR.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -11,7 +11,7 @@ ms.author: mikaelw
 
 # Versioning policy and history management
 
-In the FHIR service, versioning policy is a configuration, which determines how history is stored for every resource type with the option for resource specific configuration. This policy is directly related to the concept of managing history for FHIR resources.
+In Azure API for FHIR, versioning policy is a configuration, which determines how history is stored for every resource type with the option for resource specific configuration. This policy is directly related to the concept of managing history for FHIR resources.
 
 ## History in FHIR
 
@@ -21,7 +21,7 @@ All past versions of a resource are considered obsolete and the current version 
 
 ## Versioning policy
 
-Versioning policy in the FHIR service lets you decide how history is stored either at a FHIR service level or at a specific resource level. 
+Versioning policy in Azure API for FHIR lets you decide how history is stored either at a FHIR service level or at a specific resource level. 
 
 There are three different levels for versioning policy:
 
@@ -29,7 +29,7 @@ There are three different levels for versioning policy:
 - `version-update`: History is stored for operation on resources. Resource version can be specified.
 - `no-version`: History isn't created for resources. Resource version is incremented.
 
-Versioning policy available to configure at as a system-wide setting and also to override at a resource level. The system-wide setting is used for all resources in your FHIR service, unless a specific resource level versioning policy has been added.
+Versioning policy available to configure at as a system-wide setting and also to override at a resource level. The system-wide setting is used for all resources in Azure API for FHIR, unless a specific resource level versioning policy has been added.
 
 ### Versioning policy comparison
 
@@ -44,7 +44,7 @@ Versioning policy available to configure at as a system-wide setting and also to
 
 ## Configuring versioning policy
 
-To configure versioning policy, select the **Versioning Policy Configuration** blade inside your FHIR service.
+To configure versioning policy, select the **Versioning Policy Configuration** blade in your instance of Azure API for FHIR.
 
 [![Screenshot of the Azure portal Versioning Policy Configuration.](media/versioning-policy/fhir-service-versioning-policy-configuration.png)](media/versioning-policy/fhir-service-versioning-policy-configuration.png#lightbox)
 
@@ -63,13 +63,13 @@ When configuring resource level configuration, you'll be able to select the FHIR
 
 ## History Management
 
-History in FHIR is important for end users to see how a resource has changed over time. It's also useful in coordination with audit logs to see the state of a resource before and after a user modified it. In general, it's recommended to keep history for a resource unless you know that the history isn't needed. Frequent updates of resources can result in a large amount of data storage, which can be undesired in FHIR services with a large amount of data.
+History in FHIR is important for end users to see how a resource has changed over time. It's also useful in coordination with audit logs to see the state of a resource before and after a user modified it. In general, it's recommended to keep history for a resource unless you know that the history isn't needed. Frequent updates of resources can result in a large amount of data storage, which can be undesired in Azure API for FHIR with a large amount of data.
 
-Changing the versioning policy either at a system level or resource level won't remove the existing history for any resources in your FHIR service. If you're looking to reduce the history data size in your FHIR service, you must use the [$purge-history](purge-history.md) operation.
+Changing the versioning policy either at a system level or resource level won't remove the existing history for any resources in your FHIR service. If you're looking to reduce the history data size in Azure API for FHIR, you must use the [$purge-history](purge-history.md) operation.
 
 ## Next steps
 
-In this article, you learned how to purge the history for resources in the FHIR service. For more information about how to disable history and some concepts about history management, see
+In this article, you learned how to purge the history for resources in Azure API for FHIR. For more information about how to disable history and some concepts about history management, see
 
 >[!div class="nextstepaction"]
 >[Purge history operation](purge-history.md)
