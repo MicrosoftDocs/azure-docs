@@ -77,7 +77,7 @@ Now that you have identified the integration pattern for the application, check 
 
 1. Change to the **Roles and administrators** tab. This displays the administrative roles, that give rights to control the representation of the application in Azure AD, not the access rights in the application.  For each administrative role that has permissions to allow changing the application integration or assignments, and has an assignment to that administrative role, ensure that only authorized users are in that role.
 
-1. Change to the **Provisioning** tab.  If automatic provisioning isn't configured, then Azure AD won't have a way to notify the application when a user's access is removed if denied during the review.   If your application integration is pattern C, and doesn't support federated SSO with Azure AD as its only identity provider, then you'll need to configure provisioning from Azure AD to the application. Provisioning is necessary so that Azure AD can automatically remove the reviewed users from the application when a review completes, and this can be done through a change sent from Azure AD to the application through SCIM, LDAP or SQL.
+1. Change to the **Provisioning** tab.  If automatic provisioning isn't configured, then Azure AD won't have a way to notify the application when a user's access is removed if denied during the review.  This might not be necessary if the application is federated and solely relies upon Azure AD as its identity provider. However, if your application integration is pattern C, and the application doesn't support federated SSO with Azure AD as its only identity provider, then you'll need to configure provisioning from Azure AD to the application. Provisioning is necessary so that Azure AD can automatically remove the reviewed users from the application when a review completes, and this can be done through a change sent from Azure AD to the application through SCIM, LDAP or SQL.
 
    * If this is a gallery application that supports provisioning, [configure the application for provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md).
    * If the application is a cloud application and supports SCIM, configure [user provisioning with SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).
@@ -93,8 +93,6 @@ Now that you have identified the integration pattern for the application, check 
 1. Check whether all users are assigned to the same application role, such as **User**.  If users are assigned to multiple roles, then if you create an access review of the application, then all assignments to all of the application's roles will be reviewed together.
 
 1. Check the list of directory objects assigned to the roles to confirm that there are no groups assigned to the application roles. It's possible to review this application if there is a group assigned to a role; however, a user who is a member of the group assigned to the role, and whose access was denied, won't be automatically removed from the group.  We recommend first converting the application to have direct user assignments, rather than members of groups, so that a user whose access is denied during the access review can have their application role assignment removed automatically.
-
-
 
 Next, if the application integration also requires one or more groups to be reviewed, as described in pattern B, then check each group is ready for review.
 
@@ -136,9 +134,11 @@ Once the reviews have started, you can monitor their progress, and update the ap
 1. If auto-apply wasn't selected when the review was created, then you'll need to apply the review results when it completes.
 1. Wait for the status of the review to change to **Result applied**.  You should expect to see denied users, if any, being removed from the group membership or application assignment in a few minutes.
 
-1. If you had previously configured provisioning of users to the application, then when the results are applied, Azure AD will begin deprovisioning users from the application. You can [monitor the process of deprovisioning users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). If provisioning indicates an error, you can [download the provisioning log](../reports-monitoring/concept-provisioning-logs.md) to investigate if there was a problem with the application.
+1. If you had previously configured provisioning of users to the application, then when the results are applied, Azure AD will begin deprovisioning denied users from the application. You can [monitor the process of deprovisioning users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). If provisioning indicates an error with the application, you can [download the provisioning log](../reports-monitoring/concept-provisioning-logs.md) to investigate if there was a problem with the application.
 
 1. If you wish, you can also download a [review history report](access-reviews-downloadable-review-history.md) of completed reviews.
+
+1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/active-directory-configurable-token-lifetimes.md).
 
 ## Next steps
 
