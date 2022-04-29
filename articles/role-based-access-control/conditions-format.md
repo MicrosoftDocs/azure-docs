@@ -275,24 +275,22 @@ For more information about custom security attributes, see:
 - [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
 - [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
 
-## Operators
+## Function operators
 
-This section lists the operators that are available to construct conditions.
+This section lists the function operators that are available to construct conditions.
 
-### Functions
+### ActionMatches
 
-#### ActionMatches
-
-> [!div class="mx-tableFixed"]
+> [!div class="mx-tdCol2BreakAll"]
 > | Element | Value |
 > | --- | --- |
 > | **Operator** | `ActionMatches` |
 > | **Description** | Checks if the current action matches the specified action pattern. |
-> | **Examples** | If the action being checked equals "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", then true<br/>`ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then true<br/>`ActionMatches{'Microsoft.Authorization/roleAssignments/*'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then false<br/>`ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}` |
+> | **Examples** | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}`<br/>If the action being checked equals "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", then true<br/><br/>`ActionMatches{'Microsoft.Authorization/roleAssignments/*'}`<br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then true<br/><br/>`ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}`<br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then false |
 
 #### SubOperationMatches
 
-> [!div class="mx-tableFixed"]
+> [!div class="mx-tdCol2BreakAll"]
 > | Element | Value |
 > | --- | --- |
 > | **Operator** | `SubOperationMatches` |
@@ -301,194 +299,169 @@ This section lists the operators that are available to construct conditions.
 
 #### Exists
 
-> [!div class="mx-tableFixed"]
+> [!div class="mx-tdCol2BreakAll"]
 > | Element | Value |
 > | --- | --- |
 > | **Operator** | `Exists` |
 > | **Description** | Checks if the specified attribute exists. |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
 
+## Logical operators
 
-### ActionMatches
+This section lists the logical operators that are available to construct conditions.
 
-| Element | Value |
-| --- | --- |
-| **Operator** | `ActionMatches` |
-| **Description** | Checks if the current action matches the specified action pattern. |
-| **Examples** | If the action being checked equals "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", then true<br/>`ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then true<br/>`ActionMatches{'Microsoft.Authorization/roleAssignments/*'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then false<br/>`ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}` |
-
-### SubOperationMatches
-
-| Element | Value |
-| --- | --- |
-| **Operator** | `SubOperationMatches` |
-| **Description** | Checks if the current suboperation matches the specified suboperation pattern. |
-| **Examples** | `SubOperationMatches{'Blob.List'}` |
-
-### Exists
-
-| Element | Value |
-| --- | --- |
-| **Operator** | `Exists` |
-| **Description** | Checks if the specified attribute exists. |
-| **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |
-
-### Exists
-
-> [!div class="mx-tdBreakAll"]
-> | Element | Value |
-> | --- | --- |
-> | **Operator** | `Exists` |
-> | **Description** | Checks if the specified attribute exists. |
-> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |
-
-### Exists
+### And
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Element | Value |
 > | --- | --- |
-> | **Operator** | `Exists` |
-> | **Description** | Checks if the specified attribute exists. |
-> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |
+> | **Operators** | `AND`<br/>`&&` |
+> | **Description** | And operator. |
+> | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})` |
 
-### Functions
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description | Example |
-> | --- | --- | --- |
-> | `ActionMatches` | Checks if the current action matches the specified action pattern. | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}` |
-> | `SubOperationMatches` | Checks if the current suboperation matches the specified suboperation pattern. |  `SubOperationMatches{'Blob.List'}` |
-> | `Exists` | Checks if the specified attribute exists. | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
-
-| Element | Value |
-| --- | --- |
-| **Operator** | `ActionMatches` |
-| **Description** | Checks if the current action matches the specified action pattern. |
-| **Examples** | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}` |
-|  |  |
-| **Operator** | `SubOperationMatches` |
-| **Description** | Checks if the current suboperation matches the specified suboperation pattern. |
-| **Examples** |  `SubOperationMatches{'Blob.List'}` |
-|  |  |
-| **Operator** | `Exists` |
-| **Description** | Checks if the specified attribute exists. |
-| **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description |
-> | --- | --- |
-> | `ActionMatches` | Checks if the current action matches the specified action pattern. |
-> | `SubOperationMatches` | Checks if the current suboperation matches the specified suboperation pattern. |
-> | `Exists` | Checks if the specified attribute exists. |
-> | **Examples** |  |
-> | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}` | If the action being checked equals "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", then true |
-> | `ActionMatches{'Microsoft.Authorization/roleAssignments/*'}` | If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then true |
-> | `ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}` | If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then false |
-> | `SubOperationMatches{'Blob.List'}` | If the suboperation being checked equals "Blob.List", then true |
-> | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` | If snapshots exist for the current blob, then true. |
-
-### Logical
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description | Example |
-> | --- | --- | --- |
-> |`AND`<br/>`&&` | And operator. | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})` |
-> | `OR`<br/>`||` | Or operator. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z' OR NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId`
-> | `NOT`<br/>`!` | Not or negation operator. | `NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]` |
-
-### Boolean comparison
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description | Example |
-> | --- | --- | --- |
-> | `BoolEquals`<br/>`BoolNotEquals` | Boolean comparison. | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true` |
-
-### String comparison
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description | Example |
-> | --- | --- | --- |
-> | `StringEquals`<br/>`StringEqualsIgnoreCase` | Case-sensitive (or case-insensitive) matching. The values must exactly match the string. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'` |
-> | `StringNotEquals`<br/>`StringNotEqualsIgnoreCase` | Negation of `StringEquals` (or `StringEqualsIgnoreCase`) operator |  |
-> | `StringStartsWith`<br/>`StringStartsWithIgnoreCase` | Case-sensitive (or case-insensitive) matching. The values start with the string. |  |
-> | `StringNotStartsWith`<br/>`StringNotStartsWithIgnoreCase` | Negation of `StringStartsWith` (or `StringStartsWithIgnoreCase`) operator |  |
-> | `StringLike`<br/>`StringLikeIgnoreCase` | Case-sensitive (or case-insensitive) matching. The values can include a multi-character match wildcard (`*`) or a single-character match wildcard (`?`) anywhere in the string. If needed, these characters can be escaped by add a backslash `\*` and `\?`. | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'readonly/*'` |
-> | `StringNotLike`<br/>`StringNotLikeIgnoreCase` | Negation of `StringLike` (or `StringLikeIgnoreCase`) operator |  |
-
-### Numeric comparison
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description | Example |
-> | --- | --- | --- |
-> | `NumericEquals`<br/>`NumericNotEquals`<br/>`NumericGreaterThan`<br/>`NumericGreaterThanEquals`<br/>`NumericLessThan`<br/>`NumericLessThanEquals` | Currently, only integers are supported. |  |
-
-### DateTime comparison
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description | Example |
-> | --- | --- | --- |
-> | `DateTimeEquals`<br/>`DateTimeNotEquals`<br/>`DateTimeGreaterThan`<br/>`DateTimeGreaterThanEquals`<br/>`DateTimeLessThan`<br/>`DateTimeLessThanEquals` | Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID and blob snapshot. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z'` |
-
-### Cross product comparison
-
-> [!div class="mx-tableFixed"]
-> | Element | Value |
-> | --- | --- |
-> | **ForAnyOfAnyValues Operators** | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` |
-> | **Description** | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
-> | **Examples** | If encryption scope name equals `validScope1` or `validScope2`, then true.<br/>`@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}` |
+### Or
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Element | Value |
 > | --- | --- |
-> | **ForAnyOfAnyValues Operators** | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` |
+> | **Operators** | `OR`<br/>`||` |
+> | **Description** | Or operator. |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z' OR NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId` |
+
+### Not
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `NOT`<br/>`!` |
+> | **Description** | Not or negation operator. |
+> | **Examples** | `NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]` |
+
+## Boolean comparison operators
+
+This section lists the Boolean comparison operators that are available to construct conditions.
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `BoolEquals`<br/>`BoolNotEquals` |
+> | **Description** | Boolean comparison. |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true` |
+
+## String comparison operators
+
+This section lists the string comparison operators that are available to construct conditions.
+
+### StringEquals
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `StringEquals`<br/>`StringEqualsIgnoreCase` |
+> | **Description** | Case-sensitive (or case-insensitive) matching. The values must exactly match the string. |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'` |
+
+### StringNotEquals
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `StringNotEquals`<br/>`StringNotEqualsIgnoreCase` |
+> | **Description** | Negation of `StringEquals` (or `StringEqualsIgnoreCase`) operator. |
+
+### StringStartsWith
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `StringStartsWith`<br/>`StringStartsWithIgnoreCase` |
+> | **Description** | Case-sensitive (or case-insensitive) matching. The values start with the string. |
+
+### StringNotStartsWith
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `StringNotStartsWith`<br/>`StringNotStartsWithIgnoreCase` |
+> | **Description** | Negation of `StringStartsWith` (or `StringStartsWithIgnoreCase`) operator. |
+
+### StringLike
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `StringLike`<br/>`StringLikeIgnoreCase` |
+> | **Description** | Case-sensitive (or case-insensitive) matching. The values can include a multi-character match wildcard (`*`) or a single-character match wildcard (`?`) anywhere in the string. If needed, these characters can be escaped by add a backslash `\*` and `\?`. |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'readonly/*'`<br/><br/>`Resource[name1] StringLike 'a*c?'`<br/>If Resource[name1] equals "abcd", then true<br/><br/>`Resource[name1] StringLike 'A*C?'`<br/>If Resource[name1] equals "abcd", then false<br/><br/>`Resource[name1] StringLike 'a*c'`<br/>If Resource[name1] equals "abcd", then false |
+
+### StringNotLike
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `StringNotLike`<br/>`StringNotLikeIgnoreCase` |
+> | **Description** | Negation of `StringLike` (or `StringLikeIgnoreCase`) operator. |
+
+## Numeric comparison operators
+
+This section lists the numeric comparison operators that are available to construct conditions.
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `NumericEquals`<br/>`NumericNotEquals`<br/>`NumericGreaterThan`<br/>`NumericGreaterThanEquals`<br/>`NumericLessThan`<br/>`NumericLessThanEquals` |
+> | **Description** | Number matching. Only integers are supported. |
+
+## DateTime comparison operators
+
+This section lists the date/time comparison operators that are available to construct conditions.
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `DateTimeEquals`<br/>`DateTimeNotEquals`<br/>`DateTimeGreaterThan`<br/>`DateTimeGreaterThanEquals`<br/>`DateTimeLessThan`<br/>`DateTimeLessThanEquals` |
+> | **Description** |Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID and blob snapshot. |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z'` |
+
+## Cross product comparison operators
+
+This section lists the cross product comparison operators that are available to construct conditions.
+
+### ForAnyOfAnyValues
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` |
 > | **Description** | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
-> | **Examples** | If encryption scope name equals `validScope1` or `validScope2`, then true.<br/>`@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}` |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}`<br/>If encryption scope name equals `validScope1` or `validScope2`, then true.<br/><br/>`{'red', 'blue'} ForAnyOfAnyValues:StringEquals {'blue', 'green'}`<br/>true<br/><br/>`{'red', 'blue'} ForAnyOfAnyValues:StringEquals {'orange', 'green'}`<br/>false |
 
-| Element | Value |
-| --- | --- |
-| **ForAnyOfAnyValues**<br/>**Operators** | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` |
-| **Description** | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
-| **Examples** | If encryption scope name equals `validScope1` or `validScope2`, then true.<br/>`@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}` |
+### ForAllOfAnyValues
 
-> [!div class="mx-tableFixed"]
-> | Operator | Description | Example |
-> | --- | --- | --- |
-> | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}` |
-> | `ForAllOfAnyValues:StringEquals`<br/>`ForAllOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringNotEquals`<br/>`ForAllOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringLike`<br/>`ForAllOfAnyValues:StringLikeIgnoreCase`<br/>`ForAllOfAnyValues:StringNotLike`<br/>`ForAllOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAnyValues:NumericEquals`<br/>`ForAllOfAnyValues:NumericNotEquals`<br/>`ForAllOfAnyValues:NumericGreaterThan`<br/>`ForAllOfAnyValues:NumericGreaterThanEquals`<br/>`ForAllOfAnyValues:NumericLessThan`<br/>`ForAllOfAnyValues:NumericLessThanEquals` | If every value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |
-> | `ForAnyOfAllValues:StringEquals`<br/>`ForAnyOfAllValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringNotEquals`<br/>`ForAnyOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringLike`<br/>`ForAnyOfAllValues:StringLikeIgnoreCase`<br/>`ForAnyOfAllValues:StringNotLike`<br/>`ForAnyOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAllValues:NumericEquals`<br/>`ForAnyOfAllValues:NumericNotEquals`<br/>`ForAnyOfAllValues:NumericGreaterThan`<br/>`ForAnyOfAllValues:NumericGreaterThanEquals`<br/>`ForAnyOfAllValues:NumericLessThan`<br/>`ForAnyOfAllValues:NumericLessThanEquals` | If at least one value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |  |
-> | `ForAllOfAllValues:StringEquals`<br/>`ForAllOfAllValues:StringEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringNotEquals`<br/>`ForAllOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringLike`<br/>`ForAllOfAllValues:StringLikeIgnoreCase`<br/>`ForAllOfAllValues:StringNotLike`<br/>`ForAllOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAllValues:NumericEquals`<br/>`ForAllOfAllValues:NumericNotEquals`<br/>`ForAllOfAllValues:NumericGreaterThan`<br/>`ForAllOfAllValues:NumericGreaterThanEquals`<br/>`ForAllOfAllValues:NumericLessThan`<br/>`ForAllOfAllValues:NumericLessThanEquals` | If every value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |  |
-
-
-> [!div class="mx-tableFixed"]
-> | Operator | Description |
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
 > | --- | --- |
-> | `ForAnyOfAnyValues:StringEquals`<br/>`ForAnyOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotEquals`<br/>`ForAnyOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAnyValues:StringLike`<br/>`ForAnyOfAnyValues:StringLikeIgnoreCase`<br/>`ForAnyOfAnyValues:StringNotLike`<br/>`ForAnyOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAnyValues:NumericEquals`<br/>`ForAnyOfAnyValues:NumericNotEquals`<br/>`ForAnyOfAnyValues:NumericGreaterThan`<br/>`ForAnyOfAnyValues:NumericGreaterThanEquals`<br/>`ForAnyOfAnyValues:NumericLessThan`<br/>`ForAnyOfAnyValues:NumericLessThanEquals` | If at least one value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
-> | `ForAllOfAnyValues:StringEquals`<br/>`ForAllOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringNotEquals`<br/>`ForAllOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringLike`<br/>`ForAllOfAnyValues:StringLikeIgnoreCase`<br/>`ForAllOfAnyValues:StringNotLike`<br/>`ForAllOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAnyValues:NumericEquals`<br/>`ForAllOfAnyValues:NumericNotEquals`<br/>`ForAllOfAnyValues:NumericGreaterThan`<br/>`ForAllOfAnyValues:NumericGreaterThanEquals`<br/>`ForAllOfAnyValues:NumericLessThan`<br/>`ForAllOfAnyValues:NumericLessThanEquals` | If every value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
-> | `ForAnyOfAllValues:StringEquals`<br/>`ForAnyOfAllValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringNotEquals`<br/>`ForAnyOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringLike`<br/>`ForAnyOfAllValues:StringLikeIgnoreCase`<br/>`ForAnyOfAllValues:StringNotLike`<br/>`ForAnyOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAllValues:NumericEquals`<br/>`ForAnyOfAllValues:NumericNotEquals`<br/>`ForAnyOfAllValues:NumericGreaterThan`<br/>`ForAnyOfAllValues:NumericGreaterThanEquals`<br/>`ForAnyOfAllValues:NumericLessThan`<br/>`ForAnyOfAllValues:NumericLessThanEquals` | If at least one value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
-> | `ForAllOfAllValues:StringEquals`<br/>`ForAllOfAllValues:StringEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringNotEquals`<br/>`ForAllOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringLike`<br/>`ForAllOfAllValues:StringLikeIgnoreCase`<br/>`ForAllOfAllValues:StringNotLike`<br/>`ForAllOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAllValues:NumericEquals`<br/>`ForAllOfAllValues:NumericNotEquals`<br/>`ForAllOfAllValues:NumericGreaterThan`<br/>`ForAllOfAllValues:NumericGreaterThanEquals`<br/>`ForAllOfAllValues:NumericLessThan`<br/>`ForAllOfAllValues:NumericLessThanEquals` | If every value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
-> | **Examples** | **Description** |
-> | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}` | If encryption scope name equals `validScope1` or `validScope2`, then true. |
->  `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |  |
+> | **Operators** | `ForAllOfAnyValues:StringEquals`<br/>`ForAllOfAnyValues:StringEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringNotEquals`<br/>`ForAllOfAnyValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAnyValues:StringLike`<br/>`ForAllOfAnyValues:StringLikeIgnoreCase`<br/>`ForAllOfAnyValues:StringNotLike`<br/>`ForAllOfAnyValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAnyValues:NumericEquals`<br/>`ForAllOfAnyValues:NumericNotEquals`<br/>`ForAllOfAnyValues:NumericGreaterThan`<br/>`ForAllOfAnyValues:NumericGreaterThanEquals`<br/>`ForAllOfAnyValues:NumericLessThan`<br/>`ForAllOfAnyValues:NumericLessThanEquals` |
+> | **Description** | If every value on the left-hand side satisfies the comparison to at least one value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAnyValues:<BooleanFunction>`. Supports multiple strings and numbers. |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}`<br/><br/>`{'red', 'blue'} ForAllOfAnyValues:StringEquals {'orange', 'red', 'blue'}`<br/>true<br/><br/>`{'red', 'blue'} ForAllOfAnyValues:StringEquals {'red', 'green'}`<br/>false |
 
-## Operator examples
+### ForAnyOfAllValues
 
-> [!div class="mx-tableFixed"]
-> | Example | Result |
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
 > | --- | --- |
-> | `ActionMatches{'Microsoft.Authorization/roleAssignments/*'}` | If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then true |
-> | `ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}` | If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then false |
-> | `Resource[name1] StringLike 'a*c?'` | If Resource[name1] equals "abcd", then true |
-> | `Resource[name1] StringLike 'A*C?'` | If Resource[name1] equals "abcd", then false |
-> | `Resource[name1] StringLike 'a*c'` | If Resource[name1] equals "abcd", then false |
-> | `{'red', 'blue'} ForAnyOfAnyValues:StringEquals {'blue', 'green'}` | true |
-> | `{'red', 'blue'} ForAnyOfAnyValues:StringEquals {'orange', 'green'}` | false |
-> | `{'red', 'blue'} ForAllOfAnyValues:StringEquals {'orange', 'red', 'blue'}` | true |
-> | `{'red', 'blue'} ForAllOfAnyValues:StringEquals {'red', 'green'}` | false |
-> | `{10, 20} ForAnyOfAllValues:NumericLessThan {15, 18}` | true |
-> | `{10, 20} ForAllOfAllValues:NumericLessThan {5, 15, 18}` | false |
-> | `{10, 20} ForAllOfAllValues:NumericLessThan {25, 30}` | true |
-> | `{10, 20} ForAllOfAllValues:NumericLessThan {15, 25, 30}` | false |
+> | **Operators** | `ForAnyOfAllValues:StringEquals`<br/>`ForAnyOfAllValues:StringEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringNotEquals`<br/>`ForAnyOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAnyOfAllValues:StringLike`<br/>`ForAnyOfAllValues:StringLikeIgnoreCase`<br/>`ForAnyOfAllValues:StringNotLike`<br/>`ForAnyOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAnyOfAllValues:NumericEquals`<br/>`ForAnyOfAllValues:NumericNotEquals`<br/>`ForAnyOfAllValues:NumericGreaterThan`<br/>`ForAnyOfAllValues:NumericGreaterThanEquals`<br/>`ForAnyOfAllValues:NumericLessThan`<br/>`ForAnyOfAllValues:NumericLessThanEquals` |
+> | **Description** | If at least one value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAnyOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
+> | **Examples** | `{10, 20} ForAnyOfAllValues:NumericLessThan {15, 18}`<br/>true |
+
+### ForAllOfAllValues
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operators** | `ForAllOfAllValues:StringEquals`<br/>`ForAllOfAllValues:StringEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringNotEquals`<br/>`ForAllOfAllValues:StringNotEqualsIgnoreCase`<br/>`ForAllOfAllValues:StringLike`<br/>`ForAllOfAllValues:StringLikeIgnoreCase`<br/>`ForAllOfAllValues:StringNotLike`<br/>`ForAllOfAllValues:StringNotLikeIgnoreCase`<br/>`ForAllOfAllValues:NumericEquals`<br/>`ForAllOfAllValues:NumericNotEquals`<br/>`ForAllOfAllValues:NumericGreaterThan`<br/>`ForAllOfAllValues:NumericGreaterThanEquals`<br/>`ForAllOfAllValues:NumericLessThan`<br/>`ForAllOfAllValues:NumericLessThanEquals` |
+> | **Description** | If every value on the left-hand side satisfies the comparison to every value on the right-hand side, then the expression evaluates to true. Has the format: `ForAllOfAllValues:<BooleanFunction>`. Supports multiple strings and numbers. |
+> | **Examples** | `{10, 20} ForAllOfAllValues:NumericLessThan {5, 15, 18}`<br/>false<br/><br/>`{10, 20} ForAllOfAllValues:NumericLessThan {25, 30}`<br/>true<br/><br/>`{10, 20} ForAllOfAllValues:NumericLessThan {15, 25, 30}`<br/>false |
 
 ## Special characters
 
