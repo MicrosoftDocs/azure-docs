@@ -22,11 +22,11 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 
 ## Error code: Test connection failed - AASDST50079
 
-- **Message**: `Failed to get access token with given credential to access power bi tenant. Authentication type PowerBIDelegated Message: AASDST50079 Due to a configuration change made by your administrator or because you moved to a new location, you must enroll in multi-factor authentication.`
+- **Message**: `Failed to get access token with given credential to access Power BI tenant. Authentication type PowerBIDelegated Message: AASDST50079 Due to a configuration change made by your administrator or because you moved to a new location, you must enroll in multi-factor authentication.`
 
 - **Cause**: Authentication is interrupted, due multi-factor authentication requirement for the Power BI admin user.
 
-- **Recommendation**: Disable multi-factor authentication requirement and exclude user from conditional access policies. Login with the user to power bi dashboard to validate if user can successfully login to the application. 
+- **Recommendation**: Disable multi-factor authentication requirement and exclude user from conditional access policies. Login with the user to Power BI dashboard to validate if user can successfully login to the application. 
 
 ## Error code: Test connection failed - AASTS70002
 
@@ -51,7 +51,7 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 - **Cause**: This problem can occur in same-tenant or cross-tenant scenarios, due problem with networking or authentication issues.
 
 - **Recommendation**:  
-  - If Delegated Authentication is used, validate Power BI Admin user sign in logs in Azure Active Directory logs to make sure user sign in is successful. Login with the user to power bi dashboard to validate if user can successfully login to the application.
+  - If Delegated Authentication is used, validate Power BI Admin user sign in logs in Azure Active Directory logs to make sure user sign in is successful. Login with the user to Power BI dashboard to validate if user can successfully login to the application.
   
   - Review your network configurations. Private endpoint is required for **both** Power BI tenant and Purview account, if one of these services (Power BI tenant or Microsoft Purview) is configured to block public access. 
 
