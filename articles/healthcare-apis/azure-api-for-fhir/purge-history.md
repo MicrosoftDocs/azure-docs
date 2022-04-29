@@ -9,7 +9,7 @@ ms.date: 04/29/2022
 ms.author: mikaelw
 ---
 
-# Purge history operation
+# Purge history operation for Azure API for FHIR
 
 `$purge-history` is an operation that allows you to delete the history of a single FHIR resource. This operation isn't defined in the FHIR specification, but it's useful for [history management](fhir-versioning-policy-history-management.md) in large Azure API for FHIR instances.
 
