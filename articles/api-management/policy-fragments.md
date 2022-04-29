@@ -79,6 +79,9 @@ For example, insert the policy fragment named *ForwardContext* in the inbound po
 [...]
 ```
 
+> [!TIP]
+> If you want to see the content of an included fragment displayed in the policy definition, select **Recalculate effective policy** in the policy editor.
+
 ## Manage policy fragments
 
 After creating a policy fragment, you can view and update policy properties, or delete the policy at any time.
