@@ -109,7 +109,7 @@ items:
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
   - name: Data estate insights
-    href: concept-insights.md
+    href: concept-data-estate-insights.md
 - name: How-to guides
   items:
   - name: Manage collections
