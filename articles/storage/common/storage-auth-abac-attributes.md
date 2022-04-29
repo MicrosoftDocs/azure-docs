@@ -63,7 +63,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### List blobs
 
@@ -76,7 +76,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** | `Blob.List` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
 > | **Request attributes** | Blob prefix |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Read a blob
 
@@ -89,7 +89,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** | NOT `Blob.List` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** | Version ID<br/>Snapshot |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Read content from a blob with tag conditions
 
@@ -102,7 +102,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** | `Blob.Read.WithTagConditions` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name |
 > | **Request attributes** | Version ID<br/>Snapshot |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Read blob index tags
 
@@ -115,7 +115,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys] |
 > | **Request attributes** | Version ID<br/>Snapshot |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Find blobs by tags
 
@@ -128,7 +128,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Write to a blob
 
@@ -141,7 +141,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Sets the access tier on a blob
 
@@ -154,7 +154,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** | `Blob.Write.Tier` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** | Version ID<br/>Snapshot |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Write to a blob with blob index tags
 
@@ -167,7 +167,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** | `Blob.Write.WithTagHeaders` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** | Blob index tags [Values in key]<br/>Blob index tags [Keys] |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Create a blob or snapshot, or append data
 
@@ -180,7 +180,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Write blob index tags
 
@@ -193,7 +193,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys] |
 > | **Request attributes** | Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Version ID<br/>Snapshot |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Write Blob legal hold and immutability policy
 
@@ -206,7 +206,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Delete a blob
 
@@ -219,7 +219,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** | Version ID<br/>Snapshot |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Delete a version of a blob
 
@@ -232,7 +232,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** | Version ID |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Permanently delete a blob overriding soft-delete
 
@@ -245,7 +245,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** | Version ID<br/>Snapshot |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Modify permissions of a blob
 
@@ -258,7 +258,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Change ownership of a blob
 
@@ -271,7 +271,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Rename a file or a directory
 
@@ -284,7 +284,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### All data operations for accounts with hierarchical namespace enabled
 
@@ -297,7 +297,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ## Azure Queue Storage actions
 
@@ -313,7 +313,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 > | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` |
 > | **Resource attributes** | Account name<br/>Queue name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Put a message
 
@@ -325,7 +325,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 > | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action` |
 > | **Resource attributes** | Account name<br/>Queue name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Put or update a message
 
@@ -337,7 +337,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 > | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/write` |
 > | **Resource attributes** | Account name<br/>Queue name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Clear messages
 
@@ -349,7 +349,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 > | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete` |
 > | **Resource attributes** | Account name<br/>Queue name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ### Get or delete messages
 
@@ -361,7 +361,7 @@ This section lists the supported Azure Queue Storage actions you can targe for c
 > | **DataAction** | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 > | **Resource attributes** | Account name<br/>Queue name |
 > | **Request attributes** |  |
-> | **Principal attributes** | Supported |
+> | **Principal attributes support** | true |
 
 ## Azure Storage attributes
 
