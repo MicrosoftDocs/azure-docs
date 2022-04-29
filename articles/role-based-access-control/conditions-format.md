@@ -281,6 +281,60 @@ This section lists the operators that are available to construct conditions.
 
 ### Functions
 
+#### ActionMatches
+
+> [!div class="mx-tableFixed"]
+> | Element | Value |
+> | --- | --- |
+> | **Operator** | `ActionMatches` |
+> | **Description** | Checks if the current action matches the specified action pattern. |
+> | **Examples** | If the action being checked equals "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", then true<br/>`ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then true<br/>`ActionMatches{'Microsoft.Authorization/roleAssignments/*'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then false<br/>`ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}` |
+
+#### SubOperationMatches
+
+> [!div class="mx-tableFixed"]
+> | Element | Value |
+> | --- | --- |
+> | **Operator** | `SubOperationMatches` |
+> | **Description** | Checks if the current suboperation matches the specified suboperation pattern. |
+> | **Examples** | `SubOperationMatches{'Blob.List'}` |
+
+#### Exists
+
+> [!div class="mx-tableFixed"]
+> | Element | Value |
+> | --- | --- |
+> | **Operator** | `Exists` |
+> | **Description** | Checks if the specified attribute exists. |
+> | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
+
+
+### ActionMatches
+
+| Element | Value |
+| --- | --- |
+| **Operator** | `ActionMatches` |
+| **Description** | Checks if the current action matches the specified action pattern. |
+| **Examples** | If the action being checked equals "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", then true<br/>`ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then true<br/>`ActionMatches{'Microsoft.Authorization/roleAssignments/*'}`<br/><br/>If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then false<br/>`ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}` |
+
+### SubOperationMatches
+
+| Element | Value |
+| --- | --- |
+| **Operator** | `SubOperationMatches` |
+| **Description** | Checks if the current suboperation matches the specified suboperation pattern. |
+| **Examples** | `SubOperationMatches{'Blob.List'}` |
+
+### Exists
+
+| Element |  |
+| --- | --- |
+| **Operator** | `Exists` |
+| **Description** | Checks if the specified attribute exists. |
+| **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |
+
+### Functions
+
 > [!div class="mx-tableFixed"]
 > | Operator | Description | Example |
 > | --- | --- | --- |
@@ -309,9 +363,11 @@ This section lists the operators that are available to construct conditions.
 > | `SubOperationMatches` | Checks if the current suboperation matches the specified suboperation pattern. |
 > | `Exists` | Checks if the specified attribute exists. |
 > | **Examples** |  |
-> | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}` |  |
-> | `SubOperationMatches{'Blob.List'}` |
-> | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |  |
+> | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}` | If the action being checked equals "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", then true |
+> | `ActionMatches{'Microsoft.Authorization/roleAssignments/*'}` | If the action being checked equals "Microsoft.Authorization/roleAssignments/write", then true |
+> | `ActionMatches{'Microsoft.Authorization/roleDefinitions/*'}` | If the action being checked equals "Microsoft.Authorization/roleAssignments/write" then false |
+> | `SubOperationMatches{'Blob.List'}` | If the suboperation being checked equals "Blob.List", then true |
+> | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` | If snapshots exist for the current blob, then true. |
 
 ### Logical
 
