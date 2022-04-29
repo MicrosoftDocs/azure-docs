@@ -427,7 +427,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-FailToResetThroughput
 - **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
 - **Cause**: The throughput scale operation of the Azure Cosmos DB cannot be performed because another scale operation is in progress.
-- **Recommendation**: Login to Azure Cosmos DB account, and manually change its container's throughput to be auto scale or add custom activity after data flows to reset the throughput.
+- **Recommendation**: Login to Azure Cosmos DB account, and manually change its container's throughput to be auto scale or add custom activity after mapping data flows to reset the throughput.
 
 ## Error code: DF-Executor-InvalidPath
 - **Message**: Path does not resolve to any file(s). Please make sure the file/folder exists and is not hidden.
@@ -476,7 +476,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Executor-RemoteRPCClientDisassociated
 - **Message**: Job aborted due to stage failure. Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
-- **Cause**: Data flow activity run failed because of transient network issues or because one node in spark cluster ran out of memory.
+- **Cause**: Data flow activity run failed because of transient network issues or one node in spark cluster ran out of memory.
 - **Recommendation**: Use the following options to solve this problem:
   - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized". The settings are shown in the picture below.
         
@@ -587,7 +587,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Executor-InvalidStageConfiguration
 - **Message**: Storage with user assigned managed identity authentication in staging is not supported 
 - **Cause**: An exception is happened because of invalid staging configuration.
-- **Recommendation**: The user-assigned managed identity authentication is not supported in staging. Use a different authentication to create an Azure Data Lake Storage Gen2 or Azure Blob Storage linked service, then use it as staging in mapping data flow.
+- **Recommendation**: The user-assigned managed identity authentication is not supported in staging. Use a different authentication to create an Azure Data Lake Storage Gen2 or Azure Blob Storage linked service, then use it as staging in mapping data flows.
 
 ## Error code: DF-GEN2-InvalidStorageAccountConfiguration
 - **Message**: Blob operation is not supported on older storage accounts. Creating a new storage account may fix the issue.
