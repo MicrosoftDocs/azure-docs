@@ -50,7 +50,7 @@ In this preview, storage accounts support the following suboperations:
 
 ## Azure Storage actions and suboperations
 
-This section lists the supported Azure Storage actions and suboperations you can targe for conditions.
+This section lists the supported Azure Storage actions and suboperations you can target for conditions.
 
 ### All read operations
 
@@ -74,6 +74,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Description** | List blobs operation. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 > | **Suboperation** | `Blob.List` |
+> | **Example** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.List'})` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
 > | **Request attributes** | Blob prefix |
 > | **Principal attributes support** | true |
@@ -87,6 +88,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Description** | All blob read operations excluding list. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 > | **Suboperation** | NOT `Blob.List` |
+> | **Example** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** | Version ID<br/>Snapshot |
 > | **Principal attributes support** | true |
@@ -100,6 +102,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Description** | Read blobs with tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 > | **Suboperation** | `Blob.Read.WithTagConditions` |
+> | **Example** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys]<br/>Encryption scope name |
 > | **Request attributes** | Version ID<br/>Snapshot |
 > | **Principal attributes support** | true |
@@ -152,6 +155,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Description** | DataAction for writing to blobs. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
 > | **Suboperation** | `Blob.Write.Tier` |
+> | **Example** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.Tier'})` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** | Version ID<br/>Snapshot |
 > | **Principal attributes support** | true |
@@ -165,6 +169,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Description** | REST operations: Put Blob, Put Block List, Copy Blob and Copy Blob From URL. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
 > | **Suboperation** | `Blob.Write.WithTagHeaders` |
+> | **Example** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})` |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Encryption scope name |
 > | **Request attributes** | Blob index tags [Values in key]<br/>Blob index tags [Keys] |
 > | **Principal attributes support** | true |
@@ -301,7 +306,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 
 ## Azure Queue Storage actions
 
-This section lists the supported Azure Queue Storage actions you can targe for conditions.
+This section lists the supported Azure Queue Storage actions you can target for conditions.
 
 ### Peek messages
 
