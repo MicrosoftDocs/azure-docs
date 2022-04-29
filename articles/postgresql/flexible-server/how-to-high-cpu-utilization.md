@@ -116,7 +116,7 @@ For more information on EXPLAIN command [Explain Plan](https://www.postgresql.or
  
 ### PG Bouncer or Connection Pooling 
 
-In situations where there are lot of idle connections or lot of connections which are consuming the CPU consider use of a connection pooler like pg bouncer.
+In situations where there are lots of idle connections or lot of connections which are consuming the CPU consider use of a connection pooler like pg bouncer.
 For more details of pg bouncer
 
 [Connection Pooler](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717)
