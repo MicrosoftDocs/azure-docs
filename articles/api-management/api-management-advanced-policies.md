@@ -536,6 +536,29 @@ In the following example, request forwarding is retried up to ten times using an
 
 ```
 
+### Example
+
+In the following example, sending a request to a URL other than the defined backend is retried up to three times if the connection is dropped/timed out, or the request results in a server-side error. Since `first-fast-retry` is set to true, the first retry is executed immediately upon the initial request failure. Note that `send-request` must set `ignore-error` to true in order for `response-variable-name` to be null in the event of an error.
+
+```xml
+
+<retry
+    condition="@(context.Variables["response"] == null || ((IResponse)context.Variables["response"]).StatusCode >= 500)"
+    count="3"
+    interval="1"
+    first-fast-retry="true">
+        <send-request 
+            mode="new" 
+            response-variable-name="response" 
+            timeout="3" 
+            ignore-error="true">
+		        <set-url>https://api.contoso.com/products/5</set-url>
+		        <set-method>GET</set-method>
+		</send-request>
+</retry>
+
+```
+
 ### Elements
 
 | Element | Description                                                         | Required |
