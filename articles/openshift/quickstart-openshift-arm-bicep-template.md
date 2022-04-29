@@ -4,7 +4,6 @@ description: In this Quickstart, learn how to create an Azure Red Hat OpenShift 
 author: rahulm23
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.custom: subject-armqs
 ms.custom: mode-arm
 ms.author: rahulmehta
 ms.date: 03/17/2022
