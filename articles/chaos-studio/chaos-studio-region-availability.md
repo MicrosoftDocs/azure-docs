@@ -18,7 +18,7 @@ Chaos Studio is a regional Azure service, which means that the service is deploy
 ## Regional availability of chaos experiments
 A [chaos experiment](chaos-studio-chaos-experiments.md) is an Azure resource that describes the faults that should be run and the resources those faults should be run against. An experiment is deployed to a single region and the following information and operations stay within that region:
 * The experiment definition, which includes the hierarchy of steps, branches, and actions, the faults and parameters defined, and the resource IDs of target resources. Open-ended properties in the experiment resource JSON including the step name, branch name, and any fault parameters are stored in region and treated as system metadata.
-* The experiment execution each time an experiment is run. This is the activity that orchestrates the execution of steps, branches, and actions.
+* The experiment execution each time an experiment is run, or the activity that orchestrates the execution of steps, branches, and actions.
 * The experiment history, which includes details such as the step, branch, and action timestamps, status, IDs, and any error messages for each historical experiment run. This data is treated as system metadata.
 
 Any experiment data stored in Chaos Studio is deleted when an experiment is deleted.
@@ -26,10 +26,10 @@ Any experiment data stored in Chaos Studio is deleted when an experiment is dele
 ## Regional availability of chaos targets (resource targeting)
 A [chaos target](chaos-studio-targets-capabilities.md) enables Chaos Studio to interact with an Azure resource. Faults in a chaos experiment run against a chaos target, but the target resource can be in a different region than the experiment. A resource can only be onboarded as a chaos target if Chaos Studio resource targeting is available in that region. The list of regions where resource targeting is available is a superset of the regions where experiments can be created. A chaos target is deployed to the same region as the target resource and the following information and operations stay in that region:
 * The target definition, which includes basic metadata about the target. Agent-based targets have one user-configurable property: the [identity that will be used to connect the agent to the chaos agent service](chaos-studio-permissions-security.md#agent-authentication).
-* The capability definitions, which includes basic metadata about the capabilities enabled on a target.
+* The capability definitions, which include basic metadata about the capabilities enabled on a target.
 * The action execution. When an experiment runs a fault, the fault itself (for example, shutting down a VM) happens within the target region.
 
-Any target or capability metadata is delted when a target is deleted.
+Any target or capability metadata is deleted when a target is deleted.
 
 ## High availability with Chaos Studio
 
