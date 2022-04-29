@@ -30,6 +30,8 @@ With Azure Active Directory (Azure AD), you can easily ensure that users have ap
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
+If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-review-application-preparation.md) to ensure the application is integrated with Azure AD.
+
 ## Create and perform an access review
 
 You can have one or more users as reviewers in an access review.  

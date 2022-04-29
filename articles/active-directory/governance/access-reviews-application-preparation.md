@@ -29,16 +29,16 @@ Organizations with compliance requirements or risk management plans will have se
 
 ## Prerequisites for reviewing access
 
-1. To use Azure AD to review access to an application, you must have one of the following licenses in your tenant:
+To use Azure AD to review access to an application, you must have one of the following licenses in your tenant:
 
-   * Azure AD Premium P2
-   * Enterprise Mobility + Security (EMS) E5 license
+* Azure AD Premium P2
+* Enterprise Mobility + Security (EMS) E5 license
 
-   While using the access reviews feature does not require users to have those licenses assigned to them to use the feature, you'll need to have at least as many licenses in your tenant as the number of member (non-guest) users who will be configured as reviewers.
+While using the access reviews feature does not require users to have those licenses assigned to them to use the feature, you'll need to have at least as many licenses in your tenant as the number of member (non-guest) users who will be configured as reviewers.
 
-Also, while not required for reviewing access to a particular application, we recommend also regularly reviewing the membership of privileged directory roles that have the ability to control other users' access to all applications. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments, so ensure that [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) have been scheduled.
+Also, while not required for reviewing access to an application, we recommend also regularly reviewing the membership of privileged directory roles that have the ability to control other users' access to all applications. Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments, so ensure that [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) have been scheduled.
 
-## Identify the pattern for how the application is integrated with Azure AD
+## Determine how the application is integrated with Azure AD
 
 In order for Azure AD access reviews to be able to be used to review access for an application, then the application must first be integrated with Azure AD. An application being integrated with Azure AD means
 
@@ -57,11 +57,13 @@ In order to permit a wide variety of applications and IT requirements to be addr
 |B|If the application uses group claims in addition to application role assignments.| An application may use Azure AD group membership, distinct from application roles to express finer-grained access.  Here, you can choose based on your business requirements either to review the users who have application role assignments, or to review the users who have group memberships.  If the groups do not provide comprehensive access coverage, in particular if users may have access to the application even if they aren't a member of those groups, then we recommend reviewing the application role assignments, as in pattern A above.|
 |C| If the application doesn't rely solely on Azure AD for federated SSO, but does support provisioning, via SCIM, or via updates to a SQL table of users or an LDAP directory. |  In this pattern, you'll configure Azure AD to provision the users with application role assignments to the application's database or directory, update the app role assignments in Azure AD with a list of the users who currently have access, and then create a single access review of the application role assignments.|
 
+### Other options
 
-   > [!NOTE]
-   > These integration patterns are applicable to third party SaaS applications, or applications that have been developed by or for your organization. Some Microsoft Online Services, such as Exchange Online, use licenses.  While licenses can't be reviewed, if you're using group-based license assignments, with groups with assigned users, you can review the memberships of those groups instead.  Similarly, some applications may used delegated user consent to control access to Microsoft Graph or other resources.  As consents by each user aren't controlled by a approval process, consents aren't reviewable in Azure AD; instead you can review who is able to connect to the application through Conditional Access policies, that could be based on application role assignments or group memberships.
+The integration patterns listed above are applicable to third party SaaS applications, or applications that have been developed by or for your organization.
 
-If the application doesn't support federation or provisioning protocols, then you'll need an out-of-band process for review. If the application only supports password SSO integration, and an application assignment is removed as part of a review, then the application won't show up on the *myapps* page for the user, but it won't prevent a user who already knows the password from being able to continue to sign into the application. Please [ask the SaaS vendor to onboard to the app gallery](../manage-apps/v2-howto-app-gallery-listing.md) for federation or provisioning by updating their application to support a standard protocol.
+* Some Microsoft Online Services, such as Exchange Online, use licenses.  While licenses can't be reviewed, if you're using group-based license assignments, with groups with assigned users, you can review the memberships of those groups instead.
+* Some applications may used delegated user consent to control access to Microsoft Graph or other resources.  As consents by each user aren't controlled by a approval process, consents aren't reviewable in Azure AD; instead you can review who is able to connect to the application through Conditional Access policies, that could be based on application role assignments or group memberships.
+* If the application doesn't support federation or provisioning protocols, then you'll need an out-of-band process for handling denied users when a review completes. If the application only supports password SSO integration, and an application assignment is removed as part of a review, then the application won't show up on the *myapps* page for the user, but it won't prevent a user who already knows the password from being able to continue to sign into the application. Please [ask the SaaS vendor to onboard to the app gallery](../manage-apps/v2-howto-app-gallery-listing.md) for federation or provisioning by updating their application to support a standard protocol.
 
 ## Check the application and groups are ready for the review
 
@@ -75,17 +77,26 @@ Now that you have identified the integration pattern for the application, check 
 
 1. Change to the **Roles and administrators** tab. What is displayed are the administrative roles, that give rights to control the representation of the application in Azure AD, not the access rights in the application.  For each administrative role that has permissions to allow changing the application integration or assignments, and has an assignment to that administrative role, ensure that only authorized users are in that role.
 
+1. Change to the **Provisioning** tab.  If automatic provisioning isn't configured, then Azure AD will not notify the application when a user's access is removed.   If your application integration is pattern C, and doesn't support federated SSO with Azure AD as its only identity provider, then you will need to configure provisioning from Azure AD to the application, so that Azure AD can automatically remove the reviewed users from the application when it completes.
+
+   * If this is a gallery application that supports provisioning, [configure the application for provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md).
+   * If the application is a cloud application and supports SCIM, configure [user provisioning with SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+   * If the application is an on-premises application and supports SCIM, configure an application with the [provisioning agent for on-premises SCIM-based apps](../app-provisioning/on-premises-scim-provisioning.md).
+   * If the application relies upon a SQL database, configure an application with the [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md).
+   * If the application relies upon another LDAP directory, configure an application with the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md).
+
+1. If provisioning is configured, then click on **Edit Attribute Mappings**, expand the Mapping section and click on **Provision Azure Active Directory Users**. Check that in the list of attribute mappings, there is a mapping for `isSoftDeleted` to the attribute in the application's data store that you would like to set to false when a user loses access. If this mapping isn't present, then Azure AD will not notify the application when a user has gone out of scope, as described in [how provisioning works](../app-provisioning/how-provisioning-works.md).
+1. If the application supports federated SSO, then change to the **Conditional Access** tab. Inspect the enabled policies for this application. If there are policies that are enabled, block access, have users assigned to the policies, but no other conditions, then those users may be already blocked from being able to get federated SSO to the application.
+
 1. Change to the **Users and groups** tab.  This list contains all the users who are assigned to the application in Azure AD.  If the list is empty, then a review of the application will complete immediately, since there isn't any task for the reviewer to perform.
-1. If your application is integrated with pattern C, then you'll need to confirm that the users in this list are the same as those in the applications' internal data store, prior to starting the review. You can [assign users to an application role via PowerShell](../manage-apps/assign-user-or-group-access-portal.md). <!-- TODO -->
+1. If your application is integrated with pattern C, then you'll need to confirm that the users in this list are the same as those in the applications' internal data store, prior to starting the review. Azure AD does not automatically import the users or their access rights from an application, but you can [assign users to an application role via PowerShell](../manage-apps/assign-user-or-group-access-portal.md).
 1. Check whether all users are assigned to the same application role, such as **User**.  If users are assigned to multiple roles, then if you create an access review of the application, then all assignments to all of the application's roles will be reviewed together.
 
 1. Check the list of directory objects assigned to the roles to confirm that there are no groups assigned to the application roles. It is possible to review this application if there is a group assigned to a role; however, a user who is a member of the group assigned to the role, and whose access was denied, won't be automatically removed from the group.  We recommend first converting the application to have direct user assignments, rather than members of groups, so that a user whose access is denied during the access review can have their application role assignment removed automatically.
 
-1. Change to the **Provisioning** tab.  If automatic provisioning isn't configured, then Azure AD will not notify the application when a user's access is removed.   If your application is integrated with pattern C, and doesn't support federated SSO with Azure AD as its only identity provider, then you will need to configure provisioning so that Azure AD can automatically remove the reviewed users from the application when it completes.
-1. If provisioning is configured, then click on **Edit Attribute Mappings**, expand the Mapping section and click on **Provision Azure Active Directory Users**. Check that in the list of attribute mappings, there is a mapping for `isSoftDeleted` to the attribute in the application's data store that you would like to set to false when a user loses access. If this mapping isn't present, then Azure AD will not notify the application when a user has gone out of scope, as described in [how provisioning works](../app-provisioning/how-provisioning-works.md).
-1. If the application supports federated SSO, then change to the **Conditional Access** tab. Inspect the enabled policies for this application. If there are policies that are enabled, block access, have users assigned to the policies, but no other conditions, then those users may be already blocked from being able to get federated SSO to the application.
 
-Next, if the application also requires one or more groups, as described in pattern B, then check each group is ready for review.
+
+Next, if the application integration also requires one or more groups to be reviewed, as described in pattern B, then check each group is ready for review.
 
 1. In the Azure portal experience for Azure AD, click **Groups**, and then select the group from the list.
 1. On the **Overview** tab, verify that the **Membership type** is **Assigned**, and the **Source** is **Cloud**.  If the application uses a dynamic group, or a group synchronized from on-premises, then those group memberships cannot be changed in Azure AD.  We recommend converting the application to groups created in Azure AD with assigned memberships, then copy the member users to that new group.
@@ -97,25 +108,28 @@ Next, if the application also requires one or more groups, as described in patte
 
 When you create each access review, administrators can choose one or more reviewers. The reviewers can carry out a review by choosing users for continued access to a resource or removing them.
 
-Typically a resource owner is responsible for performing a review. If you're creating a review of a group, as part of pattern B, then you can select the group owner, however as applications in Azure AD don't necessarily have an owner, the option for selecting the application owner as a reviewer isn't possible.  Instead, when creating the review, you can supply the names of the application owners to be the reviewers.
+Typically a resource owner is responsible for performing a review. If you're creating a review of a group, as part of reviewing access for an application integrated in pattern B, then you can select the group owners as reviewers. As applications in Azure AD don't necessarily have an owner, the option for selecting the application owner as a reviewer isn't possible.  Instead, when creating the review, you can supply the names of the application owners to be the reviewers.
 
 It is also possible, when creating a review of a group or application, to have a [multi-stage review](create-access-review.md#create-a-multi-stage-access-review-preview). For example, you could select to have the manager of each assigned user perform the first stage of the review, and the resource owner the second stage.  That way the resource owner can focus on the users who have already been approved by their manager.
 
-Before creating the reviews, check that you have at least as many Azure AD Premium P2 licenses in your tenant as there are member users who are assigned as reviewers.
+Before creating the reviews, check that you have at least as many Azure AD Premium P2 licenses in your tenant as there are member users who are assigned as reviewers.  Also, check that all reviewers are active users with email addresses.  When the access reviews start, they each review an email from Azure AD.  If the reviewer does not have a mailbox, they will not receive the email.  And if they are blocked from being able to sign in to Azure AD, they will not be able to perform the review.
 
 ## Create the reviews
 
-Once you've identified the resources to review based on the integration pattern, and who the reviewers should be, then you can configure Azure AD to start the reviews, using the access reviews UI. In patterns A and C, you'll create one access review, selecting the application.  If your application is integrated with pattern B, you'll create additional access reviews for each of the groups.
+Once you've identified the resources to review based on the integration pattern, and who the reviewers should be, then you can configure Azure AD to start the reviews, using the access reviews UI.
 
 1. For this step, you'll need to be in the `Global administrator` or `Identity Governance administrator` role.
-1. Follow the instructions in the guide for [creating an access review of groups or applications](create-access-review.md), to create each of the reviews.
+1. In patterns A and C, you'll create one access review, selecting the application.  Follow the instructions in the guide for [creating an access review of groups or applications](create-access-review.md), to create the review of the application's role assignments.
+1. If your application is integrated with pattern B, use the same [guide](create-access-review.md) to create additional access reviews for each of the groups.
 
    > [!NOTE]
    > If you create an access review and enable review decision helpers, then the decision helper will vary depending upon the resource being reviewed. If the resource is an application, recommendations are based on the 30-day interval period depending on when the user last signed in to the application. If the resource is a group, then the recommendations are based on the interval when the user last signed into to any application in the tenant, not just the application using those groups.
 
+1. When the access reviews start, ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [review membership in the groups or access to the application](perform-access-review.md).
+
 ## View the assignments that are updated when the reviews complete
 
-Once the reviews have started, you can monitor their progress, and update the approvers if needed, until the review completes.  You can then confirm that the users whose access was denied by the reviewers are being removed from the application.
+Once the reviews have started, you can monitor their progress, and update the approvers if needed, until the review completes.  You can then confirm that the users, whose access was denied by the reviewers, are having their access removed from the application.
 
 1. Monitor the access reviews, ensuring the reviewers are making selections to approve or deny user's need for continued access, until the [access review completes](complete-access-review.md).
 
