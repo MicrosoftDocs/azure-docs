@@ -1,6 +1,6 @@
 ---
-title: Monitor scan runs in Azure Purview
-description: This guide describes how to monitor the scan runs in Azure Purview. 
+title: Monitor scan runs in Microsoft Purview
+description: This guide describes how to monitor the scan runs in Microsoft Purview. 
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 04/04/2022
 ---
 
-# Monitor scan runs in Azure Purview
+# Monitor scan runs in Microsoft Purview
 
-In Azure Purview, you can register and scan various types of data sources, and you can view the scan status over time. This article outlines how to monitor and get a bird's eye view of your scan runs in Azure Purview.
+In Microsoft Purview, you can register and scan various types of data sources, and you can view the scan status over time. This article outlines how to monitor and get a bird's eye view of your scan runs in Microsoft Purview.
 
 > [!IMPORTANT]
 > The monitoring experience is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Monitor scan runs
 
-1. Go to your Azure Purview account -> open **Azure Purview Studio** -> **Data map** -> **Monitoring**.
+1. Go to your Microsoft Purview account -> open **Microsoft Purview governance portal** -> **Data map** -> **Monitoring**.
  
 1. The high-level KPIs show total scan runs within a period. The time period is defaulted at last 30 days, you can also choose to select last seven days. Based on the time filter selected, you can see the distribution of successful, failed, and canceled scan runs by week or by the day in the graph.
 
@@ -36,6 +36,6 @@ In Azure Purview, you can register and scan various types of data sources, and y
 
 ## Next steps
 
-* [Azure Purview supported data sources and file types](azure-purview-connector-overview.md)
+* [Microsoft Purview supported data sources and file types](azure-purview-connector-overview.md)
 * [Manage data sources](manage-data-sources.md)
 * [Scan and ingestion](concept-scans-and-ingestion.md)

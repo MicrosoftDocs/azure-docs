@@ -757,6 +757,7 @@ IoT Central expects a response from the device to writable property updates. The
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | The property change operation was successfully completed. |
 | `'ac': 202`  or `'ac': 201` | Pending | The property change operation is pending or in progress |
+| `'ac': 203` | Pending | The property change operation was initiated by the device |
 | `'ac': 4xx` | Error | The requested property change wasn't valid or had an error |
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 

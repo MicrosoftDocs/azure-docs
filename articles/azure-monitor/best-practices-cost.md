@@ -50,7 +50,7 @@ The decision whether to configure a table for Basic Logs is based on the followi
 - You only require basic queries of the data using a limited version of the query language.
 - The cost savings for data ingestion over a month exceeds the expected cost for any expected queries
 
-See [Query Basic Logs in Azure Monitor (Preview)](/logs/basic-logs-query.md) for details on query limitations and [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more details about them.
+See [Query Basic Logs in Azure Monitor (Preview)](.//logs/basic-logs-query.md) for details on query limitations and [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more details about them.
 
 ## Reduce the amount of data collected
 The most straightforward strategy to reduce your costs for data ingestion and retention is to reduce the amount of data that you collect. Your goal should be to collect the minimal amount of data to meet your monitoring requirements. If you find that you're collecting data that's not being used for alerting or analysis, then you have an opportunity to reduce your monitoring costs by modifying your configuration to stop collecting data that you don't need.
@@ -117,8 +117,8 @@ You can also ingestion-time transformations to lower the storage requirements fo
 
 The following table for methods to apply transformations to different workflows.
 
-> {!NOTE]
-> Azure tables here refers to tables that are created and maintained by Microsoft and documented in the [Azure Monitor Reference](/azure/azure-monitor-reference). Custom tables are created by custom applications and have a suffix of *_CL* ion their name.
+> [!NOTE]
+> Azure tables here refers to tables that are created and maintained by Microsoft and documented in the [Azure Monitor Reference](/azure/azure-monitor/reference/). Custom tables are created by custom applications and have a suffix of *_CL* ion their name.
 
 | Source | Target | Description | Filtering method |
 |:---|:---|:---|:---|

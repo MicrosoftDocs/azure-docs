@@ -5,6 +5,7 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
+ms.custon: subject-rbac-steps
 ---
 
 # Deploy Start/Stop VMs v2 (preview)
@@ -61,17 +62,23 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 
 After the Start/Stop deployment completes, perform the following steps to enable Start/Stop VMs v2 (preview) to take action across multiple subscriptions.
 
-1. Copy the value for the Azure Function App Name that you specified during the deployment.
+1. Copy the value for the Azure Function App name that you specified during the deployment.
 
-1. In the portal, navigate to your secondary subscription. Select the subscription, and then select **Access Control (IAM)**
+1. In the Azure portal, navigate to your secondary subscription.
 
-1. Select **Add** and then select **Add role assignment**.
+1. Select **Access control (IAM)**.
 
-1. Select the **Contributor** role from the **Role** drop down list.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Enter the Azure Function Application Name in the **Select** field. Select the function name in the results.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Select **Save** to commit your changes.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Your Azure Function App name> |
+
+    ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Configure schedules overview
 

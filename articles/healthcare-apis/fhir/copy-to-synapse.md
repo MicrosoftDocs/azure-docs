@@ -21,7 +21,7 @@ In this article, you’ll learn three ways to copy data from the FHIR service in
 > [!Note]
 > [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
 
-The **FHIR to Synapse Sync Agent** is a Microsoft OSS project released under MIT License. It's an Azure function that extracts data from a FHIR server using FHIR Resource APIs, converts it to hierarchical Parquet files, and writes it to Azure Data Lake in near real time. This also contains a script to create external tables and views in [Synapse Serverless SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) pointing to the Parquet files.
+The **FHIR to Synapse Sync Agent** is a Microsoft OSS project released under MIT License. It's an Azure function that extracts data from a FHIR server using FHIR Resource APIs, converts it to hierarchical Parquet files, and writes it to Azure Data Lake in near real time. This also contains a script to create external tables and views in [Synapse Serverless SQL pool](../../synapse-analytics/sql/on-demand-workspace-overview.md) pointing to the Parquet files.
 
 This solution enables you to query against the entire FHIR data with tools such as Synapse Studio, SSMS, and Power BI. You can also access the Parquet files directly from a Synapse Spark pool. You should consider this solution if you want to access all of your FHIR data in near real time, and want to defer custom transformation to downstream systems.
 
@@ -32,7 +32,7 @@ Follow the OSS [documentation](https://github.com/microsoft/FHIR-Analytics-Pipel
 > [!Note]
 > [FHIR to CDM pipeline generator](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToCdm/docs/fhir-to-cdm.md) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
 
-The **FHIR to CDM pipeline generator** is a Microsoft OSS project released under MIT License. It's a tool to generate an ADF pipeline for copying a snapshot of data from a FHIR server using $export API, transforming it to csv format, and writing to a [CDM folder](https://docs.microsoft.com/common-data-model/data-lake) in Azure Data Lake Storage Gen 2. The tool requires a user-created configuration file containing instructions to project and flatten FHIR Resources and fields into tables. You can also follow the instructions for creating a downstream pipeline in Synapse workspace to move data from CDM folder to Synapse dedicated SQL pool.
+The **FHIR to CDM pipeline generator** is a Microsoft OSS project released under MIT License. It's a tool to generate an ADF pipeline for copying a snapshot of data from a FHIR server using $export API, transforming it to csv format, and writing to a [CDM folder](/common-data-model/data-lake) in Azure Data Lake Storage Gen 2. The tool requires a user-created configuration file containing instructions to project and flatten FHIR Resources and fields into tables. You can also follow the instructions for creating a downstream pipeline in Synapse workspace to move data from CDM folder to Synapse dedicated SQL pool.
 
 This solution enables you to transform the data into tabular format as it gets written to CDM folder. You should consider this solution if you want to transform FHIR data into a custom schema after it's extracted from the FHIR server.
 
@@ -196,11 +196,3 @@ Next, you can learn about how you can de-identify your FHIR data while exporting
  
 >[!div class="nextstepaction"]
 >[Exporting de-identified data](./de-identified-export.md)
-
-
-
-
-
-
-
-

@@ -33,61 +33,59 @@ Use the Image Analysis client library to analyze a remote image for tags, text d
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Create a new Gradle project
-
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
-
-```console
-mkdir myapp && cd myapp
-```
-
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
-
-```console
-gradle init --type basic
-```
-
-When prompted to choose a **DSL**, select **Kotlin**.
-
-### Install the client library
-
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
-
-Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ImageAnalysisQuickstart**. It imports the Computer Vision library.
-
-```kotlin
-plugins {
-    java
-    application
-}
-application { 
-    mainClass.set("ImageAnalysisQuickstart")
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
-}
-```
-
-### Create a Java file
-
-From your working directory, run the following command to create a project source folder:
-
-```console
-mkdir -p src/main/java
-```
-
-Navigate to the new folder and create a file called *ImageAnalysisQuickstart.java*. 
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
 ## Analyze image
+
+1. Create a new Gradle project.
+
+    In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+    
+    ```console
+    mkdir myapp && cd myapp
+    ```
+    
+    Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+    
+    ```console
+    gradle init --type basic
+    ```
+
+    When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Install the client library.
+
+    This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
+
+    Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ImageAnalysisQuickstart**. It imports the Computer Vision library.
+
+    ```kotlin
+    plugins {
+        java
+        application
+    }
+    application { 
+        mainClass.set("ImageAnalysisQuickstart")
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
+    }
+    ```
+
+1. Create a Java file.
+
+    From your working directory, run the following command to create a project source folder:
+
+    ```console
+    mkdir -p src/main/java
+    ```
+
+    Navigate to the new folder and create a file called *ImageAnalysisQuickstart.java*. 
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. Open *ImageAnalysisQuickstart.java* in your preferred editor or IDE and paste in the following code.
 

@@ -86,7 +86,7 @@ Emails are sent to different people depending on your purchase method:
 
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
-- Cloud Solution Provider customers - Emails are sent to the partner notification contact.
+- Cloud Solution Provider customers - Emails are sent to the partner notification contact. This notification isn't currently supported for Microsoft Customer Agreement subscriptions (CSP Azure Plan subscription).
 
 ## Next steps
 - To learn more about Azure Reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)
