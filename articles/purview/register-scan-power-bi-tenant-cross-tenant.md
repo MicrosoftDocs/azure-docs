@@ -25,8 +25,8 @@ This article outlines how to register a Power BI tenant in a cross-tenant scenar
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
 |---------|---------|---------|---------|---------|---------|
-|Scenario 1     |Allowed     |Allowed        |Azure Runtime      |Delegated Authentication    | [Review deployment checklist](#deploymentchecklist) |
-|Scenario 2     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deploymentchecklist) |
+|Scenario 1     |Allowed     |Allowed        |Azure runtime      |Delegated Authentication    | [Deployment checklist](tabs=Scenario1#scan-cross-tenant-power-bi-using-azure-ir-and-delegated-authentication-in-public-network) |
+|Scenario 2     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Deployment checklist](&tabs=Scenario2#scan-cross-tenant-power-bi-using-self-hosted-ir-and-delegated-authentication-in-public-network) |
 
 ### Known limitations
 
@@ -51,52 +51,66 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 # [Scenario 1](#tab/Scenario1)
 
-### Scenario 1 - Scan cross-tenant Power BI using Azure IR and Delegated Authentication in public network
+### Scan cross-tenant Power BI using Azure IR and Delegated Authentication in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in cross-tenant.
+
 2. Make sure Power BI tenant Id is entered correctly during the registration. By default, Power BI tenant ID that exists in the same Azure Active Directory as Microsoft Purview will be populated.
+
 3. From Azure portal, validate if Microsoft Purview account Network is set to public access.
+
 4. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
+
 5. Check your Azure Key Vault to make sure:
    1. There are no typos in the password.
    2. Microsoft Purview Managed Identity has get/list access to secrets.
+
 6. Review your credential to validate: 
    1. Client ID matches _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name such as `johndoe@contoso.com`.
+
 7. In Power BI Azure AD tenant, validate Power BI admin user settings to make sure:
    1. User is assigned to Power BI Administrator role.
    2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
    3. If user is recently created, login with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
    4. There is no MFA or Conditional Access Policies are enforced on the user.
+
 8. In Power BI Azure AD tenant, validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant where Power BI tenant is located.
    2. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
-   7. Under **Authentication**:
+   3. Under **Authentication**:
       1. **Supported account types**, **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected.
       2. **Implicit grant and hybrid flows**, **ID tokens (used for implicit and hybrid flows)** is selected.
       3. **Allow public client flows** is enabled.
    
 # [Scenario 2](#tab/Scenario2)
-### Scenario 2 - Scan cross-tenant Power BI using self-hosted IR and Delegated Authentication in public network
+### Scan cross-tenant Power BI using self-hosted IR and Delegated Authentication in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in cross-tenant.
+
 2. Make sure Power BI tenant Id is entered correctly during the registration.By default, Power BI tenant ID that exists in the same Azure Active Directory as Microsoft Purview will be populated.
+
 3. From Azure portal, validate if Microsoft Purview account Network is set to public access.
+
 4. From Power BI tenant Admin Portal, make sure Power BI tenant is configured to allow public network.
+
 5. Check your Azure Key Vault to make sure:
    1. There are no typos in the password.
    2. Microsoft Purview Managed Identity has get/list access to secrets.
+
 6. Review your credential to validate: 
    1. Client ID matches _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name such as `johndoe@contoso.com`.
+
 8. In Power BI Azure AD tenant, validate Power BI admin user settings to make sure:
    1. User is assigned to Power BI Administrator role.
    2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
    3. If user is recently created, login with the user at least once to make sure password is reset successfully and user can successfully initiate the session.
    4. There is no MFA or Conditional Access Policies are enforced on the user.
+
 9. In Power BI Azure AD tenant, validate App registration settings to make sure:
    5. App registration exists in your Azure Active Directory tenant where Power BI tenant is located.
    6. Under **API permissions**, the following **delegated permissions** and **grant admin consent for the tenant** is set up with read for the following APIs:
@@ -107,6 +121,7 @@ Use any of the following deployment checklists during the setup or for troublesh
       1. **Supported account types**, **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected.
       2. **Implicit grant and hybrid flows**, **ID tokens (used for implicit and hybrid flows)** is selected.
       3. **Allow public client flows** is enabled.
+
 10. Validate Self-hosted runtime settings:
    8.  Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
    9.  Network connectivity from Self-hosted runtime to Power BI tenant is enabled.
