@@ -163,7 +163,7 @@ Studio (classic) used **REQUEST/RESPOND API** for real-time prediction and **BAT
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-Azure Machine Learning uses **real-time endpoints** for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
+Azure Machine Learning uses **real-time endpoints** (managed endpoints) for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
 

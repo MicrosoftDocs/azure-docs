@@ -30,6 +30,8 @@ landingContent:
             url:  overview-what-is-machine-learning-studio.md
           - text:  Architecture & terms
             url: concept-azure-machine-learning-architecture.md 
+          - text: What is CLI & SDK v2?
+            url: concept-v2.md
   # Card
   - title: Get Started
     linkLists:

@@ -14,7 +14,7 @@ ms.custom: sdkv2
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic. 
 ---
 
-# Tutorial: Production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook
+# Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -134,7 +134,7 @@ from azure.identity import DefaultAzureCredential
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
 1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
 1. At the bottom, select **View all properties in Azure portal**
-1. Copy the value from Azure Portal into the code.
+1. Copy the value from Azure portal into the code.
 
 :::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
 
@@ -862,5 +862,6 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ## Next steps
 
-Learn more about [Azure ML logging](https://github.com/Azure/azureml-examples/blob/sdk-preview/notebooks/mlflow/mlflow-v1-comparison.ipynb). 
+> [!div class="nextstepaction"]
+> Learn more about [Azure ML logging](https://github.com/Azure/azureml-examples/blob/sdk-preview/notebooks/mlflow/mlflow-v1-comparison.ipynb).
 

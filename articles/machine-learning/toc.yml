@@ -115,6 +115,8 @@
       href: https://github.com/microsoft/MLOps
 - name: Concepts
   items:
+    - name: What is v2?
+      href: concept-v2.md
     - name: Train models
       items:
         - name: Model training
