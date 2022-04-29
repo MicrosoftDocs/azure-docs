@@ -10,7 +10,7 @@ ms.date: 04/29/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage a Power BI tenant in Microsoft Purview for a cross-tenant scenario
+# Connect to and manage a Power BI tenant in Microsoft Purview for a **cross-tenant scenario**
 
 This article outlines how to register a Power BI tenant in a cross-tenant scenario, and how to authenticate and interact with the tenant in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
