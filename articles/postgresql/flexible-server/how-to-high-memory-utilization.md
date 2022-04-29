@@ -15,25 +15,25 @@ The purpose of the document is to discuss common scenarios and root causes that 
 -   Tools to Identify high memory utilization. 
 -   Reasons & Remedial actions  
 
-### Tools to Identify high Memory Utilization 
+## Tools to Identify high Memory Utilization 
 
-##### Azure Metrics
+### Azure Metrics
 We can monitor various metrics including percentage of memory in use for the definite date and time frame with help of Azure Metrics.For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md)
 
 
-##### Query Store
+### Query Store
 
 Query Store automatically captures history of queries and runtime statistics, and it retains them for your review. It can correlate wait event information with query run time statistics. Query store gives flexibility to identify queries who have high memory waits during the period of interest. 
 
 For more information on setting up and usage of query store visit [query store](./concepts-query-store.md)
 
-### Reasons And Remedial Actions
+## Reasons And Remedial Actions
 
-#### Server Parameters
+### Server Parameters
 
 There are a few server parameters that can be investigated and make sure the values are set appropriately  
 
-##### Work_Mem  
+#### Work_Mem  
 The `work_mem` parameter basically provides the amount of memory to be used by internal sort operations and hash tables before writing to temporary disk files. It is not per query basis rather; it’s set based on the number of sort/hash operations. 
 
 The guidance is that if the workload has lot of short running queries with simple joins and minimal sort operations it is advised to keep lower `work_mem`. In scenarios where we have few active queries but have complex joins, sorts then it is advised to keep a higher work_mem. 
@@ -46,7 +46,7 @@ A safer setting for `work_mem` is
 
 The default value of `work_mem` = 4 MB. You can set `work_mem` value on multiple levels including at the server level via parameters page in Azure Portal. A good strategy is to monitor the memory during the peak times. If disk sorts are happening during this time and we find plenty of memory not used, then increase work_mem gradually and continue the same of process to adjust work_mem until a good balance of available and used memory is reached. On the other hand, If the memory use looks high, reduce the work_mem. 
 
-##### Maintenance_Work_Mem 
+#### Maintenance_Work_Mem 
 
 `maintenance_work_mem` is for maintenance tasks like Vacuuming, adding indexes or foreign keys. We can set a large value that can help in the tasks like vacuum, create index, alter table add foreign key. The usage of memory in this scenario is per session. 
 
@@ -55,13 +55,13 @@ Ex: We have session that is creating an index and at the same time we have two a
 A high `maintenance_work_mem` value along with multiple running sessions for vacuuming/index creation/adding foreign keys can cause high memory utilization also. The maximum allowed value for ``maintenance_work_mem`` server parameter in Azure Database for flexible server is 2 GB.
 
 
-##### Shared Buffers 
+#### Shared Buffers 
 
 The `shared_buffers` determine how much memory is dedicated to the server for caching data. The objective of shared buffers is to reduce DISK IO. 
 
 A reasonable setting for shared buffers is 25% of RAM. It is recommended not to set to a value more than 40% of RAM. 
                                                                                                          
-##### Max Connections 
+### Max Connections 
 
 Every new or an idle connection on a postgres database consumes 10 MB of memory. One of the methods to monitor the connections is using the below statement: 
 ~~~
