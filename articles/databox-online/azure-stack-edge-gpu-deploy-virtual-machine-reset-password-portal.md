@@ -23,11 +23,11 @@ Use the following steps to reset the VM password for your Azure Stack Edge Pro G
 
 1. In the Azure portal, go to the Azure Stack Edge resource for your device, then go to **Edge services** > **Virtual machines**.
 
-    ![Screenshot of the Azure portal showing your Azure Stack Edge resource for your device, and how to navigate to your Windows V M.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/azure-portal-navigate-to-vms.png)
+    ![Screenshot of the Azure portal showing your Azure Stack Edge resource for your device, and how to navigate to your Windows V M.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/portal-navigate-to-vms.png)
 
 1. From the Azure portal VM list view, select the VM name with the password you would like to reset.
 
-    ![Screenshot of the Azure portal Windows V M list view.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/azure-portal-vm-list-view-windows.png)
+    ![Screenshot of the Azure portal Windows V M list view.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/portal-vm-list-view-windows.png)
 
 1. Select **Reset password**.
 
@@ -55,11 +55,11 @@ Use the following steps to reset the VM password for your Azure Stack Edge Pro G
 
 1. In the Azure portal, go to the Azure Stack Edge resource for your device, then go to **Edge services** > **Virtual machines**.
 
-    ![Screenshot of the Azure portal, Azure Stack Edge resource for your device, and how to navigate to your Windows V M.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/azure-portal-navigate-to-vms.png)
+    ![Screenshot of the Azure portal, Azure Stack Edge resource for your device, and how to navigate to your Windows V M.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/portal-navigate-to-vms.png)
 
 1. From the Azure portal VM list view, select the VM name with the password you would like to reset.
 
-    ![Screenshot of the Azure portal Linux V M list view.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/azure-portal-vm-list-view-linux.png)
+    ![Screenshot of the Azure portal Linux V M list view.](media/azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal/portal-vm-list-view-linux.png)
 
 1. Select **Reset password**.
 
