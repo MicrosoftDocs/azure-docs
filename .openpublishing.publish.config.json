@@ -946,6 +946,7 @@
     "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
-    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json"
+    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+    "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json"
   ]
 }
