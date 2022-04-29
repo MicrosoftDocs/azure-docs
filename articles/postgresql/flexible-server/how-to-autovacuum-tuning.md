@@ -145,7 +145,7 @@ When a database runs into transaction ID wraparound protection, an error message
   <i>database is not accepting commands to avoid wraparound data loss in database ‘xx’   
   Stop the postmaster and vacuum that database in single-user mode. </i>
     
-    Note: This error message is a long-standing oversight. Usually, you do not need to switch to single-user mode. Instead, you can run the required VACUUM commands and perform tuning for VACUUM to run fast. While you can't run any data manipulation language (DML), you can still run VACUUM.
+Note: This error message is a long-standing oversight. Usually, you do not need to switch to single-user mode. Instead, you can run the required VACUUM commands and perform tuning for VACUUM to run fast. While you can't run any data manipulation language (DML), you can still run VACUUM.
 ```
 The wraparound problem occurs when the database is either not vacuumed or there are a large number of dead tuples that could not be removed by autovacuum. The reasons for this might be: 
  
@@ -212,7 +212,9 @@ Prioritization of autovacuum can also be made on a table basis. Example we hav
 ```
 ##### Insert Only Workloads  
 
-In versions of PostgreSQL prior to 13, autovacuum will not run-on tables with an insert-only workload, because if there are no updates or deletes, there would be no dead tuples and no free space that would need to be reclaimed. Autoanalyze will run for insert-only workloads, since there is new data. A disadvantage of this is the visibility map is not updated, and thus the query performance especially where there is Index Only Scans starts to suffer over time.  
+In versions of PostgreSQL prior to 13, autovacuum will not run-on tables with an insert-only workload, because if there are no updates or deletes, there would be no dead tuples and no free space that would need to be reclaimed. Autoanalyze will run for insert-only workloads, since there is new data. The disadvantages of this are
+- The visibility map of the tables is not updated, and thus the query performance especially where there is Index Only Scans starts to suffer over time.
+- The database can run into transaction ID wraparound protection.
 
 ###### Possible Solutions  
 
