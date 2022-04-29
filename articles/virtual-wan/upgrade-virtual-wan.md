@@ -1,5 +1,5 @@
 ---
-title: 'Upgrade virtual WAN from Basic SKU to Standard'
+title: 'Upgrade Virtual WAN - Basic SKU type to Standard'
 titleSuffix: Azure Virtual WAN
 description: You can upgrade your virtual WAN SKU type from Basic to Standard for greater functionality.
 author: cherylmc
@@ -11,9 +11,9 @@ ms.author: cherylmc
 
 # Upgrade a virtual WAN from Basic to Standard
 
-This article helps you upgrade a virtual WAN that was created using the Basic SKU, to the Standard SKU. When you have a **Basic** virtual WAN type, all hubs within the virtual WAN are configured as Basic SKU hubs. In a Basic SKU hub, you're limited to site-to-site VPN functionality only.
+This article helps you upgrade a virtual WAN that was created using the Basic SKU type, to the Standard SKU type. When you have a **Basic** virtual WAN type, all hubs within the virtual WAN are configured as Basic hubs. In a Basic hub, you're limited to site-to-site VPN functionality only.
 
-When you upgrade to a **Standard** virtual WAN SKU type, it updates all the hubs within the virtual WAN to Standard SKU hubs. When you use Standard hubs, you can enable ExpressRoute, point-to-site (User VPN), a full mesh hub, and VNet-to-VNet transit through the Azure hubs.
+When you upgrade to a **Standard** virtual WAN type, it updates all the hubs within the virtual WAN to Standard hubs. When you use Standard hubs, you can enable ExpressRoute, point-to-site (User VPN), a full mesh hub, and VNet-to-VNet transit through the Azure hubs.
 
 The following table shows the configurations available for each WAN type:
 
@@ -33,7 +33,7 @@ The following table shows the configurations available for each WAN type:
 
    :::image type="content" source="./media/upgrade-virtual-wan/confirm.png" alt-text="Screenshot that shows the upgrade confirmation dialog box." lightbox="./media/upgrade-virtual-wan/confirm.png":::
 
-1. Once the change has been saved, your virtual WAN and the hubs within it are updated to the Standard SKU type.
+1. Once the change has been saved, your virtual WAN and the hubs within it are updated to Standard.
 
 ## Next steps
 
