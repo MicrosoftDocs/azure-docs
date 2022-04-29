@@ -54,7 +54,7 @@ items:
       href: logs/tutorial-custom-logs.md
     - name: Resource manager templates
       displayName: Custom logs
-      href: logs/tutorial-custom-logs.md
+      href: logs/tutorial-custom-logs-api.md
   - name: Ingestion-time transformations
     items:
     - name: Azure portal
