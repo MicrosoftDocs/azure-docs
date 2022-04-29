@@ -27,7 +27,7 @@ Additional details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement* |
 | Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only                                       |
 
-\* CSP and LSPs are not allowed resell Italian numbers 
+\* CSP and LSP are not allowed resell Italian numbers 
 
 ## Number capabilities
 
