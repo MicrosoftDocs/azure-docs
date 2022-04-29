@@ -16,7 +16,7 @@ ms.date: 04/27/2022
 This Azure CLI script example deploys a custom domain name and TLS certificate on an Azure Front Door front-end. This script demonstrates fully automated provisioning of Azure Front Door with a custom domain name (hosted by Azure DNS) and TLS cert.
 
 > [!IMPORTANT]
-> This script requires that an Azure DNS public zone already exists for domain name. For a tutorial, see [ost your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+> This script requires that an Azure DNS public zone already exists for domain name. For a tutorial, see [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,8 +27,6 @@ This Azure CLI script example deploys a custom domain name and TLS certificate o
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Getting started
-
-To deploy this sample, review and change hardcoded variables as required. Then execute:
 
 The script will:
 
