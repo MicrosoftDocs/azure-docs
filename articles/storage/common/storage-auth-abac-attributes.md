@@ -40,10 +40,13 @@ Similarly, only select operations on the `Microsoft.Storage/storageAccounts/blob
 In this preview, storage accounts support the following suboperations:
 
 > [!div class="mx-tableFixed"]
-> | DataAction | Suboperation | Display name | Description |
-> | :--- | :--- | :--- | :--- |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` | Blob read operations that support conditions on tags | Includes REST operations Get Blob, Get Blob Metadata, Get Blob Properties, Get Block List, Get Page Ranges, Query Blob Contents. |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` | Blob writes for content with optional tags | Includes REST operations Put Blob, Copy Blob, Copy Blob From URL and Put Block List. |
+> | Display name | DataAction | Suboperation |
+> | :--- | :--- | :--- |
+> | [List blobs](#list-blobs) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | NOT `Blob.List` |
+> | [Read a blob](#read-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.List` |
+> | [Read content from a blob with tag conditions](#read-content-from-a-blob-with-tag-conditions) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | `Blob.Read.WithTagConditions` |
+> | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
+> | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
 
 ## Azure Storage actions and suboperations
 
@@ -109,7 +112,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | **Display name** | Read blob index tags |
 > | **Description** | DataAction for reading blob index tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
-> | **Suboperation** | `Blob.Read.WithTagConditions` |
+> | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name<br/>Blob path<br/>Blob index tags [Values in key]<br/>Blob index tags [Keys] |
 > | **Request attributes** | Version ID<br/>Snapshot |
 > | **Principal attributes** | Supported |
@@ -391,7 +394,7 @@ This section lists the Azure Storage attributes you can use in your condition ex
 > | **Is key case sensitive** | true |
 
 > [!NOTE]
-> Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.
+> Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role assignment conditions using index tags on storage accounts that have HNS enabled.
 
 ### Blob index tags [Values in key]
 
@@ -407,7 +410,7 @@ This section lists the Azure Storage attributes you can use in your condition ex
 > | **Is key case sensitive** | true |
 
 > [!NOTE]
-> Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.
+> Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role assignment conditions using index tags on storage accounts that have HNS enabled.
 
 ### Blob path
 
@@ -421,7 +424,7 @@ This section lists the Azure Storage attributes you can use in your condition ex
 > | **Type** | String |
 
 > [!NOTE]
-> When specifying conditions for `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` attribute, the values shouldn't include the container name or a preceding '/' character. Use the path characters without any URL encoding.
+> When specifying conditions for the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path` attribute, the values shouldn't include the container name or a preceding slash (`/`) character. Use the path characters without any URL encoding.
 
 ### Blob prefix
 
