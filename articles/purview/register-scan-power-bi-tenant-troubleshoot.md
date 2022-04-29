@@ -18,7 +18,7 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#prerequisites)| [Yes](#prerequisites)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](register-scan-power-bi-tenant.md#deploymentchecklist)| [Yes](register-scan-power-bi-tenant.md#deploymentchecklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 ## Error: Test connection failed.
 
@@ -43,14 +43,6 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 - **Cause**: **Allow service principals to use read-only Power BI admin APIs** is disabled.
   
 - **Recommendation**: Under Power BI Admin portal, enable **Allow service principals to use read-only Power BI admin APIs**.
-
-## Error: 
-
-- **Message**: `.`
-
-- **Cause**: The problem is .
-
-- **Recommendation**:  
 
 ## Issue: Test Connection succeeded. No assets discovered.
 
