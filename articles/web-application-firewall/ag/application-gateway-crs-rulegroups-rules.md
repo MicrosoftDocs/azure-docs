@@ -278,7 +278,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Blocklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated JavaScript|
