@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure WAF engine.
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ms.author: jodowns
 ms.topic: conceptual
 ---
@@ -20,9 +20,9 @@ The new WAF engine is a high-performance, scalable Microsoft proprietary engine 
 
 The new engine, released with CRS 3.2, provides the following benefits:
 
-* **Improved performance:** Significant reduction in WAF latency, including P99 POST and GET latencies.
-* **Increased scale:** Higher RPS using the same compute power and ability to process larger request sizes.
-* **Better protection:** Redesigned engine with efficient regex processing offers better protection against RegEx DOS attacks. 
+* **Improved performance:** Significant improvements in WAF latency, including P99 POST and GET latencies. We observed a significant reduction in P99 tail latencies with up to approximately 8x reduction in processing POST requests and approximately 4x reduction in processing GET requests. 
+* **Increased scale:** Higher RPS using the same compute power and with the ability to process larger request sizes. Our next-gen engine can scale up to 8 times more RPS using the same compute power and has an ability to process 16 times larger request sizes (up to 2 MB request sizes), which was not possible earlier with the previous engine.
+* **Better protection:** New redesigned engine with efficient regex processing offers better protection against `RegEx DOS` attacks while maintaining a consistent latency experience.
 * **Richer feature set:** New features and future enhancement are available only through the new engine.
 
 ## Support for new features
@@ -36,32 +36,6 @@ There are many new features that are only supported in the Azure WAF engine. The
 * [Per rule exclusions](application-gateway-waf-configuration.md) and support for exclusion attributes by name
 
 New WAF features will only be released with later versions of CRS on the new WAF engine. 
-
-## Performance comparison
-
-The following charts show some performance comparisons. Comparison is done between the new WAF engine (New AzWAF) and the previous WAF engine (old engine). During the test, WAF was configured in Prevention Mode. Each gateway was configured with two instances. 
-
-### Latency improvements
-
-In our testing lab, the new engine resulted in up to ~24x reduction in WAF latencies for JSON POST requests with different payload sizes.
-
-![Chart that shows the POST request latency for different size payloads.](../media/waf-engine/latency-post-json-body.png)
-
-We also observed significant improvements in P99 tail latencies with up to \~8x reduction in POST requests and \~4x reduction in GET requests. The following two charts show the comparison of P99 latencies of the new WAF engine and the old WAF engine.
-
-![Chart that shows the latency for both POST and GET requests.](../media/waf-engine/latency-post-get.png)
-
-### Increased scale
-
-Our next-gen engine can scale up to 8 times more RPS using the same compute power and has an ability to process 16 times larger request sizes (up to 2MB sizes), which wasn't possible earlier with the previous engine.
-
-The following charts show the scale improvements with POST and GET requests per second with the new engine and with different payload sizes.
-
-![Chart that shows the requests per second for both POST and GET requests.](../media/waf-engine/requests-per-second.png)
-
-### Better protection
-
-Under a regex DoS (ReDoS) attack simulation on the previous engine, we observed that latency of post request increased exponentially as the request size increased. The same attack simulation on the new engine introduces only a slight increase in latency and resulted in a fairly consistent latency, demonstrating superior protection against such ReDoS attack patterns.
 
 ## Request logging for custom rules
 
