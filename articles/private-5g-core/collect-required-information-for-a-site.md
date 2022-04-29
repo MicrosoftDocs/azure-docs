@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 Azure Private 5G Core Preview private mobile networks include one or more sites. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. This how-to guide takes you through the process of collecting the information you'll need to create a new site. 
 
-You can use this information to create a site using the [Azure portal](create-a-site.md) or an [Azure Resource Manager template (ARM template)](create-site-arm-template.md).
+You can use this information to create a site in an existing private mobile network using the [Azure portal](create-a-site.md). You can also use it as part of an ARM template to [deploy a new private mobile network and site](deploy-private-mobile-network-with-site-arm-template.md), or [add a new site to an existing private mobile network](create-site-arm-template.md).
 
 ## Prerequisites
 

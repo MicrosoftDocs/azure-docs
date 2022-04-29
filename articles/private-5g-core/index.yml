@@ -43,8 +43,8 @@ landingContent:
             url: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
       - linkListType: quickstart
         links:
-          - text: Create a full Azure Private 5G Core deployment - ARM template
-            url: create-full-private-5g-core-deployment-arm-template.md
+          - text: Deploy a private mobile network and site - ARM template
+            url: deploy-private-mobile-network-with-site-arm-template.md
   # Card
   - title: Manage sites
     linkLists:
