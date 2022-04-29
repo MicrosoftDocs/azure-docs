@@ -9,7 +9,7 @@ metadata:
   ms.topic: faq
   ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
-  ms.date: 10/28/2020
+  ms.date: 04/29/2022
   ms.author: yitoh
 title: Azure DDoS Protection Standard frequently asked questions
 summary: This article answers common questions about Azure DDoS Protection Standard. 
@@ -30,13 +30,13 @@ sections:
       - question: |
           How does pricing work?
         answer: |
-          DDoS protection plans have a fixed monthly charge of $2,944 per month which covers up to 100 public IP addresses. Protection for additional resources will cost an additional $30 per resource per month. 
+          DDoS protection plans have a fixed monthly charge which covers up to 100 public IP addresses. Protection for additional resources are available. 
           
           Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there is no need to create more than one DDoS protection plan.
           
           When Application Gateway with WAF is deployed in a DDoS protected VNet, there are no additional charges for WAF - you pay for the Application Gateway at the [lower non-WAF rate](https://azure.microsoft.com/pricing/details/application-gateway/). This applies to both Application Gateway v1 and v2 SKUs.
           
-          See [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
+          See [Azure DDoS Protection Standard pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for pricing and more details.
           
       - question: |
           Is the service zone resilient?
@@ -115,3 +115,10 @@ sections:
           Does the service store customer data?
         answer: |
           No, Azure DDoS protection does not store customer data.
+
+      - question: |
+          Is a single VM deployment behind public IP supported? 
+        answer: |
+          Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases. 
+
+        
