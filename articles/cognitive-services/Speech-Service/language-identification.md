@@ -1153,5 +1153,4 @@ See more examples of speech translation with language identification on [GitHub]
 
 ## Next steps
 
-* [Speech-to-text quickstart](get-started-speech-to-text.md)
 * [Captioning concepts](captioning-concepts.md)
