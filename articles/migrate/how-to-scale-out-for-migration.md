@@ -45,7 +45,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
 1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale out.
 
-    :::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Discover machines page for scale-out onboarding":::
+    :::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Screenshot of Discover machines page for scale-out onboarding.":::
 
 ### 1. Generate the Azure Migrate project key
 
@@ -145,7 +145,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
          1. Clicking **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
 
-            :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Import configuration modal":::
+            :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Screenshot of the Import Configuration files modal.":::
 
          1. Login (remote desktop) to the primary appliance and execute the following PowerShell commands:
 
