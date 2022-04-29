@@ -114,7 +114,7 @@ There may be a time when your [root collection admin](#roles) needs to change. B
 
 - You can [assign permissions through the portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
 
-- You can use the REST API to add a collection administrator. Instructions to use the REST API to add a collection admin can be found in our [REST API for collections documentation.](tutorial-metadata-policy-collections-apis.md#add-the-root-collection-administrator-role). For additional information, you can see our [REST API reference](/rest/api/purview/accounts/add-root-collection-admin).
+- You can use the REST API to add a collection administrator. Instructions to use the REST API to add a collection admin can be found in our [REST API for collections documentation.](tutorial-metadata-policy-collections-apis.md#add-the-root-collection-administrator-role) For additional information, you can see our [REST API reference](/rest/api/purview/accounts/add-root-collection-admin).
 
 - You can also use [the below Azure CLI command](/cli/azure/purview/account#az-purview-account-add-root-collection-admin). The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
 
