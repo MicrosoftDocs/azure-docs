@@ -25,7 +25,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Translator?
+          - text: What is Translator Service?
             url: translator-overview.md
           - text: Language support
             url:  language-support.md
@@ -35,7 +35,7 @@ landingContent:
             url: https://www.microsoft.com/translator/faq.aspx
       - linkListType: whats-new
         links:
-         - text: What's new in Translator?
+         - text: What's new in Translator Service?
            url: whats-new.md
 
   # Card 2
@@ -73,13 +73,13 @@ landingContent:
             url: request-limits.md
       - linkListType: how-to-guide
         links:
-          - text: Create a Translator resource
+          - text: Create a Translator Service resource
             url: how-to-create-translator-resource.md
           - text: Migrate from Translator v2.0 to v3.0
             url: migrate-to-v3.md
           - text: Translate behind firewalls
             url:  firewalls.md
-          - text: Use the Translator container
+          - text: Use the Translator Service container
             url: containers/translator-how-to-install-container.md
 
   # Card 4
@@ -87,7 +87,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Translator in sovereign clouds
+          - text: Translator Service in sovereign clouds
             url: sovereign-clouds.md
           - text: Text translation code samples on GitHub
             url: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
