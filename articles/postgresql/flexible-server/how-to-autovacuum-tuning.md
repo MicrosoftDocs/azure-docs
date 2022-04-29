@@ -129,7 +129,7 @@ Too aggressive `maintenance_work_mem` value may periodically cause out of me
 In case where autovacuum is consuming lot of resources following can be done  
 
 - Increase `autovacuum_vacuum_cost_delay` and reduce `autovacuum_vacuum_cost_limit` if it is set more than default 200.  
-- Reduce number of `autovacuum_max_workers` if it is set more than default 3. ` 
+- Reduce number of `autovacuum_max_workers` if it is set more than default 3.  
 
 ##### Number Of Autovacuum Workers  
 
