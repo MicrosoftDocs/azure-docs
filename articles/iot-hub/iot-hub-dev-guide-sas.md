@@ -250,7 +250,7 @@ As an example, a service using the pre-created shared access policy called **reg
 * any expiration time.
 
 ```javascript
-var endpoint ="myhub.azure-devices.net";
+var endpoint = "myhub.azure-devices.net";
 var policyName = 'registryRead';
 var policyKey = '...';
 
