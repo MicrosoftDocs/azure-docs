@@ -51,7 +51,7 @@ Microsoft Authenticator can be installed on the device accessing the application
 >- All users allowed to use Microsoft Authenticator must be in scope for conditional access policy requiring managed device for access to all applications.
 >- An additional conditional access policy is needed to block access targeting the Microsoft Intune Enrollment Cloud App. All users allowed to use Microsoft Authenticator must be in scope for this conditional access policy.
 >
->Microsoft recommends that you use the same group(s) used to allow the Microsoft Authenticator App authentication method within both the conditional access policies to ensure that once a user is enabled for the authentication method they are simultaneously in scope of both policies.
+>Microsoft recommends that you use the same group(s) used to allow the Microsoft Authenticator App authentication method within both conditional access policies to ensure that once a user is enabled for the authentication method they are simultaneously in scope of both policies.
 >
 >This conditional access policy effectively prevents both:
 >
