@@ -42,7 +42,7 @@ This feature is currently applicable to all partners performing deployment of Az
 
 1. In the left menu, select **[Quality of Service](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/qos)**.
 
-    [ ![Illustrates the left-nav on the Insights dashboard.](./media/quality-of-service/insights-overview-workspaces.png) ](./media/quality-of-service/insights-overview-workspaces.png#lightbox)
+    [ ![Illustrates the Quality of service dashboard.](./media/quality-of-service/quality-of-service-dashboard.png) ](./media/quality-of-service/quality-of-service-dashboard.png#lightbox)
 
 ## Elements of the Quality of service dashboard
 
