@@ -25,6 +25,8 @@ The spokes need to be peered with the hub VNet with the setting "Use Remote Gate
 
 The NVAs will advertise to their local Route Server the routes that they learn from the remote region, and Route Server will configure these routes in the local spokes, hence attracting traffic. If there are multiple NVAs in the same region (Route Server supports up to 8 BGP adjacencies), AS path prepending can be used to make one of the NVAs preferred to the others, hence defining an active/standby NVA topology.
 
+Note that when an NVA advertises routes coming from a Route Server in a remote region to its local Route Server, it should remove the Autonomous System Number (ASN) 65515 from the AS path of the routes. This is known in certain BGP platforms as "AS override" or "AS-path rewrite". Otherwise, the local Route Server will not learn those routes, as the BGP loop prevention mechanism forbids learning routes that already contain the local ASN.
+
 ## ExpressRoute
 
 This design can be combined with ExpressRoute or VPN gateways. The following diagram shows a topology including an ExpressRoute gateway connected to an on-premises network in one of the Azure regions. In this case, an overlay network over the ExpressRoute circuit will help to simplify the network, so that on-premises prefixes will only appear in Azure as advertised by the NVA (and not from the ExpressRoute gateway).
