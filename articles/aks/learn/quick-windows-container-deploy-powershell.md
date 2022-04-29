@@ -3,7 +3,7 @@ title: Create a Windows Server container on an AKS cluster by using PowerShell
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ms.custom: devx-track-azurepowershell
 
 
@@ -34,9 +34,9 @@ about installing the Az PowerShell module, see
 [Install Azure PowerShell][install-azure-powershell].
 * You also must install the [Az.Aks](/powershell/module/az.aks) PowerShell module:
 
-```azurepowershell-interactive
-Install-Module Az.Aks
-```
+    ```azurepowershell-interactive
+    Install-Module Az.Aks
+    ```
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -169,7 +169,7 @@ aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
-## Run the application
+## Deploy the application
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to
 run. In this article, a manifest is used to create all objects needed to run the ASP.NET sample
