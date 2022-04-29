@@ -62,6 +62,22 @@ Here is the flow of events in a typical scenario:
 >- This feature is currently available via the Azure portal only.
 >- This feature is currently supported for Recovery Services vaults only and not available for Backup vaults.
 
+## Usage scenarios
+
+The following table depicts scenarios for creating your Resource Guard and Recovery Services vault (RS vault), along with the relative protection offered by each.
+
+>[!Important]
+> The Backup admin must not have Contributor permissions to the Resource Guard in any scenario.
+
+**Usage scenario** | **Protection due to MUA** | **Ease of implementation** | **Notes**
+--- | --- |--- |--- |
+RS vault and Resource Guard are **in the same subscription.** </br> The Backup admin does not have access to the Resource Guard. | Least isolation between the Backup admin and the Security admin. | Relatively easy to implement since only one subscription is required. | Resource level permissions/ roles need to be ensured are correctly assigned.
+RS vault and Resource Guard are **in different subscriptions but the same tenant.** </br> The Backup admin does not have access to the Resource Guard or the corresponding subscription. | Medium isolation between the Backup admin and the Security admin. | Relatively medium ease of implementation since two subscriptions (but a single tenant) are required. | Ensure that that permissions/ roles are correctly assigned for the resource or the subscription.
+RS vault and Resource Guard are **in different tenants.** </br> The Backup admin does not have access to the Resource Guard, the corresponding subscription, or the corresponding tenant.| Maximum isolation between the Backup admin and the Security admin, hence, maximum security. | Relatively difficult to test since requires two tenants or directories to test. | Ensure that permissions/ roles are correctly assigned for the resource, the subscription or the directory.
+
+ >[!NOTE]
+ > For this article, we will demonstrate creation of the Resource Guard in a different tenant that offers maximum protection. In terms of requesting and approving requests for performing critical operations, this article demonstrates the same using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
+
 ## Next steps
 
 [Configure Multi-user authorization using Resource Guard](multi-user-authorization.md)
