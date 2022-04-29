@@ -14,6 +14,8 @@ ms.custom: how-to, deploy, devplatv2
 
 # Work with data using SDK v2 preview
 
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+
 Azure Machine Learning allows you to work with different types of data. In this article, you'll learn about using the Python SDK v2 to work with _URIs_ and _Tables_. URIs reference a location either local to your development environment or in the cloud. Tables are a tabular data abstraction.
 
 For most scenarios, you'll use URIs (`uri_folder` and `uri_file`). A URI references a location in storage that can be easily mapped to the filesystem of a compute node when you run a job. The data is accessed by either mounting or downloading the storage to the node.
@@ -137,7 +139,7 @@ returned_job = ml_client.create_or_update(job)
 returned_job.services["Studio"].endpoint
 ```
 
-# [Blob](#use-blob)
+# [Blob](#tab/use-blob)
 
 ```python
 from azure.ml.entities import Data, UriReference, JobInput, CommandJob
@@ -370,3 +372,6 @@ returned_job.services["Studio"].endpoint
 
 ## Next steps
 
+* [Install and set up Python SDK v2 (preview)](tbd)
+* [Train models with the Python SDK v2 (preview)](how-to-train-sdk.md)
+* [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-sdk.md)
