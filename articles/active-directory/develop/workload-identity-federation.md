@@ -30,7 +30,7 @@ You use workload identity federation to configure an Azure AD app registration t
 
 ## Supported scenarios
 > [!NOTE]
-> AAD-issued tokens may not be used for federated identity flows.
+> Azure AD-issued tokens might not be used for federated identity flows.
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
