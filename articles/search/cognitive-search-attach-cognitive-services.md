@@ -118,7 +118,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 Key-based billing applies when API calls to Cognitive Services resources exceed 20 API calls per indexer, per day. 
 
-The key is used for billing, but not connections. For connections, a search service connects over the internal network to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services.
+The key is used for billing, but not connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services.
 
 If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key is not a valid CognitiveServices type key for the region of your search service."
 
