@@ -84,15 +84,19 @@ The following sections show how to register your custom built-in connector as an
 
    namespace ServiceProviders.CosmosDb.Extensions
    {
-       public class CosmosDbServiceProviderStartup : IWebJobsStartup 
+
+       public class CosmosDbServiceProviderStartup : IWebJobsStartup
        {
+
            public void Configure(IWebJobsBuilder builder)
            {
+
                // Register the extension.
                builder.AddExtension<CosmosDbServiceProvider>)();
 
                // Use dependency injection (DI) for the trigger service operation provider.
                builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationProvider>();
+
            }
        }
    }
@@ -118,26 +122,38 @@ using System.Collections.Generic;
 
 namespace ServiceProviders.CosmosDb.Extensions
 {
+
    [Extension("CosmosDbServiceProvider", configurationSection: "CosmosDbServiceProvider")]
    public class CosmosDbServiceProvider : IExtensionConfigProvider
    {
+
       public CosmosDbServiceProvider(ServiceOperationsProvider serviceOperationsProvider, CosmosDbTriggerServiceOperationProvider operationsProvider)
       {
+
          serviceOperationsProvider.RegisterService(ServiceName, ServiceId, operationsProvider);
+
       }
+
       public void Initialize(ExtensionConfigContext context)
       {
+
          // Convert the Cosmos Document list to a JObject array.
          context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
+
       }
+
       public static JObject[] ConvertDocumentToJObject(IReadOnlyList<Document> data)
       {
+
          List<JObject> jobjects = new List<JObject>();
+
          foreach(var doc in data)
          {
             jobjects.Add((JObject)doc.ToJToken());
          }
+
          return jobjects.ToArray();
+
       }
    }
 }
@@ -170,51 +186,41 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
 1. In Visual Studio Code, which should have the **Azure Logic Apps (Standard) for Visual Studio Code** extension installed, create a logic app project, and install the extension package using the following command:
 
-   `dotnet add package "Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB" --version 1.0.0  --source $extensionPath`
+   ```powershell
+   dotnet add package "Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB" --version 1.0.0  --source $extensionPath
+   ```
 
    Alternatively, in your logic app project's directory, run the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1):
 
-   `powershell -file add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB`
+   ```powershell
+   powershell -file add-extension.ps1 {Cosmos-DB-output-bin-NuGet-folder-path} CosmosDB
+   ```
 
    If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the following example:
 
-   `C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB`<br>
+   ```output
+   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB
 
-   `Nuget extension path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\`<br>
+   Nuget extension path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\
+   Extension dll path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll
+   Extension bundle module path is C:\Users\{your-user-name}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows1.1.9
+   EXTENSION PATH is C:\Users\{your-user-name}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.9\bin\extensions.json and dll Path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll
+   SUCCESS: The process "func.exe" with PID 26692 has been terminated.
+      Determining projects to restore...
+      Writing C:\Users\{your-user-name}\AppData\Local\Temp\tmpD343.tmp`<br>
+   info : Adding PackageReference for package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' into project 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.
+   info : Restoring packages for C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj...
+   info : Package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' is compatible with all the specified frameworks in project 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.
+   info : PackageReference for package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' version '1.0.0' updated in file 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.
+   info : Committing restore...
+   info : Generating MSBuild file C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\cdbproj.csproj.nuget.g.props.
+   info : Generating MSBuild file C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\cdbproj.csproj.nuget.g.targets.
+   info : Writing assets file to disk. Path: C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\project.assets.json.
+   log : Restored C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\cdbproj.csproj (in 1.5 sec).
+   Extension CosmosDB is successfully added.
 
-   `Extension dll path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll`<br>
-
-   `Extension bundle module path is C:\Users\{your-user-name}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows1.1.9`<br>
-
-   `EXTENSION PATH is C:\Users\{your-user-name}\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.9\bin\extensions.json and dll Path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll`<br>
-
-   `SUCCESS: The process "func.exe" with PID 26692 has been terminated.`<br>
-
-     `Determining projects to restore...`<br>
-
-     `Writing C:\Users\{your-user-name}\AppData\Local\Temp\tmpD343.tmp`<br>
-
-   `info : Adding PackageReference for package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' into project 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.`<br>
-
-   `info : Restoring packages for C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj...`<br>
-
-   `info : Package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' is compatible with all the specified frameworks in project 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.`<br>
-
-   `info : PackageReference for package 'Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB' version '1.0.0' updated in file 'C:\Users\{your-user-name}\Desktop\demoproj\cdbproj.csproj'.`<br>
-
-   `info : Committing restore...`<br>
-
-   `info : Generating MSBuild file C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\cdbproj.csproj.nuget.g.props.`<br>
-
-   `info : Generating MSBuild file C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\cdbproj.csproj.nuget.g.targets.`<br>
-
-   `info : Writing assets file to disk. Path: C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\obj\project.assets.json.`<br>
-
-   `log : Restored C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\cdbproj.csproj (in 1.5 sec).`
-
-   `Extension CosmosDB is successfully added.`
-
-   `C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\>`
+   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj\>
+   ```
 
 1. If any **func.exe** process is running, make sure to close or exit that process before you continue to the next step.
 
