@@ -45,7 +45,7 @@ Colocating tables by store has advantages:
   the tenants to new nodes, or even isolate large tenants to their own nodes.
   Tenant isolation allows you to provide dedicated resources.
 
-![Diaigram of tables colocated to the same nodes.](../media/howto-hyperscale-build-scalable-apps/multi-tenant-colocation.png)
+![Diagram of tables colocated to the same nodes.](../media/howto-hyperscale-build-scalable-apps/multi-tenant-colocation.png)
 
 ## Optimal data model for multi-tenant apps
 
