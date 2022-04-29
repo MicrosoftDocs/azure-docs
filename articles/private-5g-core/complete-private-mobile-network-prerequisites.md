@@ -30,7 +30,7 @@ For each of these networks, allocate a subnet and then identify the listed IP ad
 
 - Network address in Classless Inter-Domain Routing (CIDR) notation. 
 - Default gateway. 
-- One IP address for the Azure Stack Edge Pro device's management port. 
+- One IP address for the Azure Stack Edge Pro device's management port. You'll choose a port between 2 and 4 to use as the management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices). 
 - Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
 - One IP address for accessing local monitoring tools for the packet core instance.
 
