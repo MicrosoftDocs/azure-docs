@@ -90,19 +90,15 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Configure Microsoft peering validation needed":::
 
-> [!IMPORTANT]
-> Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
->
-> If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket. 
->
+    > [!IMPORTANT]
+    > Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
+    >
+    > If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket. 
+    >
 
-   If your circuit gets to a 'Validation needed' state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal, as shown in the following example:
+   If your circuit gets to a **Validation needed** state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal, as shown in the following example:
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png" alt-text="Validation Needed - support ticket":::
-
-5. After the configuration has been accepted successfully, you'll see something similar to the following image:
-
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/microsoft-peering-validation-configured.png" alt-text="Peering status: Configured":::
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
@@ -128,11 +124,11 @@ This section helps you create, get, update, and delete the Azure private peering
 
    **Circuit - Provider status: Not provisioned**
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-private.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to Not provisioned":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/not-provisioned.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to Not provisioned":::
 
    **Circuit - Provider status: Provisioned**
 
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/provisioned-private-peering.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to Provisioned":::
+   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/provisioned.png" alt-text="Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to Provisioned":::
 
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
@@ -152,15 +148,12 @@ This section helps you create, get, update, and delete the Azure private peering
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/private-peering-configuration.png" alt-text="Configure private peering":::
 
-5. After the configuration has been accepted successfully, you see something similar to the following example:
-
-   :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/save-private-peering.png" alt-text="Saved private peering":::
 
 ### <a name="getprivate"></a>To view Azure private peering details
 
 You can view the properties of Azure private peering by selecting the peering.
 
-:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png" alt-text="View private peering properties":::
+:::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/view-private-peering.png" alt-text="View private peering properties":::
 
 ### <a name="updateprivate"></a>To update Azure private peering configuration
 
