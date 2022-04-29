@@ -192,9 +192,11 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 
 To create a scaling plan:
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
+1. Open the [Azure portal](https://portal.azure.com).
 
-1. Go to **Azure Virtual Desktop** > **Scaling Plans**, then select **Create**.
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+
+1. Select **Scaling Plans**, then select **Create**.
 
 1. In the **Basics** tab, look under **Project details** and select the name of the subscription you'll assign the scaling plan to.
 
