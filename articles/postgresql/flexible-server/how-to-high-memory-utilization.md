@@ -80,7 +80,7 @@ For more details of pg bouncer
 
 Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [Pg Bouncer](./concepts-pgbouncer.md)
 
-#### Explain Analyze 
+### Explain Analyze 
 
 Once you know the query, which is running and consuming memory that was identified from query store one can use “EXPLAIN” and “EXPLAIN ANALYZE” to further investigate the query and tune it. 
 
