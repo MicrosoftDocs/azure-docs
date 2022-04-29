@@ -150,6 +150,7 @@ When prioritizing `Latency`, the Speech service returns one of the candidate lan
 > [!NOTE]
 > You may see cases where an empty string will be returned instead of `Unknown`, due to Speech service inconsistency.
 > While this note is present, applications should check for both the `Unknown` and empty string case and treat them identically.
+
 ### Recognize once or continuous
 
 Language identification is completed with recognition objects and operations. You will make a request to the Speech service for recognition of audio.
@@ -277,6 +278,7 @@ You use Speech-to-text recognition when you need to identify the language in an 
 > [!NOTE]
 > Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
 > Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
+
 ::: zone pivot="programming-language-csharp"
 
 ### [Recognize once](#tab/once)
@@ -391,7 +393,7 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
     }
 }
 ```
-
+---
 See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ::: zone-end
@@ -453,6 +455,7 @@ autoDetectSourceLanguageConfig.close();
 audioConfig.close();
 result.close();
 ```
+---
 
 See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
 
@@ -815,6 +818,7 @@ public static async Task MultiLingualTranslation()
     }
 }
 ```
+---
 
 See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
@@ -981,6 +985,7 @@ void MultiLingualTranslation()
     recognizer->StopContinuousRecognitionAsync().get();
 }
 ```
+---
 
 See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
 
@@ -1145,3 +1150,8 @@ recognizer.stop_continuous_recognition()
 See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
 
 ::: zone-end
+
+## Next steps
+
+* [Speech-to-text quickstart](get-started-speech-to-text.md)
+* [Captioning concepts](captioning-concepts.md)
