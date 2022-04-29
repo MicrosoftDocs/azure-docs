@@ -582,7 +582,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Executor-InternalServerError
 - **Message**: Failed to execute dataflow with internal server error, please retry later. If issue persists, please contact Microsoft support for further assistance
 - **Cause**: The data flow execution is failed because of the system error.
-- **Recommendation**:To solve this issue, refer to [Internal server errors](data-flow-troubleshoot-guide.md#internal-server-errors).
+- **Recommendation**: To solve this issue, refer to [Internal server errors](data-flow-troubleshoot-guide.md#internal-server-errors).
 
 ## Error code: DF-Executor-InvalidStageConfiguration
 - **Message**: Storage with user assigned managed identity authentication in staging is not supported 
@@ -607,7 +607,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-AzureDataExplorer-ReadTimeout
 - **Message**: Operation timeout while reading data.
 - **Cause**: Operation timeout while reading data.
-- **Recommendation**:Increase the value in **Timeout** option in source transformation settings.
+- **Recommendation**: Increase the value in **Timeout** option in source transformation settings.
 
 ## Next steps
 
