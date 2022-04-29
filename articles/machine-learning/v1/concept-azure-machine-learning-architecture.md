@@ -1,5 +1,5 @@
 ---
-title: 'Architecture & key concepts'
+title: 'Architecture & key concepts (v1)'
 titleSuffix: Azure Machine Learning
 description: This article gives you a high-level understanding of the architecture, terms, and concepts that make up Azure Machine Learning.
 services: machine-learning
@@ -13,19 +13,23 @@ ms.custom: seoapril2019, seodec18
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
-# How Azure Machine Learning works: Architecture and concepts
+# How Azure Machine Learning works: Architecture and concepts (v1)
 
-Learn about the architecture and concepts for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+
+This article applies to the first version (v1) of the Azure Machine Learning CLI & SDK. For version two (v2), see  [How Azure Machine Learning works (v2)](../concept-azure-machine-learning-v2.md).
+
+Learn about the architecture and concepts for [Azure Machine Learning](../overview-what-is-azure-machine-learning.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.  
 
 ## <a name="workspace"></a> Workspace
 
-A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning.
+A [machine learning workspace](../concept-workspace.md) is the top-level resource for Azure Machine Learning.
 
 :::image type="content" source="media/concept-azure-machine-learning-architecture/architecture.svg" alt-text="Diagram: Azure Machine Learning architecture of a workspace and its components":::
 
 The workspace is the centralized place to:
 
-* Manage resources you use for training and deployment of models, such as [computes](#compute-instance)
+* Manage resources you use for training and deployment of models, such as [computes](#compute)
 * Store assets you create when you use Azure Machine Learning, including:
   * [Environments](#environments)
   * [Experiments](#experiments)
@@ -46,29 +50,29 @@ You can share a workspace with others.
 ## Computes
 
 <a name="compute-targets"></a>
-A [compute target](concept-compute-target.md) is any machine or set of machines you use to run your training script or host your service deployment. You can use your local machine or a remote compute resource as a compute target.  With compute targets, you can start training on your local machine and then scale out to the cloud without changing your training script.
+A [compute target](../concept-compute-target.md) is any machine or set of machines you use to run your training script or host your service deployment. You can use your local machine or a remote compute resource as a compute target.  With compute targets, you can start training on your local machine and then scale out to the cloud without changing your training script.
 
 Azure Machine Learning introduces two fully managed cloud-based virtual machines (VM) that are configured for machine learning tasks:
 
-* <a name="compute-instance"></a> **Compute instance**: A compute instance is a VM that includes multiple tools and environments installed for machine learning. The primary use of a compute instance is for your development workstation.  You can start running sample notebooks with no setup required. A compute instance can also be used as a compute target for training and inferencing jobs.
+* **Compute instance**: A compute instance is a VM that includes multiple tools and environments installed for machine learning. The primary use of a compute instance is for your development workstation.  You can start running sample notebooks with no setup required. A compute instance can also be used as a compute target for training and inferencing jobs.
 
 * **Compute clusters**: Compute clusters are a cluster of VMs with multi-node scaling capabilities. Compute clusters are better suited for compute targets for large jobs and production.  The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
 
-For more information about training compute targets, see [Training compute targets](concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](concept-compute-target.md#deploy).
+For more information about training compute targets, see [Training compute targets](../concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](../concept-compute-target.md#deploy).
 
 ## Datasets and datastores
 
-[**Azure Machine Learning Datasets**](concept-data.md#datasets)  make it easier to access and work with your data. By creating a dataset, you create a reference to the data source location along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources.
+[**Azure Machine Learning Datasets**](../concept-data.md#datasets)  make it easier to access and work with your data. By creating a dataset, you create a reference to the data source location along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources.
 
 For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 
-Datasets use [datastores](concept-data.md#datastores) to securely connect to your Azure storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your Key Vault associated with the workspace, so you can securely access your storage without having to hard code them in your script.
+Datasets use [datastores](../concept-data.md#datastores) to securely connect to your Azure storage services. Datastores store connection information without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your Key Vault associated with the workspace, so you can securely access your storage without having to hard code them in your script.
 
 ## Environments
 
 [Workspace](#workspace) > **Environments**
 
-An [environment](concept-environments.md) is the encapsulation of the environment where training or scoring of your machine learning model happens. The environment specifies the Python packages, environment variables, and software settings around your training and scoring scripts.  
+An [environment](../concept-environments.md) is the encapsulation of the environment where training or scoring of your machine learning model happens. The environment specifies the Python packages, environment variables, and software settings around your training and scoring scripts.  
 
 For code samples, see the "Manage environments" section of [How to use environments](how-to-use-environments.md#manage-environments).
 
@@ -78,7 +82,7 @@ For code samples, see the "Manage environments" section of [How to use environme
 
 An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, a new experiment is automatically created.
   
-For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
+For an example of using an experiment, see [Tutorial: Train your first model](../tutorial-1st-experiment-sdk-train.md).
 
 ### Runs
 
@@ -103,7 +107,7 @@ A run configuration defines how a script should be run in a specified compute ta
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 
-For example run configurations, see [Configure a training run](how-to-set-up-training-targets.md).
+For example run configurations, see [Configure a training run](../how-to-set-up-training-targets.md).
 
 ### Snapshots
 
@@ -113,19 +117,19 @@ When you submit a run, Azure Machine Learning compresses the directory that cont
 
 ### Logging
 
-Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-log-view-metrics.md).
+Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](../how-to-log-view-metrics.md).
 
-There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-log-view-metrics.md).
+There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](../how-to-log-view-metrics.md).
 
 
 > [!NOTE]
-> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
 
 ### Git tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using a script run configuration or ML pipeline. It also works for runs submitted from the SDK or Machine Learning CLI.
 
-For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+For more information, see [Git integration for Azure Machine Learning](../concept-train-model-git-integration.md).
 
 ### Training workflow
 
@@ -156,14 +160,14 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and [tuning hyperparameters](how-to-tune-hyperparameters.md). Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-You can bring a model that was trained outside of Azure Machine Learning. Or you can train a model by submitting a [run](#runs) of an [experiment](#experiments) to a [compute target](#compute-targets) in Azure Machine Learning. Once you have a model, you [register the model](#register-model) in the workspace.
+You can bring a model that was trained outside of Azure Machine Learning. Or you can train a model by submitting a [run](#runs) of an [experiment](#experiments) to a [compute target](#compute-targets) in Azure Machine Learning. Once you have a model, you [register the model](#model-registry) in the workspace.
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
 For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
 
 
-### <a name="register-model"></a> Model registry
+### Model registry
 
 [Workspace](#workspace) > **Models**
 
@@ -182,7 +186,7 @@ For an example of registering a model, see [Train an image classification model 
 
 ## Deployment
 
-You deploy a [registered model](#register-model) as a service endpoint. You need the following components:
+You deploy a [registered model](#model-registry) as a service endpoint. You need the following components:
 
 * **Environment**. This environment encapsulates the dependencies required to run your model for inference.
 * **Scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
@@ -227,18 +231,16 @@ When you deploy a trained model in the designer, you can [deploy the model as a 
 Pipeline endpoints let you call your [ML Pipelines](#ml-pipelines) programatically via a REST endpoint. Pipeline endpoints let you automate your pipeline workflows.
 
 A pipeline endpoint is a collection of published pipelines. This logical organization lets you manage and call multiple pipelines using the same endpoint. Each published pipeline in a pipeline endpoint is versioned. You can select a default pipeline for the endpoint, or specify a version in the REST call.
- 
-
 
 ## Automation
 
 ### Azure Machine Learning CLI 
 
-The [Azure Machine Learning CLI](how-to-configure-cli.md) is an extension to the Azure CLI, a cross-platform command-line interface for the Azure platform. This extension provides commands to automate your machine learning activities.
+The [Azure Machine Learning CLI](../how-to-configure-cli.md) is an extension to the Azure CLI, a cross-platform command-line interface for the Azure platform. This extension provides commands to automate your machine learning activities.
 
 ### ML Pipelines
 
-You use [machine learning pipelines](concept-ml-pipelines.md) to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
+You use [machine learning pipelines](../concept-ml-pipelines.md) to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
 
 Pipeline steps are reusable, and can be run without rerunning the previous steps if the output of those steps hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed. Pipelines also allow data scientists to collaborate while working on separate areas of a machine learning workflow.
 
@@ -247,25 +249,25 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 Azure Machine Learning provides the following monitoring and logging capabilities:
 
 * For __Data Scientists__, you can monitor your experiments and log information from your training runs. For more information, see the following articles:
-   * [Start, monitor, and cancel training runs](how-to-track-monitor-analyze-runs.md)
-   * [Log metrics for training runs](how-to-log-view-metrics.md)
-   * [Track experiments with MLflow](how-to-use-mlflow.md)
-   * [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
-* For __Administrators__, you can monitor information about the workspace, related Azure resources, and events such as resource creation and deletion by using Azure Monitor. For more information, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
-* For __DevOps__ or __MLOps__, you can monitor information generated by models deployed as web services to identify problems with the deployments and gather data submitted to the service. For more information, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+   * [Start, monitor, and cancel training runs](../how-to-track-monitor-analyze-runs.md)
+   * [Log metrics for training runs](../how-to-log-view-metrics.md)
+   * [Track experiments with MLflow](../how-to-use-mlflow.md)
+   * [Visualize runs with TensorBoard](../how-to-monitor-tensorboard.md)
+* For __Administrators__, you can monitor information about the workspace, related Azure resources, and events such as resource creation and deletion by using Azure Monitor. For more information, see [How to monitor Azure Machine Learning](../monitor-azure-machine-learning.md).
+* For __DevOps__ or __MLOps__, you can monitor information generated by models deployed as web services to identify problems with the deployments and gather data submitted to the service. For more information, see [Collect model data](../how-to-enable-data-collection.md) and [Monitor with Application Insights](../how-to-enable-app-insights.md).
 
 ## Interacting with your workspace
 
 ### Studio
 
-[Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
+[Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
 
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
-+ [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
-+ Web experience for [automated machine learning](concept-automated-ml.md)
-+ [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
-+ Data labeling projects to create, manage, and monitor projects for labeling [images](how-to-create-image-labeling-projects.md) or [text](how-to-create-text-labeling-projects.md).
++ [Azure Machine Learning designer](../concept-designer.md) to perform workflow steps without writing code
++ Web experience for [automated machine learning](../concept-automated-ml.md)
++ [Azure Machine Learning notebooks](../how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
++ Data labeling projects to create, manage, and monitor projects for labeling [images](../how-to-create-image-labeling-projects.md) or [text](../how-to-create-text-labeling-projects.md).
 
 ### Programming tools
 
@@ -275,13 +277,13 @@ The studio is also where you access the interactive tools that are part of Azure
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
-+ Use [Azure Machine Learning CLI](how-to-configure-cli.md) for automation.
++ Use [Azure Machine Learning designer](../concept-designer.md) to perform the workflow steps without writing code. 
++ Use [Azure Machine Learning CLI](../how-to-configure-cli.md) for automation.
 
 ## Next steps
 
 To get started with Azure Machine Learning, see:
 
-* [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
-* [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
-* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
+* [What is Azure Machine Learning?](../overview-what-is-azure-machine-learning.md)
+* [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md)
+* [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md)
