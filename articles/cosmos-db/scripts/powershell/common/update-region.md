@@ -27,7 +27,7 @@ This PowerShell script updates the Azure regions that an Azure Cosmos DB account
 
 ## Sample script
 
-The [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) command updates Azure regions for an Azure Cosmos DB account. The command requires a resource group name, Azure Cosmos DB account name, and list of Azure regions in desired failover order.
+The [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) command updates Azure regions for an Azure Cosmos DB account. The command requires a resource group name, an Azure Cosmos DB account name, and a list of Azure regions in desired failover order.
 
 In this script:
 
