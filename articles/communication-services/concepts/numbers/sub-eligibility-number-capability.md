@@ -22,10 +22,12 @@ To acquire a phone number, you need to be on a paid Azure subscription. Phone nu
 
 Additional details on eligible subscription types are as follows:
 
-| Number Type                      | Eligible Azure Agreement Type                                                                            |
-| :------------------------------- | :------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement |
-| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only                                      |
+| Number Type                      | Eligible Azure Agreement Type                                                                             |
+| :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement* |
+| Short-Codes                      | Modern Customer Agreement (Field Led) and Enterprise Agreement Only                                       |
+
+\* CSP and LSPs are not allowed resell Italian numbers 
 
 ## Number capabilities
 
@@ -105,10 +107,12 @@ The tables below summarize current availability:
 
 | Number  | Type      | Send SMS      | Receive SMS   | Make Calls     | Receive Calls    |
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
-| Italy   | Toll-Free | Not Available | Not Available | Public Preview | Public Preview\* |
-| Italy   | Local     | Not Available | Not Available | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | Not Available | Not Available | Public Preview | Public Preview\* |
+| Italy   | Local**     | Not Available | Not Available | Public Preview | Public Preview\* |
 
 \* Available through Azure Bot Framework and Dynamics only
+
+\** CSP and LSPs are not allowed resell Italian numbers 
 
 ## Customers with Sweden Azure Billing Addresses
 
