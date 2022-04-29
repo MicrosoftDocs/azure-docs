@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Cognitive Services resource using Bicep | Microsoft Docs
-description: Create a Azure Cognitive Service resource with Bicep.
+description: Create an Azure Cognitive Service resource with Bicep.
 keywords: cognitive services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 services: cognitive-services
 author: schaffererin
