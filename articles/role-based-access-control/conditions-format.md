@@ -342,6 +342,15 @@ This section lists the operators that are available to construct conditions.
 > | **Description** | Checks if the specified attribute exists. |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |
 
+### Exists
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Element | Value |
+> | --- | --- |
+> | **Operator** | `Exists` |
+> | **Description** | Checks if the specified attribute exists. |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAllOfAnyValues:StringEquals {'Cascade', 'Baker', 'Skagit'}` |
+
 ### Functions
 
 > [!div class="mx-tableFixed"]
