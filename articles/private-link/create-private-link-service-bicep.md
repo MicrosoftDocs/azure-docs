@@ -65,6 +65,24 @@ Multiple Azure resources are defined in the Bicep file:
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
+## Review deployed resources
+
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+---
+
 ## Validate the deployment
 
 > [!NOTE]
@@ -122,7 +140,6 @@ Remove-AzResourceGroup -Name exampleRG
 ---
 
 ## Next steps
-
 
 For more information on the services that support a private endpoint, see:
 > [!div class="nextstepaction"]
