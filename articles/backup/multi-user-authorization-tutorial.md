@@ -68,14 +68,10 @@ Choose the operations you want to protect using the Resource Guard out of all su
 To enable MUA on a vault, the admin of the vault must have **Reader** role on the Resource Guard or subscription containing the Resource Guard. To assign the **Reader** role on the Resource Guard:
 
 1. In the Resource Guard created above, go to the Access Control (IAM) blade, and then go to **Add role assignment**.
-
-   :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-access-control.png" alt-text="Screenshot showing demo resource guard-access control.":::
     
 1. Select **Reader** from the list of built-in roles and click **Next** on the bottom of the screen.
 1. Click **Select members** and add the Backup admin’s email ID to add them as the **Reader**. Since the Backup admin is in another  tenant in this case, they will be added as guests to the tenant containing the Resource Guard.
 1. Click **Select** and then proceed to **Review + assign** to complete the role assignment.
-
-   :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-select-members-inline.png" alt-text="Screenshot showing demo resource guard-select members." lightbox="./media/multi-user-authorization/demo-resource-guard-select-members-expanded.png":::
 
 ## Enable MUA on a Recovery Services vault
 
@@ -93,8 +89,6 @@ Now that the Backup admin has the Reader role on the Resource Guard, they can ea
       1. Click on the dropdown and select the directory the Resource Guard is in.
       1. Click **Authenticate** to validate your identity and access.
       1. After authentication, choose the **Resource Guard** from the list displayed.
-
-      :::image type="content" source="./media/multi-user-authorization/testvault1-multi-user-authorization-inline.png" alt-text="Screenshot showing multi-user authorization." lightbox="./media/multi-user-authorization/testvault1-multi-user-authorization-expanded.png" :::
 
 1. Click **Save** once done to enable MUA.
 
