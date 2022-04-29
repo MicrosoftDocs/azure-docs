@@ -547,7 +547,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-ShortTypeNotSupport
 - **Message**: Short data type is not supported in Cosmos DB.
 - **Cause**: The short data type is not supported in the Azure Cosmos DB.
-- **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink.
+- **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
 
 ## Error code: DF-Blob-FunctionNotSupport
 - **Message**: This endpoint does not support BlobStorageEvents, SoftDelete or AutomaticSnapshot. Please disable these account features if you would like to use this endpoint.
@@ -561,7 +561,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-ResourceNotFound
 - **Message**: Resource not found.
-- **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource does not exist .
+- **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource does not exist.
 - **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](../cosmos-db/troubleshoot-not-found.md)
 
 ## Error code: DF-Snowflake-IncompatibleDataType
