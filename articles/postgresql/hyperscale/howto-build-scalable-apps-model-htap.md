@@ -32,7 +32,7 @@ telemetry (time series data) from devices. There are two tables for capturing
 telemetry: `devices` and `events`. There could be other tables, but they're not
 covered in this example.
 
-![tables for the example app](../media/howto-hyperscale-build-scalable-apps/htap-data-model.png)
+![Diagram of events and devices tables, and partitions of events.](../media/howto-hyperscale-build-scalable-apps/htap-data-model.png)
 
 When building an HTAP app, keep some optimization in mind.
 

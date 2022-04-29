@@ -17,7 +17,7 @@ The tenant ID is the column at the root of the workload, or the top of the
 hierarchy in your data-model. For example, in this SaaS e-commerce schema,
 it would be the store ID:
 
-![tenant ID for stores](../media/howto-hyperscale-build-scalable-apps/multi-tenant-tenant-id.png)
+![Diagram of tables, with the store_id column highlighted.](../media/howto-hyperscale-build-scalable-apps/multi-tenant-tenant-id.png)
 
 This data model would be typical for a business such as Shopify. It hosts sites
 for multiple online stores, where each store interacts with its own data.
@@ -45,14 +45,14 @@ Colocating tables by store has advantages:
   the tenants to new nodes, or even isolate large tenants to their own nodes.
   Tenant isolation allows you to provide dedicated resources.
 
-![colocated tables in multi-tenant app](../media/howto-hyperscale-build-scalable-apps/multi-tenant-colocation.png)
+![Diaigram of tables colocated to the same nodes.](../media/howto-hyperscale-build-scalable-apps/multi-tenant-colocation.png)
 
 ## Optimal data model for multi-tenant apps
 
 In this example, we should distribute the store-specific tables by store ID,
 and make `countries` a reference table.
 
-![tenant ID in more tables](../media/howto-hyperscale-build-scalable-apps/multi-tenant-data-model.png)
+![Diagram of tables with store_id more universally highlighted.](../media/howto-hyperscale-build-scalable-apps/multi-tenant-data-model.png)
 
 Notice that tenant-specific tables have the tenant ID and are distributed. In
 our example, stores, products and line\_items are distributed. The rest of the
