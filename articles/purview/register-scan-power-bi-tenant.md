@@ -10,9 +10,9 @@ ms.date: 04/29/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage a Power BI tenant in Microsoft Purview
+# Connect to and manage a Power BI tenant in Microsoft Purview (Same Tenant)
 
-This article outlines how to register a Power BI tenant in a same-tenant scenario, and how to authenticate and interact with the tenant in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
+This article outlines how to register a Power BI tenant in a **same-tenant scenario**, and how to authenticate and interact with the tenant in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -126,8 +126,10 @@ Use any of the following deployment checklists during the setup or for troublesh
    2. All required [private endpoints for Microsoft Purview](/catalog-private-link-end-to-end.md) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled through private network.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
-   
-## Register same Power BI tenant
+
+---
+
+## Register Power BI tenant
 
 This section describes how to register a Power BI tenant in Microsoft Purview for same-tenant scenario.
 
