@@ -35,7 +35,7 @@ Before you begin, make sure you have:
 - An Azure Stack Edge device that you've activated as described in [Activate Azure Stack Edge Pro].
 - You have access to a VM image. This could be an image from Azure marketplace. 
 
-    - If you intend to run a non-GPU Ubuntu VM, see the [Supported versions of Ubuntu Operating System for Azure IoT Edge](../iot-edge/support.md#operating-systems&preserve-view=true).
+    - If you intend to run a non-GPU Ubuntu VM, see the [Supported versions of Ubuntu Operating System for Azure IoT Edge](../iot-edge/support.md#operating-systems).
     - For GPU VMs, see the [Supported versions of OS for your GPU VM on Azure Stack Edge device](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-for-gpu-extension-for-linux).
 
 ## Deploy IoT Edge runtime
@@ -44,7 +44,7 @@ Begin by deploying IoT Edge runtime. Follow these steps to deploy IoT Edge runti
 
 1. In the Azure portal, go to Azure marketplace. 
     1. Connect to the Azure Cloud Shell or a client with Azure CLI installed. 
-    1. Search the Azure Marketplace and identify your preferred image. Make sure that the VM image is included in the list of [Azure IoT Edge supported systems](../iot-edge/support.md#linux-containers&preserve-view=true).
+    1. Search the Azure Marketplace and identify your preferred image. Make sure that the VM image is included in the list of [Azure IoT Edge supported systems](../iot-edge/support.md#linux-containers).
     1. Create a new managed disk from the Marketplace image.
     1. Export a VHD from the managed disk to Azure Storage account.
 
