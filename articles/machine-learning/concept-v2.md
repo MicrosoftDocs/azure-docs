@@ -105,4 +105,4 @@ The SDK v2 is useful in the following scenarios:
 
     * [Install and set up SDK (v2)](LINKTBD)
     * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-sdk.md)
-    * [Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](LINKTBD)
+    * [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md)

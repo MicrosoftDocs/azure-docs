@@ -14,7 +14,7 @@ ms.custom: sdkv2
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic. 
 ---
 
-# Tutorial: Production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook
+# Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -862,5 +862,6 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ## Next steps
 
-Learn more about [Azure ML logging](https://github.com/Azure/azureml-examples/blob/sdk-preview/notebooks/mlflow/mlflow-v1-comparison.ipynb). 
+> [!div class="nextstepaction"]
+> Learn more about [Azure ML logging](https://github.com/Azure/azureml-examples/blob/sdk-preview/notebooks/mlflow/mlflow-v1-comparison.ipynb).
 
