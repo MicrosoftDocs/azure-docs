@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -110,7 +110,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
     ```
 
-## Run the application
+## Deploy the application
 
 A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 
