@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Multi-user authorization using Resource Guard
-description: In this tutorial, learn how to use Multi-user authorization to protect against unauthorized operation.
+title: Quickstart - Multi-user authorization using Resource Guard
+description: In this quickstart, learn how to use Multi-user authorization to protect against unauthorized operation.
 ms.topic: tutorial
 ms.date: 05/05/2022
 author: v-amallick
@@ -8,13 +8,15 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# Tutorial: Enable protection using Multi-user authorization with Resource Guard in Azure Backup
+# Quickstart: Enable protection using Multi-user authorization on Recovery Services vault in Azure Backup
 
-Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization.
+Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization. Learn about [MUA concepts](multi-user-authorization-concept.md).
 
-This tutorial describes how to enable Multi-user authorization (MUA) for Azure Backup.
+This quickstart describes how to enable Multi-user authorization (MUA) for Azure Backup.
 
 ## Prerequisites
+
+Before you start:
 
 -  The Resource Guard and the Recovery Services vault must be in the same Azure region.
 -  Ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
@@ -22,7 +24,7 @@ This tutorial describes how to enable Multi-user authorization (MUA) for Azure B
 - Ensure that you [create a Resource Guard](multi-user-authorization.md#create-a-resource-guard) in a different subsctiption/tenant as that of the vault located in the same region.
 - Ensure to [assign permissions to the Backup admin on the Resource Guard to enable MUA](multi-user-authorization.md#assign-permissions-to-the-backup-admin-on-the-resource-guard-to-enable-mua).
 
-## Enable MUA on a Recovery Services vault
+## Enable MUA
 
 Now that the Backup admin has the Reader role on the Resource Guard, they can easily enable multi-user authorization on vaults managed by them. The following steps are performed by the **Backup admin**.
 
