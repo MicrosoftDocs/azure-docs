@@ -14,7 +14,7 @@ ms.date: 04/29/2022
 
 # Set up an indexer connection to Azure SQL Managed Instance using a managed identity
 
-This article describes how to set up an Azure Cognitive Search indexer connection to [SQL Managed Instance](../sql-docs/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) using a managed identity instead of providing credentials in the connection string.
+This article describes how to set up an Azure Cognitive Search indexer connection to [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) using a managed identity instead of providing credentials in the connection string.
 
 You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in SQL Managed Instance.
 
@@ -29,7 +29,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 * Azure AD admin role on SQL Managed Instance:
 
-  To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Azure AD authentication with SQL Managed Instance](../sql-docs/azure-sql/database/authentication-aad-configure.md) and follow the steps to provision an Azure AD admin (SQL Managed Instance). 
+  To assign read permissions on SQL Managed Instance, you must be an Azure Global Admin with a SQL Managed Instance. See [Configure and manage Azure AD authentication with SQL Managed Instance](/azure/azure-sql/managed-instance/authentication-aad-configure) and follow the steps to provision an Azure AD admin (SQL Managed Instance). 
 
 * [Configure public endpoint and NSG in SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md) to allow connections from Azure Cognitive Search.
 
@@ -39,8 +39,8 @@ Follow these steps to assign the search service system managed identity permissi
 
 1. Connect to your SQL Managed Instance through SQL Server Management Studio (SSMS) by using one of the following methods:
 
-    - [Configure a point-to-site connection from on-premises](../sql-docs/azure-sql/managed-instance/point-to-site-p2s-configure.md)
-    - [Configure an Azure VM](../sql-docs/azure-sql/managed-instance/connect-vm-instance-configure.md)
+    - [Configure a point-to-site connection from on-premises](/azure/azure-sql/managed-instance/point-to-site-p2s-configure)
+    - [Configure an Azure VM](/azure/azure-sql/managed-instance/connect-vm-instance-configure)
 
 1. Authenticate with your Azure AD account.
 
