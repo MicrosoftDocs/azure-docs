@@ -35,21 +35,21 @@ Sign in to the [Azure portal](https://portal.azure.com).--->
 
 1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Servers - Azure Arc**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Screenshot of Azure portal showing search for Servers, Azure Arc" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Screenshot of Azure portal showing search for Servers, Azure Arc." border="false":::
 
 1. On the **Azure Arc - Servers** page, select the connected machine you created in the [quickstart](quick-enable-hybrid-vm.md) article.
 
 1. From the left-pane under the **Monitoring** section, select **Insights** and then **Enable**.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Screenshot of left-side navigation menu for the machine with Insights selected" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Screenshot of left-side navigation menu for the machine with Insights selected." border="false":::
 
 1. On the Azure Monitor **Insights Onboarding** page, you're prompted to create a workspace. For this tutorial, don't select an existing Log Analytics workspace if you already have one. Instead, select the default, which is a workspace with a unique name in the same region as your registered connected machine. This workspace is created and configured for you.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Screenshot of Insights Onboarding screen with button to enable VM insights" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Screenshot of Insights Onboarding screen with button to enable VM insights." border="false":::
 
     Status messages display while the configuration is performed and extensions are installed on your connected machine. This process takes a few minutes.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Screenshot of Insights installation page for machine showing progress status message" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Screenshot of Insights installation page for machine showing progress status message." border="false":::
 
     When the process is complete, a message displays that the machine has been onboarded and that insight has been successfully deployed.
 
@@ -57,11 +57,11 @@ Sign in to the [Azure portal](https://portal.azure.com).--->
 
 1. After deployment and configuration is complete, select **Insights**, and then select the **Performance** tab. The Performance tab shows a select group of performance counters collected from the guest operating system of your machine. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the Log Analytics VM extension was installed on the machine.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Screenshot of Insights Performance tab with charts for selected machine" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Screenshot of Insights Performance tab with charts for selected machine." border="false":::
 
 1. Select **Map**. The maps feature shows the processes running on the machine and their dependencies. Select **Properties** to open the property pane (if it isn't already open).
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Screenshot of Insights Map tab with map for selected machine" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Screenshot of Insights Map tab with map for selected machine." border="false":::
 
 1. Expand the processes for your machine. Select one of the processes to view its details and to highlight its dependencies.
 
@@ -71,7 +71,7 @@ Sign in to the [Azure portal](https://portal.azure.com).--->
 
 ## Next steps
 
-See the following article to learn more about Azure Monitor:
+To learn more about Azure Monitor, see the following article:
 
 > [!div class="nextstepaction"]
 > [Azure Monitor overview](../../../azure-monitor/overview.md)
