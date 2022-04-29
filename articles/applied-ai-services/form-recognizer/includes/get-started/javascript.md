@@ -73,7 +73,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 1. Create variables for your resource's Azure endpoint and key:
 
     ```javascript
-    const key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+    const key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
     const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
     ```
 
@@ -84,7 +84,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
     const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
 
     const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
-    const key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+    const key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
     ```
 
 ### Select a code sample to copy and paste into your application:
