@@ -30,7 +30,7 @@ sections:
       - question: |
           How does pricing work?
         answer: |
-          DDoS protection plans have a fixed monthly charge which covers up to 100 public IP addresses. Protection for additional resources are available. 
+          DDoS protection plans have a fixed monthly charge which covers up to 100 public IP addresses. Protection for additional resources is available. 
           
           Under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there is no need to create more than one DDoS protection plan.
           
