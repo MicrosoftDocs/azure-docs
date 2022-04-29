@@ -62,7 +62,7 @@ sections:
       - question: |
           What content types does WAF support?
         answer: |
-          Application Gateway WAF support the following content types for managed rules:
+          Application Gateway WAF supports the following content types for managed rules:
           
           * application/json
           * application/xml
