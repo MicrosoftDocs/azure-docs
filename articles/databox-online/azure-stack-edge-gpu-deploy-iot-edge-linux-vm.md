@@ -71,7 +71,7 @@ Begin by deploying IoT Edge runtime. Follow these high-level steps to deploy IoT
 
 If a new version of IoT Edge is available and you need to update the VM that you created in the earlier step, follow the instructions in [Update IoT Edge](../iot-edge/how-to-update-iot-edge.md?view=iotedge-2020-11&tabs=linux&preserve-view=true). To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](../iot-edge/how-to-update-iot-edge.md?view=iotedge-2020-11&tabs=linux&preserve-view=true).
     
-## Moving GPU modules to Ubuntu VM 
+## Move GPU modules 
 
 If you're migrating workloads from IoT Edge solution on Kubernetes to IoT Edge on Ubuntu VM, you'll need to move the GPU modules. Follow these steps to move the modules:
 
