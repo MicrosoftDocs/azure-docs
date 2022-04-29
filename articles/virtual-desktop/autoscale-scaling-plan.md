@@ -151,7 +151,7 @@ To assign the custom role with the Azure portal to the Azure Virtual Desktop ser
 
 1. Select the role you just created, for example **Azure Virtual Desktop Autoscale** and select **Next**.
 
-1. On the **Members** tab, select **User, group, or service principal**, then select **+Select members**. In the search bar, enter and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**. Which value you have depends on when the *Microsoft.DesktopVirtualization* resource provider was first registered in your Azure tenant. 
+1. On the **Members** tab, select **User, group, or service principal**, then select **+Select members**. In the search bar, enter and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**. Which value you have depends on when the *Microsoft.DesktopVirtualization* resource provider was first registered in your Azure tenant. If you see two entries titled Windows Virtual Desktop, please see the tip below.
 
 1. Select **Review + assign** to complete the assignment.
 
