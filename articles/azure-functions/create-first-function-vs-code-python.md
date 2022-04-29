@@ -45,7 +45,7 @@ In this section, you'll use Visual Studio Code to create a local Azure Functions
 
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of Create a new project window.":::
 
-1. Select the directory location for your project workspace and select **Select**. It's recommended that you create a new folder or choose an empty folder as the project workspace.
+1. Select the directory location for your project workspace and select **Select**. We recommend that you create a new folder or choose an empty folder as the project workspace.
 
     > [!NOTE]
     > These steps were designed to be completed outside of a workspace. In this case, don't select a project folder that is part of a workspace.
@@ -55,13 +55,13 @@ In this section, you'll use Visual Studio Code to create a local Azure Functions
     + **Select a language for your function project**: Choose `Python`.
 
     + **Select a Python alias to create a virtual environment**: Choose the location of your Python interpreter.  
-    If the location isn't shown, type in the full path to your Python binary.  
+    If the location isn't shown, enter the full path to your Python binary.  
 
     + **Select a template for your project's first function**: Choose `HTTP trigger`.
 
-    + **Provide a function name**: Type `HttpExample`.
+    + **Provide a function name**: Enter `HttpExample`.
 
-    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Authorization level**: Choose `Anonymous`, which lets anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     + **Select how you would like to open your project**: Choose `Add to workspace`.
 
@@ -69,7 +69,7 @@ In this section, you'll use Visual Studio Code to create a local Azure Functions
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
+After you've checked that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -86,7 +86,7 @@ In this section, you'll create a function app and related resources in your Azur
 
 1. Provide the following information at the prompts:
 
-    + **Select folder**: Select a folder from your workspace or browse to the one that contains your function app.
+    + **Select folder**: Select a folder from your workspace or browse to the one that has your function app.
     You won't see this option if you already have a valid function app opened.
 
     + **Select subscription**: Choose the subscription to use.  
@@ -95,7 +95,7 @@ In this section, you'll create a function app and related resources in your Azur
     + **Select Function App in Azure**: Choose `+ Create new Function App`.  
     (Don't select the `Advanced` option, which isn't covered in this article.)
 
-    + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to ensure that it's unique in Azure Functions.
+    + **Enter a globally unique name for the function app**: Enter a name that is valid in a URL path. The name you enter is validated to ensure that it's unique in Azure Functions.
 
     + **Select a runtime**: Select the version of Python you've been running on locally. You can use the `python --version` command to check your version.
 
