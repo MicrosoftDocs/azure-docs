@@ -35,7 +35,7 @@ For information on how to create and manage files, including notebooks, see [Cre
 1. Select your workspace, if it isn't already open
 1. On the left, select **Notebooks**
 
-Everything you need to interact with your notebooks is in this part of your workspace.
+You'll use this section of your workspace to interact with your notebooks.  
 
 ## Edit a notebook
 
