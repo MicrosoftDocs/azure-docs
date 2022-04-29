@@ -18,9 +18,9 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](register-scan-power-bi-tenant.md#deploymentchecklist)| [Yes](register-scan-power-bi-tenant.md#deploymentchecklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](/register-scan-power-bi-tenant.md#deploymentchecklist)| [Yes](/register-scan-power-bi-tenant.md#deploymentchecklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
-## Error: Test connection failed.
+## Error code: Test connection failed - AASDST50079
 
 - **Message**: `Failed to get access token with given credential to access power bi tenant. Authentication type PowerBIDelegated Message: AASDST50079 Due to a configuration change made by your administrator or because you moved to a new location, you must enroll in multi-factor authentication.`
 
@@ -28,7 +28,7 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 
 - **Recommendation**: Disable multi-factor authentication requirement and exclude user from conditional access policies. Login with the user to power bi dashboard to validate if user can successfully login to the application. 
 
-## Error: Test connection failed.
+## Error code: Test connection failed - AASTS70002
 
 - **Message**: `Failed to access token with given credential to access Power BI tenant. Authentication type: PowerBiDelegated Message AASTS70002: The request body must contain the following parameter: 'client_assertion' or 'client_secret'.`
 
@@ -36,7 +36,7 @@ This article explores common troubleshooting methods for scanning Power BI tenan
 
 - **Recommendation**: Review Power BI deployment checklist based on your scenario.
 
-## Error: Test connection failed.
+## Error code: Test connection failed - Detailed metadata
 
 - **Message**: `Failed to enable the PowerBI administrator API to fetch basic metadata and lineage.`
 
