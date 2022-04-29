@@ -128,6 +128,8 @@ Use any of the following deployment checklists during the setup or for troublesh
    10. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
    11. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 
+---
+
 ## Cross Power BI tenant registration
 
 1. Select the **Data Map** on the left navigation.
