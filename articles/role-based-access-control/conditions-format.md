@@ -305,6 +305,7 @@ This section lists the function operators that are available to construct condit
 > | **Operator** | `Exists` |
 > | **Description** | Checks if the specified attribute exists. |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
+> | **Attributes support** | [Encryption scope name](../storage/common/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/common/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/common/storage-auth-abac-attributes.md#version-id) |
 
 ## Logical operators
 
