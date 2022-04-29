@@ -24204,6 +24204,11 @@
       "redirect_document_id": false
     },
     {
+       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
+       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial",
+       "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-create-manage",
       "redirect_url": "/azure/azure-sql/managed-instance/instance-create-quickstart",
       "redirect_document_id": false
