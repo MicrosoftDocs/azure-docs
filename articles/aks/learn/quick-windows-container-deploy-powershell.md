@@ -34,9 +34,9 @@ about installing the Az PowerShell module, see
 [Install Azure PowerShell][install-azure-powershell].
 * You also must install the [Az.Aks](/powershell/module/az.aks) PowerShell module:
 
-```azurepowershell-interactive
-Install-Module Az.Aks
-```
+    ```azurepowershell-interactive
+    Install-Module Az.Aks
+    ```
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
