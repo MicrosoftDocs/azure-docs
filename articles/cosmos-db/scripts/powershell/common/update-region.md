@@ -36,9 +36,9 @@ This sample uses a SQL (Core) API account. To use this sample for other APIs, co
 
 In the script, provide your own values for `myResourceGroup` and `myaccount`.
 
-Although the script returns a result, the update operation might not be finished. Check the status of the operation by using the **Activity log** for the Azure Cosmos DB account or its resource group.
-
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
+
+Although the script returns a result, the update operation might not be finished. Check the status of the operation in the Azure portal by using the Azure Cosmos DB account **Activity log**.
 
 ## Delete Azure resource group
 
