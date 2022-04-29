@@ -163,7 +163,7 @@ The client will see the following document after conflict resolution:
 
 Change feed in Azure Cosmos DB listens to a container for any changes and then outputs documents that were changed. Using change feed, you see all updates to documents including both partial and full document updates. When you process items from the change feed, the full document is returned even if the update is triggered by a patch operation.
 
-Learn more about the [change feed in Azure Cosmos DB](change-feed.md)
+Learn more about the [change feed in Azure Cosmos DB](change-feed.md).
 
 ## Next steps
 
