@@ -28,11 +28,13 @@ Local storage in cluster hosts is used in the cluster-wide vSAN datastore. All d
 
 ## Storage policies and fault tolerance
 
-The default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. To set the storage policy, see [Configure storage policy](configure-storage-policy.md).
+The default storage policy is set to RAID-1 (Mirroring) FTT-1, with Object Space Reservation set to **Thin** provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. This is the policy that will be applied to the workload VMs. To set a different storage policy, see [Configure storage policy](configure-storage-policy.md).
 
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an operations perspective.
 
-:::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::
+> [!NOTE]
+> When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thick** provisioning. Please note that this is NOT the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
+
 
 
 |Provisioning type  |Description  |
