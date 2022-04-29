@@ -74,7 +74,7 @@ When you create the new device identity, provide the following information:
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same operation. The following example uses the [az iot hub device-identity](/cli/azure/iot/hub/device-identity) command to create a new IoT device with symmetric key authentication and assign a parent device:
 
 ```azurecli
-az iot hub device-identity create -n {iothub name} -d {new device ID} --device-scope {deviceScope of parent device}
+az iot hub device-identity create -n {iothub name} -d {new device ID} --device-scope {deviceScope of parent device}.
 ```
 
 > [!TIP]
