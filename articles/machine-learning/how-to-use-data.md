@@ -16,7 +16,7 @@ ms.custom: how-to, deploy, devplatv2
 
 Azure Machine Learning allows you to work with different types of data. In this article, you'll learn about using the Python SDK v2 to work with _URIs_ and _Tables_. URIs reference a location either local to your development environment or in the cloud. Tables are a tabular data abstraction.
 
-For most scenarios, you'll use URIs (`uri_folder` and `uri_file`). These are a location in storage that can be easily mapped to the filesystem of a compute node when you run a job. The data is accessed by either mounting or downloading the storage to the node.
+For most scenarios, you'll use URIs (`uri_folder` and `uri_file`). A URI references a location in storage that can be easily mapped to the filesystem of a compute node when you run a job. The data is accessed by either mounting or downloading the storage to the node.
 
 When using tables, you'll use `mltable`. It's an abstraction for tabular data that is used for AutoML jobs, parallel jobs, and some advanced scenarios. If you're just starting to use Azure Machine Learning, and aren't using AutoML, we strongly encourage you to begin with URIs.
 
@@ -35,32 +35,22 @@ When using tables, you'll use `mltable`. It's an abstraction for tabular data th
 
 ## URIs
 
-In this article, we provide some code snippets for the following scenarios:
+The code snippets in this section cover the following scenarios:
 
-1. Reading data in a job
-1. Reading *and* writing data in a job
-1. Registering data as an asset in Azure Machine Learning
-1. Reading registered data assets from Azure Machine Learning in a job
+* Reading data in a job
+* Reading *and* writing data in a job
+* Registering data as an asset in Azure Machine Learning
+* Reading registered data assets from Azure Machine Learning in a job
 
-For a complete example, see the [working_with_uris.ipynb notebook](https://github.com/azure/azureml-previews/sdk/docs/working_with_uris.ipynb).
+These snippets use `uri_file` and `uri_folder`.
 
-<!-- ### Code snippet index:
-
-- [Using local data in a job](#using-local-data-in-a-job)
-- [Using data stored in ADLS gen2 in a job](#using-data-stored-in-adls-gen2-in-a-job)
-- [Using data stored in blob in a job](#using-data-stored-in-blob-in-a-job)
-- [Reading and writing data stored in blob in a job](#reading-and-writing-data-stored-in-blob-in-a-job)
-- [Reading and writing data stored in ADLS gen2 in a job](#reading-and-writing-data-stored-in-adls-gen2-in-a-job)
-- [Registering data assets](#registering-data-assets)
-- [Consume registered data assets in job](#consume-registered-data-assets-in-job) -->
-
-### Understand `uri_file` and `uri_folder` types
-
-- `uri_file` - is a type that refers to a specific file. For example: `'https://<account_name>.blob.core.windows.net/<container_name>/path/file.csv'`.
-- `uri_folder` - is a type that refers to a specific folder. For example `'https://<account_name>.blob.core.windows.net/<container_name>/path'` 
+- `uri_file` is a type that refers to a specific file. For example, `'https://<account_name>.blob.core.windows.net/<container_name>/path/file.csv'`.
+- `uri_folder` is a type that refers to a specific folder. For example, `'https://<account_name>.blob.core.windows.net/<container_name>/path'`. 
 
 > [!TIP]
-We recommend using an argument parser to pass folder information into _data-plane_ code. By data-plane code, we mean your data processing and/or training code that you run in the cloud. This is typically a Python script, but can be any programming language. Passing the folder as part of job submission allows you to easily adjust the path from training locally using local data, to training in the cloud. For example, the following example uses `argparse` to get a `uri_folder`, which is joined with the file name to form a path:
+We recommend using an argument parser to pass folder information into _data-plane_ code. By data-plane code, we mean your data processing and/or training code that you run in the cloud. The code that runs in your development environment and submits code to the data-plane is _control-plane_ code.
+>
+> Data-plane code is typically a Python script, but can be any programming language. Passing the folder as part of job submission allows you to easily adjust the path from training locally using local data, to training in the cloud. For example, the following example uses `argparse` to get a `uri_folder`, which is joined with the file name to form a path:
 > 
 > ```python
 > # train.py
@@ -82,11 +72,11 @@ We recommend using an argument parser to pass folder information into _data-plan
 >
 > If you wanted to pass in just an individual file rather than the entire folder you can use the `uri_file` type.
 
-### Common data access patterns
+For a complete example, see the [working_with_uris.ipynb notebook](https://github.com/azure/azureml-previews/sdk/docs/working_with_uris.ipynb).
 
-Below are some common data access patterns that you can use in your *control-plane* code. Control-plane code is the code that submits a job to Azure Machine Learning:
+Below are some common data access patterns that you can use in your *control-plane* code to submit a job to Azure Machine Learning:
 
-#### Use data with a training job
+### Use data with a training job
 
 Use the tabs below to select where your data is located.
 
@@ -177,7 +167,7 @@ returned_job.services["Studio"].endpoint
 
 ---
 
-#### Read and write data in a job
+### Read and write data in a job
 
 Use the tabs below to select where your data is located.
 
@@ -251,7 +241,7 @@ returned_job = ml_client.create_or_update(job)
 returned_job.services["Studio"].endpoint
 ```
 
-#### Register data assets
+### Register data assets
 
 ```python
 from azure.ml.entities import Data
@@ -272,7 +262,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-#### Consume registered data assets in job
+### Consume registered data assets in job
 
 ```python
 from azure.ml.entities import Data, UriReference, JobInput, CommandJob
@@ -316,7 +306,7 @@ transformations:
       header: from_first_file
 ```
 
-The contents of the MLTable file specify the underlying data location (here a local path) and also the transforms to perform on the underlying data before materializing into a pandas/spark/dask data frame. The important part here's that the MLTable-artifact doesn't have any absolute paths, making it *self-contained*. All that is needed is stored in that one folder; regardless of whether that folder is stored on your local drive or in your cloud drive or on a public http server.
+The contents of the MLTable file specify the underlying data location (here a local path) and also the transforms to perform on the underlying data before materializing into a pandas/spark/dask data frame. The important part here's that the MLTable-artifact doesn't have any absolute paths, making it *self-contained*. All the information stored in one folder; regardless of whether that folder is stored on your local drive or in your cloud drive or on a public http server.
 
 To consume the data in a job or interactive session, use `mltable`:
 
@@ -377,3 +367,6 @@ returned_job = ml_client.jobs.create_or_update(job)
 #get a URL for the status of the job
 returned_job.services["Studio"].endpoint
 ```
+
+## Next steps
+
