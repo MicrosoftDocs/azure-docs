@@ -22,7 +22,9 @@ Once your support representative has confirmed your access, register the Mobile 
 
 ## Allocate subnets and IP addresses
 
-For each of the following networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
+Azure Private 5G Core requires a management network, access network, and data network. These networks can all be part of the same, larger network, or they can be separate. The approach you use depends on your traffic separation requirements.
+
+For each of these networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
 
 ### Management network
 
@@ -62,7 +64,17 @@ For each site you're deploying, do the following:
 - Decide which IP address allocation methods you want to support.
 - For each method you want to support, identify an IP address pool from which IP addresses can be allocated to UEs. You'll need to provide each IP address pool in CIDR notation. 
 
-    If you decide to support both methods for a particular site, ensure that the IP address pools are of the same size and do not overlap. 
+    If you decide to support both methods for a particular site, ensure that the IP address pools are of the same size and do not overlap.
+
+- Decide whether you want to enable Network Address and Port Translation (NAPT) for the data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.
+
+## Prepare your networks
+
+For each site you're deploying, do the following. 
+
+- Ensure you have at least one network switch with at least three ports available. You'll connect each Azure Stack Edge Pro device to the switch(es) in the same site as part of the instructions in [Order and set up your Azure Stack Edge Pro device(s)](#order-and-set-up-your-azure-stack-edge-pro-devices).
+- Ensure you have Small Form-factor Pluggable (SFP) transceivers for ports 5 and 6 of the Azure Stack Edge Pro device. You'll also need an SFP transceiver for port 3 or 4 if you choose to use either of these ports to connect to the management network. You won't need one if you choose to use port 2. SFP transceivers are not included with the Azure Stack Edge Pro device. For more information, see [Deployment checklist](../databox-online/azure-stack-edge-gpu-deploy-checklist.md#deployment-checklist). 
+- If you're not enabling NAPT as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated for the packet core instance's N6 interface.
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
