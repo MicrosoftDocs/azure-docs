@@ -577,8 +577,8 @@
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
-            - name: Use private endpoints with an online endpoint
-              displayName: network, vnet
+            - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
