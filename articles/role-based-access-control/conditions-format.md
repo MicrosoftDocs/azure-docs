@@ -288,6 +288,31 @@ This section lists the operators that are available to construct conditions.
 > | `SubOperationMatches` | Checks if the current suboperation matches the specified suboperation pattern. |  `SubOperationMatches{'Blob.List'}` |
 > | `Exists` | Checks if the specified attribute exists. | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
 
+| Element | Value |
+| --- | --- |
+| **Operator** | `ActionMatches` |
+| **Description** | Checks if the current action matches the specified action pattern. |
+| **Examples** | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}` |
+|  |  |
+| **Operator** | `SubOperationMatches` |
+| **Description** | Checks if the current suboperation matches the specified suboperation pattern. |
+| **Examples** |  `SubOperationMatches{'Blob.List'}` |
+|  |  |
+| **Operator** | `Exists` |
+| **Description** | Checks if the specified attribute exists. |
+| **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
+
+> [!div class="mx-tableFixed"]
+> | Operator | Description |
+> | --- | --- |
+> | `ActionMatches` | Checks if the current action matches the specified action pattern. |
+> | `SubOperationMatches` | Checks if the current suboperation matches the specified suboperation pattern. |
+> | `Exists` | Checks if the specified attribute exists. |
+> | **Examples** |  |
+> | `ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}` |  |
+> | `SubOperationMatches{'Blob.List'}` |
+> | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |  |
+
 ### Logical
 
 > [!div class="mx-tableFixed"]
