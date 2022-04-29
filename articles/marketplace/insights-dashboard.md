@@ -86,7 +86,7 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 [ ![Screenshot of the month filters on the Marketplace Insights dashboard.](./media/insights-dashboard/dashboard-time-range.png) ](./media/insights-dashboard/dashboard-time-range.png#lightbox)
 
-### Marketlace Insights dashboard filters
+### Marketplace Insights dashboard filters
 
 Filter the data by offer names. Filter options are dynamic and based on the selected date range.
 
