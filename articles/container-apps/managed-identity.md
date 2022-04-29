@@ -72,7 +72,7 @@ When a managed identity is added, deleted, or modified on a running container ap
 
 1. Within the **System assigned** tab, switch **Status** to **On**. Select **Save**.
 
-:::image type="content" source="media/managed-identity/screenshot-system-assigned-identity.png" alt-text="Screenshot of system-assigned identities":::
+:::image type="content" source="media/managed-identity/screenshot-system-assigned-identity.png" alt-text="Screenshot of system-assigned identities.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -114,7 +114,7 @@ First, you'll need to create a user-assigned identity resource.
 
 1. Search for the identity you created earlier and select it. Select **Add**.
 
-:::image type="content" source="media/managed-identity/screenshot-user-assigned-identity.png" alt-text="Screenshot of user-assigned identities":::
+:::image type="content" source="media/managed-identity/screenshot-user-assigned-identity.png" alt-text="Screenshot of user-assigned identities.":::
 
 # [Azure CLI](#tab/cli)
 
