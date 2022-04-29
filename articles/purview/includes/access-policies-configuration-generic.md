@@ -18,14 +18,14 @@ Microsoft.Purview
 
 ### Configure permissions for policy management actions
 This section discusses the permissions needed to:
-- Make a data resource available for *data use governance*. This step is needed before a policy can be created in Microsoft Purview for that resource.
+- Make a data resource available for *Data Use Management*. This step is needed before a policy can be created in Microsoft Purview for that resource.
 - Author and publish policies in Microsoft Purview.
 
 >[!IMPORTANT]
 > Currently, Microsoft Purview roles related to policy operations must be configured at **root collection level** and not child collection level.
 
-#### Permissions to make a data resource available for *Data use governance*
-To enable the *data use governance* (DUG) toggle for a data source, resource group, or subscription, the same user needs to have both certain IAM privileges on the resource and certain Microsoft Purview privileges. 
+#### Permissions to make a data resource available for *Data Use Management*
+To enable the *Data Use Management* (DUM) toggle for a data source, resource group, or subscription, the same user needs to have both certain IAM privileges on the resource and certain Microsoft Purview privileges. 
 
 1) User needs to have **either one of the following** IAM role combinations on the resource:
    - IAM *Owner*
@@ -50,7 +50,7 @@ Check the section on managing Microsoft Purview role assignments in this [guide]
 
 >[!WARNING]
 > - IAM Owner role for a data source can be inherited from parent resource group, subscription or subscription Management Group. 
-> - Once a resource has been enabled for *Data use Governance*, **any** Microsoft Purview root-collection *policy author* will be able to create access policies against it, and **any** Microsoft Purview root-collection *Data source admin* will be able to publish those policies at **any point afterwards**.
+> - Once a resource has been enabled for *Data Use Management*, **any** Microsoft Purview root-collection *policy author* will be able to create access policies against it, and **any** Microsoft Purview root-collection *Data source admin* will be able to publish those policies at **any point afterwards**.
 > - **Any** Microsoft Purview root *Collection admin* can assign **new** root-collection *Data Source Admin* and *Policy author* roles.
 
 With these warnings in mind, here are some **suggested best practices for permissions:**

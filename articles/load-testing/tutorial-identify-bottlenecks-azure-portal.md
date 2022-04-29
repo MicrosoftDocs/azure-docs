@@ -44,7 +44,7 @@ Before you can load test the sample app, you have to get it deployed and running
 
 1. Open Windows PowerShell, sign in to Azure, and set the subscription:  
 
-   ```powershell
+   ```azurecli
    az login
    az account set --subscription <your-Azure-Subscription-ID>
    ```
