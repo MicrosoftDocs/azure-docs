@@ -33,9 +33,9 @@ You then validate egress from example container groups through the NAT gateway.
 
 ## Get started
 
-:::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="variable":::
+This tutorial makes use of a randomized variable. If you are using an existing resource group, modify the value of this variable appropriately.
 
-This tutorial makes use of this randomized variable value going forward. If you are using an existing resource group, modify the value of this variable appropriately.
+:::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="variable":::
 
 **Azure resource group**: If you don't have an Azure resource group already, create a resource group with the [az group create][az-group-create] command.
 
