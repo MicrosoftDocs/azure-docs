@@ -17,6 +17,8 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
 ---
 
+# Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
+
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
