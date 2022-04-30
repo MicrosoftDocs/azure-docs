@@ -37,7 +37,7 @@ This tutorial makes use of a randomized variable. If you are using an existing r
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="variable":::
 
-**Azure resource group**: If you don't have an Azure resource group already, create a resource group with the [az group create][az-group-create] command.
+**Azure resource group**: If you don't have an Azure resource group already, create a resource group with the [az group create][az-group-create] command. Modify the location value as appropriate.
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="creategroup":::
 
