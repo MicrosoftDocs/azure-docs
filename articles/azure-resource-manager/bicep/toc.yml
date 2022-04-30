@@ -123,6 +123,8 @@
     items:
     - name: API Management
       href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Notification Hubs
+      href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
   expanded: true
   items:
