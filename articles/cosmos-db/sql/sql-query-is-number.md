@@ -35,8 +35,8 @@ IS_NUMBER(<expr>)
   
 ```sql
 SELECT   
-    IS_NUMBER(true) AS isNum1,   
-    IS_NUMBER(1) AS isNum2,  
+    IS_NUMBER(true) AS isBooleanANumber,   
+    IS_NUMBER(1) AS isNumberANumber, 
     IS_NUMBER("value") AS isNum3, 
     IS_NUMBER("12") AS isNum4,
     IS_NUMBER(null) AS isNum5,  
