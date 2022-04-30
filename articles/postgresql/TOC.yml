@@ -58,6 +58,9 @@
         displayName: create single server up command
       - name: Azure PowerShell
         href: quickstart-create-postgresql-server-database-using-azure-powershell.md
+      - name: Bicep
+        href: quickstart-create-postgresql-server-database-using-bicep.md
+        displayName: ARM, Resource Manager, Template
       - name: ARM template
         href: quickstart-create-postgresql-server-database-using-arm-template.md
         displayName: deploy azure resource manager template
