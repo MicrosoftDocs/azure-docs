@@ -31,9 +31,9 @@ While developing and troubleshooting your container app, you often want to see a
 
 ### View log streams from the Azure portal
 
-Go you your container app page in the Azure portal.   Select **Log stream** under the **Monitoring** section of the sidebar menu.  Choose a container from the drop-down lists. When there are multiple revisions and replicas, choose the **Revision**, **Replica**, and then **Container**.
+Go to your container app page in the Azure portal.   Select **Log stream** under the **Monitoring** section of the sidebar menu.  Choose a container from the drop-down lists. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
 
-Select **Start** to begin the log streaming the logs. You can also pause and stop the log stream and clear the log messages from the page. To save the displayed log messages, you can copy and paste them into the editor of your choice.
+Select **Start** to begin the streaming the container log. You can also pause and stop the log stream and clear the log messages from the page. To save the log messages, you can copy and paste them into the editor of your choice.
 
 :::image type="content" source="media/observability/log-stream.png" alt-text="Screenshot of Azure Container Apps Log stream page.":::
 
@@ -43,13 +43,13 @@ Tail a container's application logs from the Azure CLI with the `az containerapp
 
 Examples:
 
-To see the last 50 container log entries in a container app with a single revision, replica, and container:
+List the last 50 container log entries in a container app with a single revision, replica, and container:
 
 ```azurecli
 az containerapp logs show --name album-api --resource-group album-api-rg --tail 50
 ```
 
-To view a log stream from a container in a container app with multiple revisions, replicas, and containers:
+View a log stream from a container in a container app with multiple revisions, replicas, and containers:
 
 ```azurecli
 az containerapp logs show --name album-api \
@@ -64,7 +64,7 @@ Connecting to a container's console is useful when you want to see what's happen
 
 ### Connect to a container console via the Azure portal
 
-You can access your container console by selecting the console **Console** menu item in the **Monitoring** group on your container app's page in the Azure portal. To connect to a container, select it from the drop-down list. When there are multiple revisions and replicas, first select **Revision**, **Replica**, and then **Container**.
+Select **Console** in the **Monitoring** menu group from your container app page in the Azure portal. Choose a container from the drop-down list. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
 
 You can choose to access your console via bash, sh, or a custom application.
 
@@ -72,7 +72,7 @@ You can choose to access your console via bash, sh, or a custom application.
 
 ### Access container console via the Azure CLI
 
-Use the `az containerapp exec` command to connect to a container console.  Use Ctrl-C to exit the console. 
+Use the `az containerapp exec` command to connect to a container console.  Use Ctrl-D to exit the console.
 
 Examples:
 
@@ -117,17 +117,17 @@ On your container app **Overview** page, in the Azure portal, the **Monitoring**
 
 From this view, you can pin one or more charts to your dashboard or select a chart to open it in the metrics explorer.
 
-### View and analyze metrics with metrics explorer
+### Analyze metrics with metrics explorer
 
-The Azure Monitor metrics explorer lets you create charts from metric values to help you analyze your container app's resource and network usage over time. Charts can be pinned to a dashboard or shared in a workbook.d
+The Azure Monitor metrics explorer lets you create charts from metric values to help you analyze your container app's resource and network usage over time. Charts can be pinned to a dashboard or shared in a workbook.
 
 Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app page.  To learn more about metrics explorer, go to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
-To create a chart, select a metric. You'll see the metric displayed in the chart. You can then add more metrics, change time ranges and intervals, add filters and apply splitting to the chart.
+Create a chart by selecting a **Metric**.  You can modify the chart by changing the aggregation for the metric, adding more metrics, changing time ranges and intervals, adding filters and applying splitting.
 
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::
 
-You can filter your metrics by revision or replica.  For example, select **Add filter**, then select a replica from the **Value** drop-down to filter by a replica. 
+You can filter your metrics by revision or replica.  For example, select **Add filter**, then select a replica from the **Value** drop-down to filter by a replica.
 
 :::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Screenshot of the metrics explorer showing the chart filter options.":::
 
@@ -145,11 +145,11 @@ Azure Monitor collects application logs and stores them in a Log Analytics works
 
 Application logs consist of messages written to each container's `stdout` and `stderr`.  Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.  
 
-Log Analytics is a tool to view and analyze log data.  Using Log Analytics, you can create log queries to pull log data from the workspace data repository.  You can write simple or advanced queries and then sort, filter and visualize the results in charts to spot trends.  You can work interactively with the query results or use them with other features such as alerts, dashboards, and workbooks.
+Azure Monitor stores Container Apps log data in the ContainerAppConsoleLogs_CL table in the Log Analytics workspace.  To view you container app log data, you create and run queries that are built using the table columns.  
 
-Log Analytics workspaces store log tables organized in separate columns.  Azure Monitor stores Container Apps log entries in the ContainerAppConsoleLogs_CL table in the CustomLogs group.
+You can create and run queries using Log Analytics in the Azure portal or you can run queries Azure CLI or PowerShell commands.
 
-The most used columns in ContainerAppConsoleLogs_CL:
+The most used columns in ContainerAppConsoleLogs_CL include:
 
 |Column  |Description |
 |---------|---------|
@@ -161,13 +161,13 @@ The most used columns in ContainerAppConsoleLogs_CL:
 |Message    | log message|
 |RevisionName_s|revision name|
 
-Log Analytics is available through the Azure portal.  You can also run log queries using Azure CLI or PowerShell commands from the command line.
-
 ### Use Log Analytics to query logs
 
-Start Log Analytics from **Logs** in the sidebar menu on your container app page.  You can also start from **Monitor>Logs**, where you have access to the records from all your resources.  
+Log Analytics is a tool to view and analyze log data. Using Log Analytics, you can  write simple or advanced queries and then sort, filter, and visualize the results in charts to spot trends. You can work interactively with the query results or use them with other features such as alerts, dashboards, and workbooks.
 
-You can query the logs from the Log Analytics interface using the column listed in the **CustomLogs>ContainerAppConsoleLogs_CL** table on the table tab in the sidebar.
+Start Log Analytics from **Logs** in the sidebar menu on your container app page.  You can also start from **Monitor>Logs**.  
+
+You can query the logs using the columns listed in the **CustomLogs>ContainerAppConsoleLogs_CL** table in the table tab.
 
 :::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics query editor.":::
 
@@ -180,7 +180,7 @@ ContainerAppConsoleLogs_CL
 | take 100
 ```
 
-For more information regarding the Log Analytics interface and log queries, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+For more information regarding Log Analytics and log queries, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### Query logs via the Azure CLI and PowerShell
 
@@ -196,17 +196,15 @@ For more information about viewing logs, see [Viewing Logs](monitor.md#viewing-l
 
 ## Azure Monitor alerts
 
-Alerts allow you to respond quickly to critical issues.  You can set up alert thresholds based on metric and log data.  You can add alert rules to metric charts and log queries using the metrics explorer and the Log Analytics interface.
-
-You can manage your alerts from the **Monitor>Alerts** page. You can create metrics and log alerts from this page without existing metric charts or log queries. 
-
+Alerts help you to respond quickly to critical issues.  Azure Monitor lets you create metric alerts and log alerts. You can add alerts rules to you metric charts in the metric explorer, or your queries in Log Analytics.  Use **Monitor>Alerts** to manage your alerts, where you can also create alert rules without a chart or an existing query.
+ 
 To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ### Create alerts in the metrics explorer
 
 You can add alert rules to your metric charts in the metrics explorer.  Metric alerts are triggered when metric data collected over set intervals meet alert rule conditions.  For more information, see [Metric alerts](../azure-monitor/alerts/alerts-metric-overview.md).
 
-After creating a [metric chart](#view-and-analyze-metric-data-with-metrics-explorer), you can create alert rules based on the chart's settings by selecting **New alert rule**.
+After creating a [metric chart](#analyze-metrics-with-metrics-explorer), you can create alert rules based on the chart's settings by selecting **New alert rule**.
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Screenshot of the metrics explorer highlighting the new rule button.":::
 
