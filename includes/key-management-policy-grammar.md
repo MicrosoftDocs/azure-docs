@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 03/21/2022
+ms.date: 04/29/2022
 ms.author: mbaldwin
 ---
 
@@ -247,6 +247,4 @@ The encoding is as follows:
 
 ## Environment Assertion
 
-An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority that contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The KEK is a public RSA key owned by the target execution environment (and protected by it) that is used for key export. It must appear in the TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set.
-
-Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
+An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority that contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The KEK is a public RSA key owned and protected by the target execution environment that is used for key export. It must appear in the TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set. Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
