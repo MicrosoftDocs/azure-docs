@@ -37,12 +37,13 @@ IS_NUMBER(<expr>)
 SELECT   
     IS_NUMBER(true) AS isBooleanANumber,   
     IS_NUMBER(1) AS isNumberANumber, 
-    IS_NUMBER("value") AS isNum3, 
-    IS_NUMBER("12") AS isNum4,
-    IS_NUMBER(null) AS isNum5,  
-    IS_NUMBER({prop: "value"}) AS isNum6,   
-    IS_NUMBER([1, 2, 3]) AS isNum7,  
-    IS_NUMBER({prop: "value"}.prop2) AS isNum8  
+    IS_NUMBER("value") AS isTextStringANumber, 
+    IS_NUMBER("1") AS isNumberStringANumber,
+    IS_NUMBER(null) AS isNullANumber,  
+    IS_NUMBER({prop: "value"}) AS isObjectANumber,   
+    IS_NUMBER([1, 2, 3]) AS isArrayANumber,  
+    IS_NUMBER({stringProp: "value"}.stringProp) AS isObjectStringPropertyANumber, 
+    IS_NUMBER({numberProp: 1}.numberProp) AS isObjectNumberPropertyANumber  
 ```  
   
  Here is the result set.  
