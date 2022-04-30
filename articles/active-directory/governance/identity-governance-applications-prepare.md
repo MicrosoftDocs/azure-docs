@@ -1,5 +1,5 @@
 ---
-title: Govern access for critical applications in your environment| Microsoft Docs
+title: Govern access for applications in your environment| Microsoft Docs
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical third party on-premises and cloud-based applications.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# Govern access for critical applications in your environment
+# Govern access for applications in your environment
 
 > [!div class="step-by-step"]
-> [Define policies for governing access to an application »](identity-governance-critical-applications-define.md)
+> [Define policies for governing access to an application »](identity-governance-applications-define.md)
 
 Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources.
 
@@ -36,9 +36,9 @@ In addition to application access governance scenario, identity governance and t
 
 Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications, as well as on-premises applications, and applications which your organization has developed.  This three step deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
-1. [Define policies for access to the application](identity-governance-critical-applications-define.md)
-1. [Integrate the application with Azure AD to ensure only authorized users cannot access the application, and review user's existing access to the application to set a baseline of all users having been reviewed](identity-governance-critical-applications-integrate.md)
-1. [Deploy policies for automating access assignments and monitoring to adjust those policies and access as needed](identity-governance-critical-applications-deploy.md)
+1. [Define policies for access to the application](identity-governance-applications-define.md)
+1. [Integrate the application with Azure AD to ensure only authorized users cannot access the application, and review user's existing access to the application to set a baseline of all users having been reviewed](identity-governance-applications-integrate.md)
+1. [Deploy policies for automating access assignments and monitoring to adjust those policies and access as needed](identity-governance-applications-deploy.md)
 
 ## Prerequisite: validate your Azure AD environment is prepared for integrating with the application
 
@@ -62,4 +62,4 @@ Before you begin the process of governing application access from Azure AD, you 
 ## Next steps
 
 > [!div class="step-by-step"]
-> [Define policies for governing access to an application »](identity-governance-critical-applications-define.md)
+> [Define policies for governing access to an application »](identity-governance-applications-define.md)

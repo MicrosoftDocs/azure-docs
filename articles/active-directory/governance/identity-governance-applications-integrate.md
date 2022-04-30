@@ -20,8 +20,8 @@ ms.collection: M365-identity-device-management
 # Integrating applications with Azure AD
 
 > [!div class="step-by-step"]
-> [« Define policies for governing access to an application](identity-governance-critical-applications-define.md)
-> [Deploy policies for governing access »](identity-governance-critical-applications-deploy.md)
+> [« Define policies for governing access to an application](identity-governance-applications-define.md)
+> [Deploy policies for governing access »](identity-governance-applications-deploy.md)
 
 Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications, as well as on-premises applications, and applications which your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
@@ -73,20 +73,8 @@ If the application permits provisioning, to automatically add, remove or update 
 
 1. Set that access to the application is only permitted for users assigned to the application.  This will prevent users from seeing and attempting to log into the application prior to Conditional Access policies being enabled.
 
-## Review user's existing access to the application to set a baseline of all users having been reviewed
-
-If this is a new application your organization hasn't used before, and therefore no one has pre-existing access, or if you have already been performing access reviews for this application, then skip to the [next section](identity-governance-critical-applications-deploy.md).
-
-However, if the application already existed in your environment, then it is possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, to ensure that those users are authorized for continued access.  
-
-<!-- TODO create assignments for the app -->
-
-You will need to be in the `Global administrator`, `User administrator`, or `Identity Governance administrator` role to create reviews, and you will need to identify one or more people to be reviewers.
-
-<!-- TODO link to AR article -->
-
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Define policies for governing access to an application](identity-governance-critical-applications-define.md)
-> [Deploy policies for governing access »](identity-governance-critical-applications-deploy.md)
+> [« Define policies for governing access to an application](identity-governance-applications-define.md)
+> [Deploy policies for governing access »](identity-governance-applications-deploy.md)

@@ -1,5 +1,5 @@
 ---
-title: Deploying policies for governing access to critical applications integrated with Azure AD| Microsoft Docs
+title: Deploying policies for governing access to applications integrated with Azure AD| Microsoft Docs
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can use entitlement management and other identity governance features to enforce the policies for access.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,14 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# Deploying policies for governing access to critical applications integrated with Azure AD
+# Deploying policies for governing access to applications integrated with Azure AD
 
 > [!div class="step-by-step"]
-> [« Integrate the application with Azure AD](identity-governance-critical-applications-integrate.md)
+> [« Integrate the application with Azure AD](identity-governance-applications-integrate.md)
 
+In this section, you'll configure the Azure AD conditional access and entitlement management features to control ongoing access to your application.
 
-## Deploy conditional access policies
+## Deploy conditional access policies for SSO enforcement
 
 In this section, you'll establish the Conditional Access policies that are in scope for determining whether an authorized user is able to sign into the app, based on factors like the user's authentication strength or device status.
 
@@ -33,19 +34,19 @@ In this section, you'll establish the Conditional Access policies that are in sc
 1. If it is necessary to exclude one or more users from the CA policy and allow them access, then configure an access review for the [users who are excluded from Conditional Access policies](../governance/conditional-access-exclusion.md).
 1. How long a user who has been denied continued access is able to continue to use a federated application will depend upon the application's own session lifetime, and on the access token lifetime.  To learn more about controlling the lifetime of access tokens, see [configurable token lifetimes](../develop/active-directory-configurable-token-lifetimes.md).
 
-## Deploy policies for automating access assignment in entitlement management
+## Deploy entitlement management policies for automating access assignment
 
 In this section, you'll configure Azure AD entitlement management for users to be able to request access to your application's roles, or to groups used by the application.  In order to perform these tasks, you'll need to be in either the `Global Administrator` or `Identity Governance Administrator` role, or be [delegated as a catalog creator](entitlement-management-delegate-catalog.md) and owner of the application.
 
 1. If you don't already have a catalog for your application governance scenario, [create a catalog](../governance/entitlement-management-catalog-create.md) in Azure AD entitlement management.
 1. Add the application, as well as any Azure AD groups which the application relies upon, [as resources in that catalog](../governance/entitlement-management-catalog-create.md).
 
-1. For each of the applications' roles or groups, [create an access package](../governance/entitlement-management-access-package-create.md) that includes that role or group as its resource. At this stage of configuring  that access package, configure the policy for direct assignment, so that only administrators can create assignments.  In that policy, set the access review requirements for existing users, if any, so that they don't retain access indefinitely.
+1. For each of the applications' roles or groups, [create an access package](../governance/entitlement-management-access-package-create.md) that includes that role or group as its resource. At this stage of configuring  that access package, configure the access package assignment policy for direct assignment, so that only administrators can create assignments.  In that policy, set the access review requirements for existing users, if any, so that they don't retain access indefinitely.
 1. If you have [separation of duties](entitlement-management-access-package-incompatible.md) requirements, then configure the incompatible access packages or existing groups for your access package.  If your scenario requires the ability to override a separation of duties check, then you can also [set up additional access packages for those override scenarios](entitlement-management-access-package-incompatible.md#configuring-multiple-access-packages-for-override-scenarios).
 1. For each access package, assign existing users of the application in that role, or members of that group, to the access package. You can [directly assign a user](entitlement-management-access-package-assignments.md) to an access package using the Azure portal, or in bulk via Graph or PowerShell.
-1. In each access package, [create additional policies](..//governance/entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings) for users to request access.  Configure the approval and recurring access review requirements in that policy.
+1. In each access package, [create additional access package assignment policies](..//governance/entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings) for users to request access.  Configure the approval and recurring access review requirements in that policy.
 
-## Monitor to adjust policies and access as needed
+## Monitor to adjust entitlement management policies and access as needed
 
 At regular intervals, such as weekly, monthly or quarterly, based on the volume of application access assignment changes for your application, use the Azure portal to ensure that access is being granted in accordance with the policies, and the identified users for approval and review are still the correct individuals for these tasks.
 
@@ -53,7 +54,7 @@ At regular intervals, such as weekly, monthly or quarterly, based on the volume 
 
 1. If the application has a local user account store, within the app, in a database or in an LDAP directory, and does not rely upon Azure AD for single sign-on, then check that users were only added to the application's local user store through Azure AD provisioning those users.
 
-1. For each access package that you configured in the previous section, ensure policies continue to have the correct approvers and reviewers. Update policies if the approvers and reviewers that were previously configured are no longer present in the organization, or are in a different role.
+1. For each access package that you configured in the previous section, ensure the access package assignment policies continue to have the correct approvers and reviewers. Update those policies if the approvers and reviewers that were previously configured are no longer present in the organization, or are in a different role.
 
 1. Also, monitor recurring access reviews for those access packages, to ensure reviewers are participating and making decisions to approve or deny user's continued need for access.
 
@@ -64,5 +65,5 @@ At regular intervals, such as weekly, monthly or quarterly, based on the volume 
 - [Access reviews deployment plan](deploy-access-reviews.md)
 
 > [!div class="step-by-step"]
-> [« Integrate the application with Azure AD](identity-governance-critical-applications-integrate.md)
+> [« Integrate the application with Azure AD](identity-governance-applications-integrate.md)
 
