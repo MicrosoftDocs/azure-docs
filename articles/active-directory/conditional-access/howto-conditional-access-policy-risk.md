@@ -23,7 +23,7 @@ A sign-in risk represents the probability that a given authentication request is
 
 There are two locations where this policy may be configured, Conditional Access and Identity Protection. Configuration using a Conditional Access policy is the preferred method providing more context including enhanced diagnostic data, report-only mode integration, Graph API support, and the ability to utilize other Conditional Access attributes in the policy.
 
-The Sign-in risk-based policy protects users from registering MFA in risky sessions. e.g. If the users are not registered for MFA, their risky sign-ins will get blocked and presented with the AADSTS53004 error.
+The Sign-in risk-based policy protects users from registering MFA in risky sessions. For example. If the users are not registered for MFA, their risky sign-ins will get blocked and presented with the AADSTS53004 error.
 
 ## Template deployment
 
