@@ -15,7 +15,7 @@ Setting up a [container group](container-instances-container-groups.md) with an 
 
 This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with a [Network Address Translation (NAT) gateway](../virtual-network/nat-gateway/nat-overview.md). By configuring a NAT gateway to SNAT a subnet address range delegated to Azure Container Instances (ACI), you can identify outbound traffic from your container groups. The container group egress traffic will use the public IP address of the NAT gateway. A single NAT gateway can be used by multiple container groups deployed in the virtual network's subnet delegated to ACI.
 
-In this article you use the Azure CLI to create the resources for this scenario:
+In this article, you use the Azure CLI to create the resources for this scenario:
 
 * Container groups deployed on a delegated subnet [in the virtual network](container-instances-vnet.md)
 * A NAT gateway deployed in the network with a static public IP address
@@ -35,7 +35,7 @@ You then validate egress from example container groups through the NAT gateway.
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="variable":::
 
-This tutorial will make use of this randomized variable value going forward. If you are using an existing resource group, modify this value of this variable.
+This tutorial makes use of this randomized variable value going forward. If you are using an existing resource group, modify the value of this variable appropriately.
 
 **Azure resource group**: If you don't have an Azure resource group already, create a resource group with the [az group create][az-group-create] command.
 
@@ -62,7 +62,7 @@ First, use the [az network vnet public-ip create][az-network-public-ip-create] t
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="publicip":::
 
-Store the public IP address in a variable. We will use this later during the validation step.
+Store the public IP address in a variable for use during the validation step later in this script.
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="storeip":::
 
@@ -80,7 +80,7 @@ We'll configure the source subnet **aci-subnet** to use a specific NAT gateway r
 
 ## Test egress from a container group
 
-Test inbound access to the *appcontainer* running in the virtual network by browsing to the firewall's public IP address. Previously, you stored the public IP address in variable $NG_PUBLIC_IP
+Test inbound access to the `appcontainer` running in the virtual network by browsing to the firewall's public IP address. Previously, you stored the public IP address in variable $NG_PUBLIC_IP
 
 Deploy the following sample container into the virtual network. When it runs, it sends a single HTTP request to `http://checkip.dyndns.org`, which displays the IP address of the sender (the egress IP address). If the application rule on the firewall is configured properly, the firewall's public IP address is returned.
 
