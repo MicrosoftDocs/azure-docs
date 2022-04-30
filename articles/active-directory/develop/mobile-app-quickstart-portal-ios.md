@@ -16,6 +16,14 @@ ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:iOS", mode-api
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
 ---
+
+> [!div renderon="docs"]
+> Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
+>
+> > [Quickstart: iOS or macOS app that signs in users and calls a web API](mobile-app-quickstart.md?pivots=devlang-ios)
+> 
+> We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
+
 > [!div renderon="portal" class="sxs-lookup display-on-portal"]
 > # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
 > 
