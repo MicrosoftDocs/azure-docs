@@ -18,30 +18,19 @@ ms.author: eur
 
 ## Create captions from speech
 
-- WEBVTT Caption generation
-    - Supports `--output vtt` with `spx translate`
-    - Supports `--output vtt file FILENAME` to override default VTT FILENAME
-    - Supports `--output vtt file -` to write to standard output
-    - Individual VTT files are created for each target language (e.g. `--target en;de;fr`)
-- SRT Caption generation
-    - Supports `--output srt` with `spx recognize`, `spx intent`, and `spx translate`
-    - Supports `--output srt file FILENAME` to override default SRT FILENAME
-    - Supports `--output srt file -` to write to standard output
-    - For `spx translate` individual SRT files are created for each target language (e.g. `--target en;de;fr`)
-
 You can output both SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks) captions from any type of media that contains audio. For more information about the output formats, see the [Captioning concepts](~/articles/cognitive-services/speech-service/captioning-concepts.md) guide.
-
-
 
 ### Recognize
 
 To recognize audio from a file and output both vtt and srt captions, run the following command: 
 
 ```console
-spx recognize --file this.is.a.test.mp4 --format any --output vtt --output srt
+spx recognize --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt
 ```
 
-```
+Open the captions.vtt file to view the WebVTT captions:
+
+```vtt
 WEBVTT
 
 00:00:00.180 --> 00:00:03.230
@@ -52,6 +41,7 @@ Welcome to applied Mathematics course 201.
 }
 ```
 
+Open the captions.srt file to view the SRT captions:
 
 ```srt
 1
@@ -59,6 +49,35 @@ Welcome to applied Mathematics course 201.
 Welcome to applied Mathematics course 201.
 ```
 
+Captions are written to the file specified by the `--output vtt file` or `--output srt file` option. If the file name is a hyphen (`-`), the captions are written to standard output. 
+
+```console
+spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file -
+```
+
+From the preceding command, here is the console output:
+
+```console
+1
+00:00:00,180 --> 00:00:03,230
+Welcome to applied Mathematics course 201.
+WEBVTT
+
+00:00:00.180 --> 00:00:03.230
+Welcome to applied Mathematics course 201.
+{
+  "ResultId": "561a0ea00cc14bb09bd294357df3270f",
+  "Duration": "00:00:03.0500000"
+}
+```
+
+If you omit the `file` option, the file name is automatically generated from the input file name and the local operating system epoch time. Run the following command to write captions to the default output file:
+
+```console
+spx recognize --file caption.this.mp4 --format any --output vtt
+```
+
+If the input file name is `caption.this.mp4`, then the WebVTT output file name would look like `output.caption.this.mp4.<EPOCH_TIME>.vtt`. The `<EPOCH_TIME>` is replaced at run time.
 
 ### Recognizing offset and duration
 
@@ -68,7 +87,7 @@ spx config @my-caption-preset --add output.each.recognizing.result.offset=true
 spx config @my-caption-preset --add output.each.recognizing.result.duration=true
 spx config @my-caption-preset --add output.each.recognizing.result.text=true
 spx config @my-caption-preset --add output.each.recognizing.result.resultid=true
-spx recognize --file audio.mp4 @my-caption-preset
+spx recognize --file caption.this.mp4 @my-caption-preset
 ```
 
 ```tsv
@@ -89,7 +108,7 @@ For `spx translate` individual SRT files are created for each target language (e
 To recognize audio from a file, translate to multiple languages, and output both vtt and srt captions, run the following command: 
 
 ```console
-spx translate --source en-US --target fr;de;zh-Hans --file this.is.a.test.mp4 --format any --output vtt --output srt
+spx translate --source en-US --target fr;de;zh-Hans --file caption.this.mp4 --format any --output vtt --output srt
 ```
 
 Speak into the microphone, and you see transcription of your words into text in real time. The Speech CLI stops after a period of silence, or when you press Ctrl+C.
