@@ -27,6 +27,8 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
+> # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
+> 
 > In this quickstart, you download and run a code sample that demonstrates how a native iOS or macOS application can sign in users and get an access token to call the Microsoft Graph API.
 > 
 > The quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps and will be indicated as such.
