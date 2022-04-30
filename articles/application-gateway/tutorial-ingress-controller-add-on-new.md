@@ -49,11 +49,12 @@ You'll now deploy a new AKS cluster with the AGIC add-on enabled. If you don't p
 
 In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [managed identities](../aks/use-managed-identity.md). The AGIC add-on will be enabled in the resource group that you created, *myResourceGroup*. 
 
-Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing Application Gateway instance will mean an automatic creation of a Standard_v2 SKU Application Gateway instance. So, you'll also specify the name and subnet address space of the Application Gateway instance. The name of the Application Gateway instance will be *myApplicationGateway*, and the subnet address space we're using is 10.2.0.0/16.
+Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing Application Gateway instance will mean an automatic creation of a Standard_v2 SKU Application Gateway instance. So, you'll also specify the name and subnet address space of the Application Gateway instance. The name of the Application Gateway instance will be *myApplicationGateway*, and the subnet address space we're using is 10.225.0.0/16.
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.2.0.0/16" --generate-ssh-keys
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.225.0.0/16" --generate-ssh-keys
 ```
+The default VNET address for managed VNETs is 10.224.0.0/12 and the default node subnet address is 10.224.0.0/16. New clusters will be required to have service and pod CIDR ranges that do not overlap with these new VNET ranges. These requirements were introduced in [2022-02-24 release](https://github.com/Azure/AKS/releases/tag/2022-02-24) changes.
 
 To configure additional parameters for the `az aks create` command, see [these references](/cli/azure/aks#az-aks-create). 
 
