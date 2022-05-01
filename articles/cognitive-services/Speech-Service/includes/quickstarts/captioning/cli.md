@@ -18,14 +18,38 @@ ms.author: eur
 
 ## Create captions from speech
 
-You can output both SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks) captions from any type of media that contains audio. For more information about the output formats, see the [Captioning concepts](~/articles/cognitive-services/speech-service/captioning-concepts.md) guide.
-
-### Recognize
+With the Speech CLI, you can output both SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks) captions from any type of media that contains audio. For more information about the output formats, see the [Captioning concepts](~/articles/cognitive-services/speech-service/captioning-concepts.md) guide.
 
 To recognize audio from a file and output both vtt and srt captions, run the following command: 
 
 ```console
-spx recognize --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt
+spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file -
+```
+
+Here are the SRT captions output followed by the WebVTT captions output to the console::
+
+```console
+1
+00:00:00,180 --> 00:00:03,230
+Welcome to applied Mathematics course 201.
+WEBVTT
+
+00:00:00.180 --> 00:00:03.230
+Welcome to applied Mathematics course 201.
+{
+  "ResultId": "561a0ea00cc14bb09bd294357df3270f",
+  "Duration": "00:00:03.0500000"
+}
+```
+
+## Output options
+
+Captions are written to the file specified by the `--output vtt file` or `--output srt file` option. If the file name is a hyphen (`-`), the captions are written to standard output as shown in the preceding example. 
+
+To output both vtt and srt captions to separate files that you specify, run the following command: 
+
+```console
+spx recognize --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt 
 ```
 
 Open the captions.vtt file to view the WebVTT captions:
@@ -49,46 +73,33 @@ Open the captions.srt file to view the SRT captions:
 Welcome to applied Mathematics course 201.
 ```
 
-Captions are written to the file specified by the `--output vtt file` or `--output srt file` option. If the file name is a hyphen (`-`), the captions are written to standard output. 
+If you omit the `file` option, the file name is automatically generated from the input file name and the local operating system epoch time. Run the following command to write WebVTT captions to the default output file:
 
 ```console
-spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file -
+spx recognize --file caption.this.mp4 --format any --output vtt --output srt
 ```
 
-From the preceding command, here is the console output:
+Since the input file name is `caption.this.mp4`, then the WebVTT output file name would look like `output.caption.this.mp4.<EPOCH_TIME>.vtt`. The SRT output file name would look like `output.caption.this.mp4.<EPOCH_TIME>.srt`. In both cases, the `<EPOCH_TIME>` is replaced at run time. 
+
+## Get offset and duration
+
+You'll want to synchronize captions with the audio track, whether it's done in real time or with a prerecording. 
+
+For example, run the following command to get the offset and duration of the recognized speech:
 
 ```console
-1
-00:00:00,180 --> 00:00:03,230
-Welcome to applied Mathematics course 201.
-WEBVTT
-
-00:00:00.180 --> 00:00:03.230
-Welcome to applied Mathematics course 201.
-{
-  "ResultId": "561a0ea00cc14bb09bd294357df3270f",
-  "Duration": "00:00:03.0500000"
-}
+spx recognize --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt --output each file each.result.tsv --output all file output.result.tsv --output each recognizer recognizing result offset --output each recognizer recognizing duration --output each recognizer recognizing result resultid --output each recognizer recognizing text
 ```
 
-If you omit the `file` option, the file name is automatically generated from the input file name and the local operating system epoch time. Run the following command to write captions to the default output file:
+These are the individual components of the preceding command:
+- Recognize from the input file `caption.this.mp4`.
+- Output WebVTT and SRT captions to the files `caption.vtt` and `caption.srt` respectively.
+- Output the `offset`, `duration`, `requestid`, and `text` of each recognizing event to the file `each.result.tsv`.
+- Output the `id`, `sessionid`, and `text` of each recognized event to the file `output.result.tsv`. 
+  > [!NOTE]
+  > The specified file name overrides the default file name. Otherwise the recognized text would have been written to a file named `output.<EPOCH_TIME>.tsv`, where `<EPOCH_TIME>` is replaced at run time. 
 
-```console
-spx recognize --file caption.this.mp4 --format any --output vtt
-```
-
-If the input file name is `caption.this.mp4`, then the WebVTT output file name would look like `output.caption.this.mp4.<EPOCH_TIME>.vtt`. The `<EPOCH_TIME>` is replaced at run time.
-
-### Recognizing offset and duration
-
-```console
-spx config @my-caption-preset --clear
-spx config @my-caption-preset --add output.each.recognizing.result.offset=true
-spx config @my-caption-preset --add output.each.recognizing.result.duration=true
-spx config @my-caption-preset --add output.each.recognizing.result.text=true
-spx config @my-caption-preset --add output.each.recognizing.result.resultid=true
-spx recognize --file caption.this.mp4 @my-caption-preset
-```
+Open `each.result.tsv` to view the results of each recognizing event:
 
 ```tsv
 recognizer.recognizing.result.offset	recognizer.recognizing.result.duration	recognizer.recognizing.result.resultid	recognizer.recognizing.result.text
@@ -100,24 +111,64 @@ recognizer.recognizing.result.offset	recognizer.recognizing.result.duration	reco
 1800000	29900000	2d7bc27024704aedae640ebc79efa570	welcome to applied mathematics course 201
 ```
 
-### Translate
-For translations with `spx translate`, individual SRT or VTT files are created for the recognized source language (e.g., `--source en-US`) and each target language (e.g. `--target en;de;fr`). For example, if you want French translations output as VTT from a file named `video.mp4`, the Speech CLI creates caption files named `output.video.{time}.vtt` (Translations in the source language) and `output.video.{time}.fr.vtt` (Translations in French).
+Open `output.result.tsv` to view the results of each recognized event:
 
-For `spx translate` individual SRT files are created for each target language (e.g. `--target en;de;fr`).
-
-To recognize audio from a file, translate to multiple languages, and output both vtt and srt captions, run the following command: 
-
-```console
-spx translate --source en-US --target fr;de;zh-Hans --file caption.this.mp4 --format any --output vtt --output srt
+```tsv
+audio.input.id	recognizer.session.started.sessionid	recognizer.recognized.result.text
+caption.this	0fe3749a96fa4735914300d8f2a8e136	Welcome to applied Mathematics course 201.
 ```
 
-Speak into the microphone, and you see transcription of your words into text in real time. The Speech CLI stops after a period of silence, or when you press Ctrl+C.
+### Preset configuration
+
+For readability, flexibility, and convenience, you can use a preset configuration with select output options. For example, you can create a preset configuration named `@caption.defaults` with the following series of commands:
 
 ```console
-Connection CONNECTED...
-RECOGNIZED: Text=I'm excited to try speech to text.
+spx config @caption.defaults --clear
+spx config @caption.defaults --add output.each.recognizing.result.offset=true
+spx config @caption.defaults --add output.each.recognizing.result.duration=true
+spx config @caption.defaults --add output.each.recognizing.result.resultid=true
+spx config @caption.defaults --add output.each.recognizing.result.text=true
+spx config @caption.defaults --add output.all.file.name=output.result.tsv
+spx config @caption.defaults --add output.each.file.name=each.result.tsv
+spx config @caption.defaults --add output.srt.file.name=caption.srt
+spx config @caption.defaults --add output.vtt.file.name=caption.vtt
 ```
 
+The settings are saved in a file named `caption.defaults` (no extension) in the current directory.
+
+```
+output.each.recognizing.result.offset=true
+output.each.recognizing.result.duration=true
+output.each.recognizing.result.resultid=true
+output.each.recognizing.result.text=true
+output.all.file.name=output.result.tsv
+output.each.file.name=each.result.tsv
+output.srt.file.name=caption.srt
+output.vtt.file.name=caption.vtt
+```
+
+Now you can run this short command using the `@caption.defaults` preset configuration:
+
+```console
+spx recognize --file caption.this.mp4 --format any --output vtt --output srt @caption.defaults
+```
+
+
+## Translated captions
+
+To get translated SRT and WebVTT captions with the Speech CLI, run the following command: 
+
+```console
+spx translate --source en-US --target de;fr;zh-Hant --file audio.mp4 --format any --output vtt file - --output srt file -
+```
+
+For translations with `spx translate`, separate SRT and VTT files are created for the source language (e.g., `--source en-US`) and each target language (e.g. `--target de;fr;zh-Hant`). To output translated SRT and WebVTT captions to files, run the following command: 
+
+```console
+spx translate --source en-US --target de;fr;zh-Hant --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt
+```
+
+Captions should then be written to the following files: *caption.srt*, *caption.vtt*, *caption.de.srt*, *caption.de.vtt*, *caption.fr.srt*, *caption.fr.vtt*, *caption.zh-Hant.srt*, and *caption.zh-Hant.vtt*.
 
 ## Clean up resources
 
