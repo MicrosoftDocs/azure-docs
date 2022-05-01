@@ -42,7 +42,7 @@ With the [Speech CLI](~/articles/cognitive-services/speech-service/spx-overview.
 To recognize audio from a file and output both WebVtt (`vtt`) and SRT (`srt`) captions, run the following command: 
 
 ```console
-spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file - --output each file - @output.each.detailed --property SpeechServiceResponse_StablePartialResultThreshold=5 --profanity masked --phrases "Applied Mathematics;"
+spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file - --output each file - @output.each.detailed --property SpeechServiceResponse_StablePartialResultThreshold=5 --profanity masked --phrases "Constoso;Jessie;Rehaan"
 ```
 
 The SRT and WebVTT captions are output to the console as shown here:
