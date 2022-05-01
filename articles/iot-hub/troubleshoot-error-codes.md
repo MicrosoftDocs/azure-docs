@@ -65,13 +65,13 @@ In general, the error message presented should explain how to fix the error. If 
 
 You may see requests to IoT Hub fail with the error  **403002 IoTHubQuotaExceeded**. And in Azure portal, the IoT hub device list doesn't load.
 
-This error occurs when the daily message quota for the IoT hub is exceeded.
-
-To resolve this error:
+This error typically occurs when the daily message quota for the IoT hub is exceeded. To resolve this error:
 
 * [Upgrade or increase the number of units on the IoT hub](iot-hub-upgrade.md) or wait for the next UTC day for the daily quota to refresh.
 * To understand how operations are counted toward the quota, such as twin queries and direct methods, see [Understand IoT Hub pricing](iot-hub-devguide-pricing.md#charges-per-operation).
 * To set up monitoring for daily quota usage, set up an alert with the metric *Total number of messages used*. For step-by-step instructions, see [Set up metrics and alerts with IoT Hub](tutorial-use-metrics-and-diags.md#set-up-metrics).
+
+This error may also be returned by a bulk import job when the number of devices registered to your IoT hub approaches or exceeds the quota limit for an IoT Hub. To learn more, see [Troubleshoot import jobs](iot-hub-bulk-identity-mgmt.md#import-troubleshooting).
 
 ## 403004 DeviceMaximumQueueDepthExceeded
 
@@ -119,7 +119,7 @@ Or, devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemo
 
 Or, many devices disconnect at once, you see a dip in the [Connected devices (connectedDeviceCount) metric](monitor-iot-hub-reference.md), and there are more **404104 DeviceConnectionClosedRemotely** and [500xxx Internal errors](#500xxx-internal-errors) in Azure Monitor Logs than usual.
 
-This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-dev-guide-sas.md#security-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects. To learn more, see [401003 IoTHubUnauthorized](#401003-iothubunauthorized).
+This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-dev-guide-sas.md#sas-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects. To learn more, see [401003 IoTHubUnauthorized](#401003-iothubunauthorized).
 
 Some other possibilities include:
 

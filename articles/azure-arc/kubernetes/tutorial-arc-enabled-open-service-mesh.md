@@ -501,6 +501,13 @@ InsightsMetrics
 | where t.app == "namespace1"
 ```
 
+### Navigating the OSM dashboard
+1. Access your Arc connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmux).
+2. Go to Azure Monitor and navigate to the Reports tab to access the OSM workbook.
+3. Select the time-range & namespace to scope your services.
+
+[ ![OSM workbook](media/tutorial-arc-enabled-open-service-mesh/osm-workbook.jpg) ](media/tutorial-arc-enabled-open-service-mesh/osm-workbook.jpg#lightbox)
+
 #### Requests tab
 
 - This tab provides you the summary of all the http requests sent via service to service in OSM.
