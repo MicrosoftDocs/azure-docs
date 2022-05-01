@@ -147,11 +147,30 @@ This procedure describes how to define sensor settings from the Azure portal and
     >
     > If you select to apply your settings to a site, you don't also need to select its zones or sensors.
 
-1. When you're finished, select **Review and create** to create your setting and apply it as configured.
+1. When you're finished, select **Review and create** to create your setting and apply it as configured. If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.
 
 After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
 
+### In case of Internet outage
 
+When a sensor setting is configured from the Azure portal, some settings on the sensor itself are blocked from modifications. However, if you're experiencing an Internet outage, you may need to unblock those settings in order to modify them from the sensor.
+
+> [!IMPORTANT]
+> As soon as your sensor's connection to the Azure portal is resumed, any settings you configured from the sensor are overwritten by the settings defined in the Azure portal.
+>
+> If you modify settings on the sensor during an internet outage, make sure to remove the application from the Azure portal setting before you reconnect the sensor to the Internet.
+
+**To unblock local sensor configurations**:
+
+1. On the sensor console, go to **Settings > Advanced configurations** and select **Azure Remote Config**.
+
+1. In the code box, modify the `block_local_config` value from `1` to `0`, and select **Close**.
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/remote-config-sensor.png" alt-text="Screenshot of the Azure Remote Config option.":::
+
+1. When your Internet returns, but before reconnecting your sensor to the Internet, in Defender for IoT, navigate to any setting you've applied to your sensor from the Azure cloud.
+
+    Remove the setting from your sensor before reconnecting your sensor to the Internet to prevent your local settings from being overwritten.
 ## Reactivate a sensor
 
 You may need to reactivate your sensor because you want to:
