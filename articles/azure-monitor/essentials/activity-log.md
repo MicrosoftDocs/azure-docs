@@ -344,7 +344,7 @@ To view Activity log insights on a resource level:
     1. A time range for which to view data from the **TimeRange** dropdown.
     * **Azure Activity Log Entries** shows the count of Activity log records in each [activity log category](/articles/azure-monitor/essentials/activity-log-schema#categories).
      
-        :::image type="content" source="media/activity-log/activity-logs-insights-categoryvalue.png" alt-text="Azure Activity Logs by Category Value":::
+        :::image type="content" source="media/activity-log/activity-logs-insights-category-value.png" alt-text="Azure Activity Logs by Category Value":::
     
     * **Activity Logs by Status** shows the count of Activity log records in each status.
     
