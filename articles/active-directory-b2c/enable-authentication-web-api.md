@@ -142,6 +142,16 @@ Open *Startup.cs* and then, at the beginning of the class, add the following `us
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 ```
+if targeting net 6.0, you will also need to peform two additional steps 
+1. add an extra `using` declaration  to access `Configuration` properties 
+
+```csharp
+using ConfigurationManager = Microsoft.Extensions.Configuration.ConfigurationManager;
+```
+2.  add the line below after `WebApplication.CreateBuilder(args)`
+```csharp
+ConfigurationManager Configuration = builder.Configuration;
+```
 
 Find the `ConfigureServices(IServiceCollection services)` function. Then, before the `services.AddControllers();` line of code, add the following code snippet:
 
