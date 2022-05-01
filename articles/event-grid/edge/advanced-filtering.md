@@ -16,7 +16,7 @@ Event Grid allows specifying filters on any property in the json payload. These 
 * `Value` - The reference value against which the filter is run (or) `Values` - The set of reference values against which the filter is run.
 
 > [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
 
 
 ## JSON syntax

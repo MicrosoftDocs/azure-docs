@@ -173,7 +173,7 @@ After you save the settings the Application insights logs appear on the **Azure 
 
 ## Configure Application Insights in Production
 
-To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments. 
+To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments and no logs will be sent to your application insights.
 
 1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) to `Production`. 
 

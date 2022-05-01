@@ -39,7 +39,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 # [Azure CLI](#tab/cli)
 
-Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
+Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
 
 The following example pushes a ZIP package to your site. Specify the path to your local ZIP package for `--src-path`.
 
@@ -70,7 +70,7 @@ Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath 
 The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<zip-package-path>`, and `<app-name>`. When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=zip
+curl -X POST -u <username:password> --data-binary "@<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=zip
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -78,7 +78,7 @@ curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name
 The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```bash
-curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
+curl -X POST -u <username:password> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
 ```
 
 # [Kudu UI](#tab/kudu-ui)
@@ -113,7 +113,7 @@ The deployment process places the package on the shared file drive correctly (se
 
 # [Azure CLI](#tab/cli)
 
-Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. Specify the path to your local Java package for `--src-path`.
+Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command. Specify the path to your local Java package for `--src-path`.
 
 ```azurecli-interactive
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<package-name>.war
@@ -142,7 +142,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 The following example uses the cURL tool to deploy a .war, .jar, or .ear file. Replace the placeholders `<username>`, `<file-path>`, `<app-name>`, and `<package-type>` (`war`, `jar`, or `ear`, accordingly). When prompted by cURL, type in the [deployment password](deploy-configure-credentials.md).
 
 ```bash
-curl -X POST -u <username> --data-binary @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=<package-type>
+curl -X POST -u <username> --data-binary @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish?type=<package-type>
 ```
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
@@ -165,7 +165,7 @@ The Kudu UI does not support deploying JAR, WAR, or EAR applications. Please use
 
 # [Azure CLI](#tab/cli)
 
-Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command with the `--type` parameter.
+Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command with the `--type` parameter.
 
 If you deploy a startup script this way, App Service automatically uses your script to start your app.
 

@@ -69,6 +69,14 @@ Enable connectivity between your on-premises networks. There are separate sets o
      ```azurepowershell-interactive
      Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
      ```
+     
+     > [!NOTE]
+     > IPv6 support for ExpressRoute Global Reach is now in Public Preview. To add an IPv6 Global Reach connection, you must specify a /125 IPv6 subnet for *-AddressPrefix* and an *-AddressPrefixType* of *IPv6*.
+     
+     ```azurepowershell-interactive
+     Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/125' -AddressPrefixType IPv6
+     ```
+
 3. Save the configuration on circuit 1 as follows:
 
    ```azurepowershell-interactive
@@ -95,6 +103,14 @@ If the two circuits are not in the same Azure subscription, you need authorizati
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
    ```
+   
+   > [!NOTE]
+   > IPv6 support for ExpressRoute Global Reach is now in Public Preview. To add an IPv6 Global Reach connection, you must specify a /125 IPv6 subnet for *-AddressPrefix* and an *-AddressPrefixType* of *IPv6*.
+
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/125' -AddressPrefixType IPv6 -AuthorizationKey '########-####-####-####-############'
+   ```
+     
 3. Save the configuration on circuit 1.
 
    ```azurepowershell-interactive
@@ -119,6 +135,15 @@ To disable connectivity between your on-premises networks, run the commands agai
 ```azurepowershell-interactive
 $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+```
+
+> [!NOTE]
+> IPv6 support for ExpressRoute Global Reach is now in Public Preview. To delete an IPv6 Global Reach connection, you must specify an *-AddressPrefixType* of *IPv6* like in the following command.
+
+```azurepowershell-interactive
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -AddressPrefixType IPv6
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 

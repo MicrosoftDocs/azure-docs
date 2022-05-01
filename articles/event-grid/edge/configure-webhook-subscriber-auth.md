@@ -15,7 +15,7 @@ ms.topic: article
 This guide gives examples of the possible webhook subscriber configurations for an Event Grid module. By default, only HTTPS endpoints are accepted for webhook subscribers. The Event Grid module will reject if the subscriber presents a self-signed certificate.
 
 > [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
 
 
 

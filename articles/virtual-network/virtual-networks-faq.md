@@ -2,12 +2,12 @@
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
-ms.author: kumud
+ms.author: mbender
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
 
@@ -49,7 +49,10 @@ We recommend that you use the address ranges enumerated in [RFC 1918](https://to
 * 172.16.0.0 - 172.31.255.255  (172.16/12 prefix)
 * 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
 
-Other address spaces may work but may have undesirable side effects.
+You can also deploy the Shared Address space reserved in [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), which is treated as Private IP Address space in Azure:
+* 100.64.0.0 - 100.127.255.255 (100.64/10 prefix)
+
+Other address spaces, including all other IETF-recognized private, non-routable address spaces, may work but may have undesirable side effects.
 
 In addition, you cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
@@ -70,6 +73,14 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.1: Reserved by Azure for the default gateway
 - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
 - x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
+
+For example, for the subnet with addressing 172.16.1.128/26:
+
+- 172.16.1.128: Network address
+- 172.16.1.129: Reserved by Azure for the default gateway
+- 172.16.1.130, 172.16.1.131: Reserved by Azure to map the Azure DNS IPs to the VNet space
+- 172.16.1.191: Network broadcast address
+
 
 ### How small and how large can VNets and subnets be?
 The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  

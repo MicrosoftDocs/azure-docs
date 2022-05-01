@@ -35,7 +35,7 @@ The following table lists available authentication methods and typical scenarios
 
 ### [Azure CLI](#tab/azure-cli)
 
-When working with your registry directly, such as pulling images to and pushing images from a development workstation to a registry you created, authenticate by using your individual Azure identity. Sign in to the [Azure CLI](/cli/azure/install-azure-cli) with [az login](/cli/azure/reference-index#az_login), and then run the [az acr login](/cli/azure/acr#az_acr_login) command:
+When working with your registry directly, such as pulling images to and pushing images from a development workstation to a registry you created, authenticate by using your individual Azure identity. Sign in to the [Azure CLI](/cli/azure/install-azure-cli) with [az login](/cli/azure/reference-index#az-login), and then run the [az acr login](/cli/azure/acr#az-acr-login) command:
 
 ```azurecli
 az login
@@ -144,7 +144,7 @@ For recommended practices to manage login credentials, see the [docker login](ht
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr#az_acr_update) command in the Azure CLI:
+To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr#az-acr-update) command in the Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

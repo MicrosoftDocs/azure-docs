@@ -123,7 +123,7 @@ This section shows how to manually fail over using Azure portal, CLI, PowerShell
     > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair.
 
 # [Azure CLI](#tab/cli)
-Use the [az eventhubs georecovery-alias fail-over](/cli/azure/eventhubs/georecovery-alias#az_eventhubs_georecovery_alias_fail_over) command.
+Use the [az eventhubs georecovery-alias fail-over](/cli/azure/eventhubs/georecovery-alias#az-eventhubs-georecovery-alias-fail-over) command.
 
 # [Azure PowerShell](#tab/powershell)
 Use the [Set-AzEventHubGeoDRConfigurationFailOver](/powershell/module/az.eventhub/set-azeventhubgeodrconfigurationfailover) cmdlet. 

@@ -35,7 +35,7 @@ Most machine learning projects involve well-established steps, and one of these 
 
 ### Data source and pipelines
 
-Thanks to [Azure Data Factory](../../data-factory/introduction.md), a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](../../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) in Synapse. 
+Thanks to [Azure Data Factory](../../data-factory/introduction.md), a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](../../data-factory/concepts-pipelines-activities.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json) in Synapse. 
 
 ### Data preparation and exploration/visualization
 

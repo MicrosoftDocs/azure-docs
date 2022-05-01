@@ -16,7 +16,7 @@ ms.author: patricka
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows IoT deployments. Businesses that rely on Windows IoT to power their edge devices can now take advantage of the cloud-native analytics solutions being built in Linux.
+Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows deployments. Businesses that rely on Windows to power their edge devices and solutions can now take advantage of the cloud-native analytics solutions being built in Linux.
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
@@ -39,7 +39,8 @@ Azure IoT Edge for Linux on Windows uses the following components to enable Linu
 
 * **Windows Admin Center**: An Azure IoT Edge extension for Windows Admin Center facilitates installation, configuration, and diagnostics of Azure IoT Edge on the Linux virtual machine. Windows Admin Center can deploy Azure IoT Edge for Linux on Windows on the local device, or can connect to target devices and manage them remotely.
 
-* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date.
+* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date. For more information about IoT Edge for Linux on Windows updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
+
 
 ![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-and-communication.png)
 :::moniker-end
@@ -49,7 +50,7 @@ Azure IoT Edge for Linux on Windows uses the following components to enable Linu
 :::moniker range=">=iotedge-2020-11"
 * **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) operating system, is built with the Azure IoT Edge runtime and validated as a tier 1 supported environment for Azure IoT Edge workloads.
 
-* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date.
+* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date. For more information about IoT Edge for Linux on Windows updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
 
 > [!NOTE]
 > Azure IoT Edge for Linux on Windows extension for Windows Amin Center (WAC) is not supported with this EFLOW version.
@@ -74,13 +75,12 @@ A Windows device with the following minimum requirements:
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
-## Platform support
-Azure IoT Edge for Linux on Windows supports the following architectures:
+For more information about IoT Edge for Linux on Windows requirements, see [Azure IoT Edge for Linux on Windows supported systems](./iot-edge-for-linux-on-windows-support.md).
 
-| Version | AMD64 | ARM64 |
-| ---------------- | ----- |  ----- |
-| EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
-| EFLOW CR (public preview) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+## Platform support
+
+Azure IoT Edge for Linux on Windows supports both AMD64 and ARM64 architectures. For more information about EFLOW platform support, see [Azure IoT Edge for Linux on Windows supported systems](./iot-edge-for-linux-on-windows-support.md)
+
 
 ## Samples
 

@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- A set of images with which to train your classifier. See below for tips on choosing images.
+- A set of images with which to train your classifier. You can use the set of [sample images](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) on GitHub. Or, you can choose your own images using the tips below.
 - A [supported web browser](overview.md#supported-browsers-for-custom-vision-web-portal)
 
 
@@ -85,7 +85,7 @@ To upload another set of images, return to the top of this section and repeat th
 
 ## Train the classifier
 
-To train the classifier, select the **Train** button. The classifier uses all of the current images to create a model that identifies the visual qualities of each tag.
+To train the classifier, select the **Train** button. The classifier uses all of the current images to create a model that identifies the visual qualities of each tag. This process can take several minutes.
 
 ![The train button in the top right of the web page's header toolbar](./media/getting-started-build-a-classifier/train01.png)
 

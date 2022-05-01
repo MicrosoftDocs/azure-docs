@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/25/2022
+ms.date: 03/21/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -51,7 +51,7 @@ Before you configure and set up your device, make sure that:
 
 1. Configure the Ethernet adapter on your computer to connect to your device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
-2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use a crossover cable or a USB Ethernet adapter. Use the following illustration to identify PORT 1 on your device.
+2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use an Ethernet crossover cable or a USB Ethernet adapter. Use the following illustration to identify PORT 1 on your device.
 
     ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
 
@@ -83,7 +83,7 @@ You're now at the **Overview** page of your device. The next step is to configur
 
 1. Configure the Ethernet adapter on your computer to connect to your device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
-2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use a crossover cable or a USB Ethernet adapter. 
+2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use an Ethernet crossover cable or a USB Ethernet adapter. 
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
     This action may take a few minutes after you've turned on the device.

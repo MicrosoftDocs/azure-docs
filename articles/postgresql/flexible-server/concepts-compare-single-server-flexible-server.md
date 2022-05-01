@@ -1,8 +1,8 @@
 ---
 title: Compare Azure Database for PostgreSQL - Single Server and Flexible Server
 description: Detailed comparison of features and capabilities between Azure Database for PostgreSQL Single Server and Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

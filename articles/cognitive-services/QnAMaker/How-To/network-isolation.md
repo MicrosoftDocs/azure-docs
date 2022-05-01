@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021
 
 Follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Restrict access to App Service (QnA runtime)
 
 You can use the ServiceTag `CognitiveServicesMangement` to restrict inbound access to App Service or ASE (App Service Environment) network security group in-bound rules. Check out more information about service tags in the [virtual network service tags article](../../../virtual-network/service-tags-overview.md). 

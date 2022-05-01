@@ -253,6 +253,9 @@ private Task<MethodResponse> HandleMaxMinReportCommand(MethodRequest request, ob
 
 ## Run the code
 
+> [!NOTE]
+> Set up **TemperatureController** as startup project before you run the code.
+
 To run the sample application in Visual Studio:
 
 1. In **Solution Explorer**, select the **PnpDeviceSamples > TemperatureController** project file.

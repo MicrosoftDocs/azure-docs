@@ -13,7 +13,7 @@ ms.date: 1/18/2022
 ms.author: ergreenl
 ---
 
-# Publish your application in the Azure Active Directory application gallery
+# Request to Publish your application in the Azure Active Directory application gallery
 
 You can publish your application in the Azure Active Directory (Azure AD) application gallery. When your application is published, it's made available as an option for users when they add applications to their tenant. For more information, see [Overview of the Azure Active Directory application gallery](overview-application-gallery.md).
 
@@ -25,12 +25,12 @@ To publish your application in the gallery, you need to complete the following t
 - Join the Microsoft partner network.
 
 ## Prerequisites
-
 - To publish your application in the gallery, you must first read and agree to specific [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
-- Every application in the gallery must implement one of the supported single sign-on (SSO) options. To learn more about the supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md). To learn more about authentication, see [Authentication vs. authorization](../develop/authentication-vs-authorization.md) and [Azure active Directory code samples](../develop/sample-v2-code.md). For password SSO, make sure that your application supports form authentication so that password vaulting can be used. For a quick introduction about single sign-on configuration in the portal, see [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md).
-- For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/) to be listed in the gallery. The enterprise gallery applications must support multiple user configurations and not any specific user.
-- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any user can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
-- Supporting provisioning is optional, but highly recommended. Provisioning must be done using the System for Cross-domain Identity Management (SCIM) protocol, which is easy to implement. Using SCIM allows users to automatically create and update accounts in your application without relying on manual processes such as uploading CSV files. To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+- Support for single sign-on (SSO). To learn more about the supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md).
+    - For password SSO, make sure that your application supports form authentication so that password vaulting can be used. 
+	- For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/) to be listed in the gallery. The enterprise gallery applications must support multiple user configurations and not any specific user.
+	- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be properly implemented for the application. 
+- Supporting provisioning is optional, but highly recommended. To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 

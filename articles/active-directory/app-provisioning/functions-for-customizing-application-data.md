@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 04/13/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -1236,6 +1236,18 @@ Generate a user alias by taking first three letters of user's first name and fir
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
 * **OUTPUT**:  "JohDoe"
+
+### Add a comma between last name and first name. 
+Add a comma between last name and first name. 
+
+**Expression:** 
+`Join(", ", "", [surname], [givenName])`
+
+**Sample input/output:** 
+
+* **INPUT** (givenName): "John"
+* **INPUT** (surname): "Doe"
+* **OUTPUT**:  "Doe, John"
 
 
 ## Related Articles

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 03/25/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -24,7 +24,7 @@ ms.subservice: B2C
 ## Prerequisites
 
 * Complete the steps in the [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
-* If you haven't created an DevOps organization, create one by following the instructions in [Sign up, sign in to Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates).  
+* If you haven't created a DevOps organization, create one by following the instructions in [Sign up, sign in to Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates).  
 
 ## Register an application for management tasks
 
@@ -92,7 +92,8 @@ try {
                 Write-Host "Uploading the" $PolicyId "policy..."
     
                 $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
-                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+                $content = [System.Text.Encoding]::UTF8.GetBytes($policycontent)
+                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $content -Headers $headers -ContentType "application/xml; charset=utf-8"
     
                 Write-Host "Policy" $PolicyId "uploaded successfully."
             }
@@ -161,7 +162,7 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
 
 1. In the pipeline you created, select the **Tasks** tab.
 1. Select **Agent job**, and then select the plus sign (**+**) to add a task to the Agent job.
-1. Search for and select **PowerShell**. Do not select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
+1. Search for and select **PowerShell**. Don't select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
 1. Select newly added **PowerShell Script** task.
 1. Enter following values for the PowerShell Script task:
     * **Task version**: 2.*

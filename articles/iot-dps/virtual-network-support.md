@@ -6,7 +6,7 @@
  ms.service: iot-dps
  manager: lizross
  ms.topic: conceptual
- ms.date: 10/06/2021
+ ms.date: 03/21/2022
  ms.author: kgremban
 ---
 
@@ -57,7 +57,9 @@ Note the following current limitations for DPS when using private endpoints:
 
 * Current DPS VNET support is for data ingress into DPS only. Data egress, which is the traffic from DPS to IoT Hub, uses an internal service-to-service mechanism rather than a dedicated VNET. Support for full VNET-based egress lockdown between DPS and IoT Hub is not currently available.
 
-* The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment. 
+* The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment.
+
+* Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. This means that you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the VNET(s)/private endpoint(s) configured on the DPS instance.
 
 >[!NOTE]
 >**Data residency consideration:**

@@ -195,8 +195,8 @@ Update your app to assign an endpoint to it. Customize the value of your app nam
 ```azurecli
 SPRING_CLOUD_APP='your spring cloud app'
 az spring-cloud app update \
-    --name $SPRING_CLOUD_APP \
     --resource-group $RESOURCE_GROUP \
+    --name $SPRING_CLOUD_APP \
     --service $SPRING_CLOUD_NAME \
     --assign-endpoint true
 ```
@@ -209,8 +209,16 @@ After the assignment, you can access the application's private FQDN in the priva
 
 ![Access private endpoint in vnet](media/spring-cloud-access-app-vnet/access-private-endpoint.png)
 
+## Clean up resources
+
+If you plan to continue working with subsequent articles, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following command:
+
+```azurecli
+az group delete --name $RESOURCE_GROUP
+```
+
 ## Next steps
 
-- [Expose applications to Internet - using Application Gateway](./expose-apps-gateway.md)
+- [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
 - [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)

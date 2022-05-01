@@ -27,7 +27,7 @@ ms.custom: devx-track-java
 
 1. Create a new folder to hold your Java project, such as `java-model-with-rest`.
 
-1. Make a subdirectory named `lib` and copy in the following java libs into the `lib` subdirectory:
+1. Make a subdirectory named `lib` and copy in the following Java libs into the `lib` subdirectory:
 
     * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
     * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)

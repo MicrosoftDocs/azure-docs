@@ -6,8 +6,9 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/01/2022
+ms.date: 03/21/2022
 ms.author: ranku
+ms.custom: subject-rbac-steps
 ---
 
 
@@ -119,15 +120,25 @@ Change the status to **On** to enable managed identity in FHIR service.
 
 ### Provide access of the ACR to FHIR service
 
-1. Browse to the **Access control (IAM)** blade.
+1. Select **Access control (IAM)**.
 
-1. Select **Add**, and then select **Add role assignment** to open the Add role assignment page.
+1. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator to assign you permission to perform this task.
 
-1. Assign the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role. 
+   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-   [ ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png) ](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox) 
+1. On the **Role** tab, select the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role.
 
-For more information about assigning roles in the Azure portal, see [Screen image of Azure built-in roles.](../../role-based-access-control/role-assignments-portal.md).
+   [![Screen shot showing user interface of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. Select **System-assigned managed identity**, and then select the FHIR service.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
 ### Register the ACR servers in FHIR service
 
@@ -139,9 +150,9 @@ Browse to the **Artifacts** blade under **Data transformation** in your FHIR ser
 #### Registering the ACR server using CLI
 You can register up to 20 ACR servers in the FHIR service.
 
-Install the Healthcare APIs CLI from Azure PowerShell if needed:
+Install the Azure Health Data Services CLI from Azure PowerShell if needed:
 
-```powershell
+```azurecli
 az extension add -n healthcareapis
 ```
 
@@ -149,13 +160,13 @@ Register the acr servers to FHIR service following the examples below:
 
 ##### Register a single ACR server
 
-```powershell
+```azurecli
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 
 ##### Register multiple ACR servers
 
-```powershell
+```azurecli
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 ### Configure ACR firewall
@@ -212,7 +223,7 @@ Make a call to the $convert-data API specifying your template reference in the t
 
 ## Next steps
 
-In this article, you've learned about the $convert-data endpoint and customize-converter templates to convert data in the Healthcare APIs. For more information about how to export FHIR data, see
+In this article, you've learned about the $convert-data endpoint and customize-converter templates to convert data in the Azure Health Data Services. For more information about how to export FHIR data, see
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
