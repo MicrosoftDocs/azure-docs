@@ -29,37 +29,38 @@ Import-Module Az.Accounts
 $currentAzContext = Get-AzContext
 
 # destination image resource group
-$imageResourceGroup="aibImageRG"
+$imageResourceGroup = "aibImageRG"
 
 # location (see possible locations in main docs)
-$location="westus2"
+$location = "westus2"
 
-## if you need to change your subscription: Get-AzSubscription / Select-AzSubscription -SubscriptionName 
+## if you need to change your subscription: 
+## Get-AzSubscription / Select-AzSubscription -SubscriptionName 
 
 # get subscription, this will get your current subscription
-$subscriptionID=$currentAzContext.Subscription.Id
+$subscriptionID = $currentAzContext.Subscription.Id
 
 # name of the image to be created
-$imageName="win2019image01"
+$imageName = "win2019image01"
 
 # image distribution metadata reference name
-$runOutputName="win2019ManImg02ro"
+$runOutputName = "win2019ManImg02ro"
 
 # image template name
-$imageTemplateName="window2019VnetTemplate03"
+$imageTemplateName = "window2019VnetTemplate03"
 
 # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
-$runOutputName="winSvrSigR01"
+$runOutputName = "winSvrSigR01"
 
 # VNET properties (update to match your existing VNET, or leave as-is for demo)
 # VNET name
-$vnetName="myexistingvnet01"
+$vnetName = "myexistingvnet01"
 # subnet name
-$subnetName="subnet01"
+$subnetName = "subnet01"
 # VNET resource group name
-$vnetRgName="existingVnetRG"
+$vnetRgName = "existingVnetRG"
 # Existing Subnet NSG Name or the demo will create it
-$nsgName="aibdemoNsg"
+$nsgName = "aibdemoNsg"
 # NOTE! The VNET must always be in the same region as the AIB service region.
 ```
 
@@ -81,9 +82,22 @@ New-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName -locati
 
 $nsg = Get-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName 
 
-$subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.1.0/24" -PrivateLinkServiceNetworkPoliciesFlag "Disabled" -NetworkSecurityGroup $nsg
+$SubnetConfig = ${
+  Name                                  = $subnetName
+  AddressPrefix                         = "10.0.1.0/24"
+  PrivateLinkServiceNetworkPoliciesFlag = "Disabled"
+  NetworkSecurityGroup                  = $nsg
+}
+$subnet = New-AzVirtualNetworkSubnetConfig @SubnetConfig
 
-New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $subnet
+$VirtualNetwork = @{
+  Name              = $vnetName
+  ResourceGroupName = $vnetRgName
+  Location          = $location
+  AddressPrefix     = "10.0.0.0/16"
+  Subnet            = $subnet
+}
+New-AzVirtualNetwork @VirtualNetwork
 
 ## NOTE! The VNET must always be in the same region as the Azure Image Builder service region.
 ```
@@ -93,15 +107,32 @@ New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName -Location $l
 This rule allows connectivity from the Azure Image Builder load balancer to the proxy VM. Port 60001 is for Linux OSs and port 60000 is for Windows OSs. The proxy VM connects to the build VM using port 22 for Linux OSs or port 5986 for Windows OSs.
 
 ```powershell-interactive
-Get-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName  | Add-AzNetworkSecurityRuleConfig -Name AzureImageBuilderAccess -Description "Allow Image Builder Private Link Access to Proxy VM" -Access Allow -Protocol Tcp -Direction Inbound -Priority 400 -SourceAddressPrefix AzureLoadBalancer -SourcePortRange * -DestinationAddressPrefix VirtualNetwork -DestinationPortRange 60000-60001 | Set-AzNetworkSecurityGroup
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName 
+
+$NetworkSecurityRuleConfig = @{
+  Name                     = 'AzureImageBuilderAccess' 
+  Description              = 'Allow Image Builder Private Link Access to Proxy VM'
+  Access                   = 'Allow'
+  Protocol                 = 'Tcp' 
+  Direction                = 'Inbound' 
+  Priority                 = 400 
+  SourceAddressPrefix      = 'AzureLoadBalancer' 
+  SourcePortRange          = '*' 
+  DestinationAddressPrefix = 'VirtualNetwork' 
+  DestinationPortRange     = '60000-60001'
+  NetworkSecurityGroup     = $nsg
+}
+Add-AzNetworkSecurityRuleConfig @NetworkSecurityRuleConfig 
+
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
 ```
 
 ### Disable Private Service Policy on subnet
 
 ```powershell-interactive
-$virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName 
+$virtualNetwork = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName 
    
-($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $subnetName} ).privateLinkServiceNetworkPolicies = "Disabled"  
+($virtualNetwork | Select-Object -ExpandProperty subnets | Where-Object {$_.Name -eq $subnetName}).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork
 ```
@@ -111,13 +142,13 @@ For more information on Image Builder networking, see [Azure Image Builder Servi
 ## Modify the example template and create role
 
 ```powershell-interactive
-$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
+$templateUrl = "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
 $templateFilePath = "existingVNETWindows.json"
 
-$aibRoleNetworkingUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$aibRoleNetworkingUrl = "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $aibRoleNetworkingPath = "aibRoleNetworking.json"
 
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl = "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download configs
@@ -128,24 +159,26 @@ Invoke-WebRequest -Uri $aibRoleNetworkingUrl -OutFile $aibRoleNetworkingPath -Us
 Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPath -UseBasicParsing
 
 # update AIB image config template
-((Get-Content -path $templateFilePath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<rgName>',$imageResourceGroup) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<region>',$location) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<runOutputName>',$runOutputName) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imageName>',$imageName) | Set-Content -Path $templateFilePath
+$TemplateFileContent = Get-Content -path $templateFilePath -Raw
+$TemplateFileContent = $TemplateFileContent -replace '<subscriptionID>',$subscriptionID)
+$TemplateFileContent = $TemplateFileContent -replace '<rgName>',$imageResourceGroup
+$TemplateFileContent = $TemplateFileContent -replace '<region>',$location
+$TemplateFileContent = $TemplateFileContent -replace '<runOutputName>',$runOutputName
+$TemplateFileContent = $TemplateFileContent -replace '<imageName>',$imageName
+$TemplateFileContent = $TemplateFileContent -replace '<vnetName>',$vnetName
+$TemplateFileContent = $TemplateFileContent -replace '<subnetName>',$subnetName
+$TemplateFileContent = $TemplateFileContent -replace '<vnetRgName>',$vnetRgName
 
-((Get-Content -path $templateFilePath -Raw) -replace '<vnetName>',$vnetName) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<subnetName>',$subnetName) | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<vnetRgName>',$vnetRgName) | Set-Content -Path $templateFilePath
+$TemplateFileContent | Set-Content -Path $templateFilePath
 ```
 ## Create a user-assigned identity and set permissions
 
 ```powershell-interactive
 # setup role def names, these need to be unique
-$timeInt=$(get-date -UFormat "%s")
-$imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$networkRoleDefName="Azure Image Builder Network Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$timeInt = $(get-date -UFormat "%s")
+$imageRoleDefName = "Azure Image Builder Image Def" + $timeInt
+$networkRoleDefName = "Azure Image Builder Network Def" + $timeInt
+$idenityName = "aibIdentity" + $timeInt
 
 # create user identity
 ## Add AZ PS module to support AzUserAssignedIdentity
@@ -154,26 +187,35 @@ Install-Module -Name Az.ManagedServiceIdentity
 # create identity
 New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$Identity = Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+$idenityNameResourceId = $Identity.Id
+$idenityNamePrincipalId = $Identity.PrincipalId
 
 # update template with identity
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+$TemplateFileContent = Get-Content -path $templateFilePath -Raw
+$TemplateFileContent = $TemplateFileContent -replace '<imgBuilderId>',$idenityNameResourceId
 
 # update the role defintion names
-((Get-Content -path $aibRoleImageCreationPath -Raw) -replace 'Azure Image Builder Service Image Creation Role',$imageRoleDefName) | Set-Content -Path $aibRoleImageCreationPath
-((Get-Content -path $aibRoleNetworkingPath -Raw) -replace 'Azure Image Builder Service Networking Role',$networkRoleDefName) | Set-Content -Path $aibRoleNetworkingPath
+$aibRoleImageCreationContent = Get-Content -path $aibRoleImageCreationPath -Raw
+$aibRoleNetworkingContent = Get-Content -path $aibRoleNetworkingPath -Raw
+$aibRoleImageCreationContent = $aibRoleImageCreationContent -replace 'Azure Image Builder Service Image Creation Role',$imageRoleDefName
+$aibRoleNetworkingContent = $aibRoleNetworkingContent -replace 'Azure Image Builder Service Networking Role',$networkRoleDefName)
 
 # update role definitions
-((Get-Content -path $aibRoleNetworkingPath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $aibRoleNetworkingPath
-((Get-Content -path $aibRoleNetworkingPath -Raw) -replace '<vnetRgName>',$vnetRgName) | Set-Content -Path $aibRoleNetworkingPath
+$aibRoleNetworkingContent = $aibRoleNetworkingContent -replace '<subscriptionID>',$subscriptionID
+$aibRoleNetworkingContent = $aibRoleNetworkingContent -replace '<vnetRgName>',$vnetRgName
 
-((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $aibRoleImageCreationPath
-((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<rgName>', $imageResourceGroup) | Set-Content -Path $aibRoleImageCreationPath
+$aibRoleImageCreationContent = $aibRoleImageCreationContent -replace '<subscriptionID>',$subscriptionID
+$aibRoleImageCreationContent = $aibRoleImageCreationContent -replace '<rgName>', $imageResourceGroup
+
+# Write back templates
+$TemplateFileContent | Set-Content -Path $templateFilePath
+$aibRoleNetworkingContent | Set-Content -Path $aibRoleNetworkingPath
+$aibRoleImageCreationContent | Set-Content -Path $aibRoleImageCreationPath
 
 # create role definitions from role configurations examples, this avoids granting contributor to the SPN
-New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
-New-AzRoleDefinition -InputFile  ./aibRoleNetworking.json
+New-AzRoleDefinition -InputFile ./aibRoleImageCreation.json
+New-AzRoleDefinition -InputFile ./aibRoleNetworking.json
 
 # grant role definition to image builder user identity
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
@@ -187,7 +229,14 @@ For more information on permissions, see [Configure Azure Image Builder Service 
 Submit the image configuration to the Azure Image Builder service.
 
 ```powershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2020-02-14" -imageTemplateName $imageTemplateName -svclocation $location
+$CreateImage = @{
+  ResourceGroupName = $imageResourceGroup 
+  TemplateFile      = $templateFilePath 
+  'api-version'     = '2020-02-14' 
+  imageTemplateName = $imageTemplateName 
+  svclocation       = $location
+}
+New-AzResourceGroupDeployment @CreateImage
 
 # note this will take minute, as validation is run (security / dependencies etc.)
 ```
@@ -195,7 +244,15 @@ New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFi
 Start the image build.
 
 ```powershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
+$StartImageBuild = @{
+   ResourceName      = $imageTemplateName 
+   ResourceGroupName = $imageResourceGroup 
+   ResourceType      = 'Microsoft.VirtualMachineImages/imageTemplates'
+   ApiVersion        = '2020-02-14'
+   Action            = 'Run'
+   Force             = $true
+}
+Invoke-AzResourceAction @StartImageBuild
 ```
 
 ## Get Image Build Status and Properties
@@ -207,7 +264,7 @@ $managementEp = $currentAzureContext.Environment.ResourceManagerUrl
 $urlBuildStatus = [System.String]::Format("{0}subscriptions/{1}/resourceGroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/{2}?api-version=2020-02-14", $managementEp, $currentAzureContext.Subscription.Id,$imageTemplateName)
 
 $buildStatusResult = Invoke-WebRequest -Method GET  -Uri $urlBuildStatus -UseBasicParsing -Headers  @{"Authorization"= ("Bearer " + $accessToken)} -ContentType application/json 
-$buildJsonStatus =$buildStatusResult.Content
+$buildJsonStatus = $buildStatusResult.Content
 $buildJsonStatus
 
 ```
@@ -232,7 +289,7 @@ $managementEp = $currentAzureContext.Environment.ResourceManagerUrl
 $urlRunOutputStatus = [System.String]::Format("{0}subscriptions/{1}/resourceGroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/runOutputs/{2}?api-version=2020-02-14", $managementEp, $currentAzureContext.Subscription.Id, $runOutputName)
 
 $runOutStatusResult = Invoke-WebRequest -Method GET  -Uri $urlRunOutputStatus -UseBasicParsing -Headers  @{"Authorization"= ("Bearer " + $accessToken)} -ContentType application/json 
-$runOutJsonStatus =$runOutStatusResult.Content
+$runOutJsonStatus = $runOutStatusResult.Content
 $runOutJsonStatus
 ```
 ## Create a VM
