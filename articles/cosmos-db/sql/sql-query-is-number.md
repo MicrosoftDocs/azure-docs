@@ -35,19 +35,33 @@ IS_NUMBER(<expr>)
   
 ```sql
 SELECT   
-    IS_NUMBER(true) AS isNum1,   
-    IS_NUMBER(1) AS isNum2,  
-    IS_NUMBER("value") AS isNum3,   
-    IS_NUMBER(null) AS isNum4,  
-    IS_NUMBER({prop: "value"}) AS isNum5,   
-    IS_NUMBER([1, 2, 3]) AS isNum6,  
-    IS_NUMBER({prop: "value"}.prop2) AS isNum7  
+    IS_NUMBER(true) AS isBooleanANumber,   
+    IS_NUMBER(1) AS isNumberANumber, 
+    IS_NUMBER("value") AS isTextStringANumber, 
+    IS_NUMBER("1") AS isNumberStringANumber,
+    IS_NUMBER(null) AS isNullANumber,  
+    IS_NUMBER({prop: "value"}) AS isObjectANumber,   
+    IS_NUMBER([1, 2, 3]) AS isArrayANumber,  
+    IS_NUMBER({stringProp: "value"}.stringProp) AS isObjectStringPropertyANumber, 
+    IS_NUMBER({numberProp: 1}.numberProp) AS isObjectNumberPropertyANumber  
 ```  
   
  Here is the result set.  
   
 ```json
-[{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
+[
+    {
+        "isBooleanANumber": false,
+        "isNumberANumber": true,
+        "isTextStringANumber": false,
+        "isNumberStringANumber": false,
+        "isNullANumber": false,
+        "isObjectANumber": false,
+        "isArrayANumber": false,
+        "isObjectStringPropertyANumber": false,
+        "isObjectNumberPropertyANumber": true
+    }
+]
 ```  
 
 ## Remarks
