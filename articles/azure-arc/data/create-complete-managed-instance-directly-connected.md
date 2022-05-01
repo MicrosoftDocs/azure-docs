@@ -181,7 +181,7 @@ NAME          STATE
 <namespace>   Ready
 ```
 
-## Create an Azure Arc-enabled SQL Managed Instance 
+## Create an instance of Azure Arc-enabled SQL Managed Instance 
 
 1. In the portal, locate the resource group.
 1. In the resource group, select **Create**.
