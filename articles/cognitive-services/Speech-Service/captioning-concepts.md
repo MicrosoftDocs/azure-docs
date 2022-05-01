@@ -239,5 +239,5 @@ There are some situations where [training a custom model](custom-speech-overview
 
 ## Next steps
 
-* [Get started with speech to text](get-started-speech-to-text.md)
+* [Captioning quickstart](captioning-quickstart.md)
 * [Get speech recognition results](get-speech-recognition-results.md)
