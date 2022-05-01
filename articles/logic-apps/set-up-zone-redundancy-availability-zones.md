@@ -40,7 +40,7 @@ During preview, the following considerations apply:
 
 ## Limitations
 
-Availability zones currently doesn't support workflows that enable [chunking](logic-apps-handle-large-messages.md). Any workflows that have chunking enabled are blocked from creation or updates.
+With HTTP-based actions, certificates exported or created with AES256 encryption won't work when used for client certificate authentication. The same certificates also won't work when used for OAuth authentication.
 
 ## Prerequisites
 
