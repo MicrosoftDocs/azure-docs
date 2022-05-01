@@ -300,115 +300,60 @@ The following columns have been added to *AzureActivity* in the updated schema:
 - Claims_d
 - Properties_d
 
-## Activity Log Analytics monitoring solution
-> [!Note]
-> The Azure Log Analytics monitoring solution will be deprecated soon and replaced by a workbook using the updated schema in the Log Analytics workspace. You can still use the solution if you already have it enabled, but it can only be used if you're collecting the Activity log using legacy settings. 
+## Activity log insights (Preview)
 
+Activity log insights let you view information about changes to resources and resource groups in a subscription. The dashboards also present data about which users or services performed activities in the subscription and the activities' status. This article explains how to view Activity log insights in the Azure portal.
 
+Before using Activity log insights, you'll have to [enable sending logs to your Log Analytics workspace](./diagnostic-settings.md).
 
-### Use the solution
-Monitoring solutions are accessed from the **Monitor** menu in the Azure portal. Select **More** in the **Insights** section to open the **Overview** page with the solution tiles. The **Azure Activity Logs** tile displays a count of the number of **AzureActivity** records in your workspace.
+### How does Activity log insights work?
 
-![Azure Activity Logs tile](media/activity-log/azure-activity-logs-tile.png)
+Activity logs you send to a [Log Analytics workspace](/articles/azure-monitor/logs/log-analytics-workspace-overview.md) are stored in a table called AzureActivity. 
 
+Activity log insights are a curated [Log Analytics workbook](/articles/azure-monitor/visualize/workbooks-overview.md) with dashboards that visualize the data in the AzureActivity table. For example, which administrators deleted, updated or created resources, and whether the activities failed or succeeded.
 
-Select the **Azure Activity Logs** tile to open the **Azure Activity Logs** view. The view includes the visualization parts in the table. Each part lists up to 10 items that matches that part's criteria for the specified time range. You can run a log query that returns all  matching records by clicking **See all** at the bottom of the part.
+:::image type="content" source="media/activity-log/activity-logs-insights-main-screen.png" alt-text="A screenshot showing Azure Activity logs insights dashboards":::
 
-![Azure Activity Logs dashboard](media/activity-log/activity-log-dash.png)
+### View Activity log insights - Resource group / Subscription level
 
+To view Activity log insights on a resource group or a subscription level:
 
-### Enable the solution for new subscriptions
-> [!NOTE]
->You will soon no longer be able to add the Activity Logs Analytics solution to your subscription with the Azure portal. You can add it using the following procedure with a Resource Manager template. 
+1. In the Azure portal, select **Monitor** > **Workbooks**.
+1. Select **Activity Logs Insights** in the **Insights** section. 
 
-1. Copy the following json into a file called *ActivityLogTemplate*.json.
+    :::image type="content" source="media/activity-log/open-activity-log-insights-workbook.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook on a scale level":::
 
-    ```json
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workspaceName": {
-            "type": "String",
-            "defaultValue": "my-workspace",
-            "metadata": {
-              "description": "Specifies the name of the workspace."
-            }
-        },
-        "location": {
-            "type": "String",
-            "allowedValues": [
-              "east us",
-              "west us",
-              "australia central",
-              "west europe"
-            ],
-            "defaultValue": "australia central",
-            "metadata": {
-              "description": "Specifies the location in which to create the workspace."
-            }
-        }
-      },
-        "resources": [
-        {
-            "type": "Microsoft.OperationalInsights/workspaces",
-            "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
-            "location": "[parameters('location')]",
-            "properties": {
-                "features": {
-                    "searchVersion": 2
-                }
-            }
-        },
-        {
-            "type": "Microsoft.OperationsManagement/solutions",
-            "apiVersion": "2015-11-01-preview",
-            "name": "[concat('AzureActivity(', parameters('workspaceName'),')')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
-            ],
-            "plan": {
-                "name": "[concat('AzureActivity(', parameters('workspaceName'),')')]",
-                "promotionCode": "",
-                "product": "OMSGallery/AzureActivity",
-                "publisher": "Microsoft"
-            },
-            "properties": {
-                "workspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]",
-                "containedResources": [
-                    "[concat(resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName')), '/views/AzureActivity(',parameters('workspaceName'))]"
-                ]
-            }
-        },
-        {
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
-          "kind": "AzureActivityLog",
-          "name": "[concat(parameters('workspaceName'), '/', subscription().subscriptionId)]",
-          "apiVersion": "2015-11-01-preview",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-              "[parameters('WorkspaceName')]"
-          ],
-          "properties": {
-              "linkedResourceId": "[concat(subscription().Id, '/providers/microsoft.insights/eventTypes/management')]"
-          }
-        }
-      ]
-    }    
-    ```
+1. At the top of the **Activity Logs Insights** page, select:
+    1. One or more subscriptions from the **Subscriptions** dropdown.
+    1. Resources and resource groups from the **CurrentResource** dropdown.
+    1. A time range for which to view data from the **TimeRange** dropdown.
+### View Activity log insights on any Azure resource
 
-2. Deploy the template using the following PowerShell commands:
+>[!Note]
+> * Currently Applications Insights resources are not supported for this workbook.
 
-    ```PowerShell
-    Connect-AzAccount
-    Select-AzSubscription <SubscriptionName>
-    New-AzResourceGroupDeployment -Name activitysolution -ResourceGroupName <ResourceGroup> -TemplateFile <Path to template file>
-    ```
+To view Activity log insights on a resource level:
 
+1. In the Azure portal, go to your resource, select **Workbooks**.
+1. Select **Activity Logs Insights** in the **Activity Logs Insights** section. 
 
+    :::image type="content" source="media/activity-log/activity-log-resource-level.png" alt-text="A screenshot showing how to locate and open the Activity logs insights workbook on a resource level":::
 
+1. At the top of the **Activity Logs Insights** page, select:
+    
+    1. A time range for which to view data from the **TimeRange** dropdown.
+    * **Azure Activity Log Entries** shows the count of Activity log records in each [activity log category](/articles/azure-monitor/essentials/activity-log-schema#categories).
+     
+        :::image type="content" source="media/activity-log/activity-logs-insights-categoryvalue.png" alt-text="Azure Activity Logs by Category Value":::
+    
+    * **Activity Logs by Status** shows the count of Activity log records in each status.
+    
+        :::image type="content" source="media/activity-log/activity-logs-insights-status.png" alt-text="Azure Activity Logs by Status":::
+    
+    * At the subscription and resource group level, **Activity Logs by Resource** and **Activity Logs by Resource Provider** show the count of Activity log records for each resource and resource provider.
+    
+        :::image type="content" source="media/activity-log/activity-logs-insights-resource.png" alt-text="Azure Activity Logs by Resource":::
+    
 ## Next steps
 * [Read an overview of platform logs](./platform-logs-overview.md)
 * [Review Activity log event schema](activity-log-schema.md)
