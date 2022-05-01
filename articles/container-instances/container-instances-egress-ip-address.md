@@ -147,7 +147,6 @@ If the NAT rule on the firewall is configured properly, you see the following wh
 
 ### Test egress from a container group
 
-
 Deploy the following sample container into the virtual network. When it runs, it sends a single HTTP request to `http://checkip.dyndns.org`, which displays the IP address of the sender (the egress IP address). If the application rule on the firewall is configured properly, the firewall's public IP address is returned.
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="egress":::
