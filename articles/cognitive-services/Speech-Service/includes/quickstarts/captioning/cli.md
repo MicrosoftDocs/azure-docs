@@ -16,6 +16,23 @@ ms.author: eur
 
 [!INCLUDE [SPX Setup](../../spx-setup-quick.md)]
 
+To configure your Speech resource key and region, run the following commands. Replace `SUBSCRIPTION-KEY` with your Speech resource key, and replace `REGION` with your Speech resource region:
+
+# [Terminal](#tab/terminal)
+
+```console
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+spx --% config @key --set SUBSCRIPTION-KEY
+spx --% config @region --set REGION
+```
+***
+
 For more information, see the [Speech CLI quickstart](~/articles/cognitive-services/speech-service/spx-basics.md#download-and-install).
 
 ## Create captions from speech
@@ -25,7 +42,7 @@ With the [Speech CLI](~/articles/cognitive-services/speech-service/spx-overview.
 To recognize audio from a file and output both WebVtt (`vtt`) and SRT (`srt`) captions, run the following command: 
 
 ```console
-spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file - --output each file - @output.each.detailed --property SpeechServiceResponse_StablePartialResultThreshold=0 --profanity masked
+spx recognize --file caption.this.mp4 --format any --output vtt file - --output srt file - --output each file - @output.each.detailed --property SpeechServiceResponse_StablePartialResultThreshold=5 --profanity masked --phrases "Applied Mathematics;"
 ```
 
 The SRT and WebVTT captions are output to the console as shown here:
@@ -44,13 +61,14 @@ Welcome to applied Mathematics course 201.
 }
 ```
 
-Please take note of optional arguments from the previous command:
+Here are details about the optional arguments from the previous command:
 
-- You can output WebVTT, SRT, or neither. For more information about SRT and WebVTT caption file formats, see the [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format) section of the captioning concepts documentation.
-- The preceding command also displayed event results with offset and duration. For more information, see the [Get speech recognition results](~/articles/cognitive-services/speech-service/get-speech-recognition-results.md) documentation.
-- You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property. For more information see the [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) section of the captioning concepts documentation.
-- You can specify whether to mask, remove, or show profanity in recognition results. For more information see the [Profanity filter](~/articles/cognitive-services/speech-service/captioning-concepts.md#profanity-filter) section of the captioning concepts documentation.
-- Captions are written to the file specified by the `--output vtt file` or `--output srt file` option. If the file argument is a hyphen (`-`), the captions are written to standard output. For more information, see the [Speech CLI output options](~/articles/cognitive-services/speech-service/spx-output-options.md) documentation.
+- `--file caption.this.mp4 --format any`: Input audio from file. The default input is the microphone. For compressed audio files such as MP4, install GStreamer and see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
+- `--output vtt file -` and `--output srt file -`: Outputs WebVTT and SRT captions to standard output. For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format). For more information about the `--output` argument, see [Speech CLI output options](~/articles/cognitive-services/speech-service/spx-output-options.md).
+- `@output.each.detailed`: Outputs event results with text, offset, and duration. For more information, see [Get speech recognition results](~/articles/cognitive-services/speech-service/get-speech-recognition-results.md).
+- `--property SpeechServiceResponse_StablePartialResultThreshold=5`: You can request that the Speech service return fewer `Recognizing` events that are more accurate. In this example, the Speech service must affirm recognition of a word at least five times before returning the partial results to you. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
+- `--profanity masked`: You can specify whether to mask, remove, or show profanity in recognition results. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/captioning-concepts.md#profanity-filter) concepts.
+- `--phrases "Constoso;Jessie;Rehaan"`: You can specify a list of phrases to be recognized, such as Contoso, Jesse, and Rehaan. For more information, see [Improve recognition with phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md).
 
 ## Translated captions
 

@@ -15,6 +15,7 @@ ms.author: eur
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Set up the environment
+
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
 
 ## Create captions from speech
@@ -26,39 +27,41 @@ Follow these steps to create a new console application and install the Speech SD
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of `caption.cpp` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/cpp/windows/captioning/caption.cpp) at GitHub.
+1. Replace the contents of `captioning.cpp` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/cpp/windows/captioning/captioning.cpp) at GitHub.
 
-
-Build and run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
+Run the captions console application with the following command. Make sure that you have an input file named `caption.this.mp4` in the same directory as `captioning.exe`, or adjust the path as needed.
 
 ```console
-caption.exe [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
+captioning.exe --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
 ```
 
-Usage options include:
+Connection options include:
 
-- `-h`: Show this help and stop
+- `--key`: Your Speech resource key. 
+- `--region REGION`: Your Speech resource region. Examples: `westus`, `eastus`
 
-- `-o file`: Output captions to the specified `file`. This flag is required.
+Input options include:
 
-- `-f`: Removes profane words. This setting overrides `-m` if set.
+- `--input FILE`: Input audio from file. The default input is the microphone. 
+- `--url URL`: Input audio from URL. The default input is the microphone.
+- `--format FORMAT`: Use compressed audio format. Valid only with `--file` or `--url`. Valid values are `alaw`, `any`, `flac`, `mp3`, `mulaw`, and `ogg_opus`. The default value is `any`. For compressed audio files such as MP4, install GStreamer and see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
-- `-m`: Replaces letters in profane words with asterisk (*) characters. This setting is overridden by `-f` if set.
+Recognition options include:
 
-- `-i`: Input speech from the specified `file`. If this is not set, audio input is from the default microphone. For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
+- `--recognizing`: Output `Recognizing` event results. The default output is `Recognized` event results only. These are always written to the console, never to an output file. The `--quiet` option overrides this. For more information, see [Get speech recognition results](~/articles/cognitive-services/speech-service/get-speech-recognition-results.md).
 
-- `-l languages`: Enable language identification for specified *languages`.  The comma delimited phrases must be in quotes. Example: "en-US,ja-JP"
+Accuracy options include:
 
-- `-p phrases`: Add specified `phrases` to the phrase list. The semicolon delimited phrases must be in quotes. Example: "Constoso;Jessie;Rehaan"
+- `--phrases PHRASE1;PHRASE2`: You can specify a list of phrases to be recognized, such as `Contoso;Jesse;Rehaan`. For more information, see [Improve recognition with phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md).
 
-- `-q`: Suppress console output (except errors)
+Output options include:
 
-- `-r number`: Set stable partial result threshold to the `number`. 
-
-- `-s`: Emit SRT caption format instead of the default WebVTT format.
-
-- `-t`: Capitalize intermediate results
-
+- `--help`: Show this help and stop
+- `--output FILE`: Output captions to the specified `file`. This flag is required.
+- `--srt`: Output captions in SRT (SubRip Text) format. The default format is WebVTT (Web Video Text Tracks). For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
+- `--quiet`: Suppress console output, except errors.
+- `--profanity OPTION`: Valid values: raw, remove, mask. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/captioning-concepts.md#profanity-filter) concepts.
+- `--threshold NUMBER`: Set stable partial result threshold. The default value with this code example is `3`. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
 
 ## Clean up resources
 

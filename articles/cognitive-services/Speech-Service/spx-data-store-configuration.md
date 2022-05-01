@@ -72,7 +72,7 @@ For [captioning](captioning-quickstart.md) you might run the following command t
 spx recognize --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt --output each file each.result.tsv --output all file output.result.tsv --output each recognizer recognizing result offset --output each recognizer recognizing duration --output each recognizer recognizing result resultid --output each recognizer recognizing text
 ```
 
-These are the individual components of the preceding command:
+Here are the individual components of the preceding command:
 - Recognize from the input file `caption.this.mp4`.
 - Output WebVTT and SRT captions to the files `caption.vtt` and `caption.srt` respectively.
 - Output the `offset`, `duration`, `resultid`, and `text` of each recognizing event to the file `each.result.tsv`.
@@ -90,7 +90,7 @@ spx config @caption.defaults --add output.srt.file.name=caption.srt
 spx config @caption.defaults --add output.vtt.file.name=caption.vtt
 ```
 
-The settings are saved in a file named `caption.defaults` (no extension) in the current directory.
+The settings are saved to the current directory in a file named `caption.defaults`. Here are the file contents:
 
 ```
 output.each.recognizing.result.offset=true
@@ -103,7 +103,7 @@ output.srt.file.name=caption.srt
 output.vtt.file.name=caption.vtt
 ```
 
-Then you can run this command that imports settings from the `@caption.defaults` preset template:
+Then, to generate [captions](captioning-quickstart.md), you can run this command that imports settings from the `@caption.defaults` preset template:
 
 ```console
 spx recognize --file caption.this.mp4 --format any --output vtt --output srt @caption.defaults
