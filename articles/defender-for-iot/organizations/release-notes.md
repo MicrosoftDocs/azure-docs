@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 04/10/2022
+ms.date: 05/01/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -52,6 +52,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
+- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Refreshed Protocols DPI (Horizon Plugins) page for plugin management](#refreshed-protocols-dpi-horizon-plugins-page-for-plugin-management)
 - [Documentation improvements](#documentation-improvements)
@@ -115,6 +116,17 @@ For more information, see:
 - [View alerts on your sensor](how-to-view-alerts.md)
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+### PCAP access from the Azure portal
+
+Now you can access the raw traffic files, known as packet capture files or PCAP files, directly from the Azure portal. This feature supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately.
+
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button":::
+
+PCAP files are downloaded to your Azure storage.
+
+For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md).
+
 
 ### Support diagnostic log enhancements (Public preview)
 

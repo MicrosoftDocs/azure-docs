@@ -171,6 +171,18 @@ Alert management across all interfaces functions as follows:
 
     Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
+## Access alert PCAP data
+
+To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page. The portal requests the file from the sensor that detected the alert and downloads it to your Azure storage.
+
+TBD FIX IMAGE
+
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button":::
+
+Downloading the PCAP file should take less than 1 minute.
+
+Accessing PCAP files directly from the Azure portal supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
+
 ## Next steps
 
 For more information, see:
