@@ -32,7 +32,7 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | Adjustable | No | No |
 
 
-# [Form Recognizer v2.1 (GA) API](#tab/v2.1)
+# [Form Recognizer v2.1 (GA)](#tab/v21)
  
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -44,7 +44,7 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | Adjustable | No | No |
 
  
-# [Form Recognizer v3.0 (preview) API](#tab/v3.0)
+# [Form Recognizer v3.0 (Preview)](#tab/v30)
  
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
