@@ -18,33 +18,54 @@ This article contains a quick reference and the **detailed description** of Azur
 
 For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [Form Recognizer REST API](quickstarts/try-v3-rest-api.md), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
 
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| **Concurrent Request limit** | 1 | 15 (default value) |
+| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
+| **Max document size** | 50MB | 50MB |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Max number of pages (Analysis)** | 2 | No limit |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Max size of labels file** | 10MB | 10MB |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Max size of OCR json response** | 500MB | 500MB |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
 
-Some shared introductory content here...
+# [Form Recognizer v2.1 (GA) API](#tab/v2.1)
  
-# [Azure CLI](#tab/azure-cli)
- 
-Azure CLI content inline...
- 
-# [PowerShell](#tab/powershell)
- 
-[[!INCLUDE](some-shared-included-content.md)]
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| **Compose Model limit** | 5 | 100 (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Training dataset size** | 50MB | 50MB (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Max number of pages (Training)** | 500 | 500 (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
 
-# [Azure Portal](#tab/azure-portal)
  
-Azure Portal content inline...
+# [Form Recognizer v3.0 (preview) API](#tab/v3.0)
+ 
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| **Compose Model limit** | 5 | 200 (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Training dataset size - Template** | 50MB | 50MB (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Training dataset size - Neural** | 1GB | 1GB (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Max number of pages (Training) - Template** | 500 | 500 (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Max number of pages (Training) - Neural** | 50,000 | 50,000 (default value) |
+| Adjustable | No<sup>2</sup> | No<sup>2</sup> |
+| **Custom neural model train** | 10 per month | 10 per month |
+| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 -----
 
 
 
 
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
-|--|--|--|
-| **Concurrent Request limit** | 1 | 15 (default value) |
-| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
-| **Compose Model limit** | 5 | 100 (default value) |
-| **Custom neural model train** | 10 per month | 10 per month |
-| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
+
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).
 <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).
