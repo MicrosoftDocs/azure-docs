@@ -433,7 +433,17 @@ The file path to the function app code and configuration in an event-driven scal
 |---|------------|
 |WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
-Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or for Dedicated plans on  Windows or Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+The usage of `WEBSITE_CONTENTSHARE` is determined as follows:
+
+|Plan | Windows  | Linux |
+| --- | --- | --- |
+| Consumption | Used. | PowerShell-only.<sup>*</sup> |
+| Premium | Used. | Used. |
+| Dedicated | Not used. | Not used.  |
+
+<sup>*</sup>Setting is created for all new function apps, but it's currently only used by PowerShell apps. 
+
+Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
 
