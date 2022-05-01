@@ -131,7 +131,7 @@ The following sections verify that the subnet delegated to Azure Container Insta
 
 ### Test ingress to a container group
 
-Test inbound access to the *appcontainer* running in the virtual network by browsing to the firewall's public IP address. Previously, you stored the public IP address in variable $FW_PUBLIC_IP:
+Test inbound access to the `appcontainer` running in the virtual network by browsing to the firewall's public IP address. Previously, you stored the public IP address in variable $FW_PUBLIC_IP:
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/egress-ip-address.sh" id="echo":::
 
