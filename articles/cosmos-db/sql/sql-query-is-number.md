@@ -1,12 +1,12 @@
 ---
 title: IS_NUMBER in Azure Cosmos DB query language
 description: Learn about SQL system function IS_NUMBER in Azure Cosmos DB.
-author: ginamr
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: girobins
+ms.author: sidandrews
 ms.custom: query-reference
 ---
 # IS_NUMBER (Azure Cosmos DB)
