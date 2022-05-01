@@ -49,7 +49,19 @@ SELECT
  Here is the result set.  
   
 ```json
-[{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false,"isNum8":false}]  
+[
+    {
+        "isBooleanANumber": false,
+        "isNumberANumber": true,
+        "isTextStringANumber": false,
+        "isNumberStringANumber": false,
+        "isNullANumber": false,
+        "isObjectANumber": false,
+        "isArrayANumber": false,
+        "isObjectStringPropertyANumber": false,
+        "isObjectNumberPropertyANumber": true
+    }
+]
 ```  
 
 ## Remarks
