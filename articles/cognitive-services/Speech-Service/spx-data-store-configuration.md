@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 01/13/2021
+ms.date: 05/01/2022
 ms.author: eur
 ms.custom: mode-api
 ---
 
 # Speech CLI configuration options
 
-Speech CLI's behavior can rely on settings in configuration files, which you can refer to using a `@` symbol. The Speech CLI saves a new setting in a new `./spx/data` subdirectory that is created in the current working directory for the Speech CLI. When looking for a configuration value, the Speech CLI searches your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary. 
+The [Speech CLI](spx-basics.md) can rely on settings in configuration files, which you can refer to using a `@` symbol. The Speech CLI saves a new setting in a new `./spx/data` subdirectory that is created in the current working directory for the Speech CLI. When looking for a configuration value, the Speech CLI searches your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary. 
 
 In the [Speech CLI quickstart](spx-basics.md), you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each `spx` command. Keep in mind, that you can use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
 
@@ -24,6 +24,14 @@ In the [Speech CLI quickstart](spx-basics.md), you used the datastore to save yo
 ## Create and manage configuration files in the datastore
 
 This section shows how to use a configuration file in the local datastore to store and fetch command settings using `spx config`, and store output from Speech CLI using the `--output` option.
+
+For more details about datastore files, including use of default configuration files (`@spx.default`, `@default.config`, and `@*.default.config` for command-specific default settings), enter this command:
+
+```console
+spx help advanced setup
+```
+
+### my.defaults example
 
 The following example clears the `@my.defaults` configuration file, adds key-value pairs for **key** and **region** in the file, and uses the configuration in a call to `spx recognize`.
 
@@ -36,6 +44,8 @@ spx config @my.defaults
 
 spx recognize --nodefaults @my.defaults --file hello.wav
 ```
+
+### Custom speech example
 
 You can also write dynamic content to a configuration file. For example, the following command creates a custom speech model and stores the URL of the new model in a configuration file. The next command waits until the model at that URL is ready for use before returning.
 
@@ -54,10 +64,49 @@ spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/aud
 spx config @my.datasets.txt
 ```
 
-For more details about datastore files, including use of default configuration files (`@spx.default`, `@default.config`, and `@*.default.config` for command-specific default settings), enter this command:
+### Captioning example
+
+For [captioning](captioning-quickstart.md) you might run the following command to get the offset and duration of the recognized speech:
 
 ```console
-spx help advanced setup
+spx recognize --file caption.this.mp4 --format any --output vtt file caption.vtt --output srt file caption.srt --output each file each.result.tsv --output all file output.result.tsv --output each recognizer recognizing result offset --output each recognizer recognizing duration --output each recognizer recognizing result resultid --output each recognizer recognizing text
+```
+
+These are the individual components of the preceding command:
+- Recognize from the input file `caption.this.mp4`.
+- Output WebVTT and SRT captions to the files `caption.vtt` and `caption.srt` respectively.
+- Output the `offset`, `duration`, `resultid`, and `text` of each recognizing event to the file `each.result.tsv`.
+
+For readability, flexibility, and convenience, you can use a preset template with select output options. For example, you can create a preset template named `@caption.defaults` as shown here:
+
+```console
+spx config @caption.defaults --clear
+spx config @caption.defaults --add output.each.recognizing.result.offset=true
+spx config @caption.defaults --add output.each.recognizing.result.duration=true
+spx config @caption.defaults --add output.each.recognizing.result.resultid=true
+spx config @caption.defaults --add output.each.recognizing.result.text=true
+spx config @caption.defaults --add output.each.file.name=each.result.tsv
+spx config @caption.defaults --add output.srt.file.name=caption.srt
+spx config @caption.defaults --add output.vtt.file.name=caption.vtt
+```
+
+The settings are saved in a file named `caption.defaults` (no extension) in the current directory.
+
+```
+output.each.recognizing.result.offset=true
+output.each.recognizing.result.duration=true
+output.each.recognizing.result.resultid=true
+output.each.recognizing.result.text=true
+output.all.file.name=output.result.tsv
+output.each.file.name=each.result.tsv
+output.srt.file.name=caption.srt
+output.vtt.file.name=caption.vtt
+```
+
+Then you can run this command that imports settings from the `@caption.defaults` preset template:
+
+```console
+spx recognize --file caption.this.mp4 --format any --output vtt --output srt @caption.defaults
 ```
 
 ## Next steps 

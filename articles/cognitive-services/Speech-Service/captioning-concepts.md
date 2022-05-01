@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/12/2022
 ms.author: eur
-zone_pivot_groups: programming-languages-speech-sdk
+zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
 
 # Captioning with speech to text
@@ -32,7 +32,7 @@ The following are aspects to consider when using captioning:
 > [!TIP]
 > Try the [Azure Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
-Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
+Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
 ## Caption output format
 
@@ -58,7 +58,6 @@ Welcome to applied Mathematics course 201.
   "Duration": "00:00:03.0500000"
 }
 ```
-
 
 ## Input audio to the Speech service
 
@@ -87,7 +86,7 @@ For captioning of prerecorded speech or wherever latency isn't a concern, you co
 
 Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial results". 
 
-You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
+You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` property value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -127,6 +126,11 @@ self.speechConfig!.setPropertyTo(5, by: SPXPropertyId.speechServiceResponseStabl
 ::: zone pivot="programming-language-python"
 ```python
 speech_config.set_property(property_id = speechsdk.PropertyId.SpeechServiceResponse_StablePartialResultThreshold, value = 5)
+```
+::: zone-end
+::: zone pivot="programming-language-cli"
+```console
+spx recognize --file caption.this.mp4 --format any --property SpeechServiceResponse_StablePartialResultThreshold=5 --output vtt file - --output srt file -
 ```
 ::: zone-end
 
@@ -207,6 +211,11 @@ self.speechConfig!.setProfanityOptionTo(SPXSpeechConfigProfanityOption_Profanity
 ::: zone pivot="programming-language-python"
 ```python
 speech_config.set_profanity(speechsdk.ProfanityOption.Removed)
+```
+::: zone-end
+::: zone pivot="programming-language-cli"
+```console
+spx recognize --file caption.this.mp4 --format any --profanity masked --output vtt file - --output srt file -
 ```
 ::: zone-end
 

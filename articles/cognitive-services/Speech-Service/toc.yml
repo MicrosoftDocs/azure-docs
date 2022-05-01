@@ -382,6 +382,9 @@ items:
         - name: Speech CLI configuration options
           displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
           href: spx-data-store-configuration.md
+        - name: Speech CLI output options
+          displayName: reference
+          href: spx-output-options.md
         - name: Speech CLI batch operations
           displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
           href: spx-batch-operations.md
