@@ -9,10 +9,11 @@ ms.date: 09/13/2019
 ms.author: sidandrews
 ms.custom: query-reference
 ---
+
 # IS_NUMBER (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns a Boolean value indicating if the type of the specified expression is a number.  
+Returns a Boolean value indicating if the type of the specified expression is a number.  
   
 ## Syntax
   
@@ -23,15 +24,15 @@ IS_NUMBER(<expr>)
 ## Arguments
   
 *expr*  
-   Is any expression.  
+  Is any expression.  
   
 ## Return types
   
-  Returns a Boolean expression.  
+Returns a Boolean expression.  
   
 ## Examples
   
-  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_NUMBER` function.  
+The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_NUMBER` function.  
   
 ```sql
 SELECT   
@@ -45,8 +46,8 @@ SELECT
     IS_NUMBER({stringProp: "value"}.stringProp) AS isObjectStringPropertyANumber, 
     IS_NUMBER({numberProp: 1}.numberProp) AS isObjectNumberPropertyANumber  
 ```  
-  
- Here is the result set.  
+
+Here's the result set.  
   
 ```json
 [
