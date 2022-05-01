@@ -4,7 +4,7 @@ description: Customers meeting the minimum commitment tier could use dedicated c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/29/2021
+ms.date: 05/01/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -48,7 +48,7 @@ The user account that creates the clusters must have the standard Azure resource
 
 After you create your cluster resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to two active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to four reserved clusters per subscription per region (active or recently deleted).
+You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to four reserved clusters per subscription per region (active or recently deleted).
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -579,7 +579,7 @@ Authorization: Bearer <token>
 
 ## Limits and constraints
 
-- A maximum of two active clusters can be created in each region and subscription.
+- A maximum of five active clusters can be created in each region and subscription.
 
 - A maximum number of four reserved clusters (active or recently deleted) can be created in each region and subscription.
 
