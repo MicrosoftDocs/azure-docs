@@ -16,6 +16,7 @@ Azure Cache for Redis offers Redis persistence using the Redis database (RDB) an
 
 - **RDB persistence** - When you use RDB persistence, Azure Cache for Redis persists a snapshot of your cache in a binary format. The snapshot is saved in an Azure Storage account. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 - **AOF persistence** - When you use AOF persistence, Azure Cache for Redis saves every write operation to a log. The log is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
+++AOF persistence is not supported for new cache creation whereas RDP persistence stored as .rdb file is supported for new cache creation.
 
 Persistence writes Redis data into an Azure Storage account that you own and manage. You configure the **New Azure Cache for Redis** on the left during cache creation. For existing premium caches, use the **Resource menu**.
 
