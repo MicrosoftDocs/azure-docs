@@ -44,10 +44,6 @@ landingContent:
           url: how-to-use-codec-compressed-audio-input-streams.md
         - text: Migrate from v2.0 to v3.0 
           url: migrate-v2-to-v3.md
-    - linkListType: tutorial
-      links:
-        - text: Improve accuracy with tenant models
-          url: tutorial-tenant-model.md
     - linkListType: concept
       links:
         - text: Prepare data for Custom Speech
