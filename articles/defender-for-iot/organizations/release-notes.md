@@ -81,9 +81,9 @@ On the **Sites and sensors** page:
 
 - **To create and apply settings** across one or more cloud-connected sensors in your network, select **Sensor settings (Preview)**.
 
-- **To monitor sensor health**, use the new sensor health widgets and table column data.
+- **To monitor sensor health**, use the new sensor health widgets and table column data
 
-- **To update sensor software**, select a connected sensor with a legacy software version, and then select **Update (Preview)**. Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.0 or higher.
+- **To update sensor software**, select a connected sensor with an older software version, and then select **Update (Preview)**. Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.0 or higher.
 
 The following image highlights the new sensor management options now available from the **Sites and sensors** page in the Azure portal:
 
@@ -168,6 +168,10 @@ Starting in May 2022, we're tracking our release notes per software version for 
 
 Going forward, find the sensor software versions released in a given month, and their features, at the top of the release notes for that month. For example, in May, we released version **22.2.1**. Features that are cloud-only and unrelated to sensor or on-premises management console software will also be listed separately from the software releases.
 
+> [!IMPORTANT]
+> Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation.
+> To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
+
 For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
 
 #### New OT monitoring appliance catalog
@@ -225,11 +229,20 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 ## March 2022
 
+**Sensor version**: 22.1.3
+
+- [Sensor health from the Azure portal](#sensor-health-from-the-azure-portal)
 - [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot-public-preview)
 - [IoT OT Threat Monitoring with Defender for IoT solution GA](#iot-ot-threat-monitoring-with-defender-for-iot-solution-ga)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
+
+### Sensor health from the Azure portal
+
+Sensor health features in the Azure portal are supported started with sensor version 22.1.3.
+
+For more information, see [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal).
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 

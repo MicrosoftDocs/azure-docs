@@ -315,11 +315,11 @@ Update your firewall rules between the sensor and the Azure portal. For more inf
 
 ### Update your sensor software version
 
-This section describes how to update your OT sensor software version, either manually by installing the updates on your sensor machine, or for software versions higher than 22.2.x, directly from the Azure portal.
+This section describes how to update your OT sensor software version, either manually by installing the updates on your sensor machine, or directly from the Azure portal.
 
 # [Install manually](#tab/manual)
 
-This procedure describes how to upgrade your sensor, including downloading your update package and installing it manually on your sensor machine. Use this procedure if you're running an upgrade to any version up to, and including 22.2.0. If you're upgrading from 22.2.0 to any higher version, you can update your sensor remotely from the Azure portal.
+This procedure describes how to upgrade your sensor, including downloading your update package and installing it manually on your sensor machine. 
 
 **To download your update and install it manually**:
 
@@ -343,7 +343,7 @@ This procedure describes how to upgrade your sensor, including downloading your 
 
 # [From the Azure portal (Preview)](#tab/portal)
 
-This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal. Use this procedure only if you are upgrading from a sensor version 22.2.0 or higher.
+This procedure describes how to download the new sensor software version and then run the update directly from the Azure portal. 
 
 > [!TIP]
 > Depending on your organization's needs, you might want to separate the software download and installation. For example, have the update downloaded overnight and then wait for an administrator to run the installation during a planned maintenance window.

@@ -104,8 +104,6 @@ This procedure describes how to define sensor settings from the Azure portal and
 
 1. In Defender for IoT on the Azure portal, select **Sites and sensors** > **Sensor settings (Preview)**.
 
-    Alternately, to manage settings for a specific sensor, select that sensor in the grid > **Sensor settings (Preview)**.
-
 1. Select **Add** and use the wizard to define values for your setting.
 
 1. On the **Basics** tab, select your subscription and setting type. Then, define a meaningful name and an optional description for your setting.
@@ -114,7 +112,11 @@ This procedure describes how to define sensor settings from the Azure portal and
 
     # [Bandwidth cap](#tab/bandwidth)
 
-    For a bandwidth cap, define the maximum bandwidth you want the sensor to use, either in Kbps or Mbps.
+    For a bandwidth cap, define the maximum bandwidth you want the sensor to use for outgoing communication from the sensor to the cloud, either in Kbps or Mbps.
+
+    **Default**: 1500 Kbps
+
+    **Minimum required for a stable connection to Azure** 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
 
     # [Subnet](#tab/subnet)
 
@@ -138,7 +140,12 @@ This procedure describes how to define sensor settings from the Azure portal and
 
     ---
 
-1. On the **Apply** tab, select the sites, zones, and sensors where you want to apply your setting. Selecting a site or zone applies the setting to all connected sensors.
+1. On the **Apply** tab, select the sites, zones, and sensors where you want to apply your setting.
+
+    > [!IMPORTANT]
+    > Selecting a site or zone applies the setting to all connected sensors. Sensors added to a site later inherit settings applied to a site or zone.
+    >
+    > If you select to apply your settings to a site, you don't also need to select its zones or sensors.
 
 1. When you're finished, select **Review and create** to create your setting and apply it as configured.
 
@@ -200,7 +207,7 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 - Sensor is overloaded and is dropping packets
 - No traffic detected by the sensor
 - Sensor software version is out of date and cannot connect
-- A [remote sensor upgrade from the Azure portal](how-to-manage-individual-sensors.md?tabs=portal#update-your-sensor-software-version) fails, for software versions starting from version 22.2.0 and higher
+- A [remote sensor upgrade from the Azure portal](how-to-manage-individual-sensors.md?tabs=portal#update-your-sensor-software-version) fails
 
 For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
