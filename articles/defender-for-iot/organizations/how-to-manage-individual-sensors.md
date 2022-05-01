@@ -286,20 +286,19 @@ The console will display restore failures.
 
 This procedure describes how to update a standalone sensor version. If you are upgrading from a version higher than 22.1.x, you can jump straight to [Update your sensor software version](#update-your-sensor-software-version).
 
-However, if you're upgrading from a version earlier than 22.1.x, make sure to [prepare for an update to version 22.1.x or higher](#prepare-for-an-update-to-version-221x-or-higher), including updating your firewall rules and downloading an new activation file. Then [reactivate your sensor](#reactivate-your-sensor-for-version-221x-or-higher) after upgrading.
+However, if you're upgrading from a version earlier than 22.1.x, make sure to [prepare for an update to version 22.1.x or higher](#prepare-for-an-update-to-version-221x-or-higher), which explains how to download a new activation file. Use the downloaded file to [reactivate your sensor](#reactivate-your-sensor-for-version-221x-or-higher) after upgrading.
 
 Updates from legacy versions may require a series of upgrades. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
 
-> [!TIP]
-> Regardless of your update versions, we recommend comparing your existing firewall rules against [listed requirements](how-to-set-up-your-network.md#networking-requirements) to make sure that you're fully up to date for the new version.
->
+### Verify your network settings
+
+Before updating your sensor software version, make sure that your network settings and firewall rules are up to date with any changes required by the new version.
+
+For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements), especially [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+
 ### Prepare for an update to version 22.1.x or higher
 
 Version [22.1.x ](release-notes.md#update-to-version-221x) is a large upgrade with more complicated background processes. You should expect this upgrade to take more time than earlier upgrades have required.
-
-**Modify required firewall rules**:
-
-Update your firewall rules between the sensor and the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
 **Download a new activation file**:
 
@@ -312,6 +311,12 @@ Update your firewall rules between the sensor and the Azure portal. For more inf
 1. In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
 
 1. When the new activation file is ready, download it and verify that the sensor status has switched to **Pending activation**.
+
+### Update an on-premises management console
+
+If you are using an on-premises management console in addition to managing your sensors from the Azure portal, make sure that you update your on-premises management console before updating software on your sensor.
+
+For more information, see [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 
 ### Update your sensor software version
 

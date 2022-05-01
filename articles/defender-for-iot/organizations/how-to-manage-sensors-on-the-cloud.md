@@ -171,6 +171,7 @@ When a sensor setting is configured from the Azure portal, some settings on the 
 1. When your Internet returns, but before reconnecting your sensor to the Internet, in Defender for IoT, navigate to any setting you've applied to your sensor from the Azure cloud.
 
     Remove the setting from your sensor before reconnecting your sensor to the Internet to prevent your local settings from being overwritten.
+
 ## Reactivate a sensor
 
 You may need to reactivate your sensor because you want to:
