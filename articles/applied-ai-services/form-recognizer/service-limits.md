@@ -18,6 +18,26 @@ This article contains a quick reference and the **detailed description** of Azur
 
 For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [Form Recognizer REST API](quickstarts/try-v3-rest-api.md), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
 
+
+Some shared introductory content here...
+ 
+# [Azure CLI](#tab/azure-cli)
+ 
+Azure CLI content inline...
+ 
+# [PowerShell](#tab/powershell)
+ 
+[[!INCLUDE](some-shared-included-content.md)]
+
+# [Azure Portal](#tab/azure-portal)
+ 
+Azure Portal content inline...
+
+-----
+
+
+
+
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
 | **Concurrent Request limit** | 1 | 15 (default value) |
