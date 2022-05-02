@@ -10,7 +10,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
-:::image type="content" source="media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
 
 1. Select your _Azure subscription_.
 1. Next to _Resource Group_, select the **Create new** link.
@@ -22,4 +22,4 @@ In the _Basics_ section, begin by configuring your new app and linking it to a G
 
 After you sign in with GitHub, enter the repository information.
 
-:::image type="content" source="media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
