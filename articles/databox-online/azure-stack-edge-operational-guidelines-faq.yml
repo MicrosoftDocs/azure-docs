@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Stack Edge Operational Guidelines FAQ | Microsoft Docs in data 
-  description: Contains frequently asked questions and answers for Azure Stack Edge operations.
+  title: Azure Stack Edge Operational Guidelines FAQ 
+  description: Contains frequently asked questions and answers about Azure Stack Edge operations.
   services: databox
   author: alkohli
   
@@ -12,7 +12,7 @@ metadata:
   ms.custom: references_regions
 title: "Azure Stack Edge Operations: Frequently Asked Questions"
 summary: |
-  Use Azure Edge operational guidelines to learn about questions and answers that you may have when you use Azure Stack Edge in the Azure portal.
+  Use the following Azure Edge operational guidelines to learn about using Azure Stack Edge in the Azure portal.
 
 sections:
   - name: Ignored
@@ -39,6 +39,7 @@ sections:
           Who manages regular updates to enhance and improve the Azure Stack Edge platform?
         answer: |
           Microsoft releases periodic updates for firmware, BIOS, drivers, Kubernetes service, and other software-related updates. Software patches may be made available by Microsoft to address vulnerabilities and bug fixes, etc. When updates are available, you initiate installation at a time that is convenient for you.
+          For more information about updates for your device, see []().
 
       - question: |
           Who fixes software issues on my applications that run on Azure Stack Edge? 
@@ -59,10 +60,10 @@ sections:
           - If the device is faulty, damaged, or loss of the device isn't the customer's fault, Microsoft may either: (1) send a field support person to address the issue, or (2) replace the device.
           - Refer to our [FAQ for lost or damaged devices] <link resolves to https://azure.microsoft.com/en-us/pricing/details/azure-stack/edge/> due to customer fault.
           - If you have a software issue with your Kubernetes service, or if you have a virtual machine management question, the Microsoft support team will consult with you to triage the issue and debug it remotely.
-          - To address software issues in the Azure Stack Edge platform or services that run on it, Microsoft may work with you directly to provide a fix or workaround, or they might provide a fix available via a software update.
+          - To address software issues in the Azure Stack Edge platform or services that run on it, Microsoft may work with you directly to provide a fix or workaround, or they might provide a fix available via a software update. For more information about software updates, see []().
 
 additionalContent: |
 
   ## Next steps
-  
-   - Learn about [Manage Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-order.md).
+
+   - Learn about [troubleshooting Azure Stack Edge device issues](azure-stack-edge-gpu-troubleshoot.md).
