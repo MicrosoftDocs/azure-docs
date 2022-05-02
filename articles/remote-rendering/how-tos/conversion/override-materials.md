@@ -1,10 +1,11 @@
 ---
 title: Override materials during model conversion
-description: Explains the material overriding workflow at conversion time
+description: Learn about the material overriding workflow at conversion time. Material settings in the source model define the PBR materials used by the renderer.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
+ms.custom: kr2b-contr-experiment
 ---
 
 # Override materials during model conversion

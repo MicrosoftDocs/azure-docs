@@ -1,11 +1,13 @@
 ---
-title: Deploy native C++ WMR tutorial to HoloLens
-description: Quickstart that shows how to run the native C++ HolographicApp tutorial on HoloLens
+title: Deploy native C++ Windows Mixed Reality tutorial to HoloLens
+description: In this quickstart, learn to run the native C++ HolographicApp tutorial on HoloLens. Build the tutorial application, change credentials, and run the sample.
 author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.custom: mode-api
+ms.custom:
+- mode-api
+- kr2b-contr-experiment
 ---
 
 # Quickstart: Deploy native C++ WMR sample to HoloLens
@@ -55,7 +57,7 @@ Open the solution file *HolographicApp.sln* located in the *NativeCpp/HoloLens-W
 
 Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Also make sure the debugger mode is set to *Device* as opposed to *Remote Machine*:
 
-![Visual Studio config](media/vs-config-native-cpp-tutorial.png)
+![Screenshot shows the Visual Studio configuration area with values as described.](media/vs-config-native-cpp-tutorial.png)
 
 Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open the file `HolographicAppMain.cpp` inside Visual Studio and change the part where the client is created inside the constructor of class `HolographicAppMain`:
 

@@ -1,11 +1,13 @@
 ---
 title: Object bounds
-description: Explains how spatial object bounds can be queried
+description: Learn how spatial object bounds can be queried. Object bounds represent the volume that an entity and its children occupy. 
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: 
+- devx-track-csharp
+- kr2b-contr-experiment
 ---
 
 # Object bounds

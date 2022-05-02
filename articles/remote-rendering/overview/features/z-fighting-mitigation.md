@@ -1,11 +1,13 @@
 ---
 title: Z-fighting mitigation
-description: Describes techniques to mitigate z-fighting artifacts
+description: Learn about techniques to mitigate z-fighting artifacts which occur when surfaces overlap and it is not clear which one should be rendered on top. 
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
-ms.topic: article
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.custom: 
+- devx-track-csharp
+- kr2b-contr-experiment
 ---
 
 # Z-fighting mitigation
@@ -16,9 +18,9 @@ When two surfaces overlap, it is not clear which one should be rendered on top o
 
 |Situation                        | Result                               |
 |---------------------------------|:-------------------------------------|
-|Regular z-fighting               |![No deterministic precedence between red and green quads](./media/zfighting-0.png)|
-|Z-fighting mitigation enabled    |![Red quad has precedence](./media/zfighting-1.png)|
-|Checkerboard highlighting enabled|![Red and green quad toggle preference in checkerboard pattern](./media/zfighting-2.png)|
+|Regular z-fighting               |![Screenshot shows no deterministic precedence between red and green quads.](./media/zfighting-0.png)|
+|Z-fighting mitigation enabled    |![Screenshot displays the red quad precedence with a solid red rectangle.](./media/zfighting-1.png)|
+|Checkerboard highlighting enabled|![Screenshot shows red and green quad toggle preference with a checkerboard pattern rectangle.](./media/zfighting-2.png)|
 
 The following code enables z-fighting mitigation:
 
