@@ -287,7 +287,7 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
 Now you need to map attributes between the representation of the user in Azure AD and the representation of a user in the on-premises application's SQL database.
 
 #### Configure attribute mapping
- 1. In the Azure AD portal, under **Enterprise applications**, select the **Provisioning** page.
+ 1. In the Azure AD portal, under **Enterprise applications**, select the the **On-premises ECMA app** application, and then the **Provisioning** page.
  2. Select **Edit provisioning**, and wait 10 seconds.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
      ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
