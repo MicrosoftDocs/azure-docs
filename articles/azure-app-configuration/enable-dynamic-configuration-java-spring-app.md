@@ -34,35 +34,35 @@ App Configuration exposes `AppConfigurationRefresh` which can be used to check i
 
 1. Update HelloController to use `AppConfigurationRefresh`.
 
-```java
-import com.azure.spring.cloud.config.AppConfigurationRefresh;
+    ```java
+    import com.azure.spring.cloud.config.AppConfigurationRefresh;
 
-...
-
-import com.azure.spring.cloud.config.AppConfigurationRefresh;
-
-@RestController
-public class HelloController {
-    private final MessageProperties properties;
+    ...
     
-    @Autowired(required = false)
-    private AppConfigurationRefresh refresh;
-
-    public HelloController(MessageProperties properties) {
-        this.properties = properties;
-    }
-
-    @GetMapping
-    public String getMessage() throws InterruptedException, ExecutionException {
-        if (refresh != null) {
-            refresh.refreshConfigurations();
+    import com.azure.spring.cloud.config.AppConfigurationRefresh;
+    
+    @RestController
+    public class HelloController {
+        private final MessageProperties properties;
+        
+        @Autowired(required = false)
+        private AppConfigurationRefresh refresh;
+    
+        public HelloController(MessageProperties properties) {
+            this.properties = properties;
         }
-        return "Message: " + properties.getMessage();
+    
+        @GetMapping
+        public String getMessage() throws InterruptedException, ExecutionException {
+            if (refresh != null) {
+                refresh.refreshConfigurations();
+            }
+            return "Message: " + properties.getMessage();
+        }
     }
-}
-```
+    ```
 
-`AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Future` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
+    `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Future` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
 
 1. Update `bootstrap.properties` to enable refresh
 

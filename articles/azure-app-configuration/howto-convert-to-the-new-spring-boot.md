@@ -61,7 +61,7 @@ az appconfig kv import -n your-stores-name -s file --format properties --label d
 
 or use the Import/Export feature in the portal.
 
-When you are completely moved to the new version, you can removed the old keys by running:
+When you are completely moved to the new version, you can remove the old keys by running:
 
 ```azurecli
 az appconfig kv delete -n ConversionTest --key /application_dev/*
