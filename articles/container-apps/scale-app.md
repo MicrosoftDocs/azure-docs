@@ -18,8 +18,8 @@ Scaling rules are defined in `resources.properties.template.scale` section of th
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 25 |
-| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 25 |
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 10 |
+| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 10 |
 
 - If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
@@ -198,7 +198,6 @@ The following example shows how to create a memory scaling rule.
 - In this example, the container app scales when memory usage exceeds 50%.
 - At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
 
-
 ## Considerations
 
 - Vertical scaling is not supported.
@@ -208,4 +207,4 @@ The following example shows how to create a memory scaling rule.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure your container app](secure-app.md)
+> [Manage secrets](manage-secrets.md)

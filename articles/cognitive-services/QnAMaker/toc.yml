@@ -10,8 +10,6 @@
     href: https://aka.ms/qnamaker-pricing
   - name: What's new
     href: whats-new.md
-  - name: Custom question answering (preview)
-    href: custom-question-answering.md
   - name: Migrate to custom question answering
     href: ../language-service/question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Quickstarts
@@ -55,8 +53,8 @@
       href: How-To/manage-knowledge-bases.md
     - name: Add chit-chat
       href: How-to/chit-chat-knowledge-base.md
-    - name: Migrate to new knowledge base
-      href: Tutorials/migrate-knowledge-base.md
+    - name: Export/import knowledge base
+      href: Tutorials/export-knowledge-base.md
       displayName: metadata, pair
     - name: Test Knowledge base
       href: How-To/test-knowledge-base.md
@@ -115,6 +113,8 @@
     displayName: version control, test, index, publish, monitor usage, create
   - name: Best practices
     href: Concepts/best-practices.md
+  - name: QnA pair concepts
+    href: Concepts/question-answer-set.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
   - name: Using QnA Maker and LUIS
     href: choose-natural-language-processing-service.md

@@ -1,5 +1,5 @@
 ---
-title: Rebuild a search index
+title: Drop and rebuild an index
 titleSuffix: Azure Cognitive Search
 description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial indexing to refresh an Azure Cognitive Search index.
 
@@ -7,31 +7,21 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 10/06/2021
+ms.topic: how-to
+ms.date: 01/10/2022
 ---
 
-# Rebuild an index in Azure Cognitive Search
+# Drop and rebuild an index in Azure Cognitive Search
 
-This article explains how to rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
+This article explains how to drop and rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests. If you frequently have to rebuild your search index, we recommend using [index aliases](search-how-to-alias.md) to make it easier to swap which index your application is pointing to. 
 
-A *rebuild* refers to dropping and recreating the physical data structures associated with an index, including all field-based inverted indexes. In Azure Cognitive Search, you cannot drop and recreate individual fields. To rebuild an index, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. 
+A search index is a collection of physical folders and field-based inverted indexes of your content, distributed in shards across the number of partitions allocated to your search index. In Azure Cognitive Search, you cannot drop and recreate individual fields. If you want to fully rebuild a field, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. 
 
-It's common to rebuild indexes during development when you are iterating over index design, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
-
-## "Rebuild" versus "refresh"
-
-Rebuild should not be confused with refreshing the contents of an index with new, modified, or deleted documents. Refreshing a search corpus is almost a given in every search app, with some scenarios requiring up-to-the-minute updates (for example, when a search corpus needs to reflect inventory changes in an online sales app).
-
-As long as you are not changing the structure of the index, you can refresh an index using the same techniques that you used to load the index initially:
-
-* For push-mode indexing, call [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) to push the changes to an index.
-
-* For indexers, you can [schedule indexer execution](search-howto-schedule-indexers.md) and use change-tracking or timestamps to identify the delta. If updates must be reflected faster than what a scheduler can manage, you can use push-mode indexing instead.
+It's common to drop and rebuild indexes during development when you are iterating over index design. Most developers work with a small representative sample of their data to facilitate this process.
 
 ## Rebuild conditions
 
-Drop and recreate an index if any of the following conditions are true. 
+The following table enumerates the conditions under which a rebuild is required.
 
 | Condition | Description |
 |-----------|-------------|
@@ -48,11 +38,12 @@ Many other modifications can be made without impacting existing physical structu
 
 + Add a new field
 + Set the **retrievable** attribute on an existing field
-+ Set a **searchAnalyzer** on an existing field
-+ Add a new analyzer definition in an index
++ Update **searchAnalyzer** on a field having an existing **indexAnalyzer**
++ Add a new analyzer definition in an index (which can be applied to new fields)
 + Add, update, or delete scoring profiles
 + Add, update, or delete CORS settings
 + Add, update, or delete synonymMaps
++ Add, update, or delete semantic configurations
 
 When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure Cognitive Search. For more information on updating index content, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -61,8 +52,6 @@ When you add a new field, existing indexed documents are given a null value for 
 During development, the index schema changes frequently. You can plan for it by creating indexes that can be deleted, recreated, and reloaded quickly with a small representative data set.
 
 For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime. Your application code provides redirection to the new index.
-
-Indexing does not run in the background and the service will balance the additional indexing against ongoing queries. During indexing, you can [monitor query requests](search-monitor-queries.md) in the portal to ensure queries are completing in a timely manner.
 
 1. Determine whether a rebuild is required. If you are just adding fields, or changing some part of the index that is unrelated to fields, you might be able to simply [update the definition](/rest/api/searchservice/update-index) without deleting, recreating, and fully reloading it.
 
@@ -80,8 +69,11 @@ When you create the index, physical storage is allocated for each field in the i
 
 When you load the index, each field's inverted index is populated with all of the unique, tokenized words from each document, with a map to corresponding document IDs. For example, when indexing a hotels data set, an inverted index created for a City field might contain terms for Seattle, Portland, and so forth. Documents that include Seattle or Portland in the City field would have their document ID listed alongside the term. On any [Add, Update or Delete](/rest/api/searchservice/addupdate-or-delete-documents) operation, the terms and document ID list are updated accordingly.
 
-> [!NOTE]
-> If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. A separate service runs on its own hardware, eliminating any possibility of resource contention. When development is complete, you would either leave the new index in place, redirecting queries to the new endpoint and index, or you would run finished code to publish a revised index on your original Azure Cognitive Search service. There is currently no mechanism for moving a ready-to-use index to another service.
+## Balancing workloads
+
+Indexing does not run in the background, but the search service will balance any indexing jobs against ongoing queries. During indexing, you can [monitor query requests](search-monitor-queries.md) in the portal to ensure queries are completing in a timely manner.
+
+If indexing workloads introduce unacceptable levels of query latency, conduct [performance analysis](search-performance-analysis.md) and review these [performance tips](search-performance-tips.md) for potential mitigation.
 
 ## Check for updates
 

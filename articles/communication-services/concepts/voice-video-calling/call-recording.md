@@ -18,9 +18,9 @@ ms.subservice: calling
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
-> Call Recording is available for Communication Services resources created in the US, UK, Europe, Asia and Australia regions. Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
+>  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
 
-Call Recording provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in MP4 Audio+Video format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. 
+Call Recording provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in MP4 Audio+Video format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. Call Recording supports all ACS data regions.
 
 ![Call recording concept diagram](../media/call-recording-concept.png)
 
@@ -85,7 +85,10 @@ Many countries and states have laws and regulations that apply to the recording 
 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
 
+## Availability
+Currently, Azure Communication Services Call Recording APIs are available in C# and Java.
+
 ## Next steps
-Check out the [Call Recoding Quickstart](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
+Check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
 
 Learn more about [Call Automation APIs](./call-automation-apis.md).

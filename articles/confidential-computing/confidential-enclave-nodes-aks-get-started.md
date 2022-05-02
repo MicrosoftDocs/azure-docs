@@ -167,6 +167,40 @@ spec:
       restartPolicy: Never
   backoffLimit: 0
   ```
+Alternatively you can also do a node pool selection deployment for your container deployments as shown below
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sgx-test
+spec:
+  template:
+    metadata:
+      labels:
+        app: sgx-test
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: agentpool
+                operator: In
+                values:
+                - acc # this is the name of your confidential computing nodel pool
+                - acc_second # this is the name of your confidential computing nodel pool
+      containers:
+      - name: sgx-test
+        image: oeciteam/oe-helloworld:1.0
+        resources:
+          limits:
+            kubernetes.azure.com/sgx_epc_mem_in_MiB: 10
+          requests:
+            kubernetes.azure.com/sgx_epc_mem_in_MiB: 10
+      restartPolicy: "Never"
+  backoffLimit: 0
+  ```
 
 Now use the `kubectl apply` command to create a sample job that will open in a secure enclave, as shown in the following example output:
 

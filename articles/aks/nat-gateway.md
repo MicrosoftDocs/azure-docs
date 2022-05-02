@@ -25,6 +25,17 @@ To use Managed NAT gateway, you must have the following:
 * The `aks-preview` extension version 0.5.31 or later
 * Kubernetes version 1.20.x or above
 
+### Install aks-preview CLI extension
+
+You also need the *aks-preview* Azure CLI extension version 0.5.31 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register the `AKS-NATGatewayPreview` feature flag
 
@@ -56,10 +67,10 @@ az group create --name myresourcegroup --location southcentralus
 
 ```azurecli-interactive
 az aks create \
-    --resource-group myresourcegroup \
+    --resource-group myResourceGroup \
     --name natcluster \
     --node-count 3 \
-    --outbound-type managedNATGateway \ 
+    --outbound-type managedNATGateway \
     --nat-gateway-managed-outbound-ip-count 2 \
     --nat-gateway-idle-timeout 30
 ```
@@ -160,3 +171,5 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [byo-vnet-azure-cni]: configure-azure-cni.md
 [byo-vnet-kubenet]: configure-kubenet.md
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update

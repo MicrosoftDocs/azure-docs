@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 02/15/2022
 ms.custom: references_regions
 ---
 
@@ -43,22 +43,30 @@ You can utilize Availability Zones with Azure Cognitive Search by adding two or 
 
 Azure Cognitive Search currently supports Availability Zones for Standard tier or higher search services that were created in one of the following regions:
 
-+ Australia East (created January 30, 2021 or later)
-+ Brazil South (created May 2, 2021 or later)
-+ Canada Central (created January 30, 2021 or later)
-+ Central US (created December 4, 2020 or later)
-+ East US (created January 27, 2021 or later)
-+ East US 2 (created January 30, 2021 or later)
-+ France Central (created October 23, 2020 or later)
-+ Germany West Central (created May 3, 2021, or later)
-+ Japan East (created January 30, 2021 or later)
-+ North Europe (created January 28, 2021 or later)
-+ South Central US (created April 30, 2021 or later)
-+ South East Asia (created January 31, 2021 or later)
-+ UK South (created January 30, 2021 or later)
-+ US Gov Virginia (created April 30, 2021 or later)
-+ West Europe (created January 29, 2021 or later)
-+ West US 2 (created January 30, 2021 or later)
+| Region | Roll out |
+|--------|-----------|
+| Australia East | January 30, 2021 or later |
+| Brazil South |  May 2, 2021 or later |
+| Canada Central | January 30, 2021 or later |
+| Central India | January 20, 2022 or later |
+| Central US | December 4, 2020 or later |
+| East Asia | January 13, 2022 or later |
+| East US | January 27, 2021 or later |
+| East US 2 | January 30, 2021 or later |
+| France Central| October 23, 2020 or later |
+| Germany West Central |  May 3, 2021, or later |
+| Japan East | January 30, 2021 or later |
+| Korea Central | January 20, 2022 or later |
+| North Europe | January 28, 2021 or later |
+| Norway East | January 20, 2022 or later |
+| South Central US | April 30, 2021 or later |
+| South East Asia | January 31, 2021 or later |
+| Sweden Central | January 21, 2022 or later |
+| UK South | January 30, 2021 or later |
+| US Gov Virginia | April 30, 2021 or later |
+| West Europe | January 29, 2021 or later |
+| West US 2 | January 30, 2021 or later |
+| West US 3 | June 02, 2021 or later |
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 

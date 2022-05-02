@@ -2,7 +2,10 @@
 title: Manage Azure Database for PostgreSQL server 
 description: Learn about managing Azure Database for PostgreSQL server.
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 01/24/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Manage Azure Database for PostgreSQL server
@@ -22,9 +25,9 @@ You can change the associated policy with a backup instance.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
 
-## Stop Protection (Preview)
+## Stop protection
 
-There are three ways by which you can stop protecting an Azure Database for PostgreSQL server.
+There are three ways to stop protecting an Azure Database for PostgreSQL server.
 
 - **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your Azure Database for PostgreSQL server. However, Azure Backup service will retain the recovery points that are backed up forever. You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore from these recovery points, if needed. To resume protection, use the **Resume backup** option.
 
@@ -32,13 +35,13 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 - **Stop Protection and Delete Data**: This option helps you stop all future backup jobs from protecting your Azure Database for PostgreSQL server and delete all the recovery points. You won't be able to restore the database or use the **Resume backup** option.
 
-### Stop Protection and Retain Data
+### Stop protection and retain data
 
-1. Go to **Backup center** and select **Azure Database for PostgreSQL server (Preview)**.
+1. Go to **Backup center** and select **Azure Database for PostgreSQL server**.
 
 1. From the list of server backup instances, select the instance that you want to retain.
 
-1. Select **Stop Backup (Preview)**.
+1. Select **Stop Backup**.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/select-postgresql-server-backup-instance-to-delete-inline.png" alt-text="Screenshot showing the selection of the Azure Database for PostgreSQL server backup instance to be stopped." lightbox="./media/manage-azure-database-postgresql/select-postgresql-server-backup-instance-to-delete-expanded.png":::
 
@@ -57,13 +60,13 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
    :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
-### Stop Protection and Delete Data
+### Stop protection and delete data
 
-1. Go to **Backup center** and select **Azure Database for PostgreSQL server (Preview)**.
+1. Go to **Backup center** and select **Azure Database for PostgreSQL server**.
 
 1.  From the list of server backup instances, select the instance that you want to delete.
 
-1. Click **Stop Backup (Preview)**.
+1. Click **Stop Backup**.
 
 1. Select **Delete Backup Data**.
 
@@ -77,20 +80,20 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
    :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
-## Resume Protection
+## Resume protection
 
 If you have selected the **Stop Protection and Retain data** option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server.
 
 >[!Note]
 >When you start protecting a database, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
 
-Use the following steps:
+Follow these steps:
 
-1. Go to **Backup center** and select **Azure Database for PostgreSQL server (Preview)**.
+1. Go to **Backup center** and select **Azure Database for PostgreSQL server**.
 
 1. From the list of server backup instances, select the instance that you want resume.
 
-1. Select **Resume Backup (Preview)**.
+1. Select **Resume Backup**.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-protection-inline.png" alt-text="Screenshot showing the option to resume data protection." lightbox="./media/manage-azure-database-postgresql/resume-data-protection-expanded.png":::
 

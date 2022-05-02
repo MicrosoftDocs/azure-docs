@@ -1,12 +1,12 @@
 ---
 title: Disaster recovery for Azure API for FHIR
 description: In this article, you'll learn how to enable disaster recovery features for Azure API for FHIR.
-author: stevewohl
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/03/2021
-ms.author: zxue
+ms.date: 02/15/2022
+ms.author: dseven
 ---
 
 # Disaster recovery for Azure API for FHIR
@@ -91,7 +91,7 @@ Your access to the Azure API for FHIR will be maintained if the key vault hostin
 
 The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](../../storage/common/storage-disaster-recovery-guidance.md). 
 
-Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](/azure/healthcare-apis/fhir/export-data).
+Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](../fhir/export-data.md).
 
 ### IoMT FHIR Connector
 
@@ -129,7 +129,7 @@ Consider the following steps for DR test.
 The disaster recovery feature incurs extra costs because data of the compute and data replica running in the environment in the secondary region. For more pricing details, refer to the [Azure API for FHIR pricing]( https://azure.microsoft.com/pricing/details/azure-api-for-fhir) web page.
 
 > [!NOTE]
-> The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/support/legal/sla/azure-api-for-fhir/v1_0/), 1.0.
+> The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/pricing/details/health-data-services), 1.0.
 
 
 ## Next steps

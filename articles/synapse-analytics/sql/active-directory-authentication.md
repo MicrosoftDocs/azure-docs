@@ -1,12 +1,12 @@
 ---
 title: Azure Active Directory
-description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and Synapse SQL
+description: Learn about how to use Azure Active Directory for authentication with Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse SQL.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.date: 04/15/2020
+ms.date: 3/07/2022
 ms.author: vvasic
 ms.reviewer: sngun
 ---
@@ -23,7 +23,7 @@ With Azure AD authentication, you can centrally manage user identities that have
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure AD supports token-based authentication for applications connecting to Azure Synapse.
 - Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
-- Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options, including phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with Synapse SQL](mfa-authentication.md).
+- Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes multi-factor authentication (MFA).  MFA includes strong authentication with a range of easy verification options, including phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with Synapse SQL](mfa-authentication.md).
 - Azure AD supports similar connections from SQL Server Data Tools (SSDT) that use Active Directory Interactive Authentication. For more information, see
 [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azure-sqldw-latest&preserve-view=true).
 
@@ -71,6 +71,18 @@ To create new users, you must have the `ALTER ANY USER` permission in the databa
 To create a contained database user in Synapse SQL, you must connect to the database or instance using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). 
 
 Any Azure AD authentication is only possible if the Azure AD admin was created for Synapse SQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside Synapse SQL can no longer connect to the database using their Azure Active Directory credentials.
+
+
+## Disable local authentication
+
+By allowing only Azure Active Directory authentication, centrally manage access to Azure Synapse resources, such as SQL pools. To disable local authentication in Synapse during workspace creation, select **Use only Azure Active Directory (Azure AD) authentication** as the authentication method. A SQL Administrator login will still be created but it will be disabled. Local authentication can be enabled later by an Azure Owner or Contributor of the Synapse workspace. 
+
+![Azure AD-only auth configuration during workspace creation](./media/aad-authentication/active-directory-only-authentication-workspace-creation.png)
+
+You can also disable local authentication after a workspace is created through the Azure portal. Local authentication cannot be disabled until an Azure Active Directory admin is created for the Azure Synapse workspace. 
+
+![Azure AD-only auth configuration after workspace creation](./media/aad-authentication/active-directory-only-authentication-after-workspace-creation.png)
+
  
 ## Azure AD features and limitations
 
@@ -81,7 +93,7 @@ Any Azure AD authentication is only possible if the Azure AD admin was created f
   - Imported members from other Azure ADs who are native or federated domain members.
   - Active Directory groups created as security groups.
 
-- Azure AD users that are part of a group that has `db_owner` server role can't use the **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)** syntax against Synapse SQL. You will see the following error:
+- Azure AD users that are part of a group that has `db_owner` server role can't use the **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)** syntax in Synapse SQL. You will see the following error:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
@@ -121,10 +133,10 @@ The following authentication methods are supported for Azure AD server principal
 - Beginning with version 15.0.1, [sqlcmd utility](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true) and [bcp utility](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) support Active Directory Interactive authentication with MFA.
 - SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently, Azure AD users aren't shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](/sql/connect/jdbc/setting-the-connection-properties?view=azure-sqldw-latest&preserve-view=true).
+- The Azure Active Directory admin account controls access to dedicated SQL pools, while Synapse RBAC roles are used to control access to serverless pools, for example, the **Synapse Administrator** role. Configure Synapse RBAC roles via Synapse Studio, for more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](../security/how-to-manage-synapse-rbac-role-assignments.md).
 
 ## Next steps
 
 - For an overview of access and control in Synapse SQL, see [Synapse SQL access control](../security/synapse-workspace-access-control-overview.md).
 - For more information about database principals, see [Principals](/sql/relational-databases/security/authentication-access/principals-database-engine?view=azure-sqldw-latest&preserve-view=true).
 - For more information about database roles, see [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true).
-

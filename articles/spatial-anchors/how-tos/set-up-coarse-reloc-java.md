@@ -1,12 +1,12 @@
 ---
 title: Coarse relocalization in Java
 description: In-depth explanation of how to create and locate anchors using coarse relocalization in Java.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.custom: devx-track-java
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors

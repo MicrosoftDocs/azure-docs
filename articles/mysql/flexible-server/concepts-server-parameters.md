@@ -28,7 +28,8 @@ The list of supported server parameters is constantly growing. Use the server pa
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the compute tier and size (vCores) of the server.
 
 > [!NOTE]
-> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0) item or vote if the feedback already exist which can help us prioritize.
+>* If you are looking to modify a server parameter which are static using the portal, it will request you to restart the server for the changes to take effect. In case you are using automation scripts (using tools like ARM templates , Terraform, Azure CLI etc) then your script should have a provision to restart the service for the settings to take effect even if you are changing the configurations as a part of create experience.
+>* If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0) item or vote if the feedback already exist which can help us prioritize.
 
 ### log_bin_trust_function_creators
 
@@ -119,7 +120,7 @@ If you receive an error similar to "Row size too large (> 8126)", you may want t
 This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters).
 
 > [!NOTE]
-> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas.
+> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to ON if you have read replicas.
 
 ### time_zone
 

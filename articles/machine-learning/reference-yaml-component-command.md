@@ -6,18 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
+ms.custom: cliv2
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.date: 03/31/2022
+ms.reviewer: larryfr
 ---
 
 # CLI (v2) command component YAML schema
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -31,7 +35,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the component. | | |
 | `tags` | object | Dictionary of tags for the component. | | |
 | `command` | string | **Required.** The command to execute. | | |
-| `code.local_path` | string | Local path to the source code directory to be uploaded and used for the component. | | |
+| `code` | string | Local path to the source code directory to be uploaded and used for the component. | | |
 | `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |
 | `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | | |
 | `resources.instance_count` | integer | The number of nodes to use for the job. | | `1` |
@@ -68,7 +72,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component input. <br><br> Use `type: path` if you want the runtime job input value to be a data URI or Azure ML dataset when the component is run. | `number`, `integer`, `boolean`, `string`, `path` | |
+| `type` | string | **Required.** The type of component input. <br><br> Use `type: uri_file/uri_folder` if you want the runtime job input value to be a data URI or registered Azure ML data asset when the component is run. | `number`, `integer`, `boolean`, `string`, `uri_file`, `uri_folder` | |
 | `description` | string | Description of the input. | | |
 | `default` | number, integer, boolean, or string | The default value for the input. | | |
 | `optional` | boolean | Whether the input is required. | | `false` |
@@ -80,7 +84,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | **Required.** The type of component output. | `path` | |
+| `type` | string | **Required.** The type of component output. | `uri_folder` | |
 | `description` | string | Description of the output. | | |
 
 ## Remarks

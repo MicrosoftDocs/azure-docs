@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy Azure Arc-enable data services - indirectly connected mode - Azure CLI
+title: Quickstart - Deploy Azure Arc-enabled data services - indirectly connected mode - Azure CLI
 description: Demonstrates how to deploy Azure Arc-enabled data services in indirectly connected mode from beginning, including a Kubernetes cluster. Uses Azure CLI. Finishes with an instance of Azure SQL Managed Instance.
 author: MikeRayMSFT
 ms.author: mikeray
@@ -7,14 +7,14 @@ services: azure-arc
 ms.service: azure-arc-data
 ms.topic: quickstart 
 ms.date: 12/09/2021
-ms.custom: template-quickstart 
+ms.custom: template-quickstart , devx-track-azurecli
 ---
 
-# Quickstart: Deploy Azure Arc-enable data services - indirectly connected mode - Azure CLI
+# Quickstart: Deploy Azure Arc-enabled data services - indirectly connected mode - Azure CLI
 
 This article demonstrates how to deploy Azure Arc-enabled data services in indirectly connected mode from with the Azure CLI.
 
-To deploy in directly connected mode, see [Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md).
+To deploy in directly connected mode, see [Quickstart: Deploy Azure Arc-enabled data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md).
 
 When you complete the steps in this article, you will have:
 
@@ -97,9 +97,9 @@ Follow the steps below to deploy the cluster from the Azure CLI.
    az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size <node size>
    ```
 
-   For command details, see [az aks create](/cli/azure/aks#az_aks_create).
+   For command details, see [az aks create](/cli/azure/aks#az-aks-create).
 
-   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/kubernetes-walkthrough.md).
+   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md).
 
 1. Get credentials
 

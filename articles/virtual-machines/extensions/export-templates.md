@@ -4,8 +4,8 @@ description: Export Resource Manager templates that include virtual machine exte
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 12/05/2016
 

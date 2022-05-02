@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
@@ -45,7 +45,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 ## Link workspaces with the Python SDK
 
 > [!IMPORTANT]
-> To link to the Synapse workspace successfully, you must be granted the **Owner** role of the Synapse workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
+> To link to the Synapse workspace successfully, you must be granted the **Owner** role of the Synapse workspace. Check your access in the [Azure portal](https://portal.azure.com/).
 >
 > If you are not an **Owner** and are only a **Contributor** to the Synapse workspace, you can only use existing linked services. See how to [Retrieve and use an existing linked service](#get-an-existing-linked-service).
 
@@ -191,3 +191,4 @@ ws.compute_targets['Synapse Spark pool alias']
 * [How to data wrangle with Azure Synapse (preview)](how-to-data-prep-synapse-spark-pool.md).
 * [How to use Apache Spark in your machine learning pipeline with Azure Synapse (preview)](how-to-use-synapsesparkstep.md)
 * [Train a model](how-to-set-up-training-targets.md).
+* [How to securely integrate Azure Synapse and Azure Machine Learning workspaces](how-to-private-endpoint-integration-synapse.md).

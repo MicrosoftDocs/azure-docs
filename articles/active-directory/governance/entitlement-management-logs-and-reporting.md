@@ -27,21 +27,19 @@ Azure AD stores audit events for up to 30 days in the audit log. However, you ca
 
 
 ## Configure Azure AD to use Azure Monitor
-Before using the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
+Before you use the Azure Monitor workbooks, you must configure Azure AD to send a copy of its audit logs to Azure Monitor.
 
 Archiving Azure AD audit logs requires you to have Azure Monitor in an Azure subscription. You can read more about the prerequisites and estimated costs of using Azure Monitor in [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
 
-**Prerequisite role**: Global Admin
+**Prerequisite role**: Global Administrator
 
 1. Sign in to the Azure portal as a user who is a Global Admin. Make sure you have access to the resource group containing the Azure Monitor workspace.
  
 1. Select **Azure Active Directory** then click **Diagnostic settings** under Monitoring in the left navigation menu. Check if there's already a setting to send the audit logs to that workspace.
 
-1. If there isn't already a setting, click **Add diagnostic setting**. Use the instructions in the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor)
-to send the Azure AD audit log to the Azure Monitor workspace.
+1. If there isn't already a setting, click **Add diagnostic setting**. Use the instructions in [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Diagnostics settings pane](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
-
 
 1. After the log is sent to Azure Monitor, select **Log Analytics workspaces**, and select the workspace that contains the Azure AD audit logs.
 
@@ -54,7 +52,6 @@ to send the Azure AD audit log to the Azure Monitor workspace.
     1. Select **Azure Active Directory** then click **Workbooks**. 
     
     1. Expand the section **Azure Active Directory Troubleshooting**, and click on **Archived Log Date Range**. 
-
 
 ## View events for an access package  
 
@@ -188,5 +185,5 @@ $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -
 $bResponse.Results |ft 
 ```
 
-## Next steps:
+## Next steps
 - [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

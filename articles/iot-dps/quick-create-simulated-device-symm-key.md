@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision a simulated symmetric key device to Microsoft Azure IoT Hub
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 09/29/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -34,7 +34,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```cmd
     dotnet --info
@@ -208,9 +208,9 @@ This article demonstrates an individual enrollment for a single device to be pro
 
    * **Auto-generate keys**: Check this box.
 
-   * **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, *symm-key-device-007*.
+   * **Registration ID**: Enter a registration ID to identify the enrollment. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). For example, *symm-key-device-007*.
 
-   * **IoT Hub Device ID:** Enter a device identifier.
+   * **IoT Hub Device ID:** Enter a device identifier. The device ID must comply with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
     :::zone pivot="programming-language-ansi-c"
 
@@ -336,8 +336,8 @@ To update and run the provisioning sample with your device information:
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
 
-    Registration Information received from service: 
-    test-docs-hub.azure-devices.net, deviceId: device-007    
+    Registration Information received from service:
+    test-docs-hub.azure-devices.net, deviceId: device-007
     Press enter key to exit:
     ```
 
@@ -376,7 +376,7 @@ To update and run the provisioning sample with your device information:
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
     | `--s` or `--IdScope`              | True     | The ID Scope of the DPS instance |
-    | `--i` or `--Id`                   | True     | The registration ID when using individual enrollment, or the desired device ID when using group enrollment. |
+    | `--i` or `--Id`                   | True     | The registration ID when using individual enrollment, or the desired device ID when using group enrollment. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The device ID must comply with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties). |
     | `--p` or `--PrimaryKey`           | True     | The primary key of the individual or group enrollment. |
     | `--e` or `--EnrollmentType`       | False    | The type of enrollment: `Individual` or `Group`. Defaults to `Individual` |
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
@@ -563,7 +563,7 @@ To update and run the provisioning sample with your device information:
     pip install azure-iot-device
     ```
 
-6. Run the python sample code in *_provision_symmetric_key.py_*.
+6. Run the Python sample code in *_provision_symmetric_key.py_*.
 
     ```cmd
     python provision_symmetric_key.py

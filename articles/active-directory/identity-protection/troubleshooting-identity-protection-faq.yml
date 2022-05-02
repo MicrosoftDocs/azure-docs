@@ -6,14 +6,13 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: identity-protection
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.date: 01/07/2021
   ms.author: joflore
   author: MicrosoftGuyJFlo
   manager: karenhoran
   ms.reviewer: sahandle
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions Identity Protection in Azure Active Directory
 summary: |
 

@@ -83,7 +83,7 @@ Before you begin the deployment, we recommend you plan your Tiger Bridge use cas
 - Consider long-term planning for your future data workflows to allow proper selection for defining policies (reclamation, replication, archiving, and snapshot policies.)
 
 ### Prepare Azure Blob Storage
-Before Tiger Bridge can be deployed, you need to create a **Storage Account**. Storage account will be used as a repository for data that is tiered, or replicated from Tiger Bridge solution. Tiger Bridge supports all Azure Storage services, including Archive Tier for Azure Storage Block blobs. That support allows to store less frequently data in cost-effective way but still access it through the well-known pane of glass. For additional information on Tiger Bridge, visit our comparison of [ISV solutions](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/isv-file-services).
+Before Tiger Bridge can be deployed, you need to create a **Storage Account**. Storage account will be used as a repository for data that is tiered, or replicated from Tiger Bridge solution. Tiger Bridge supports all Azure Storage services, including Archive Tier for Azure Storage Block blobs. That support allows to store less frequently data in cost-effective way but still access it through the well-known pane of glass. For additional information on Tiger Bridge, visit our comparison of [ISV solutions](./isv-file-services.md).
 
 1. Create a storage account
     :::image type="content" source="./media/tiger-bridge-deployment-guide/azure-create-storage-account.png" alt-text="Screenshot that shows how to create a storage account for Azure Blob Storage service.":::
@@ -115,8 +115,8 @@ Before you can install Tiger Bridge, you need to have a Windows file server inst
     1. Enter the account name and key and the Blob endpoint in the respective fields. Use the storage account name created in [prepare Azure Blob storage step](#prepare-azure-blob-storage).
     1. Choose whether to access the target using the secure transfer (SSL/TLS) by selecting, or clearing the check box. Secure transfer is recommended for production workloads. If disabled, make sure that you disabled **Secure transfer required** option in the storage account **Configuration** option.
       :::image type="content" source="./media/tiger-bridge-deployment-guide/azure-secure-transfer.png" alt-text="Screenshot that shows how to enable, or disable secure transfer for a storage account.":::
-    1. In the **Default access tier**, select whether to use the Hot, Cool, or Archive tier of Azure Storage. This tier will be used for any data that doesn't have a tier set. Learn more on [Hot, Cool, and Archive access tiers for blob data](/azure/storage/blobs/access-tiers-overview)
-    1. In Rehydration priority, select whether offline files should be rehydrated using the Standard, or the High option. Learn more on [Blob rehydration from the Archive tier](/azure/storage/blobs/access-tiers-overview)
+    1. In the **Default access tier**, select whether to use the Hot, Cool, or Archive tier of Azure Storage. This tier will be used for any data that doesn't have a tier set. Learn more on [Hot, Cool, and Archive access tiers for blob data](../../../blobs/access-tiers-overview.md)
+    1. In Rehydration priority, select whether offline files should be rehydrated using the Standard, or the High option. Learn more on [Blob rehydration from the Archive tier](../../../blobs/access-tiers-overview.md)
     1. Select **List containers** to display the list of containers available for the account you have specified, and then select the container on the target, which will be paired with the selected source.
     1. In the next step, select what to do with data already in the container, and then press **OK**.
       :::image type="content" source="./media/tiger-bridge-deployment-guide/tiger-bridge-existing-data-policy.png" alt-text="Screenshot that shows policies for managing existing data in the storage account container.":::
@@ -150,6 +150,6 @@ Tiger Technology provides 365x24x7 support for Tiger Bridge. To contact support,
 ## Next steps
 - [Tiger Bridge website](https://www.tiger-technology.com/software/tiger-bridge/)
 - [Tiger Bridge guides](https://www.tiger-technology.com/software/tiger-bridge/docs/)
-- [Azure Storage partners for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)
+- [Azure Storage partners for primary and secondary storage](./partner-overview.md)
 - [Tiger Bridge Marketplace offering](https://azuremarketplace.microsoft.com/marketplace/apps/tiger-technology.tigerbridge_vm)
-- [Running ISV file services in Azure](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/isv-file-services)
+- [Running ISV file services in Azure](./isv-file-services.md)

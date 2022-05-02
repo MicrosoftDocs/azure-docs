@@ -3,7 +3,7 @@ title: Use Azure portal to deploy service catalog app
 description: Shows consumers of Managed Applications how to deploy a service catalog app through the Azure portal. 
 author: tfitzmac
 
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 10/04/2018
 ms.author: tomfitz
 ---

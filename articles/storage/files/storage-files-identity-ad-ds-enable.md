@@ -1,12 +1,12 @@
 ---
 title: Enable AD DS authentication to Azure file shares
 description: Learn how to enable Active Directory Domain Services authentication over SMB for Azure file shares. Your domain-joined Windows virtual machines can then access Azure file shares by using AD DS credentials. 
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 10/05/2021
-ms.author: rogarana 
+ms.date: 01/14/2022
+ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -57,7 +57,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 # Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-# Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# Login with an Azure AD credential that has either storage account owner or contributor Azure role assignment
 # If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
 # See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
 # for more information.
@@ -70,7 +70,7 @@ $StorageAccountName = "<storage-account-name-here>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
 # If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
-# Specify the encryption agorithm used for Kerberos authentication. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption.
+# Specify the encryption algorithm used for Kerberos authentication. AES256 is recommended. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption.
 $EncryptionType = "<AES256|RC4|AES256,RC4>"
 
 # Select the target subscription for the current session
@@ -88,7 +88,7 @@ Join-AzStorageAccount `
         -OrganizationalUnitDistinguishedName $OuDistinguishedName `
         -EncryptionType $EncryptionType
 
-#Run the command below if you want to enable AES 256 authentication. If you plan to use RC4, you can skip this step.
+#Run the command below to enable AES256 encryption. If you plan to use RC4, you can skip this step.
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, see Azure Files Windows troubleshooting guide.
@@ -125,9 +125,27 @@ If your OU enforces password expiration, you must update the password before the
 
 Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represent the storage account doesn't need to be synced to Azure AD.
 
+### Enable the feature on your storage account
+
+Modify the following command to include configuration details for the domain properties in the following command, then run it to enable the feature. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
+
+```PowerShell
+# Set the feature flag on the target storage account and provide the required AD domain information
+Set-AzStorageAccount `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -Name "<your-storage-account-name-here>" `
+        -EnableActiveDirectoryDomainServicesForFile $true `
+        -ActiveDirectoryDomainName "<your-domain-dns-root-here>" `
+        -ActiveDirectoryNetBiosDomainName "<your-domain-dns-root-here>" `
+        -ActiveDirectoryForestName "<your-forest-name-here>" `
+        -ActiveDirectoryDomainGuid "<your-guid-here>" `
+        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
+        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
+```
+
 #### (Optional) Enable AES256 encryption
 
-If you want to enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, you can skip this section.
+To enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
 The domain object that represents your storage account must meet the following requirements:
 - The storage account name cannot exceed 15 characters.
@@ -151,24 +169,6 @@ $KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -E
 $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
-```
-
-### Enable the feature on your storage account
-
-Now you can enable the feature on your storage account. Provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
-
-```PowerShell
-# Set the feature flag on the target storage account and provide the required AD domain information
-Set-AzStorageAccount `
-        -ResourceGroupName "<your-resource-group-name-here>" `
-        -Name "<your-storage-account-name-here>" `
-        -EnableActiveDirectoryDomainServicesForFile $true `
-        -ActiveDirectoryDomainName "<your-domain-name-here>" `
-        -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" `
-        -ActiveDirectoryForestName "<your-forest-name-here>" `
-        -ActiveDirectoryDomainGuid "<your-guid-here>" `
-        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
-        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
 ```
 
 ### Debugging

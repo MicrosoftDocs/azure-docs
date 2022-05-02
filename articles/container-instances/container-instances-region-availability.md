@@ -33,7 +33,7 @@ The following regions and maximum resources are available to container groups wi
 | Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N |
 | Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
-| Canada East | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| Canada East | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
 | Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |
@@ -41,7 +41,7 @@ The following regions and maximum resources are available to container groups wi
 | East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y|
 | Germany West Central | 4 | 16 | N/A | N/A | 50 | N/A | Y |
-| Japan East | 2 | 8 | 4 | 16 | 50 | N/A | Y |
+| Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
 | Japan West | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | Korea Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 | N |
@@ -144,5 +144,5 @@ Let the team know if you'd like to see additional regions or increased resource 
 For information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 
 
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[az-region-support]: /azure/availability-zones/az-overview#regions
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[az-region-support]: ../availability-zones/az-overview.md#regions

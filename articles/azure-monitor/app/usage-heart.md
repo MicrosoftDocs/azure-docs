@@ -3,7 +3,6 @@ title: HEART analytics workbook
 description: Product teams use the HEART Workbook to measure success across five user-centric dimensions to deliver better software.
 ms.topic: conceptual
 ms.date: 11/11/2021
-
 ---
 
 # Analyzing product usage with HEART

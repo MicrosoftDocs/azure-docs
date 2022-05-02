@@ -1,12 +1,12 @@
 ---
 title: Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.author: kgremban
+ms.author: patricka
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
@@ -43,16 +43,8 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
-### Device requirements
-
-An X64, ARM32, or ARM64 Linux device.
-
-Microsoft provides installation packages for Ubuntu Server 18.04 and Raspberry Pi OS Stretch operating systems.
-
-For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
-
->[!NOTE]
->Support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+<!-- Device requirements H3 and content -->
+[!INCLUDE [iot-edge-prerequisites-device-requirements-linux.md](../../includes/iot-edge-prerequisites-device-requirements-linux.md)]
 
 <!-- Register your device and View provisioning information H2s and content -->
 [!INCLUDE [iot-edge-register-device-symmetric.md](../../includes/iot-edge-register-device-symmetric.md)]
@@ -282,7 +274,7 @@ sudo apt-get remove iotedge
 ::: moniker range=">=iotedge-2020-11"
 
 ```bash
-sudo apt-get remove aziot-edge
+sudo apt-get remove --purge aziot-edge
 ```
 
 ::: moniker-end

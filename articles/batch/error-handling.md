@@ -115,7 +115,7 @@ Reimaging a node reinstalls the operating system. Start tasks and job preparatio
 
 Removing the node from the pool is sometimes necessary. 
 
-- Batch REST API: [removenodes](/rest/api/batchservice/computenode/removenodes)
+- Batch REST API: [removenodes](/rest/api/batchservice/pool/remove-nodes)
 - Batch .NET API: [pooloperations](/dotnet/api/microsoft.azure.batch.pooloperations)
 
 ### Disable task scheduling on node

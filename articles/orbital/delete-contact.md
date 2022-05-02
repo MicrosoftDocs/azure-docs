@@ -1,9 +1,9 @@
 ---
-title: 'How to cancel a scheduled contact on Azure Orbital Earth Observation service' 
-description: 'How to cancel a scheduled contact'
+title: 'Cancel a scheduled contact on Azure Orbital Earth Observation service' 
+description: 'Cancel a scheduled contact'
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: tutorial
 ms.custom: public-preview
 ms.date: 11/16/2021
 ms.author: wamota
@@ -23,7 +23,7 @@ To cancel a scheduled contact, the contact entry must be deleted on the **Contac
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Delete a scheduled contact entry
 
@@ -41,5 +41,5 @@ Sign in to the [Azure portal](https://portal.azure.com).
 6. The scheduled contact will be canceled once the contact entry is deleted.
 ## Next steps
 
-- [How-to: Schedule a contact](schedule-contact.md)
-- [How-to: Update the spacecraft TLE](update-tle.md)
+- [Quickstart: Schedule a contact](schedule-contact.md)
+- [Tutorial: Update the spacecraft TLE](update-tle.md)

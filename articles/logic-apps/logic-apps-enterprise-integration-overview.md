@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: overview
-ms.date: 09/14/2021
+ms.date: 01/27/2022
 ---
 
 # B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack
@@ -61,9 +61,9 @@ The following diagram shows the high-level steps to start building B2B logic app
 
 ![Conceptual diagram showing prerequisite steps to create B2B logic app workflows.](media/logic-apps-enterprise-integration-overview/overview.png)
 
-## Try now
+## Try now sample
 
-[Deploy a fully operational sample logic app that sends and receives AS2 messages](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-as2-send-receive)
+To try this [sample](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-as2-send-receive), which deploys logic apps that send and receive AS2 messages through Azure, select **Deploy to Azure**. Before you run the sample, make sure that you manually update **FabrikamSales-AS2Send** logic app workflow so that the **HTTP** action's **URI** property uses the URI that's dynamically generated for the **Request** trigger in the **Contoso-AS2Receive** logic app.
 
 ## Next steps
 

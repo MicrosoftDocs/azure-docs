@@ -55,7 +55,6 @@ New-AzVm `
   -ResourceGroupName $resourceGroup `
   -Name $vmName `
   -Location $location `
-  -OpenPorts 3389 `
   -ProximityPlacementGroup $ppg.Id
 ```
 

@@ -14,6 +14,8 @@ ms.date: 01/19/2021
 
 # Supported data types
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 The following table lists the data types supported by Azure Time Series Insights Gen2
 
 | Data type | Description | Example | [Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Property column name in Parquet

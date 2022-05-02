@@ -6,7 +6,7 @@ ms.date: 08/06/2021
 ms.author: lianwei
 ---
 
-Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az_webpubsub_create) command to create a Web PubSub in the resource group from the previous step, providing the following information:
+Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create a Web PubSub in the resource group from the previous step, providing the following information:
 
 - Resource name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 

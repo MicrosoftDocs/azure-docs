@@ -153,7 +153,8 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
             width: 800,
             height: 600,
             webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false
             }
         });
 

@@ -23,6 +23,10 @@ Transformations in an IoT Central data export definition let you manipulate the 
 
 Use transformations to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values. For example, use a transformation to convert your messages into a tabular format that matches the schema of a destination such as an Azure Data Explorer table.
 
+The following video introduces you to IoT Central data transformations:
+
+> [!VIDEO https://aka.ms/docs/player?id=f1752a73-89e6-42c2-8298-e9d6ce212daa]
+
 ## Add a transformation
 
 To add a transformation for a destination in your data export, select **+ Transform** as shown in the following screenshot:

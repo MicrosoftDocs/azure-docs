@@ -12,6 +12,8 @@ ms.author: jaysoni
 
 # Common key vault errors in Azure Application Gateway
 
+Application Gateway enables customers to securely store TLS certificates in Azure Key Vault. When using a Key Vault resource, it is important that the gateway always has access to the linked key vault. If your Application Gateway is unable to fetch the certificate, the associated HTTPS listeners will be placed in a disabled state. [Learn more](../application-gateway/disabled-listeners.md).
+
 This article helps you understand the details of key vault error codes you might encounter, including what is causing these errors. This article also contains steps to resolve such misconfigurations.
 
 > [!TIP]

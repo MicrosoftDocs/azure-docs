@@ -39,6 +39,9 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 
 Data-in Replication is only supported in General Purpose and Memory Optimized pricing tiers.
 
+>[!Note]
+>GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB (General purpose storage v2).
+
 ### Requirements
 
 - The source server version must be at least MySQL version 5.6.

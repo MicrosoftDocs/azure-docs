@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 02/12/2020
+ms.date: 02/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: tanning
+ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
 ---
@@ -28,7 +28,7 @@ This topic provides information on how to troubleshoot and diagnose issues with 
 
 Before you start troubleshooting, verify that the user and device have been configured properly, and that all the requirements of Enterprise State Roaming are met by the device and the user. 
 
-1. Windows 10, with the latest updates, and a minimum Version 1511 (OS Build 10586 or later) is installed on the device. 
+1. Windows 10 or newer, with the latest updates, and a minimum Version 1511 (OS Build 10586 or later) is installed on the device. 
 1. The device is Azure AD joined or hybrid Azure AD joined. For more information, see [how to get a device under the control of Azure AD](overview.md).
 1. Ensure that **Enterprise State Roaming** is enabled for the tenant in Azure AD as described in [To enable Enterprise State Roaming](enterprise-state-roaming-enable.md). You can enable roaming for all users or for only a selected group of users.
 1. The user is assigned an Azure Active Directory Premium license.  
@@ -51,7 +51,7 @@ This section gives suggestions on how to troubleshoot and diagnose problems rela
 
 ## Verify sync, and the “Sync your settings” settings page 
 
-1. After joining your Windows 10 PC to a domain that is configured to allow Enterprise State Roaming, sign on with your work account. Go to **Settings** > **Accounts** > **Sync Your Settings** and confirm that sync and the individual settings are on, and that the top of the settings page indicates that you are syncing with your work account. Confirm the same account is also used as your login account in **Settings** > **Accounts** > **Your Info**. 
+1. After joining your Windows 10 or newer PC to a domain that is configured to allow Enterprise State Roaming, sign on with your work account. Go to **Settings** > **Accounts** > **Sync Your Settings** and confirm that sync and the individual settings are on, and that the top of the settings page indicates that you are syncing with your work account. Confirm the same account is also used as your login account in **Settings** > **Accounts** > **Your Info**. 
 1. Verify that sync works across multiple machines by making some changes on the original machine, such as moving the taskbar to the right or top side of the screen. Watch the change propagate to the second machine within five minutes. 
 
    * Locking and unlocking the screen (Win + L) can help trigger a sync.
@@ -61,7 +61,7 @@ This section gives suggestions on how to troubleshoot and diagnose problems rela
 
 ### Verify the device registration status
 
-Enterprise State Roaming requires the device to be registered with Azure AD. Although not specific to Enterprise State Roaming, following the instructions below can help confirm that the Windows 10 Client is registered, and confirm thumbprint, Azure AD settings URL, NGC status, and other information.
+Enterprise State Roaming requires the device to be registered with Azure AD. Although not specific to Enterprise State Roaming, following the instructions below can help confirm that the Windows 10 or newer Client is registered, and confirm thumbprint, Azure AD settings URL, NGC status, and other information.
 
 1. Open the command prompt unelevated. To do this in Windows, open the Run launcher (Win + R) and type “cmd” to open.
 1. Once the command prompt is open, type “*dsregcmd.exe /status*”.
@@ -75,9 +75,9 @@ Enterprise State Roaming requires the device to be registered with Azure AD. Alt
 
 Under certain conditions, Enterprise State Roaming can fail to sync data if Azure AD Multi-Factor Authentication is configured. For more information on these symptoms, see the support document [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potential issue**: If your device is configured to require Multi-Factor Authentication on the Azure Active Directory portal, you may fail to sync settings while signing in to a Windows 10 device using a password. This type of Multi-Factor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 devices with their Microsoft Passport for Work PIN or by completing Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
+**Potential issue**: If your device is configured to require Multi-Factor Authentication on the Azure Active Directory portal, you may fail to sync settings while signing in to a Windows 10 or newer device using a password. This type of Multi-Factor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 or newer devices with their Windows Hello for Business PIN or by completing Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
 
-**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication Conditional Access policy and the access token on the device expires. Ensure that you sign in and sign out using the Microsoft Passport for Work PIN or complete Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
+**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication Conditional Access policy and the access token on the device expires. Ensure that you sign in and sign out using the Windows Hello for Business PIN or complete Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
 
 ### Event Viewer
 
@@ -94,48 +94,12 @@ Make sure the Windows 10 v1607 client has the August 23, 2016 Cumulative Update 
 
 ---
 
-### Internet Explorer Favorites do not sync
-
-Affects devices running the Windows 10 November Update (Version 1511).
-
-**Recommended action**  
-Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update ([KB3172985](https://support.microsoft.com/kb/3172985) OS Build 10586.494).
-
----
-
-### Theme is not syncing, as well as data protected with Windows Information Protection 
-
-To prevent data leakage, data that is protected with [Windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
-
-**Recommended action**  
-None. Future updates to Windows may resolve this issue.
-
----
-
 ### Date, Time, and Region settings do not sync on domain-joined device 
   
 Devices that are domain-joined will not experience sync for the setting Date, Time, and Region: automatic time. Using automatic time may override the other Date, Time, and Region settings and cause those settings not to sync. 
 
 **Recommended action**  
 None. 
-
----
-
-### UAC Prompts when syncing passwords
-
-Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords.
-
-**Recommended action**  
-Make sure the Windows 10 v1511 client has the Cumulative Update ([KB3140743](https://support.microsoft.com/kb/3140743) OS Build 10586.494).
-
----
-
-### Sync does not work on devices that use smart card for login
-
-If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working. 	
-
-**Recommended action**  
-None. Future updates to Windows may resolve this issue.
 
 ---
 

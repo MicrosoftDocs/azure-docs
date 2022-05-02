@@ -4,7 +4,7 @@ description: Learn how to join Azure-SSIS integration runtime to a virtual netwo
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Join Azure-SSIS integration runtime to a virtual network
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF), you should join your Azure-SSIS integration runtime (IR) to a virtual network in the following scenarios:
 
@@ -58,7 +58,7 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 
 If you host SSISDB in Azure SQL Database server configured with a virtual network service endpoint, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
-If you host SSISDB in Azure SQL Managed Instance that joins a virtual network, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or virtual network-to-virtual network connection. For more information, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+If you host SSISDB in Azure SQL Managed Instance that joins a virtual network, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or virtual network-to-virtual network connection. For more information, see [Connect your application to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance).
 
 ## Access to Azure data stores
 

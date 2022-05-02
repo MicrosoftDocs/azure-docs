@@ -120,6 +120,12 @@ Like policy definitions, when adding or updating an existing initiative, the wor
 automatically update the initiative definition in Azure. Testing of the new or updated initiative
 definition comes in a later step.
 
+> [!NOTE]
+> It's recommended to use a centralized deployment mechanism like GitHub workflows or Azure
+> Pipelines to deploy policies. This helps to ensure only reviewed policy resources are deployed
+> to your environment and that a central deployment mechanism is used. _Write_ permissions
+> to policy resources can be restricted to the identity used in the deployment.
+
 ### Test and validate the updated definition
 
 Once automation has taken your newly created or updated policy or initiative definitions and made
@@ -213,3 +219,4 @@ GitHub, see
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with
   [Organize your resources with Azure management groups](../../management-groups/overview.md).
+  

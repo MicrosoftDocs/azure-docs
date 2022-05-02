@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 03/08/2020
+ms.date: 01/21/2022
 ---
 
 # How to use parameters, expressions and functions in Azure Data Factory
@@ -21,7 +21,7 @@ In this document, we will primarily focus on learning fundamental concepts with 
 
 ## Azure Data Factory UI and parameters
 
-If you are new to Azure Data Factory parameter usage in ADF user interface, please review [Data Factory UI for linked services with parameters](./parameterize-linked-services.md#ui-experience)  and [Data Factory UI for metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md#data-factory-ui) for visual explanation.
+If you are new to Azure Data Factory parameter usage in ADF user interface, please review [Data Factory UI for linked services with parameters](./parameterize-linked-services.md#ui-experience)  and [Data Factory UI for metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md#data-factory-ui) for a visual explanation.
 
 ## Parameter and expression concepts 
 

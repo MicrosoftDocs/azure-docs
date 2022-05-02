@@ -13,6 +13,9 @@ items:
     href: tutorial-create-nat-gateway-powershell.md
   - name: Create and validate NAT gateway - Azure CLI
     href: tutorial-create-nat-gateway-cli.md
+  - name: Create NAT gateway - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-nat-gateway-bicep.md
   - name: Create NAT gateway - ARM template
     displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md
@@ -20,6 +23,10 @@ items:
     href: tutorial-nat-gateway-load-balancer-public-portal.md
   - name: Integrate NAT gateway internal load balancer
     href: tutorial-nat-gateway-load-balancer-internal-portal.md
+  - name: Migrate outbound access
+    href: tutorial-migrate-outbound-nat.md
+  - name: Migrate a virtual machine public IP address
+    href: tutorial-migrate-ilip-nat.md
   expanded: true
 - name: Concepts
   items:
@@ -27,12 +34,18 @@ items:
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md
+  - name: Resource Health
+    href: resource-health.md
   - name: Security
     items:
     - name: Virtual network NAT security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 - name: How-to
   items:
+  - name: Move across regions
+    items:
+    - name: Create and configure NAT gateway after region move
+      href: region-move-nat-gateway.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot NAT gateway

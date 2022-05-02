@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Implement CI/CD with GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters'
-description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes article.
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, ci/cd, devops"
+title: 'Tutorial: Implement CI/CD with GitOps (Flux v2)'
+description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps article.
+keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
 author: eedorenko
 ms.author: iefedore
 ms.service: azure-arc
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/15/2021
 ms.custom: template-tutorial, devx-track-azurecli
 ---
-# Tutorial: Implement CI/CD with GitOps (Flux v2) using Azure Arc-enabled Kubernetes clusters
+# Tutorial: Implement CI/CD with GitOps (Flux v2)
 
-In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azure Arc-enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
+In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. Using the sample Azure Vote app, you'll:
 
 > [!div class="checklist"]
-> * Create an Azure Arc-enabled Kubernetes cluster.
+> * Create an Azure Arc-enabled Kubernetes or AKS cluster.
 > * Connect your application and GitOps repositories to Azure Repos or Git Hub.
 > * Implement CI/CD flow with either Azure Pipelines or GitHub.
 > * Connect your Azure Container Registry to Azure DevOps and Kubernetes.
@@ -33,9 +33,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * Complete the [previous tutorial](./tutorial-use-gitops-flux2.md) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](./conceptual-gitops-flux2.md) of this feature.
 * Verify you have:
-  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
   * A connected Azure Container Registry with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
-* Install the latest versions of these Azure Arc-enabled Kubernetes CLI extensions:
+* Install the latest versions of these Azure Arc-enabled Kubernetes and Kubernetes Configuration CLI extensions:
 
   ```azurecli
   az extension add --name connectedk8s
@@ -119,7 +119,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly imported **arc-cicd-demo-gitops** repository in Azure Repos.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -425,7 +425,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly forked **arc-cicd-demo-gitops** repository in GitHub.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -577,7 +577,7 @@ If you're not going to continue to use this application, delete any resources wi
 
 1. Delete the Azure Arc GitOps configuration connection:
 
-   ```console
+   ```azurecli
    az k8s-configuration flux delete \
          --name cluster-config \
          --cluster-name arc-cicd-cluster \

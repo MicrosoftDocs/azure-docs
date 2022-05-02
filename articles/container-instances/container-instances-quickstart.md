@@ -118,7 +118,7 @@ When you're done with the container, remove it using the [az container delete][a
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az_container_list) command:
+To verify that the container has been deleted, execute the [az container list](/cli/azure/container#az-container-list) command:
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -159,4 +159,4 @@ To try out options for running containers in an orchestration system on Azure, s
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[container-service]: ../aks/kubernetes-walkthrough.md
+[container-service]: ../aks/intro-kubernetes.md

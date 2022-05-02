@@ -40,7 +40,7 @@ By choosing which application consent policies apply for all users, you can set 
 
 - *You can disable user consent*. Users can't grant permissions to applications. Users continue to sign in to applications they've previously consented to or to applications that administrators have granted consent to on their behalf, but they won't be allowed to consent to new permissions to applications on their own. Only users who have been granted a directory role that includes the permission to grant consent can consent to new applications.
 
-- *Users can consent to applications from verified publishers or your organization, but only for permissions you select*. All users can consent only to applications that were published by a [verified publisher](/azure/active-directory/develop/publisher-verification-overview) and applications that are registered in your tenant. Users can consent only to the permissions that you've classified as *low impact*. You must [classify permissions](configure-permission-classifications.md) to select which permissions users are allowed to consent to.
+- *Users can consent to applications from verified publishers or your organization, but only for permissions you select*. All users can consent only to applications that were published by a [verified publisher](../develop/publisher-verification-overview.md) and applications that are registered in your tenant. Users can consent only to the permissions that you've classified as *low impact*. You must [classify permissions](configure-permission-classifications.md) to select which permissions users are allowed to consent to.
 
 - *Users can consent to all applications*. This option allows all users to consent to any permissions that don't require admin consent, for any application.
 

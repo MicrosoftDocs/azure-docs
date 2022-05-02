@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/12/2021
+ms.date: 02/11/2022
 ms.author: radeltch
 
 ---
@@ -120,7 +120,7 @@ In the instructions that follow, we assume that you've already created the resou
    - Three virtual machines to serve as HANA DB nodes for HANA replication site 2: **hana-s2-db1**, **hana-s2-db2** and **hana-s2-db3**.  
    - A small virtual machine to serve as majority maker: **hana-s-mm**.
 
-   The VMs deployed as SAP DB HANA nodes should be certified by SAP for HANA, as published in the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). When you're deploying the HANA DB nodes, make sure to select [accelerated network](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
+   The VMs deployed as SAP DB HANA nodes should be certified by SAP for HANA, as published in the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). When you're deploying the HANA DB nodes, make sure to select [accelerated network](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
   
    For the majority maker node, you can deploy a small VM, because this VM doesn't run any of the SAP HANA resources. The majority maker VM is used in the cluster configuration to achieve and odd number of cluster nodes in a split-brain scenario. The majority maker VM only needs one virtual network interface in the `client` subnet in this example.        
 
@@ -129,7 +129,7 @@ In the instructions that follow, we assume that you've already created the resou
    Deploy the primary network interface for each VM in the `client` virtual network subnet. When the VM is deployed via Azure portal, the network interface name is automatically generated. In this article, we'll refer to the automatically generated, primary network interfaces as **hana-s1-db1-client**, **hana-s1-db2-client**, **hana-s1-db3-client**, and so on. These network interfaces are attached to the `client` Azure virtual network subnet.  
 
    > [!IMPORTANT]
-   > Make sure that the operating system you select is SAP-certified for SAP HANA on the specific VM types that you're using. For a list of SAP HANA certified VM types and operating system releases for those types, see [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Drill into the details of the listed VM type to get the complete list of SAP HANA-supported operating system releases for that type.  
+   > Make sure that the operating system you select is SAP-certified for SAP HANA on the specific VM types that you're using. For a list of SAP HANA certified VM types and operating system releases for those types, see [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Drill into the details of the listed VM type to get the complete list of SAP HANA-supported operating system releases for that type.  
   
 1. Create six network interfaces, one for each HANA DB virtual machine, in the `inter` virtual network subnet (in this example, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, and **hana-s2-db3-inter**).  
 

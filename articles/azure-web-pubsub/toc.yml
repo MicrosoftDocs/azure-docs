@@ -52,6 +52,8 @@
     items:
     - name: Create WebSocket clients
       href: howto-websocket-connect.md
+    - name: Create reliable Websocket clients
+      href: howto-develop-reliable-clients.md
     - name: Configure event handler
       href: howto-develop-eventhandler.md
     - name: Create `WebPubSubServiceClient` with Azure Identity
@@ -90,6 +92,8 @@
           href: howto-authorize-from-managed-identity.md
   - name: Troubleshooting
     items:
+    - name: Debug event handlers locally
+      href: howto-local-debug-event-handler.md
     - name: Collect network trace
       href: howto-troubleshoot-network-trace.md
     - name: Capture resource logs
@@ -114,6 +118,8 @@
     href: concept-billing-model.md
   - name: Azure AD Authorization
     href: concept-azure-ad-authorization.md
+  - name: Metrics
+    href: concept-metrics.md
 
 - name: Reference 
   items:
@@ -124,6 +130,10 @@
       href: reference-json-webpubsub-subprotocol.md
     - name: Protobuf WebSocket subprotocol
       href: reference-protobuf-webpubsub-subprotocol.md
+    - name: Reliable JSON WebSocket subprotocol
+      href: reference-json-reliable-webpubsub-subprotocol.md
+    - name: Reliable Protobuf WebSocket subprotocol
+      href: reference-protobuf-reliable-webpubsub-subprotocol.md
   - name: CloudEvents extension for Azure Web PubSub
     href: reference-cloud-events.md
   - name: Functions trigger and bindings

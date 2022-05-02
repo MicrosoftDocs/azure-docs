@@ -8,15 +8,16 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
-ms.reviewer: laobri
+ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021
-ms.date: 12/22/2021
+ms.date: 03/31/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
 # What are Azure Machine Learning endpoints (preview)? 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 Use Azure Machine Learning endpoints (preview) to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
 
@@ -102,7 +103,7 @@ However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-onlin
 
 ### Autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
 
 :::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Screenshot showing that autoscale flexibly provides between min and max instances, depending on rules":::
 

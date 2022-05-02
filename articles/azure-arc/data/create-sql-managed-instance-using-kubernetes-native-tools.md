@@ -1,97 +1,56 @@
 ---
-title: Create a SQL managed instance using Kubernetes tools
-description: Create a SQL managed instance using Kubernetes tools
+title: Create a SQL Managed Instance using Kubernetes tools
+description: Deploy Azure Arc-enabled SQL Managed Instance using Kubernetes tools.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 02/28/2022
 ms.topic: how-to
 ---
 
-# Create Azure SQL managed instance using Kubernetes tools
+# Create Azure Arc-enabled SQL Managed Instance using Kubernetes tools 
 
+This article demonstrates how to deploy Azure SQL Managed Instance for Azure Arc with Kubernetes tools.
 
 ## Prerequisites
 
 You should have already created a [data controller](plan-azure-arc-data-services.md).
 
-To create a SQL managed instance using Kubernetes tools, you will need to have the Kubernetes tools installed.  The examples in this article will use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or `helm` if you are familiar with those tools and Kubernetes yaml/json.
+To create a SQL managed instance using Kubernetes tools, you will need to have the Kubernetes tools installed. The examples in this article will use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or `helm` if you are familiar with those tools and Kubernetes yaml/json.
 
 [Install the kubectl tool](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 ## Overview
 
-To create a SQL managed instance, you need to create a Kubernetes secret to store your system administrator login and password securely and a SQL managed instance custom resource based on the SqlManagedInstance custom resource definition.
+To create a SQL Managed Instance, you need to:
+1. Create a Kubernetes secret to store your system administrator login and password securely
+1. Create a SQL Managed Instance custom resource based on the `SqlManagedInstance` custom resource definition
+
+Define both of these items in a yaml file.
 
 ## Create a yaml file
 
-You can use the [template yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/sqlmi.yaml) file as a starting point to create your own custom SQL managed instance yaml file.  Download this file to your local computer and open it in a text editor.  It is useful to use a text editor such as [VS Code](https://code.visualstudio.com/download) that support syntax highlighting and linting for yaml files.
+Use the [template yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/sqlmi.yaml) file as a starting point to create your own custom SQL managed instance yaml file. Download this file to your local computer and open it in a text editor. Use a text editor such as [VS Code](https://code.visualstudio.com/download) that support syntax highlighting and linting for yaml files.
 
-This is an example yaml file:
+> [!NOTE]
+> Beginning with the February, 2022 release, `ReadWriteMany` (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
+> If no storage class is specified for backups, the default storage class in Kubernetes is used. If the default is not RWX capable, the SQL Managed Instance installation may not succeed. 
 
-```yaml
-apiVersion: v1
-data:
-  password: <your base64 encoded password>
-  username: <your base64 encoded username>
-kind: Secret
-metadata:
-  name: sql1-login-secret
-type: Opaque
----
-apiVersion: sql.arcdata.microsoft.com/v1
-kind: SqlManagedInstance
-metadata:
-  name: sql1
-  annotations:
-    exampleannotation1: exampleannotationvalue1
-    exampleannotation2: exampleannotationvalue2
-  labels:
-    examplelabel1: examplelabelvalue1
-    examplelabel2: examplelabelvalue2
-spec:
-  security:
-    adminLoginSecret: sql1-login-secret
-  scheduling:
-    default:
-      resources:
-        limits:
-          cpu: "2"
-          memory: 4Gi
-        requests:
-          cpu: "1"
-          memory: 2Gi
-  services:
-    primary:
-      type: LoadBalancer
-  storage:
-    backups:
-      volumes:
-      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-        size: 5Gi
-    data:
-      volumes:
-      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-        size: 5Gi
-    datalogs:
-      volumes:
-      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-        size: 5Gi
-    logs:
-      volumes:
-      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-        size: 5Gi
-```
+### Example yaml file
+
+See the following example of a yaml file:
+
+:::code language="yaml" source="~/azure_arc_sample/arc_data_services/deploy/yaml/sqlmi.yaml":::
 
 ### Customizing the login and password
 
-A Kubernetes secret is stored as a base64 encoded string - one for the username and one for the password.  You will need to base64 encode a system administrator login and password and place them in the placeholder location at `data.password` and `data.username`.  Do not include the `<` and `>` symbols provided in the template.
+A Kubernetes secret is stored as a base64 encoded string - one for the username and one for the password. You will need to base64 encode a system administrator login and password and place them in the placeholder location at `data.password` and `data.username`. Do not include the `<` and `>` symbols provided in the template.
 
 > [!NOTE]
-> For optimum security, using the value 'sa' is not allowed for the login .
+> For optimum security, using the value `sa` is not allowed for the login .
 > Follow the [password complexity policy](/sql/relational-databases/security/password-policy#password-complexity).
 
 You can use an online tool to base64 encode your desired username and password or you can use built in CLI tools depending on your platform.
@@ -116,11 +75,11 @@ echo -n '<your string to encode here>' | base64
 
 ### Customizing the name
 
-The template has a value of 'sql1' for the name attribute.  You can change this but it must be characters that follow the DNS naming standards.  You must also change the name of the secret to match.  For example, if you change the name of the SQL managed instance to 'sql2', you must change the name of the secret from 'sql1-login-secret' to 'sql2-login-secret'
+The template has a value of `sql1` for the name attribute. You can change this value, but it must include characters that follow the DNS naming standards. You must also change the name of the secret to match. For example, if you change the name of the SQL managed instance to `sql2`, you must change the name of the secret from `sql1-login-secret` to `sql2-login-secret`
 
 ### Customizing the resource requirements
 
-You can change the resource requirements - the RAM and core limits and requests - as needed.  
+You can change the resource requirements - the RAM and core limits and requests - as needed. 
 
 > [!NOTE]
 > You can learn more about [Kubernetes resource governance](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
@@ -129,18 +88,31 @@ Requirements for resource limits and requests:
 - The cores limit value is **required** for billing purposes.
 - The rest of the resource requests and limits are optional.
 - The cores limit and request must be a positive integer value, if specified.
-- The minimum of 1 cores is required for the cores request, if specified.
-- The memory value format follows the Kubernetes notation.  
-- A minimum of 2Gi is required for memory request, if specified.
-- As a general guideline, you should have 4GB of RAM for each 1 core for production use cases.
+- The minimum of 1 core is required for the cores request, if specified.
+- The memory value format follows the Kubernetes notation. 
+- A minimum of 2 Gi is required for memory request, if specified.
+- As a general guideline, you should have 4 GB of RAM for each 1 core for production use cases.
 
 ### Customizing service type
 
-The service type can be changed to NodePort if desired.  A random port number will be assigned.
+The service type can be changed to NodePort if desired. A random port number will be assigned.
 
 ### Customizing storage
 
-You can customize the storage classes for storage to match your environment.  If you are not sure which storage classes are available you can run the command `kubectl get storageclass` to view them.  The template has a default value of 'default'.  This means that there is a storage class _named_ 'default' not that there is a storage class that _is_ the default.  You can also optionally change the size of your storage.  You can read more about [storage configuration](./storage-configuration.md).
+You can customize the storage classes for storage to match your environment. If you are not sure which storage classes are available, run the command `kubectl get storageclass` to view them. 
+
+The template has a default value of `default`. 
+
+For example
+
+```yml
+storage:
+    data:
+      volumes:
+      - className: default 
+```
+
+This example means that there is a storage class named `default` - not that there is a storage class that is the default. You can also optionally change the size of your storage. For more information, see [storage configuration](./storage-configuration.md).
 
 ## Creating the SQL managed instance
 
@@ -158,7 +130,7 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 Creating the SQL managed instance will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a SQL managed instance named 'sql1' and Kubernetes namespace with the name 'arc'.  If you used a different namespace/SQL managed instance name, you can replace 'arc' and 'sqlmi' with your names.
+>  The example commands below assume that you created a SQL managed instance named `sql1` and Kubernetes namespace with the name `arc`. If you used a different namespace/SQL managed instance name, you can replace `arc` and `sqlmi` with your names.
 
 ```console
 kubectl get sqlmi/sql1 --namespace arc
@@ -168,7 +140,7 @@ kubectl get sqlmi/sql1 --namespace arc
 kubectl get pods --namespace arc
 ```
 
-You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
+You can also check on the creation status of any particular pod. Run `kubectl describe pod ...`. Use this command to troubleshoot any issues. For example:
 
 ```console
 kubectl describe pod/<pod name> --namespace arc
@@ -177,9 +149,9 @@ kubectl describe pod/<pod name> --namespace arc
 #kubectl describe pod/sql1-0 --namespace arc
 ```
 
-## Troubleshooting creation problems
+## Troubleshoot deployment problems
 
-If you encounter any troubles with creation, please see the [troubleshooting guide](troubleshoot-guide.md).
+If you encounter any troubles with the deployment, please see the [troubleshooting guide](troubleshoot-guide.md).
 
 ## Next steps
 

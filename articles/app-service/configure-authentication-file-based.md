@@ -42,7 +42,8 @@ The following exhausts possible configuration options within the file:
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
             "/path1",
-            "/path2"
+            "/path2",
+            "/path3/subpath/*"
         ]
     },
     "httpSettings": {

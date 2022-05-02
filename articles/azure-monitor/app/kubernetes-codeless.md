@@ -3,7 +3,6 @@ title: Monitor applications on Azure Kubernetes Service (AKS) with Application I
 description: Azure Monitor seamlessly integrates with your application running on Kubernetes, and allows you to spot the problems with your apps in no time.
 ms.topic: conceptual
 ms.date: 05/13/2020
-
 ---
 
 # Zero instrumentation application monitoring for Kubernetes - Azure Monitor Application Insights

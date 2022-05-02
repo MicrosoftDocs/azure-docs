@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/22/2021
+ms.date: 03/28/2022
 ms.author: radeltch
 
 ---
@@ -250,7 +250,7 @@ After you deploy the VMs for your SAP system, create a load balancer. Then, use 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.90.90.10 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -440,7 +440,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       --group g-NW1_ASCS
    
     sudo pcs resource create vip_NW1_ASCS IPaddr2 \
-      ip=10.90.90.10 cidr_netmask=24 \
+      ip=10.90.90.10 \
       --group g-NW1_ASCS
    
     sudo pcs resource create nc_NW1_ASCS azure-lb port=62000 \
@@ -496,7 +496,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-NW1_AERS
    
     sudo pcs resource create vip_NW1_AERS IPaddr2 \
-      ip=10.90.90.9 cidr_netmask=24 \
+      ip=10.90.90.9 \
      --group g-NW1_AERS
    
     sudo pcs resource create nc_NW1_AERS azure-lb port=62101 \

@@ -116,4 +116,3 @@ To learn more about Service Bus Messaging, see the following links:
 
 - [Automatically update messaging units](automate-update-messaging-units.md).
 - [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

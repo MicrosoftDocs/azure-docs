@@ -6,11 +6,10 @@ metadata:
   author: Heidilohr
   
   ms.service: virtual-desktop
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 08/17/2020
   ms.author: helohr
   manager: femila
-    
 title: MSIX app attach FAQ
 summary: This article answers frequently asked questions about MSIX app attach for Azure Virtual Desktop.
 

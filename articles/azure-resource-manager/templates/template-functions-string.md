@@ -2,7 +2,7 @@
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 03/10/2022
 ---
 
 # String functions for ARM templates
@@ -43,11 +43,16 @@ Resource Manager provides the following functions for working with strings in yo
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [string](../bicep/bicep-functions-string.md) functions.
+
 ## base64
 
 `base64(inputString)`
 
 Returns the base64 representation of the input string.
+
+In Bicep, use the [base64](../bicep/bicep-functions-string.md#base64) function.
 
 ### Parameters
 
@@ -75,9 +80,11 @@ The output from the preceding example with the default values is:
 
 ## base64ToJson
 
-`base64tojson`
+`base64ToJson(base64Value)`
 
 Converts a base64 representation to a JSON object.
+
+In Bicep, use the [base64ToJson](../bicep/bicep-functions-string.md#base64tojson) function.
 
 ### Parameters
 
@@ -109,6 +116,8 @@ The output from the preceding example with the default values is:
 
 Converts a base64 representation to a string.
 
+In Bicep, use the [base64ToString](../bicep/bicep-functions-string.md#base64tostring) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -135,9 +144,11 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-`concat (arg1, arg2, arg3, ...)`
+`concat(arg1, arg2, arg3, ...)`
 
 Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array.
+
+In Bicep, use [string interpolation](../bicep/bicep-functions-string.md#concat) instead of the `concat` function.
 
 ### Parameters
 
@@ -176,9 +187,11 @@ The output from the preceding example with the default values is:
 
 ## contains
 
-`contains (container, itemToFind)`
+`contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
+
+In Bicep, use the [contains](../bicep/bicep-functions-string.md#contains) function.
 
 ### Parameters
 
@@ -214,6 +227,8 @@ The output from the preceding example with the default values is:
 
 Converts a value to a data URI.
 
+In Bicep, use the [dataUri](../bicep/bicep-functions-string.md#datauri) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -242,6 +257,8 @@ The output from the preceding example with the default values is:
 `dataUriToString(dataUriToConvert)`
 
 Converts a data URI formatted value to a string.
+
+In Bicep, use the [dataUriToString](../bicep/bicep-functions-string.md#datauritostring) function.
 
 ### Parameters
 
@@ -272,6 +289,8 @@ The output from the preceding example with the default values is:
 
 Determines if an array, object, or string is empty.
 
+In Bicep, use the [empty](../bicep/bicep-functions-string.md#empty) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -301,6 +320,8 @@ The output from the preceding example with the default values is:
 `endsWith(stringToSearch, stringToFind)`
 
 Determines whether a string ends with a value. The comparison is case-insensitive.
+
+In Bicep, use the [endsWith](../bicep/bicep-functions-string.md#endswith) function.
 
 ### Parameters
 
@@ -336,6 +357,8 @@ The output from the preceding example with the default values is:
 
 Returns the first character of the string, or first element of the array.
 
+In Bicep, use the [first](../bicep/bicep-functions-string.md#first) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -364,6 +387,8 @@ The output from the preceding example with the default values is:
 `format(formatString, arg1, arg2, ...)`
 
 Creates a formatted string from input values.
+
+In Bicep, use the [format](../bicep/bicep-functions-string.md#format) function.
 
 ### Parameters
 
@@ -394,6 +419,8 @@ The output from the preceding example with the default values is:
 `guid(baseString, ...)`
 
 Creates a value in the format of a globally unique identifier based on the values provided as parameters.
+
+In Bicep, use the [guid](../bicep/bicep-functions-string.md#guid) function.
 
 ### Parameters
 
@@ -444,6 +471,8 @@ The following example returns results from `guid`:
 
 Returns the first position of a value within a string. The comparison is case-insensitive.
 
+In Bicep, use the [indexOf](../bicep/bicep-functions-string.md#indexof) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -479,11 +508,15 @@ The output from the preceding example with the default values is:
 
 Converts a valid JSON string into a JSON data type. For more information, see [json function](template-functions-object.md#json).
 
+In Bicep, use the [json](../bicep/bicep-functions-string.md#json) function.
+
 ## last
 
-`last (arg1)`
+`last(arg1)`
 
 Returns last character of the string, or the last element of the array.
+
+In Bicep, use the [last](../bicep/bicep-functions-string.md#last) function.
 
 ### Parameters
 
@@ -513,6 +546,8 @@ The output from the preceding example with the default values is:
 `lastIndexOf(stringToSearch, stringToFind)`
 
 Returns the last position of a value within a string. The comparison is case-insensitive.
+
+In Bicep, use the [lastIndexOf](../bicep/bicep-functions-string.md#lastindexof) function.
 
 ### Parameters
 
@@ -547,6 +582,8 @@ The output from the preceding example with the default values is:
 
 Returns the number of characters in a string, elements in an array, or root-level properties in an object.
 
+In Bicep, use the [length](../bicep/bicep-functions-string.md#length) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -576,6 +613,8 @@ The output from the preceding example with the default values is:
 `newGuid()`
 
 Returns a value in the format of a globally unique identifier. **This function can only be used in the default value for a parameter.**
+
+In Bicep, use the [newGuid](../bicep/bicep-functions-string.md#newguid) function.
 
 ### Remarks
 
@@ -623,6 +662,8 @@ The output from the preceding example varies for each deployment but will be sim
 
 Returns a right-aligned string by adding characters to the left until reaching the total specified length.
 
+In Bicep, use the [padLeft](../bicep/bicep-functions-string.md#padleft) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -655,6 +696,8 @@ The output from the preceding example with the default values is:
 
 Returns a new string with all instances of one string replaced by another string.
 
+In Bicep, use the [replace](../bicep/bicep-functions-string.md#replace) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -686,6 +729,8 @@ The output from the preceding example with the default values is:
 
 Returns a string with all the characters after the specified number of characters, or an array with all the elements after the specified number of elements.
 
+In Bicep, use the [skip](../bicep/bicep-functions-string.md#skip) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -716,6 +761,8 @@ The output from the preceding example with the default values is:
 
 Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
 
+In Bicep, use the [split](../bicep/bicep-functions-string.md#split) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -745,6 +792,8 @@ The output from the preceding example with the default values is:
 `startsWith(stringToSearch, stringToFind)`
 
 Determines whether a string starts with a value. The comparison is case-insensitive.
+
+In Bicep, use the [startsWith](../bicep/bicep-functions-string.md#startswith) function.
 
 ### Parameters
 
@@ -780,6 +829,8 @@ The output from the preceding example with the default values is:
 
 Converts the specified value to a string.
 
+In Bicep, use the [string](../bicep/bicep-functions-string.md#string) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -809,6 +860,8 @@ The output from the preceding example with the default values is:
 `substring(stringToParse, startIndex, length)`
 
 Returns a substring that starts at the specified character position and contains the specified number of characters.
+
+In Bicep, use the [substring](../bicep/bicep-functions-string.md#substring) function.
 
 ### Parameters
 
@@ -855,6 +908,8 @@ The output from the preceding example with the default values is:
 
 Returns an array or string. An array has the specified number of elements from the start of the array. A string has the specified number of characters from the start of the string.
 
+In Bicep, use the [take](../bicep/bicep-functions-string.md#take) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -885,6 +940,8 @@ The output from the preceding example with the default values is:
 
 Converts the specified string to lower case.
 
+In Bicep, use the [toLower](../bicep/bicep-functions-string.md#tolower) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -914,6 +971,8 @@ The output from the preceding example with the default values is:
 
 Converts the specified string to upper case.
 
+In Bicep, use the [toUpper](../bicep/bicep-functions-string.md#toupper) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -939,9 +998,11 @@ The output from the preceding example with the default values is:
 
 ## trim
 
-`trim (stringToTrim)`
+`trim(stringToTrim)`
 
 Removes all leading and trailing white-space characters from the specified string.
+
+In Bicep, use the [trim](../bicep/bicep-functions-string.md#trim) function.
 
 ### Parameters
 
@@ -967,9 +1028,11 @@ The output from the preceding example with the default values is:
 
 ## uniqueString
 
-`uniqueString (baseString, ...)`
+`uniqueString(baseString, ...)`
 
 Creates a deterministic hash string based on the values provided as parameters.
+
+In Bicep, use the [uniqueString](../bicep/bicep-functions-string.md#uniquestring) function.
 
 ### Parameters
 
@@ -1029,9 +1092,11 @@ The following example returns results from `uniquestring`:
 
 ## uri
 
-`uri (baseUri, relativeUri)`
+`uri(baseUri, relativeUri)`
 
 Creates an absolute URI by combining the baseUri and the relativeUri string.
+
+In Bicep, use the [uri](../bicep/bicep-functions-string.md#uri) function.
 
 ### Parameters
 
@@ -1095,6 +1160,8 @@ The output from the preceding example with the default values is:
 
 Encodes a URI.
 
+In Bicep, use the [uriComponent](../bicep/bicep-functions-string.md#uricomponent) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -1124,6 +1191,8 @@ The output from the preceding example with the default values is:
 `uriComponentToString(uriEncodedString)`
 
 Returns a string of a URI encoded value.
+
+In Bicep, use the [uriComponentToString](../bicep/bicep-functions-string.md#uricomponenttostring) function.
 
 ### Parameters
 

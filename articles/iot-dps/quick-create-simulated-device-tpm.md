@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
 description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 12/14/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -14,7 +14,7 @@ ms.custom: mvc, amqp, mqtt, mode-other
 
 # Quickstart: Provision a simulated TPM device
 
-In this quickstart, you'll create a TPM simulated device on your Windows machine. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Sample code will then be used to help enroll the device with a Device Provisioning Service instance
+In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use a [Trusted Platform Module (TPM) attestation](concepts-tpm-attestation.md) mechanism for authentication. After you've configured your device, you'll provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Sample code will then be used to help enroll the device with a Device Provisioning Service instance.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.  Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
@@ -42,7 +42,9 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* A TPM 2.0 hardware security module on your Windows-based machine.
+
+* Install [.NET Core SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
@@ -180,9 +182,13 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone-end
 
+::: zone pivot="programming-language-ansi-c, programming-language-nodejs, programming-language-python, programming-language-java"
+
 ## Build and run the TPM device simulator
 
 In this section, you'll build and run the TPM simulator. This simulator listens over a socket on ports 2321 and 2322. Do not close the command window. You'll need to keep this simulator running until the end of this quickstart.
+
+::: zone-end
 
 ::: zone pivot="programming-language-ansi-c"
 
@@ -220,36 +226,6 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
     ```
 
     The simulator doesn't display any output. Let it continue to run as it simulates a TPM device.
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-1. In the main menu of your Device Provisioning Service, select **Overview**.
-
-2. Copy the **ID Scope** value.
-
-    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-csharp.png)
-
-3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
-
-    ```cmd
-    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
-    ```
-
-4. Type the following command to build and run the TPM device provisioning sample (replace `<IDScope>` with the ID Scope for your provisioning service).
-
-    ```cmd
-    dotnet run <IDScope>
-    ```
-
-    >[!NOTE]
-    >This command will launch the TPM chip simulator in a separate command prompt. On Windows, you may encounter a Windows Security Alert that asks whether you want to allow `Simulator.exe` to communicate on public networks. For the purposes of this sample, you may cancel the request.
-
-5. The original command window displays the **_Endorsement key_**,  the **_Registration ID_**, and a suggested **_Device ID_** needed for device enrollment. Take note of these values. You'll use these value to create an individual enrollment in your Device Provisioning Service instance.
-
-   > [!NOTE]
-   > Do not confuse the window that contains command output with the window that contains output from the TPM simulator. You may have to select the original command window to bring it to the foreground.
 
 ::: zone-end
 
@@ -401,11 +377,15 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
 ::: zone-end
 
-::: zone pivot="programming-language-ansi-c, programming-language-python,programming-language-java"
+::: zone pivot="programming-language-ansi-c, programming-language-csharp, programming-language-python, programming-language-java"
 
 <a id="simulatetpm"></a>
 
 ## Read cryptographic keys from the TPM device
+
+::: zone-end
+
+::: zone pivot="programming-language-ansi-c, programming-language-python, programming-language-java"
 
 In this section, you'll build and execute a sample that reads the endorsement key and registration ID from the TPM simulator you left running, and is still listening over ports 2321 and 2322. These values will be used for device enrollment with your Device Provisioning Service instance.
 
@@ -467,10 +447,30 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
+In this section, you'll build and execute a sample that reads the endorsement key from your TPM 2.0 hardware security module. This value will be used for device enrollment with your Device Provisioning Service instance.
+
+1. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
+
+    ```cmd
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
+    ```
+
+2. Type the following command to build and run the TPM device provisioning sample. Copy the endorsement key returned from your TPM 2.0 hardware security module to use later when enrolling your device.
+
+    ```cmd
+    dotnet run -- -e
+    ```
+
+::: zone-end
+
 
 <a id="portalenrollment"></a>
 
 ## Create a device enrollment entry
+
+::: zone pivot="programming-language-ansi-c, programming-language-nodejs, programming-language-python, programming-language-java"
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -495,6 +495,37 @@ In this section, you'll build and execute a sample that reads the endorsement ke
       ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
 
 7. Select **Save**.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. On the left-hand menu or on the portal page, select **All resources**.
+
+3. Select your Device Provisioning Service.
+
+4. In the **Settings** menu, select **Manage enrollments**.
+
+5. At the top of the page, select **+ Add individual enrollment**.
+
+6. In the **Add Enrollment** panel, enter the following information:
+
+   * Select **TPM** as the identity attestation *Mechanism*.
+   * Enter the *Endorsement key* you retrieved earlier from your HSM.
+   * Enter a unique *Registration ID* for your device. You will also use this registration ID when registering your device, so make a note of it for later.
+   * Select an IoT hub linked with your provisioning service.
+   * Optionally, you may provide the following information:
+       * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
+       * Update the **Initial device twin state** with the desired initial configuration for the device.
+   * Once complete, press the **Save** button.
+
+      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
+
+7. Select **Save**.
+
+::: zone-end
 
 ## Register the device
 
@@ -532,7 +563,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     static const char* id_scope = "0ne00002193";
     ```
 
-6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_TPM` instead of `SECURE_DEVICE_TYPE_X509` as shown below.
+6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_TPM` as shown below.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -558,6 +589,43 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     Registration Information received from service:
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+
+2. Copy the **_ID Scope_** value.
+
+    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-csharp.png)
+
+3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
+
+   ```cmd
+   cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
+   ```
+
+4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you just copied and `<RegistrationId>` with the value you used when creating the device enrollment.
+
+    ```cmd
+    dotnet run -- -s <IdScope> -r <RegistrationId>
+    ```
+
+    If the device registration was successful, you'll see the following messages:
+
+    ```cmd/sh
+    Initializing security using the local TPM...
+    Initializing the device provisioning client...
+    Initialized for registration Id <RegistrationId>.
+    Registering with the device provisioning service...
+    Registration status: Assigned.
+    Device <RegistrationId> registered to <HubName>.azure-devices.net.
+    Creating TPM authentication for IoT Hub...
+    Testing the provisioned device with IoT Hub...
+    Sending a telemetry message...
+    Finished.
     ```
 
 ::: zone-end
@@ -664,7 +732,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-2. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
+2. Using your Python IDE, edit the Python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -713,7 +781,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     :::zone pivot="programming-language-csharp"
 
-      ![Device is registered with the IoT hub for CSharp](./media/quick-create-simulated-device-tpm/hub-registration-csharp.png)
+      ![Device is registered with the IoT hub for C#](./media/quick-create-simulated-device-tpm/hub-registration-csharp.png)
 
     ::: zone-end
 

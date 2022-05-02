@@ -108,6 +108,10 @@ Code: 403 Response:
 
 Details: The token you have presented for authorization belongs to a user who does not have sufficient access to this privilege. Verify your workspace GUID and your token request are correct, and if necessary grant IAM privileges in your workspace to the Azure AD Application you created as Contributor.
 
+> [!NOTE]
+> When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new 
+> role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with error code 403. 
+
 ## Bad Authorization Code
 
 Code: 403 Response:

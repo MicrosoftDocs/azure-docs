@@ -98,4 +98,4 @@ Learn how the [DSC extension securely handles credentials](../virtual-machines/e
 
 For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](../virtual-machines/extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json).
 
-For more information about PowerShell DSC, [visit the PowerShell documentation center](/powershell/dsc/overview/overview).
+For more information about PowerShell DSC, [visit the PowerShell documentation center](/powershell/dsc/overview).

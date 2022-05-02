@@ -2,12 +2,12 @@
 title: File Integrity Monitoring in Microsoft Defender for Cloud
 description: Learn how to compare baselines with File Integrity Monitoring in Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 
 # Compare baselines using File Integrity Monitoring (FIM)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files.
 

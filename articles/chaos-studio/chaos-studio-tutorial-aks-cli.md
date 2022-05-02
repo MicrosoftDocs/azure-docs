@@ -3,10 +3,11 @@ title: Create an experiment that uses an AKS Chaos Mesh fault using Azure Chaos 
 description: Create an experiment that uses an AKS Chaos Mesh fault with the Azure CLI
 author: johnkemnetz
 ms.topic: how-to
-ms.date: 11/11/2021
+ms.date: 04/21/2022
 ms.author: johnkem
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create a chaos experiment that uses a Chaos Mesh fault with the Azure CLI
@@ -18,7 +19,10 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An AKS cluster. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+- An AKS cluster with Linux node pools. If you do not have an AKS cluster, see the AKS quickstart [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
+
+> [!WARNING]
+> AKS Chaos Mesh faults are only supported on Linux node pools.
 
 ## Launch Azure Cloud Shell
 
@@ -42,7 +46,7 @@ Before you can run Chaos Mesh faults in Chaos Studio, you need to install Chaos 
    helm repo add chaos-mesh https://charts.chaos-mesh.org
    helm repo update
    kubectl create ns chaos-testing
-   helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --version 2.0.3 --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
+   helm install chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-testing --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock
    ```
 
 2. Verify that the Chaos Mesh pods are installed by running the following command:
@@ -194,7 +198,7 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 Give the experiment access to your resource(s) using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target resource (in this case, the AKS cluster resource ID). Run this command for each resource targeted in your experiment. 
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Cluster User Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
+az role assignment create --role "Azure Kubernetes Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
 ```
 
 ## Run your experiment

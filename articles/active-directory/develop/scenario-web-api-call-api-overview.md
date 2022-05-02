@@ -32,7 +32,7 @@ This scenario, in which a protected web API calls other web APIs, builds on [Sce
 
 ## Specifics
 
-The app registration part that's related to API permissions is classical. The app configuration involves using the OAuth 2.0 On-Behalf-Of flow to exchange the JWT bearer token against a token for a downstream API. This token is added to the token cache, where it's available in the web API's controllers, and it can then acquire a token silently to call downstream APIs.
+The app registration part that's related to API permissions is classical. The app configuration involves using the OAuth 2.0 On-Behalf-Of flow to use the JWT bearer token for obtaining a second token for a downstream API. The second token in this case is added to the token cache, where it's available in the web API's controllers. This second token can be used to acquire an access token silently to call downstream APIs whenever required. 
 
 ## Next steps
 

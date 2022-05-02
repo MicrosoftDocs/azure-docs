@@ -4,6 +4,7 @@ description: This article describes the Query Store feature in Azure Database fo
 author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

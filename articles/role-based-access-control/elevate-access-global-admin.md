@@ -9,8 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/10/2021
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
@@ -145,7 +144,7 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 Use the following basic steps to elevate access for a Global Administrator using the Azure CLI.
 
-1. Use the [az rest](/cli/azure/reference-index#az_rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
+1. Use the [az rest](/cli/azure/reference-index#az-rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
 
     ```azurecli
     az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
@@ -159,7 +158,7 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 ### List role assignment at root scope (/)
 
-To list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) command.
+To list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) command.
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -189,7 +188,7 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 1. Sign in as a user that can remove elevated access. This can be the same user that was used to elevate access or another Global Administrator with elevated access at root scope.
 
-1. Use the [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) command to remove the User Access Administrator role assignment.
+1. Use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command to remove the User Access Administrator role assignment.
 
     ```azurecli
     az role assignment delete --assignee username@example.com --role "User Access Administrator" --scope "/"
@@ -350,9 +349,9 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 1. Follow the steps earlier in this article to elevate your access.
 
-1. Use the [az login](/cli/azure/reference-index#az_login) command to sign in as Global Administrator.
+1. Use the [az login](/cli/azure/reference-index#az-login) command to sign in as Global Administrator.
 
-1. Use the [az rest](/cli/azure/reference-index#az_rest) command to make the following call where you will have to filter by a date as shown with the example timestamp and specify a filename where you want the logs to be stored.
+1. Use the [az rest](/cli/azure/reference-index#az-rest) command to make the following call where you will have to filter by a date as shown with the example timestamp and specify a filename where you want the logs to be stored.
 
     The `url` calls an API to retrieve the logs in Microsoft.Insights. The output will be saved to your file.
 
@@ -393,9 +392,9 @@ If you want to be able to periodically get the elevate access logs, you can dele
 
 1. Follow the steps earlier in this article to elevate your access.
 
-1. Use the [az login](/cli/azure/reference-index#az_login) command to sign in as Global Administrator.
+1. Use the [az login](/cli/azure/reference-index#az-login) command to sign in as Global Administrator.
 
-1. Use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command to assign the [Reader](built-in-roles.md#reader) role to the group who can only read logs at the directory level, which are found at `Microsoft/Insights`.
+1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign the [Reader](built-in-roles.md#reader) role to the group who can only read logs at the directory level, which are found at `Microsoft/Insights`.
 
     ```azurecli
     az role assignment create --assignee "{groupId}" --role "Reader" --scope "/providers/Microsoft.Insights"
@@ -405,7 +404,7 @@ If you want to be able to periodically get the elevate access logs, you can dele
 
 1. Follow the steps earlier in this article to remove elevated access.
 
-A user in the group can now periodically run the [az rest](/cli/azure/reference-index#az_rest) command to view elevate access logs.
+A user in the group can now periodically run the [az rest](/cli/azure/reference-index#az-rest) command to view elevate access logs.
 
 ```azurecli
 az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt

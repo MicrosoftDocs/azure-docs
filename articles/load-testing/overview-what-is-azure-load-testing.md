@@ -1,27 +1,58 @@
 ---
 title: What is Azure Load Testing?
-description: 'Azure Load Testing is a fully managed load-testing service that enables developers to generate high-scale loads to optimize app performance.'
+description: 'Azure Load Testing is a fully managed load-testing service for generating high-scale loads by using existing JMeter scripts to optimize app performance.'
 services: load-testing
 ms.service: load-testing
 ms.topic: overview
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 04/20/2022
 adobe-target: true
+ms.custom: contperf-fy22q4
 ---
 
 # What is Azure Load Testing Preview?
 
 Azure Load Testing Preview is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
 
-You can create a load test by using existing test scripts based on Apache JMeter, a popular open-source load and performance tool. For Azure-based applications, detailed resource metrics help you identify performance bottlenecks. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
+You can create a load test by using existing test scripts based on Apache JMeter, a popular open-source load and performance tool. Azure Load Testing abstracts the infrastructure to run your JMeter script and load test your application. Get started by [creating and running a load test for a web application](./quickstart-create-and-run-load-test.md).
+
+For Azure-based applications, Azure Load Testing collects detailed resource metrics to help you [identify performance bottlenecks](#identify-performance-bottlenecks-by-using-high-scale-load-tests) across your Azure application components.
+
+You can [automate regression testing](#enable-automated-load-testing) by running load tests as part of your continuous integration and continuous deployment (CI/CD) workflow.
+
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Identify performance bottlenecks by using high-scale load tests
+
+Performance problems often remain undetected until an application is under load. You can start a high-scale load test in the Azure portal to learn sooner how your application behaves under stress. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
+
+After the load test finishes, you can use the dashboard to analyze the test results and identify performance bottlenecks. For Azure-hosted applications, the dashboard shows detailed resource metrics of the Azure application components. Get started with a tutorial to [identify performance bottlenecks for Azure-hosted applications](./tutorial-identify-bottlenecks-azure-portal.md).
+
+Azure Load Testing keeps a history of test runs and allows you to visually [compare multiple runs](./how-to-compare-multiple-test-runs.md) to detect performance regressions.
+
+You might also [download the test results](./how-to-export-test-results.md) for analysis in a third-party tool.
+
+## Enable automated load testing
+
+You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
+
+Get started with [adding load testing to your Azure Pipelines CI/CD workflow](./tutorial-cicd-azure-pipelines.md) or use our [Azure Load Testing GitHub action](./tutorial-cicd-github-actions.md).
+
+In the test configuration, you [specify pass/fail rules](./how-to-define-test-criteria.md) to catch performance regressions early in the development cycle. For example, when the average response time exceeds a threshold, the test should fail.
+
+Azure Load Testing will automatically stop an automated load test in response to specific error conditions. You can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
+
+You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
+
 ## How does Azure Load Testing work?
 
-Azure Load Testing test engines abstract the required infrastructure for running a high-scale load test. The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. To scale out the load test, you can configure the number of test engines.
+Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. To scale out the load test, you can configure the number of test engines.
+
+Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins that are available on https://jmeter-plugins.org in your test script.
 
 The application can be hosted anywhere: in Azure, on-premises, or in other clouds. During the load test, the service collects the following resource metrics and displays them in a dashboard:
 
@@ -33,33 +64,14 @@ Azure Load Testing automatically incorporates best practices for Azure networkin
 
 Data stored in your Azure Load Testing resource is automatically encrypted with keys managed by Microsoft (service-managed keys). This data includes, for example, your Apache JMeter script.
 
-:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Azure Load Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Azure Load Testing architecture.":::
 
 > [!NOTE]
-> This image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. It isn't a comprehensive list of supported Azure resources.
-
-## Identify performance bottlenecks by using high-scale load tests
-
-Performance problems often remain undetected until an application is under load. You can start a high-scale load test in the Azure portal to learn sooner how your application behaves under stress. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
-
-After the load test finishes, you can use the dashboard to analyze the test results and identify performance bottlenecks. For Azure-hosted applications, the dashboard shows detailed resource metrics of the Azure application components.
-
-Azure Load Testing keeps a history of test runs and allows you to visually compare multiple runs to detect performance regressions.
-
-You might also download the test results for analysis in a third-party tool.
-
-## Enable automated load testing
-
-You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
-
-In the test configuration, you specify pass/fail rules to catch performance regressions early in the development cycle. For example, when the average response time exceeds a threshold, the test should fail.
-
-Azure Load Testing will automatically stop an automated load test in response to specific error conditions. You can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
-
-You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workflows.
+> The overview image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. Learn more about the [supported Azure resource types](./resource-supported-azure-resource-types.md).
 
 ## Next steps
 
 Start using Azure Load Testing:
 - [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
 - [Tutorial: Set up automated load testing](./tutorial-cicd-azure-pipelines.md)
+- Learn about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).

@@ -2,8 +2,11 @@
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
 ms.topic: conceptual
-ms.date: 09/11/2019 
+ms.date: 04/25/2022
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Back up and restore Azure VMs with PowerShell
@@ -256,7 +259,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > If you're using the Azure Government cloud, then use the value `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` for the parameter **ServicePrincipalName** in [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-If you want to selectively backup few disks and exclude others as mentioned in [these scenarios](selective-disk-backup-restore.md#scenarios), you can configure protection and backup only the relevant disks as documented [here](selective-disk-backup-restore.md#enable-backup-with-powershell).
+If you want to selectively back up a few disks and exclude others as mentioned in [these scenarios](selective-disk-backup-restore.md#scenarios), you can configure protection and backup only the relevant disks as documented [here](selective-disk-backup-restore.md#enable-backup-with-powershell).
 
 ## Monitoring a backup job
 
@@ -340,7 +343,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 ### Exclude disks for a protected VM
 
-Azure VM backup provides a capability to selectively exclude or include disks which is helpful in [these scenarios](selective-disk-backup-restore.md#scenarios). If the virtual machine is already protected by Azure VM backup and if all disks are backed up, then you can modify the protection to selectively include or exclude disks as mentioned [here](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
+Azure VM backup provides a capability to selectively exclude or include disks which are helpful in [these scenarios](selective-disk-backup-restore.md#scenarios). If the virtual machine is already protected by Azure VM backup and if all disks are backed up, then you can modify the protection to selectively include or exclude disks as mentioned [here](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### Trigger a backup
 
@@ -431,10 +434,13 @@ To restore backup data, identify the backed-up item and the recovery point that 
 
 The basic steps to restore an Azure VM are:
 
-* Select the VM.
-* Choose a recovery point.
-* Restore the disks.
-* Create the VM from stored disks.
+> [!div class="checklist"]
+> * Select the VM.
+> * Choose a recovery point.
+> * Restore the disks.
+> * Create the VM from stored disks.
+
+Now, you can also use PowerShell to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using PowerShell](#restore-data-to-virtual-machine-using-powershell).
 
 ### Select the VM (when restoring files)
 
@@ -530,7 +536,7 @@ $details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targ
 
 Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
 
-If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***-UseSystemAssignedIdentity*** to the Restore-AzRecoveryServicesBackupItem command. If you wish to use a user-assigned managed identity, pass a parameter ***-UserAssignedIdentityId*** with the ARM id of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***-UseSystemAssignedIdentity*** to the Restore-AzRecoveryServicesBackupItem command. If you wish to use a user-assigned managed identity, pass a parameter ***-UserAssignedIdentityId*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
 
 #### Restore selective disks
 
@@ -588,6 +594,31 @@ If cross-region restore is enabled on the vault with which you've protected your
     V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
     ```
 
+#### Cross-zonal restore
+
+You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
+
+To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet.
+
+```powershell
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -VaultId $targetVault.ID -TargetZoneNumber 3
+```
+The output will be similar to the following example:
+
+```output
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+zonevmeus2       Restore              InProgress           1/3/2022 10:27:20 AM                                b2298...
+```
+
+Cross-zonal restore is supported only in scenarios where:
+
+- The source VM is zone pinned and is NOT encrypted.
+- The recovery point is present in vault tier only. Snapshots only or snapshot and vault tier are not supported.
+- The recovery option is to create a new VM or restore disks. Replace disks option replaces source data; therefore, the availability zone option is not applicable.
+- Creating VM/disks in the same region when vault's storage redundancy is ZRS. Note that it doesn't work if vault's storage redundancy is GRS, even though the source VM is zone pinned.
+- Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region Restore and if the paired region supports zones.
+
 ## Replace disks in Azure VM
 
 To replace the disks and configuration information, perform the following steps:
@@ -641,7 +672,7 @@ The template isn't directly accessible since it's under a customer's storage acc
 
 ### Create a VM using the config file
 
-The following section lists steps necessary to create a VM using "VMConfig" file.
+The following section lists steps necessary to create a VM using _VMConfig_ file.
 
 > [!NOTE]
 > It's highly recommended to use the deployment template detailed above to create a VM. This section (Points 1-6) will be deprecated soon.
@@ -953,6 +984,48 @@ After the required files are copied, use [Disable-AzRecoveryServicesBackupRPMoun
 ```powershell
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
+
+## Restore data to virtual machine using PowerShell
+
+You can now directly restore data to original/alternate VM without performing multiple steps.
+
+### Restore data to original VM
+
+```powershell-interactive
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "resourceGroup" -Name "vaultName"
+$BackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -Name "V2VM" -VaultId $vault.ID
+$StartDate = (Get-Date).AddDays(-7)
+$EndDate = Get-Date
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -StartDate $StartDate.ToUniversalTime() -EndDate $EndDate.ToUniversalTime() -VaultId $vault.ID
+$OriginalLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -VaultId $vault.ID -VaultLocation $vault.Location 
+```
+
+```output
+WorkloadName    Operation       Status          StartTime              EndTime
+------------    ---------       ------          ---------              -------
+V2VM            Restore         InProgress      26-Apr-16 1:14:01 PM   01-Jan-01 12:00:00 AM
+```
+
+The last command triggers an original location restore operation to restore the data in-place in the existing VM.
+
+###  Restore data to a newly created VM
+
+```powershell-interactive
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "resourceGroup" -Name "vaultName"
+$BackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -Name "V2VM" -VaultId $vault.ID
+$StartDate = (Get-Date).AddDays(-7)
+$EndDate = Get-Date
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -StartDate $StartDate.ToUniversalTime() -EndDate $EndDate.ToUniversalTime() -VaultId $vault.ID
+$AlternateLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -TargetResourceGroupName "Target_RG" -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -TargetVMName "TagetVirtualMachineName" -TargetVNetName "Target_VNet" -TargetVNetResourceGroup "" -TargetSubnetName "subnetName" -VaultId $vault.ID -VaultLocation $vault.Location 
+```
+
+```output
+WorkloadName    Operation       Status          StartTime              EndTime
+------------    ---------       ------          ---------              -------
+V2VM            Restore         InProgress      26-Apr-16 1:14:01 PM   01-Jan-01 12:00:00 AM
+```
+
+The last command triggers an alternate location restore operation to create a new VM in *Target_RG* resource group as per the inputs specified by parameters *TargetVMName*, *TargetVNetName*, *TargetVNetResourceGroup*, *TargetSubnetName*. This ensures that the data is restored in the required VM, virtual network and subnet.
 
 ## Next steps
 

@@ -142,7 +142,7 @@ Virtual machine scale set VM:
 
 ## Updating user data
 
-With Rest API, you can use a normal PUT or PATCH request to update the user data. The user data will be updated without the need to stop or reboot the VM.
+With REST API, you can use a normal PUT or PATCH request to update the user data. The user data will be updated without the need to stop or reboot the VM.
 
 `PUT
 "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/ virtualMachines/{VMName}
@@ -169,7 +169,7 @@ The VM.Properties in these requests should contain your desired UserData field, 
           "osDisk": {
             "caching": "ReadWrite",
             "managedDisk": {
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "vmOSdisk",
             "createOption": "FromImage"
