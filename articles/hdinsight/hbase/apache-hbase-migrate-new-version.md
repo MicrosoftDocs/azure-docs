@@ -208,7 +208,7 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
 
 ## Migrate HBase using scripts
 
-1. Execute the script [migrate-hbase-source.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-source.sh) on the source cluster and [migrate-hbase-dest.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-dest.sh) on the destination cluster. The instructions to execute these scripts are below. Note, these script don't copy the HBase old WALs as part of the migration.
+1. Execute the script [migrate-hbase-source.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-source.sh) on the source cluster and [migrate-hbase-dest.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-dest.sh) on the destination cluster. The instructions to execute these scripts are below. Note: these script don't copy the HBase old WALs as part of the migration; therefore, the scripts are not to be used on clusters which have either HBase Backup or Replication feature enabled.
 
 1. On source cluster
 ```bash
