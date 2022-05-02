@@ -36,7 +36,7 @@ conceptualContent:
   sections:
     - items:
         # Card
-        - title: Security
+        - title: Security and Zero Trust
           links:
             - url: ../security/fundamentals/identity-management-overview.md
               itemType: overview
@@ -50,9 +50,6 @@ conceptualContent:
             - url: ./fundamentals/security-operations-introduction.md
               itemType: concept
               text: Security operations guide
-        # Card
-        - title: Zero Trust
-          links:
             - url: /security/zero-trust/deploy/identity
               itemType: overview
               text: Securing identity with Zero Trust
@@ -83,6 +80,18 @@ conceptualContent:
             - url: /azure/architecture/solution-ideas/articles/collaboration-microsoft-365
               itemType: architecture
               text: Solution ideas
+        # Card
+        - title: Microsoft Graph
+          links:
+            - url: /graph/use-the-api
+              itemType: get-started
+              text: Get started
+            - url: /graph/api/overview
+              itemType: reference
+              text: REST API reference
+            - url: /graph/api/resources/azure-ad-overview
+              itemType: reference
+              text: Identity and access
 
 additionalContent:
   # Supports up to 4 subsections
