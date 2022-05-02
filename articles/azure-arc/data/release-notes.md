@@ -26,16 +26,6 @@ This release is published May 3, 2022.
 
 For complete release version information, see [Version log](version-log.md).
 
-### Data controller
-
-### Azure Arc-enabled SQL Managed Instance
-
-
-### User experience improvements
-
-
-#### Azure Data Studio
-
 ## April 6, 2022
 
 This release is published April 6, 2022.
