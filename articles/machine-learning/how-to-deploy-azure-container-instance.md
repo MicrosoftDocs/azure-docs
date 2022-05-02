@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: deploy, cliv1
-ms.author: jordane
-author: jpe316
+ms.author: larryfr
+author: blackmist
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ---
