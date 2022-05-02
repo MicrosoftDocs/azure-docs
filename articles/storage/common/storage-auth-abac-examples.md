@@ -685,7 +685,11 @@ Here are the settings to add this condition using the Azure portal.
 | Operator | DateTimeLessThan |
 | Value | &lt;blobVersionId&gt; |
 
-### Example: Allow read access to current blob version and any blob snapshots
+### Example: Allow read access to current blob versions and any blob snapshots
+
+This condition allows a user to read current blob versions and any blob snapshots.
+
+![Diagram of condition showing delete access to old blob versions.](./media/storage-auth-abac-examples/read-blob-current-version-blob-snapshot.png)
 
 ```
 (
