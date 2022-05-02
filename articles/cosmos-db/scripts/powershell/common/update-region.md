@@ -4,7 +4,7 @@ description: Run this Azure PowerShell script to add regions or change region fa
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/01/2022
+ms.date: 05/02/2022
 ms.author: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
