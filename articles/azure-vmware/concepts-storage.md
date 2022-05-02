@@ -28,7 +28,7 @@ Local storage in cluster hosts is used in the cluster-wide vSAN datastore. All d
 
 ## Storage policies and fault tolerance
 
-The default storage policy is set to RAID-1 (Mirroring) FTT-1, with Object Space Reservation set to **Thin** provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. This is the policy that will be applied to the workload VMs. To set a different storage policy, see [Configure storage policy](configure-storage-policy.md).
+The default storage policy is set to RAID-1 (Mirroring) FTT-1, with Object Space Reservation set to Thin provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. This is the policy that will be applied to the workload VMs. To set a different storage policy, see [Configure storage policy](configure-storage-policy.md).
 
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an operations perspective.
 
@@ -40,9 +40,6 @@ In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft g
 
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend to deploying the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. Per the [Azure VMware Solution SLA](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/), note that more than 6 hosts should be configured in the cluster to use an FTT-2 policy (RAID-1, or RAID-6). Also note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.  
-
->
->:::image type="content" source="media/concepts/vsphere-vm-storage-policies-2.png" alt-text="Screenshot showing the RAID-5 FTT-1 and RAID-6 FTT-2 options highlighed.":::
 
 
 ## Data-at-rest encryption
