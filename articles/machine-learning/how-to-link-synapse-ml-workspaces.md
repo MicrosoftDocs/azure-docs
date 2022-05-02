@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
