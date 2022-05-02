@@ -47,7 +47,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    > [!NOTE]
    > All Tanzu components are enabled by default. Be sure to carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Cloud instance, you can't enable or disable Tanzu components.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Azure portal screenshot of Azure Spring Cloud creation page with VMware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Azure portal screenshot of Azure Spring Cloud creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
 
 1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Cloud instance.
 

@@ -383,14 +383,30 @@ Because the clients are running on the same device as the MQTT broker in the exa
 
 The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let clients perform IoT Hub operations, but they don't allow publishing or subscribing to user-defined topics. IoT Hub operations can be performed using any MQTT clients using publish and subscribe semantics as long as IoT Hub primitive protocols are respected. The next sections of this guide go through the specifics to illustrate how these protocols work.
 
-### Send telemetry data to IoT Hub
+### Send messages
 
-Sending telemetry data to IoT Hub is similar to publishing on a user-defined topic, but using a specific IoT Hub topic:
+Sending telemetry data to IoT Hub, other devices, or other modules is similar to publishing on a user-defined topic, but using a specific IoT Hub topic:
 
 - For a device, telemetry is sent on topic: `devices/<device_name>/messages/events/`
 - For a module, telemetry is sent on topic: `devices/<device_name>/modules/<module_name>/messages/events/`
 
-Additionally, create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to the IoT hub. For more information about routing, see [Declare routes](module-composition.md#declare-routes).
+Additionally, route the message to its destination.
+
+As with all IoT Edge messages, you can create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to the IoT hub. For more information about routing, see [Declare routes](module-composition.md#declare-routes).
+
+Depending on the routing settings, the routing may define an input name, which will be attached to the topic when a message is getting forwarded. Also, Edge Hub (and the original sender) adds parameters to the message which is encoded in the topic structure. The following example shows a message routed with input name "TestInput". This message was sent by a module called "SenderModule", which name is also encoded in the topic:
+
+`devices/TestEdgeDevice/modules/TestModule/inputs/TestInput/%24.cdid=TestEdgeDevice&%24.cmid=SenderModule`
+
+Modules can also send messages on a specific output name. Output names help when messages from a module need to be routed to different destinations. When a module wants to send a message on a specific output, it sends the message as a regular telemetry message, except that it adds an additional system property to it. This system property is '$.on'. The '$' sign needs to be url encoded and it becomes %24 in the topic name. The following example shows a telemetry message sent with the output name 'alert':
+
+`devices/TestEdgeDevice/modules/TestModule/messages/events/%24.on=alert/`
+
+### Receive messages
+
+A telemetry message sent by a device or module can be routed to another module. If a module wants to receive M2M messages, first it needs to subscribe to the topic which delivers them. The format of the subscription is:
+
+`devices/{device_id}/modules/{module_id}/#`
 
 ### Get twin
 

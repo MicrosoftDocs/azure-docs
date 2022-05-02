@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage Cassandra
-description: This guide describes how to connect to Cassandra in Azure Purview, and use Azure Purview's features to scan and manage your Cassandra source.
+description: This guide describes how to connect to Cassandra in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Cassandra source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 03/05/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Cassandra in Azure Purview (Preview)
+# Connect to and manage Cassandra in Microsoft Purview (Preview)
 
-This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -22,7 +22,7 @@ This article outlines how to register Cassandra, and how to authenticate and int
 
 The supported Cassandra server versions are 3.*x* or 4.*x*.
 
-When scanning Cassandra source, Azure Purview supports:
+When scanning Cassandra source, Microsoft Purview supports:
 
 - Extracting technical metadata including:
 
@@ -39,9 +39,9 @@ When setting up scan, you can choose to scan an entire Cassandra instance, or sc
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 
 **If your data store is not publically accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
@@ -54,13 +54,13 @@ When setting up scan, you can choose to scan an entire Cassandra instance, or sc
 
 ## Register
 
-This section describes how to register Cassandra in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Cassandra in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new Cassandra server in your data catalog:
 
-1. Go to your Azure Purview account.
+1. Go to your Microsoft Purview account.
 1. Select **Data Map** on the left pane.
 1. Select **Register**.
 1. On the **Register sources** screen, select **Cassandra**, and then select **Continue**:
@@ -108,7 +108,7 @@ To create and run a new scan:
         * In the **User name** box, provide the name of the user you're making the connection for. 
         * In the key vault's secret, save the password of the Cassandra user you're making the connection for.
 
-        For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
+        For more information, see [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
 
     1. **Keyspaces**: Specify a list of Cassandra keyspaces to import. Multiple keyspaces must be separated with semicolons. For example, keyspace1; keyspace2. When the list is empty, all available keyspaces are imported.
 
@@ -152,8 +152,8 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you've registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

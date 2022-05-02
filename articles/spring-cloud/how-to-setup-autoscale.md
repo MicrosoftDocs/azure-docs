@@ -77,7 +77,7 @@ You can also set Autoscale modes using the Azure CLI. The following commands cre
        --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == demo and Deployment == default"
    ```
 
-For information on the available metrics, see the [User metrics options](/azure/spring-cloud/concept-metrics#user-metrics-options) section of [Metrics for Azure Spring Cloud](/azure/spring-cloud/concept-metrics).
+For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Cloud](./concept-metrics.md).
 
 ## Upgrade to the Standard tier
 

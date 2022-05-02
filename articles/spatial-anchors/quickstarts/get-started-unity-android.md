@@ -58,6 +58,7 @@ Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-pa
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
+## Configure the account information
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the Android Studio project

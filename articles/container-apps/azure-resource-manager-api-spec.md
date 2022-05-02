@@ -199,6 +199,9 @@ The following example ARM template deploys a container app.
       "type": "Microsoft.App/containerApps",
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
+      "identity": {
+        "type": "None"      
+      },
       "properties": {
         "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
         "configuration": {

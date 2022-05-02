@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 04/27/2022
 ms.author: tisande
 
 ---
@@ -111,110 +111,18 @@ This query retrieves the family `id` in ascending order of the city name. If mul
 
 ## Documents with missing fields
 
-Queries with `ORDER BY` that are run against containers with the default indexing policy will not return documents where the sort property is undefined. If you would like to include documents where the sort property is undefined, you should explicitly include this property in the indexing policy.
+Queries with `ORDER BY` will return all items, including items where the property in the ORDER BY clause isn't defined.
 
-For example, here's a container with an indexing policy that does not explicitly include any paths besides `"/*"`:
-
-```json
-{
-    "indexingMode": "consistent",
-    "automatic": true,
-    "includedPaths": [
-        {
-            "path": "/*"
-        }
-    ],
-    "excludedPaths": []
-}
-```
-
-If you run a query that includes `lastName` in the `Order By` clause, the results will only include documents that have a `lastName` property defined. We have not defined an explicit included path for `lastName` so any documents without a `lastName` will not appear in the query results.
-
-Here is a query that sorts by `lastName` on two documents, one of which does not have a `lastName` defined:
+For example, if you run the below query that includes `lastName` in the `Order By` clause, the results will include all items, even those that don't have a `lastName` property defined.
 
 ```sql
     SELECT f.id, f.lastName
     FROM Families f
     ORDER BY f.lastName
-```
-
-The results only include the document that has a defined `lastName`:
-
-```json
-    [
-        {
-            "id": "AndersenFamily",
-            "lastName": "Andersen"
-        }
-    ]
-```
-
-If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it. If your `Order By` query uses a [composite index](../index-policy.md#composite-indexes), the results will always include documents with an undefined sort property in the query results.
-
-Here is a sample indexing policy which allows you to have documents with an undefined `lastName` appear in the query results:
-
-```json
-{
-    "indexingMode": "consistent",
-    "automatic": true,
-    "includedPaths": [
-        {
-            "path": "/lastName/?"
-        },
-        {
-            "path": "/*"
-        }
-    ],
-    "excludedPaths": []
-}
-```
-
-If you run the same query again, documents that are missing `lastName` appear first in the query results:
-
-```sql
-    SELECT f.id, f.lastName
-    FROM Families f
-    ORDER BY f.lastName
-```
-
-The results are:
-
-```json
-[
-    {
-        "id": "WakefieldFamily"
-    },
-    {
-        "id": "AndersenFamily",
-        "lastName": "Andersen"
-    }
-]
-```
-
-If you modify the sort order to `DESC`, documents that are missing `lastName` appear last in the query results:
-
-```sql
-    SELECT f.id, f.lastName
-    FROM Families f
-    ORDER BY f.lastName DESC
-```
-
-The results are:
-
-```json
-[
-    {
-        "id": "AndersenFamily",
-        "lastName": "Andersen"
-    },
-    {
-        "id": "WakefieldFamily"
-    }
-]
 ```
 
 > [!Note]
-> Only the .NET SDK version 3.4.0 or later supports ORDER BY with mixed types. Therefore, if you want to sort by a combination of undefined and defined values, you should use this version (or later).
+> Only the .NET SDK  3.4.0 or later and Java SDK 4.13.0 or later support ORDER BY with mixed types. Therefore, if you want to sort by a combination of undefined and defined values, you should use this version (or later).
 
 You can't control the order that different types appear in the results. In the above example, we showed how undefined values were sorted before string values. If instead, for example, you wanted more control over the sort order of undefined values, you could assign any undefined properties a string value of "aaaaaaaaa" or "zzzzzzzz" to ensure they were either first or last.
 

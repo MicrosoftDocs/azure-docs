@@ -20,7 +20,7 @@ ms.author: mathapli
 >The below article is scoped to Azure Hybrid Benefit for BYOS VMs (AHB BYOS) which caters to conversion of custom on-prem image VMs and RHEL or SLES BYOS VMs. For conversion of RHEL PAYG or SLES PAYG VMs, refer to [Azure Hybrid Benefit for PAYG VMs here](./azure-hybrid-benefit-linux.md). 
 
 >[!NOTE]
->Azure Hybrid Benefit for BYOS VMs is planned for Preview from **30 March 2022**. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
+>Azure Hybrid Benefit for BYOS VMs is in Preview now. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
 
 
 Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom on-prem image VMs (VMs generated from on-prem images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.
@@ -132,9 +132,9 @@ you can use the `az vm update` command to update existing license type on runnin
     ```bash
     yum repolist
     ```
- 1. In case the extension is not running by itself, you can try the below command on the VM using:
+ 1. In case the extension is not running by itself, you can try the below command on the VM:
     ```bash
-        
+        systemctl start azure-hybrid-benefit.service
     ```
 
 ## Enable and disable the benefit for SLES
@@ -218,6 +218,10 @@ A: On using AHB for BYOS VMs, you will essentially convert your bring your own s
 *Q: Can I use a license type designated for RHEL (such as `RHEL_BASE`) with a SLES image, or vice versa?*
 
 A: No, you can't. Trying to enter a license type that incorrectly matches the distribution running on your VM will fail and you might end uo getting billed incorrectly. However, if you accidentally enter the wrong license type, either changing the license type to empty will remove the billing or updating your VM again to the correct license type will still enable the benefit.
+
+*Q: What are the supported versions for RHEL with AHB for BYOS VMs?*
+
+A: RHEL versions greater than 7.4 are supported with AHB for BYOS VMs.
 
 *Q: I've uploaded my own RHEL or SLES image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
 

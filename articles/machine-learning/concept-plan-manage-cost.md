@@ -35,7 +35,7 @@ On the left, select **AI + Machine Learning**, then select **Azure Machine Learn
 
 The following screenshot shows the cost estimation by using the calculator:
 
-:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing estimated cost in the Azure Pricing calculator.":::
+:::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Example showing estimated cost in the Azure Pricing calculator. Prices in this screenshot are examples only; your price may differ.":::
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
 
