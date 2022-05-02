@@ -199,7 +199,7 @@
       href: upgrade-internalbasic-to-publicstandard.md
   - name: Using multiple IP configurations
     items:
-    - name: Azure Portal
+    - name: Azure portal
       href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md

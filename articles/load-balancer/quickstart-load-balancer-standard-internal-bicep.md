@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an internal load balancer using Bicep'
+title: 'Quickstart: Create an internal Azure load balancer using Bicep'
 description: This quickstart shows how to create an internal Azure load balancer using Bicep.
 services: load-balancer
 author: schaffererin
