@@ -611,10 +611,15 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logsAlpi
 $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/AlpineFile.txt" -Context $bearerCtx
 ```
 
-
 ## Blob versions or blob snapshots
 
-### Example: Restrict access to a specific blob version
+### Example: Read access to a specific blob version
+
+This condition allows a user to read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
+
+Notice that the condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list list the current version of the blob.
+
+![Diagram of condition showing read access to a specific blob version.](./media/storage-auth-abac-examples/read-specific-blob-version.png)
 
 ```
 (
@@ -623,7 +628,7 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
  )
  OR 
  (
-  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z'
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'
   OR
   NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]
  )
