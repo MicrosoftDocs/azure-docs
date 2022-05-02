@@ -33,7 +33,7 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 > [!IMPORTANT]
 > Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on older supported versions until those fall off support.
 > 
-> Using `containerd` with Windows Server 2019 node pools is generally available, although the default for node pools created on Kubernetes v1.22 and earlier is still Docker. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, although the default for node pools created on Kubernetes v1.22 and earlier is still Docker. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
