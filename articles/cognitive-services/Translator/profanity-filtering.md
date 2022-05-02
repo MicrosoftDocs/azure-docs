@@ -20,7 +20,7 @@ If you want to avoid seeing profanity in the translation, even if profanity is p
 
 The Translate() method takes the "options" parameter, which contains the new element "ProfanityAction". The accepted values of ProfanityAction are "NoAction", "Marked" and "Deleted." For the value of "Marked", additional optional element "ProfanityMarker" can take the values "Asterisk" (default) and "Tag".
 
-## Accepted values of ProfanityAction and examples
+## Accepted values and examples of ProfanityMarker and ProfanityAction
 | ProfanityAction value | ProfanityMarker value | Action | Example: Source - Spanish| Example: Target - English|
 |:--|:--|:--|:--|:--|
 | NoAction|  | Default. Same as not setting the option. Profanity passes from source to target. | Que coche de \<insert-profane-word> | What a \<insert-profane-word> car  |                         
@@ -28,6 +28,7 @@ The Translate() method takes the "options" parameter, which contains the new ele
 | Marked                | Tag                   | Profane words are surrounded by XML tags \<profanity\>...\</profanity>.          | Que coche de \<insert-profane-word> | What a \<profanity> \<insert-profane-word> \</profanity> car |
 | Deleted               |                       | Profane words are removed from the output without replacement.                   | Que coche de \<insert-profane-word> | What a car        |                                           
 
+<insert-profane-word> is a placeholder for any profane word in the example.
 
 ## Next steps
 > [!div class="nextstepaction"]
