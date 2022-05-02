@@ -176,7 +176,7 @@ Create a pod identity for the cluster using `az aks pod-identity add`.
 ```azurecli-interactive
 export POD_IDENTITY_NAME="my-pod-identity"
 export POD_IDENTITY_NAMESPACE="my-app"
-az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE}  --name ${POD_IDENTITY_NAME} --identity-resource-id ${IDENTITY_RESOURCE_ID}
+az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSCluster --namespace ${POD_IDENTITY_NAMESPACE} --name ${POD_IDENTITY_NAME} --identity-resource-id ${IDENTITY_RESOURCE_ID}
 ```
 
 > [!NOTE]
