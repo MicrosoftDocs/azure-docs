@@ -90,7 +90,7 @@ For more information, see Az PowerShell module [az ml computetarget create amlco
 
 
 
- ## <a id="low-pri-vm"></a> Lower your compute cluster cost
+ ## Lower your compute cluster cost
 
 You may also choose to use [low-priority VMs](../how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. You will have to restart a preempted job. 
 
@@ -104,7 +104,7 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 ```
 
 
-## <a id="managed-identity"></a> Set up managed identity
+## Set up managed identity
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-intro.md)]
 
