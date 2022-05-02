@@ -26,6 +26,9 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: CLI
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-load-balancer-standard-internal-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
@@ -196,7 +199,7 @@
       href: upgrade-internalbasic-to-publicstandard.md
   - name: Using multiple IP configurations
     items:
-    - name: Azure Portal
+    - name: Azure portal
       href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md

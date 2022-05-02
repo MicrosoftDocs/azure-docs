@@ -10,8 +10,6 @@ ms.custom: references_regions
 
 # Defender for Containers feature availability
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The **tabs** below show the features that are available, by environment, for Microsoft Defender for Containers.
 
 ## Supported features by environment 
