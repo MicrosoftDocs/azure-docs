@@ -9,35 +9,40 @@ ms.date: 04/22/2022
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
-
+# Deploy Next.js websites on Azure Static Web Apps
 Next.js support on Azure Static Web Apps can be categorised as two deployment models, statically exported Next.js and hybrid Next.js.
 
-## Statically exported Next.js
+## Static HTML export
 
-Next.js can be deployed as a static site using the [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export) feature of Next.js. This will generate static HTML files from the Next.js application during the deployment process and allows Next.js to be deployed with no backend APIs.
+
+Next.js can be deployed as a static site using the [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export) feature of Next.js. This will generate static HTML files at build time which are cached and reused for all requests.
 
 To enable static export of a Next.js application, add `next export` the to `build` npm script in the package.json:
 
 ```json
 {
     "scripts": {
-        "build": "next export"
+        "build": "next build && next export"
     }
 }
 ```
 
-Or set `is_static_export` to `true` in the Static Web Apps set of the GitHub Actions/Azure DevOps YAML file.
+If you're using custom build scripts, set `is_static_export` to `true` in the Static Web Apps task of the GitHub Actions/Azure DevOps YAML file.
 
 Follow the [deploy static-rendered Next.js websites](deploy-nextjs-ssg.md) tutorial to learn how to deploy a statically exported Next.js application to Azure.
 
 ## Hybrid Next.js applications (preview)
 
-Static Web Apps supports deploying a Next.js application that leverages the hybrid application features to create the application on the server when the page is requested, rather than at build time. This allows the application to inject real-time data into the response.
+Static Web Apps supports deploying hybrid Next.js websites where you can choose between static generation and server-side rendering (SSR) on a per page basis. It is recommended to use Static Generation over SSR for performance reasons.
 
-As hybrid applications features that are available in the preview are:
+
+Key features that are available in the preview are:
+
 
 - [Server side rendering](https://nextjs.org/docs/basic-features/pages#server-side-rendering)
 - [API Routes](https://nextjs.org/docs/api-routes/introduction)
 - [Image optimization](https://nextjs.org/docs/basic-features/image-optimization)
+- [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration)
+- [Internationalization](https://nextjs.org/docs/advanced-features/i18n-routing)
 
 Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutorial to learn how to deploy a hybrid Next.js application to Azure.
