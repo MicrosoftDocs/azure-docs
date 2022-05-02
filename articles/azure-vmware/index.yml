@@ -167,7 +167,7 @@ landingContent:
           - text: Attach disk pools to Azure VMware Solution hosts
             url: attach-disk-pools-to-azure-vmware-solution-hosts.md
           - text: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
-            url: attach-azure-netapp-files-to-cloud.md
+            url: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
 
 # card 6 == backup and restore
   - title: Backup with Azure Backup Server
