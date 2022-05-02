@@ -2,6 +2,11 @@
   href: introduction.md
 - name: Switch to current version documentation
   href: ../index.yml
+- name: Overview
+  items:
+  - name: Architecture & terms
+    displayName: architecture, concepts, definitions, glossary
+    href: concept-azure-machine-learning-architecture.md
 - name: Concepts
   items:
   - name: Manage the ML lifecycle (MLOps)
@@ -11,6 +16,11 @@
       href: concept-model-management-and-deployment.md
     - name: MLflow
       href: concept-mlflow-v1.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: "Build a training pipeline (Python)"
+      href: "tutorial-pipeline-python-sdk.md"
 - name: How-to guides
   items:
   - name: Install and set up the CLI (v1)

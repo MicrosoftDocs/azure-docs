@@ -96,7 +96,9 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - `ssh-keyscan` is not supported.
 
-- SSH commands, that are not SFTP, are not supported.
+- SSH and SCP commands, that are not SFTP, are not supported.
+
+- FTPS and FTP are not supported.
 
 ## Troubleshooting
 
