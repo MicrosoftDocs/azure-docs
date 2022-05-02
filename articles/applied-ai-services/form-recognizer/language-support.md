@@ -183,7 +183,7 @@ The [Read API](concept-read.md) supports detecting the following languages in yo
 > [!NOTE]
 > **Language detection**
 >
-> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be _extracted_ for a given language, see [handwritten](#handwritten-languages-preview-and-ga), [print preview](#print-languages-preview), and [print GA](#print-languages-ga) language extraction lists (above).
+> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be _extracted_ for a given language, see [handwritten](language-support.md#handwritten-languages-preview-and-ga), [print preview](language-support.md#print-languages-preview), and [print GA](language-support.md#print-languages-ga) language extraction lists (above).
 
 
 | Language            | Code |
