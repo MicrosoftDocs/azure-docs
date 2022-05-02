@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/05/2022
+ms.date: 05/02/2022
 ms.author: pafarley
 ---
 
@@ -20,13 +20,14 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### OCR (Read) API model is generally available (GA)
 
-Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 supported languages](language-support.md) is now generally available:
+Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 supported languages](language-support.md) is now generally available as a cloud service and container.
 
 * OCR support for print text expands to 164 languages including Russian, Arabic, Hindi and other languages using Cyrillic, Arabic, and Devanagari scripts.
 * OCR support for handwritten text expands to 9 languages with English, Chinese Simplified, French, German, Italian, Japanese, Korean, Portuguese, and Spanish.
 * Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices.
 * Improved processing of digital PDF documents.
 * Performance and latency improvement enhancements.
+* Available as [cloud service](overview-ocr.md#read-api) and [Docker container](computer-vision-how-to-install-containers.md).
 
 See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
 
