@@ -1,38 +1,40 @@
 ---
-title: Generate SAS tokens for containers and blobs with the Azure portal
+title: Create SAS tokens for containers and blobs with the Azure portal
 description: Learn how to generate shared access signature (SAS) tokens for containers and blobs in the Azure portal.
 ms.topic: how-to
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.date: 09/23/2021
+ms.date: 05/02/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
 # Generate SAS tokens for storage containers
 
-In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens for Azure Blob Storage containers. A user delegation SAS token is signed with Azure Active Directory (Azure AD) credentials instead of Azure Storage keys. It provides superior secure and delegated access to resources in your Azure storage account.
-
-At a high level, here's how it works: your application provides the SAS token to Azure Storage as part of a request. If the storage service verifies that the shared access signature is valid, the request is authorized. If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
-
 Azure Blob Storage offers three types of resources:
 
 * **Storage** accounts provide a unique namespace in Azure for your data.
 * **Containers** are located in storage accounts and organize sets of blobs.
-* **Blobs** are located in containers and store text and binary data.
-
-> [!NOTE]
->
-> * If your Azure storage account is protected by a virtual network or firewall, you can't grant access by using a SAS token. You'll have to use a [managed identity](managed-identity-byos.md) to grant access to your storage resource.
-> * [Managed identity](managed-identity-byos.md) supports both privately and publicly accessible Azure Blob Storage accounts.
->
+* **Blobs** are located in containers and store text and binary data such as files, text, and images.
 
 ## When to use a shared access signature
 
-* If you're using storage containers with public access, you can opt to use a SAS token to grant limited access to your storage resources.
-* When you're training a custom model, your assembled set of training documents *must* be uploaded to an Azure Blob Storage container. You can grant permission to your training resources with a user delegation SAS token.
+* **Training custom models**. Your assembled set of training documents *must* be uploaded to an Azure Blob Storage container.
+* **Using storage containers with public access**. You can opt to use a SAS token to grant limited access to your storage resources that have public read access.
+
+In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens for Azure Blob containers using the Azure Storage Explorer or the Azure portal. A user delegation SAS is secured with Azure AD credentials.
+
+At a high level, here's how SAS tokens work: your application provides the SAS token to Azure Storage as part of a request. If the storage service verifies that the shared access signature is valid, the request is authorized. If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
+
+> [!IMPORTANT]
+>
+> * If your Azure storage account is protected by a virtual network or firewall, you can't grant access by using a SAS token. You'll have to use a [managed identity](managed-identity-byos.md) to grant access to your storage resource.
+>
+> * [Managed identity](managed-identity-byos.md) supports both privately and publicly accessible Azure Blob Storage accounts.
+>
+> * Shared access signature grant permissions to storage resources, and should be protected in the same manner as an account key. Operations that use shared access signatures should be performed only over an HTTPS connection, and shared access signature URIs should only be distributed on a secure connection such as HTTPS.
 
 ## Prerequisites
 
@@ -64,20 +66,42 @@ To get started, you'll need:
 > [!NOTE]
 > By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](./build-training-data-set.md#organize-your-data-in-subfolders-optional).
 
-## Create a shared access signature with the Azure portal
+## Create SAS tokens
 
-> [!IMPORTANT]
->
-> Generate and retrieve the shared access signature for your container, not for the storage account itself.
+### [Azure Storage Explorer](#tab/explorer)
 
-1. In the [Azure portal](https://portal.azure.com/#home), select **Your storage account** > **Containers**.
-1. Select a container from the list.
-1. Go to the right of the main window, and select the three ellipses associated with your chosen container.
-1. Select **Generate SAS** from the dropdown menu to open the **Generate SAS** window.
+Azure Storage Explorer is a free standalone app that enables you to easily manage your Azure cloud storage resources from your desktop.
 
-    :::image type="content" source="media/sas-tokens/generate-sas.png" alt-text="Screenshot that shows the  Generate SAS token dropdown menu in the Azure portal.":::
+* You'll need the [**Azure Storage Explorer**](../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
-1. Select **Signing method** > **User delegation key**.
+* After the Azure Storage Explorer app is installed, [connect it the storage account](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Form Recognizer and follow the steps below:
+
+1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
+1. Expand the Storage Accounts node and select **Blob Containers**.
+1. Expand the Blob Containers node and right-click a storage **container** node to display the options menu.
+1. Select **Get Shared Access Signature...** from options menu.
+1. In the **Shared Access Signature** window, make the following selections:
+    * Select your **Access policy** (the default is none).
+    * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, a SAS can't be revoked.
+    * Select the **Time zone** for the Start and Expiry date and time (default is Local).
+    * Define your container **Permissions** by checking and/or clearing the appropriate check box.
+    * Review and select **Create**.
+
+1. A new window will appear with the **Container** name, **URI**, and **Query string** for your container.  
+1. **Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
+1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
+
+### [Azure portal](#tab/portal)
+
+The Azure portal is a web-based, unified console that enables you to manage your Azure subscription an resources using a graphical user interface (GUI).
+
+Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:  
+
+ **Your storage account** → **containers** → **your container** → **your blob**
+
+1. Select **Generate SAS** from the menu near the top of the page.
+
+1. Select **Signing method** → **User delegation key**.
 
 1. Define **Permissions** by selecting or clearing the appropriate checkbox. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected.
 
@@ -92,7 +116,7 @@ To get started, you'll need:
      > * [Azure role-based access control](../../role-based-access-control/overview.md) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
     > * [Assign an Azure role for access to blob data](../../role-based-access-control/role-assignments-portal.md?tabs=current) shows you how to assign a role that allows for read, write, and delete permissions for your Azure storage container. For example, see [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
 
-1. Specify the signed key **Start** and **Expiry** times. The value for the expiry time is a maximum of seven days from the start of the shared access signature.
+1. Specify the signed key **Start** and **Expiry** times. When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account Translator Service.The value for the expiry time is a maximum of seven days from the start of the shared access signature.
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
 
@@ -149,9 +173,19 @@ Two options are available:
 
   :::image type="content" source="media/sas-tokens/fott-add-sas-uri.png" alt-text="Screenshot that shows the SAS URI field.":::
 
-That's it. You've learned how to generate SAS tokens to authorize how clients access your data.
+That's it. You've learned how to create SAS tokens to authorize how clients access your data.
+
+> [!TIP]
+> You can also create user delegation SAS tokens using [PowerShell](/azure/storage/blobs/storage-blob-user-delegation-sas-create-powershell), [Azure CLI](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli) or [.NET](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-user-delegation-sas-create-dotnet).
 
 ## Next step
 
 > [!div class="nextstepaction"]
 > [Build a training data set](build-training-data-set.md)
+
+## See also
+
+* Create user delegation SAS tokens:
+  * [PowerShell](/azure/storage/blobs/storage-blob-user-delegation-sas-create-powershell)
+  * [Azure CLI](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli)
+  * [.NET](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-user-delegation-sas-create-dotnet).
