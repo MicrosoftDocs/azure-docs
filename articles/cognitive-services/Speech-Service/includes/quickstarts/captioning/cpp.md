@@ -29,7 +29,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```
 1. Replace the contents of `captioning.cpp` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/cpp/windows/captioning/captioning.cpp) at GitHub.
 
-Run the captions console application with the following command. Make sure that you have an input file named `caption.this.mp4` in the same directory as `captioning.exe`, or adjust the path as needed.
+Run the captions console application with the following command. Make sure that you have an input file named `caption.this.mp4` in the path.
 
 ```console
 captioning.exe --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
@@ -46,6 +46,10 @@ Input options include:
 - `--url URL`: Input audio from URL. The default input is the microphone.
 - `--format FORMAT`: Use compressed audio format. Valid only with `--file` or `--url`. Valid values are `alaw`, `any`, `flac`, `mp3`, `mulaw`, and `ogg_opus`. The default value is `any`. For compressed audio files such as MP4, install GStreamer and see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
+Language options include:
+
+- `--languages LANG1,LANG2`: Enable language identification for specified languages. For example: `en-US,ja-JP`. For more information, see [Language identification](~/articles/cognitive-services/speech-service/language-identification.md).
+
 Recognition options include:
 
 - `--recognizing`: Output `Recognizing` event results. The default output is `Recognized` event results only. These are always written to the console, never to an output file. The `--quiet` option overrides this. For more information, see [Get speech recognition results](~/articles/cognitive-services/speech-service/get-speech-recognition-results.md).
@@ -58,7 +62,7 @@ Output options include:
 
 - `--help`: Show this help and stop
 - `--output FILE`: Output captions to the specified `file`. This flag is required.
-- `--srt`: Output captions in SRT (SubRip Text) format. The default format is WebVTT (Web Video Text Tracks). For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
+- `--srt`: Output captions in SRT (SubRip Subtitle) format. The default format is WebVTT (Web Video Text Tracks). For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
 - `--quiet`: Suppress console output, except errors.
 - `--profanity OPTION`: Valid values: raw, remove, mask. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/captioning-concepts.md#profanity-filter) concepts.
 - `--threshold NUMBER`: Set stable partial result threshold. The default value with this code example is `3`. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
