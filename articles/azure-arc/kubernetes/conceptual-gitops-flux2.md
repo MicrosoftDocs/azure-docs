@@ -87,6 +87,9 @@ Each `fluxConfigurations` resource in Azure will be associated in a Kubernetes c
 > * `fluxconfig-agent` monitors for new or updated `fluxConfiguration` resources in Azure. The agent requires connectivity to Azure for the desired state of the `fluxConfiguration` to be applied to the cluster. If the agent is unable to connect to Azure, there will be a delay in making the changes in the cluster until the agent can connect. If the cluster is disconnected from Azure for more than 48 hours, then the request to the cluster will time-out, and the changes will need to be re-applied in Azure.
 > * Sensitive customer inputs like private key and token/password are stored for less than 48 hours in the Kubernetes Configuration service. If you update any of these values in Azure, assure that your clusters connect with Azure within 48 hours.
 
+## Data residency
+The Azure GitOps service (Azure Kubernetes Configuration Management) stores/processes customer data. By default, customer data is replicated to the paired region. For the regions Singapore, East Asia, and Brazil South, all customer data is stored and processed in the region.
+
 ## Next steps
 
 Advance to the next tutorial to learn how to enable GitOps on your AKS or Azure Arc-enabled Kubernetes clusters
