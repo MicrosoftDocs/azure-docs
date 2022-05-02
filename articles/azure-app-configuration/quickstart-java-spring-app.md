@@ -8,7 +8,7 @@ editor: ''
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/18/2020
+ms.date: 05/02/2022
 ms.custom: devx-track-java, mode-api
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
@@ -64,7 +64,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-        <version>2.5.0</version>
+        <version>2.6.0</version>
     </dependency>
     ```
 
@@ -194,7 +194,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](/java/azure/spring-framework/). For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917) has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to enable your Java Spring app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](/java/azure/spring-framework/). For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?, it has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to enable your Java Spring app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-java-spring-app.md)

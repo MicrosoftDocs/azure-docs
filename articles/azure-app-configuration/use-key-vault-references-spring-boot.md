@@ -11,7 +11,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 03/25/2022
+ms.date: 05/02/2022
 ms.author: mametcal
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 
@@ -260,7 +260,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Next steps
 
-In this tutorial, you created an App Configuration key that references a value stored in Key Vault. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917) has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
+In this tutorial, you created an App Configuration key that references a value stored in Key Vault. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./quickstart-feature-flag-spring-boot.md)

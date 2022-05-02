@@ -7,7 +7,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 03/25/2022
+ms.date: 05/02/2022
 ms.custom: devx-track-java
 ms.author: mametcal
 
@@ -126,7 +126,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-    <version>2.5.0</version>
+    <version>2.6.0</version>
 </dependency>
 ```
 

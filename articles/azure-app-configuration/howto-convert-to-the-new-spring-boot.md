@@ -7,7 +7,7 @@ ms.devlang: java
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 05/02/2022
 ---
 
 # Convert to new App Configuration Spring Boot library
@@ -29,12 +29,12 @@ All of the Azure Spring Boot libraries have had their Group and Artifact IDs upd
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-    <version>2.5.0</version>
+    <version>2.6.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-    <version>2.5.0</version>
+    <version>2.6.0</version>
 </dependency>
 ```
 

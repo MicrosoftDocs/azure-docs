@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/25/2022
+ms.date: 05/02/2022
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -59,7 +59,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-        <version>2.5.0</version>
+        <version>2.6.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
@@ -85,11 +85,19 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
-1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the connection string to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```cmd
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    To build and run the app locally using the Windows command prompt, run the following command:
+
+    ```console
     setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command:
 
@@ -97,11 +105,27 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
-    If you use macOS or Linux, run the following command:
+    ### [macOS](#tab/unix)
 
-    ```cmd
+    If you use macOS, run the following command:
+
+    ```console
     export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command:
+
+    ```console
+    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    ```
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ---
 
 1. Create a new Java file named *HelloController.java* in the package directory of your app.
 
@@ -253,7 +277,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot web app via the [Feature Management libraries](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot web app via the [Feature Management libraries](https://azure.github.io/azure-sdk-for-java/springboot.html).
 
 * Library [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917)
 * Learn more about [feature management](./concept-feature-management.md).
