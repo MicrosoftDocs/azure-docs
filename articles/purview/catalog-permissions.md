@@ -1,6 +1,6 @@
 ---
 title: Understand access and permissions
-description: This article gives an overview permission, access control, and collections in Microsoft Purview. Role-based access control (RBAC) is managed within Microsoft Purview itself, so this guide will cover the basics to secure your information.
+description: This article gives an overview permission, access control, and collections in Microsoft Purview. Role-based access control is managed within Microsoft Purview itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -104,9 +104,23 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 
 ### Add users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they'll be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab, they'll be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
+
+## Administrator change
+
+There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the Microsoft Purview account is automatically assigned collection admin to the root collection. To update the root collection admin, there are three options:
+
+- You can [assign permissions through the portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
+
+- You can use the REST API to add a collection administrator. Instructions to use the REST API to add a collection admin can be found in our [REST API for collections documentation.](tutorial-metadata-policy-collections-apis.md#add-the-root-collection-administrator-role) For additional information, you can see our [REST API reference](/rest/api/purview/accounts/add-root-collection-admin).
+
+- You can also use [the below Azure CLI command](/cli/azure/purview/account#az-purview-account-add-root-collection-admin). The object-id is optional. For more information and an example, see the [CLI command reference page](/cli/azure/purview/account#az-purview-account-add-root-collection-admin).
+
+    ```azurecli
+    az purview account add-root-collection-admin --account-name [Microsoft Purview Account Name] --resource-group [Resource Group Name] --object-id [User Object Id]
+    ```
 
 ## Next steps
 

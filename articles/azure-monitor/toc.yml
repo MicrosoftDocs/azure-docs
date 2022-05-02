@@ -54,7 +54,7 @@ items:
       href: logs/tutorial-custom-logs.md
     - name: Resource manager templates
       displayName: Custom logs
-      href: logs/tutorial-custom-logs.md
+      href: logs/tutorial-custom-logs-api.md
   - name: Ingestion-time transformations
     items:
     - name: Azure portal
@@ -1562,6 +1562,8 @@ items:
         href: app/data-model-event-telemetry.md
       - name: Metric
         href: app/data-model-metric-telemetry.md
+      - name: PageView
+        href: app/data-model-pageview-telemetry.md
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions

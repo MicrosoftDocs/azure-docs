@@ -339,6 +339,8 @@
     href: troubleshoot-connection-quality.md
 - name: Reference
   items:
+  - name: Desktop virtualization - Microsoft Cloud Adoption Framework for Azure
+    href: /azure/cloud-adoption-framework/scenarios/wvd
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: PowerShell
