@@ -238,7 +238,7 @@
       href: load-balancer-troubleshoot-health-probe-status.md  
     - name: Backend pool (VM) traffic
       href: load-balancer-troubleshoot-backend-traffic.md         
-    - name: Common outbound connection issues
+    - name: Troubleshoot SNAT exhaustion and connection timeouts
       href: troubleshoot-outbound-connection.md
     - name: Resource health and inbound availability issues
       href: troubleshoot-rhc.md
