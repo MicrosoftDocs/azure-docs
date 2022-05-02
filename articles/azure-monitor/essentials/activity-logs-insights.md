@@ -16,7 +16,7 @@ Activity logs insights let you view information about changes to resources and r
 ## Enable Activity log insights
 The only requirement to enable Activity log insights is to [configure the Activity log to export to a Log Analytics workspace](activity-log.md#send-to-log-analytics-workspace). Pre-built [workbooks](../visualize/workbooks-overview.md) curate this data, which is stored in the [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) table in the workspace. 
 
-:::image type="content" source="media/activity-log/activity-logs-insights-main.png" lightbox="media/activity-log/activity-logs-insights-main.png" alt-text="A screenshot showing Azure Activity logs insights dashboards":::
+:::image type="content" source="media/activity-log/activity-logs-insights-main-screen.png" lightbox="media/activity-log/activity-logs-insights-main-screen.png" alt-text="A screenshot showing Azure Activity logs insights dashboards.":::
 
 ## View Activity logs insights - Resource group / Subscription level
 
