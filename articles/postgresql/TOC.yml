@@ -684,6 +684,20 @@
       href: hyperscale/concepts-columnar.md
   - name: How-to guides
     items:
+    - name: Build scalable apps
+      items:
+      - name: Overview
+        href: hyperscale/howto-build-scalable-apps-overview.md
+      - name: Fundamental concepts
+        href: hyperscale/howto-build-scalable-apps-concepts.md
+      - name: Classify workload
+        href: hyperscale/howto-build-scalable-apps-classify.md
+      - name: Model multi-tenant apps
+        href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
+      - name: Model real-time apps
+        href: hyperscale/howto-build-scalable-apps-model-real-time.md
+      - name: Model high-throughput apps
+        href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
     - name: Server group size
       items:
       - name: Pick initial size
