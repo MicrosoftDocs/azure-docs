@@ -16,18 +16,24 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy an AKS Cluster
+    - name: Deploy a Linux-based AKS Cluster
       expanded: true
       items:
         - name: Use the Azure CLI
-          href: kubernetes-walkthrough.md
+          href: learn/quick-kubernetes-deploy-cli.md
         - name: Use Azure PowerShell
-          href: kubernetes-walkthrough-powershell.md
+          href: learn/quick-kubernetes-deploy-powershell.md
         - name: Use the Azure portal
-          href: kubernetes-walkthrough-portal.md
+          href: learn/quick-kubernetes-deploy-portal.md
         - name: Use ARM template
           displayName: Resource Manager
-          href: kubernetes-walkthrough-rm-template.md
+          href: learn/quick-kubernetes-deploy-rm-template.md
+    - name: Deploy a Windows-based AKS Cluster
+      items:
+        - name: Use the Azure CLI
+          href: learn/quick-windows-container-deploy-cli.md
+        - name: Use Azure PowerShell
+          href: learn/quick-windows-container-deploy-powershell.md
     - name: Develop applications
       expanded: true
       items:
@@ -66,8 +72,6 @@
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
-        - name: Security Hardening in host OS
-          href: security-hardened-vm-host-image.md
         - name: Compliance
           items:
             - name: CIS Baseline overview
@@ -75,6 +79,8 @@
               maintainContext: True
             - name: CIS Kubernetes benchmark
               href: cis-kubernetes.md
+            - name: CIS Ubuntu benchmark
+              href: cis-ubuntu.md
     - name: Access and identity
       href: concepts-identity.md
     - name: Networking
@@ -169,7 +175,7 @@
           href: start-stop-cluster.md
         - name: Use planned maintenance (preview)
           href: planned-maintenance.md
-        - name: Cloud Controller Manager (preview)
+        - name: Cloud Controller Manager
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
@@ -256,6 +262,8 @@
               href: control-kubeconfig-access.md
             - name: Define API server authorized IP ranges
               href: api-server-authorized-ip-ranges.md
+            - name: Use KMS etcd encryption
+              href: use-kms-etcd-encryption.md
             - name: Update cluster credentials
               href: update-credentials.md
             - name: Enable Azure Active Directory integration
@@ -395,12 +403,10 @@
           maintainContext: true
     - name: Use Windows Server containers
       items:
-        - name: Create an AKS cluster
-          href: windows-container-cli.md
-        - name: Create an AKS cluster with PowerShell
-          href: windows-container-powershell.md
         - name: Connect remotely
           href: rdp.md
+        - name: Use HostProcess containers
+          href: use-windows-hpc.md
         - name: Windows Server containers FAQ
           href: windows-faq.md
         - name: Create Dockerfiles for Windows Server containers

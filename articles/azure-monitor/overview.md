@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 04/18/2022
+ms.date: 04/27/2022
 
 ---
 
@@ -22,16 +22,16 @@ Just a few examples of what you can do with Azure Monitor include:
 - Collect data from [monitored resources](./monitor-reference.md) using [Azure Monitor Metrics](./essentials/data-platform-metrics.md).
 - Investigate change data for routine monitoring or for triaging incidents using [Change Analysis](./change/change-analysis.md).
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
-
-
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Overview
 
 The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](agents/data-sources.md) that populate these [data stores](data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and streaming to external systems.
 
-![Azure Monitor overview](media/overview/overview.png)
+:::image type="content" source="media/overview/azure-monitor-overview-optm.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-optm.svg":::
+
+The video below uses an earlier version of the diagram above, but its explanations are still relevant. 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 
 ## Monitoring data platform
 

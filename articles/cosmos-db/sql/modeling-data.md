@@ -279,7 +279,7 @@ Publisher document:
 Book documents:
 {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
 {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
-{"id": "3","name": "Taking over the world one JSON doc at a time"}
+{"id": "3","name": "Taking over the world one JSON doc at a time", "pub-id": "mspress"}
 ...
 {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
 ...

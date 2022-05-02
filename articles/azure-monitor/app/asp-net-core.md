@@ -387,6 +387,9 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+> [!NOTE]
+> See [Flushing data](api-custom-events-metrics.md#flushing-data) if you want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
+
 ### Disable telemetry dynamically
 
 If you want to disable telemetry conditionally and dynamically, you can resolve the `TelemetryConfiguration` instance with an ASP.NET Core dependency injection container anywhere in your code and set the `DisableTelemetry` flag on it.
@@ -476,10 +479,6 @@ It's important to note that the following example doesn't cause the ApplicationI
 ```
 
 For more information, see [ILogger configuration](ilogger.md#logging-level).
-
-### How can I get all custom ILogger error messages?
-
-Disable adaptive sampling. Examples of how to do this are provided in [Configure the Application Insights SDK](#configure-the-application-insights-sdk) section of this article.
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 

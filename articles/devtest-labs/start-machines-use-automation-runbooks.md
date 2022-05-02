@@ -18,7 +18,7 @@ The DevTest Labs [autostart](devtest-lab-set-lab-policy.md#set-autostart) featur
 
 - [Create and apply a tag](devtest-lab-add-tag.md) called **StartupOrder** to all lab VMs with an appropriate startup value, 0 through 10. Designate any machines that don't need starting as -1.
 
-- Create an Azure Automation account by following instructions in [Create a standalone Azure Automation account](/azure/automation/automation-create-standalone-account). Choose the **Run As Accounts** option when you create the account.
+- Create an Azure Automation account by following instructions in [Create a standalone Azure Automation account](../automation/automation-create-standalone-account.md). Choose the **Run As Accounts** option when you create the account.
 
 ## Create the PowerShell runbook
 

@@ -3,8 +3,8 @@ title: Limits and boundaries - question answering
 description: Question answering has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
 ms.date: 11/02/2021
 ---

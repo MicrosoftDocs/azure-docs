@@ -3,11 +3,12 @@ title: 'Quickstart: connect to a server group with psql - Hyperscale (Citus) - A
 description: Quickstart to connect psql to Azure Database for PostgreSQL - Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
+recommendations: false
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/09/2022
+ms.date: 04/20/2022
 ---
 
 # Connect to a Hyperscale (Citus) server group with psql
@@ -83,4 +84,4 @@ Now that you've connected to the server group, the next step is to create
 tables and shard them for horizontal scaling.
 
 > [!div class="nextstepaction"]
-> [Create and distribute tables](quickstart-distribute-tables.md)
+> [Create and distribute tables >](quickstart-distribute-tables.md)

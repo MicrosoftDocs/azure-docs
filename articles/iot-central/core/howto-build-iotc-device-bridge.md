@@ -43,7 +43,7 @@ If your IoT Central application recognizes the device ID in the forwarded messag
 
 To deploy the device bridge to your subscription:
 
-1. In your IoT Central application, navigate to the **Administration > Device Connection** page.
+1. In your IoT Central application, navigate to the **Permissions > Device connection groups** page.
 
     1. Make a note of the **ID Scope**. You use this value when you deploy the device bridge.
 
