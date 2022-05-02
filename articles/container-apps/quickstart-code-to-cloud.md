@@ -92,7 +92,6 @@ $API_PORT="<TARGET_PORT>"
 
 Before you run this command, replace `<TARGET_PORT>` with `3000` for node apps, or `80` for all other apps.
 
-
 ## Prepare the GitHub repository
 
 Navigate to the repository for your preferred language and fork the repository.
@@ -230,13 +229,16 @@ To verify that your image is now available in ACR, run the command below.
 # [Bash](#tab/bash)
 
 ```azurecli
-az acr manifest list-metadata --registry $ACR_NAME --name $API_NAME
+az acr manifest list-metadata \
+  --registry $ACR_NAME \
+  --name $API_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Get-AzContainerRegistryManifest -RegistryName $ACR_NAME `
+Get-AzContainerRegistryManifest `
+  -RegistryName $ACR_NAME `
   -Repository $API_NAME
 ```
 
@@ -380,6 +382,10 @@ az containerapp create `
   --image $API_NAME `
   --target-port $API_PORT `
   --ingress 'external' `
+  --registry-password $ACR_PASSWORD `
+  --registry-username $ACR_NAME `
+  --registry-server $ACR_NAME.azurecr.io `
+  --query configuration.ingress.fqdn
   --query configuration.ingress.fqdn
 ```
 

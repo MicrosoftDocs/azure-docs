@@ -17,7 +17,7 @@ https://gist.github.com/kendallroden/391a0fb9a67c943902f8c2b49418f152
 
 # Tutorial: Communication between microservices in Azure Container Apps Preview
 
-This tutorial builds on the app in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md) article and adds a front end microservice to the container app. In this article, you learn how to enable communication between different microservices.
+This tutorial builds on the app deployed in the [Deploy your code to Azure Container Apps](./quickstart-code-to-cloud.md) article and adds a front end microservice to the container app. In this article, you learn how to enable communication between different microservices.
 
 In this tutorial, you learn to:
 
@@ -34,58 +34,39 @@ This article directly follows the final steps from [Deploy your code to Azure Co
 
 ## Setup
 
-If you still have all the variables defined in your shell from the previous quickstart, you can skip the below steps and continue with the [Prepare the GitHub repository](#prepare-the-github-repository) section.
+If you still have all the variables defined in your shell from the quickstart, you can skip the below steps and continue with the [Prepare the GitHub repository](#prepare-the-github-repository) section.
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 
-## Prepare the GitHub repository
-
-Navigate to the [repository for the UI application](https://github.com/azure-samples/containerapps-albumui) and fork the repository.
-
-Select the **Fork** button at the top of the page to fork the repo to your account.
-
-Use the following git command to clone your forked repo into the *code-to-cloud-ui* folder:
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumui.git code-to-cloud-ui
-```
-
-> [!NOTE]
-> If the `clone` command fails, then you probably forgot to first fork the repository.
-
-Next, change the directory into the root of the cloned repo.
-
-```console
-cd code-to-cloud-ui
-```
-
----
-
-### Build the frontend application
-
 # [Bash](#tab/bash)
 
-```bash
-FRONTEND_NAME=albumsapp-ui
-ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
-ACR_ADMIN_USERNAME=$ACR_NAME
-CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
+```azurecli
+az acr login --name $ACR_NAME
+```
+
+Now store your ACR password in an environment variable.
+
+```azurecli
+ACR_PASSWORD=$(az acr credential show -n $ACR_NAME --query passwords[0].value)
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$FRONTEND_NAME=albumsapp-ui
-$$ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
-$ACR_ADMIN_USERNAME=$ACR_NAME
-$CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
+az acr login --name $ACR_NAME
+```
+
+Now store your ACR password in an environment variable.
+
+```powershell
+$ACR_PASSWORD=(Get-AzContainerRegistryCredential `
+ -ResourceGroupName $RESOURCE_GROUP `
+ -Name $ACR_NAME | Select -Property Password).Password
 ```
 
 ---
 
-### Prepare Azure CLI
-
-If you're not still signed in to Azure, sign in again.
+Sign in to the Azure CLI.
 
 # [Bash](#tab/bash)
 
@@ -101,22 +82,52 @@ Connect-AzAccount
 
 ---
 
-az containerapp env update
+## Prepare the GitHub repository
+
+1. Navigate to the [repository for the UI application](https://github.com/azure-samples/containerapps-albumui) and fork the repository.
+
+    Select the **Fork** button at the top of the page to fork the repo to your account.
+
+1. Use the following git command to clone your forked repo into the *code-to-cloud-ui* folder:
+
+    ```git
+    git clone https://github.com/$GITHUB_USERNAME/containerapps-albumui.git code-to-cloud-ui
+    ```
+
+    > [!NOTE]
+    > If the `clone` command fails, then you probably forgot to first fork the repository.
+
+1. Next, change the directory into the root of the cloned repo.
+
+    ```console
+    cd code-to-cloud-ui
+    ```
+
+---
+
+### Build the frontend application
+
+Create the following variables to help you deploy your new container app.
 
 # [Bash](#tab/bash)
 
-```azurecli
-API_FQDN=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+```bash
+FRONTEND_NAME=albumsapp-ui
+ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
+ACR_ADMIN_USERNAME=$ACR_NAME
+CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$API_FQDN=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+$FRONTEND_NAME=albumsapp-ui
+$ACR_LOGIN_SERVER=$ACR_NAME.azurecr.io
+$ACR_ADMIN_USERNAME=$ACR_NAME
+$CONTAINER_IMAGE_NAME=$ACR_LOGIN_SERVER/$FRONTEND_NAME
 ```
 
 ---
-
 
 ## Build your application
 
@@ -138,13 +149,165 @@ az acr build --registry $ACR_NAME --image $CONTAINER_IMAGE_NAME
 
 ---
 
+Output from the `az acr build` command shows the upload progress of the source code to Azure and the details of the `docker build` operation.
+
+To verify that your image is now available in ACR, run the command below.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az acr manifest list-metadata \
+  --registry $ACR_NAME \
+  --name $CONTAINER_IMAGE_NAME
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Get-AzContainerRegistryManifest `
+  -RegistryName $ACR_NAME `
+  -Repository $CONTAINER_IMAGE_NAME
+```
+
 ::: zone-end
 
 ::: zone pivot="docker-local"
 
-### Build your application locally
+## Build your application
+
+In the below steps, you build your container image locally using Docker. Once the image is built successfully, you push the image to your newly created container registry.
+
+### Build the container with Docker
+
+The following command builds the image using the Dockerfile for the UI application. The `.` represents the current build context, so run this command at the root of the repository where the Dockerfile is located.
+
+# [Bash](#tab/bash)
+
+```azurecli
+docker build -t $ACR_NAME.azurecr.io/$FRONTEND_NAME .
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+docker build -t $ACR_NAME.azurecr.io/$FRONTEND_NAME .
+```
+
+---
+
+If your image was successfully built, it's listed in the output of the following command:
+
+# [Bash](#tab/bash)
+
+```azurecli
+docker images
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+docker images
+```
+
+---
+
+### Push the Docker image to your ACR registry
+
+First, sign in to your Azure Container Registry.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az acr login --name $ACR_NAME
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az acr login --name $ACR_NAME
+```
+
+---
+
+Now, push the image to your registry.
+
+# [Bash](#tab/bash)
+
+```azurecli
+docker push $ACR_NAME.azurecr.io/$FRONTEND_NAME
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+docker push $ACR_NAME.azurecr.io/$FRONTEND_NAME
+```
+
+---
 
 ::: zone-end
+
+# [Bash](#tab/bash)
+
+## Link container apps
+
+\* **TODO: Update variable with URL to API on UI repo**
+
+Query for the API endpoint address.
+
+```azurecli
+API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$API_ENDPOINT=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query configuration.ingress.fqdn -o tsv)
+```
+
+---
+
+## Deploy your image to a container app
+
+Now that you have an environment created, you can create and deploy your container app with the `az containerapp create` command.
+
+By setting `--ingress` to `external`, your container app will be accessible from the public internet.
+
+Create and deploy your container app with the following command.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az containerapp create \
+  --name $FRONTEND_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --environment $ENVIRONMENT \
+  --image $CONTAINER_IMAGE_NAME \
+  --ingress 'external' \
+  --registry-password $ACR_PASSWORD \
+  --registry-username $ACR_NAME \
+  --registry-server $ACR_NAME.azurecr.io \
+  --query configuration.ingress.fqdn
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp create `
+  --name $FRONTEND_NAME `
+  --resource-group $RESOURCE_GROUP `
+  --environment $ENVIRONMENT `
+  --image $API_NAME `
+  --target-port $API_PORT `
+  --ingress 'external' `
+  --registry-password $ACR_PASSWORD `
+  --registry-username $ACR_NAME `
+  --registry-server $ACR_NAME.azurecr.io `
+  --query configuration.ingress.fqdn
+  --query configuration.ingress.fqdn
+```
+
+---
 
 ## Verify deployment
 

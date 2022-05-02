@@ -8,6 +8,8 @@ ms.author: cshoe
 
 # [Bash](#tab/bash)
 
+Define the following variables in your bash shell.
+
 ```azurecli
 RESOURCE_GROUP="album-containerapps"
 LOCATION="canadacentral"
@@ -18,13 +20,15 @@ GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
 
-Now create a unique container registry name.
+Next, define a container registry name unique to you.
 
 ```azurecli
-ACR_NAME=$GITHUB_USERNAME"acaalbums"
+ACR_NAME="acaalbums-"$GITHUB_USERNAME
 ```
 
 # [PowerShell](#tab/powershell)
+
+Define the following variables in your PowerShell console.
 
 ```powershell
 $RESOURCE_GROUP="album-containerapps"
@@ -36,10 +40,10 @@ $GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
 
 Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
 
-Now create a unique container registry name.
+Next, define a container registry name unique to you.
 
 ```powershell
-$ACR_NAME="acaalbums"+$GITHUB_USERNAME
+$ACR_NAME="acaalbums-"+$GITHUB_USERNAME
 ```
 
 ---
