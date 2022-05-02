@@ -121,6 +121,8 @@ The linked Data Box documentation specifies a Robocopy command. That command isn
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
+> [!TIP]
+> As an alternative to Robocopy, Data Box has created a data copy service. You can use this service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and make sure to set the correct Azure file share target.
 
 ## Phase 6: Deploy the Azure File Sync cloud resource
 
