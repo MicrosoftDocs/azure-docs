@@ -8,8 +8,6 @@ ms.date: 11/09/2021
 ---
 # Improve your network security posture with adaptive network hardening
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Adaptive network hardening is an agentless feature of Microsoft Defender for Cloud - nothing needs to be installed on your machines to benefit from this network hardening tool.
 
 This page explains how to configure and manage adaptive network hardening in Defender for Cloud.
