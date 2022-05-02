@@ -20,14 +20,15 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### OCR (Read) API model is generally available (GA)
 
-omputer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages](language-support.md) to 164 with its latest preview:
+Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 supported languages](language-support.md) is now generally available:
 
-* OCR support for print text expands to 42 new languages including Arabic, Hindi and other languages using Arabic and Devanagari scripts.
-* OCR support for handwritten text expands to Japanese and Korean in addition to English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
-* Enhancements including better support for extracting handwritten dates, amounts, names, and single character boxes.
-* General performance and AI quality improvements
+* OCR support for print text expands to 164 languages including Russian, Arabic, Hindi and other languages using Cyrillic, Arabic, and Devanagari scripts.
+* OCR support for handwritten text expands to 9 languages with English, Chinese Simplified, French, German, Italian, Japanese, Korean, Portuguese, and Spanish.
+* Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices.
+* Improved processing of digital PDF documents.
+* Performance and latency improvement enhancements.
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
+See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
