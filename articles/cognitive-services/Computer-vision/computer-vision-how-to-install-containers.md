@@ -134,7 +134,7 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read OCR lateat GA container from the container image.
+* Runs the Read OCR latest GA container from the container image.
 * Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
