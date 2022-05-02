@@ -46,7 +46,7 @@ These are emerging practices, and we are continually learning. The recommendatio
 
 ## General best practices
 
-We recommend the following best practices for collecting human data directly from people
+We recommend the following best practices for collecting human data directly from people.
 
 | **Recommendation**                                                   | **Why?**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -69,50 +69,56 @@ This article focuses on recommendations for human data, such as biometric data a
 
 In order for ML models and products to work well for everyone, the datasets used for training and evaluation should reflect the diversity of people who will use or be affected by those ML models. In many cases, age, ancestry, and gender identity can help approximate the range of factors that might affect how well a product performs for a variety of people; therefore, collecting this information requires special consideration.
 
-First, only collect this data if it will contribute to fairer and more diverse ML-based products that perform well for all users. If you do collect this data, always let data contributors self-identify (i.e., choose their own responses) instead of having data collectors make assumptions, which might be incorrect. Also include a &#8220 prefer not to answer &#8221 option for each question. These practices will show respect for the data contributors and yield more balanced and higher-quality data.
+First, only collect this data if it will contribute to fairer and more diverse ML-based products that perform well for all users. If you do collect this data, always let data contributors self-identify (i.e., choose their own responses) instead of having data collectors make assumptions, which might be incorrect. Also include a "prefer not to answer" option for each question. These practices will show respect for the data contributors and yield more balanced and higher-quality data.
  
-These best practices have been developed based on three years of research with intended stakeholders and collaboration with many teams at Microsoft: [fairness and inclusiveness working groups] (https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1:primaryr5), [Global Diversity & Inclusion] (https://www.microsoft.com/en-us/diversity/default.aspx), [Global Readiness] (https://www.microsoft.com/security/blog/2014/09/29/microsoft-global-readiness-diverse-cultures-multiple-languages-one-world/), [Office of Responsible AI] (https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6), and others.   
+These best practices have been developed based on three years of research with intended stakeholders and collaboration with many teams at Microsoft: [fairness and inclusiveness working groups](https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1:primaryr5), [Global Diversity & Inclusion](https://www.microsoft.com/en-us/diversity/default.aspx), [Global Readiness](https://www.microsoft.com/security/blog/2014/09/29/microsoft-global-readiness-diverse-cultures-multiple-languages-one-world/), [Office of Responsible AI](https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6), and others.   
 
 To enable people to self-identify, consider using the following survey questions. 
 
 ### Age
 
-| **How old are you?**
+**How old are you?**
 
 *Select your age range*
-<ul><li>- [ ] [*Include appropriate age ranges as defined by project purpose, geographical region, and guidance from domain experts*]</li>
-<li>- [ ] # to # </li>
-<li>- [ ] # to # </li>
-<li>- [ ] # to # </li>
-<li>- Prefer not to answer </li></ul>|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+[*Include appropriate age ranges as defined by project purpose, geographical region, and guidance from domain experts*]
+
+<ul><li># to # </li>
+<li># to # </li>
+<li># to # </li>
+<li>Prefer not to answer </li></ul>
+
 
 ### Ancestry
 
-| **Please select the categories that best describe your ancestry**
+**Please select the categories that best describe your ancestry**
 
 *May select multiple*
-<ul><li>- [ ] [*Include appropriate categories as defined by project purpose, geographical region, and guidance from domain experts*]</li>
-<li>- [ ] ancestry group </li>
-<li>- [ ] ancestry group </li>
-<li>- [ ] ancestry group </li>
-<li>- [ ] Multiple (multiracial, mixed ancestry) </li>
-<li>- [ ] Not listed, I describe myself as: _________________ </li>
-<li>- Prefer not to answer </li></ul>|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+[*Include appropriate categories as defined by project purpose, geographical region, and guidance from domain experts*]
+
+<ul><li>ancestry group </li>
+<li>ancestry group </li>
+<li>ancestry group </li>
+<li>Multiple (multiracial, mixed ancestry) </li>
+<li>Not listed, I describe myself as: _________________ </li>
+<li>Prefer not to answer </li></ul>
+
 
 ### Gender identity
 
-| **How do you identify?**
+**How do you identify?**
 
 *May select multiple*
-<ul><li>- [ ] [*Include appropriate gender identities as defined by project purpose, geographical region, and guidance from domain experts*]</li>
-<li>- [ ] gender identity </li>
-<li>- [ ] gender identity </li>
-<li>- [ ] gender identity </li>
-<li>- [ ] Prefer to self-describe: _________________ </li>
-<li>- Prefer not to answer </li></ul>|
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+[*Include appropriate gender identities as defined by project purpose, geographical region, and guidance from domain experts*]
+
+<ul><li>gender identity </li>
+<li>gender identity </li>
+<li>gender identity </li>
+<li>Prefer to self-describe: _________________ </li>
+<li>Prefer not to answer </li></ul>
+
 
 [!CAUTION]
 In some parts of the world, there are laws that criminalize specific gender categories, so it may be dangerous for data contributors to answer this question honestly. Always give people a way to opt out. And work with regional experts and attorneys to conduct a careful review of the laws and cultural norms of each place where you plan to collect data, and if needed, avoid asking this question entirely. 
