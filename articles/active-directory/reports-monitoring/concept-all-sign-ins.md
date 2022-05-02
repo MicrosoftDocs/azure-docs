@@ -205,14 +205,6 @@ To make it easier to digest the data, non-interactive sign-in events are grouped
 - Resource ID
 
 
-You can:
-
-- Expand a node to see the individual items of a group.  
-
-- Click an individual item to see all details 
-
-
-![Non-interactive user sign-in details](./media/concept-all-sign-ins/non-interactive-sign-ins-details.png)
 
 
 
@@ -265,14 +257,6 @@ To make it easier to digest the data in the service principal sign-in logs, serv
 
 - Resource name or ID
 
-You can:
-
-- Expand a node to see the individual items of a group.  
-
-- Click an individual item so see all details 
-
-
-![Column details](./media/concept-all-sign-ins/service-principals-sign-ins-view.png "Column details")
 
 
 
@@ -385,50 +369,6 @@ To access the new sign-in logs with non-interactive and application sign-ins:
 
 
 
-
-## Download sign-in activity logs
-
-When you download a sign-in activity report, the following is true:
-
-- You can download the sign-in report as CSV or JSON file.
-
-- You can download up to 100-K records. If you want to download more data, use the reporting API.
-
-- Your download is based on the filter selection you made.
-
-- The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md). 
-
-
-![Download logs](./media/concept-all-sign-ins/download-reports.png "Download logs")
-
-
-Each CSV download consists of six different files:
-
-- Interactive sign-ins
-
-- Auth details of the interactive sign-ins
-
-- Non-interactive sign-ins
-
-- Auth details of the non-interactive sign-ins
-
-- Service principal sign-ins
-
-- Managed identity for Azure resources sign-ins
-
-Each JSON download consists of four different files:
-
-- Interactive sign-ins (includes auth details)
-
-- Non-interactive sign-ins (includes auth details)
-
-- Service principal sign-ins
-
-- Managed identity for Azure resources sign-ins
-
-![Download files](./media/concept-all-sign-ins/download-files.png "Download files")
-
-
 ## Return log data with Microsoft Graph
 
 In addition to using the Azure portal, you can query sign-in logs using the Microsoft Graph API to return different types of sign-in information. To avoid potential performance issues, scope your query to just the data you care about. 
@@ -455,6 +395,6 @@ The following values are available for filtering by different sign-in types:
 
 - [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md)
 
-- [Azure AD data retention policies](reference-reports-data-retention.md)
+- [How to download logs in Azure Active Directory](howto-download-logs.md)
 
 - [Azure AD report latencies](reference-reports-latencies.md)
