@@ -125,8 +125,16 @@ In some parts of the world, there are laws that criminalize specific gender cate
 <!-- Add a context sentence for the following links -->
 For more information on how to work with your data: 
 
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
+- [Secure data access in Azure Machine Learning](concept-data.md)
+- [Data ingestion options for Azure Machine Learning workflows](concept-data-ingestion.md)
+- [Optimize data processing with Azure Machine Learning](concept-optimize-data-processing.md)
+- [Use differential privacy in Azure Machine Learning](how-to-differential-privacy.md)
+
+Follow these how-to guides to work with your data after you've collected it:
+
+- [Set up image labeling](how-to-create-image-labeling-projects.md)
+- [Label images and text](how-to-label-data.md)
+
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
