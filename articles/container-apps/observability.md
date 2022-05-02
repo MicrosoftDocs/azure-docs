@@ -194,7 +194,7 @@ For more information about using Azure CLI to view container app logs, see [View
 
 ## Azure Monitor alerts
 
-Azure Monitor alerts notify you so that you can respond quickly to critical issues.  There are two types of alerts that you can define in Container Apps:
+Azure Monitor alerts notify you so that you can respond quickly to critical issues.  There are two types of alerts that you can define:
 
 - [metric alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metric data
 - [log alerts](../azure-monitor/alerts/alerts-unified-log.md) based on log data
