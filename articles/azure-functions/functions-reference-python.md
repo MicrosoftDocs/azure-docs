@@ -579,7 +579,7 @@ az functionapp config set --name <FUNCTION_APP> \
 --linux-fx-version <LINUX_FX_VERSION>
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the Python version you want to use, prefixed by `python|` for example, `python|3.9`
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the Python version you want to use, prefixed by `python|` for example, `python|3.9`.
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 
@@ -790,7 +790,7 @@ We recommend that you maintain your tests in a folder separate from the project 
 
 ## Preinstalled libraries
 
-There are a few libraries come with the Python Functions runtime.
+There are a few libraries cthat come with the Python Functions runtime.
 
 ### Python Standard Library
 
@@ -856,7 +856,7 @@ You can use a Python worker extension library in your Python functions by follow
 1. Add the extension package in the requirements.txt file for your project.
 1. Install the library into your app.
 1. Add the application setting `PYTHON_ENABLE_WORKER_EXTENSIONS`:
-    + Locally: add `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` in the `Values` section of your [local.settings.json file](functions-develop-local.md#local-settings-file)
+    + Locally: add `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` in the `Values` section of your [local.settings.json file](functions-develop-local.md#local-settings-file).
     + Azure: add `PYTHON_ENABLE_WORKER_EXTENSIONS=1` to your [app settings](functions-how-to-use-azure-function-app-settings.md#settings).
 1. Import the extension module into your function trigger. 
 1. Configure the extension instance, if needed. Configuration requirements should be called-out in the extension's documentation. 
