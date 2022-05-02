@@ -51,7 +51,11 @@
   - name: Email when VM changes
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
   - name: Resize uploaded images
-    href: resize-images-on-storage-blob-upload-event.md
+    items:
+    - name: Upload image data in the cloud with Azure Storage
+      href: storage-upload-process-images.md
+    - name: Automate resizing uploaded images using Event Grid
+      href: resize-images-on-storage-blob-upload-event.md
   - name: Trigger Automation runbook
     href: ensure-tags-exists-on-new-virtual-machines.md
   - name: Email when IoT Hub device disconnects
@@ -161,14 +165,14 @@
         href: event-schema-subscriptions.md
   - name: Partner Events
     items:
-    - name: Overview of Partner Events
+    - name: Partner Events overview (customers)
       href: partner-events-overview.md
+    - name: Partner Events overview (partners)
+      href: partner-events-overview-for-partners.md     
     - name: Event sources (publishers)
       items:
       - name: Auth0
         href: auth0-overview.md
-    - name: Partner onboarding overview 
-      href: partner-onboarding-overview.md
   - name: Event Domains
     href: event-domains.md
   - name: Event schema formats
@@ -254,8 +258,12 @@
     items:
     - name: Onboard as a partner
       href: onboard-partner.md
+    - name: Subscribe to partner events
+      href: subscribe-to-partner-events.md
     - name: Subscribe to Auth0 events
       href: auth0-how-to.md
+    - name: Deliver events to partner destinations
+      href: deliver-events-to-partner-destinations.md
   - name: Get access keys for topics or domains
     href: get-access-keys.md
   - name: Publish events custom topics using access keys

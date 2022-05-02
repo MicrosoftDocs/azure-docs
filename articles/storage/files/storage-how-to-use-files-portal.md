@@ -1,15 +1,15 @@
 ---
 title: Quickstart for creating and using Azure file shares
-description: See how to create and use Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell module. Create a storage account, create an Azure file share, and use your Azure file share.
+description: Learn how to create and use Azure file shares with the Azure portal, Azure CLI, or Azure PowerShell. Create a storage account, create an SMB Azure file share, and use your Azure file share.
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 09/17/2021
+ms.date: 04/05/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: mode-ui, devx-track-azurecli 
 ms.devlang: azurecli
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As an IT admin new to Azure Files, I want to try out Azure Files so I can determine whether I want to subscribe to the service.
 ---
 
 # Quickstart: Create and use an Azure file share
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you would like to install and use PowerShell locally, this guide requires the Azure PowerShell module Az version 0.7 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account.
+If you'd like to install and use PowerShell locally, this guide requires the Azure PowerShell module Az version 7.0.0 or later. To find out which version of the Azure PowerShell module you're running, execute `Get-InstalledModule Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID, such as `Login-AzAccount -TenantId <TenantId>`.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -56,7 +56,7 @@ If you would like to install and use PowerShell locally, this guide requires the
 
 
 ### PowerShell - Create a resource group
-A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. You need a resource group to create a storage account.
+A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, create a new one with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. You need a resource group to create a storage account.
 
 The following example creates a resource group named *myResourceGroup* in the West US 2 region:
 
@@ -73,7 +73,7 @@ New-AzResourceGroup `
 
 A storage account is a shared pool of storage you can use to deploy Azure file shares.
 
-This example creates a storage account using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet. The storage account is named *mystorageaccount\<random number>* and a reference to that storage account is stored in the variable **$storageAcct**. Storage account names must be unique, so use `Get-Random` to append a number to the name to make it unique. 
+This example creates a storage account using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet. The storage account is named *mystorageaccount\<random number>* and a reference to that storage account is stored in the variable **$storageAcct**. Storage account names must be unique, so use `Get-Random` to append a random number to the name to make it unique. 
 
 ```azurepowershell-interactive 
 $storageAccountName = "mystorageacct$(Get-Random)"
@@ -107,7 +107,7 @@ az group create \
 ### CLI - Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file shares.
 
-The following example creates a storage account using the [az storage account create](/cli/azure/storage/account) command. Storage account names must be unique, so use `$RANDOM` to append a number to the name to make it unique.
+The following example creates a storage account using the [az storage account create](/cli/azure/storage/account) command. Storage account names must be unique, so use `$RANDOM` to append a random number to the name to make it unique.
 
 ```azurecli-interactive 
 export storageAccountName="mystorageacct$RANDOM"
@@ -146,7 +146,7 @@ Share names must be all lower case letters, numbers, and single hyphens but cann
 
 # [PowerShell](#tab/azure-powershell)
 
-Now that you've created a storage account, you can create your first Azure file share. Create a file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare**.
+Now that you've created a storage account, you can create your first Azure file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare** with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -160,7 +160,7 @@ New-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now that you've created a storage account, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates an Azure file share named **myshare**: 
+Now that you've created a storage account, you can create your first Azure file share by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates a share named **myshare**  with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
 
 ```azurecli-interactive
 shareName="myshare"
@@ -256,7 +256,7 @@ After uploading the file, you can use [Get-AzStorageFile](/powershell/module/Az.
 Get-AzStorageFile `
     -Context $storageAcct.Context `
     -ShareName $shareName `
-    -Path "myDirectory\" 
+    -Path "myDirectory\" | Get-AzStorageFile
 ```
 
 

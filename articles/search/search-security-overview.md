@@ -55,10 +55,12 @@ If your Azure resource is behind a firewall, you'll need to [create rules that a
 
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. Internal traffic consists of:
+Internal requests are secured and managed by Microsoft. You cannot configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic is not customer-configurable.
 
-+ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, and private endpoint connections.
-+ Requests made to Cognitive Services APIs for built-in skills.
+Internal traffic consists of:
+
++ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
++ Requests made to Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md).
 
 <a name="service-access-and-authentication"></a>
 
@@ -94,7 +96,7 @@ Once a request is admitted, it must still undergo authentication and authorizati
 
 + [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
 
-Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user-assigned managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 

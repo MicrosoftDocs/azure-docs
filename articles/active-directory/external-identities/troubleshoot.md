@@ -51,7 +51,7 @@ As you configure [cross-tenant access settings](cross-tenant-access-settings-b2b
 1. Open PowerShell and run the following script, substituting the file location in the first line with your text file:
 
 ```powershell
-$policy = Get-Content “C:\policyobject.txt” | ConvertTo-Json 
+$policy = Get-Content “C:\policyobject.txt”
 $maxSize = 1024*25 
 $size = [System.Text.Encoding]::UTF8.GetByteCount($policy) 
 write-host "Remaining Bytes available in policy object" 

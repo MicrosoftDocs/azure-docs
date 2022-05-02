@@ -99,9 +99,6 @@ You can configure role assignments in the Azure portal or use the Azure CLI:
 
 ## Monitor application health
 
-> [!NOTE]
-> Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [How do I get information about my application?](howto-faq.yml#how-do-i-get-information-about-my-application-).
-
 You can use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 
 Metrics are enabled by default for your IoT Central application and you access them from the [Azure portal](https://portal.azure.com/). The [Azure Monitor data platform exposes these metrics](../../azure-monitor/essentials/data-platform-metrics.md) and provides several ways for you to interact with them. For example, you can use charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI.

@@ -66,6 +66,7 @@ Follow these steps to create a new GO module.
     func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
     	defer event.Close()
     	fmt.Println("Received a cancellation: ", event.ErrorDetails)
+        fmt.Println("Did you set the speech resource key and region values?")
     }
     
     func main() {

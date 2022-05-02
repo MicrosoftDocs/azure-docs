@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/14/2021
+ms.date: 04/19/2022
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -48,8 +48,6 @@ You can also assign an Azure Resource Manager role that provides additional perm
 
 > [!NOTE]
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md).
->
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify blob data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 # [PowerShell](#tab/powershell)
 
@@ -161,6 +159,9 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 - When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a container.
 - If you have set the appropriate allow permissions to access data via Azure AD and are unable to access the data, for example you are getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you have made in Azure AD to replicate, and be sure that you do not have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
+
+> [!NOTE]
+> You can create custom Azure RBAC roles for granular access to blob data. For more information, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 ## Next steps
 

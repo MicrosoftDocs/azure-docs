@@ -98,14 +98,15 @@ To work with strings, you can use these string functions and also some [collecti
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
+| [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean indicating whether the string is an integer. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
 | [nthIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#nthIndexOf) | Return the starting position or index value where the *n*th occurrence of a substring appears in a string. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Replace a substring with the specified string, and return the updated string. |
-| [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice) | Return a substring by specifying the starting and ending position or value. |
+| [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice) | Return a substring by specifying the starting and ending position or value. See also [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring). |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. |
-| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. See also [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice). |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Return a string in uppercase format. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remove leading and trailing whitespace from a string, and return the updated string. |
@@ -2538,6 +2539,35 @@ int('10')
 
 And returns this result: `10`
 
+<a name="isInt"></a>
+
+### isInt
+
+Return a boolean indicating whether the string is an integer.
+
+```
+isInt('<string>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*string*> | Yes | String | The string to examine |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*boolean-result*> | Boolean | A boolean indicating whether the string is an integer |
+
+*Example*
+
+This example tests a string that represents an integer:
+
+```
+isInt('10')
+```
+
+And returns this result: `true`
+
 <a name="item"></a>
 
 ### item
@@ -3968,6 +3998,7 @@ And returns this array with the remaining items: `[1,2,3]`
 ### slice
 
 Return a substring by specifying the starting and ending position or value.
+See also [substring()](#substring).
 
 ```
 slice('<text>', <startIndex>, <endIndex>?)
@@ -4260,6 +4291,7 @@ And returns this result: `10`
 ### substring
 
 Return characters from a string, starting from the specified position, or index. Index values start with the number 0.
+See also [slice()](#slice).
 
 ```
 substring('<text>', <startIndex>, <length>)

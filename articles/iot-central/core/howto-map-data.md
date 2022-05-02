@@ -20,6 +20,10 @@ Data mapping lets you transform complex device telemetry into structured data in
 
 :::image type="content" source="media/howto-map-data/map-data-summary.png" alt-text="Diagram that summarizes the mapping process in IoT Central." border="false":::
 
+The following video walks you through the data mapping process:
+
+> [!VIDEO https://aka.ms/docs/player?id=d8e684a7-deda-47d1-9d6c-36939adc57bb]
+
 ## Map telemetry for your device
 
 A mapping uses a [JSONPath](https://www.npmjs.com/package/jsonpath) expression to identify the value in an incoming telemetry message to map to an alias.
