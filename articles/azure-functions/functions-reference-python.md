@@ -2,9 +2,9 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 11/4/2020
+ms.date: 04/29/2022
 ms.devlang: python
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devdivchpfy22
 ---
 
 # Azure Functions Python developer guide
@@ -124,7 +124,7 @@ from . import example #(relative)
 > [!NOTE]
 >  The *shared_code/* folder needs to contain an \_\_init\_\_.py file to mark it as a Python package when using absolute import syntax.
 
-The following \_\_app\_\_ import and beyond top-level relative import are deprecated, since it is not supported by static type checker and not supported by Python test frameworks:
+The following \_\_app\_\_ import and beyond top-level relative import are deprecated, since it isn't supported by static type checker and not supported by Python test frameworks:
 
 ```python
 from __app__.shared_code import my_first_helper_function #(deprecated __app__ import)
@@ -345,7 +345,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Web frameworks
 
-You can leverage WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
+You can use WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
 
 First, the function.json file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
 
@@ -470,14 +470,14 @@ Name of the function.
 ID of the current function invocation.
 
 `trace_context`
-Context for distributed tracing. Please refer to  [`Trace Context`](https://www.w3.org/TR/trace-context/) for more information..
+Context for distributed tracing. Refer to  [`Trace Context`](https://www.w3.org/TR/trace-context/) for more information..
 
 `retry_context`
-Context for retries to the function. Please refer to [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) for more information.
+Context for retries to the function. See [`retry-policies`](./functions-bindings-errors.md#retry-policies-preview) for more information.
 
 ## Global variables
 
-It is not guaranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable.
+It isn't guaranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable.
 
 ```python
 CACHED_DATA = None
@@ -536,11 +536,11 @@ When running locally, the runtime uses the available Python version.
 
 ### Changing Python version
 
-To set a Python function app to a specific language version, you  need to specify the language as well as the version of the language in `LinuxFxVersion` field in site config. For example, to change Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
+To set a Python function app to a specific language version, you  need to specify the language and the version of the language in `LinuxFxVersion` field in site config. For example, to change Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
 
-To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
+To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md)
 
-To see the full list of supported Python versions functions apps, please refer to this [article](./supported-languages.md)
+To see the full list of supported Python versions functions apps, refer to this [article](./supported-languages.md)
 
 
 
@@ -660,7 +660,7 @@ If your project uses packages not publicly available to our tools, you can make 
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies into the project folder.
+When using custom dependencies, you should use the `--no-build` publishing option, since you've already installed the dependencies into the project folder.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -670,7 +670,7 @@ Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 ## Unit Testing
 
-Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package is not immediately available, be sure to install it via your `requirements.txt` file as described in the [package management](#package-management) section above.
+Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package isn't immediately available, be sure to install it via your `requirements.txt` file as described in the [package management](#package-management) section above.
 
 Take *my_second_function* as an example, following is a mock test of an HTTP triggered function:
 
@@ -796,7 +796,7 @@ There are a few libraries come with the Python Functions runtime.
 
 ### Python Standard Library
 
-The Python Standard Library contains a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like file I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
+The Python Standard Library contains a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like file I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they're provided by package collections.
 
 To view the full details of the list of these libraries, see the links below:
 
@@ -948,7 +948,7 @@ By default, a host instance for Python can process only one function invocation 
 
 ## <a name="shared-memory"></a>Shared memory (preview)
 
-To improve throughput, Functions lets your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
+To improve throughput, Functions let your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
 
 For example, you might enable shared memory to reduce bottlenecks when using Blob storage bindings to transfer payloads larger than 1 MB.
 
@@ -959,7 +959,7 @@ This functionality is available only for function apps running in Premium and De
 Following is a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
-* [Cannot import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
+* [Can't import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 
