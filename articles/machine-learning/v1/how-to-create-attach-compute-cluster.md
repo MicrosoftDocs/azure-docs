@@ -1,7 +1,7 @@
 ---
-title: Create compute clusters
+title: Create compute clusters CLI v1
 titleSuffix: Azure Machine Learning
-description: Learn how to create compute clusters in your Azure Machine Learning workspace. Use the compute cluster as a compute target for training or inference.
+description: Learn how to create compute clusters in your Azure Machine Learning workspace with CLI v1. Use the compute cluster as a compute target for training or inference.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.date: 05/02/2022
 ---
 
-# Create an Azure Machine Learning compute cluster
+# Create an Azure Machine Learning compute cluster with CLI v1
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
