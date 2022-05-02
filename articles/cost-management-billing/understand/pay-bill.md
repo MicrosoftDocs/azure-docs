@@ -48,7 +48,9 @@ If have an Microsoft Online Services Program (pay-as-you-go) account and you hav
 
 If you want to learn how to change your default payment method to check or wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
 
-There are a few countries that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill.
+There are a few countries that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill. 
+
+Hong Kong and Brazil only support credit cards.
 
 ### Check or wire transfer
 
