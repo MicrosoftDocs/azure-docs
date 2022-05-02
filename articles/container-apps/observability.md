@@ -5,7 +5,7 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/01/2022
+ms.date: 05/02/2022
 ms.author: v-bcatherine
 ---
 
@@ -33,7 +33,7 @@ While developing and troubleshooting your container app, you often want to see a
 
 Go to your container app page in the Azure portal.   Select **Log stream** under the **Monitoring** section on the sidebar menu.  Choose a container from the drop-down lists. When there are multiple revisions and replicas, first choose from the **Revision**, **Replica**, and then the **Container** drop-down lists.
 
-Select **Start** to begin streaming the container log. You can also pause and stop the log stream and clear the log messages from the page. To save the log messages, you can copy and paste them into the editor of your choice.
+After you select the container, you can view the log stream in the viewing pane.  You can stop the log stream and clear the log messages from the viewing pane. To save the log messages, you can copy and paste them into the editor of your choice.
 
 :::image type="content" source="media/observability/log-stream.png" alt-text="Screenshot of Azure Container Apps Log stream page.":::
 
