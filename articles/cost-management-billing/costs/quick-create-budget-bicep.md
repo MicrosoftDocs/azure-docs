@@ -1,13 +1,13 @@
 ---
-title: Quickstart - Create a budget with Bicep
-description: Quickstart showing how to Create a budget with Bicep.
+title: Quickstart - Create an Azure budget with Bicep
+description: Quickstart showing how to create a budget with Bicep.
 author: schaffererin
 ms.author: v-eschaffer
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 04/04/2022
+ms.date: 05/02/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
@@ -93,7 +93,7 @@ One Azure resource is defined in the Bicep file:
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
-### [One filter](#tab/one-filter)
+## [One filter](#tab/one-filter)
 
 ### Review the Bicep file
 
@@ -129,7 +129,7 @@ One Azure resource is defined in the Bicep file:
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
-### [Two or more filters](#tab/two-filters)
+## [Two or more filters](#tab/two-filters)
 
 ### Review the Bicep file
 
