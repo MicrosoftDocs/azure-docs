@@ -51,16 +51,16 @@ Follow these steps to configure Application Proxy for Traffic Manager:
 
 ## Sample Application Proxy configuration
 
-The following table shows a sample Application Proxy configuration. This sample uses the sample app domain \www.contoso.com as the alternate URL.
+The following table shows a sample Application Proxy configuration. This sample uses the sample app domain \/www.contoso.com as the alternate URL.
 
 |     | North America-based app | India-based app | Additional Information |
 |---- | ----------------------- | --------------- | ---------------------- |
 | **Internal URL** | contoso.com | contoso.com | If the apps are hosted in different regions, you can use the same internal URL for each app. |
 | **External URL** | nam.contoso.com | india.contoso.com | Configure a custom domain for each app.|
-| **Custom domain certificate** | DNS: nam.contoso.com SAN: \www.contoso.com | DNS: nam.contoso.com SAN: \www.contoso.com | In the certificate you upload for each app, set the SAN value to the alternate URL. The alternate URL is the URL all users use to reach the app.|
+| **Custom domain certificate** | DNS: nam.contoso.com SAN: \/www.contoso.com | DNS: nam.contoso.com SAN: \/www.contoso.com | In the certificate you upload for each app, set the SAN value to the alternate URL. The alternate URL is the URL all users use to reach the app.|
 | **Connector group** | NAM Geo Group | India Geo Group | Ensure you assign each app to the correct connector group by using the geo-routing functionality. |
-| **Redirects** | (Optional) To maintain redirects for the alternate URL, add the application registration for the app.  | (Optional) To maintain redirects for the alternate URL, add the application registration for the app.  | This step is required if the alternate URL (\www.contoso.com) is to be maintained for all redirections. |
-| **Reply URL** | \www.contoso.com.| \www.contoso.com. |
+| **Redirects** | (Optional) To maintain redirects for the alternate URL, add the application registration for the app.  | (Optional) To maintain redirects for the alternate URL, add the application registration for the app.  | This step is required if the alternate URL (\/www.contoso.com) is to be maintained for all redirections. |
+| **Reply URL** | \/www.contoso.com.| \/www.contoso.com. |
 
 ## Traffic manager configuration
 
@@ -74,7 +74,7 @@ Follow these steps to configure the Traffic Manager:
 
 1. Add the app proxy endpoints.
 
-1. Add a CNAME record to point \www.contoso.com to the Traffic Manager's URL. For example, contoso.trafficmanager.net.
+1. Add a CNAME record to point \/www.contoso.com to the Traffic Manager's URL. For example, contoso.trafficmanager.net.
 
     The alternate URL now points to the Traffic Manager.
 
