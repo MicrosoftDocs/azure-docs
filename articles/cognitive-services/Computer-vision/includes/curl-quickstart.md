@@ -55,7 +55,7 @@ The response will include an `Operation-Location` header, whose value is a uniqu
 ### Optionally, specify the model version
 As an optional step, see [How to specify the model version](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use.
 
-For example, to explicitly specify the model-version = `2022-04-30` parameter, use the following command:
+For example, to explicitly specify the latest GA model-version = `2022-04-30`, use the following command:
 ```bash
 curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/read/analyze?model-version=2022-04-30" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
 ```
