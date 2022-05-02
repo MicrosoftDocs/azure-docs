@@ -78,6 +78,8 @@ items:
 - name: Tutorials
   expanded: false
   items:
+  - name: Virtual Visits
+    href: tutorials/virtual-visits.md
   - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
   - name: Export SDK telemetry data to Application Insights
