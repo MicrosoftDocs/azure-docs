@@ -63,6 +63,8 @@
       href: ../../hdinsight/hbase/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Interactive Query
       href: ../../hdinsight/interactive-query/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: HDInsight - Spark
+      href: ../../hdinsight/spark/apache-spark-jupyter-spark-use-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
