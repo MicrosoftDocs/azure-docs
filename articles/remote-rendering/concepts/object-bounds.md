@@ -12,13 +12,13 @@ ms.custom:
 
 # Object bounds
 
-Object bounds represent the volume that an [entity](entities.md) and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they are always axis-aligned, which means the extents and volume may differ between the local and world space representation.
+Object bounds represent the volume that an [entity](entities.md) and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they're always axis-aligned, which means the extents and volume may differ between the local and world space representation.
 
 ## Querying object bounds
 
-The local axis aligned bounding box of a [mesh](meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
+The local axis aligned bounding box of a mesh can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform. For more information, see [Meshes](meshes.md).
 
-It's possible to compute the bounds of an entire object hierarchy this way, but that requires to traverse the hierarchy, query the bounds for each mesh, and combine them manually. This operation is both tedious and inefficient.
+It's possible to compute the bounds of an entire object hierarchy this way. That approach requires to traversing the hierarchy, querying the bounds for each mesh, and combining them manually. This operation is both tedious and inefficient.
 
 A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
