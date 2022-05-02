@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2022
+ms.date: 05/03/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,7 +16,17 @@ ms.custom: references_regions, devx-track-azurecli
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-## April 2022
+## May 3, 2022
+
+This release is published May 3, 2022.
+
+### Image tag
+
+`v1.6.0_2022-05-02`
+
+For complete release version information, see [Version log](version-log.md).
+
+## April 6, 2022
 
 This release is published April 6, 2022.
 
