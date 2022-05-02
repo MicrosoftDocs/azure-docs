@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/25/2021
+ms.date: 05/02/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -98,9 +98,6 @@ that have more than one value for a given sign-in request as column. This is, fo
 
 ![Screenshot shows the Columns dialog box where you can select attributes.](./media/concept-sign-ins/columns.png "Sign-in activity")
 
-Select an item in the list view to get more detailed information.
-
-![Screenshot shows a detailed information view.](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
 
 
 
@@ -336,6 +333,8 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 ## Next steps
 
-* [Azure AD data retention policies](reference-reports-data-retention.md)
-* [Azure AD report latencies](reference-reports-latencies.md)
-* [First party Microsoft applications in sign-ins report](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
+- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs/md)
+
+- [Azure AD data retention policies](reference-reports-data-retention.md)
+
+- [Azure AD report latencies](reference-reports-latencies.md)

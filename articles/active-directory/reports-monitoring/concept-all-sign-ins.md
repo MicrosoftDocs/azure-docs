@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/17/2021
+ms.date: 05/02/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -154,9 +154,7 @@ Customizing the view enables you to display additional fields or remove fields t
 ![All interactive columns](./media/concept-all-sign-ins/all-interactive-columns.png)
 
 
-Select an item in the list view to get more detailed information about the related sign-in.
 
-![Sign-in activity](./media/concept-all-sign-ins/interactive-user-sign-in-details.png "Interactive user sign-ins")
 
 
 
@@ -455,6 +453,8 @@ The following values are available for filtering by different sign-in types:
 
 ## Next steps
 
-* [Sign-in activity report error codes](./concept-sign-ins.md)
-* [Azure AD data retention policies](reference-reports-data-retention.md)
-* [Azure AD report latencies](reference-reports-latencies.md)
+- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs/md)
+
+- [Azure AD data retention policies](reference-reports-data-retention.md)
+
+- [Azure AD report latencies](reference-reports-latencies.md)
