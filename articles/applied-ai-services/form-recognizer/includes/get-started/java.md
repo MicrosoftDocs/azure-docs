@@ -133,7 +133,7 @@ Update your application's **FormRecognizer** class, with the following code (be 
 
 ```java
 
-static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+static final String key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
 static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
 public static void main(String[] args) {FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
@@ -194,7 +194,7 @@ Update your application's **FormRecognizer** class, with the following code (be 
 
 ```java
 
-static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+static final String key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
 static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
 public static void main(String[] args) {
