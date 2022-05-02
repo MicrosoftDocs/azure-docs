@@ -26,6 +26,27 @@ This release is published May 3, 2022.
 
 For complete release version information, see [Version log](version-log.md).
 
+### Data controller
+
+Added:
+
+- Create, update, and delete AD connector 
+- Create SQL Managed Instance with AD connectivity to the Azure CLI extension in direct connectivity mode.
+
+Arc-enabled data services sends controller logs to the Log Analytics Workspace if logs upload is enabled. 
+
+### SQL Managed Instance
+
+Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
+
+### User experience improvements
+
+Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
+
+#### Azure Data Studio
+
+Added upgrade experience for Data Controller in direct and indirect connectivity mode.
+
 ## April 6, 2022
 
 This release is published April 6, 2022.
