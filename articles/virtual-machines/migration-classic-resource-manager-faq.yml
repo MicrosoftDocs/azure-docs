@@ -142,7 +142,7 @@ sections:
           This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes.
       
       - question: |
-          How do I migrate my classic storage accounts to ARM?
+          How do I migrate my classic storage accounts to Resource Manager?
         asnswer: |
           If you have a classic VM attached to your account, please migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
           1. [Migrate using PowerShell](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-ps#step-52-migrate-a-storage-account)
@@ -170,9 +170,9 @@ sections:
           No, Microsoft cannot migrate user's data on their behalf. Users will have to use the self-serve options listed above.
       
       - question: |
-          What is the downtime when migrating my storage account from Classic to ARM?
+          What is the downtime when migrating my storage account from Classic to Resource Manager?
         answer: |
-          There is no downtime to migrate classic storage account to ARM. However, there is downtime for other scenarios linked to classic VM Migration.
+          There is no downtime to migrate classic storage account to Resource Manager. However, there is downtime for other scenarios linked to classic VM Migration.
           
 
 additionalContent: |
