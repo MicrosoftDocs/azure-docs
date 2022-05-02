@@ -74,7 +74,13 @@ This article illustrates how to use the table method to interact with the sample
 
 Most applications will have a unique identifier for each user of the application.  If you are provisioning into an existing database table, you should identify a column of that table which has a value for each user, where that value is unique and doesn't change.  This will be the **Anchor**, which Azure AD uses to identify existing rows to be able to update or delete them. For additional information on anchors see [About anchor attributes and distinguished names](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
 
-If your application's database already exists, and has users in it that you will want to have Azure AD keep up to date, then you will need to have a identifier for each user that is the same between the application's database and the Azure AD schema.  For example, if you assign a user to the application in Azure AD, and that user is already in that database, then changes to that user in Azure AD should update an existing row for that user, rather than add a new row.  Since Azure AD likely does not store an application's internal identifier for that user, you will want to select another column for **querying** the database. The value of this column could be a user principal name, or an email address, employee ID, or other identifier that is present in Azure AD on each user that is in scope of the application.  If the user identifier that the application uses is not an attribute stored in the Azure AD representation of the user, then you will need to extend the Azure AD user schema with an extension attribute, and populate that attribute from your database.  You can extend the Azure AD schema and set extension values using [PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample).
+If your application's database already exists, and has users in it that you will want to have Azure AD keep up to date, then you will need to have a identifier for each user that is the same between the application's database and the Azure AD schema.  For example, if you assign a user to the application in Azure AD, and that user is already in that database, then changes to that user in Azure AD should update an existing row for that user, rather than add a new row.  Since Azure AD likely does not store an application's internal identifier for that user, you will want to select another column for **querying** the database. The value of this column could be a user principal name, or an email address, employee ID, or other identifier that is present in Azure AD on each user that is in scope of the application.  If the user identifier that the application uses is not an attribute stored in the Azure AD representation of the user, then you do not need to extend the Azure AD user schema with an extension attribute, and populate that attribute from your database.  You can extend the Azure AD schema and set extension values using [PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample).
+
+## Map attributes in Azure AD to the database schema
+
+When Azure AD has established a link between a user in Azure AD and a record in the database, either for a user already in the database or a new user, then Azure AD can provision attribute changes from the Azure AD user into the database. In addition to the unique identifiers, inspect your database to identify if there are any other required properties.  If there are, then ensure that the users who will be provisioned into the database have attributes that can be mapped onto the required properties.
+
+You can also configure [deprovisioning](../articles/active-directory/app-provisioning/how-provisioning-works.md#de-provisioning) behavior.  If a user that is assigned to the application is deleted in Azure AD, then Azure AD will send a delete operation to the database.  You may also wish to have Azure AD update the database when a user goes out of scope of being able to use the application.  If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, then you can configure Azure AD to send an attribute change.  If you are provisioning into an existing database table, then you'll want to have a column of that table to map to **isSoftDeleted**.  When the user goes out of scope, Azure AD will set the value for that user to **True**.
 
 ## Install the ODBC driver
 
@@ -331,10 +337,18 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
  6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
 
 ## Start provisioning users
- 1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
+1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
     ![Screenshot that shows Start provisioning.](.\media\active-directory-app-provisioning-sql\configure-14.png)
-2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, if you are done testing, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+
+## Troubleshooting provisioning errors
+
+If an error is shown, then select **View provisioning logs**.  Look in the log for a row in which the Status is **Failure**, and click on that row.
+
+Iif the error message is **Failed to create User**, then check the attributes that are shown against the requirements of the database schema.
+
+For more information, change to the **Troubleshooting & Recommendations** tab.  If the ODBC driver returned a message, it could be displayed here.  For example, the message `ERROR [23000] [Microsoft][ODBC SQL Server Driver][SQL Server]Cannot insert the value NULL into column 'FirstName', table 'CONTOSO.dbo.Employees'; column does not allow nulls.` is a error from the ODBC driver. In this case, the `column does not allow nulls` might indicate that the `FirstName` column in the database is mandatory but the user being provisioned did not have a `givenName` attribute, so the user could not be provisioned.
 
 ## Check that users were successfully provisioned
 After waiting, check the SQL database to ensure users are being provisioned.
