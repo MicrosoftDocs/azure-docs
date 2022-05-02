@@ -591,7 +591,7 @@
             - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
             - name: Authenticate to endpoints
-              href: how-to-authenticate-online-endpoints.md
+              href: how-to-authenticate-online-endpoint.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
