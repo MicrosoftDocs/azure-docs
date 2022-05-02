@@ -116,7 +116,7 @@ This procedure describes how you can connect the Defender for IoT micro-agent to
     sudo systemctl restart defender-iot-micro-agent.service
     ```
 
-### Add AMQP protocol support
+## Add AMQP protocol support
 
 This procedure describes additional steps required to support the AMQP protocol.
 
