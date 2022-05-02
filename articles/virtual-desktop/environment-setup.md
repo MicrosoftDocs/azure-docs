@@ -55,11 +55,11 @@ After you've assigned users to their app groups, they can connect to a Azure Vir
 
 ## User sessions
 
-Users setting up sessions can enter one of three kinds of user session. In this section, we'll go over each of the three types of user sessions.
+In this section, we'll go over each of the three types of user sessions that end users can have.
 
 ### Active user session
 
-A user session is considered "active" when the user signs in and connects to their remote app or desktop resource.
+A user session is considered "active" when a user signs in and connects to their remote app or desktop resource.
 
 ### Disconnected user session
 
@@ -67,7 +67,7 @@ A disconnected user session is an inactive session that the user hasn't signed o
 
 ### Pending user session
 
-A pending user session is a placeholder session that reserves a spot on the load-balanced virtual machine for the user. Because the sign-in process can take anywhere from 30 seconds to five minutes depending on the user profile, this reservation ensures that the user won't be kicked out of the virtual machine if another user profile completes their sign-in process first.
+A pending user session is a placeholder session that reserves a spot on the load-balanced virtual machine for the user. Because the sign-in process can take anywhere from 30 seconds to five minutes depending on the user profile, this placeholder session ensures that the user won't be kicked out of their session if another user completes their sign-in process first.
 
 ## Next steps
 
