@@ -356,22 +356,24 @@
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
-    - name: SAP solution data reference
-      href: sap/sap-solution-log-reference.md
-    - name: SAP solution content overview
-      href: sap/sap-solution-security-content.md
     - name: Troubleshooting
       items:
         - name: Troubleshooting SAP solution deployment
           href: sap/sap-deploy-troubleshoot.md
         - name: Configure Transport Management System
           href: sap/configure-transport.md
-    - name: Reference - Kickstart script
-      href: sap/reference-kickstart.md
-    - name: Reference - Container update script
-      href: sap/reference-update.md
-    - name: Reference - Systemconfig.ini file
-      href: sap/reference-systemconfig.md
+    - name: Reference
+      items:
+      - name: SAP solution data reference
+        href: sap/sap-solution-log-reference.md
+      - name: SAP solution content overview
+        href: sap/sap-solution-security-content.md
+      - name: Kickstart script reference
+        href: sap/reference-kickstart.md
+      - name: Container update script reference
+        href: sap/reference-update.md
+      - name: Systemconfig.ini file reference
+        href: sap/reference-systemconfig.md
 - name: Reference
   items:
   - name: Service limits

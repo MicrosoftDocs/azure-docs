@@ -24034,6 +24034,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/sap-solution-deploy-alternate.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-deploy-alternate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-deploy-snc.md",
+      "redirect_url": "/azure/sentinel/sap/configure-snc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-log-reference.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-log-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false

@@ -13,6 +13,8 @@ ms.date: 02/22/2022
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 > [!IMPORTANT]
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 > Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 >
 
@@ -684,7 +686,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### HANA DB Audit Trail
 
-To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](connect-syslog.md) to gather Syslog data from the machine running HANA DB.
+To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](../connect-syslog.md) to gather Syslog data from the machine running HANA DB.
 
 
 - **Microsoft Sentinel function for querying this log**: SAPSyslog
@@ -805,16 +807,16 @@ For best results, refer to these tables using the name in the **Sentinel functio
 | AGR_DEFINE | Role definition                                       | SAP_AGR_DEFINE  |
 | AGR_AGRS   | Roles in composite roles                              | SAP_AGR_AGRS    |
 | PAHI       | History of the system, database, and SAP parameters   | SAP_PAHI        |
-||||
+
 
 
 ## Next steps
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel solution for SAP](sap-deploy-solution.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP](deployment-overview.md)
+- [Microsoft Sentinel SAP solution detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Microsoft Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
 - [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
