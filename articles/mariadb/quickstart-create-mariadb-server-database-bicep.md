@@ -99,7 +99,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-For a step-by-step tutorial that guides you through the process of creating an Bicep file using Visual Studio Code, see:
+For a step-by-step tutorial that guides you through the process of creating a Bicep file using Visual Studio Code, see:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create Bicep files with Visual Studio Code](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
