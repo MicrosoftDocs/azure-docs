@@ -6,8 +6,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-ms.author: jordane
-author: jpe316
+ms.author: larryfr
+author: blackmist
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli, cliv1
 ---
