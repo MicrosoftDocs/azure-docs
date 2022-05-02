@@ -108,7 +108,7 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 
 ## Authenticate the client
 
-Below **Main**, create a new method named `AuthenticateClient`. You'll use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects.
+Below **Main**, create a new method named `AuthenticateClient`. You'll use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects.
 
 > [!IMPORTANT]
 > Get your key and endpoint from the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
