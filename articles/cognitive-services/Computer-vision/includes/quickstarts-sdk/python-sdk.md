@@ -67,7 +67,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
    ```python
       # Call API with URL and raw response (allows you to get the operation location)
-      read_response = computervision_client.read(read_image_url,  raw=True, model_version="2022-01-30-preview")
+      read_response = computervision_client.read(read_image_url,  raw=True, model_version="2022-04-30")
    ```
 
 1. Run the application with the `python` command on your quickstart file.
