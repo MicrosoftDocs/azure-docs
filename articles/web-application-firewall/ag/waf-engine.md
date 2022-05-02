@@ -21,8 +21,8 @@ The new WAF engine is a high-performance, scalable Microsoft proprietary engine 
 The new engine, released with CRS 3.2, provides the following benefits:
 
 * **Improved performance:** Significant improvements in WAF latency, including P99 POST and GET latencies. We observed a significant reduction in P99 tail latencies with up to approximately 8x reduction in processing POST requests and approximately 4x reduction in processing GET requests. 
-* **Increased scale:** Higher RPS using the same compute power and with the ability to process larger request sizes. Our next-gen engine can scale up to 8 times more RPS using the same compute power and has an ability to process 16 times larger request sizes (up to 2 MB request sizes), which was not possible earlier with the previous engine.
-* **Better protection:** New redesigned engine with efficient regex processing offers better protection against `RegEx DOS` attacks while maintaining a consistent latency experience.
+* **Increased scale:** Higher requests per second (RPS), using the same compute power and with the ability to process larger request sizes. Our next-generation engine can scale up to 8 times more RPS using the same compute power, and has an ability to process 16 times larger request sizes (up to 2 MB request sizes), which was not possible with the previous engine.
+* **Better protection:** New redesigned engine with efficient regex processing offers better protection against RegEx denial of service (DOS) attacks while maintaining a consistent latency experience.
 * **Richer feature set:** New features and future enhancement are available only through the new engine.
 
 ## Support for new features
