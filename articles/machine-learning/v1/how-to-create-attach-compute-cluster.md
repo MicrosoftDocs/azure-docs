@@ -21,7 +21,7 @@ ms.date: 05/02/2022
 > * [v1](how-to-create-attach-compute-cluster.md)
 > * [v2 (preview)](../how-to-create-attach-compute-cluster.md)
 
-Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
+Learn how to create and manage a [compute cluster](../concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
 You can use Azure Machine Learning compute cluster to distribute a training or batch inference process across a cluster of CPU or GPU compute nodes in the cloud. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md). 
 
@@ -106,7 +106,7 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 
 ## <a id="managed-identity"></a> Set up managed identity
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-intro.md)]
 
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
