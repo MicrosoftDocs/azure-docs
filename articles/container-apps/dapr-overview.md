@@ -47,7 +47,7 @@ Define Dapr sidecars or control plane settings for your container app using a YA
 
 | Field | Description |
 | ----- | ----------- |
-| `enabled` | Enables Dapr on the container app. |
+| `--enable-dapr` / `enabled` | Enables Dapr on the container app. |
 | `appPort` | Identifies on which port your application is listening. |
 | `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
@@ -229,8 +229,6 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 ---
 
 **Dapr OSS**
-
-In Dapr OSS, running `dapr init` generates the following default Redis `<component>.yml` spec in the Dapr components directory. 
 
 ```yml
 apiVersion: dapr.io/v1alpha1
