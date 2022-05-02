@@ -334,7 +334,7 @@ sections:
       - question: |
           Will I duplicate events if I use the Azure Monitor agent and the Log Analytics agent on the same machine? 
         answer: |
-          If you are collecting the same events with both agents, there will be duplication. This could be the legacy agent collecting data from the [workspace configuration](agents/agent-data-sources.md) that duplicates data collected by the data collection rule. Or you might be collecting security events with legacy agent and enable Windows Security Events with the AMA connectors in Microsoft Sentinel.
+          If you are collecting the same events with both agents, there will be duplication. This duplication could be the legacy agent collecting redundant data from the [workspace configuration](agents/agent-data-sources.md) data, collected by the data collection rule. Or you might be collecting security events with legacy agent and enable Windows Security Events with the AMA connectors in Microsoft Sentinel.
           
           You should limit duplication events to only while you transition from one agent to the other. After you've fully tested the DCR and verified its data collection, you should disconnect disable collection for the workspace and disconnect any MMA data connectors.
 
@@ -351,7 +351,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support private links?
         answer: |
-          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [View steps here](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) on how to set this up.
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent).
 
       - question: |
           Is Azure Arc required for AAD-joined machines?
@@ -388,7 +388,7 @@ sections:
       - question: |
           Does the new Azure Monitor agent have hardening support for Linux?
         answer: |
-          This is not available yet.
+          Hardening support for Linux is not available yet.
 
       - question: |
           What roles do I need to create a DCR that collects events from my servers?
@@ -484,7 +484,7 @@ sections:
           * Inserts items into:
             * Web.config
             * packages.config
-          * (New projects only - if you [add Application Insights to an existing project](app/app-insights-overview.md), you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/\_Layout.cshtml
+          * (For new projects only, you'll [add Application Insights to an existing project manually](app/app-insights-overview.md)). Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/\_Layout.cshtml
           
       - question: |
           How do I upgrade from older SDK versions?
@@ -573,7 +573,7 @@ sections:
       - question: |
           Could personal data be sent in the telemetry?
         answer: |
-          This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app/data-retention-privacy.md).
+          You can send personal data if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app/data-retention-privacy.md).
           
           **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
           
@@ -582,7 +582,7 @@ sections:
       - question: |
           My Instrumentation Key is visible in my web page source.
         answer: |
-          * This is common practice in monitoring solutions.
+          * This visibility is common practice in monitoring solutions.
           * It can't be used to steal your data.
           * It could be used to skew your data or trigger alerts.
           * We have not heard that any customer has had such problems.
@@ -594,7 +594,7 @@ sections:
           
       - question: How do I see POST data in Diagnostic search?
         answer: |
-          We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it.
+          We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. Message parameters have a longer size limit than the limits on string properties, though you can't filter on it.
           
       - question: |
           Should I use single or multiple Application Insights resources?
@@ -704,7 +704,7 @@ sections:
           * If your Azure web app is hosted in a data center where there is an Application Insights collection endpoint, there is no charge.
           * If there is no collection endpoint in your host data center, then your app's telemetry will incur [Azure outgoing charges](https://azure.microsoft.com/pricing/details/bandwidth/).
           
-          This doesn't depend on where your Application Insights resource is hosted. It just depends on the distribution of our endpoints.
+          This answer depends on the distribution of our endpoints, **not** on where your Application Insights resource is hosted.
           
       - question: |
           Can I send telemetry to the Application Insights portal?
@@ -800,7 +800,7 @@ sections:
           
           However, there are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error will not be captured by Application Insights. Many modern web servers do not allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
-          In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and this would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
+          In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
           
   - name: OpenTelemetry
     questions:
