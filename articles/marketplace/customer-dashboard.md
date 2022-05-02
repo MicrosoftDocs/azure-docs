@@ -38,7 +38,7 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
-    ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png)
+    ![Screenshot showing the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png)
 
 1. In the left-nav menu, select **[Customers](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/customer)**.
 
@@ -129,7 +129,7 @@ This widget shows trend and count of all customers, including new, existing, and
 - You can select specific legend items to display more detailed views. For example, select new customers from the legend to display only new customers.
 - Hovering over a column in the chart displays details for that month only.
 
-![Illustrates the Customers trend widget on the Customers page.](./media/customer-dashboard/customers-trend.png)
+![Screenshot showing the Customers trend widget on the Customers page.](./media/customer-dashboard/customers-trend.png)
 
 Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
@@ -157,7 +157,7 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 The **Top customers percentile** chart has three tabs, "Orders," "Normalized usage," and "Raw usage." The _top customer percentile_ is displayed along the x-axis, as determined by the number of orders. The y-axis displays the customer's order count. The secondary y-axis (line graph) displays the cumulative percentage of the total number of orders. You can display details by hovering over points along the line chart.
 
-![Illustrates the Orders tab of the Top Customer Percentile widget on the Customers page.](./media/customer-dashboard/top-customer-percentile.png)
+![Screenshot showing the Orders tab of the Top Customer Percentile widget on the Customers page.](./media/customer-dashboard/top-customer-percentile.png)
 
 Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
@@ -170,7 +170,7 @@ This chart shows the following:
 - A new customer has acquired one or more of your offers or reported usage for the first time within the same calendar month (y-axis).
 - An existing customer has previously acquired an offer from you or reported usage prior to the calendar month reported (on the y-axis).
 
-![Illustrates the Orders tab of the Orders by Customer Type widget on the Customers page.](./media/customer-dashboard/orders-by-customer-type.png)
+:::image type="content" source="media/customer-dashboard/orders-by-customer-type.png" alt-text="Screenshot showing the Orders tab of the Orders by Customer Type widget on the Customers page.":::
 
 Select the ellipsis (...) to copy the widget image, download aggregated widget data as .csv file, or download the image as a PDF.
 
@@ -178,7 +178,7 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 For the selected computation period, the heatmap displays the total number of customers, and the percentage of newly added customers against geography dimension. The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a country or region.
 
-![Illustrates the Orders tab of the Orders by geography widget on the Customers page.](./media/customer-dashboard/customers-by-geography.png)
+![Screenshot showing the Orders tab of the Orders by geography widget on the Customers page.](./media/customer-dashboard/customers-by-geography.png)
 
 - You can move the map to view the exact location.
 - You can zoom into a specific location.
