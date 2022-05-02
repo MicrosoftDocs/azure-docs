@@ -35,9 +35,26 @@ Added:
 
 Arc-enabled data services sends controller logs to the Log Analytics Workspace if logs upload is enabled. 
 
+Removed the `--ad-connector-namespace` parameter from `az sql mi-arc create` command because for now the AD connector resource must always be in the same namespace as the SQL Managed Instance resource.
+
+Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluentbit, Go.
+
+All container image sizes were reduced by approximately 40% on average.
+
+Introduced new `create-sql-keytab.ps1` PowerShell script to add in creation of keytabs.
+
 ### SQL Managed Instance
 
-Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
+Separated the availability group and failover group status into two different sections on Kubernetes.
+
+Updated SQL engine binaries to the latest version.
+
+Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure Portal, or Azure Data Studio user experience yet.
+
+Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replica count.  
+
+- If replicas = 3 then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If replicas is 1 or 2 then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
 ### User experience improvements
 
