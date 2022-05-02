@@ -49,20 +49,16 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | Name | Enter a name for this Azure Virtual Network Manager instance. This example will use the name **myAVNM**. |
     | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
     | Description | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it will be managing. |
-    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage.
+    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage. This example will use a subscription-level scope.
     | [Features](concept-network-manager-scope.md#features) | Select the features you want to enable for Azure Virtual Network Manager. Available features are *Connectivity*, *SecurityAdmin*, or *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
 
 1. Select **Review + create** and then select **Create** once validation has passed.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-validation.png" alt-text="Screenshot of validation page for create a Network Manager resource.":::
 
 ## Create three virtual networks
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet.png" alt-text="Screenshot of create a virtual network page.":::
 
 1. On the *Basics* tab, enter or select the following information.
 
@@ -86,8 +82,6 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | Subnet address space | 10.0.0.0/24 |
 
 1. Select **Review + create** and then select **Create** once validation has passed to deploy the virtual network.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-validation.png" alt-text="Screenshot of validation page for create a virtual network.":::
 
 1. Repeat steps 2-5 to create two more virtual networks with the following information:
 
@@ -184,7 +178,7 @@ To have your configurations applied to your environment, you'll need to commit t
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of deployment confirmation message.":::
 
-1. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+1. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take several minutes to complete.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
@@ -220,8 +214,6 @@ If you no longer need Azure Virtual Network Manager, you'll need to make sure al
 
 1. Select **Next** and select **Deploy** to complete the deployment removal.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deploy-none.png" alt-text="Screenshot of deploy a none connectivity configuration.":::
-
 1. To delete a configuration, select **Configurations** under *Settings* from the left pane of Azure Virtual Network Manager. Select the checkbox next to the configuration you want to remove and then select **Delete** at the top of the resource page. Select **Yes** to confirm the configuration deletion.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/delete-configuration.png" alt-text="Screenshot of delete button for a connectivity configuration.":::
@@ -244,8 +236,6 @@ If you no longer need Azure Virtual Network Manager, you'll need to make sure al
 
 1. Once all network groups have been removed, select **Overview** from the left pane of Azure Virtual Network Manager and select **Delete**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-network-manager.png" alt-text="Screenshot of delete button for an Azure Virtual Network Manager.":::
-
 1. On the **Delete a network manager** page, select the following options and select **Delete**. Select **Yes** to confirm the deletion.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-delete.png" alt-text="Screenshot of network manager to be deleted option selection.":::
@@ -256,8 +246,6 @@ If you no longer need Azure Virtual Network Manager, you'll need to make sure al
     | Confirm deletion | Enter the name of the network manager. In this example, it's **myAVNM**. |
 
 1. To delete the resource group, locate the resource group and select the **Delete resource group**. Confirm that you want to delete by entering the name of the resource group, then select **Delete**
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-resource-group.png" alt-text="Screenshot of delete button for a resource group.":::
 
 ## Next steps
 
