@@ -63,18 +63,20 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/users.png" alt-text="Users scope to review role membership of screenshot.":::
 
-11. Under **Review role membership**, select the privileged Azure resource or Azure AD roles to review.
+11. Or, you can create access reviews only for inactive users (preview). In the *Users scope* section, set the **Inactive users (on tenant level) only** to **true**. If the toggle is set to *true*, the scope of the review will focus on inactive users only. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users inactive for the specified number of days will be the only users in the review.
+ 
+12. Under **Review role membership**, select the privileged Azure resource or Azure AD roles to review.
 
     > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/review-role-membership.png" alt-text="Review role memberships screenshot.":::
 
-12. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
+13. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/assignment-type-select.png" alt-text="Reviewers list of assignment types screenshot.":::
 
-13. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
+14. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/reviewers.png" alt-text="Reviewers list of selected users or members (self)":::
 
@@ -142,6 +144,7 @@ Based on your selections in **Upon completion settings**, auto-apply will be exe
 
 > [!NOTE]
 > It is possible for a security group to have other groups assigned to it. In this case, only the users assigned directly to the security group assigned to the role will appear in the review of the role.
+
 
 ## Update the access review
 

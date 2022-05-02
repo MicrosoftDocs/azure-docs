@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage Hive Metastore databases
-description: This guide describes how to connect to Hive Metastore databases in Azure Purview, and how to use Azure Purview to scan and manage your Hive Metastore database source.
+description: This guide describes how to connect to Hive Metastore databases in Microsoft Purview, and how to use Microsoft Purview to scan and manage your Hive Metastore database source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 02/25/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Hive Metastore databases in Azure Purview
+# Connect to and manage Hive Metastore databases in Microsoft Purview
 
-This article outlines how to register Hive Metastore databases, and how to authenticate and interact with Hive Metastore databases in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Hive Metastore databases, and how to authenticate and interact with Hive Metastore databases in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -24,7 +24,7 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
  The supported Hive versions are 2.x to 3.x. The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks (versions 8.0 and later).
 
-When scanning Hive metastore source, Azure Purview supports:
+When scanning Hive metastore source, Microsoft Purview supports:
 
 - Extracting technical metadata including:
 
@@ -42,9 +42,9 @@ When setting up scan, you can choose to scan an entire Hive metastore database, 
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* You must have an active [Azure Purview account](create-catalog-portal.md).
+* You must have an active [Microsoft Purview account](create-catalog-portal.md).
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md).
 
@@ -59,11 +59,11 @@ When setting up scan, you can choose to scan an entire Hive metastore database, 
 
 ## Register
 
-This section describes how to register a Hive Metastore database in Azure Purview by using [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register a Hive Metastore database in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 The only supported authentication for a Hive Metastore database is Basic Authentication.
 
-1. Go to your Azure Purview account.
+1. Go to your Microsoft Purview account.
 
 1. Select **Data Map** on the left pane.
 
@@ -73,7 +73,7 @@ The only supported authentication for a Hive Metastore database is Basic Authent
 
 1. On the **Register sources (Hive Metastore)** screen, do the following:
 
-   1. For **Name**, enter a name that Azure Purview will list as the data source.
+   1. For **Name**, enter a name that Microsoft Purview will list as the data source.
 
    1. For **Hive Cluster URL**, enter a value that you get from the Ambari URL or the Azure Databricks workspace URL. For example, enter **hive.azurehdinsight.net** or **adb-19255636414785.5.azuredatabricks.net**.
 
@@ -87,7 +87,7 @@ The only supported authentication for a Hive Metastore database is Basic Authent
 
 ## Scan
 
-Use the following steps to scan Hive Metastore databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Azure Purview](concept-scans-and-ingestion.md).
+Use the following steps to scan Hive Metastore databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
 
 1. In the Management Center, select integration runtimes. Make sure that a self-hosted integration runtime is set up. If it isn't set up, use the steps in [Create and manage a self-hosted integration runtime](./manage-integration-runtimes.md).
 
@@ -109,7 +109,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
        * Provide the Metastore username in the appropriate box.
        * Store the Metastore password in the secret key.
 
-       For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
+       For more information, see [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
 
        **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
@@ -192,8 +192,8 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you've registered your source, use the following guides to learn more about Azure Purview and your data:
+Now that you've registered your source, use the following guides to learn more about Microsoft Purview and your data:
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search the data catalog](how-to-search-catalog.md)

@@ -33,31 +33,29 @@ Use the Image Analysis client library for Python to analyze a remote image for c
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Install the client library
-
-You can install the client library with:
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-computervision
-```
-
-Also install the Pillow library.
-
-```console
-pip install pillow
-```
-
-### Create a new Python application
-
-Create a new Python file&mdash;*quickstart-file.py*, for example. 
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
 ## Analyze image
+
+1. Install the client library.
+
+    You can install the client library with:
+
+    ```console
+    pip install --upgrade azure-cognitiveservices-vision-computervision
+    ```
+
+    Also install the Pillow library.
+
+    ```console
+    pip install pillow
+    ```
+
+1. Create a new Python application.
+
+    Create a new Python file&mdash;*quickstart-file.py*, for example. 
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. Open *quickstart-file.py* in a text editor or IDE and paste in the following code.
 
@@ -73,6 +71,30 @@ Create a new Python file&mdash;*quickstart-file.py*, for example.
    ```console
    python quickstart-file.py
    ```
+
+## Output
+
+```console
+===== Tag an image - remote =====
+Tags in the remote image:
+'outdoor' with confidence 99.00%
+'building' with confidence 98.81%
+'sky' with confidence 98.21%
+'stadium' with confidence 98.17%
+'ancient rome' with confidence 96.16%
+'ruins' with confidence 95.04%
+'amphitheatre' with confidence 93.99%
+'ancient roman architecture' with confidence 92.65%
+'historic site' with confidence 89.55%
+'ancient history' with confidence 89.54%
+'history' with confidence 86.72%
+'archaeological site' with confidence 84.41%
+'travel' with confidence 65.85%
+'large' with confidence 61.02%
+'city' with confidence 56.57%
+
+End of Computer Vision quickstart.
+```
 
 ## Clean up resources
 

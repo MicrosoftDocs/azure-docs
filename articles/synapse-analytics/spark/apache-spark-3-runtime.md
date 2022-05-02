@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.1  
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
-author: midesa 
+author: DaniBunny
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 09/22/2021 
-ms.author: midesa 
+ms.date: 04/18/2022
+ms.author: dacoelho 
 ms.custom: has-adal-ref
 ---
 
@@ -14,17 +14,10 @@ ms.custom: has-adal-ref
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1. 
 
-## Known Issues
-* Synapse Pipeline/Dataflows support is coming soon.
-* The following connector support are coming soon:
-  * Azure Data Explorer connector
-  * SQL Server
-* Hyperspace, Spark Cruise, and Dynamic Allocation Executors are coming soon.
-
 ## Component versions
 |  Component   | Version   |  
 | ----- | ----- |
-| Apache Spark | 3.1 |
+| Apache Spark | 3.1.2 |
 | Operating System | Ubuntu 18.04 |
 | Java | 1.8.0_282 |
 | Scala | 2.12.10  |
@@ -1469,5 +1462,5 @@ websocket-client=1.1.0
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Apache Spark Documentation](https://spark.apache.org/docs/3.0.2/)
+- [Apache Spark Documentation](https://spark.apache.org/docs/3.1.2/)
 - [Apache Spark Concepts](apache-spark-concepts.md)
