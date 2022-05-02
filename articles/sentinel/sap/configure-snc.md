@@ -1,6 +1,6 @@
 ---
 title: Deploy the Microsoft Sentinel SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
-description: Learn how to deploy the Microsoft Sentinel data connector for SAP environments with a secure connection via SNC, for the NetWeaver/ABAP interface based logs.
+description: This article shows you how to deploy the **Microsoft Sentinel data connector for SAP** to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
@@ -12,21 +12,21 @@ ms.date: 11/09/2021
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article shows you how to deploy the Microsoft Sentinel data connector for SAP environments to operate over a secure connection via SNC, for the NetWeaver/ABAP interface based logs.
+This article shows you how to deploy the **Microsoft Sentinel data connector for SAP** to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The Continuous Threat Monitoring for SAP data connector agent typically connects to an SAP ABAP server using an RFC connection, and a user's username and password for authentication.
 
-However, some environments may require the connection be made in an encrypted fashion, and authentication to  use client certificates.
+However, some environments may require the connection be over an encrypted channel, and client certificates be used for authentication. In these cases you can use SAP Secure Network Communication for this purpose, and you'll have to take the appropriate steps as outlined in this article.
 
 ## Prerequisites
 
-- SAP Cryptographic library [Download the SAP Cryptographic Library](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html)
-- Network connectivity. SNC uses ports *48xx* (where xx is the instance number) to connect to the ABAP server
+- SAP Cryptographic library [Download the SAP Cryptographic Library](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html).
+- Network connectivity. SNC uses ports *48xx* (where xx is the SAP instance number) to connect to the ABAP server.
 - SAP server configured to support SNC authentication.
-- Self-signed, or enterprise CA-issued certificate for user authentication
+- Self-signed, or enterprise CA-issued certificate for user authentication.
  
 > [!NOTE]
 > This guide is a sample case for configuring SNC. In production environments it is strongly recommended to consult with SAP administrators to devise a deployment plan.
@@ -35,134 +35,148 @@ However, some environments may require the connection be made in an encrypted fa
 
 ### Export server certificate
 
-1. Run **STRUST** transaction.
+1. Sign in to your SAP client and run the **STRUST** transaction.
 
 1. Navigate and expand the **SNC SAPCryptolib** section in the left hand pane.
 
-1. Select the system, then click the value of the **Subject** field.
+1. Select the system, then select the value of the **Subject** field.
 
-    Note that server certificate information will be displayed in the **Certificate** section at the bottom of the page.
+    The server certificate information will be displayed in the **Certificate** section at the bottom of the page.
 
-1. Click **Export certificate** button at the bottom of the page.
+1. Select the **Export certificate** button at the bottom of the page.
 
     ![Export server certificate](./media/configure-snc/export_server_certificate.png "Export server certificate")
 
-1. In **Export Certificate** dialog box select **Base64** as file format, click double boxes next to **File Path** field and select a filename to export certificate to, then click click the green checkbox to export the certificate.
+1. In the **Export Certificate** dialog box, select **Base64** as the file format, select the double boxes icon next to the **File Path** field, and select a filename to export the certificate to, then select the green checkmark to export the certificate.
 
-    > [!IMPORTANT]
-    > Next section explains how to import a certificate, so it's trusted by ABAP server<br>
-    > It is important to understand which certificate needs to be imported into the SAP system. In any case, only public keys of the certificates need to be imported into SAP system.<br>
-    > **If user certificate is self-signed**<br>
-    > Import user certificate<br>
-    > **If user certificate is issued by an enterprise CA**<br>
-    > Import enterprise CA certificate ( in case root and subordinate CA servers are used, import both root and subordinate CA public certificates)
 
-### Importing a certificate
+### Import your certificate
 
-1. Run **STRUST** transaction
+This section explains how to import a certificate so that it's trusted by your ABAP server. It's important to understand which certificate needs to be imported into the SAP system. In any case, only public keys of the certificates need to be imported into the SAP system.
 
-1. Click **Display<->Change** button
+- **If the user certificate is self-signed:** Import a user certificate.
 
-1. Click **Import certificate** button at the bottom of the page
+- **If user certificate is issued by an enterprise CA:** Import an enterprise CA certificate. In the event that both root and subordinate CA servers are used, import both root and subordinate CA public certificates.
 
-1. In the **Import certificate** dialog box, click double boxes next to **File path** field and locate the certificate.
+1. Run the **STRUST** transaction.
 
-    1. Locate the file containing the certificate (public key only) and click green checkbox to import the certificate.
+1. Select **Display<->Change**.
 
-    1. Notice certificate information is displayed in **Certificate** section
+1. Select **Import certificate** at the bottom of the page.
 
-    1. Click **Add to Certificate List** button
+1. In the **Import certificate** dialog box, select the double boxes icon next to the **File path** field and locate the certificate.
 
-    1. Notice that certificate will appear in **Certificate List**
+    1. Locate the file containing the certificate (public key only) and select the green checkmark to import the certificate.
+
+        The certificate information is displayed in the **Certificate** section.
+
+    1. Select **Add to Certificate List**.
+
+        The certificate will appear in the **Certificate List** area.
 
 ### Associate certificate with a user account
 
-1. Run **SM30** transaction
+1. Run the **SM30** transaction.
 
-1. In **Table/View** field type **USRACLEXT**, then click **Maintain**
+1. In the **Table/View** field, type **USRACLEXT**, then select **Maintain**.
 
-1. Review the output, identify whether target user already has an associates SNC name. If not, click **New Entries**
+1. Review the output, identify whether the target user already has an associated SNC name. If not, select **New Entries**.
 
     ![New entry in USRACLEXT](./media/configure-snc/usraclext_new_entry.png "New entry in USRACLEXT")
 
-1. Type in username in **User** field and user's certificate subject name prefixed with **p:**, then click **Save**
+1. Type the target user's username in the **User** field and the user's certificate subject name prefixed with **p:** in the **SNC Name** field, then select **Save**.
 
     ![New user in USRACLEXT](./media/configure-snc/usraclext_new_user.png "New user in USRACLEXT")
 
 ### Grant logon rights using certificate
 
-1. Run **SM30** transaction
+1. Run the **SM30** transaction.
 
-1. In **Table/View** field type **VSNCSYSACL**, then click **Maintain**
+1. In the **Table/View** field, type **VSNCSYSACL**, then select **Maintain**.
 
-1. Confirm the informational prompt that the table is cross-client
+1. Confirm that the table is cross-client in the informational prompt that appears.
 
-1. In **Determine Work Area: Entry** type **E** in **Type of ACL entry** field and press the green checkbox
+1. In **Determine Work Area: Entry** type **E** in the **Type of ACL entry** field, and select the green checkmark.
 
-1. Review the output, identify whether target user already has an associates SNC name. If not, click **New Entries**
+1. Review the output, identify whether the target user already has an associated SNC name. If not, select **New Entries**.
 
     ![New entry in VSNCSYSACL](./media/configure-snc/vsncsysacl_new_entry.png "New entry in VSNCSYSACL")
 
-1. Enter system ID and user certificate subject name with a **p:** prefix
+1. Enter your system ID and user certificate subject name with a **p:** prefix.
 
     ![New user in VSNCSYSACL](./media/configure-snc/vsncsysacl_new_user.png "New user in VSNCSYSACL")
 
-1. Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are checked, then press **Save**
+1. Ensure **Entry for RFC activated** and **Entry for certificate activated** checkboxes are marked, then select **Save**.
 
 ### Set up the container
 
-1. Transfer **libsapcrypto.so**, **sapgenpse** to the target system where container will be created
+1. Transfer the **libsapcrypto.so** and **sapgenpse** files to the target system where the container will be created.
 
-1. Transfer client certificate (private and public key) to the target system where container will be created
+1. Transfer the client certificate (private and public key) to the target system where the container will be created.
 
-    Client certificate and key can be in .p12, .pfx, or Base-64 .crt and .key format.
+    The client certificate and key can be in .p12, .pfx, or Base-64 .crt and .key format.
 
-1. Transfer server certificate (public key only) to the target system where container will be created. Server certificate must be in Base-64 .crt format
+1. Transfer the server certificate (public key only) to the target system where the container will be created. 
 
-1. In case client certificate is issued by an enterprise certification authority, transfer issuing CA, root CA certificates to the target system where container will be created.
+    The server certificate must be in Base-64 .crt format.
 
-1. retrieve the kickstart script from the github repository
+1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the target system where the container will be created.
+
+1. Retrieve the kickstart script from the Microsoft Sentinel GitHub repository:
 
     ```bash
     wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
     ```
 
-1. Change script permissions to make it executable
+1. Change the script's permissions to make it executable:
 
     ```bash
     chmod +x ./sapcon-sentinel-kickstart.sh
     ```
 
-1. Run the script specifying the following parameters
+1. Run the script, specifying the following parameters:
 
     ```bash
     ./sapcon-sentinel-kickstart.sh \
     --use-snc \
     --cryptolib <path to sapcryptolib.so> \
     --sapgenpse <path to sapgenpse> \
+    # CLIENT CERTIFICATE
+    # If client certificate is in .crt/.key format
     --client-cert <path to client certificate public key> \
     --client-key <path to client certificate private key> \
+    # If client certificate is in .pfx or .p12 format
+    --client-pfx <pfx filename>
+    --client-pfx-passwd <password>
+    # If client certificate issued by enterprise CA
+    --cacert <path to ca certificate> # for each CA in the trust chain
+    # SERVER CERTIFICATE
     --server-cert <path to server certificate public key> \
+    
     ```
 
-    example:
+    For example:
 
-    ````bash
+    ```bash
     ./sapcon-sentinel-kickstart.sh \
     --use-snc \
     --cryptolib /home/azureuser/libsapcrypto.so \
     --sapgenpse /home/azureuser/sapgenpse \
+    # CLIENT CERTIFICATE
+    # If client certificate is in .crt/.key format
     --client-cert /home/azureuser/client.crt \
     --client-key /home/azureuser/client.key \
+    # If client certificate is in .pfx or .p12 format
+    --client-pfx /home/azureuser/client.pfx \
+    --client-pfx-passwd <password>
+    # If client certificate issued by enterprise CA
+    --cacert /home/azureuser/issuingca.crt
+    --cacert /home/azureuser/rootca.crt
+    # SERVER CERTIFICATE
     --server-cert /home/azureuser/server.crt \
-    ````
+    ```
 
-    >[!NOTE]
-    >If client certificate is in .pfx or .p12 format, instead of `--client-cert` and `--client-key` parameters, use `--client-pfx <pfx filename>` and `--client-pfx-passwd <password>` switches
-    >[!NOTE]
-    >If client certificate is signed by an enteprise certification authority, add `--cacert <path to ca certificate>` switch for every certificate authority used in the trust chain, for example `--cacert /home/azureuser/issuingca.crt --cacert /home/azureuser/rootca.crt`
-
-    For additional information on options available in the kickstart script, review [Reference: Kickstart script](reference-kickstart.md)
+For additional information on options available in the kickstart script, review [Reference: Kickstart script](reference-kickstart.md)
 
 ## Next steps
 
