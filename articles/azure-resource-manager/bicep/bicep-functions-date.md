@@ -97,19 +97,19 @@ An ISO 8601 datetime string.
 
 ### Remarks
 
-This function requires **Bicep version 0.5.5 or later**.
+This function requires **Bicep version 0.5.6 or later**.
 
 ### Example
 
 The following example shows output values for the epoch time functions.
 
 ```bicep
-param convertToEpoch int = dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))
+param convertedEpoch int = dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))
 
-var convertToDatetime = dateTimeFromEpoch(convertToEpoch)
+var convertedDatetime = dateTimeFromEpoch(convertedEpoch)
 
-output epochValue int = convertToEpoch
-output datetimeValue string = convertToDatetime
+output epochValue int = convertedEpoch
+output datetimeValue string = convertedDatetime
 ```
 
 The output is:
@@ -118,7 +118,6 @@ The output is:
 | ---- | ---- | ----- |
 | datetimeValue | String | 2023-05-02T15:16:13Z |
 | epochValue | Int | 1683040573 |
-
 
 ## dateTimeToEpoch
 
@@ -140,19 +139,19 @@ An integer that represents the number of seconds from midnight on January 1, 197
 
 ### Remarks
 
-This function requires **Bicep version 0.5.5 or later**.
+This function requires **Bicep version 0.5.6 or later**.
 
 ### Examples
 
 The following example shows output values for the epoch time functions.
 
 ```bicep
-param convertToEpoch int = dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))
+param convertedEpoch int = dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))
 
-var convertToDatetime = dateTimeFromEpoch(convertToEpoch)
+var convertedDatetime = dateTimeFromEpoch(convertedEpoch)
 
-output epochValue int = convertToEpoch
-output datetimeValue string = convertToDatetime
+output epochValue int = convertedEpoch
+output datetimeValue string = convertedDatetime
 ```
 
 The output is:
