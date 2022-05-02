@@ -365,4 +365,4 @@ To learn more, review these articles:
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
-- [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint)
+- [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
