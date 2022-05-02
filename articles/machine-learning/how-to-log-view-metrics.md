@@ -207,14 +207,6 @@ Azure Machine Learning can also log information from other sources during traini
 
 For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md)
 
-## Example notebooks
-
-The following notebooks demonstrate concepts in this article:
-* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
-
 ## Next steps
 
 * [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
