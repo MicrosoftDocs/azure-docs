@@ -320,4 +320,4 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 - [How to download logs in Azure Active Directory](howto-download-logs.md)
 
-- [Azure AD report latencies](reference-reports-latencies.md)
+- [How to access activity logs in Azure AD](howto-access-activity-logs.md)
