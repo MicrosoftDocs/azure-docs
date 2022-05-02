@@ -473,11 +473,11 @@ The OSM extension does not install add-ons like [Jaeger](https://www.jaegertraci
 
 ## Monitoring application using Azure Monitor and Applications Insights (preview)
 
-Both Azure Monitor and Azure Application Insights help you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-
-Azure Arc-enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seamless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape Prometheus endpoints for collecting application metrics.
+Both Azure Monitor and Azure Application Insights help you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Arc-enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seamless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. 
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
+
+Follow the steps below to allow Azure Monitor to scrape Prometheus endpoints for collecting application metrics.
 
 1. Follow the guidance available [here](#onboard-namespaces-to-the-service-mesh) to ensure that the application namespaces that you wish to be monitored are onboarded to the mesh.
 
