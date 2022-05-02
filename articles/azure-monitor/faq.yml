@@ -10,7 +10,7 @@ metadata:
   ms.date: 04/01/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
-  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any other questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
   
 
 sections:
@@ -34,12 +34,12 @@ sections:
       - question: |
           How do I enable Azure Monitor?
         answer: |
-          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](./monitor-reference.md) to provide additional analysis on collected data for particular services.
+          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
           
       - question: |
           How do I access Azure Monitor?
         answer: |
-          Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for a variety of scenarios using CLI, PowerShell, and a REST API.
+          Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for various scenarios using CLI, PowerShell, and a REST API.
 
       - question: |
           Is there an on-premises version of Azure Monitor?
@@ -54,7 +54,7 @@ sections:
       - question: |
           Does Azure Monitor integrate with System Center Operations Manager?
         answer: |
-          You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
+          You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This capability allows you to use log queries and solution to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
           
       - question: |
           What IP addresses does Azure Monitor use?
@@ -66,12 +66,12 @@ sections:
       - question: |
           Where does Azure Monitor get its data?
         answer: |
-          Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Azure Monitor collects data from various sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
           
       - question: |
           What data is collected by Azure Monitor?
         answer: |
-          Azure Monitor collects data from a variety of sources into [logs](logs/data-platform-logs.md) or [metrics](essentials/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](data-platform.md).
+          Azure Monitor collects data from various sources into [logs](logs/data-platform-logs.md) or [metrics](essentials/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](data-platform.md).
           
       - question: |
           Is there a maximum amount of data that I can collect in Azure Monitor?
@@ -88,7 +88,7 @@ sections:
         answer: |
           You may on occasion notice duplicate records in Azure Monitor Logs. This will typically be from one of the following two conditions.
           
-          - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this may result in duplicates for a very small percentage of telemetry items.
+          - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability may result in duplicates for a small percentage of telemetry items.
           - If the duplicate records come from a virtual machine, then you may have both the Log Analytics agent and Azure Monitor agent installed. If you still need the Log Analytics agent installed, then configure the Log Analytics workspace to no longer collect data that’s also being collected by the data collection rule used by Azure Monitor agent.
 
           
@@ -97,7 +97,7 @@ sections:
       - question: |
           What is an insight in Azure Monitor?
         answer: |
-          Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but may collect additional data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](./monitor-reference.md).
+          Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but may collect extra data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](./monitor-reference.md).
           
           To view insights in the Azure portal, see the **Insights** section of the **Monitor** menu or the **Monitoring** section of the service's menu.
           
@@ -106,7 +106,7 @@ sections:
         answer: |
           Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
           
-          To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add additional solutions to the workspace.
+          To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add more solutions to the workspace.
           
   - name: Logs
     questions:
@@ -133,7 +133,7 @@ sections:
       - question: |
           What is a Log Analytics workspace?
         answer: |
-          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md).
+          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from various sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md).
           
       - question: |
           Can you move an existing Log Analytics workspace to another Azure subscription?
@@ -207,7 +207,7 @@ sections:
       - question: |
           What's the difference between the Azure Monitor agents?
         answer: |
-          The Azure Monitor Agent is the new, improved agent that will consolidate the features from all the other legacy monitoring agents, whilst providing additional benefits like centralized data collection, filtering, multihoming and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+          The **Azure Monitor Agent** is the new, improved agent that consolidates features from all the other legacy monitoring agents while providing extra benefits, like centralized data collection, filtering, multihoming, and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).  
           The legacy agents include:
           - Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
           - The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. These agents will be deprecated by August, 2024.
@@ -305,7 +305,7 @@ sections:
           Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services such as Microsoft Defender for Cloud and Microsoft Sentinel?
         answer: |
           Review the list of [AMA extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These are the same solutions and services now available using the new Azure Monitor agent instead. 
-          You may see additional extensions getting installed for the solution/service, this is to collect additional data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
+          You may see more extensions getting installed for the solution/service to collect extra data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
           
           Here's a diagram explaining the **new extensibility architecture**:
           
@@ -346,7 +346,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
-          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
+          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no extra cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
       
       - question: |
           Does the Azure Monitor Agent support private links?
@@ -371,7 +371,7 @@ sections:
       - question: |
           What types of machines does the new Azure Monitor Agent support?
         answer: |
-          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. Additional you can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, [currently available in preview click here](https://aka.ms/amadcr-privatepreviews)). 
+          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. You can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, [currently available in preview click here](https://aka.ms/amadcr-privatepreviews)). 
 
       - question: |
           Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
@@ -623,7 +623,7 @@ sections:
         answer: |
           The browser passes the User Agent string in the HTTP header of the request, and the Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
           
-          Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. Additionally, the [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
+          Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
           
       - question:  Have I enabled everything in Application Insights?
         answer: |
@@ -940,7 +940,7 @@ sections:
       - question: |
           Can I view metrics collected in Grafana?
         answer: |
-          Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashboards.
+          Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
           
       - question: |
           Can I monitor my AKS-engine cluster with Container insights?
@@ -1050,7 +1050,7 @@ sections:
       - question: |
           What do I do if my VM is already reporting to an existing workspace?
         answer: |
-          If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable VM insights to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won't be able to onboard to VM insights at this time.  We are actively working to support additional regions.
+          If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable VM insights to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won't be able to onboard to VM insights at this time.  We are actively working to support more regions.
 
       - question: |
           Why did my VM fail to onboard?
@@ -1061,14 +1061,14 @@ sections:
           * The Log Analytics agent is installed on Azure VMs using a VM extension, if determined it is required.
           * The VM insights Map Dependency agent is installed on Azure VMs using an extension, if determined it is required.
           
-          During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring data in the portal take an additional 5 to 10 minutes.
+          During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring data in the portal take an extra 5 to 10 minutes.
           
           If you have initiated onboarding and see messages indicating the VM needs to be onboarded,  allow for up to 30 minutes for the VM to complete the process.
           
       - question: |
           I don't see some or any data in the performance charts for my VM
         answer: |
-          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for additional information.
+          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for more information.
           
           If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./vm/vminsights-enable-powershell.md).
           
@@ -1177,7 +1177,7 @@ additionalContent: |
 
   ## Next steps
   
-  If your question isn't answered here, you can refer to the following forums to additional questions and answers.
+  If your question isn't answered here, you can refer to the following forums for more questions and answers.
 
   - [Log Analytics](/answers/topics/azure-monitor.html)
   - [Application Insights](/answers/topics/azure-monitor.html)
