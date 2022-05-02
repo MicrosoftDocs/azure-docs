@@ -18,26 +18,26 @@ Some capabilities of Computer Vision support multiple languages; any capabilitie
 
 ## Optical Character Recognition (OCR)
 
-The Computer Vision OCR APIs support many languages. Read can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
+The Computer Vision [Read API](./overview-ocr.md#read-api) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
 
 > [!NOTE]
 > **Language code optional**
 >
-> Read OCR's deep-learning-based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+> `Read` OCR's deep-learning-based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the new languages.
+See [How to specify the `Read` model](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the new languages.
 
 ### Handwritten languages
 
-The following table lists the languages supported by Read for handwritten text.
+The following table lists the languages supported by `Read` for handwritten text.
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
-|English|`en`|Japanese (preview) |`ja`|
-|Chinese Simplified (preview)  |`zh-Hans`|Korean (preview)|`ko`|
-|French (preview) |`fr`|Portuguese (preview)|`pt`|
-|German (preview) |`de`|Spanish (preview) |`es`|
-|Italian (preview) |`it`|
+|English|`en`|Japanese |`ja`|
+|Chinese Simplified |`zh-Hans`|Korean|`ko`|
+|French |`fr`|Portuguese |`pt`|
+|German |`de`|Spanish |`es`|
+|Italian |`it`|
 
 ### Print languages (preview)
 
