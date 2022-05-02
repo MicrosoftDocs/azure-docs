@@ -140,6 +140,8 @@ items:
         href: de-identified-export.md
     - name: Patient/$everything
       href: patient-everything.md
+    - name: $purge-history operation
+      href: purge-history.md
     - name: $member-match
       href: tutorial-member-match.md
   - name: How to convert data to FHIR 
@@ -154,8 +156,6 @@ items:
     href: iot-troubleshoot-guide.md
   - name: Move to a different subscription
     href: move-fhir-service.md
-  - name: Purge history operation
-    href: purge-history.md
 - name: Concepts
   expanded: true
   items:

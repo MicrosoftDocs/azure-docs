@@ -35,9 +35,9 @@ Versioning policy available to configure at as a system-wide setting and also to
 
 | Policy Value     | History Behavior      | `meta.versionId` Behavior  | Default |
 | ---------------- | --------------------- | -------------------------- | ------- |
-| `versioned`      | History is stored     | User can specify value     | Yes     |
+| `versioned`      | History is stored     | Value is incremented       | Yes     |
 | `version-update` | History is stored     | User can specify value     | No      |
-| `no-version`     | History isn't stored | Increments from last value | No      |
+| `no-version`     | History isn't stored | Increments from last value  | No      |
 
 > [!NOTE]
 > Changing the versioning policy to `no-version` has no effect on existing resource history. If history needs to be removed for resources, use the [$purge-history](purge-history.md) operation.

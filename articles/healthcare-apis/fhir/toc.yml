@@ -79,6 +79,8 @@ items:
         href: validation-against-profiles.md
     - name: Patient/$everything
       href: patient-everything.md
+    - name: $purge-history operation
+      href: purge-history.md
     - name: $member-match
       href: tutorial-member-match.md
     - name: $export
@@ -90,8 +92,6 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-    - name: Purge history operation
-      href: purge-history.md
   - name: Bulk-import data
     expanded: true
     items:
