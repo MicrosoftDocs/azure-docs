@@ -7,8 +7,6 @@ ms.topic: how-to
 
 # Manage Defender for IoT subscriptions
 
-## About subscriptions
-
 Your Defender for IoT deployment is managed through your Microsoft Defender for IoT account subscriptions. You can onboard, edit, and offboard your subscriptions to Defender for IoT in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 For each subscription, you will be asked to define a number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise. 
@@ -17,7 +15,7 @@ For each subscription, you will be asked to define a number of *committed device
 > If you've come to this page because you are a [former CyberX customer](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments) and have questions about your account, reach out to your account manager for guidance.
 
 
-### Subscription billing
+## Subscription billing
 
 You are billed based on the number of committed devices associated with each subscription.
 
