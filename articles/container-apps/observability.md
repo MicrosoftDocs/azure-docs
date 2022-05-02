@@ -182,15 +182,15 @@ For more information regarding Log Analytics and log queries, see the [Log Analy
 
 ### Query logs via the Azure CLI and PowerShell
 
-Container Apps logs can be queried using the  [Azure CLI](/cli/azure/monitor/log-analytics).  
+Container Apps logs can be queried using the [Azure CLI](/cli/azure/monitor/log-analytics).  
 
-Here's an example Azure CLI query to view the log entries for a container app:
+Here's an example Azure CLI query to output a table containing 5 log records with the container app name "album-api".  The table columns are specified by the parameters after the project operator.  The $WORKSPACE_CUSTOMER_ID variable contains the GUID of the Log Analytics workspace.
 
 ```azurecli
-az monitor log-analytics query --workspace --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'album-api' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Message, LogLevel_s | take 100" --out table
+az monitor log-analytics query --workspace $WORKSPACE_CUSTOMER_ID --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'album-api' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Message, LogLevel_s | take 5" --out table
 ```
 
-For more information about using Azure CLI and PowerShell to view container app logs, see [Viewing Logs](monitor.md#viewing-logs).
+For more information about using Azure CLI to view container app logs, see [Viewing Logs](monitor.md#viewing-logs).
 
 ## Azure Monitor alerts
 
@@ -285,6 +285,5 @@ Container Apps manages updates to your container app by creating [revisions](rev
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Monitor an app in Azure Container Apps Preview](monitor.md)
-> [Health probes in Azure Container Apps](health-probes.md)
+- [Monitor an app in Azure Container Apps Preview](monitor.md)
+- [Health probes in Azure Container Apps](health-probes.md)
