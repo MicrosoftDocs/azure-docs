@@ -58,7 +58,7 @@ This section lists the supported Azure Storage actions and suboperations you can
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | All read operations |
-> | **Description** | All Blob read operations. |
+> | **Description** | All Blob read operations including list. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 > | **Suboperation** |  |
 > | **Resource attributes** | Account name<br/>Is hierarchical namespace enabled<br/>Container name |
