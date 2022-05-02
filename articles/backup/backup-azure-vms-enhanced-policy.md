@@ -1,16 +1,16 @@
 ---
-title: Back up Azure VMs with Enhanced policy (in preview)
+title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 04/12/2022
+ms.date: 04/30/2022
 ms.reviewer: geg
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
-# Back up an Azure VM using Enhanced policy (in preview)
+# Back up an Azure VM using Enhanced policy
 
-This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](../virtual-machines/trusted-launch.md) with Azure Backup service. _Enhanced policy_ for VM backup is in preview.
+This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](../virtual-machines/trusted-launch.md) with Azure Backup service.
 
 Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](../virtual-machines/trusted-launch.md) is supported with _Enhanced policy_ only.
 

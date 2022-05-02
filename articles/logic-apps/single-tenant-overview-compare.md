@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -255,7 +255,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 For the **Logic App (Standard)** resource, these capabilities have changed, or they are currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: Built-in triggers and actions run natively in Azure Logic Apps, while managed connectors are hosted and run in Azure. Some built-in triggers and actions are unavailable, such as Sliding Window, Batch, Azure App Services, and Azure API Management. To start a stateful or stateless workflow, use the [built-in Recurrence, Request, HTTP, HTTP Webhook, Event Hubs, or Service Bus trigger](../connectors/apis-list.md). In the designer, built-in triggers and actions appear under the **Built-in** tab.
+* **Triggers and actions**: Built-in triggers and actions run natively in Azure Logic Apps, while managed connectors are hosted and run in Azure. Some built-in triggers and actions are unavailable, such as Sliding Window, Batch, Azure App Services, and Azure API Management. To start a stateful or stateless workflow, use the [Request, HTTP, HTTP Webhook, Event Hubs, Service Bus trigger, and so on](../connectors/built-in.md). The Recurrence trigger is available only for stateful workflows, not stateless workflows. In the designer, built-in triggers and actions appear under the **Built-in** tab.
 
   For *stateful* workflows, [managed connector triggers and actions](../connectors/managed.md) appear under the **Azure** tab, except for the unavailable operations listed below. For *stateless* workflows, the **Azure** tab doesn't appear when you want to select a trigger. You can select only [managed connector *actions*, not triggers](../connectors/managed.md). Although you can enable Azure-hosted managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 

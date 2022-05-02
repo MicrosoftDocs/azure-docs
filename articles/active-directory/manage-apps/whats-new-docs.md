@@ -6,10 +6,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: davidmu
-author: davidmu1
+ms.author: jomondi
+author: omondiatieno
 manager: CelesteDG
-reviewer: napuri
 ---
 
 # Azure Active Directory application management: What's new
