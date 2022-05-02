@@ -81,6 +81,8 @@ mkdir data
 touch data/databaseContext.js
 ```
 
+---
+
 1. Create and initialize a `package.json` file. Use the following command:
 
     ```bash
