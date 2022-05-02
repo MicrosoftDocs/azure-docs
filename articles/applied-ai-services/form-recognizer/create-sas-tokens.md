@@ -128,7 +128,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows
 
 1. Copy and paste the **Blob SAS token** and **Blob SAS URL** values in a secure location. They're displayed only once and can't be retrieved after the window is closed.
 
-## Create a shared access signature with the Azure CLI
+### [Azure CLI](#tab/cli)
 
 1. To create a user delegation SAS for a container by using the Azure CLI, make sure that you've installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
 
@@ -157,11 +157,13 @@ az storage container generate-sas \
     --as-user
 ```
 
-## Use your Blob SAS URL
+---
+
+## Use your SAS URL
 
 Two options are available:
 
-* To use your Blob SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync), add the SAS URL to the request body:
+* To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync), add the SAS URL to the request body:
 
   ```json
   {
@@ -169,7 +171,7 @@ Two options are available:
   }
   ```
 
-* To use your Blob SAS URL with the [Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/connections/create), add the SAS URL to the **Connection Settings** > **Azure blob container** > **SAS URI** field:
+* To use your SAS URL with the [Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/connections/create), add the SAS URL to the **Connection Settings** > **Azure blob container** > **SAS URI** field:
 
   :::image type="content" source="media/sas-tokens/fott-add-sas-uri.png" alt-text="Screenshot that shows the SAS URI field.":::
 
