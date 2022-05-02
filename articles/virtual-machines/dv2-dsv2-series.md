@@ -1,7 +1,8 @@
 ---
 title: Dv2 and DSv2-series - Azure Virtual Machines
 description: Specifications for the Dv2 and Dsv2-series VMs.
-author: joelpelley
+author: andysports8
+ms.author: shuji
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
