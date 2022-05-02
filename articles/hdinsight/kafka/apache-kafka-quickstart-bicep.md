@@ -54,7 +54,9 @@ Two Azure resources are defined in the Bicep file:
 
     ---
 
-    Replace **\<cluster-name\>** with the name of the HDInsight cluster to create. Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards. Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. You'll be prompted to enter **clusterLoginPassword**, which must be at least 10 characters long and contain at least one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username of SSH username. You'll also be prompted to enter **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.
+    Replace **\<cluster-name\>** with the name of the HDInsight cluster to create. The cluster name needs to start with a letter and can contain only lowercase letters, numbers, and dashes. Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards. Uppercase letters aren't allowed in the cluster username. Replace **\<ssh-username\>** with the credentials used to remotely access the cluster.
+
+    You'll be prompted to enter **clusterLoginPassword**, which must be at least 10 characters long and contain at least one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username of SSH username. You'll also be prompted to enter **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.
 
     > [!NOTE]
     > When the deployment finishes, you should see a message indicating the deployment succeeded.
@@ -156,9 +158,9 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
     * Each partition is replicated across three worker nodes in the cluster.
 
         If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
-        
+
         In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
-        
+
         For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/availability.md) document.
 
         Kafka isn't aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
