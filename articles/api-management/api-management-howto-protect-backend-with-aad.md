@@ -88,7 +88,7 @@ For details about app registration, see [Quickstart: Configure an application to
 
 * To learn more about how to build an application and implement OAuth 2.0, see [Azure AD code samples](../active-directory/develop/sample-v2-code.md).
 
-* For an end-to-end example of configuring OAuth 2.0 user authorization in the API Management developer portal, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
+* For an end-to-end example of configuring OAuth 2.0 user authorization in the API Management developer portal, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
 
 - Learn more about [Azure AD and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 
