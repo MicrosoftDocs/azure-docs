@@ -172,6 +172,11 @@ Managed online endpoints can help streamline your deployment process. Managed on
     >
     > If you use a virtual network and secure outbound (egress) traffic from the managed online endpoint, there is an additional cost. For egress, three private endpoints are created _per deployment_ for the managed online endpoint. These are used to communicate with the default storage account, Azure Container Registry, and workspace. Additional networking charges may apply.
 
+> [!NOTE]
+> Managed online endpoints are built on top of Azure Machine Learning compute, which is based on Azure Batch and virtual machine scale sets. When using managed online endpoints, you pay for the compute and network charges. There is no additional surcharge.
+>
+> When using a private endpoint with managed online endpoints (a preview feature), there is an additional cost if you enable secure egress. Secure egress is used for communications between a deployment and the Azure services it relies on; Azure Blob, Container Registry, and the workspace. Additional networking charges may also apply. For more information on pricing, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
 For a step-by-step tutorial, see [How to deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
 
 ## What are batch endpoints?
