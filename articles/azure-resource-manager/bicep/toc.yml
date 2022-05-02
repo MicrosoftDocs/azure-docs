@@ -79,6 +79,8 @@
     items:
     - name: Cosmos DB
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Database for MariaDB
+      href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for PostgreSQL
       href: ../../postgresql/quickstart-create-postgresql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database Migration Service
