@@ -453,7 +453,7 @@ The following values are available for filtering by different sign-in types:
 
 ## Next steps
 
-- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs/md)
+- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md)
 
 - [Azure AD data retention policies](reference-reports-data-retention.md)
 

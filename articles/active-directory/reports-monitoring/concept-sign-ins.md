@@ -333,7 +333,7 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 ## Next steps
 
-- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs/md)
+- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md)
 
 - [Azure AD data retention policies](reference-reports-data-retention.md)
 
