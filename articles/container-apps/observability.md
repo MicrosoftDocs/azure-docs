@@ -209,7 +209,7 @@ To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../
 
 When you add alert rules to a metric chart in the metrics explorer, alerts are triggered when metric data matches alert rule conditions.  
 
-After creating a [metric chart](#analyze-metrics-with-metrics-explorer), select **New alert rule** to create an alert rule based on the chart's settings.
+After creating a [metric chart](#view-metrics-with-metrics-explorer), select **New alert rule** to create an alert rule based on the chart's settings.
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Screenshot of the metrics explorer highlighting the new rule button.":::
 
