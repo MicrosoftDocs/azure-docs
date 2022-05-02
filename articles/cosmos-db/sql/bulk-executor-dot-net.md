@@ -32,7 +32,7 @@ Currently, bulk executor library is supported by the Azure Cosmos DB SQL API and
 
 * You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](../local-emulator.md) with the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../local-emulator.md#authenticate-requests).
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in the [create a database account](create-sql-api-dotnet.md#create-a-database-account) section of the .NET quickstart article.
+* Create an Azure Cosmos DB SQL API account by using the steps described in the [create a database account](create-sql-api-dotnet.md#create-account) section of the .NET quickstart article.
 
 ## Clone the sample application
 
