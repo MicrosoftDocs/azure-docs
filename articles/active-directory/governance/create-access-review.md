@@ -214,9 +214,9 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 - User administrator 
 - Identity Governance Administrator
 
-Ue the following instructions to create an access review on a team with shared channels:
+Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
+1. Sign in to the Azure portal as a Global Admin, User Admin or Identity Governance Admin.
   
 1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
