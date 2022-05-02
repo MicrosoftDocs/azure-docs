@@ -164,9 +164,9 @@ This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/sdk-previ
 
 Azure machine learning models consist of the binary file(s) that represent a machine learning model and any corresponding metadata. Models can be created from a local or remote file or directory. For remote locations `https`, `wasbs` and `azureml` locations are supported. The created model will be tracked in the workspace under the specified name and version. Azure ML supports three types of storage format for models:
 
-1. `custom_model`
-1. `mlflow_model`
-1. `triton_model`
+* `custom_model`
+* `mlflow_model`
+* `triton_model`
 
 ### Creating a model
 

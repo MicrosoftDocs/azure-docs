@@ -41,7 +41,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 + [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
-1. [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
++ [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
 
