@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.author: jushiman
 ---
 
 # Dv3 and Dsv3-series
