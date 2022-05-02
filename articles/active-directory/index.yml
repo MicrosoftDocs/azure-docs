@@ -99,6 +99,10 @@ additionalContent:
     - title: Manage user identities
       items:
         # Card
+        - title: Fundamentals
+          summary: Learn basic Azure Active Directory (Azure AD) concepts and processes.
+          url: ./fundamentals/index.yml
+        # Card
         - title: Enterprise users
           summary: Create Azure AD tenants, manage user accounts, roles, and groups, and assign app access.
           url: ./enterprise-users/index.yml
@@ -129,15 +133,15 @@ additionalContent:
     - title: Control access
       items:
         # Card
-        - title: Authentication
-          summary: Configure sign-in methods and security features like self-service password reset, MFA, and more.
-          url: ./authentication/index.yml
-        # Card
         - title: Conditional Access
           summary: Control access to resources by enforcing policies based on user, location, device, and more.
           url: ./conditional-access/index.yml
         # Card
-        - title: Device management
+        - title: Authentication
+          summary: Configure sign-in methods and security features like self-service password reset, MFA, and more.
+          url: ./authentication/index.yml
+        # Card
+        - title: Device identity
           summary: Register and join devices to Azure AD for device management and Conditional Access.
           url: ./devices/index.yml
         # Card
