@@ -1,7 +1,7 @@
 ---
 title: Custom text classification data formats
 titleSuffix: Azure Cognitive Services
-description: Learn about the data formats accepted by custom entity extraction.
+description: Learn about the data formats accepted by custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -64,7 +64,7 @@ Your tags file should be in the `json` format below.
 * `documents`: An array of tagged documents.
   * `location`: The path of the file. The file has to be in root of the storage container.
   * `language`: Language of the file. Use one of the [supported culture locales](../language-support.md).
-  * `classifiers`: Array of classifier objects assigned to the file. If you're working on a single classification project, there should be one classifier per file only.
+  * `classifiers`: Array of classifier objects assigned to the file. If you're working on a single label classification project, there should be one classifier per file only.
 
 ## Next steps
 

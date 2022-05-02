@@ -28,7 +28,9 @@ As your needs change or requirements for automation increase you can also manage
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
-By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+* By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+
+* Azure Machine Learning does not support hierarchical namespace (Azure Data Lake Storage Gen2 feature) for the workspace's default storage account.
 
 [!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
@@ -368,6 +370,8 @@ You can view your search results in the individual **Jobs**, **Models**, **Compo
 
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
+> [!IMPORTANT]	
+> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters). 	
 
 ## Delete a workspace
 

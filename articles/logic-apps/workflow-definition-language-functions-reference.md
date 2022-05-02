@@ -98,14 +98,15 @@ To work with strings, you can use these string functions and also some [collecti
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
+| [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean indicating whether the string is an integer. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
 | [nthIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#nthIndexOf) | Return the starting position or index value where the *n*th occurrence of a substring appears in a string. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Replace a substring with the specified string, and return the updated string. |
-| [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice) | Return a substring by specifying the starting and ending position or value. |
+| [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice) | Return a substring by specifying the starting and ending position or value. See also [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring). |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. |
-| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. See also [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice). |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Return a string in uppercase format. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remove leading and trailing whitespace from a string, and return the updated string. |
@@ -2106,7 +2107,6 @@ formatDateTime('<timestamp>', '<format>'?, '<locale>'?)
 ```
 formatDateTime('03/15/2018') // Returns '2018-03-15T00:00:00.0000000'.
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss') // Returns '2018-03-15T12:00:00'.
-
 formatDateTime('01/31/2016', 'dddd MMMM d') // Returns 'Sunday January 31'.
 formatDateTime('01/31/2016', 'dddd MMMM d', 'fr-fr') // Returns 'dimanche janvier 31'.
 formatDateTime('01/31/2016', 'dddd MMMM d', 'fr-FR') // Returns 'dimanche janvier 31'.
@@ -2538,6 +2538,35 @@ int('10')
 ```
 
 And returns this result: `10`
+
+<a name="isInt"></a>
+
+### isInt
+
+Return a boolean indicating whether the string is an integer.
+
+```
+isInt('<string>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*string*> | Yes | String | The string to examine |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*boolean-result*> | Boolean | A boolean indicating whether the string is an integer |
+
+*Example*
+
+This example tests a string that represents an integer:
+
+```
+isInt('10')
+```
+
+And returns this result: `true`
 
 <a name="item"></a>
 
@@ -3316,7 +3345,7 @@ nthIndexOf('<text>', '<searchText>', <occurrence>)
 |-----------|----------|------|-------------|
 | <*text*> | Yes | String | The string that contains the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
-| <*ocurrence*> | Yes | Integer | A positive number that specifies the *n*th occurrence of the substring to find.|
+| <*ocurrence*> | Yes | Integer | A number that specifies the *n*th occurrence of the substring to find. If *ocurrence* is negative, starts searching from the end. |
 |||||
 
 | Return value | Type | Description |
@@ -3493,14 +3522,14 @@ And returns this result: `"Sophia Owen"`
 Return the timestamp from a string that contains a timestamp.
 
 ```
-parseDateTime('<timestamp>', '<locale>', '<format>'?)
+parseDateTime('<timestamp>', '<locale>'?, '<format>'?)
 ```
 
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*locale*> | Yes | String | The locale to use. If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
-| <*format*> | Yes | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*locale*> | No | String | The locale to use. <br><br>If not specified, default locale is used. <br><br>If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br> If not specified, the parsing will be attempted with multiple compatible with the provided locale. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
 ||||
 
 | Return value | Type | Description |
@@ -3969,9 +3998,10 @@ And returns this array with the remaining items: `[1,2,3]`
 ### slice
 
 Return a substring by specifying the starting and ending position or value.
+See also [substring()](#substring).
 
 ```
-slice('<text>', <startIndex>, <endIndex>)
+slice('<text>', <startIndex>, <endIndex>?)
 ```
 
 | Parameter | Required | Type | Description |
@@ -4261,6 +4291,7 @@ And returns this result: `10`
 ### substring
 
 Return characters from a string, starting from the specified position, or index. Index values start with the number 0.
+See also [slice()](#slice).
 
 ```
 substring('<text>', <startIndex>, <length>)

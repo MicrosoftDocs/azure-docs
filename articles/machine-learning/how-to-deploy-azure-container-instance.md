@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: deploy
+ms.custom: deploy, cliv1
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
@@ -91,7 +91,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) reference. 
+For more information, see the [az ml model deploy](/cli/azure/ml/model#az-ml-model-deploy) reference. 
 
 ## Using VS Code
 

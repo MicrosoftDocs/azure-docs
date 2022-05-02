@@ -164,7 +164,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ### List all roles
 
-To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list
@@ -227,7 +227,7 @@ az role definition list --custom-role-only false --output json --query '[].{role
 
 ### List a role definition
 
-To list details of a role, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
+To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list --name {roleName}

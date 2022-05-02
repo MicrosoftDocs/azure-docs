@@ -24,6 +24,8 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), you can add users, groups, or devices to an administrative unit to restrict the scope of role permissions. For additional details on what scoped administrators can do, see [Administrative units in Azure Active Directory](administrative-units.md).
 
+This article describes how to add users, groups, or devices to administrative units manually. For information about how to add users or devices to administrative units dynamically using rules, see [Manage users or devices for an administrative unit with dynamic membership rules](admin-units-members-dynamic.md).
+
 ## Prerequisites
 
 - Azure AD Premium P1 or P2 license for each administrative unit administrator
@@ -212,4 +214,5 @@ Body
 
 - [Administrative units in Azure Active Directory](administrative-units.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Manage users or devices for an administrative unit with dynamic membership rules](admin-units-members-dynamic.md)
 - [Remove users, groups, or devices from an administrative unit](admin-units-members-remove.md)

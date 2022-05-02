@@ -109,7 +109,8 @@ Register the service principal for Azure Front Door as an app in your Azure Acti
 2. In CLI, run the following command:
 
      ```azurecli-interactive
-     az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037 --role Contributor
+     SP_ID=$(az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8 --query objectId -o tsv)
+     az role assignment create --assignee $SP_ID --role Contributor
      ```     
 
 #### Grant Azure Front Door access to your key vault

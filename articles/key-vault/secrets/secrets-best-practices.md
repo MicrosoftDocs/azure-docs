@@ -71,7 +71,7 @@ For more information, see:
 Turn on [purge protection](../general/soft-delete-overview.md#purge-protection) to guard against forced deletion of the secret. Take regular backups of your vault when you update, delete, or create secrets within a vault.
 
 - To read about the Azure PowerShell backup command, see [Backup secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret).
-- To read about the Azure CLI backup command, see [Backup secret](/cli/azure/keyvault/secret#az_keyvault_secret_backup).
+- To read about the Azure CLI backup command, see [Backup secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup).
 
 ## Learn more
 - [About Azure Key Vault secrets](about-secrets.md)

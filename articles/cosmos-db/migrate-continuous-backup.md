@@ -5,13 +5,13 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 12/08/2021
+ms.date: 04/08/2022
 ms.topic: how-to
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 ---
 
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
 Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
 
@@ -29,6 +29,7 @@ The following are the key reasons to migrate into continuous mode:
 > You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
 > * If the account is of type SQL API or API for MongoDB.
+> * If the account is of type Table API or Gremlin API. These two APIs are in preview.
 > * If the account has a single write region.
 > * If the account isn't enabled with analytical store.
 >
@@ -168,7 +169,7 @@ You can restore your account after the migration completes. If the migration com
 Yes.
 
 #### Which accounts can be targeted for backup migration?
-Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration.
+Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration. Table API and Gremlin API are in preview.
 
 Accounts enabled with analytical storage and multiple-write regions are not supported for migration.
 

@@ -129,8 +129,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 ## Additional information
 
-* For information on how to retrieve the state of a feature using its feature `id`, see [Feature State - Get States](/rest/api/maps/v2/feature-state/get-states).
-
+* For information on how to retrieve the state of a feature using its feature id, see [Feature State - List States](/rest/api/maps/v2/feature-state/list-states).
 * For information on how to delete the stateset and its resources, see [Feature State - Delete Stateset](/rest/api/maps/v2/feature-state/delete-stateset) .
 * For information on using the Azure Maps Creator [Feature State service](/rest/api/maps/v2/feature-state) to apply styles that are based on the dynamic properties of indoor map data features, see how to article [Implement dynamic styling for Creator indoor maps](indoor-map-dynamic-styling.md).
 

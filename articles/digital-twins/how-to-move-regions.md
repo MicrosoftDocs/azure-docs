@@ -38,6 +38,7 @@ Here are some questions to consider:
     - Azure Event Grid, Azure Event Hubs, or Azure Service Bus
     - Azure Functions
     - Azure Logic Apps
+    - Azure Data Explorer
     - Azure Time Series Insights
     - Azure Maps
     - Azure IoT Hub Device Provisioning Service
@@ -120,6 +121,7 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Functions. If you have an Azure function whose code includes the host name of the original instance, you should update this value to the new instance's host name and republish the function.
 * Event Grid, Event Hubs, or Service Bus.
 * Logic Apps.
+* Azure Data Explorer.
 * Time Series Insights.
 * Azure Maps.
 * IoT Hub Device Provisioning Service.

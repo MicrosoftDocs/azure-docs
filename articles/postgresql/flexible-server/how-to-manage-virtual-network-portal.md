@@ -26,7 +26,8 @@ You can deploy your flexible server into a virtual network and subnet during ser
 To create a flexible server in a virtual network, you need:
 - A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network)
     > [!Note]
-    > The virtual network and subnet should be in the same region and subscription as your flexible server.
+    > -  The virtual network and subnet should be in the same region and subscription as your flexible server.
+    > -  The virtual network should not have any resource lock set at the VNET or subnet level. Make sure to remove any lock (**Delete** or **Read only**) from your VNET and all subnets before creating the server in a virtual network, and you can set it back after server creation.
 
 -  To [delegate a subnet](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) to **Microsoft.DBforPostgreSQL/flexibleServers**. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
 -  Add `Microsoft.Storage` to the service end point for the subnet delegated to Flexible servers. This is done by performing following steps:

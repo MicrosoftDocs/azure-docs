@@ -16,6 +16,9 @@ By default, IP addresses are temporarily collected but not stored in Application
 
 When telemetry is sent to Azure, Application Insights uses the IP address to do a geolocation lookup by using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Application Insights uses the results of this lookup to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded, and `0.0.0.0` is written to the `client_IP` field. 
 
+> [!NOTE] 
+> Application Insights uses an older version of the GeoLite2 database. If you experience accuracy issues with IP to geolocation mappings, then as a workaround you can disable IP masking and utilize another geomapping service to convert the client_IP field of the underlying telemetry to a more accurate geolocation. We are currently working on an update to improve the geolocation accuracy.
+
 The telemetry types are:
 
 * Browser telemetry: Application Insights collects the sender's IP address. The ingestion endpoint calculates the IP address.

@@ -3,14 +3,14 @@ title: 'Quickstart: Create and assign a user account'
 titleSuffix: Azure AD
 description: Create a user account in your Azure Active Directory tenant and assign it to an application.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
+ms.date: 03/24/2022
+ms.author: jomondi
 ms.reviewer: alamaral
 ms.custom: mode-other
 #Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.

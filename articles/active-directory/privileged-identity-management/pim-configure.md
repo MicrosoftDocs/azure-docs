@@ -51,7 +51,7 @@ Privileged Identity Management provides time-based and approval-based role activ
 - Get **notifications** when privileged roles are activated
 - Conduct **access reviews** to ensure users still need roles
 - Download **audit history** for internal or external audit
-- Prevents removal of the **last active Global Administrator** role assignment
+- Prevents removal of the **last active Global Administrator** and **Privileged Role Administrator** role assignments
 
 ## What can I do with it?
 

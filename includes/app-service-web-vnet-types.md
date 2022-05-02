@@ -2,7 +2,7 @@
 author: madsd
 ms.service: app-service-web
 ms.topic: include
-ms.date: 03/04/2022
+ms.date: 04/08/2022
 ms.author: madsd
 ---
 
@@ -18,7 +18,7 @@ Virtual network integration gives your app access to resources in your virtual n
 
 The virtual network integration feature:
 
-* Requires a [supported Standard](../articles/app-service/overview-vnet-integration.md#limitations), Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
+* Requires a [supported Basic or Standard](../articles/app-service/overview-vnet-integration.md#limitations), Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
 * Supports TCP and UDP.
 * Works with App Service apps and function apps.
 

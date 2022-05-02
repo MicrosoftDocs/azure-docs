@@ -53,7 +53,7 @@ If your script is on a local server, you might still need to open additional fir
 * You can have only one version of an extension applied to the VM. To run a second custom script, you can update the existing extension with a new configuration. Alternatively, you can remove the custom script extension and reapply it with the updated script.
 * If you want to schedule when a script will run, use the extension to create a Cron job. 
 * When the script is running, you'll only see a "transitioning" extension status from the Azure portal or CLI. If you want more frequent status updates for a running script, you'll need to create your own solution.
-* The Custom Script Extension doesn't natively support proxy servers. However, you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
+* The Custom Script Extension doesn't natively support proxy servers. However, you can use a file transfer tool that supports proxy servers within your script, such as `Curl`. 
 * Be aware of non-default directory locations that your scripts or commands might rely on. Have logic to handle this situation.
 
 ## Extension schema
@@ -379,7 +379,7 @@ az vm extension set \
 
 If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the SAS token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account's SAS token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
 
-We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension), or an [Azure Resource Manager template](/azure/templates/microsoft.compute/virtualmachinescalesets/extensions) when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
 
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
