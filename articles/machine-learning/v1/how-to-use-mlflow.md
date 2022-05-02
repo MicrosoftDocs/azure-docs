@@ -135,7 +135,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Load training script to submit an experiement.
+Load training script to submit an experiment.
 
 ```Python
 script_dir = "src"

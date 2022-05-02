@@ -186,7 +186,7 @@ Alternatively, use the `> Azure ML: Create Job` command in the command palette.
 
 ### View job
 
-To view your job in Azure Machine Learning Studio:
+To view your job in Azure Machine Learning studio:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.

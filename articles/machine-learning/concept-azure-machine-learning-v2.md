@@ -41,7 +41,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 ### [CLI](#tab/cli)
 
-To create a workspace using CLI v2 use the following command:
+To create a workspace using CLI v2, use the following command:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -49,11 +49,11 @@ To create a workspace using CLI v2 use the following command:
 az ml workspace create --file my_workspace.yml
 ```
 
-For more details, see [workspace YAML schema](reference-yaml-workspace.md).
+For more information, see [workspace YAML schema](reference-yaml-workspace.md).
 
 ### [Python SDK](#tab/sdk)
 
-To create a workspace using Python SDK v2 you can use the following code:
+To create a workspace using Python SDK v2, you can use the following code:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -76,13 +76,13 @@ This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/sdk-previ
 A compute is a designated compute resource where you run your job or host your endpoint. Azure Machine learning supports the following types of compute:
 
 * **Compute cluster** - a managed-compute infrastructure that allows you to easily create a cluster of CPU or GPU compute nodes in the cloud.
-* **Compute instance** - a fully configured and managed development environment in the cloud. You can use the instance as a training or inference compute for development and testing. It is similar to a virtual machine on the cloud.
-* **Inference cluster** - ussed to deploy trained machine learning models to Azure Kubernetes Service. You can create an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or attach an existing AKS cluster to do this.
+* **Compute instance** - a fully configured and managed development environment in the cloud. You can use the instance as a training or inference compute for development and testing. It's similar to a virtual machine on the cloud.
+* **Inference cluster** - used to deploy trained machine learning models to Azure Kubernetes Service. You can create an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or attach an existing AKS cluster.
 * **Attached compute** - You can attach your own compute resources to your workspace and use them for training and inference.
 
 ### [CLI](#tab/cli)
 
-To create a compute using CLI v2 use the following command:
+To create a compute using CLI v2, use the following command:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -90,12 +90,12 @@ To create a compute using CLI v2 use the following command:
 az ml compute --file my_compute.yml
 ```
 
-For more details, see [compute YAML schema](reference-yaml-overview.md#compute).
+For more information, see [compute YAML schema](reference-yaml-overview.md#compute).
 
 
 ### [Python SDK](#tab/sdk)
 
-To create a compute using Python SDK v2 you can use the following code:
+To create a compute using Python SDK v2, you can use the following code:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -127,19 +127,19 @@ Azure Machine Learning datastores securely keep the connection information to yo
 
 ### [CLI](#tab/cli)
 
-To create a datastore using CLI v2 use the following command:
+To create a datastore using CLI v2, use the following command:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```bash
 az ml datastore create --file my_datastore.yml
 ```
-For more details, see [datastore YAML schema](reference-yaml-overview.md#datastore).
+For more information, see [datastore YAML schema](reference-yaml-overview.md#datastore).
 
 
 ### [Python SDK](#tab/sdk)
 
-To create a datastore using Python SDK v2 you can use the following code:
+To create a datastore using Python SDK v2, you can use the following code:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -162,7 +162,7 @@ This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/sdk-previ
 
 ## Model
 
-Azure machine learning models consist of the binary file(s) that represent a machine learning model and any corresponding metadata. Models can be created from a local or remote file or directory. For remote locations `https`, `wasbs` and `azureml` locations are supported. The created model will be tracked in the workspace under the specified name and version. Azure ML supports 3 types of storage format for models:
+Azure machine learning models consist of the binary file(s) that represent a machine learning model and any corresponding metadata. Models can be created from a local or remote file or directory. For remote locations `https`, `wasbs` and `azureml` locations are supported. The created model will be tracked in the workspace under the specified name and version. Azure ML supports three types of storage format for models:
 
 1. `custom_model`
 1. `mlflow_model`
@@ -172,7 +172,7 @@ Azure machine learning models consist of the binary file(s) that represent a mac
 
 ### [CLI](#tab/cli)
 
-To create a model using CLI v2 use the following command:
+To create a model using CLI v2, use the following command:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -180,12 +180,12 @@ To create a model using CLI v2 use the following command:
 az ml model create --file my_model.yml
 ```
 
-For more details, see [model YAML schema](reference-yaml-model.md).
+For more information, see [model YAML schema](reference-yaml-model.md).
 
 
 ### [Python SDK](#tab/sdk)
 
-To create a model using Python SDK v2 you can use the following code:
+To create a model using Python SDK v2, you can use the following code:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -204,7 +204,7 @@ ml_client.models.create_or_update(my_model) # use the MLClient to connect to wor
 
 ## Environment
 
-Azure Machine Learning environments are an encapsulation of the environment where your machine learning task happens. They specify the software packages, environment variables, and software settings around your training and scoring scripts. The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of computes.
+Azure Machine Learning environments are an encapsulation of the environment where your machine learning task happens. They specify the software packages, environment variables, and software settings around your training and scoring scripts. The environments are managed and versioned entities within your Machine Learning workspace. Environments enable reproducible, auditable, and portable machine learning workflows across a variety of computes.
 
 ### Types of environment
 
@@ -222,20 +222,20 @@ In custom environments, you're responsible for setting up your environment and i
 
 ### [CLI](#tab/cli)
 
-To create an environment using CLI v2 use the following command:
+To create an environment using CLI v2, use the following command:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```bash
 az ml environment create --file my_environment.yml
 ```
-For more details, see [environment YAML schema](reference-yaml-environment.md).
+For more information, see [environment YAML schema](reference-yaml-environment.md).
 
 
 
 ### [Python SDK](#tab/sdk)
 
-To create an environment using Python SDK v2 you can use the following code:
+To create an environment using Python SDK v2, you can use the following code:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -267,9 +267,9 @@ Azure Machine Learning allows you to work with different types of data:
   * `boolean`
   * `number`
 
-For the vast majority of scenarios you will use URIs (`uri_folder` and `uri_file`) - these are a location in storage that can be easily mapped to the filesystem of a compute node in a job by either mounting or downloading the storage to the node.
+For most scenarios, you'll use URIs (`uri_folder` and `uri_file`) - a location in storage that can be easily mapped to the filesystem of a compute node in a job by either mounting or downloading the storage to the node.
 
-`mltable` is an abstraction for tabular data that is to be used for AutoML Jobs, Parallel Jobs, and some advanced scenarios. If you are just starting to use Azure Machine Learning and are not using AutoML we strongly encourage you to begin with URIs.
+`mltable` is an abstraction for tabular data that is to be used for AutoML Jobs, Parallel Jobs, and some advanced scenarios. If you're just starting to use Azure Machine Learning and aren't using AutoML, we strongly encourage you to begin with URIs.
 
 ## Component
 

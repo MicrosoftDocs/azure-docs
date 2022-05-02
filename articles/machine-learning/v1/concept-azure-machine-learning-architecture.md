@@ -215,7 +215,7 @@ Here are the details:
 * The Docker image is created and stored in Azure Container Registry.
 * The web service is deployed to the compute target (Container Instances/AKS) using the image created in the previous step.
 * Scoring request details are stored in Application Insights, which is in the user's subscription.
-* Telemetry is also pushed to the Microsoft/Azure subscription.
+* Telemetry is also pushed to the Microsoft Azure subscription.
 
 [![Inference workflow](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
 
