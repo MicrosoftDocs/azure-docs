@@ -105,6 +105,7 @@ You can also configure several advanced properties when you create Azure Machine
 ```azurecli
 az ml compute create -f create-cluster.yml
 ```
+
 Where the file *create-cluster.yml* is:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-location.yml":::
@@ -145,6 +146,7 @@ Set the `vm-priority`:
 ```azurecli
 az ml compute create -f create-cluster.yml
 ```
+
 Where the file *create-cluster.yml* is:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
@@ -231,7 +233,7 @@ Where the contents of *create-cluster.yml* are as follows:
 
 ### Add a managed identity to an existing cluster
 
-To updatate an existing cluster:
+To update an existing cluster:
 
 * User-assigned managed identity
 
