@@ -179,8 +179,6 @@ items:
     items:
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
-  - name: Versioning policy and history management
-    href: fhir-versioning-policy-history-management.md
 - name: Resources
   expanded: true
   items:
