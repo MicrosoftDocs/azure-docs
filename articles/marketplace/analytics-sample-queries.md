@@ -20,7 +20,7 @@ For details about the column names, attributes, and descriptions, refer to the f
 - [Orders details table](orders-dashboard.md#orders-details-table)
 - [Usage details table](usage-dashboard.md#usage-details-table)
 - [Revenue details table](revenue-dashboard.md#data-dictionary-table)
-- [Quality of service table](quality-of-service-dashboard.md#offer-deployment-details)
+- [Quality of service table](quality-of-service-dashboard.md#detailed-data)
 - [Customer retention table](customer-retention-dashboard.md#dictionary-of-data-terms)
 
 ## Customers report queries
