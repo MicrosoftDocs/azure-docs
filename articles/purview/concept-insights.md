@@ -41,7 +41,7 @@ In Microsoft Purview, classifications are similar to subject tags, and are used 
 
 Use the Classification Insights report to identify content with specific classifications and understand required actions, such as adding additional security to the repositories, or moving content to a more secure location.
 
-For more information, see [Classification insights about your data from Microsoft Purview](classification-insights.md).
+For more information, see [Classification data estate insights about your data from Microsoft Purview](classification-insights.md).
 
 ## Sensitivity Labeling Insights
 
@@ -51,10 +51,10 @@ In Microsoft Purview, sensitivity labels are used to identify classification typ
 
 Use the Labeling Insights report to identify the sensitivity labels found in your content and understand required actions, such as managing access to specific repositories or files.
 
-For more information, see [Sensitivity label insights about your data in Microsoft Purview](sensitivity-insights.md).
+For more information, see [Sensitivity label data estate insights about your data in Microsoft Purview](sensitivity-insights.md).
 
 ## Next steps
 
 * [Asset insights](asset-insights.md)
-* [Glossary insights](glossary-insights.md)
-* [Classification insights](./classification-insights.md)
+* [Glossary data estate insights](glossary-insights.md)
+* [Classification data estate insights](./classification-insights.md)

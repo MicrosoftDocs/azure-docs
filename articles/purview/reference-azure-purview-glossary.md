@@ -50,7 +50,7 @@ A verification of identity or tool used in an access control system. Credentials
 ## Data catalog
 Microsoft Purview features that enable customers to view and manage the metadata for assets in your data estate.
 ## Data curator
-A role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
+A role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 ## Data map
 A metadata repository that is the foundation of Microsoft Purview. The data map is a graph that describes assets across a data estate and is populated through scans and other data ingestion processes. This graph helps organizations understand and govern their data by providing rich descriptions of assets, representing data lineage, classifying assets, storing relationships between assets, and housing information at both the technical and semantic layers. The data map is an open platform that can be interacted with and accessed through Apache Atlas APIs or the Microsoft Purview Governance Portal.
 ## Data map operation
@@ -62,7 +62,7 @@ A regular expression that represents the data that is stored in a data field. Fo
 ## Data plane operation
 An operation within a specific Microsoft Purview instance, such as editing an asset or creating a glossary term. Each instance has predefined roles, such as "data reader" and "data curator" that control which data plane operations a user can perform.
 ## Data reader
-A role that provides read-only access to data assets, classifications, classification rules, collections, glossary terms, and insights.
+A role that provides read-only access to data assets, classifications, classification rules, collections, glossary terms, and data estate insights.
 ## Data source admin
 A role that can manage data sources and scans. A user in the Data source admin role doesn't have access to Microsoft Purview governance portal. Combining this role with the Data reader or Data curator roles at any collection scope provides Microsoft Purview governance portal access.
 ## Data steward

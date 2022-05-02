@@ -139,13 +139,13 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: View sensitivity label insights
+        - text: View sensitivity label data estate insights
           url: sensitivity-insights.md
-        - text: View asset insights
+        - text: View asset data estate insights
           url: asset-insights.md
-        - text: View classification insights
+        - text: View classification data estate insights
           url: classification-insights.md
-        - text: View glossary insights
+        - text: View glossary data estate insights
           url: glossary-insights.md
   #Card
   - title: Secure your network

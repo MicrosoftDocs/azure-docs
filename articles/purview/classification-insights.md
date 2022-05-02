@@ -10,7 +10,7 @@ ms.date: 09/27/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Classification insights about your data from Microsoft Purview
+# Classification data estate insights about your data from Microsoft Purview
 
 This how-to guide describes how to access, view, and filter Microsoft Purview Classification insight reports for your data.
 
@@ -23,7 +23,7 @@ In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
 > - Launch your Microsoft Purview account from Azure
-> - View classification insights on your data
+> - View classification data estate insights on your data
 > - Drill down for more classification details on your data
 
 ## Prerequisites
@@ -38,7 +38,7 @@ Before getting started with Microsoft Purview Data Estate Insights, make sure th
 
 For more information, see [Manage data sources in Microsoft Purview](manage-data-sources.md).
 
-## Use Microsoft Purview classification insights
+## Use Microsoft Purview classification data estate insights
 
 In Microsoft Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
@@ -47,19 +47,19 @@ Microsoft Purview uses the same sensitive information types as Microsoft 365, al
 > [!NOTE]
 > After you have scanned your source types, give **Classification** Insights a couple of hours to reflect the new assets.
 
-**To view classification insights:**
+**To view classification data estate insights:**
 
 1. Go to the **Microsoft Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Microsoft Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Microsoft Purview governance portal** tile.
 
-1. In Microsoft Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
+1. In Microsoft Purview, select the **Data Estate Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Data Estate Insights** area.
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Microsoft Purview **Classification insights** report.
+1. In the **Data Estate Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Microsoft Purview **Classification data estate insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report" lightbox="media/insights/select-classification-labeling.png":::
+   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification data estate insights report" lightbox="media/insights/select-classification-labeling.png":::
 
-   The main **Classification insights** page displays the following areas:
+   The main **Classification data estate insights** page displays the following areas:
 
    |Area  |Description  |
    |---------|---------|
@@ -71,9 +71,9 @@ Microsoft Purview uses the same sensitive information types as Microsoft 365, al
    |  **Classification activity** <br>(files and tables) |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected timeframe. <br>**Default**: 30 days<br>Select the **Time** filter above the graphs to select a different time frame to display.    |
    |    |    |
 
-## Classification insights drilldown
+## Classification data estate insights drilldown
 
-In any of the following **Classification insights** graphs, select the **View more** link to drill down for more details:
+In any of the following **Classification data estate insights** graphs, select the **View more** link to drill down for more details:
 
 - **Top classification categories by sources**
 - **Top classifications for files**
@@ -99,7 +99,7 @@ Do any of the following to learn more:
 
 Learn more about Microsoft Purview insight reports
 > [!div class="nextstepaction"]
-> [Glossary insights](glossary-insights.md)
+> [Glossary data estate insights](glossary-insights.md)
 
 > [!div class="nextstepaction"]
-> [Sensitivity labeling insights](./sensitivity-insights.md)
+> [Sensitivity labeling data estate insights](./sensitivity-insights.md)

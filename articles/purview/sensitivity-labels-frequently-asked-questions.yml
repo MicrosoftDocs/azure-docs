@@ -153,7 +153,7 @@ sections:
       - question: Who can search and browse assets with sensitivity labels in the Microsoft Purview Data Catalog? 
         answer: All users with at least data reader access to the Microsoft Purview Data Map have permissions to search and browse assets with sensitivity labels in the data catalog. 
 
-      - question: Who can view the sensitivity label insights report in Microsoft Purview Data Estate Insights? 
+      - question: Who can view the sensitivity label data estate insights report in Microsoft Purview Data Estate Insights? 
         answer: All users with at least data reader access to the Microsoft Purview Data Map have permissions to view sensitivity label insights reports in Microsoft Purview Data Estate Insights. </br></br>
 
   - name: Technical details
@@ -194,7 +194,7 @@ additionalContent: |
   > [How to automatically label your content](how-to-automatically-label-your-content.md)</br>
 
   > [!div class="nextstepaction"]
-  > [Sensitivity label insights](sensitivity-insights.md)</br>
+  > [Sensitivity label data estate insights](sensitivity-insights.md)</br>
 
   > [!div class="nextstepaction"]
-  > [Classification insights](./classification-insights.md)
+  > [Classification data estate insights](./classification-insights.md)

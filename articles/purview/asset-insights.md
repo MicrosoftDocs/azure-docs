@@ -19,7 +19,7 @@ This how-to guide describes how to access, view, and filter Microsoft Purview As
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
-> * View insights from your Microsoft Purview account.
+> * View data estate insights from your Microsoft Purview account.
 > * Get a bird's eye view of your data.
 > * Drill down for more asset count details.
 
@@ -46,11 +46,11 @@ In Microsoft Purview, you can register and scan source types. Once the scan is c
 
    :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Launch Microsoft Purview from the Azure portal":::
 
-1. On the Microsoft Purview **Home** page, select **Insights** on the left menu.
+1. On the Microsoft Purview **Home** page, select **Data Estate Insights** on the left menu.
 
-   :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
+   :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="View your data estate insights in the Azure portal":::
 
-1. In the **Insights** area, select **Assets** to display the Microsoft Purview **Asset insights** report.
+1. In the **Data Estate Insights** area, select **Assets** to display the Microsoft Purview **Asset insights** report.
 
 ### View Asset Insights
 
@@ -100,5 +100,5 @@ The second graph in file-based source types is ***Files not associated with a re
 
 Learn more about Microsoft Purview insight reports with
 
-- [Classification insights](./classification-insights.md)
-- [Glossary insights](glossary-insights.md)
+- [Classification data estate insights](./classification-insights.md)
+- [Glossary data estate insights](glossary-insights.md)

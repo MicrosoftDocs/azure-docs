@@ -69,7 +69,7 @@ Advanced resource sets is off by default in all new Microsoft Purview instances.
 After enabling advanced resource sets, the additional enrichments will occur on all newly ingested assets. The Microsoft Purview team recommends waiting an hour before scanning in new data lake data after toggling on the feature.
 
 > [!IMPORTANT]
-> Enabling advanced resource sets will impact the refresh rate of asset and classification insights. When advanced resource sets is on, asset and classification insights will only update twice a day.
+> Enabling advanced resource sets will impact the refresh rate of asset and classification insights. When advanced resource sets is on, asset and classification data estate insights will only update twice a day.
 
 ## Built-in resource set patterns
 
