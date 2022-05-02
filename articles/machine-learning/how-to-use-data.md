@@ -375,4 +375,4 @@ returned_job.services["Studio"].endpoint
 
 * [Install and set up Python SDK v2 (preview)](https://aka.ms/sdk-v2-install)
 * [Train models with the Python SDK v2 (preview)](how-to-train-sdk.md)
-* [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-sdk.md)
+* [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-python-sdk.md)
