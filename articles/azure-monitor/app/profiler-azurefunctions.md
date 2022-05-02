@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/29/2022
+ms.date: 05/02/2022
 ---
 
 # Profile live Azure Function App with Application Insights
@@ -20,10 +20,10 @@ In this article, you'll use the Azure portal to:
 
 ## Pre-requisites
 
-[An Azure Function App](../../azure-functions/functions-create-function-app-portal.md). Verify your Function App is:
-- On either the Premium or App Service plan.
-      
-  :::image type="content" source="./media/profiler-azurefunctions/choose-plan.png" alt-text="Where to select plan from drop-down in Function App creation":::
+- [An Azure Function App](../../azure-functions/functions-create-function-app-portal.md). Verify your Function App is on the **App Service** plan. 
+     
+  :::image type="content" source="./media/profiler-azurefunctions/choose-plan.png" alt-text="Where to select App Service plan from drop-down in Function App creation":::
+
 
 - Linked to [an Application Insights resource](./create-new-resource.md). Make note of the instrumentation key.
 
