@@ -163,6 +163,17 @@ The error *Invalid object name 'table name'* indicates that you are using an obj
     - The table has some column types that cannot be represented in serverless SQL.
     - The table has a format that is not supported in serverless SQL pool (Delta, ORC, etc.)
 
+### Unclosed quotation mark after the character string 
+
+In some rare cases, where you are using `LIKE` operator on a string column or some comparison with the string literals, you might get the following error:
+
+```
+Msg 105, Level 15, State 1, Line 88
+Unclosed quotation mark after the character string 
+```
+
+This error might happen if you are using `Latin1_General_100_BIN2_UTF8` collation on the column. Try to set `Latin1_General_100_CI_AS_SC_UTF8` collation on the column instead of the `Latin1_General_100_BIN2_UTF8` collation to resolve the issue. If the error is still returned, raise a support request through the Azure portal.
+
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
 The error *Could not allocate tempdb space while transferring data from one distribution to another* is returned when the query execution engine cannot process data and transfer it between the nodes that are executing the query. 
