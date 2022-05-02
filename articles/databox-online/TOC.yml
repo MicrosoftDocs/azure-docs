@@ -432,6 +432,8 @@
       href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Understand disconnected use
       href: azure-stack-edge-gpu-disconnected-scenario.md
+    - name: FAQ-Operational guidelines
+      href: azure-stack-edge-operational-guidelines-faq.yml
   - name: Shared security
     items:
     - name: Security overview
