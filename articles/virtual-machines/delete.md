@@ -24,7 +24,7 @@ Depending on how you delete a VM, it may only delete the VM resource, not the ne
 1. Select **+ Create a resource**.
 1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
 1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
-1. Under **Disk options**, by default the OS disk is set to **Delete with VM**. If you don't want to delete the OS disk, uncheck the box. If you're using an existing OS disk, the default is to detach the OS disk when the VM is deleted.
+1. Under **Disk options**, by default the OS disk is set to **Delete with VM**. If you don't want to delete the OS disk, clear the checkbox. If you're using an existing OS disk, the default is to detach the OS disk when the VM is deleted.
 
     :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
 
