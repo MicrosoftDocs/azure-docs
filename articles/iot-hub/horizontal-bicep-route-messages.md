@@ -40,14 +40,14 @@ This section provides the steps to deploy the Bicep file, create a virtual devic
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
+    az group create --name ContosoResourceGrp --location eastus
     az deployment group create --resource-group exampleRG --template-file main.bicep
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroup -Name ContosoResourceGrp -Location eastus
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
     ```
 
