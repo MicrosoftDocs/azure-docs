@@ -72,4 +72,4 @@ This article provides details about Azure Container Registry (ACR) support polic
 ## Upstream bugs
 
 The ACR support will identify the root cause of every issue raised. The team will report all the identified bugs as an [issue in the ACR repository](https://github.com/Azure/acr/issues) with supporting details. The engineering team will review and provide a workaround solution, bug fix, or upgrade with a new release timeline. All the bug fixes integrate from upstream.
-Customers can watch the issues, add more details, and follow the bug fix and new releases.
+Customers can watch the issues, bug fixes, add more details, and follow the new releases.
