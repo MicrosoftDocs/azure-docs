@@ -182,7 +182,7 @@ Skip this section if you have already installed Azure Storage Explorer and conne
 
 1. In the **Connect** dialog, select **Add an Azure account**, select your **Azure environment**, and then select **Sign in...**.
 
-    :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png" alt-text="Screenshot of the Sign in to your Azure account window.":::
+    :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png" alt-text="Screenshot of the Sign-in to your Azure account window.":::
 
 After you successfully sign in to your account, you'll see all of the Azure subscriptions associated with your account.
 
