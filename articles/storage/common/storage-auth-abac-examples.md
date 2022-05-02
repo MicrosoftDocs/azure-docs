@@ -613,7 +613,7 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 ## Blob versions or blob snapshots
 
-### Example: Read access to a specific blob version
+### Example: Allow read access to a specific blob version
 
 This condition allows a user to read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
 
@@ -654,6 +654,10 @@ Here are the settings to add this condition using the Azure portal.
 | Negate this expression | Checked |
 
 ### Example: Allow delete to clean up old blob versions
+
+This condition allows a user to delete versions of a blob that are older than 06/01/2022.
+
+![Diagram of condition showing delete access to old blob versions.](./media/storage-auth-abac-examples/delete-old-blob-versions.png)
 
 ```
 (
