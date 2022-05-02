@@ -28,7 +28,7 @@ The Translate() method takes the "options" parameter, which contains the new ele
 | Marked                | Tag                   | Profane words are surrounded by XML tags \<profanity\>...\</profanity>.          | Que coche de \<insert-profane-word> | What a \<profanity> \<insert-profane-word> \</profanity> car |
 | Deleted               |                       | Profane words are removed from the output without replacement.                   | Que coche de \<insert-profane-word> | What a car        |                                           
 
-<insert-profane-word> is a placeholder for any profane word in the example.
+In the above examples, **\<insert-profane-word>** is a placeholder for profane words.
 
 ## Next steps
 > [!div class="nextstepaction"]
