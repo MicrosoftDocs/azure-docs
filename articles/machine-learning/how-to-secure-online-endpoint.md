@@ -50,8 +50,10 @@ The following diagram shows how communications flow through private endpoints to
 
 * Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
 
+* Azure Log Analytics and Application Insights are not supported when using network isolation with a deployment. To see the logs for the deployment, use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) command instead.
+
 > [!NOTE]
-> Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network. For information on configuring network isolation for this communication, see [TBD]
+> Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
  
 ## Inbound (scoring)
 
