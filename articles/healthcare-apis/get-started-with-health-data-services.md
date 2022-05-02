@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/29/2022
+ms.date: 05/02/2022
 ms.author: ranku
 ---
 
@@ -15,7 +15,7 @@ This article outlines the basic steps to get started with Azure Health Data Serv
 
 To get started with Azure Health Data Services, you'll need to create a workspace in the Azure portal. 
 
-The workspace is a logical container for all your healthcare service instances such as Fast Healthcare Interoperability Resources (FHIR®) services, Digital Imaging and Communications in Medicine (DICOM®) services, and MedTech service. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel.
+The workspace is a logical container for all your healthcare service instances such as Fast Healthcare Interoperability Resources (FHIR®) service, Digital Imaging and Communications in Medicine (DICOM®) service, and MedTech service. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel.
 
 Before you can create a workspace in the Azure portal, you must have an Azure account subscription. If you don’t have an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc). 
 
