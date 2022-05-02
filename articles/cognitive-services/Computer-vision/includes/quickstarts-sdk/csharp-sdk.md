@@ -88,7 +88,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
    > [!IMPORTANT]
    > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `ReadAsync` call as shown. Skipping the parameter or using "latest" automatically uses the most recent GA model.
+1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `ReadAsync` call as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 
    ```csharp
      // Read text from URL with a specific model version
