@@ -31,7 +31,7 @@ This article assumes that you use a machine running Windows as your development 
 * To develop modules with **Windows containers**, use a Windows computer running version 1809/build 17763 or newer.
 * To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C++** workloads in your Visual Studio 2022 installation. Alternatively, you can [Modify Visual Studio 2022](/visualstudio/install/modify-visual-studio?view=vs-2022) to add the required workloads.
+Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C++** workloads in your Visual Studio 2022 installation. Alternatively, you can [Modify Visual Studio 2022](/visualstudio/install/modify-visual-studio?view=vs-2022&preserve-view=true) to add the required workloads, if Visual Studio is already installed on your machine.
 
 After your Visual Studio 2022 is ready, install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
 
