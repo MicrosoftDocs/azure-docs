@@ -1,6 +1,6 @@
 ---
 title: Asset insights on your data in Microsoft Purview
-description: This how-to guide describes how to view and use Microsoft Purview Insights asset reporting on your data. 
+description: This how-to guide describes how to view and use Microsoft Purview Data Estate Insights asset reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
@@ -14,7 +14,7 @@ ms.date: 09/27/2021
 This how-to guide describes how to access, view, and filter Microsoft Purview Asset insight reports for your data.
 
 > [!IMPORTANT]
-> Microsoft Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Purview Data Estate Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this how-to guide, you'll learn how to:
 
@@ -25,7 +25,7 @@ In this how-to guide, you'll learn how to:
 
 ## Prerequisites
 
-Before getting started with Microsoft Purview insights, make sure that you've completed the following steps:
+Before getting started with Microsoft Purview Data Estate Insights, make sure that you've completed the following steps:
 
 * Set up your Azure resources and populate the account with data.
 
