@@ -196,7 +196,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 ## Add a function to your project
 
-You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
+You can add a new function to an existing project by using one of the predefined Functions triggers templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
 
 The results of this action depend on your project's language:
 
@@ -302,7 +302,7 @@ To learn more, see the [Queue storage output binding reference article](function
 
 Visual Studio Code lets you publish your Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-When you publish from Visual Studio Code to a new function app in Azure, you can choose either a quick function app create path using defaults or an advanced path, where you have more control over the remote resources created. 
+When you publish from Visual Studio Code to a new function app in Azure, you can choose either a quick function app create path using defaults or an advanced path. This way you'll have more control over the remote resources created.
 
 When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology. 
 
@@ -346,7 +346,7 @@ To call an HTTP-triggered function from a client, you need the URL of the functi
 
 The function URL is copied to the clipboard, along with any required keys passed by the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
 
-When getting the URL of functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
+When the extension gets the URL of functions in Azure, it uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
 
 ## Republish project files
 
@@ -359,7 +359,7 @@ When you set up [continuous deployment](functions-continuous-deployment.md), you
 
 ## Run functions
 
-The Azure Functions extension lets you run individual functions, either in your project on your local development computer or in your Azure subscription. 
+The Azure Functions extension lets you run individual functions. You can run functions either in your project on your local development computer or in your Azure subscription.
 
 For HTTP trigger functions, the extension calls the HTTP endpoint. For other kinds of triggers, it calls administrator APIs to start the function. The message body of the request sent to the function depends on the type of trigger. When a trigger requires test data, you're prompted to enter data in a specific JSON format.
 
@@ -377,11 +377,11 @@ To execute a function in Azure from Visual Studio Code.
  
 You can also run your function from the **Azure: Functions** area by right-clicking (Ctrl-clicking on Mac) the function you want to run from your function app in your Azure subscription and choosing **Execute Function Now...**.
 
-When running functions in Azure, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
+When extensions run functions in Azure, they use your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
 
 ### Run functions locally
 
-The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings). To run your Functions project locally, you must meet [additional requirements](#run-local-requirements).
+The local runtime is the same runtime that hosts your function app in Azure. Local settings are read from the [local.settings.json file](#local-settings). To run your Functions project locally, you must meet [more requirements](#run-local-requirements).
 
 #### Configure the project to run locally
 
@@ -401,7 +401,7 @@ For more information, see [Local settings file](#local-settings).
 
 #### <a name="debugging-functions-locally"></a>Debug functions locally  
 
-To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This is the same as running the `func host start` Core Tools command from the Terminal, but with extra build tasks and an attached debugger.  
+To debug your functions, select F5. If you haven't already downloaded [Core Tools][Azure Functions Core Tools], you're prompted to do so. When Core Tools is installed and running, output is shown in the Terminal. This step is the same as running the `func host start` Core Tools command from the Terminal, but with extra build tasks and an attached debugger.  
 
 When the project is running, you can use the **Execute Function Now...** feature of the extension to trigger your functions as you would when the project is deployed to Azure. With the project running in debug mode, breakpoints are hit in Visual Studio Code as you would expect. 
 

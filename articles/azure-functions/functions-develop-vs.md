@@ -175,7 +175,7 @@ For a full list of the bindings supported by Functions, see [Supported bindings]
 
 ## Run functions locally
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project the local Functions host (func.exe) is started listening on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio. 
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) is started listening on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio. 
 
 To start your function in Visual Studio in debug mode:
 
@@ -200,7 +200,7 @@ Use the following steps to publish your project to a function app in Azure.
 
 ## Function app settings
 
-Because Visual Studio doesn't upload these settings automatically when you publish the project, any settings you add in the local.settings.json you must also add to the function app in Azure.
+Visual Studio doesn't upload these settings automatically when you publish the project. Any settings you add in the local.settings.json you must also add to the function app in Azure.
 
 The easiest way to upload the required settings to your function app in Azure is to select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
 
@@ -250,7 +250,7 @@ Now that the projects are created, you can create the classes used to run the au
 
 Each function takes an instance of [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
-You'll create a new class named `ListLogger` which holds an internal list of messages to evaluate during a testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
+You'll create a new class named `ListLogger`, which holds an internal list of messages to evaluate during a testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
 
 Create a new class in *Functions.Tests* project named **NullScope.cs** and enter the following code:
 
@@ -450,19 +450,19 @@ The members implemented in this class are:
 
 - **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to provide sample data to the HTTP function.
 
-- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer functions. Once the function is run, then the log is checked to ensure the expected message is present.
+- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer function. Once the function is run, then the log is checked to ensure the expected message is present.
 
 If you want to access application settings in your tests, you can [inject](functions-dotnet-dependency-injection.md) an `IConfiguration` instance with mocked environment variable values into your function.
 
 ### Run tests
 
-To run the tests, navigate to the **Test Explorer** and click **Run all**.
+To run the tests, navigate to the **Test Explorer** and select **Run all**.
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### Debug tests
 
-To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and click **Run > Debug Last Run**.
+To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and select **Run > Debug Last Run**.
 
 
 ## Next steps
