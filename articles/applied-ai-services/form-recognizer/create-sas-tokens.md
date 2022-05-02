@@ -1,6 +1,6 @@
 ---
 title: Create SAS tokens for containers and blobs with the Azure portal
-description: Learn how to generate shared access signature (SAS) tokens for containers and blobs in the Azure portal.
+description: Learn how to create shared access signature (SAS) tokens for containers using Azure Explorer, Azure portal, or Azure CLI
 ms.topic: how-to
 author: laujan
 manager: nitinme
@@ -13,6 +13,10 @@ recommendations: false
 
 # Generate SAS tokens for storage containers
 
+In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens for Azure Blob containers using the the Azure portal, Azure Storage Explorer, or Azure CLI . A user delegation SAS is secured with Azure AD credentials.
+
+At a high level, here's how SAS tokens work: your application provides the SAS token to Azure Storage as part of a request. If the storage service verifies that the shared access signature is valid, the request is authorized. If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
+
 Azure Blob Storage offers three types of resources:
 
 * **Storage** accounts provide a unique namespace in Azure for your data.
@@ -23,10 +27,6 @@ Azure Blob Storage offers three types of resources:
 
 * **Training custom models**. Your assembled set of training documents *must* be uploaded to an Azure Blob Storage container.
 * **Using storage containers with public access**. You can opt to use a SAS token to grant limited access to your storage resources that have public read access.
-
-In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens for Azure Blob containers using the Azure Storage Explorer or the Azure portal. A user delegation SAS is secured with Azure AD credentials.
-
-At a high level, here's how SAS tokens work: your application provides the SAS token to Azure Storage as part of a request. If the storage service verifies that the shared access signature is valid, the request is authorized. If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
 
 > [!IMPORTANT]
 >
@@ -130,7 +130,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows
 
 ### [Azure CLI](#tab/cli)
 
-1. To create a user delegation SAS for a container by using the Azure CLI, make sure that you've installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
+1. To create a user delegation SAS for a container using the Azure CLI, make sure that you've installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
 
 1. Call the [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas) command.
 
@@ -159,7 +159,7 @@ az storage container generate-sas \
 
 ---
 
-## Use your SAS URL
+## Use your SAS URL to grant access
 
 Two options are available:
 
