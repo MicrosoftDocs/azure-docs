@@ -197,7 +197,7 @@ However, if you write these settings directly in your application, you'll need t
 
 Specifically, after binding the application to the Service Registry, you can get the service registry connection information (`eureka.client.service-url.defaultZone`) from the Java environment variable. In this way, you can connect to the Service Registry by loading the contents of the environment variables when the application starts.
 
-In practice, the following environment variables are added to the JAVA_TOOL_OPTIONS:
+In practice, the following environment variables are added to the `JAVA_TOOL_OPTIONS`:
 
 ```options
 -Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_CLOUD_NAME.svc.azuremicroservices.io/eureka/default/eureka
