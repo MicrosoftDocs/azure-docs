@@ -204,6 +204,7 @@
         - name: Data access
           href: concept-data.md
         - name: Work with data SDK v2 (preview)
+          href: how-to-use-data.md
         - name: Data ingestion
           href: concept-data-ingestion.md
         - name: Data processing
