@@ -27,6 +27,8 @@ In this article, you learn how to:
 * [Use a setup script](#setup-script) to customize and configure the compute instance
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
+> [!NOTE]
+> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md).
 
 ## Prerequisites
 
@@ -123,7 +125,7 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#on-behalf).
+    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-(preview)).
     * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#setup-script).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
 
@@ -168,11 +170,11 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
-Schedules can also be defined for [create on behalf of](#on-behalf) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user.
+Schedules can also be defined for [create on behalf of](#create-on-behalf-(preview)) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user.
 
 ### Create a schedule in studio
 
-1. [Fill out the form](?tabs=azure-studio#create-instance).
+1. [Fill out the form](?tabs=azure-studio#create).
 1. On the second page of the form, open **Show advanced settings**.
 1. Select **Add schedule** to add a new schedule.
 
@@ -364,7 +366,7 @@ Once you store the script, specify it during creation of your compute instance:
 1. Sign into the [studio](https://ml.azure.com/) and select your workspace.
 1. On the left, select **Compute**.
 1. Select **+New** to create a new compute instance.
-1. [Fill out the form](?tabs=azure-studio#create-instance).
+1. [Fill out the form](?tabs=azure-studio#create).
 1. On the second page of the form, open **Show advanced settings**.
 1. Turn on **Provision with setup script**.
 1. Browse to the shell script you saved.  Or upload a script from your computer.
