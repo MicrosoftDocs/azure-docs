@@ -33,8 +33,10 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | Norway East | `https://norwayeast.tts.speech.microsoft.com/cognitiveservices/v1` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sweden Central | `https://swedencentral.tts.speech.microsoft.com/cognitiveservices/v1`|
 | Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/v1`|
 | Switzerland West | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/v1`|
+| UAE North | `https://uaenorth.tts.speech.microsoft.com/cognitiveservices/v1`|
 | US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/v1`|
 | US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/v1`|
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -75,6 +77,7 @@ If you've created a custom neural voice font, use the endpoint that you've creat
 | Southeast Asia | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Switzerland North | `https://switzerlandnorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Switzerland West | `https://switzerlandwest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| UAE North | `https://uaenorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}`|
 | UK South | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West Central US | `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West Europe | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |

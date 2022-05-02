@@ -4,7 +4,7 @@ description: Describes support options for StorSimple 8000 series enterprise sto
 author: GabiSocoteanu
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 04/15/2022
 ms.author: alkohli
 
 ---
@@ -94,7 +94,10 @@ In order to receive StorSimple support, customer must purchase Standard or Premi
 Upon the purchase of StorSimple 8000 Series Storage Arrays, support is provided through the next EA anniversary. Customer must renew StorSimple support at EA anniversary. StorSimple support plan orders are coterminous. Customers are notified via e-mail about impending support expiry for StorSimple 8000 Series Storage Arrays and are expected to follow up with the Microsoft account/sales teams or their Microsoft Licensing Solution Partner (LSP) to renew StorSimple support.
 
 
-Standard Azure support does not cover StorSimple hardware support. If you are covered under Premier or Unified Microsoft support, you must still purchase Standard StorSimple support renewal. StorSimple support renewal can be aligned with EA anniversary date by acquiring the required support SKU with the license quantity equal to the number of the appliances and the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date if all the units have the same support contract expiration date. If the units have different support contract expiration dates, each appliance must be covered with one support SKU with the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date per each appliance. 
+Standard Azure support does not cover StorSimple hardware support. If you are covered under Premier or Unified Microsoft support, you must still purchase Standard StorSimple support renewal. StorSimple support renewal can be aligned with EA anniversary date by acquiring the required support SKU with the license quantity equal to the number of the appliances and the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date if all the units have the same support contract expiration date. If the units have different support contract expiration dates, each appliance must be covered with one support SKU with the unit quantity ordered being the remaining number of months of support needed until the EA anniversary date per each appliance.
+
+> [!NOTE]
+> StorSimple 8000 series reaches its end-of-life in December 2022. Purchase hardware support for only the months you need, not the full year. Any support purchased after December 2022 will not be used and is not eligible for refund.
 
 StorSimple 8000 Series Storage Arrays support is provided based on how the StorSimple array was purchased. 
 

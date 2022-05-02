@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/02/2022
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.reviewer: wiassaf
 ---
@@ -13,7 +13,9 @@ ms.reviewer: wiassaf
 # Get the latest restorable timestamp for continuous backup accounts
 [!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
-This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts with continuous backup mode. It explains how to get the latest restorable time for SQL containers, Table API Tables (in Preview), Graph API graphs(in Preview), and MongoDB collections using Azure PowerShell and Azure CLI. You can see the request and response format for the PowerShell and CLI commands.
+This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts with continuous backup mode. It explains how to get the latest restorable time using Azure PowerShell and Azure CLI, and provides the request and response format for the PowerShell and CLI commands. 
+
+This feature is supported for Cosmos DB SQL API containers and Cosmos DB MongoDB API collections. This feature is in preview for Table API tables and Gremlin API graphs. 
 
 ## SQL container
 
@@ -38,7 +40,7 @@ Get-AzCosmosDBSqlContainerBackupInformation -ResourceGroupName "rg" `
   -Location "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 LatestRestorableTimestamp
@@ -66,7 +68,7 @@ az cosmosdb sql retrieve-latest-backup-time -g "rg" \
   -l "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 {
@@ -156,7 +158,7 @@ Get-LatestRestorableTimestampForSqlDatabase `
   -Location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying containers
@@ -248,7 +250,7 @@ Get-LatestRestorableTimestampForSqlAccount `
   -location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying containers
@@ -280,7 +282,7 @@ Get-AzCosmosDBMongoDBCollectionBackupInformation `
   -Location "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 LatestRestorableTimestamp
@@ -396,7 +398,7 @@ Import-Module .\LatestRestorableTimestampForMongoDBDatabase.ps1
 Get-LatestRestorableTimestampForMongoDBDatabase -ResourceGroupName rg -accountName mongopitracc -databaseName db1 -location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying collections
@@ -487,14 +489,14 @@ Get-LatestRestorableTimestampForMongoDBAccount `
   -Location eastus
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying collections
 Wednesday, November 3, 2021 8:33:49 PM
 ```
 
-## Gremlin Graph Backup information
+## Gremlin graph backup information
 
 ### PowerShell
 
@@ -519,7 +521,7 @@ Get-AzCosmosDBGremlinGraphBackupInformation  `
   -Location "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 LatestRestorableTimestamp
@@ -559,7 +561,7 @@ az cosmosdb gremlin retrieve-latest-backup-time \
 }
 ```
 
-## Table Backup information
+## Table backup information
 
 ### PowerShell
 
@@ -582,7 +584,7 @@ Get-AzCosmosDBTableBackupInformation   `
   -Location "eastus"
 ```
 
-**Sample response (In UTC Format):**
+**Sample response (in UTC format):**
 
 ```console
 LatestRestorableTimestamp
@@ -622,8 +624,8 @@ az cosmosdb table retrieve-latest-backup-time \
 
 ## Next steps
 
-* [Introduction to continuous backup mode with point-in-time restore.](continuous-backup-restore-introduction.md)
+* [Introduction to continuous backup mode with point-in-time restore](continuous-backup-restore-introduction.md)
 
-* [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
+* [Continuous backup mode resource model](continuous-backup-restore-resource-model.md)
 
 * [Configure and manage continuous backup mode](continuous-backup-restore-portal.md) using Azure portal.

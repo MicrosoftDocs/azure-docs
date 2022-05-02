@@ -3,7 +3,7 @@ title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 12/15/2021
+ms.date: 4/1/2022
 ms.author: drskwier
 ms.reviewer: cachai
 ms.devlang: csharp
@@ -23,61 +23,77 @@ For information on setup and configuration details, see the [overview](./functio
 This section contains the following examples:
 
 * [Http trigger, write one record](#http-trigger-write-one-record-c)
+* [Http trigger, write to two tables](#http-trigger-write-to-two-tables-c)
 * [Http trigger, write records using IAsyncCollector](#http-trigger-write-records-using-iasynccollector-c)
 
-The examples refer to a `ToDoItem` type and a corresponding database table:
+The examples refer to a `ToDoItem` class and a corresponding database table:
 
-```cs
-namespace AzureSQLSamples
-{
-    public class ToDoItem
-    {
-        public string Id { get; set; }
-        public int Priority { get; set; }
-        public string Description { get; set; }
-    }
-}
-```
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-14":::
 
-```sql
-CREATE TABLE dbo.ToDo (
-    [Id] int primary key,
-    [Priority] int null,
-    [Description] nvarchar(200) not null
-)
-```
+:::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
+
 
 <a id="http-trigger-write-one-record-c"></a>
 
 ### Http trigger, write one record
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body.
+
+:::code language="csharp" source="~/functions-sql-todo-sample/PostToDo.cs" range="4-49":::
+
+<a id="http-trigger-write-to-two-tables-c"></a>
+
+### Http trigger, write to two tables
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an  HTTP POST request as a JSON body and multiple output bindings.
+
 
 ```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-using System;
-
-namespace AzureSQLSamples
+namespace AzureSQL.ToDo
 {
-    public static class WriteOneRecord
+    public static class PostToDo
     {
-        [FunctionName("WriteOneRecord")]
-        public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "addtodo")] HttpRequest req,
+        // create a new ToDoItem from body object
+        // uses output binding to insert new item into ToDo table
+        [FunctionName("PostToDo")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "PostFunction")] HttpRequest req,
             ILogger log,
-            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] out ToDoItem newItem)
+            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<ToDoItem> toDoItems,
+            [Sql("dbo.RequestLog", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<RequestLog> requestLogs)
         {
-            newItem = new ToDoItem
-            {
-                Id = req.Query["id"],
-                Description =req.Query["desc"]
-            };
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            ToDoItem toDoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
 
-            log.LogInformation($"C# HTTP trigger function inserted one row");
-            return new CreatedResult($"/api/addtodo", newItem);
+            // generate a new id for the todo item
+            toDoItem.Id = Guid.NewGuid();
+
+            // set Url from env variable ToDoUri
+            toDoItem.url = Environment.GetEnvironmentVariable("ToDoUri")+"?id="+toDoItem.Id.ToString();
+
+            // if completed is not provided, default to false
+            if (toDoItem.completed == null)
+            {
+                toDoItem.completed = false;
+            }
+
+            await toDoItems.AddAsync(toDoItem);
+            await toDoItems.FlushAsync();
+            List<ToDoItem> toDoItemList = new List<ToDoItem> { toDoItem };
+
+            requestLog = new RequestLog();
+            requestLog.RequestTimeStamp = DateTime.Now;
+            requestLog.ItemCount = 1;
+            await requestLogs.AddAsync(requestLog);
+            await requestLogs.FlushAsync();
+
+            return new OkObjectResult(toDoItemList);
         }
+    }
+
+    public class RequestLog {
+        public DateTime RequestTimeStamp { get; set; }
+        public int ItemCount { get; set; }
     }
 }
 ```
@@ -86,7 +102,7 @@ namespace AzureSQLSamples
 
 ### HTTP trigger, write records using IAsyncCollector
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of records to a database, using data provided in an HTTP POST body JSON.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of records to a database, using data provided in an HTTP POST body JSON array.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -105,7 +121,7 @@ namespace AzureSQLSamples
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addtodo-asynccollector")]
             HttpRequest req,
-            [Sql("dbo.Products", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
+            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var incomingItems = JsonConvert.DeserializeObject<ToDoItem[]>(requestBody);

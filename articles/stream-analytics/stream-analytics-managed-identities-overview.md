@@ -13,9 +13,7 @@ ms.date: 03/02/2022
 Azure Stream Analytics currently allows you to authenticate to other Azure resources using managed identities.
 A common challenge when building cloud applications is credential management in your code to authenticate cloud services. Keeping the credentials secure is an important task. The credentials shouldn't be stored in developer workstations or checked into source control. 
 
-The Azure Active Directory (Azure AD) managed identities for Azure resources feature solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. This allows you to assign an identity to your Stream Analytics job which can then authenticate to any input or outputs that supports Azure AD authentication, without any credentials. See [managed identities for Azure resources overview page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for more information about this service.
-
-
+The Azure Active Directory (Azure AD) managed identities for Azure resources feature solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. This allows you to assign an identity to your Stream Analytics job which can then authenticate to any input or outputs that supports Azure AD authentication, without any credentials. See [managed identities for Azure resources overview page](../active-directory/managed-identities-azure-resources/overview.md) for more information about this service.
 
 ## Managed identity types
 

@@ -129,6 +129,8 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
 If you want to store the connection string in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
 In Microsoft.ApplicationInsights.AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) and later, calling `services.AddApplicationInsightsTelemetry()` automatically reads the connection string from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There's no need to explicitly provide the `IConfiguration`.
 
+If `IConfiguration` has loaded configuration from multiple providers, then `services.AddApplicationInsightsTelemetry` prioritizes configuration from `appsettings.json`, irrespective of the order in which providers are added. Use the `services.AddApplicationInsightsTelemetry(IConfiguration)` method to read configuration from IConfiguration without this preferential treatment for `appsettings.json`.
+
 ## Run your application
 
 Run your application and make requests to it. Telemetry should now flow to Application Insights. The Application Insights SDK automatically collects incoming web requests to your application, along with the following telemetry.
@@ -157,6 +159,12 @@ Support for [performance counters](./performance-counters.md) in ASP.NET Core is
 ### EventCounter
 
 By default, `EventCounterCollectionModule` is enabled. To learn how to configure the list of counters to be collected, see [EventCounters introduction](eventcounters.md).
+
+### Enrich data through HTTP
+
+```csharp
+HttpContext.Features.Get<RequestTelemetry>().Properties["myProp"] = someData
+```
 
 ## Enable client-side telemetry for web applications
 
@@ -468,10 +476,6 @@ It's important to note that the following example doesn't cause the ApplicationI
 ```
 
 For more information, see [ILogger configuration](ilogger.md#logging-level).
-
-### How can I get all custom ILogger error messages?
-
-Disable adaptive sampling. Examples of how to do this are provided in [Configure the Application Insights SDK](#configure-the-application-insights-sdk) section of this article.
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 

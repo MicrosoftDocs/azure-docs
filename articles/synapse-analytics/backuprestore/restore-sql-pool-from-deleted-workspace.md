@@ -5,8 +5,8 @@ author: realAngryAnalytics
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 03/29/2022
-ms.author: realAngryAnalytics
+ms.date: 04/11/2022
+ms.author: stevehow
 ms.reviewer: wiassaf
 ---
 
@@ -24,11 +24,17 @@ In this article, you learn how to restore a dedicated SQL pool in Azure Synapse 
 ## Restore the SQL pool from the dropped workspace
 
 1. Open PowerShell
+
 2. Connect to your Azure account.
+
 3. Set the context to the subscription that contains the workspace that was dropped.
+
 4. Specify the approximate datetime the workspace was dropped.
+
 5. Construct the resource ID for the database you wish to recover from the dropped workspace.
+
 6. Restore the database from the dropped workspace
+
 7. Verify the status of the recovered database as 'online'.
 
 

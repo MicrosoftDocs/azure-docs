@@ -1,10 +1,10 @@
 ---
 title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
-ms.date: 12/08/2021
+ms.date: 04/07/2022
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
+ms.author: elkrieger
+author: ElazarK
 ---
 # Introduction to Microsoft Defender for container registries (deprecated)
 
@@ -96,9 +96,6 @@ Yes. If you have an organizational need to ignore a finding, rather than remedia
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 Defender for Cloud provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
-
-## Does Microsoft Defender for Containers support AKS clusters with virtual machines scale set (VMSS)?
-Yes.
 
 ## Next steps
 

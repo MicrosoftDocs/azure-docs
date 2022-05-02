@@ -263,8 +263,8 @@ Here's how:
 
 If you're not going to continue to use this application, delete your application with the following steps:
 
-1. From the left pane of your Azure IoT Central app, select **Administration**.
-1. Select  **Application** > **Management** > **Delete**.
+1. From the left pane of your Azure IoT Central app, select **Application**.
+1. Select  **Management > Delete**.
 
 ## Next steps
 

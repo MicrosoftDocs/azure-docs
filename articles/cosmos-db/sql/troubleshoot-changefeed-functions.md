@@ -4,7 +4,7 @@ description: Common issues, workarounds, and diagnostic steps, when using the Az
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/28/2022
+ms.date: 04/14/2022
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -52,6 +52,10 @@ The previous versions of the Azure Cosmos DB Extension did not support using a l
 ### Azure Function fails to start with "PartitionKey must be supplied for this operation."
 
 This error means that you are currently using a partitioned lease collection with an old [extension dependency](#dependencies). Upgrade to the latest available version. If you are currently running on Azure Functions V1, you will need to upgrade to Azure Functions V2.
+
+### Azure Function fails to start with "Forbidden (403); Substatus: 5300... The given request [POST ...] cannot be authorized by AAD token in data plane"
+
+This error means your Function is attempting to [perform a non-data operation using Azure AD identities](troubleshoot-forbidden.md#non-data-operations-are-not-allowed). You cannot use `CreateLeaseContainerIfNotExists = true` when using Azure AD identities.
 
 ### Azure Function fails to start with "The lease collection, if partitioned, must have partition key equal to id."
 
