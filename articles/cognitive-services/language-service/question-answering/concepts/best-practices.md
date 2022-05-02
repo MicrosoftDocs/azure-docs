@@ -3,8 +3,8 @@ title: Best practices - question answering
 description: Use these best practices to improve your project and provide better results to your application/chat bot's end users.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
 ms.date: 01/26/2022
 ms.custom: language-service-question-answering

@@ -111,7 +111,8 @@ Kubernetes infrastructure.
 For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
 which we will use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We will use `az` CLI to obtain credentials for Kubernetes.
 
-Get credentials for your newly deployed AKS ([read more](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)):
+Get credentials for your newly deployed AKS ([read more](../aks/manage-azure-rbac.md#use-azure-rbac-for-kubernetes-authorization-with-kubectl)):
+
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -128,7 +129,6 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
    * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
    * [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
    * [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
-
 
 To install AAD Pod Identity to your cluster:
 

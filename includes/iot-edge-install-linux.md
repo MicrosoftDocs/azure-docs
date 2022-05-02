@@ -73,8 +73,18 @@ Install the Moby engine.
    sudo apt-get update; \
      sudo apt-get install moby-engine
    ```
-
 ---
+Once the Moby engine is successfully installed, configure it to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. To learn more about logging configuration, see [Production Deployment Checklist](../articles/iot-edge/production-checklist.md#set-up-default-logging-driver).
+
+* Create or open the Docker daemon's config file at `/etc/docker/daemon.json`.
+* Set the default logging driver to the `local` logging driver as shown in the example below.   
+   
+    ```JSON
+       {
+          "log-driver": "local"
+       }
+    ```
+* Restart the container engine for the changes to take effect.
 
    > [!TIP]
    > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:

@@ -215,7 +215,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[windows-node-cli]: windows-container-cli.md
+[windows-node-cli]: ./learn/quick-windows-container-deploy-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [upgrade-cluster]: upgrade-cluster.md
