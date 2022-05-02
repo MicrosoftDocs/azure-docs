@@ -51,7 +51,7 @@ From your resource's overview page in Azure portal, select **Diagnose and solve 
 
 ### Diagnose and solve problems tool for Virtual Machines
 
-Change Analysis displays as an insight card in a your virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
+Change Analysis displays as an insight card in your virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
 
 1. Within your virtual machine, select **Diagnose and solve problems** from the left menu. 
 1. Go to **Troubleshooting tools**.

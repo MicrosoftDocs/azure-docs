@@ -160,7 +160,7 @@ sections:
       - question: |
           Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
         answer: |
-          [Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
+          [Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Microsoft Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
 
   - name: Change Analysis
     questions:
@@ -356,7 +356,7 @@ sections:
       - question: |
           Is Azure Arc required for AAD-joined machines?
         answer: |
-          For AAD-joined (or hybrid AAD-joined) machines running Windows 10 or 11 (client OS), you **do not require Arc** to be installed on these machines. Instead, you can leverage the Windows MSI installer for AMA, currently available in preview ([click here](https://aka.ms/amadcr-privatepreviews)) to join the preview). 
+          For AAD-joined (or hybrid AAD-joined) machines running Windows 10 or 11 (client OS), you **do not require Arc** to be installed on these machines. Instead, you can leverage the Windows MSI installer for AMA, [currently available in preview](https://aka.ms/amadcr-privatepreviews)). 
 
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use AMA?
@@ -371,7 +371,7 @@ sections:
       - question: |
           What types of machines does the new Azure Monitor Agent support?
         answer: |
-          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. Additional you can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, currently available in preview ([click here](https://aka.ms/amadcr-privatepreviews)) to join the preview). 
+          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. Additional you can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, [currently available in preview click here](https://aka.ms/amadcr-privatepreviews)). 
 
       - question: |
           Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
@@ -810,7 +810,7 @@ sections:
           A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
           
       - question: |
-          Why is Microsoft / Azure Monitor Application Insights investing in OpenTelemetry?
+          Why is Microsoft Azure Monitor Application Insights investing in OpenTelemetry?
         answer: |
           Microsoft is among the largest contributors to OpenTelemetry.
           
