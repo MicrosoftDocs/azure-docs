@@ -153,7 +153,20 @@
       href: billing.md
     - name: Manage workspace access
       href: resource-context-rbac.md
-  - name: Migrate to Microsoft Sentinel
+  - name: Migrate
+    items:
+    - name: Overview
+      href: migration-overview.md
+    - name: Plan your migration
+      href: migration-planning.md
+      items:
+      - name: Review migration phases
+        href: migration-phases.md
+      - name: Review migration activities
+        href: migration-activities.md
+      - name: Track your migration
+        href: track-migration.md
+  - name: Use Microsoft Sentinel side-by-side with legacy SIEM
     href: migration.md
   - name: Understand MITRE ATT&CK coverage
     href: mitre-coverage.md
