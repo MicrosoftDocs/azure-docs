@@ -88,7 +88,7 @@ ms.custom: H1Hack27Feb2017
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
 [azure-virtual-machines-manage-availability]:../../windows/manage-availability.md
-[azure-storage-redundancy]:https://azure.microsoft.com/documentation/articles/storage-redundancy/
+[azure-storage-redundancy]:/azure/storage/common/storage-redundancy
 [azure-storage-managed-disks-overview]:../../../virtual-machines/managed-disks-overview.md
 
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
