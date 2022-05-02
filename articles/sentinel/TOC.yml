@@ -53,6 +53,8 @@
       href: best-practices-data.md
     - name: Partner integrations
       href: partner-integrations.md
+    - name: Basic Logs
+      href: basic-logs-use-cases.md
   - name: Architecture
     items:
     - name: Roles and permissions

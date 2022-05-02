@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/18/2022
+ ms.date: 04/29/2022
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -29,5 +29,5 @@
    > * Azure VPN Gateway maintains a DNS cache refreshed every 5 minutes. The gateway tries to resolve the FQDNs for disconnected tunnels only. Resetting the gateway will also trigger FQDN resolution.
    >
 
-1. When you have finished specifying the values, select **Review + create****at the bottom of the page to validate the page.
+1. When you have finished specifying the values, select **Review + create** at the bottom of the page to validate the page.
 1. Select **Create** to create the local network gateway object.
