@@ -35,13 +35,13 @@ Access to retrieve the key or token for an online endpoint is restricted by Azur
 
 For more information on using Azure RBAC with Azure Machine Learning, see [Manage access to Azure Machine Learning](how-to-assign-roles.md).
 
-To get the key, use [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials):
+To get the key, use [az ml online-endpoint get-credentials](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-get-credentials). This command returns a JSON document that contains the key or token. __Keys__ will be returned in the `primaryKey` and `secondaryKey` fields. __Tokens__ will be returned in the `accessToken` field. Additionally, the `expiryTimeUtc` and `refreshAfterTimeUtc` fields contain the token expiration and refresh times. The following example shows how to use the `--query` parameter to return only the primary key:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
 ## Score data using the token
 
-The following example shows how to use the curl utility to call the online endpoint:
+When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to use the curl utility to call the online endpoint using a key (if using a token, replace `$ENDPOINT_KEY` with the token value):
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::    
 

@@ -280,6 +280,8 @@ Notice we use `show` and `get-credentials` commands to get the authentication cr
 
 To see the invocation logs, run `get-logs` again.
 
+For information on authenticating using a token, see [Authenticate to online endpoints](how-to-authenticate-online-endpoint.md).
+
 ### (Optional) Update the deployment
 
 If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command. 
