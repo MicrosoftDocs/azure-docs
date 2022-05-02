@@ -209,4 +209,4 @@ For information on logging metrics in Azure Machine Learning designer, see [How 
 
 ## Next steps
 
-* [Train an image classification model with Azure Machine Learning](tutorial-train-deploy-notebook.md).
+* [Train ML models with MLflow and Azure Machine Learning](how-to-train-mlflow-projects.md).
