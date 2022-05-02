@@ -67,17 +67,24 @@ If you already have the extension installed, it can be updated by running:
 ```az extension update --name ssh```
 
 > [!NOTE]
-> The Azure CLI extension version must be greater than 1.0.1.
+> The Azure CLI extension version must be greater than 1.1.0.
 
 ### Create default connectivity endpoint
 > [!NOTE]
 > The following actions must be completed for each Arc-enabled server.
 
-Run the following commands:
- ```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{\"properties\": {\"type\": \"default\"}}'```
-
- ```az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview```
-
+Create the default endpoint in PowerShell:
+ ```powershell
+ az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{\"properties\": {\"type\": \"default\"}}'
+ ```
+Create the default endpoint in Bash:
+```bash
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview --body '{"properties": {"type": "default"}}'
+```
+Validate endpoint creation:
+ ```
+ az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview
+ ```
 
 ### Enable functionality on your Arc-enabled server
 In order to use the SSH connect feature, you must enable connections on the hybrid agent.

@@ -62,7 +62,7 @@ Once your Azure Maps account is successfully created, retrieve the primary key t
 
 ## Download and update the Azure Maps demo
 
-1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copy the contents of the file.
+1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html). Copy the contents of the file.
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Add the **Primary Key** value you got in the preceding section
     1. Comment out all of the code in the `authOptions` function, this code is used for Azure Active Directory authentication.

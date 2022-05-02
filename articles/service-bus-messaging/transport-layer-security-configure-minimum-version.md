@@ -5,7 +5,7 @@ description: Configure an Azure Service Bus namespace to use a minimum version o
 services: service-bus
 author: EldertGrootenboer
 
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 04/22/2022
 ms.author: egrootenboer

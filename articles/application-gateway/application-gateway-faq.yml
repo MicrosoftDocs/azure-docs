@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/07/2022
+  ms.date: 04/26/2022
   ms.author: greglin
   ms.custom: references_regions
 title: Frequently asked questions about Application Gateway
@@ -386,7 +386,7 @@ sections:
         answer: |
           Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
           
-      - question: How do I configure HTTPS listeners for .com and .NET sites? 
+      - question: How do I configure HTTPS listeners for .com and .net sites? 
         answer: |
           For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](./multiple-site-overview.md).
           

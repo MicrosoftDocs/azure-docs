@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/20/2021
+ms.date: 4/4/2022
 ms.author: baanders
 ---
 
@@ -30,7 +30,7 @@ The following table lists the functional limits of Azure Digital Twins.
 | Models | Number of models that can be uploaded in a single API call | 250 | No |
 | Models | Maximum size (of JSON body in a PUT or PATCH request) of a single model | 1 MB | No |
 | Models | Number of items returned in a single page | 100 | No |
-| Query | Number of items returned in a single page | 100 | Yes |
+| Query | Number of items returned in a single page | 1000 | Yes |
 | Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
 | Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
 | Query | Number of characters in a query | 8,000 | Yes |

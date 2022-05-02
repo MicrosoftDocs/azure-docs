@@ -97,7 +97,7 @@ The following table shows additional limits in the platform. Please reach out to
 
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
-### Azure Machine Learning managed online endpoints (preview)
+### Azure Machine Learning managed online endpoints
 
 Azure Machine Learning managed online endpoints have limits described in the following table. 
 
@@ -202,4 +202,4 @@ When you're requesting a quota increase, select the service that you have in min
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
 + [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
-+ [Troubleshooting managed online endpoints deployment and scoring (preview)](./how-to-troubleshoot-online-endpoints.md)
++ [Troubleshooting managed online endpoints deployment and scoring](./how-to-troubleshoot-online-endpoints.md)

@@ -14,7 +14,7 @@ ms.custom: deploy, studio, designer
 
 # Use the studio to deploy models trained in the designer
 
-In this article, you learn how to deploy a designer model as a real-time endpoint in Azure Machine Learning studio.
+In this article, you learn how to deploy a designer model as an online (real-time) endpoint in Azure Machine Learning studio.
 
 Once registered or downloaded, you can use designer trained models just like any other model. Exported models can be deployed in use cases such as internet of things (IoT) and local deployments.
 
@@ -106,18 +106,18 @@ After downloading the necessary files, you're ready to deploy the model.
     >[!TIP]
     > In **Advanced** setting, you can set CPU/Memory capacity and other parameters for deployment. These settings are important for certain models such as PyTorch models, which consume considerable amount of memery (about 4 GB).
 
-1. Select **Deploy** to deploy your model as a real-time endpoint.
+1. Select **Deploy** to deploy your model as an online endpoint.
 
     ![Screenshot of deploy model in model asset page](./media/how-to-deploy-model-designer/deploy-model.png)
 
-## Consume the real-time endpoint
+## Consume the online endpoint
 
-After deployment succeeds, you can find the real-time endpoint in the **Endpoints** asset page. Once there, you will find a REST endpoint, which clients can use to submit requests to the real-time endpoint. 
+After deployment succeeds, you can find the endpoint in the **Endpoints** asset page. Once there, you will find a REST endpoint, which clients can use to submit requests to the endpoint. 
 
 > [!NOTE]
 > The designer also generates a sample data json file for testing, you can download `_samples.json` in the **trained_model_outputs** folder.
 
-Use the following code sample to consume a real-time endpoint.
+Use the following code sample to consume an online endpoint.
 
 ```python
 
@@ -140,9 +140,9 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
-### Consume computer vision related real-time endpoints
+### Consume computer vision related online endpoints
 
-When consuming computer vision related real-time endpoints, you need to convert images to bytes, since web service only accepts string as input. Following is the sample code:
+When consuming computer vision related online endpoints, you need to convert images to bytes, since web service only accepts string as input. Following is the sample code:
 
 ```python
 import base64
