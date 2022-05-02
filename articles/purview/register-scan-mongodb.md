@@ -140,5 +140,5 @@ To create and run a new scan, do the following:
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Search Data Catalog](how-to-search-catalog.md)

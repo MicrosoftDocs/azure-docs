@@ -149,5 +149,5 @@ Follow the steps below to scan SAP BW to automatically identify assets and class
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
 - [Search Data Catalog](how-to-search-catalog.md)
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Supported data sources and file types](azure-purview-connector-overview.md)
