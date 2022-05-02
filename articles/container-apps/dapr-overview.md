@@ -42,7 +42,7 @@ In the following Pub/sub example, we demonstrate how:
 - Dapr components are plugged into and scoped to your Container App and Dapr sidecar.
 - Dapr APIs are exposed to your Container App.
 
-:::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
+:::image type="content" source="media/dapr-overview/dapr-in-aca-inline.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps" lightbox="media/dapr-overview/dapr-in-aca.png":::
 
 ### 1 - Container App with Dapr enabled
 
