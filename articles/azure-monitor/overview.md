@@ -49,7 +49,7 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 Change Analysis not only alerts you to live site issues, outages, component failures, or other change data, but it provides insights into those application changes, increases observability, and reduces the mean time to repair (MTTR). You automatically register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription by navigating to the Change Analysis service via the Azure portal. For web app in-guest changes, you can enable Change Analysis using the [Diagnose and solve problems tool](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool). 
 
-Change Analysis builds on [Azure Resource Graph](../../governance/resource-graph/overview.md) to provide a historical record of how your Azure resources have changed over time, detecting managed identities, platform OS upgrades, and hostname changes. Change Analysis securely queries IP Configuration rules, TLS settings, and extension versions to provide more detailed change data.
+Change Analysis builds on [Azure Resource Graph](../governance/resource-graph/overview.md) to provide a historical record of how your Azure resources have changed over time, detecting managed identities, platform OS upgrades, and hostname changes. Change Analysis securely queries IP Configuration rules, TLS settings, and extension versions to provide more detailed change data.
 
 ## What data does Azure Monitor collect?
 Azure Monitor can collect data from a [variety of sources](monitor-reference.md). This ranges from your application, any operating system and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:

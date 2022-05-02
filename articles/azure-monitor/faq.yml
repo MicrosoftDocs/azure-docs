@@ -171,7 +171,7 @@ sections:
       - question: |
           How can I enable for a web application?
         answer: |
-          Enable Change Analysis for web application in-guest changes using the [Diagnose and solve problems tool](change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app).
+          Enable Change Analysis for web application in-guest changes using the [Diagnose and solve problems tool](change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool).
 
   - name: Alerts
     questions:
