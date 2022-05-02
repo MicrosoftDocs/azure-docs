@@ -5,7 +5,7 @@ services:
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 2/5/2022
+ms.date: 5/2/2022
 ms.author: rahugup
 ---
 # Java web app containerization and migration to Azure App Service
