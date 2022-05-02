@@ -5,7 +5,7 @@ author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
 ms.topic: conceptual
-ms.date: 4/29/2021
+ms.date: 4/29/2022
 ms.custom: template-concept
 ---
 
@@ -33,7 +33,7 @@ Any target or capability metadata is deleted when a target is deleted.
 
 ## High availability with Chaos Studio
 
-Chaos Studio is a regional, zone-redundant service (in regions that support availability zones). In the case of an availability zone outage, running experiments in the region may fail, but experiment metadata, history, and details should remain available and experiment start and create should still work as expected.
+Chaos Studio is a regional, zone-redundant service (in regions that support availability zones). In the case of an availability zone outage, any chaos operation may fail, but experiment metadata, history, and details should remain available and the service should not see a full outage.
 
 ## Next steps
 Now that you understand the region availability model for Chaos Studio, you are ready to:
