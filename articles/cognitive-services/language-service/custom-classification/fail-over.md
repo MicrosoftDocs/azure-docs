@@ -1,7 +1,7 @@
 ---
-title: Back up and recover your custom classification models
+title: Back up and recover your custom text classification models
 titleSuffix: Azure Cognitive Services
-description: Learn how to save and recover your custom classification models.
+description: Learn how to save and recover your custom text classification models.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,7 +17,7 @@ ms.custom: language-service-custom-classification
 
 When you create a Language resource, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure Language resources in different regions and the ability to sync custom models across regions. 
 
-If your app or business depends on the use of a custom classification model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
+If your app or business depends on the use of a custom text classification model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
 Replicating a project means that you export your project metadata and assets and import them into a new project. This only makes a copy of your project settings and tagged data. You still need to [train](./how-to/train-model.md) and [deploy](how-to/call-api.md#deploy-your-model) the models to be available for use with [prediction APIs](https://aka.ms/ct-runtime-swagger).
 
@@ -132,7 +132,7 @@ Use the url from the `resultUrl` key in the body to view the exported assets fro
 
 ### Get export results
 
-Submit a **GET** request using the `{RESULT-URL}` you recieved from the previous step to view the results of the export job.
+Submit a **GET** request using the `{RESULT-URL}` you received from the previous step to view the results of the export job.
 
 #### Headers
 
@@ -330,7 +330,7 @@ Use the following header to authenticate your request.
 
 ## Deploy your model
 
-This is te step where you make your trained model available form consumption via the [runtime prediction API](https://aka.ms/ct-runtime-swagger). 
+This is the step where you make your trained model available form consumption via the [runtime prediction API](https://aka.ms/ct-runtime-swagger). 
 
 > [!TIP]
 > Use the same deployment name as your primary project for easier maintenance and minimal changes to your system to handle redirecting your traffic.
@@ -459,7 +459,6 @@ Repeat the same steps for your replicated project using `{YOUR-SECONDARY-ENDPOIN
 
 In this article, you have learned how to use the export and import APIs to replicate your project to a secondary Language resource in other region. Next, explore the API reference docs to see what else you can do with authoring APIs.
 
-* [Authoring REST API reference ](https://aka.ms/ct-authoring-swagger)
+* [Authoring REST API reference ](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob)
 
 * [Runtime prediction REST API reference ](https://aka.ms/ct-runtime-swagger)
-

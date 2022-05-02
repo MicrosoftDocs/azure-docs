@@ -4,7 +4,7 @@ description: Learn how to plan an Azure Virtual Network deployment to connect HD
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 01/12/2021
+ms.date: 04/01/2022
 ---
 
 # Plan a virtual network for Azure HDInsight

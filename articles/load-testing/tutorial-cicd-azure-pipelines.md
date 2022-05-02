@@ -19,6 +19,8 @@ You'll deploy a sample Node.js web app on Azure App Service. The web app uses Az
 
 If you're using GitHub Actions for your CI/CD workflows, see the corresponding [GitHub Actions tutorial](./tutorial-cicd-github-actions.md).
 
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
+
 You'll learn how to:
 
 > [!div class="checklist"]

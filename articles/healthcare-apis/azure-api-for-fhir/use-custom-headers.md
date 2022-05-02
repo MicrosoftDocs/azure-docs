@@ -6,8 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: zxue
-author: zxue
+ms.author: dseven
+author: dougseven
 ms.date: 02/15/2022
 ---
 

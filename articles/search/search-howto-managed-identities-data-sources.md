@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 03/30/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -23,24 +23,22 @@ You can configure an Azure Cognitive Search service to connect to other Azure re
 
 ## Supported scenarios
 
-Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of an Azure AD-aware service or application. A user managed identity is specified through an "identity" property.
+Cognitive Search can use a system-assigned or user-assigned managed identity on outbound connections to Azure resources. A system managed identity is indicated when a connection string is the unique resource ID of an Azure AD-aware service or application. A user-assigned managed identity is specified through an "identity" property.
 
-| Scenario | System managed identity | User managed identity (preview) |
+A search service uses Azure Storage as an indexer data source and as a data sink for debug sessions, enrichment caching, and knowledge store. For search features that write back to storage, the managed identity needs a contributor role assignment as described in the ["Assign a role"](#assign-a-role) section. 
+
+| Scenario | System managed identity | User-assigned managed identity (preview) |
 |----------|-------------------------|---------------------------------|
-| [Indexer connections to supported Azure data sources](search-indexer-overview.md) | Yes | Yes |
+| [Indexer connections to supported Azure data sources](search-indexer-overview.md) <sup>1</sup>| Yes | Yes |
 | [Azure Key Vault for customer-managed keys](search-security-manage-encryption-keys.md) | Yes | Yes |
-| [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)	 | Yes | No |
-| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md)| Yes <sup>1,</sup> <sup>2</sup>| Yes |
-| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) | Yes <sup>2</sup>| Yes |
+| [Debug sessions (hosted in Azure Storage)](cognitive-search-debug-session.md)	<sup>1</sup> | Yes | No |
+| [Enrichment cache (hosted in Azure Storage)](search-howto-incremental-index.md) <sup>1,</sup> <sup>2</sup> | Yes | Yes |
+| [Knowledge Store (hosted in Azure Storage)](knowledge-store-create-rest.md) <sup>1</sup>| Yes | Yes |
 | [Custom skills (hosted in Azure Functions or equivalent)](cognitive-search-custom-skill-interface.md) | Yes | Yes |
 
-<sup>1</sup> The Import data wizard doesn't currently accept a managed identity connection string for enrichment cache, but after the wizard completes, you can update the connection string in indexer JSON definition to specify the managed identity, and then rerun the indexer.
+<sup>1</sup> For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. Only a system managed identity can be used for a same-region connection to storage via the trusted service exception or resource instance rule. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
-<sup>2</sup> If your indexer has an attached skillset that writes back to Azure Storage (for example, it creates a knowledge store or caches enriched content), a managed identity won't work if the storage account is behind a firewall or has IP restrictions. This is a known limitation that will be lifted when managed identity support for skillset scenarios becomes generally available. The solution is to use a full access connection string instead of a managed identity if Azure Storage is behind a firewall.
-
-Debug sessions, enrichment cache, and knowledge store are features that write to Blob Storage. Assign a managed identity to the **Storage Blob Data Contributor** role to support these features.
-
-Knowledge store will also write to Table Storage. Assign a managed identity to the **Storage Table Data Contributor** role to support table projections.
+<sup>2</sup> One method for specifying an enrichment cache is in the Import data wizard. Currently, the wizard doesn't accept a managed identity connection string for enrichment cache. However, after the wizard completes, you can update the connection string in the indexer JSON definition to specify either a system or user-assigned managed identity, and then rerun the indexer.
 
 ## Create a system managed identity
 
@@ -68,7 +66,7 @@ A system-assigned managed identity is unique to your search service and bound to
 
 See [Create or Update Service (Management REST API)](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity).
 
-You can use the Management REST API instead of the portal to assign a user managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity) for this task.
+You can use the Management REST API instead of the portal to assign a user-assigned managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity) for this task.
 
 1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
@@ -94,20 +92,20 @@ You can use the Management REST API instead of the portal to assign a user manag
 
 ### [**Azure PowerShell**](#tab/ps-sys)
 
-See [Create a search service with a system assigned managed identity (Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity).
+See [Create a search service with a system-assigned managed identity (Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity).
 
 ### [**Azure CLI**](#tab/cli-sys)
 
-See [Create a search service with a system assigned managed identity (Azure CLI)](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
+See [Create a search service with a system-assigned managed identity (Azure CLI)](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
 
 ---
 
-## Create a user managed identity (preview)
+## Create a user-assigned managed identity (preview)
 
 A user-assigned managed identity is a resource on Azure. It's useful if you need more granularity in role assignments because you can create separate identities for different applications and scenarios.
 
 > [!IMPORTANT]
->This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). User-assigned managed identities aren't currently supported for connections to a network-protected storage account. The search request currently requires a public IP address.
 
 ### [**Azure portal**](#tab/portal-user)
 
@@ -123,7 +121,7 @@ A user-assigned managed identity is a resource on Azure. It's useful if you need
 
 1. Select **Create** and wait for the resource to finish deploying. 
 
-   In the next several steps, you'll assign the user managed identity to your search service.
+   In the next several steps, you'll assign the user-assigned managed identity to your search service.
 
 1. In your search service page, under **Settings**, select **Identity**.
 
@@ -133,7 +131,7 @@ A user-assigned managed identity is a resource on Azure. It's useful if you need
 
 ### [**REST API**](#tab/rest-user)
 
-You can use the Management REST API instead of the portal to assign a user managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) for this task.
+You can use the Management REST API instead of the portal to assign a user-assigned managed identity. Be sure to use the [2021-04-01-preview management API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) for this task.
 
 1. Formulate a request to [Create or Update a search service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
@@ -170,9 +168,9 @@ You can use the Management REST API instead of the portal to assign a user manag
 
 If your Azure resource is behind a firewall, make sure there's an inbound rule that admits requests from your search service. 
 
-+ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use the  [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) to admit requests.
++ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use a system managed identity and the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md). Optionally, you can configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) to admit requests.
 
-+ For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md) that admits requests from Search. See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for more detail.
++ For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md) that admits requests from Search. See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for details.
 
 ## Assign a role
 

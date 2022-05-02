@@ -3,7 +3,7 @@ title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 04/04/2022
 ms.author: thweiss
 author: ThomasWeiss
 ---
@@ -207,14 +207,14 @@ var path1 = new ClientEncryptionIncludedPath
     Path = "/property1",
     ClientEncryptionKeyId = "my-key",
     EncryptionType = EncryptionType.Deterministic.ToString(),
-    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256
+    EncryptionAlgorithm = DataEncryptionAlgorithm.AeadAes256CbcHmacSha256
 };
 var path2 = new ClientEncryptionIncludedPath
 {
     Path = "/property2",
     ClientEncryptionKeyId = "my-key",
     EncryptionType = EncryptionType.Randomized.ToString(),
-    EncryptionAlgorithm = DataEncryptionKeyAlgorithm.AeadAes256CbcHmacSha256
+    EncryptionAlgorithm = DataEncryptionAlgorithm.AeadAes256CbcHmacSha256
 };
 await database.DefineContainer("my-container", "/partition-key")
     .WithClientEncryptionPolicy()

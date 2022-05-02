@@ -162,6 +162,8 @@ Changes made to the `template` section are [revision-scope changes](revisions.md
 
 ### <a name="container-app-examples"></a>Examples
 
+For details on health probes, refer to [Heath probes in Azure Container Apps](./health-probes.md).
+
 # [ARM template](#tab/arm-template)
 
 The following example ARM template deploys a container app.
@@ -197,6 +199,9 @@ The following example ARM template deploys a container app.
       "type": "Microsoft.App/containerApps",
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
+      "identity": {
+        "type": "None"      
+      },
       "properties": {
         "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
         "configuration": {
@@ -254,7 +259,45 @@ The following example ARM template deploys a container app.
               "resources": {
                 "cpu": 0.5,
                 "memory": "1Gi"
-              }
+              },
+              "probes":[
+                  {
+                      "type":"liveness",
+                      "httpGet":{
+                      "path":"/health",
+                      "port":8080,
+                      "httpHeaders":[
+                          {
+                              "name":"Custom-Header",
+                              "value":"liveness probe"
+                          }]
+                      },
+                      "initialDelaySeconds":7,
+                      "periodSeconds":3
+                  },
+                  {
+                      "type":"readiness",
+                      "tcpSocket":
+                          {
+                              "port": 8081
+                          },
+                      "initialDelaySeconds": 10,
+                      "periodSeconds": 3
+                  },
+                  {
+                      "type": "startup",
+                      "httpGet": {
+                          "path": "/startup",
+                          "port": 8080,
+                          "httpHeaders": [
+                              {
+                                  "name": "Custom-Header",
+                                  "value": "startup probe"
+                              }]
+                      },
+                      "initialDelaySeconds": 3,
+                      "periodSeconds": 3
+                  }]
             }
           ],
           "scale": {
@@ -278,7 +321,7 @@ The following example YAML configuration deploys a container app when used with 
 
 ```yaml
 kind: containerapp
-location: northeurope
+location: canadacentral
 name: mycontainerapp
 resourceGroup: myresourcegroup
 type: Microsoft.App/containerApps
@@ -323,6 +366,30 @@ properties:
         resources:
           cpu: 0.5
           memory: 1Gi
+        probes:
+          - type: liveness
+            httpGet:
+              - path: "/health"
+                port: 8080
+                httpHeaders:
+                  - name: "Custom-Header"
+                    value: "liveness probe"
+                initialDelaySeconds: 7
+                periodSeconds: 3
+          - type: readiness
+            tcpSocket:
+              - port: 8081
+            initialDelaySeconds: 10
+            periodSeconds: 3
+          - type: startup
+            httpGet:
+              - path: "/startup"
+                port: 8080
+                httpHeaders:
+                  - name: "Custom-Header"
+                    value: "startup probe"
+            initialDelaySeconds: 3
+            periodSeconds: 3
     scale:
       minReplicas: 1
       maxReplicas: 3

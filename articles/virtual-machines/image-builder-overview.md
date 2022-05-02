@@ -82,6 +82,7 @@ The Azure Image Builder Service is available in the following regions: regions.
 - Korea Central
 - South Africa North
 
+
 ## OS support
 Azure Image Builder will support Azure Marketplace base OS images:
 - Ubuntu 18.04

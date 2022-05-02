@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, cliv1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/08/2022
@@ -85,7 +85,6 @@ See the [Azure portal](#use-the-azure-portal) section if you prefer using the gr
 
 # [Azure CLI](#tab/azcli)
 
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az group create --name "examplegroup" --location "eastus"
@@ -102,8 +101,6 @@ New-AzResourceGroup -Name "examplegroup" -Location "eastus"
 Once your resource group is successfully created, deploy the template with the following command:
 
 # [Azure CLI](#tab/azcli)
-
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az deployment group create \

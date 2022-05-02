@@ -30,8 +30,8 @@ Cognitive Search has three basic network traffic patterns:
 
 Inbound requests that target a search service endpoint consist of:
 
-+ Creating and managing indexes, indexers, and other objects
-+ Sending requests for indexing, running indexer jobs, executing skills
++ Creating or managing indexes, indexers, data sources, skillsets, or synonym lists
++ Running indexers and skillsets
 + Querying an index
 
 For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with [network security features](#service-access-and-authentication). You can create either inbound rules in an IP firewall, or private endpoints that fully shield your search service from the public internet. 
@@ -40,12 +40,14 @@ Independent of network security, all inbound requests must be authenticated. Key
 
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations. Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or skillset.
+Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations.
 
-+ Indexer connects to external data sources to read in data for indexing.
-+ Indexer writes to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
-+ A custom skill connects to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
+Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or custom skill:
+
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
++ Indexers [connect to external data sources](search-indexer-securing-resources.md) to read in data for indexing.
++ Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
++ Custom skills connect to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
@@ -53,7 +55,12 @@ If your Azure resource is behind a firewall, you'll need to [create rules that a
 
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, private endpoint connections, and requests made to Cognitive Services for built-in skills.
+Internal requests are secured and managed by Microsoft. You cannot configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic is not customer-configurable.
+
+Internal traffic consists of:
+
++ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
++ Requests made to Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md).
 
 <a name="service-access-and-authentication"></a>
 
@@ -89,7 +96,7 @@ Once a request is admitted, it must still undergo authentication and authorizati
 
 + [Azure AD authentication (preview)](search-security-rbac.md) establishes the caller (and not the request) as the authenticated identity. An Azure role assignment determines the allowed operation. 
 
-Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. A search service can be made a trusted service on Azure, connecting to other services using a system or user-assigned managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 

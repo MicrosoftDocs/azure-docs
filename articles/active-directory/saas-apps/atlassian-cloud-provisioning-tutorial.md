@@ -32,7 +32,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* [An Atlassian Cloud tenant](https://www.atlassian.com/licensing/cloud)
+* [An Atlassian Cloud tenant](https://www.atlassian.com/licensing/cloud) with an Atlassian Access subscription.
 * A user account in Atlassian Cloud with Admin permissions.
 
 > [!NOTE]
@@ -151,14 +151,14 @@ Once you've configured provisioning, use the following resources to monitor your
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Connector Limitations
-
-* Atlassian Cloud allows provisioning of users only from [verified domains](https://confluence.atlassian.com/cloud/organization-administration-938859734.html).
+* Atlassian Cloud only supports provisioning updates for users with verified domains. Changes made to users from a non-verified domain will not be pushed to Atlassian Cloud. Learn more about Atlassian verified domains [here] (https://support.atlassian.com/provisioning-users/docs/understand-user-provisioning/).
 * Atlassian Cloud does not support group renames today. This means that any changes to the displayName of a group in Azure AD will not be updated and reflected in Atlassian Cloud.
 * The value of the **mail** user attribute in Azure AD is only populated if the user has a Microsoft Exchange Mailbox. If the user does not have one, it is recommended to map a different desired attribute to the **emails** attribute in Atlassian Cloud.
 
 ## Change log
 
 * 06/15/2020 - Added support for batch PATCH for groups.
+* 04/21/2021 - Added support for **Schema Discovery**.
 
 ## Additional resources
 
