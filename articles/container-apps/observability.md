@@ -60,7 +60,7 @@ az containerapp logs show --name album-api \
 
 ## Container console
 
-Connecting to a container's console is useful when you want to see what's happening inside a container.  If your app isn't behaving as expected, you can access a container's console to run commands to troubleshoot issues.  Azure Container Apps lets you connect to a container's console using the Azure portal or the Azure CLI.
+Connecting to a container's console is useful when you want to see what's happening inside a container.  When your app isn't behaving as expected, you can access a container's console to run commands to troubleshoot issues.  Azure Container Apps lets you connect to a container's console using the Azure portal or the Azure CLI.
 
 ### Connect to a container console via the Azure portal
 
@@ -147,7 +147,7 @@ Application logs consist of messages written to each container's `stdout` and `s
 
 Azure Monitor stores Container Apps log data in the ContainerAppConsoleLogs_CL table. Create queries using this table to view your container app log data.  
 
-You can create and run queries using Log Analytics in the Azure portal or run queries using Azure CLI or PowerShell commands.
+You can create and run queries using Log Analytics in the Azure portal or run queries using Azure CLI commands.
 
 The most used columns in ContainerAppConsoleLogs_CL include:
 
@@ -184,7 +184,7 @@ For more information regarding Log Analytics and log queries, see the [Log Analy
 
 ### Query logs via the Azure CLI and PowerShell
 
-Application logs can be queried using the  [Azure CLI](/cli/azure/monitor/log-analytics).  
+Container Apps logs can be queried using the  [Azure CLI](/cli/azure/monitor/log-analytics).  
 
 Here's an example Azure CLI query to view the log entries for a container app:
 
@@ -198,8 +198,8 @@ For more information about using Azure CLI and PowerShell to view container app 
 
 Azure Monitor alerts notify you so that you can respond quickly to critical issues.  You can create:
 
-- [metric alerts](../azure-monitor/alerts/alerts-metric-overview.md)
-- [log alerts](../azure-monitor/alerts/alerts-unified-log.md)
+- [metric alerts](../azure-monitor/alerts/alerts-metric-overview.md) - send   alerts based on metric values
+- [log alerts](../azure-monitor/alerts/alerts-unified-log.md) - send alerts based on log data
 
 You can add alert rules to metric charts in the metric explorer or queries in Log Analytics.  You can also create and manage alerts on the **Monitor>Alerts** page. 
  
@@ -207,13 +207,13 @@ To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../
 
 ### Create metric alerts in metrics explorer
 
-When you add alert rules to a metric chart in the metrics explorer, alerts are triggered when metric data matches alert rule conditions.  
+When you add alert rules to a metric chart in the metrics explorer, alerts are triggered when the collected metric data matches alert rule conditions.  
 
 After creating a [metric chart](#view-metrics-with-metrics-explorer), select **New alert rule** to create an alert rule based on the chart's settings.
 
 :::image type="content" source="media/observability/metrics-alert-new-alert-rule.png" alt-text="Screenshot of the metrics explorer highlighting the new rule button.":::
 
-When you select **New alert rule**, the rule creation pane opens to the **Condition** tab.  Select the existing alert condition that is configured with the chart’s metrics. Add the threshold criteria to complete the condition.
+When you select **New alert rule**, the rule creation pane opens to the **Condition** tab.  Metrics explorer automatically creates an alert condition containing the chart's metrics.  Select the alert condition to add the threshold criteria to complete the condition.
 
 :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Screenshot of the metric explorer alert rule editor.  A condition is automatically created based on the chart settings.":::
 
@@ -237,7 +237,7 @@ Example of selecting a dimension to split an alert.
 
 ### Create log alerts in Log Analytics
 
-Use Log Analytics to add alert rules to a log query.  When you add an alert rule to a query, the query is run at set intervals and triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
+Use Log Analytics to add alert rules to a log query.  When you add an alert rule to a query, the query is run at set intervals triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
 
 To add an alert rule to a query, you first create and run the query.  Then, select **New alert rule**.
 
