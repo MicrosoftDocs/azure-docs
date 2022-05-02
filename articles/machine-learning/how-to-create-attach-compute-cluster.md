@@ -157,7 +157,7 @@ In the studio, choose **Low Priority** when you create a VM.
 
 --- 
 
-## <a id="managed-identity"></a> Set up managed identity
+## Set up managed identity
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
