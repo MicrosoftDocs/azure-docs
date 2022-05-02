@@ -734,6 +734,10 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Allow read access to blobs with specific encryption scopes
 
+This condition allows a user to read blobs with with encryption scope validScope1 or validScope2.
+
+![Diagram of condition showing read access to blobs with encryption scope validScope1 or validScope2.](./media/storage-auth-abac-examples/encryption-scope-read-blobs.png)
+
 ```
 (
  (
