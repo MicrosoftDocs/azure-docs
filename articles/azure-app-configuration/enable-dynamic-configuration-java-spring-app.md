@@ -178,10 +178,10 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
     |---|---|
     | sentinel | 2 |
 
-1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes.
+1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes, as the first request returns using the original scope.
 
 > [!NOTE]
-> The library only checks for changes on the after the refresh interval has passed, if the period hasn't passed then no change will be seen, you will have to wait for the period to pass then trigger the refresh check.
+> The library only checks for changes on after the refresh interval has passed. If the refresh interval hasn't passed then it will not check for changes, you will have to wait for the interval to pass then trigger the refresh check.
 
 ## Next steps
 
