@@ -16,7 +16,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-## May 03, 2022
+## May 3, 2022
 
 This release is published May 3, 2022.
 
