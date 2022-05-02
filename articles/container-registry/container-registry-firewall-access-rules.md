@@ -28,6 +28,15 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), a c
 > [!NOTE]
 > Azure Container Registry is introducing [dedicated data endpoints](#enable-dedicated-data-endpoints), allowing you to tightly scope client firewall rules for your registry storage. Optionally enable data endpoints in all regions where the registry is located or replicated, using the form `<registry-name>.<region>.data.azurecr.io`.
 
+ ## About Registry FQDN's
+
+Registry has two FQDN's, the **login url** and the **data endpoint**.
+
+* Both the **login url** and the **data endpoint** are accessible from within the virtual network, using private IP's by enabling a private link.
+* A registry configured with a `*.blob.core.windows.net` data endpoint doesn’t provide isolation when configuring client firewall rules.
+* A registry with a private link enabled gets the dedicated data endpoint automatically.
+* A dedicated data endpoint is created per region for a registry.
+* Login url never changes irrespective of dedicated endpoint enabled/disabled.
 ## Allow access by IP address range
 
 If your organization has policies to allow access only to specific IP addresses or address ranges, download [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
