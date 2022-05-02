@@ -6,7 +6,7 @@ ms.author: v-eschaffer
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 04/11/2022
+ms.date: 05/02/2022
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -54,14 +54,28 @@ Two Azure resources are defined in the Bicep file:
 
     ---
 
-    > [!NOTE]
-    > Replace **\<cluster-name\>** with the name of the HDInsight cluster to create. Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards. Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. You'll be prompted to enter **clusterLoginPassword**, which must be at least 10 characters long and contain at least one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username of SSH username. You'll also be prompted to enter **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.
+    Replace **\<cluster-name\>** with the name of the HDInsight cluster to create. Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards. Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. You'll be prompted to enter **clusterLoginPassword**, which must be at least 10 characters long and contain at least one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username of SSH username. You'll also be prompted to enter **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    > [!NOTE]
+    > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
-Once the cluster is created, you'll receive a **Deployment succeeded** notification with a **Go to resource** link. Your Resource group page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Blob Storage](../hdinsight-hadoop-use-blob-storage.md) account, an [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md), or an  [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md) dependency. It's referred as the default storage account. The HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters doesn't delete the storage account.
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+---
 
 ## Get the Apache Zookeeper and Broker host information
 
