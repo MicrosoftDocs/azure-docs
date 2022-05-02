@@ -1,7 +1,7 @@
 ---
-title: Authorize developer accounts using OAuth 2.0 in API Management
+title: Authorize test console of API Management developer portal using OAuth 2.0 user authorization
 titleSuffix: Azure API Management
-description: Learn how to authorize users using OAuth 2.0 in API Management. OAuth 2.0 secures the API so that users can only access resources to which they're entitled.
+description: Learn how to set up OAuth 2.0 user authorization for the interactive test console in the Azure API Management developer portal. This article shows an example using Azure Active Directory as an OAuth 2.0 provider.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -12,7 +12,7 @@ ms.date: 04/26/2022
 ms.author: danlep
 ---
 
-# How to authorize developer accounts using OAuth 2.0 in Azure API Management
+# How to authorize test console of developer portal by configuring OAuth 2.0 user authorization
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure an external provider for OAuth 2.0 user authorization.
 
@@ -20,7 +20,7 @@ Configuring OAuth 2.0 user authorization in the test console of the developer po
 
 ## Prerequisites
 
-This article shows you how to configure your API Management service instance to use OAuth 2.0 authorization for developer accounts, but doesn't show you how to configure an OAuth 2.0 provider. 
+This article shows you how to configure your API Management service instance to use OAuth 2.0 authorization in the developer portal's test console, but doesn't show you how to configure an OAuth 2.0 provider. 
 
 If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
