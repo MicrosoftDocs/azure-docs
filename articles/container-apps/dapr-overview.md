@@ -25,7 +25,7 @@ Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into you
 
 | Building block | Description |
 | -------------- | ----------- |
-| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform direct service-to-service calls with automatic mTLS authentication and encryption. |
+| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. |
 | [**State management**][dapr-statemgmt] | Provides state management capabilities for: <ul><li>CRUD operations</li><li>Transactions</li></ul> |
 | [**Pub/sub**][dapr-pubsub] | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. |
 | [**Bindings**][dapr-bindings] | Trigger your application with incoming or outgoing events, without SDK or library dependencies. |
