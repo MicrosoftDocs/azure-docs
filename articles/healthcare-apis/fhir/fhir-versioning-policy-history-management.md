@@ -5,13 +5,13 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/29/2022
+ms.date: 05/02/2022
 ms.author: mikaelw
 ---
 
 # Versioning policy and history management
 
-In the FHIR service, versioning policy is a configuration, which determines how history is stored for every resource type with the option for resource specific configuration. This policy is directly related to the concept of managing history for FHIR resources.
+The versioning policy in the Azure Health Data Services FHIR service is a configuration, which determines how history is stored for every resource type with the option for resource specific configuration. This policy is directly related to the concept of managing history for FHIR resources.
 
 ## History in FHIR
 
