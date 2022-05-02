@@ -89,7 +89,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 8. In the Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
 9. In **User settings**, verify if Azure AD users can register applications (set to **Yes** by default).
 
-      ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
+  ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
 10. In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
