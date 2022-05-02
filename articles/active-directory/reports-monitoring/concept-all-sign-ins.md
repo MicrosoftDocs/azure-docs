@@ -369,27 +369,7 @@ To access the new sign-in logs with non-interactive and application sign-ins:
 
 
 
-## Return log data with Microsoft Graph
 
-In addition to using the Azure portal, you can query sign-in logs using the Microsoft Graph API to return different types of sign-in information. To avoid potential performance issues, scope your query to just the data you care about. 
-
-The following example scopes the query by the number records, by a specific time period, and by type of sign-in event:
-
-```msgraph-interactive
-GET https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter=createdDateTime ge 2020-09-10T06:00:00Z and createdDateTime le 2020-09-17T06:00:00Z and signInEventTypes/any(t: t eq 'nonInteractiveUser')
-```
-
-The query parameters in the example provide the following results:
-
-- The [$top](/graph/query-parameters#top-parameter) parameter returns the top 100 results.
-- The [$filter](/graph/query-parameters#filter-parameter) parameter limits the time frame for results to return and uses the signInEventTypes property to return only non-interactive user sign-ins.
-
-The following values are available for filtering by different sign-in types: 
-
-- interactiveUser
-- nonInteractiveUser
-- servicePrincipal 
-- managedIdentity
 
 ## Next steps
 
@@ -397,4 +377,4 @@ The following values are available for filtering by different sign-in types:
 
 - [How to download logs in Azure Active Directory](howto-download-logs.md)
 
-- [Azure AD report latencies](reference-reports-latencies.md)
+- [How to access activity logs in Azure AD](howto-access-activity-logs.md)
