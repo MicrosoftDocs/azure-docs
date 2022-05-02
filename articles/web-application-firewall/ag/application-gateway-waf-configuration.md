@@ -84,9 +84,8 @@ There can be any number of reasons to disable evaluating this header. There coul
 
 You can use the following approaches to exclude the `User-Agent` header from evaluation by all of the SQL injection rules:
 
-# [Azure portal](#tab/portal)
-
-:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-rule-edit.png" alt-text="Screenshot of the Azure portal that shows the per-rule exclusion configuration for the W A F policy.":::
+> [!NOTE]
+> As of early May 2022, we are rolling out updates to the Azure portal for these features. If you don't see configuration options in the portal, please use PowerShell, the Azure CLI, Bicep, or ARM templates to configure global or per-rule exclusions.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -213,10 +212,6 @@ You can configure an exclusion to apply across all WAF rules.
 Suppose you want to exclude the value in the *user* parameter that is passed in the request via the URL. For example, say it’s common in your environment for the `user` query string argument to contain a string that the WAF views as malicious content, so it blocks it. You can exclude all query string arguments where the name begins with the word `user`, so that the WAF doesn't evaluate the field's value.
 
 The following example shows how you can exclude the `user` query string argument from evaluation:
-
-# [Azure portal](#tab/portal)
-
-:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-global-edit.png" alt-text="Screenshot of the Azure portal that shows the global exclusion configuration for the W A F policy.":::
 
 # [Azure PowerShell](#tab/powershell)
 
