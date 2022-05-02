@@ -50,7 +50,7 @@ To enable CORS by using a Resource Manager template, add the “cors” section 
     "databaseAccountOfferType": "Standard",
     "cors": [
       {
-        "allowedOrigins": "*"
+        "allowedOrigins": "https://contoso.com"
       }
     ]
   }
