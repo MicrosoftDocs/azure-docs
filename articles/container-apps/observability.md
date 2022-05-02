@@ -184,7 +184,7 @@ For more information regarding Log Analytics and log queries, see the [Log Analy
 
 Container Apps logs can be queried using the [Azure CLI](/cli/azure/monitor/log-analytics).  
 
-Here's an example Azure CLI query to output a table containing 5 log records with the container app name "album-api".  The table columns are specified by the parameters after the project operator.  The $WORKSPACE_CUSTOMER_ID variable contains the GUID of the Log Analytics workspace.
+Here's an example Azure CLI query to output a table containing five log records with the container app name "album-api".  The table columns are specified by the parameters after the project operator.  The $WORKSPACE_CUSTOMER_ID variable contains the GUID of the Log Analytics workspace.
 
 ```azurecli
 az monitor log-analytics query --workspace $WORKSPACE_CUSTOMER_ID --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'album-api' | project Time=TimeGenerated, AppName=ContainerAppName_s, Revision=RevisionName_s, Container=ContainerName_s, Message=Message, LogLevel_s | take 5" --out table
@@ -194,12 +194,12 @@ For more information about using Azure CLI to view container app logs, see [View
 
 ## Azure Monitor alerts
 
-Azure Monitor alerts notify you so that you can respond quickly to critical issues.  You can create:
+Azure Monitor alerts notify you so that you can respond quickly to critical issues.  There are two types of alerts that you can define in Container Apps:
 
-- [metric alerts](../azure-monitor/alerts/alerts-metric-overview.md) - send   alerts based on metric values
-- [log alerts](../azure-monitor/alerts/alerts-unified-log.md) - send alerts based on log data
+- [metric alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metric data
+- [log alerts](../azure-monitor/alerts/alerts-unified-log.md) based on log data
 
-You can add alert rules to metric charts in the metric explorer or queries in Log Analytics.  You can also create and manage alerts on the **Monitor>Alerts** page. 
+You can add alert rules to metric charts in the metric explorer and to queries in Log Analytics.  You can also define and manage alerts from the **Monitor>Alerts** page. 
  
 To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
 
