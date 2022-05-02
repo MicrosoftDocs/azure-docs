@@ -241,7 +241,7 @@ To update an existing cluster:
 
 * System-assigned managed identity
 
-    ::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-system-identity.sh":::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-system-identity.sh":::
 
 
 # [Studio](#tab/azure-studio)
