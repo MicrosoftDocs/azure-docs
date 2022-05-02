@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
 ms.date: 05/02/2022
-ms.custom:
+ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
@@ -22,7 +22,7 @@ This article provides a brief overview about considerations for using availabili
 
 During preview, the following considerations apply:
 
-* The following list includes the Azure regions where you can currently enable availability zones with the list expanding as available:<br><br>
+* The following list includes the Azure regions where you can currently enable availability zones with the list expanding as available:  
 
   - Brazil South
   - Canada Central
