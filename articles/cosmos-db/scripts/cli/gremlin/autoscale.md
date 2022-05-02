@@ -6,7 +6,8 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 04/29/2022
+ms.date: 05/02/2022
+ms.custom: kr2b-contr-experiment
 ---
 
 # Use Azure CLI to create a Gremlin API account, database, and graph with autoscale
@@ -19,7 +20,7 @@ The script in this article creates an Azure Cosmos DB Gremlin API account, datab
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-- This script requires Azure CLI version 2.12.1 or later.
+- This script requires Azure CLI version 2.30 or later.
 
   - You can run the script in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart). When Cloud Shell opens, make sure to select **Bash** in the environment field at the upper left of the shell window. Cloud Shell has the latest version of Azure CLI.
 

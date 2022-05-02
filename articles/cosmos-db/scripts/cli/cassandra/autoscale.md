@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/02/2022
+ms.custom: kr2b-contr-experiment
 ---
 
 # Use Azure CLI to create a Cassandra API account, keyspace, and table with autoscale
