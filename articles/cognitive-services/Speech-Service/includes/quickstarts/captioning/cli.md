@@ -37,7 +37,7 @@ For more information, see the [Speech CLI quickstart](~/articles/cognitive-servi
 
 ## Create captions from speech
 
-With the [Speech CLI](~/articles/cognitive-services/speech-service/spx-overview.md), you can output both SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks) captions from any type of media that contains audio. 
+With the [Speech CLI](~/articles/cognitive-services/speech-service/spx-overview.md), you can output both SRT (SubRip Text) and WebVTT (Web Video Text Tracks) captions from any type of media that contains audio. 
 
 To recognize audio from a file and output both WebVtt (`vtt`) and SRT (`srt`) captions, run the following command. Make sure that you have an input file named `caption.this.mp4` in the path.
 

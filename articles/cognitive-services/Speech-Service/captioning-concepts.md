@@ -27,7 +27,7 @@ The following are aspects to consider when using captioning:
 * Center captions horizontally on the screen, in a large and prominent font. 
 * Consider whether to use partial results, when to start displaying captions, and how many words to show at a time. 
 * Learn about captioning protocols such as [SMPTE-TT](https://ieeexplore.ieee.org/document/7291854). 
-* Consider output formats such as SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
+* Consider output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
 > [!TIP]
 > Try the [Azure Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
@@ -36,9 +36,9 @@ Captioning can accompany real time or pre-recorded speech. Whether you're showin
 
 ## Caption output format
 
-The Speech service supports output formats such as SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
+The Speech service supports output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
-The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Subtitle) timespan output format is `hh:mm:ss,fff`. 
+The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. 
 
 ```srt
 1
