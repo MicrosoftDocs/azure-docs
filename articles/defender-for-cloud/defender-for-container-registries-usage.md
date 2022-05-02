@@ -1,6 +1,6 @@
 ---
 title: How to use Defender for Containers to identify vulnerabilities
-description: Learn how to use Defender for Containers to scan Linux images in your Linux-hosted registries
+description: Learn how to use Defender for Containers to scan images in your registries
 author: bmansheim
 ms.author: benmansheim
 ms.date: 04/28/2022
