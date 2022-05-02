@@ -61,8 +61,7 @@ This article provides details about Azure Container Registry (ACR) support polic
 | FAQ                          | https://aka.ms/acr/faq                                                     |
 | Audit Logs                   | https://aka.ms/acr/audit-logs                                              |
 | Health-Check-CLI             | https://aka.ms/acr/health-check                                            |
-| ACR Links                    | https://aka.ms/acr/links                                                   |                                               |
-
+| ACR Links                    | https://aka.ms/acr/links                                                   
 ### API and SDK reference
 
 >* [SDK for Python](https://pypi.org/project/azure-mgmt-containerregistry/)
