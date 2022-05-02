@@ -145,7 +145,7 @@ Azure Monitor collects application logs and stores them in a Log Analytics works
 
 Application logs consist of messages written to each container's `stdout` and `stderr`.  Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.  
 
-Azure Monitor stores Container Apps log data in the ContainerAppConsoleLogs_CL. Create queries using this table to view your container app log data.  
+Azure Monitor stores Container Apps log data in the ContainerAppConsoleLogs_CL table. Create queries using this table to view your container app log data.  
 
 You can create and run queries using Log Analytics in the Azure portal or run queries using Azure CLI or PowerShell commands.
 
@@ -237,7 +237,7 @@ Example of selecting a dimension to split an alert.
 
 ### Create log alerts in Log Analytics
 
-Use Log Analytics to add alert rules to a log query, which runs the query at set intervals and triggers alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
+Use Log Analytics to add alert rules to a log query.  When you add an alert rule to a query, the query is run at set intervals and triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
 
 To add an alert rule to a query, you first create and run the query.  Then, select **New alert rule**.
 
