@@ -115,7 +115,7 @@ Use `kubctl log` to view the logs of the pod and verify the pod has administrato
 
 ```output
 $ kubectl logs privileged-daemonset-12345 --namespace kube-system
-InvalidOperation: Unable to find type [Security.Principal.qWindowsPrincipal].
+InvalidOperation: Unable to find type [Security.Principal.WindowsPrincipal].
 Process has admin rights:
 ```
 
