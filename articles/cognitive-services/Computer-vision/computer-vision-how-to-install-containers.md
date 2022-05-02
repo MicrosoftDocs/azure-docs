@@ -86,7 +86,7 @@ Container images for Read are available.
 
 | Container | Container Registry / Repository / Image Name | Tags |
 |-----------|------------|-----------------------------------------|
-| Read 3.2 GA  | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30` | 	latest, 3.2, 3.2-model-2022-04-30 |
+| Read 3.2 GA | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30` | 	latest, 3.2, 3.2-model-2022-04-30 |
 | Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |2.0.019300020-amd64-preview |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
@@ -146,7 +146,7 @@ docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 --env Eula=accept \
 --env Billing={ENDPOINT_URI} \
 --env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30
 ```
 
 # [Version 2.0-preview](#tab/version-2)
