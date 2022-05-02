@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. TeamSlide application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-    ![image](common/default-attributes.png)
+    ![Screenshot showing the list of default attributes.](common/default-attributes.png)
 
 1. In addition to above, TeamSlide application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot showing the Certificate download link](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
