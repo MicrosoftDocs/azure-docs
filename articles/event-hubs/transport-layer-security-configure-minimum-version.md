@@ -33,11 +33,11 @@ To configure the minimum TLS version for an Event Hubs namespace with a template
         "contentVersion": "1.0.0.0",
         "parameters": {},
         "variables": {
-            "serviceBusNamespaceName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
+            "eventHubNamespaceName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
         },
         "resources": [
             {
-            "name": "[variables('serviceBusNamespaceName')]",
+            "name": "[variables('eventHubNamespaceName')]",
             "type": "Microsoft.EventHub/namespaces",
             "apiVersion": "2022-01-01-preview",
             "location": "westeurope",
