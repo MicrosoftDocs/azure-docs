@@ -20434,6 +20434,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/concept-azure-machine-learning-architecture.md",
+      "redirect_url": "/azure/machine-learning/concept-azure-machine-learning-v2",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/how-to-build-deploy-image-similarity-models.md",
       "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
@@ -20983,6 +20988,7 @@
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": true
     },
+  
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-data-prep.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
@@ -24242,6 +24248,11 @@
       "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
       "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
       "redirect_document_id": false
+    },
+    {
+       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
+       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial",
+       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-create-manage",

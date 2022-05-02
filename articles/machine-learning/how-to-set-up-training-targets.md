@@ -58,7 +58,7 @@ Or you can:
 
 ## Create an experiment
 
-Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize run submissions and keep track of code.
+Create an [experiment](v1/concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize run submissions and keep track of code.
 
 ```python
 from azureml.core import Experiment
@@ -151,7 +151,7 @@ run.wait_for_completion(show_output=True)
 >
 > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 > 
-> For more information about snapshots, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
+> For more information about snapshots, see [Snapshots](v1/concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
 > **Special Folders**
