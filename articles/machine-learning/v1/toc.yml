@@ -49,6 +49,9 @@
   - name: Profile models
     displayName: profile resource requirement
     href: how-to-deploy-profile-model.md
+  - name: Hyperparameter tuning a model (v1)
+    displayName: azurecli, AzureML
+    href: how-to-tune-hyperparameters-v1.md
 - name: Reference
   items: 
   - name: Machine learning CLI pipeline YAML reference
