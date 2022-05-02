@@ -289,8 +289,6 @@ items:
       href: ./reference/reference-az-sql-instance-failover-group-arc.md
     - name: sql mi-arc config
       href: ./reference/reference-az-sql-mi-arc-config.md
-    - name: sql mi-arc dag
-      href: ./reference/reference-az-sql-mi-arc-dag.md
     - name: sql mi-arc endpoint
       href: ./reference/reference-az-sql-mi-arc-endpoint.md
     - name: sql midb-arc 
