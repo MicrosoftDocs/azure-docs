@@ -29,7 +29,7 @@ Dedicated clusters are managed with an Azure resource that represents Azure Moni
 
 Once a cluster is created, workspaces can be linked to it, and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data then stored on shared Log Analytics clusters. The link and unlink operation doesn't affect your queries and access to data before, and after the operation. The Cluster and workspaces must be in the same region.
 
-All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
+Operations on the cluster level require Microsoft.OperationalInsights/clusters/write action permission. Linking workspaces to a cluster requires both Microsoft.OperationalInsights/clusters/write and Microsoft.OperationalInsights/workspaces/write actions permission. This permission could be granted by the Owner or Contributor that have `*/write` action, or by  the Log Analytics Contributor role that have `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
 
 ## Cluster pricing model
