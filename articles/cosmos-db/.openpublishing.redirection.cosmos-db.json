@@ -1316,16 +1316,6 @@
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
-    "redirect_url": "/azure/cosmos-db/storage-explorer",
-    "redirect_document_id": true
-  },
-  {
-    "source_path_from_root": "/articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
-    "redirect_url": "/azure/cosmos-db/storage-explorer",
-    "redirect_document_id": false
-  },
-  {
     "source_path_from_root": "/articles/cosmos-db/programming.md",
     "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs",
     "redirect_document_id": false
