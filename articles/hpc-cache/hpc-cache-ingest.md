@@ -10,13 +10,13 @@ ms.author: v-erinkelly
 
 # Move data to Azure Blob storage
 
-If your workflow includes moving data to Azure Blob storage, make sure you are using an efficient strategy. You can either pre-load data in a new blob container before defining it as a storage target, or add the container and then copy your data using Azure HPC Cache.
+If your workflow includes moving data to Azure Blob storage, make sure you are using an efficient strategy. You should create the cache, add the blob container as a storage target, and then copy your data using Azure HPC Cache.
 
 This article explains the best ways to move data to blob storage for use with Azure HPC Cache.
 
 > [!TIP]
 >
-> This article does not apply to NFS-mounted blob storage (ADLS-NFS storage targets). You can use any NFS-based method to populate an ADLS-NFS blob container before adding it to the HPC Cache. Read [Pre-load data with NFS protocol](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol) to learn more.
+> This article does not apply to NFS-mounted blob storage (ADLS-NFS storage targets). You can use any NFS-based method to populate an ADLS-NFS blob container before or after adding it to the HPC Cache. Read [Pre-load data with NFS protocol](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol) to learn more.
 
 Keep these facts in mind:
 
