@@ -41,15 +41,14 @@ Select **Start** to begin streaming the container log. You can also pause and st
 
 Tail a container's application logs from the Azure CLI with the `az containerapp log` command.  You can view previous log entries using the `--tail` argument.  To view a live stream, use the `--follow` argument.  Select Ctrl-C to stop the live stream.
 
-Examples:
 
-List the last 50 container log entries in a container app with a single revision, replica, and container:
+For example, you can list the last 50 container log entries in a container app with a single revision, replica, and container using the following command.
 
 ```azurecli
 az containerapp logs show --name album-api --resource-group album-api-rg --tail 50
 ```
 
-View a log stream from a container in a container app with multiple revisions, replicas, and containers:
+You can also view a log stream from a container in a container app with multiple revisions, replicas, and containers using the following command.
 
 ```azurecli
 az containerapp logs show --name album-api \
@@ -74,15 +73,14 @@ You can choose to access your console via bash, sh, or a custom application.
 
 Use the `az containerapp exec` command to connect to a container console.  Select Ctrl-D to exit the console.
 
-Examples:
 
-To connect to a container console in a container app with a single revision, replica, and container:
+For example, you can connect to a container console in a container app with a single revision, replica, and container using the following command.
 
 ```azurecli
 az containerapp exec --name album-api --resource-group album-api-rg 
 ```
 
-To connect to a container console in a container app with multiple revisions, replicas, and containers:
+To connect to a container console in a container app with multiple revisions, replicas, and containers you can use the following command.
 
 ```azurecli
 az containerapp exec --name album-api \
@@ -119,7 +117,7 @@ From this view, you can pin one or more charts to your dashboard or select a cha
 
 ### View metrics with metrics explorer
 
-The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. Charts can be pinned to a dashboard or shared in a workbook.
+The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
 Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app page.  To learn more about metrics explorer, go to [Getting started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
@@ -145,7 +143,7 @@ Azure Monitor collects application logs and stores them in a Log Analytics works
 
 Application logs consist of messages written to each container's `stdout` and `stderr`.  Additionally, if your container app is using Dapr, log entries from the Dapr sidecar are also collected.  
 
-Azure Monitor stores Container Apps log data in the ContainerAppConsoleLogs_CL table. Create queries using this table to view your container app log data.  
+Azure Monitor stores Container Apps log data in the `ContainerAppConsoleLogs_CL` table. Create queries using this table to view your container app log data.  
 
 You can create and run queries using Log Analytics in the Azure portal or run queries using Azure CLI commands.
 
@@ -153,13 +151,13 @@ The most used columns in ContainerAppConsoleLogs_CL include:
 
 |Column  |Description |
 |---------|---------|
-|ContainerAppName_s | container app name |
-|ContainerGroupName_g|replica name|
-|ContainerId|container identifier|
-|ContainerImage_s | container image name |
-|EnvironmentName_s|Container Apps environment name|
-|Message    | log message|
-|RevisionName_s|revision name|
+| `ContainerAppName_s` | container app name |
+| `ContainerGroupName_g` | replica name |
+| `ContainerId` | container identifier |
+| `ContainerImage_s` | container image name |
+| `EnvironmentName_s` | Container Apps environment name |
+| `Message` | log message |
+| `RevisionName_s` | revision name |
 
 ### Use Log Analytics to query logs
 
@@ -264,8 +262,8 @@ With the Container Apps observability features, you can monitor your app through
 
 During the development and test phase, real-time access to your containers' application logs and console is critical for debugging issues.  Container Apps provides: 
 
-- [log streaming](#log-streaming) for real-time monitoring.
-- [container console](#container-console) access to debug your application.
+- [log streaming](#log-streaming) for real-time monitoring
+- [container console](#container-console) access to debug your application
 
 ### Deployment phase
 
