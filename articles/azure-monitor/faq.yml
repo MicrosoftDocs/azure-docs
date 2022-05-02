@@ -128,7 +128,7 @@ sections:
       - question: |
           Is Log Analytics storage immutable?
         answer: |
-          Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/immutable-policy-configure-version-scope.md).
+          Data in database storage can't be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/immutable-policy-configure-version-scope.md).
           
       - question: |
           What is a Log Analytics workspace?
@@ -143,7 +143,7 @@ sections:
       - question: |
           Why can't I see Query Explorer and Save buttons in Log Analytics?
         answer: |
-          **Query Explorer**, **Save** and **New alert rule** buttons are not available when the [query scope](logs/scope.md) is set to a specific resource. To create alerts, save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](logs/scope.md)
+          **Query Explorer**, **Save** and **New alert rule** buttons aren't available when the [query scope](logs/scope.md) is set to a specific resource. To create alerts, save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](logs/scope.md)
           
       - question: |
           Why am I getting the error "Register resource provider `Microsoft.Insights` for this subscription to enable this query" when opening Log Analytics from a VM?
@@ -371,7 +371,7 @@ sections:
       - question: |
           What types of machines does the new Azure Monitor Agent support?
         answer: |
-          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. You can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, [currently available in preview click here](https://aka.ms/amadcr-privatepreviews)). 
+          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. You can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
 
       - question: |
           Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
@@ -398,7 +398,7 @@ sections:
       - question: |
           If I create DCRs that contain the same event ID and associate it to the same VM, will the events be duplicated?
         answer: |
-          Yes. To avoid duplication, please make sure the event selection you make in your Data Collection Rules does not contain duplicate events.
+          Yes. To avoid duplication, please make sure the event selection you make in your Data Collection Rules doesn't contain duplicate events.
 
       - question: |
           How can I validate my XPATH queries on the AMA?
@@ -498,7 +498,7 @@ sections:
       - question: |
           Do new Azure regions require the use of connection strings?
         answer: |
-          New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+          New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You'll need to copy the connection string and add it to your application's code or to an environment variable.
           
       - question: |
           Should I use connection strings or instrumentation keys?
@@ -508,7 +508,7 @@ sections:
       - question: |
           Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
         answer: |
-          We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
+          We don't recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
 
       - question: |
           What telemetry is collected by Application Insights?
@@ -577,7 +577,7 @@ sections:
           
           **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
           
-          The [Application Insights JavaScript SDK](app/javascript.md) does not include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
+          The [Application Insights JavaScript SDK](app/javascript.md) doesn't include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
           
       - question: |
           My Instrumentation Key is visible in my web page source.
@@ -714,7 +714,7 @@ sections:
       - question: |
           Can I monitor an intranet web server?
         answer: |
-          Yes, but you will need to allow traffic to our services by either firewall exceptions or proxy redirects.
+          Yes, but you'll need to allow traffic to our services by either firewall exceptions or proxy redirects.
           - QuickPulse `https://rt.services.visualstudio.com:443`
           - ApplicationIdProvider `https://dc.services.visualstudio.com:443`
           - TelemetryChannel `https://dc.services.visualstudio.com:443`
@@ -794,7 +794,7 @@ sections:
       - question: |
           HTTP 502 and 503 responses are not always captured by Application Insights
         answer: |
-          "502 bad gateway" and "503 service unavailable" errors are not always captured by Application Insights. If only client-side JavaScript is being used for monitoring this would be expected behavior since the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered.
+          "502 bad gateway" and "503 service unavailable" errors aren't always captured by Application Insights. If only client-side JavaScript is being used for monitoring this would be expected behavior since the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered.
           
           If the 502 or 503 response was sent from a server with server-side monitoring enabled the errors would be collected by the Application Insights SDK.
           
@@ -851,7 +851,7 @@ sections:
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” does not mean you’ll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
+          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” doesn't mean you’ll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
           
           Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
           
@@ -899,7 +899,7 @@ sections:
       - question: |
           I don't see Image and Name property values populated when I query the ContainerLog table.
         answer: |
-          For agent version ciprod12042019 and later, by default these two properties are not populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
+          For agent version ciprod12042019 and later, by default these two properties aren't populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
           
           ### Option 1
           
@@ -1068,7 +1068,7 @@ sections:
       - question: |
           I don't see some or any data in the performance charts for my VM
         answer: |
-          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for more information.
+          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you'll need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for more information.
           
           If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./vm/vminsights-enable-powershell.md).
           
@@ -1085,7 +1085,7 @@ sections:
           * The map style has been updated to be more consistent with App Map from Application insights.
           * The side panels have been updated, and do not have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk.
           * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, and Cloud services.
-          * You cannot create new Service Map machine groups in the VM insights Map feature.
+          * You can't create new Service Map machine groups in the VM insights Map feature.
           
       - question: |
           Why do my performance charts show dotted lines?
@@ -1110,7 +1110,7 @@ sections:
       - question: |
           Does Map feature support IPv6?
         answer: |
-          Map feature currently only supports IPv4 and we are investigating support for IPv6. We also support IPv4 that is tunneled inside IPv6.
+          Map feature currently only supports IPv4 and we're investigating support for IPv6. We also support IPv4 that is tunneled inside IPv6.
 
       - question: |
           When I load a map for a Resource Group or other large group the map is difficult to view
@@ -1125,7 +1125,7 @@ sections:
       - question: |
           How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
         answer: |
-          Response time is an approximation. Since we do not instrument the code of the application, we do not really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives, is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
+          Response time is an approximation. Since we don't instrument the code of the application, we don't really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives, is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
           
           This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
           
@@ -1134,7 +1134,7 @@ sections:
         answer: |
           If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, VM insights Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.
           
-          Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to VM insights.
+          Under this condition, you'll be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to VM insights.
           
   - name: SQL Insights (preview)
     questions:
