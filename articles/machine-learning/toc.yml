@@ -561,7 +561,7 @@
         href: how-to-deploy-and-where.md
       - name: Deploy with endpoints
         items:
-          - name: Real-time
+          - name: Online (real-time)
             items:
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
@@ -590,6 +590,8 @@
               href: how-to-deploy-automl-endpoint.md
             - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
+            - name: Authenticate to endpoints
+              href: how-to-authenticate-online-endpoints.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
