@@ -230,7 +230,7 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud] (/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
 
 ### Switch between JAR deployment and container deployment
 
