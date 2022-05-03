@@ -437,7 +437,7 @@ You can set up additional services, such as RStudio, when creating a compute ins
 
 1.	Fill out the form to [create a new compute instance](#create)
 1.	Select **Next: Advanced Settings**
-1.	Select **Add Service** under the **Custom Service Setup (RStudio Workbench, etc) ** section
+1.	Select **Add Service** under the **Custom Service Setup (RStudio Workbench, etc)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
  
@@ -470,7 +470,7 @@ To use RStudio open source, set up a custom service as follows:
 Set up additional custom services on your compute instance by providing the service on a Docker image.
 
 1.	Follow the steps listed above to Add service when creating your compute instance.
-1.	Select **Custom Service** on the **Service** dropdown. c
+1.	Select **Custom Service** on the **Service** dropdown. 
 1. Configure the **Service name**, the **Service port** you wish to run the service on, and the **Docker image** that contains your service.
 1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your service.
 1. Select **Add service** to set up the custom service on your compute instance.
