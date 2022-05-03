@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: blackmist
-ms.author: larryfr
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
-ms.date: 03/31/2022
+ms.date: 04/26/2022
 ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.

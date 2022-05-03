@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 02/08/2022
+ms.date: 04/08/2022
 ---
 
 # Network traffic flow when using a secured workspace
@@ -128,6 +128,30 @@ Data access from your compute instance or cluster goes through the private endpo
 If you use Visual Studio Code on a compute instance, you must allow other outbound traffic. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md).
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
+
+## Scenario: Use online endpoints
+
+Securing an online endpoint with a private endpoint is a preview feature.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
+
+__Outbound__ communication from a deployment can be secured on a per-deployment basis by using the `egress_public_network_access` flag. Outbound communication in this case is from the deployment to Azure Container Registry, storage blob, and workspace. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+
+> [!NOTE]
+> For secure outbound communication, a private endpoint is created for each deployment where `egress_public_network_access` is set to `disabled`.
+
+Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
+
+### Supported configurations
+
+| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
+| -------- | -------------------------------- | --------------------------------- | --------- |
+| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
+| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
+| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
 
 ## Scenario: Use Azure Kubernetes Service
 
