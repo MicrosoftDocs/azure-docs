@@ -118,7 +118,7 @@ The following offer types support usage-based pricing:
 - SaaS offers support for Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
 - Azure virtual machine offers support for **Per core**, **Per core size**, and **Per market and core size** pricing. These options are priced per hour and billed monthly.
 
-When you create a transactable offer, it's important to understand the pricing, billing, invoicing, and payout considerations before you select an offer type and create your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
+When you create a transactable offer, it's important to understand the pricing, billing, invoicing, and payout considerations before you select an offer type and create your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores) and [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ## Sample offer
 
@@ -164,4 +164,4 @@ Non-transactable offers earn benefits based on whether or not a free trial is at
 
 ## Next steps
 
-To choose an offer type to create, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).
+- To choose an offer type, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).

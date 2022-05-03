@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 04/26/2022
 ms.custom: subject-rbac-steps, references_regions
 ---
 
@@ -293,23 +293,25 @@ These steps create a custom role that augments search query rights to include li
 
 1. Right-click **Search Index Data Reader** (or another role) and select **Clone** to open the **Create a custom role** wizard.
 
-1. On the Basics tab, provide a name for the custom role, such as "Search Index Explorer", and then click **Next**.
+1. On the Basics tab, provide a name for the custom role, such as "Search Index Data Explorer", and then click **Next**.
 
 1. On the Permissions tab, select **Add permission**.
 
 1. On the Add permissions tab, search for and then select the **Microsoft Search** tile.
 
-1. Set the permissions for your custom role:
+1. Set the permissions for your custom role. At the top of the page, using the default **Actions** selection:
 
    + Under Microsoft.Search/operations, select **Read : List all available operations**. 
    + Under Microsoft.Search/searchServices/indexes, select **Read : Read Index**.
+
+1. On the same page, switch to **Data actions** and under Microsoft.Search/searchServices/indexes/documents, select **Read : Read Documents**.
 
    The JSON definition looks like the following example:
 
    ```json
    {
     "properties": {
-        "roleName": "search index explorer",
+        "roleName": "search index data explorer",
         "description": "",
         "assignableScopes": [
             "/subscriptions/a5b1ca8b-bab3-4c26-aebe-4cf7ec4791a0/resourceGroups/heidist-free-search-svc/providers/Microsoft.Search/searchServices/demo-search-svc"
@@ -335,9 +337,15 @@ These steps create a custom role that augments search query rights to include li
 
 ### [**Azure PowerShell**](#tab/custom-role-ps)
 
-The PowerShell example shows the JSON syntax for creating a custom role.
+The PowerShell example shows the JSON syntax for creating a custom role that's a clone of **Search Index Data Reader**, but withe ability to list all indexes by name.
 
-1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need. For this example, you'll need the following:
+
+   ```json
+   "Microsoft.Search/operations/read",
+   "Microsoft.Search/searchServices/read",
+   "Microsoft.Search/searchServices/indexes/read"
+   ```
 
 1. Set up a PowerShell session to create the custom role. For detailed instructions, see [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)
 
@@ -345,17 +353,17 @@ The PowerShell example shows the JSON syntax for creating a custom role.
 
 ```json
 {
-  "Name": "Search Index Manager",
+  "Name": "Search Index Data Explorer",
   "Id": "88888888-8888-8888-8888-888888888888",
   "IsCustom": true,
-  "Description": "Can manage search indexes and read or write to them",
+  "Description": "List all indexes on the service and query them.",
   "Actions": [
-    "Microsoft.Search/searchServices/indexes/*",
-    
+      "Microsoft.Search/operations/read",
+      "Microsoft.Search/searchServices/read"
   ],
   "NotActions": [],
   "DataActions": [
-      "Microsoft.Search/searchServices/indexes/documents/*"
+      "Microsoft.Search/searchServices/indexes/read"
   ],
   "NotDataActions": [],
   "AssignableScopes": [
@@ -363,6 +371,9 @@ The PowerShell example shows the JSON syntax for creating a custom role.
   ]
 }
 ```
+
+> [!NOTE]
+> If the assignable scope is at the index level, the data action should be `"Microsoft.Search/searchServices/indexes/documents/read"`.
 
 ### [**REST API**](#tab/custom-role-rest)
 

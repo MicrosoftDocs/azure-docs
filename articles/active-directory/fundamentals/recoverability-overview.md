@@ -105,7 +105,7 @@ Create a process of pre-defined communications to make others aware of the issue
 
 Document the state of your tenant and its objects regularly so that in the event of a hard delete or misconfiguration you have a road map to recovery. The following tools can help you in documenting your current state.
 
-- The [Microsoft Graph APIs](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) can be used to export the current state of many Azure AD configurations.
+- The [Microsoft Graph APIs](/graph/overview) can be used to export the current state of many Azure AD configurations.
 
 - You can use the [Azure AD Exporter](https://github.com/microsoft/azureadexporter) to regularly export your configuration settings. 
 
@@ -126,13 +126,13 @@ Graph APIs are highly customizable based on your organizational needs. To implem
 
 | Resource types| Reference links |
 | - | - | 
-| Users, groups, and other directory objects| [directoryObject API](/graph/api/resources/directoryObject?view=graph-rest-1.0) |
-| Directory roles| [directoryRole API](/graph/api/resources/directoryrole?view=graph-rest-1.0) |
-| Conditional Access policies| [Conditional Access policy API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0) |
-| Devices| [devices API](/graph/api/resources/device?view=graph-rest-1.0) |
-| Domains| [domains API](/graph/api/domain-list?view=graph-rest-1.0&tabs=http) |
-| Administrative Units| [administrativeUnit API)](/graph/api/resources/administrativeunit?view=graph-rest-1.0) |
-| Deleted Items*| [deletedItems API](/graph/api/resources/directory?view=graph-rest-1.0) |
+| Users, groups, and other directory objects| [directoryObject API](/graph/api/resources/directoryObject) |
+| Directory roles| [directoryRole API](/graph/api/resources/directoryrole) |
+| Conditional Access policies| [Conditional Access policy API](/graph/api/resources/conditionalaccesspolicy) |
+| Devices| [devices API](/graph/api/resources/device) |
+| Domains| [domains API](/graph/api/domain-list?tabs=http) |
+| Administrative Units| [administrativeUnit API)](/graph/api/resources/administrativeunit) |
+| Deleted Items*| [deletedItems API](/graph/api/resources/directory) |
 
 
 Securely store these configuration exports with access provided to a limited number of admins. 
@@ -167,24 +167,24 @@ The deletion of some objects can cause a ripple effect due to dependencies. For 
 
 ## Monitoring and data retention
 
-The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management (SIEM) tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes, and build a custom solution to monitor differences over time. For more information on finding deleted items using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0 ](/graph/api/directory-deleteditems-list?view=graph-rest-1.0&tabs=http)
+The [Azure AD Audit Log](../reports-monitoring/concept-audit-logs.md) contains information on all delete and configuration operations performed in your tenant. We recommend that you export these logs to a security information and event management (SIEM) tool such as [Microsoft Sentinel](../../sentinel/overview.md). You can also use Microsoft Graph to audit changes, and build a custom solution to monitor differences over time. For more information on finding deleted items using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0 ](/graph/api/directory-deleteditems-list?tabs=http)
 
 ### Audit logs
 
-The Audit Log always records a “Delete <object>” event when an object in the tenant is removed from an active state (either from active to soft-deleted or active to hard-deleted).
+The Audit Log always records a "Delete \<object\>" event when an object in the tenant is removed from an active state (either from active to soft-deleted or active to hard-deleted).
 
 :::image type="content" source="media/recoverability/deletions-audit-log.png" alt-text="Screenshot of audit log detail." lightbox="media/recoverability/deletions-audit-log.png":::
 
 A Delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type it's a hard delete.
 
-| | Activity in log| Result |
+| Object Type | Activity in log| Result |
 | - | - | - |
 | Application| Delete application| Soft deleted |
 | Application| Hard delete application| Hard deleted |
 | User| Delete user| Soft deleted |
 | User| Hard delete user| Hard deleted |
 | Microsoft 365 Groups| Delete group| Soft deleted |
-| Microsoft 365 Group| Hard delete group| Hard deleted |
+| Microsoft 365 Groups| Hard delete group| Hard deleted |
 | All other objects| Delete “objectType”| Hard deleted |
 
 > [!NOTE]
@@ -203,8 +203,7 @@ There are several Azure Monitor workbooks that can help you to monitor configura
 - Directory role and group membership updates for service principals
 - Modified federation settings
 
-
-The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing, and which applications I your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
+The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing, and which applications in your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
 
 ## Operational security 
 

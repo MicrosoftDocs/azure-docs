@@ -8,8 +8,6 @@ ms.date: 11/09/2021
 ---
 # Microsoft Defender for Cloud data security
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To help customers prevent, detect, and respond to threats, Microsoft Defender for Cloud collects and processes security-related data, including configuration information, metadata, event logs, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
 This article explains how data is managed and safeguarded in Defender for Cloud.

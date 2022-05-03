@@ -5,7 +5,7 @@ description: Configure a service bus namespace to require a minimum version of T
 services: service-bus
 author: EldertGrootenboer
 
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 04/12/2022
 ms.author: egrootenboer
