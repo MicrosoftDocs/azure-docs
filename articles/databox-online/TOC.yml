@@ -314,6 +314,8 @@
           href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: VM tags
           href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+      - name: Reset VM password
+        href: azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal.md
       - name: Back up VM disks 
         href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
       - name: Monitor
