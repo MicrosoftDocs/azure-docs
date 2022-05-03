@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2021
+ms.date: 05/03/2022
 ms.author: mbender
 
 ---
@@ -122,10 +122,6 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 #### Known Issues (April 2021)
 
 When BGP routes are present or a Service Endpoint is configured on your subnet, routes may not be evaluated with the correct priority. This feature does not currently work for dual stack (IPv4+IPv6) virtual networks. A fix for these scenarios is currently in progress </br>
-
-
-> [!NOTE] 
-> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through PowerShell and CLI. There is no support for use with containers. 
 
 ## Next hop types across Azure tools
 
