@@ -1,7 +1,7 @@
 ---
-title: "Custom roles: Online SQL Server to SQL Managed Instance migrations"
+title: "Custom roles: Online SQL Server to Azure Virtual Machines migrations"
 titleSuffix: Azure Database Migration Service
-description: Learn to use the custom roles for SQL Server to Azure SQL Managed Instance migrations.
+description: Learn to use the custom roles for SQL Server to Azure VM's migrations.
 services: database-migration
 author: kirepko
 ms.author: kirepko
@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 05/02/2022
 ---
 
-# Custom roles for SQL Server to Azure SQL Managed Instance migrations using ADS
+# Custom roles for SQL Server to Azure Virtual Machines migrations using ADS
 
-This article explains how to set up a custom role in Azure with the minimum permissions necessary to create a Database Migration Service and be able to run a database migration to Azure SQL Managed Instance.
+This article explains how to set up a custom role in Azure with the minimum permissions necessary to create a Database Migration Service and be able to run a database migration to Azure Virtual Machines.
 
 The AssignableScopes section of the role definition json string allows you to control where the permissions appear in the **Add Role Assignment** UI in the portal. You'll likely want to define the role at the resource group or even resource level to avoid cluttering the UI with extra roles. Note that this doesn't perform the actual role assignment.
 
 ```json
 {
     "properties": {
-        "roleName": "DmsCustomRoleDemoForMI",
+        "roleName": "DmsCustomRoleDemoForVM",
         "description": "",
         "assignableScopes": [
             "/subscriptions/<storageSubscription>/resourceGroups/<storageAccountRG>",
-            "/subscriptions/<ManagedInstanceSubscription>/resourceGroups/<managedInstanceRG>",
+            "/subscriptions/<ManagedInstanceSubscription>/resourceGroups/<virtualMachineRG>",
             "/subscriptions/<DMSSubscription>/resourceGroups/<dmsServiceRG>"
         ],
         "permissions": [
@@ -38,11 +38,8 @@ The AssignableScopes section of the role definition json string allows you to co
                     "Microsoft.Storage/storageAccounts/blobServices/read",
                     "Microsoft.Storage/storageAccounts/blobServices/write",
                     "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-                    "Microsoft.Sql/managedInstances/read",
-                    "Microsoft.Sql/managedInstances/write",
-                    "Microsoft.Sql/managedInstances/databases/read",
-                    "Microsoft.Sql/managedInstances/databases/write",
-                    "Microsoft.Sql/managedInstances/databases/delete",
+                    "Microsoft.SqlVirtualMachine/sqlVirtualMachines/read",
+                    "Microsoft.SqlVirtualMachine/sqlVirtualMachines/write",
                     "Microsoft.DataMigration/locations/operationResults/read",
                     "Microsoft.DataMigration/locations/operationStatuses/read",
                     "Microsoft.DataMigration/locations/sqlMigrationServiceOperationResults/read",
