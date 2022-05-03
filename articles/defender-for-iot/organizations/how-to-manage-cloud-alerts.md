@@ -179,7 +179,7 @@ TBD FIX IMAGE
 
 :::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button":::
 
-Downloading the PCAP file should take less than 1 minute.
+Downloading the PCAP file can take several minutes, depending on the quality of your sensor connectivity.
 
 Accessing PCAP files directly from the Azure portal supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
 
