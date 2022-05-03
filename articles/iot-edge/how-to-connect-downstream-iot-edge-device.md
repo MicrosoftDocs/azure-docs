@@ -340,8 +340,7 @@ To verify the *hostname*, you need to inspect the environment variables of the *
 01. In the output, find the **EdgeDeviceHostName** parameter in the *Env* section.
 
     ```json
-    "Env": [
-        "EdgeDeviceHostName=10.0.0.4",
+    "EdgeDeviceHostName=10.0.0.4"
     ```
 
 01. Verify the *EdgeDeviceHostName* parameter value matches the `config.toml` *hostname* setting. If it doesn't match, the *edgeHub* container was running when you modified and applied the configuration. To update the *EdgeDeviceHostName*, remove the *edgeAgent* container.
