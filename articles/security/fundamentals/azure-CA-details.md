@@ -15,7 +15,7 @@ ms.reviewer: person
 
 # Azure Certificate Authority details
 
-This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure. This article also includes Public Key Infrastructure (PKI) and SSL/TLS information. You'll find URLs that may need to be added to your firewall allowlists, client compatibility for public PKIs, as well as past and upcoming changes related to certificates and PKIs.
+This article provides an overview and details of the Certificate Authorities (CAs) utilized by Azure. This article also includes Public Key Infrastructure (PKI) and SSL/TLS information. You'll find URLs that may need to be added to your firewall allowlists, client compatibility for public PKIs, and Certificate Revocation List (CRL) and related information.
 
 Looking for CA details specific to Azure Active Directory? See the [Certificate authorities used by Azure Active Directory](../../active-directory/fundamentals/certificate-authorities.md) article.
 
@@ -65,7 +65,7 @@ Looking for CA details specific to Azure Active Directory? See the [Certificate 
 | Microsoft RSA TLS CA 02 | Oct 8, 2024 | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 | [DER](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca022024-10-08der.crt)<br>[PEM](https://hubcontentprod.azureedge.net/content/docfx/f770e87c-605e-4620-91ee-8cb4c8d1bf25/20220412T1713331314Z/media/cafiles/ssladmin/microsoftrsatlsca022024-10-08pem.crt) |
 
 ## Additional CA details
-The following URLs may need to be included in your firewall allowlists to optimize connectivity. The Authority Information Access (AIA) URL is the link to download the certificate of a CA. The CRL Distribution Point (CDP) URL is the CRL file containing certificates revoked by a CA. The Online Certificate Standard Protocol (OCSP) is also used to request a list of revoked certificates.
+The following URLs may need to be included in your firewall allowlists to optimize connectivity. The Authority Information Access (AIA) URL is the link to download the certificate of a CA. The CRL Distribution Point (CDP) URL is the location of the CRL file containing certificates revoked by a CA. The Online Certificate Standard Protocol (OCSP) is also used to request a list of revoked certificates.
 
 - AIA: http://crl.microsoft.com
     - http://cacerts.digicert.com/DigiCertGlobalRootG2.crt
