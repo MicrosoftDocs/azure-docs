@@ -168,7 +168,6 @@ Cache-Control response headers that indicate that the response won't be cached s
 The following request headers won't be forwarded to a backend when using caching.
 - Content-Length
 - Transfer-Encoding
-- Accept-Language
 
 ## Cache behavior and duration
 
