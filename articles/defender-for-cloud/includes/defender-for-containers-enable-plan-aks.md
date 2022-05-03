@@ -1,10 +1,11 @@
 ---
-author: elkrieger
+author: bmansheim
+ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 04/27/2022
-ms.author: elkrieger
+ms.date: 04/28/2022
 ---
+
 ## Enable the plan
 
 1. From Defender for Cloud's menu, open the [Environment settings page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
@@ -16,7 +17,7 @@ ms.author: elkrieger
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. By default, the plan is configured to automatically defend any supported Kubernetes cluster that is attached to this subscription. You can optionally [Configure the Containers plan](../quickstart-onboard-gcp.md#configure-the-containers-plan).
+1. By default, when enabling the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan.
 
     You can also modify this configuration from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
 
