@@ -40,6 +40,10 @@ In this tutorial, you accomplish the following tasks:
 ## Limitations
 
 The steps in this article put Azure Container Registry behind the VNet. In this configuration, you can't deploy models to Azure Container Instances inside the VNet. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
+
+> [!TIP]
+> As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints (preview)](how-to-secure-online-endpoint.md).
+
 ## Create a virtual network
 
 To create a virtual network, use the following steps:
@@ -454,6 +458,8 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 
 > [!IMPORTANT]
 > The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot deploy a model to Azure Container Instances inside the VNet. We do not recommend using Azure Container Instances with Azure Machine Learning in a virtual network. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
+>
+> As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints (preview)](how-to-secure-online-endpoint.md).
 
 At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs on the compute cluster. For a tutorial on using the compute instance and compute cluster, see [run a Python script](tutorial-1st-experiment-hello-world.md).
 
