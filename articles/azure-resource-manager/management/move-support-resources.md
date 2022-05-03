@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 05/03/2022
 ---
 
 # Move operation support for resources
@@ -1437,7 +1437,7 @@ Jump to a resource provider namespace:
 > | firewallpolicies | No | No | No |
 > | frontdoors | No | No | No |
 > | ipallocations | Yes | Yes | No |
-> | ipgroups | Yes | Yes | No |
+> | ipgroups | No | No | No |
 > | loadbalancers | Yes - Basic SKU<br> Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move internal and external load balancers. |
 > | localnetworkgateways | Yes | Yes | No |
 > | natgateways | No | No | No |

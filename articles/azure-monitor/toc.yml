@@ -1000,7 +1000,9 @@ items:
         href: app/profiler-overview.md
       - name: Enable Profiler for an App Service
         href: app/profiler.md
-      - name: Enable the Profiler for a Cloud Service
+      - name: Enable Profiler for an Azure Functions app
+        href: app/profiler-azure-functions.md
+      - name: Enable Profiler for a Cloud Service
         href: app/profiler-cloudservice.md
       - name: Enable Profiler for a Service Fabric Application
         href: app/profiler-servicefabric.md
