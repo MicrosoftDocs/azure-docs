@@ -24,7 +24,7 @@ By default, the retry policy is set to the **Default** type.
 
 | Retry policy | Description |
 |--------------|-------------|
-| **Default** | This policy sends up to four retries at *exponentially increasing* intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. For more information, review the [Default](#default) policy type. |
+| **Default** | This policy sends up to 4 retries at *exponentially increasing* intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. For more information, review the [Default](#default) policy type. |
 | **None** | Don't resend the request. For more information, review the [None](#none) policy type. |
 | **Exponential Interval**  | This policy waits a random interval, which is selected from an exponentially growing range before sending the next request. For more information, review the [Exponential Interval](#exponential-interval) policy type. |
 | **Fixed Interval**  | This policy waits the specified interval before sending the next request. For more information, review the [Fixed Interval](#fixed-interval) policy type. |
@@ -37,6 +37,16 @@ By default, the retry policy is set to the **Default** type.
 1. On the trigger or action, open that trigger or action's **Settings**.
 
 1. If the trigger or action supports retry policies, under **Retry Policy**, select the policy type that you want.
+
+<a name="retry-policy-limits"></a>
+
+### Retry policy limits
+
+| Name | Multi-tenant limit | Single-tenant limit | Notes |
+|------|--------------------|---------------------|-------|
+| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | - Default: 4 attempts | To change the default limit in Consumption logic app workflows in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Retry interval | None | Default: 7 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+
 
 ### Change retry policy in code view
 
@@ -78,19 +88,6 @@ If you're working in code view, you can manually update the trigger or action de
 | `maximumInterval` | <*maximum-interval*> | String | For the `exponential` policy, the largest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 1 day (`P1D`). For more information, review [Exponential Interval](#exponential-interval). |
 | `minimumInterval` | <*minimum-interval*> | String | For the `exponential` policy, the smallest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 5 seconds (`PT5S`). For more information, review [Exponential Interval](#exponential-interval). |
 |||||
-
-<a name="retry-policy-limits"></a>
-
-### Retry policy limits
-
-| Name | Multi-tenant limit | Single-tenant limit | Notes |
-|------|--------------------|---------------------|-------|
-| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | - Default: 4 attempts | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry interval | None | Default: 7 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry max delay | Default: 1 day | Default: 1 hour | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry min delay | Default: 5 sec | Default: 5 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-|||||
-
 
 <a name="default-retry"></a>
 
@@ -149,11 +146,17 @@ This retry policy attempts to get the latest news two more times after the first
 
 ### Exponential interval
 
-To specify that the action or trigger waits a random interval before sending the next request, set the <*retry-policy-type*> to `exponential`. The random interval is selected from an exponentially growing range. Optionally, you can also override the default minimum and maximum intervals by specifying your own minimum and maximum intervals.
+The exponential interval retry policy specifies that the trigger or action waits a random interval before sending the next request. This random interval is selected from an exponentially growing range. Optionally, you can override the default minimum and maximum intervals by specifying your own minimum and maximum intervals.
+
+| Name | Multi-tenant limit | Single-tenant limit | Notes |
+|------|--------------------|---------------------|-------|
+| Maximum delay | Default: 1 day | Default: 1 hour | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Minimum delay | Default: 5 sec | Default: 5 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+|||||
 
 **Random variable ranges**
 
-This table shows how Logic Apps generates a uniform random variable in the specified range for each retry up to and including the number of retries:
+The following table shows how Azure Logic Apps generates a uniform random variable in the specified range for each retry up to and including the number of retries:
 
 | Retry number | Minimum interval | Maximum interval |
 |--------------|------------------|------------------|
