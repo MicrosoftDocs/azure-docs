@@ -206,9 +206,7 @@ Now that you have a new credential, you're going to gather some information abou
 The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
 
 
-```cmd
-
-```
+```console
 git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet.git
 ```
 
@@ -281,13 +279,13 @@ Now you're ready to issue your first verified credential expert card by running 
 
 1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from the command shell, run the following commands:
 
-    ```cli
+    ```console
     cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
     ```
 
 1. In another terminal, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 3000, and make it publicly available on the internet.
 
-    ```cli
+    ```console
     ngrok http 5000
     ```
 
