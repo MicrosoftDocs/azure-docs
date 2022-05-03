@@ -129,7 +129,7 @@ Where the file *create-instance.yml* is:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-preview).
+    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of-preview).
     * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#customize-the-compute-instance-with-a-script-preview).
     * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
 
@@ -174,7 +174,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
-Schedules can also be defined for [create on behalf of](#create-on-behalf-preview) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user.
+Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user.
 
 ### Create a schedule in studio
 

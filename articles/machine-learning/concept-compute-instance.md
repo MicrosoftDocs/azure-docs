@@ -40,7 +40,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 * Secure your compute instance with **[No public IP (preview)](./how-to-secure-training-vnet.md#no-public-ip)**
 * The compute instance is also a secure training compute target similar to compute clusters, but it is single node.
-* You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-preview)**.
+* You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)**.
 * You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#customize-the-compute-instance-with-a-script-preview)**  for an automated way to customize and configure the compute instance as per your needs.
 * To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview)** to automatically start and stop the compute instance.
 
@@ -102,7 +102,7 @@ Do not store training data on the notebooks file share. You can use the `/tmp` d
 
 ### Create
 
-As an administrator, you can **[create a compute instance for others in the workspace (preview)](how-to-create-manage-compute-instance.md#create-on-behalf-preview)**.
+As an administrator, you can **[create a compute instance for others in the workspace (preview)](how-to-create-manage-compute-instance.md#create-on-behalf-of-preview)**.
 
 You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#customize-the-compute-instance-with-a-script-preview)**  for an automated way to customize and configure the compute instance.
 
