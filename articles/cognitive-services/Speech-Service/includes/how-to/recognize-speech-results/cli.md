@@ -47,6 +47,6 @@ In the `result.json` column, you can find details that include offset and durati
 }
 ```
 
-For more information and examples, see the Speech CLI [configuration options](~/articles/cognitive-services/speech-service/spx-data-store-configuration.md#captioning-example) and [output options](~/articles/cognitive-services/speech-service/spx-data-store-configuration.md). 
+For more information, see the Speech CLI [datastore configuration](~/articles/cognitive-services/speech-service/spx-data-store-configuration.md) and [output options](~/articles/cognitive-services/speech-service/spx-data-store-configuration.md). 
 
 [!INCLUDE [Example offset and duration](example-offset-duration.md)]

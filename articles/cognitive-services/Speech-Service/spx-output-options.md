@@ -72,6 +72,16 @@ spx translate --source en-US --target de;fr;zh-Hant --file caption.this.mp4 --fo
 
 Captions should then be written to the following files: *caption.srt*, *caption.vtt*, *caption.de.srt*, *caption.de.vtt*, *caption.fr.srt*, *caption.fr.vtt*, *caption.zh-Hant.srt*, and *caption.zh-Hant.vtt*.
 
+## Suppress header
+
+You can suppress the header line in the output file by setting the `has header false` option:
+
+```
+spx recognize --nodefaults @my.defaults --file audio.wav --output recognized text --output file has header false
+```
+
+See [Configure the Speech CLI datastore](spx-data-store-configuration.md#nodefaults) for more information about `--nodefaults`.
+
 ## Next steps 
 
 * [Captioning quickstart](./captioning-quickstart.md)
