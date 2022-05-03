@@ -71,7 +71,7 @@ No additional cost to existing VM pricing.
 **The following features are not supported**:
 - Azure Site Recovery
 - Azure Compute Gallery (formerly known as Shared Image Gallery)
-- Ephemeral OS disk
+- [Ephemeral OS disk (Preview)](ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks-preview)
 - Shared disk
 - Ultra disk
 - Managed image

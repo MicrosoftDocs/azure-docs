@@ -4,7 +4,7 @@ ms.author: daberry
 ms.topic: include
 ms.date: 01/30/2022
 ---
-First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az-webapp-log-config) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -26,7 +26,7 @@ az webapp log config `
 
 ---
 
-To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
+To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command.
 
 #### [bash](#tab/terminal-bash)
 

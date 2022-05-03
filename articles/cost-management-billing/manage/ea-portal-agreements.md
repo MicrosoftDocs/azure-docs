@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 04/28/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -30,14 +30,14 @@ An enrollment has one of the following status values. Each value determines how 
 
 **Active** - The enrollment is accessible and usable. You can create accounts and subscriptions in the Azure EA portal. Direct customers can create departments, accounts and subscriptions in the [Azure portal](https://portal.azure.com). The enrollment remains active until the enterprise agreement end date. 
 
-**Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
+**Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached and is expired. When an agreement enters into an extended term, it doesn't receive discounted pricing. Instead, pricing is at retail rates. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
 
 - Renew the enrollment by adding additional Azure Prepayment
 - Transfer the existing enrollment to a new enrollment
 - Migrate to the Microsoft Online Subscription Program (MOSP)
 - Confirm disablement of all services associated with the enrollment
 
-**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date. The EA customer is opted out of the extended term and all their services are disabled.
+**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service won't be disabled immediately, there's a risk of it getting disabled.
 
 As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure portal](https://portal.azure.com). Or, your partner can submit a termination request. There's no change for customers with government agreement types.
 
@@ -88,7 +88,7 @@ Please make sure to review the commercial information - monetary balance informa
 
 1. From the Enterprise Portal, click **Reports** on the left navigation.
 1. Under _Usage Summary_, click the blue **Markup** wording.
-1. Enter the markup percentage (between -100 to 100) and click **Preview**.
+1. Enter the markup percentage (between 0 to 100) and click **Preview**.
 
 
 **Step Two: Review and validate**

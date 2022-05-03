@@ -8,8 +8,6 @@ ms.date: 11/09/2021
 ---
 # Microsoft Defender for Cloud data security
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To help customers prevent, detect, and respond to threats, Microsoft Defender for Cloud collects and processes security-related data, including configuration information, metadata, event logs, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
 This article explains how data is managed and safeguarded in Defender for Cloud.
@@ -56,7 +54,7 @@ You can specify the workspace and region where data collected from your machines
 | Japan                                       | Japan          |
 | China                                       | China          |
 | Australia                                   | Australia      |
-|                                             |                |
+
 
 > [!NOTE]
 > **Microsoft Defender for Storage** stores artifacts regionally according to the location of the related Azure resource. Learn more in [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md).
@@ -71,7 +69,7 @@ Customers can access Defender for Cloud related data from the following data str
 | [Azure Monitor logs](../azure-monitor/data-platform.md)                      | All security alerts.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Security alerts, security recommendations, vulnerability assessment results, secure score information, status of compliance checks, and more.                                                                       |
 | [Microsoft Defender for Cloud REST API](/rest/api/securitycenter/) | Security alerts, security recommendations, and more.                                                                                                                                                                |
-|                                                                                       |                                                                                                                                                                                                                     |
+
 
 ## Next steps
 

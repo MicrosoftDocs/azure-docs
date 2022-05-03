@@ -106,8 +106,8 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 * deprovision: Attempt to clean the system and make it suitable for reprovisioning. The following operation deletes:
   
   * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
-  * Nameserver configuration in /etc/resolv.conf
-  * Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
+  * Nameserver configuration in `/etc/resolv.conf`
+  * Root password from `/etc/shadow` (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
   * Cached DHCP client leases
   * Resets host name to localhost.localdomain
 
@@ -116,7 +116,7 @@ Refer to the documentation in the [Azure Linux Agent repo on GitHub](https://git
 > 
 > 
 
-* deprovision+user: Performs everything in -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and reused.
+* deprovision+user: Performs everything in -deprovision (above) and also deletes the last provisioned user account (obtained from `/var/lib/waagent`) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and reused.
 * version: Displays the version of waagent
 * serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
    the boot console. This ensures that kernel bootup logs are sent to the
@@ -180,7 +180,7 @@ If set, the root password in the /etc/shadow file is erased during the provision
 Type: Boolean  
 Default: y
 ```
-If set, all SSH host key pairs (ecdsa, dsa, and rsa) are deleted during the provisioning process from /etc/ssh/. And a single fresh key pair is generated.
+If set, all SSH host key pairs (ecdsa, dsa, and rsa) are deleted during the provisioning process from `/etc/ssh/`. And a single fresh key pair is generated.
 
 The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).
 
@@ -284,7 +284,7 @@ The size of the swap file in megabytes.
 Type: Boolean  
 Default: n
 ```
-If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and utilizes the system logrotate functionality to rotate logs.
+If set, log verbosity is boosted. Waagent logs to `/var/log/waagent.log` and utilizes the system logrotate functionality to rotate logs.
 
 **OS.EnableRDMA**  
 ```txt

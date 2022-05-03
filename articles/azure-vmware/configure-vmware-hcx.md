@@ -48,7 +48,7 @@ In your data center, you can connect or pair the VMware HCX Cloud Manager in Azu
 > [!IMPORTANT]
 > Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises HCX Connector and HCX Cloud Manager, licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
 
-1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
+1. Sign in to your on-premises vCenter Server, and under **Home**, select **HCX**.
 
 1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen).
 

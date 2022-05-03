@@ -48,7 +48,7 @@ items:
 - name: Concepts
   expanded: true
   items:
-    - name: DICOM cast overview
+    - name: DICOMcast overview
       href: dicom-cast-overview.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
@@ -70,7 +70,7 @@ items:
   items:
     - name: DICOM service open-source projects
       href: references-for-dicom-service.md
-    - name: DICOM cast access request
+    - name: DICOMcast access request
       href: dicom-cast-access-request.md
 
 

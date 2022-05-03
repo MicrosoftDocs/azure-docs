@@ -10,7 +10,7 @@ ms.date: 04/28/2021
 ---
 # How to use Apache Atlas connector to collect Spark lineage
 
-Apache Atlas Spark Connector is a hook to track Spark SQL/DataFrame data movements and push metadata changes to Azure Purview Atlas endpoint. 
+Apache Atlas Spark Connector is a hook to track Spark SQL/DataFrame data movements and push metadata changes to Microsoft Purview Atlas endpoint. 
 
 ## Supported scenarios
 
@@ -20,7 +20,7 @@ This connector supports following tracking:
 3.	DataFrame movements that have inputs and outputs.
 
 This connector relies on query listener to retrieve query and examine the impacts. It will correlate with other systems like Hive, HDFS to track the life cycle of data in Atlas.
-Since Azure Purview supports Atlas API and Atlas native hook, the connector can report lineage to Azure Purview  after configured with Spark. The connector could be configured per job or configured as the cluster default setting. 
+Since Microsoft Purview supports Atlas API and Atlas native hook, the connector can report lineage to Microsoft Purview  after configured with Spark. The connector could be configured per job or configured as the cluster default setting. 
 
 ## Configuration requirement
 
@@ -57,8 +57,8 @@ The following steps are documented based on DataBricks as an example:
     e. Put the package where the spark cluster could access. For DataBricks cluster, the package could upload to dbfs folder, such as /FileStore/jars.
 
 2. Prepare Connector config
-    1. Get Kafka Endpoint and credential in Azure portal of the Azure Purview Account
-        1. Provide your account with *“Azure Purview Data Curator”* permission 
+    1. Get Kafka Endpoint and credential in Azure portal of the Microsoft Purview Account
+        1. Provide your account with *“Microsoft Purview Data Curator”* permission 
 
         :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/assign-purview-data-curator-role.png" alt-text="Screenshot showing data curator role assignment" lightbox="./media/how-to-lineage-spark-atlas-connector/assign-purview-data-curator-role.png":::
 
@@ -74,19 +74,19 @@ The following steps are documented based on DataBricks as an example:
     atlas.kafka.sasl.mechanism=PLAIN
     atlas.kafka.security.protocol=SASL_SSL
     atlas.kafka.bootstrap.servers= atlas-46c097e6-899a-44aa-9a30-6ccd0b2a2a91.servicebus.windows.net:9093
-    atlas.kafka.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="<connection string got from your Azure Purview account>";
+    atlas.kafka.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="<connection string got from your Microsoft Purview account>";
     ```
     
     c.	Make sure the atlas configuration file is in the Driver’s classpath  generated in [step 1 Generate package section above](../purview/how-to-lineage-spark-atlas-connector.md#step-1-prepare-spark-atlas-connector-package). In cluster mode, ship this config file to the remote Drive *--files atlas-application.properties*
 
 
-### Step 2. Prepare your Azure Purview account
+### Step 2. Prepare your Microsoft Purview account
 After the Atlas Spark model definition is successfully created, follow below steps
 1. Get spark type definition from GitHub https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
 
 2. Assign role:
-    1. Navigate to your Azure Purview account and select Access control (IAM) 
-    1. Add Users and grant your service principal *Azure Purview Data source administrator* role
+    1. Navigate to your Microsoft Purview account and select Access control (IAM) 
+    1. Add Users and grant your service principal *Microsoft Purview Data source administrator* role
 3. Get auth token:
     1. Open "postman" or similar tools 
     1. Use the service principal used in previous step to get the bearer token:
@@ -98,9 +98,9 @@ After the Atlas Spark model definition is successfully created, follow below ste
 
         :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/postman-examples.png" alt-text="Screenshot showing postman example" lightbox="./media/how-to-lineage-spark-atlas-connector/postman-examples.png":::      
 
-4. Post Spark Atlas model definition to Azure Purview Account:
-    1.  Get Atlas Endpoint of the Azure Purview account from properties section of Azure portal.
-    1. Post Spark type definition into the Azure Purview account:
+4. Post Spark Atlas model definition to Microsoft Purview Account:
+    1.  Get Atlas Endpoint of the Microsoft Purview account from properties section of Azure portal.
+    1. Post Spark type definition into the Microsoft Purview account:
        * Post: {{endpoint}}/api/atlas/v2/types/typedefs
        * Use the generated access token 
        * Body: choose raw and copy all content from GitHub https://github.com/apache/atlas/blob/release-2.1.0-rc3/addons/models/1000-Hadoop/1100-spark_model.json
@@ -155,8 +155,8 @@ spark-submit --class com.microsoft.SparkAtlasTest --master yarn --deploy-mode --
 2. Below instructions are for Cluster Setting:
 The connector jar and listener’s setting should be put in Spark clusters’: *conf/spark-defaults.conf*. Spark-submit will read the options in *conf/spark-defaults.conf* and pass them to your application. 
  
-### Step 5. Run and Check lineage in Azure Purview account
-Kick off The Spark job and check the lineage info in your Azure Purview account. 
+### Step 5. Run and Check lineage in Microsoft Purview account
+Kick off The Spark job and check the lineage info in your Microsoft Purview account. 
 
 :::image type="content" source="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png" alt-text="Screenshot showing purview with spark lineage" lightbox="./media/how-to-lineage-spark-atlas-connector/purview-with-spark-lineage.png":::
 
@@ -183,5 +183,5 @@ Kick off The Spark job and check the lineage info in your Azure Purview account.
 
 ## Next steps
 
-- [Learn about Data lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Learn about Data lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Link Azure Data Factory to push automated lineage](how-to-link-azure-data-factory.md)

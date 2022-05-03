@@ -2,14 +2,14 @@
 title: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 description: Learn how to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications by using F5's BIG-IP advanced configuration.
 services: active-directory
-author: CelesteDG
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 12/13/2021
-ms.author: celested
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 

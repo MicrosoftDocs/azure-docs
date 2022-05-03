@@ -213,7 +213,7 @@ def init():
     """Init once in a worker process."""
     entry_script = EntryScript()
     logger = entry_script.logger
-    logger.debug("This will show up in files under logs/user on the Azure portal.")
+    logger.info("This will show up in files under logs/user on the Azure portal.")
 
 
 def run(mini_batch):
@@ -221,7 +221,7 @@ def run(mini_batch):
     # This class is in singleton pattern and will return same instance as the one in init()
     entry_script = EntryScript()
     logger = entry_script.logger
-    logger.debug(f"{__file__}: {mini_batch}.")
+    logger.info(f"{__file__}: {mini_batch}.")
     ...
 
     return mini_batch
@@ -230,7 +230,7 @@ def run(mini_batch):
 ## Where does the message from Python `logging` sink to?
 ParallelRunStep sets a handler on the root logger, which sinks the message to `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
 
-`logging` defaults to `WARNING` level. By default, levels below `WARNING` won't show up, such as `INFO` or `DEBUG`.
+`logging` defaults to `INFO` level. By default, levels below `INFO` won't show up, such as `DEBUG`.
 
 ## How could I write to a file to show up in the portal?
 Files in `logs` folder will be uploaded and show up in the portal.

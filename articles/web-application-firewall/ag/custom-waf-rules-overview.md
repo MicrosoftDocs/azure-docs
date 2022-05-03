@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/30/2021
+ms.date: 04/20/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -106,10 +106,10 @@ Must be one of the variables:
 - RemoteAddr – IP Address/Range of the remote computer connection
 - RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
 - QueryString – Variable in the URI
-- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'.
+- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'. Additional content type of  `application/json` is supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules. 
 - RequestUri – URI of the request
 - RequestHeaders – Headers of the request
-- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded'. 
+- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to `application/x-www-form-urlencoded` media type. Additional content types of  `application/soap+xml, application/xml, text/xml` are supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules.
 - RequestCookies – Cookies of the request
 
 ### Selector [optional]

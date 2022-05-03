@@ -117,7 +117,7 @@ Verify your machine matches the [supported versions](prerequisites.md#supported-
 
 The minimum version of the Connected Machine agent that is supported with this feature on Windows and Linux is the 1.0 release.
 
-To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
+To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrade-the-agent).
 
 ## Next steps
 

@@ -27,7 +27,7 @@ Use this quickstart to make your first call to the Bing Web Search API. This Go 
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:
 
-* [Go binaries](https://golang.org/dl/)
+* [Go binaries](https://go.dev/dl/)
 * A subscription key
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  

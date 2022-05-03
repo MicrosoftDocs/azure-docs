@@ -14,7 +14,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Configure cross-tenant access settings for B2B direct connect
+# Configure cross-tenant access settings for B2B direct connect (Preview)
 
 > [!NOTE]
 > Cross-tenant access settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -259,7 +259,7 @@ With outbound settings, you select which of your users and groups will be able t
 
 ## Remove an organization
 
-When you remove an organization from your Organizational settings, the default cross-tenant access settings will go into effect for all B2B collaboration with that organization.
+When you remove an organization from your Organizational settings, the default cross-tenant access settings will go into effect for that organization.
 
 > [!NOTE]
 > If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
@@ -270,7 +270,7 @@ When you remove an organization from your Organizational settings, the default c
 
 1. Select the **Organizational settings** tab.
 
-2. Find the organization in the list, and then select the trash can icon on that row.
+1. Find the organization in the list, and then select the trash can icon on that row.
 
 ## Next steps
 

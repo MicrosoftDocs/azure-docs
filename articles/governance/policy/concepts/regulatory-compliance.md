@@ -35,8 +35,8 @@ definition as a reference, it's recommended to monitor the source of the Regulat
 definitions in the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance).
 
-To link a custom Regulatory Compliance initiative to your Azure Security Center dashboard, see
-[Azure Security Center - Using custom security policies](../../../security-center/custom-security-policies.md).
+To link a custom Regulatory Compliance initiative to your Microsoft Defender for Cloud dashboard, see
+[Create custom security initiatives and policies](../../../defender-for-cloud/custom-security-policies.md).
 
 ## Regulatory Compliance in portal
 

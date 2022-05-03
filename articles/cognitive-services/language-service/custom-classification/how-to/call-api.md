@@ -1,5 +1,5 @@
 ---
-title: How to submit custom classification tasks
+title: How to submit custom text classification tasks
 titleSuffix: Azure Cognitive Services
 description: Learn about sending a request for custom text classification.
 services: cognitive-services
@@ -19,7 +19,7 @@ After you're satisfied with your model, and made any necessary improvements, you
 
 ## Prerequisites
 
-* [A custom classification project](create-project.md) with a configured Azure blob storage account, 
+* [A custom text classification project](create-project.md) with a configured Azure blob storage account,
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
@@ -71,8 +71,7 @@ To delete a deployment, select the deployment you want to delete and click **Del
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 
-[!INCLUDE [JSON result for classification](../includes/classification-result-json.md)]
-
+You will need to use the REST API. Click on the **REST API** tab above for more information.
 
 # [Using the API](#tab/rest-api)
 
@@ -86,58 +85,13 @@ First you will need to get your resource key and endpoint
 
     :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../media/get-endpoint-azure.png":::
 
-### Submit text classification task
+### Submit a custom text classification task
 
-1. Start constructing a POST request by updating the following URL with your endpoint.
-    
-    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
+[!INCLUDE [submit a text classification task using the REST API](../includes/rest-api/text-classification-task.md)]
 
-2. In the header for the request, add your key to the `Ocp-Apim-Subscription-Key` header.
+### Get the results for a custom text classification task
 
-3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task. `project-name` is case-sensitive.
- 
-    > [!tip]
-    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-text-classification-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
-    
-    ```json
-    {
-        "displayName": "MyJobName",
-        "analysisInput": {
-            "documents": [
-                {
-                    "id": "doc1", 
-                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
-                },
-                {
-                    "id": "doc2",
-                    "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-                }
-            ]
-        },
-        "tasks": {
-            "customMultiClassificationTasks": [      
-                {
-                    "parameters": {
-                          "project-name": "MyProject",
-                          "deployment-name": "MyDeploymentName"
-                          "stringIndexType": "TextElements_v8"
-                    }
-                }
-            ]
-        }
-    }
-    ```
-
-4. You will receive a 202 response indicating success. In the response headers, extract `operation-location`.
-`operation-location` is formatted like this:
-
-    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
-
-    You will use this endpoint in the next step to get the custom recognition task results.
-
-5. Use the URL from the previous step to create a **GET** request to query the status/results of the custom recognition task. Add your key to the `Ocp-Apim-Subscription-Key` header for the request.
-
-[!INCLUDE [JSON result for classification](../includes/classification-result-json.md)]
+[!INCLUDE [Get results for a text classification task using the REST API](../includes/rest-api/get-results.md)]
 
 # [Using the client libraries (Azure SDK)](#tab/client)
 
@@ -166,7 +120,7 @@ First you will need to get your resource key and endpoint
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_single_category_classify.py)
     
-    Multiple label classification:
+    Multi label classification:
     * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample11_MultiCategoryClassify.md)
     * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/ClassifyDocumentMultiCategory.java)
     * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)

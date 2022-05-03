@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
@@ -299,6 +299,8 @@ script_run_config = ScriptRunConfig(source_directory = './code',
                                                  "--output_dir", output],
                                     run_config = run_config)
 ```
+
+For more infomation about  `run_config.spark.configuration` and general Spark configuration, see [SparkConfiguration Class](/python/api/azureml-core/azureml.core.runconfig.sparkconfiguration) and [Apache Spark's configuration documentation](https://spark.apache.org/docs/latest/configuration.html).
 
 Once your `ScriptRunConfig` object is set up, you can submit the run.
 

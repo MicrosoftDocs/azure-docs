@@ -84,7 +84,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Be consistent with upstream protocol
   * Set up host storage for system modules
   * Reduce memory space used by the IoT Edge hub
-  * Do not use debug versions of module images
+  * Use correct module images in deployment manifests
   * Be mindful of twin size limits when using custom modules
 
 ### Be consistent with upstream protocol
@@ -131,8 +131,10 @@ The IoT Edge hub module stores messages temporarily if they cannot be delivered 
 
 The default value of the timeToLiveSecs parameter is 7200 seconds, which is two hours.
 
-### Do not use debug versions of module images
+### Use correct module images in deployment manifests
+If an empty or wrong module image is used, the Edge agent retries to load the image, which causes extra traffic to be generated. Add the correct images to the deployment manifest to avoid generating unnecessary traffic.
 
+#### Don't use debug versions of module images
 When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well.
 
 ### Be mindful of twin size limits when using custom modules
@@ -148,6 +150,7 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 
 * **Important**
   * Use tags to manage versions
+  * Manage volumes
 * **Helpful**
   * Store runtime containers in your private registry
 
@@ -164,6 +167,9 @@ The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version 
 * **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there's a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
 
 * **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
+
+### Manage volumes
+IoT Edge does not remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are left unused, then it may lead to disk space exhaustion and subsequent system errors. If you use docker volumes in your scenario, then we encourage you to use docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
 
 ### Store runtime containers in your private registry
 
@@ -240,7 +246,7 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 * **Helpful**
   * Set up logs and diagnostics
-  * Place limits on log size
+  * Set up default logging driver
   * Consider tests and CI/CD pipelines
 
 ### Set up logs and diagnostics
@@ -279,17 +285,24 @@ Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemo
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
 
-### Place limits on log size
+### Set up default logging driver
 
-By default the Moby container engine does not set container log size limits. Over time this can lead to the device filling up with logs and running out of disk space. Consider the following options to prevent this:
+By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. Configure your container engine to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. `Local` logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk space exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limits based on your need.
 
-#### Option: Set global limits that apply to all container modules
+#### Option: Configure the default logging driver for all container modules
 
-You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
+You can configure your container engine to use a specific logging driver by setting the value of `log driver` to the name of the log driver in the `daemon.json`. The following example sets the default logging driver to the `local` log driver (recommended).
 
 ```JSON
 {
-    "log-driver": "json-file",
+    "log-driver": "local"
+}
+```
+You can also configure your `log-opts` keys to use appropriate values in the `daemon.json` file. The following example sets the log driver to `local` and sets the `max-size` and `max-file` options.  
+
+```JSON
+{
+    "log-driver": "local",
     "log-opts": {
         "max-size": "10m",
         "max-file": "3"
@@ -326,7 +339,7 @@ You can do so in the **createOptions** of each module. For example:
 "createOptions": {
     "HostConfig": {
         "LogConfig": {
-            "Type": "json-file",
+            "Type": "local",
             "Config": {
                 "max-size": "10m",
                 "max-file": "3"

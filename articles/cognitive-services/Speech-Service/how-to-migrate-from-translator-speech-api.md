@@ -16,7 +16,9 @@ ms.author: eur
 
 Use this article to migrate your applications from the Microsoft Translator Speech API to the [Speech service](index.yml). This guide outlines the differences between the Translator Speech API and Speech service, and suggests strategies for migrating your applications.
 
-> [!NOTE]
+> [!IMPORTANT]
+> The Speech service has replaced Translator Speech. Please migrate your applications to the Speech service.
+>
 > Your Translator Speech API subscription key won't be accepted by the Speech service. You'll need to create a new Speech service subscription.
 
 ## Comparison of features

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2022
+ms.date: 03/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -112,7 +112,7 @@ To create the SPA registration, do the following:
 1. Record the secret's **Value** for use in your client application code. This secret value is never displayed again after you leave this page. You use this value as the application secret in your application's code.
 
 
-### Step 2.5: Grant permissions
+### Step 2.5: Grant API permissions to the web app
 
 [!INCLUDE [active-directory-b2c-app-integration-grant-permissions](../../includes/active-directory-b2c-app-integration-grant-permissions.md)]
 

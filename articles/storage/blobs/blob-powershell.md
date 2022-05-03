@@ -432,6 +432,9 @@ $data.Venue.Files.ChildNodes | ForEach-Object {
 
 You can delete either a single blob or series of blobs with the `Remove-AzStorageBlob` cmdlet. When deleting multiple blobs, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
 
+> [!WARNING]
+> Running the following examples may permanently delete blobs. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see [Soft delete for containers](soft-delete-blob-overview.md).
+
 ```azurepowershell
 #Create variables
 $containerName  = "myContainer"

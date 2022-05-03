@@ -221,7 +221,7 @@ Log queries in a search job are intended to scan very large sets of data. To sup
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
 - [project](/azure/data-explorer/kusto/query/projectoperator)
 - [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
-- [project-keep](/azure/data-explorer/kusto/query/projectkeepoperator)
+- [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
 - [parse](/azure/data-explorer/kusto/query/whereoperator)

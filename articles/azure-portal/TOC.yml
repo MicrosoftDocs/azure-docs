@@ -25,12 +25,12 @@
   items:
   - name: Manage Azure portal settings and preferences
     href: set-preferences.md
-  - name: Manage Azure portal settings (older version)
-    href: original-preferences.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
   - name: View and filter resource information
     href: manage-filter-resource-views.md
+  - name: Find subscription and tenant IDs
+    href: get-subscription-tenant-id.md
   - name: Create Azure dashboards
     items:
     - name: Create an Azure dashboard

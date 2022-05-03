@@ -3,7 +3,7 @@ title: Troubleshoot Azure EA portal access
 description: This article describes some common issues that can occur with an Azure Enterprise Agreement (EA) in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/26/2021
+ms.date: 03/22/2022
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -31,7 +31,7 @@ The first work or school account added to the enrollment determines the _default
 
 To update the Authentication Level:
 
-1. Sign in to the Azure EA portal as an Enterprise Administrator.
+1. Sign in to the Azure [EA portal](https://ea.azure.com/) as an Enterprise Administrator.
 2. Click **Manage** on the left navigation panel.
 3. Click the **Enrollment** tab.
 4. Under **Enrollment Details**, select **Auth Level**.
