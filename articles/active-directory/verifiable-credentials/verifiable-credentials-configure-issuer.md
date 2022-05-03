@@ -206,7 +206,9 @@ Now that you have a new credential, you're going to gather some information abou
 The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
 
 
-```cli
+```cmd
+
+```
 git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet.git
 ```
 
