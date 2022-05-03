@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/03/2022
 ---
 
 # Profile live Azure Function App with Application Insights
@@ -16,7 +16,7 @@ In this article, you'll use the Azure portal to:
 - Navigate to the Profiler for your Function App to view data.
 
 > [!NOTE]
-> You can enable the Application Insights Profiler for Azure Function Apps on either **Premium** or **App Service** plans. 
+> You can enable the Application Insights Profiler for Azure Function Apps on the **App Service** plan. 
 
 ## Pre-requisites
 
