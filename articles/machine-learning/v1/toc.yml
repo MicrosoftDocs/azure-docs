@@ -33,7 +33,10 @@
     href: how-to-create-attach-compute-cluster.md
   - name: Track experiments with MLflow 
     displayName: log, monitor, metrics, model registry, register
-    href: how-to-use-mlflow.md  
+    href: how-to-use-mlflow.md
+  - name: Auto-train a natural language processing model
+    displayName: nlp, auto ML, automl, SDK
+    href: how-to-auto-train-nlp-models-v1.md
   - name: Train models
     items: 
       - name: Train with SDK v1
