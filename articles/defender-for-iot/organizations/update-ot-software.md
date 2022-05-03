@@ -17,12 +17,15 @@ For more information, see [Which appliances do I need?](ot-appliance-sizing.md),
 > Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
 >
 
-## Verify firewall rules
+## Verify network requirements
 
-Make sure that your firewall rules are configured as needed for the new version you're updating to. For example, the new version may require a new or modified firewall rule to support [sensor access to the Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+- Make sure that your sensors can reach the Azure data center address ranges and set up any additional resources required for the connectivity method your organization is using.
 
-For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).
+    For more information, see [OT sensor cloud connection methods](architecture-connections.md) and [Connect your OT sensors to the cloud](connect-sensors.md).
 
+- Make sure that your firewall rules are configured as needed for the new version you're updating to. For example, the new version may require a new or modified firewall rule to support [sensor access to the Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+
+    For more information, see [Networking requirements](how-to-set-up-your-network.md#networking-requirements).
 
 ## Update an on-premises management console
 
@@ -67,7 +70,31 @@ This procedure is relevant only if you are updating sensors from software versio
 
 1. In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
 
-1. When the new activation file is ready, download it and verify that the sensor status has switched to **Pending activation**.
+    A new row in the grid is added for sensor you're upgrading. In that added row, select to download the activation file.
+
+1. Verify that the status showing in the new sensor row has switched to **Pending activation**.
+
+
+> [!NOTE]
+> The previous sensor is not automatically deleted after your update. After you've updated the sensor software, make sure to [remove the previous sensor from Defender for IoT](#remove-your-previous-sensor).
+
+## Apply your activation file
+
+**Relevant only when updating from a legacy version to version 22.x or higher**
+
+If you're upgrading from a legacy version to version 22.x or higher, make sure to apply the new activation file to your sensor.
+
+1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
+
+1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select the activation file you'd downloaded [earlier](#download-a-new-activation-file).
+
+1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
+
+    - The sensor's **Overview** page shows an activation status of **Valid**.
+    - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
+
+<!--does this now show "ready for upgrade"?-->
+
 
 ## Update your sensors
 
@@ -138,31 +165,28 @@ If updates fail, you can re-attempt the update, or open a support ticket for ass
 
 ---
 
-## Reactivate your sensor
-
-**Relevant only when updating from a legacy version to version 22.x or higher**
-
-If you're upgrading from a legacy version to version 22.x or higher, make sure to reactivate your sensor using the activation file you downloaded earlier.
-
-1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
-
-1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select your new activation file.
-
-1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
-
-    - The sensor's **Overview** page shows an activation status of **Valid**.
-    - In the Azure portal, on the **Sites and sensors** page, the sensor is listed as **OT cloud connected** and with the updated sensor version.
-
-
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
 
+
 ## Remove your previous sensor
 
-Your previous sensors continue to appear in the **Sites and sensors** page until you delete them. After you've updated and reactivated a sensor, make sure to delete the previous one from your subscription.
+Your previous sensors continue to appear in the **Sites and sensors** page until you delete them. After you've applied your new activation file and updated sensor software, make sure to delete any remaining, previous sensors from Defender for IoT.
 
-Delete a sensor from the **Sites and sensors** page in Defender for IoT. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+Delete a sensor from the **Sites and sensors** page in the Azure portal. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+
+## Remove private IoT Hubs
+
+If you've updated from a version earlier than 22.1.x, you may no longer need the private IoT Hubs you'd previously used to connect sensors to Defender for IoT.
+
+In such cases:
+
+1. Review your IoT hubs to ensure that it's not being used by other services.
+
+1. Verify that your sensors are connected successfully.
+
+1. Delete any private IoT Hubs that are no longer needed. For more information, see the [IoT Hub documentation](/azure/iot-hub/iot-hub-create-through-portal).
 
 ## Next steps
 
