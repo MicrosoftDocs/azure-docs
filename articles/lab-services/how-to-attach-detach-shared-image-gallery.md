@@ -18,7 +18,7 @@ This article shows you how to attach or detach an Azure Compute Gallery to a lab
 > [!IMPORTANT]
 > Lab plan administrators must manually [replicate images](/azure/virtual-machines/shared-image-galleries) to other regions in the compute gallery. Replicate an Azure Compute Gallery image to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
 
-Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure Compute Gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
+Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure Compute Gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/azure-compute-gallery.md#billing).
 
 ## Scenarios
 

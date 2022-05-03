@@ -1457,7 +1457,7 @@ Jump to a resource provider namespace:
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | Yes | Yes | Yes |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipaddresses | Yes | Yes | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |
 > | routefilters | No | No | No |
 > | routetables | Yes | Yes | No |
@@ -1846,12 +1846,12 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | instancepools | No | No | No |
 > | locations | Yes | Yes | No |
-> | managedinstances | No | No | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving managed instances across regions. |
+> | managedinstances | No | No | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving managed instances across regions. |
 > | managedinstances / databases | No | No | Yes |
 > | servers | Yes | Yes |Yes |
-> | servers / databases | Yes | Yes | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL databases.  |
+> | servers / databases | Yes | Yes | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL databases.  |
 > | servers / databases / backuplongtermretentionpolicies | Yes | Yes | No |
-> | servers / elasticpools | Yes | Yes | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  |
+> | servers / elasticpools | Yes | Yes | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  |
 > | servers / jobaccounts | Yes | Yes | No |
 > | servers / jobagents | Yes | Yes | No |
 > | virtualclusters | No | No | No |

@@ -8,8 +8,6 @@ ms.date: 04/24/2022
 ---
 # Manage and respond to security alerts in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This topic shows you how to view and process Defender for Cloud's alerts and protect your resources.
 
 Advanced detections that trigger security alerts are only available with Microsoft Defender for Cloud's enhanced security features enabled. A free trial is available. To upgrade, see [Enable enhanced protections](enable-enhanced-security.md).
@@ -54,7 +52,7 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
 
     The right pane includes the **Alert details** tab containing further details of the alert to help you investigate the issue: IP addresses, files, processes, and more.
      
-    ![Suggestions for what to do about security alerts.](./media/managing-and-responding-alerts/security-center-alert-remediate.png)
+    :::image type="content" source="./media/managing-and-responding-alerts/security-center-alert-remediate.png" alt-text="Suggestions for what to do about security alerts.":::
 
     Also in the right pane is the **Take action** tab. Use this tab to take further actions regarding the security alert. Actions such as:
     - *Inspect resource context* - sends you to the resource's activity logs that support the security alert
@@ -63,7 +61,7 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
     - *Trigger automated response* - provides the option to trigger a logic app as a response to this security alert
     - *Suppress similar alerts* - provides the option to suppress future alerts with similar characteristics if the alert isn’t relevant for your organization
 
-    ![Take action tab.](./media/managing-and-responding-alerts/alert-take-action.png)
+    :::image type="content" source="./media/managing-and-responding-alerts/alert-take-action.png" alt-text="Take action tab.":::
 
 ## Change the status of multiple security alerts at once
 
