@@ -157,7 +157,7 @@ Based on your needs, you can "plug in" certain Dapr component types like state s
 
 # [YAML](#tab/yaml)
 
-When you enabled Dapr via the Azure CLI, you defined the following `components.yaml` file:
+When you enable Dapr via the Azure CLI, you define the following `components.yaml` file:
 
 ```yaml
 # components.yaml for Azure Service Bus component
