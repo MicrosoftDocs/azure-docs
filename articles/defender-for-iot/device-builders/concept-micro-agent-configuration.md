@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 12/22/2021
+ms.date: 05/03/2022
 ms.topic: conceptual
 ---
 
@@ -51,7 +51,7 @@ These configurations include process, and network activity collectors.
 |--|--|--|--|
 | **Interval** | `High` <br>`Medium`<br>`Low` | Determines the sending frequency.  | `Medium` |
 | **Aggregation mode** | `True` <br>`False` | Determines whether to process event aggregation for an identical event.  | `True` |
-| **Cache size** | cycle FIFO | Defines the number of events collected in between the the times that data is sent. | `256` |
+| **Cache size** | cycle FIFO | Defines the number of events collected in between the times that data is sent. | `256` |
 | **Disable collector** | `True` <br> `False` | Determines whether or not the collector is operational. | `False` |
 
 ## IoT Hub Module-specific settings
