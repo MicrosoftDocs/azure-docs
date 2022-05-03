@@ -76,7 +76,7 @@ For the subscriber container app:
 --dapr-components ./components.yaml
 ```
 
-These settings define [the `components.yaml` spec](#yamltabyaml-1) with which the Dapr sidecar and your container app will communicate.
+These settings define the `components.yaml` spec with which the Dapr sidecar and your container app will communicate.
 
 
 # [Bicep](#tab/bicep)
@@ -157,7 +157,7 @@ Based on your needs, you can "plug in" certain Dapr component types like state s
 
 # [YAML](#tab/yaml)
 
-When you [enabled Dapr via the Azure CLI](#yamltabyaml), you defined the following `components.yaml` file:
+When you enabled Dapr via the Azure CLI, you defined the following `components.yaml` file:
 
 ```yaml
 # components.yaml for Azure Service Bus component

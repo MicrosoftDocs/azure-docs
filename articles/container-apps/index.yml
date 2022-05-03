@@ -61,7 +61,7 @@ landingContent:
             url: connect-apps.md
           - text: Use a custom VNET 
             url: vnet-custom.md
-      - linkListType:
+      - linkListType: concept
         links:
           - text: Dapr integration
             url: dapr-overview.md
