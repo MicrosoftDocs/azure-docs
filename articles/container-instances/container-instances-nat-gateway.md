@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.service: container-instances
 services: container-instances
 ms.author: macolso
-ms.date: 02/28/2022
+ms.date: 05/03/2022
 ---
 
 # Configure a NAT gateway for static IP address for outbound traffic from a container group
@@ -30,6 +30,9 @@ You then validate egress from example container groups through the NAT gateway.
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+> [!NOTE]
+> To download the complete script, go to [full script](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-instances/nat-gateway.sh).
 
 ## Get started
 
@@ -99,6 +102,14 @@ Output is similar to:
 This IP address should match the public IP address created in the first step of the tutorial.
 
 :::code language="azurecli" source="~/azure_cli_scripts/container-instances/nat-gateway.sh" id="echo":::
+
+## Clean up resources
+
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+
+```azurecli-interactive
+az group delete --name $resourceGroup --yes --no-wait
+```
 
 ## Next steps
 

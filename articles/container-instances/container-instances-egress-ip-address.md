@@ -2,7 +2,7 @@
 title: Configure static outbound IP
 description: Configure Azure firewall and user-defined routes for Azure Container Instances workloads that use the firewall's public IP address for ingress and egress
 ms.topic: article
-ms.date: 07/16/2020
+ms.date: 05/03/2022
 ---
 
 # Configure a single public IP address for outbound and inbound traffic to a container group
@@ -25,6 +25,9 @@ You then validate ingress and egress from example container groups through the f
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+> [!NOTE]
+> To download the complete script, go to [full script](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-instances/egress-ip-address.sh).
 
 ## Get started
 
@@ -165,13 +168,19 @@ Output is similar to:
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 52.142.18.133</body></html>
 ```
 
+## Clean up resources
+
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+
+```azurecli-interactive
+az group delete --name $resourceGroup --yes --no-wait
+```
+
 ## Next steps
 
 In this article, you set up container groups in a virtual network behind an Azure firewall. You configured a user-defined route and NAT and application rules on the firewall. By using this configuration, you set up a single, static IP address for ingress and egress from Azure Container Instances.
 
 For more information about managing traffic and protecting Azure resources, see the [Azure Firewall](../firewall/index.yml) documentation.
-
-
 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-container-create]: /cli/azure/container#az_container_create
