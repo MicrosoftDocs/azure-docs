@@ -76,9 +76,6 @@ For more information about conditions, see [What is Azure attribute-based access
 
 1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
 
-    > [!TIP]
-    > For information about the characters that are allowed for blob index tags, see [Setting blob index tags](../storage/blobs/storage-manage-find-blobs.md#setting-blob-index-tags)
-
     ![Screenshot of assigning a custom security attribute.](./media/conditions-custom-security-attributes/project-users-attributes-assign.png)
 
 1. Be sure to click **Save** to save your assignment.
@@ -97,7 +94,10 @@ For more information about conditions, see [What is Azure attribute-based access
     | --- | --- | --- |
     | Baker text file | Project | Baker |
     | Cascade text file | Project | Cascade |
- 
+
+    > [!TIP]
+    > For information about the characters that are allowed for blob index tags, see [Setting blob index tags](../storage/blobs/storage-manage-find-blobs.md#setting-blob-index-tags).
+
 ## Step 4: Assign Storage Blob Data Reader role with a condition
 
 1. Open a new tab and sign in to the [Azure portal](https://portal.azure.com).
