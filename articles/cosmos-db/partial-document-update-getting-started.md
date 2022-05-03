@@ -34,7 +34,7 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 
         id: "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
         partitionKey: new PartitionKey("road-bikes"),
         patchOperations: new[] {
-            PatchOperation.Increment("/price", 50)
+            PatchOperation.Replace("/price", 355.45)
         }
     );
     
@@ -48,7 +48,7 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 
     {
         PatchOperation.Add($"/color", "silver"),
         PatchOperation.Remove("/used"),
-        PatchOperation.Set("/price", 355.45)
+        PatchOperation.Increment("/price", 50.00)
     };
     
     ItemResponse<Product> response = await container.PatchItemAsync<Product>(
@@ -134,7 +134,7 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 
         new PartitionKey("road-bikes"),
         CosmosPatchOperations
             .create()
-            .add("/price", 50),
+            .replace("/price", 355.45),
         Product.class
     );
 
@@ -148,7 +148,7 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 
         .create()
         .add("/color", "silver")
         .remove("/used")
-        .set("/price", 355.45);
+        .increment("/price", 50);
 
     CosmosItemResponse<Product> response = container.patchItem(
         "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
@@ -218,75 +218,55 @@ key definition.
 - Executing a single patch operation
 
     ```javascript
-    const patchSource = itemDefList[1];
+    const operations =
+    [
+        { op: 'replace', path: '/price', value: 355.45 }
+    ];
     
-    const replaceOperation: PatchOperation[] = 
-        [{ 
-          op: "replace", 
-          path: "/lastName", 
-          value: "Martin" 
-        }];
-    
-    const { resource: patchSource1 } = await container.item(patchSource.lastName).patch(replaceOperation); 
-    console.log(`Patched ${patchSource1.lastName} to new ${patchSource1.lastName}.`); 
+    const { resource: updated } = await container
+        .item(
+            id = 'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            partitionKeyValue = 'road-bikes'
+        )
+        .patch(operations);
     ```
 
 - Combining multiple patch operations
 
     ```javascript
-    const multipleOperations: PatchOperation[] = [ 
-      { 
-        op: "add", 
-        path: "/aka", 
-        value: "MeFamily" 
-      }, 
-      { 
-        op: "add", 
-        path: "/years", 
-        value: 12 
-      }, 
-      { 
-        op: "replace", 
-        path: "/lastName", 
-        value: "Jose" 
-      }, 
-      { 
-        op: "remove", 
-        path: "/parents" 
-      }, 
-      { 
-        op: "set", 
-        path: "/children/firstName", 
-        value: "Anderson" 
-      }, 
-      { 
-        op: "incr", 
-        path: "/years", 
-        value: 5 
-      } 
-    ]; 
+    const operations =
+    [
+        { op: 'add', path: '/color', value: 'silver' },
+        { op: 'remove', path: '/used' }
+    ];
     
-    const { resource: patchSource2  } = await container.item(patchSource.id).patch(multipleOperations); 
+    const { resource: updated } = await container
+        .item(
+            id = 'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            partitionKeyValue = 'road-bikes'
+        )
+        .patch(operations);
     ```
 
 - Conditional patch syntax based on filter predicate
 
     ```javascript
-    const operations : PatchOperation[] = [ 
-        { 
-          op: "add", 
-          path: "/newImproved", 
-          value: "it works" 
-        } 
-      ]; 
+    const filter = 'FROM products p WHERE p.used = false'
+
+    const operations =
+    [
+        { op: 'replace', path: '/price', value: 100.00 }
+    ];
     
-    const condition = "from c where NOT IS_DEFINED(c.newImproved)"; 
-    
-    const { resource: patchSource3 } = await container 
-        .item(patchSource.id) 
-        .patch({ condition, operations }); 
-    
-    console.log(`Patched ${patchSource3} to new ${patchSource3}.`); 
+    const { resource: updated } = await container
+        .item(
+            id = 'e379aea5-63f5-4623-9a9b-4cd9b33b91d5', 
+            partitionKeyValue = 'road-bikes'
+        )
+        .patch(
+            body = operations,
+            options = filter
+        );
     ```
 
 ---
