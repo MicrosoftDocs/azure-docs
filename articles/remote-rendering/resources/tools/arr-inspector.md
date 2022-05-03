@@ -16,7 +16,7 @@ The ArrInspector is a web-based tool used to inspect a running Azure Remote Rend
 
 ## Connecting to the ArrInspector
 
-Once you obtain the hostname (ending in `mixedreality.azure.com`) of your ARR server, connect using `ConnectToArrInspectorAsync`. See [Connect to ARR inspector](../../how-tos/frontend-apis.md#connect-to-arr-inspector). This function creates a *StartArrInspector.html* page on the device on which the application runs. To launch ArrInspector, open that file with a browser on a PC. The file is only valid for 24 hours.
+Once you obtain the hostname (ending in `mixedreality.azure.com`) of your Remote Rendering server, connect using `ConnectToArrInspectorAsync`. See [Connect to ARR inspector](../../how-tos/frontend-apis.md#connect-to-arr-inspector). This function creates a *StartArrInspector.html* page on the device on which the application runs. To launch ArrInspector, open that file with a browser on a PC. The file is only valid for 24 hours.
 
 If the app that calls `ConnectToArrInspectorAsync` is already running on a PC:
 
@@ -43,7 +43,7 @@ You can pan the graph, by dragging its content with the mouse, however, panning 
 
 Holding CTRL while dragging, allows you to zoom. Horizontal zoom can also be controlled with the slider at the bottom.
 
-The vertical range is by default computed based on the values currently displayed, and min and max values are shown in the text-boxes on the right. When the values are set manually, either by typing them directly into the textbox, or by panning/zooming, the graph will use those values. To restore the automatic vertical framing, select  the icon in the top-right corner.
+The vertical range is by default computed based on the values currently displayed, and min and max values are shown in the text-boxes on the right. When the values are set manually, either by typing them directly into the textbox, or by panning/zooming, the graph uses those values. To restore the automatic vertical framing, select  the icon in the top-right corner.
 
 ![Screenshot shows the vertical range minimum and maximum values.](./media/vertical-range.png)
 
@@ -51,7 +51,7 @@ The vertical range is by default computed based on the values currently displaye
 
 ![Screenshot shows the Log panel, which displays log messages.](./media/log-panel.png)
 
-The log panel shows a list of log messages generated on the server side. On connection it will show up to 200 previous log messages, and will print new ones as they happen.
+The log panel shows a list of log messages generated on the server side. On connection it shows up to 200 previous log messages, and prints new ones as they happen.
 
 You can filter the list based on the log type `[Error/Warning/Info/Debug]` using the buttons at the top.
 :::image type="icon" source="./media/log-filter.png" alt-text="Log Filter Buttons":::
@@ -76,26 +76,26 @@ This panel offers some debug functionality.
 
 ### Restart service
 
-The **Restart Service** button restarts the runtime on the virtual machine that arrInspector is connected to. Any attached client will get disconnected and the arrInspector page must be reloaded to connect to the restarted service.
+The **Restart Service** button restarts the runtime on the virtual machine that arrInspector is connected to. Any attached client gets disconnected and the arrInspector page must be reloaded to connect to the restarted service.
 
 ### Collect debug information
 
-The **Collect Debug Information for VM** button opens a dialog that allows you to trigger the ARR instance to collect debug information on the VM:
+The **Collect Debug Information for VM** button allows you to trigger the Remote Rendering instance to collect debug information on the virtual machine:
 
 ![Screenshot shows the V M Debug Information dialog box.](./media/state-debugger-dialog.png)
 
-Debug information helps the Azure Remote Rendering team to analyze any issues that occur in a running ARR instance. The dialog has a text field to provide other details, for example steps to reproduce an issue.
+Debug information helps the Azure Remote Rendering team to analyze any issues that occur in a running Remote Rendering instance. The dialog box has a text field to provide other details, for example steps to reproduce an issue.
 
-After you select the **Start Collecting** button, the dialog will close and the collection process begins. Collecting the information on the VM can take a few minutes.
+After you select **Start Collecting**, the dialog box closes and the collection process begins. Collecting the information on the virtual machine can take a few minutes.
 
 ![Screenshot shows V M Debug Information collection in progress](./media/state-debugger-panel-in-progress.png)
 
-Once the collection is finished, you'll receive a notification in the ArrInspector window. This notification contains an ID that identifies this particular collection. Be sure to save this ID to pass it on to the Azure Remote Rendering team.
+Once the collection is finished, you'll receive a notification in the ArrInspector window. This notification contains an ID for this particular collection. Be sure to save this ID to pass it on to the Azure Remote Rendering team.
 
 ![Screenshot shows the V M Debug Information collection success message.](./media/state-debugger-snackbar-success.png)
 
 > [!IMPORTANT]
-> You can't download or otherwise access VM debug information. Only the Azure Remote Rendering team has access to the collected data. You need to contact us and send the collection ID along, for us to investigate the issue you are seeing.
+> You can't download or otherwise access virtual machine debug information. Only the Azure Remote Rendering team has access to the collected data. You need to contact us and send the collection ID for us to investigate the issue.
 
 ## Pause mode
 

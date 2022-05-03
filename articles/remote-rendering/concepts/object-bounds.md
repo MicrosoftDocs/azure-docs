@@ -18,9 +18,9 @@ Object bounds represent the volume that an [entity](entities.md) and its childre
 
 The local axis aligned bounding box of a mesh can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform. For more information, see [Meshes](meshes.md).
 
-It's possible to compute the bounds of an entire object hierarchy this way. That approach requires to traversing the hierarchy, querying the bounds for each mesh, and combining them manually. This operation is both tedious and inefficient.
+It's possible to compute the bounds of an entire object hierarchy this way. That approach requires traversing the hierarchy, querying the bounds for each mesh, and combining them manually. This operation is both tedious and inefficient.
 
-A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
+A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. This approach offloads computation to the server and returns with minimal delay.
 
 ```cs
 public async void GetBounds(Entity entity)

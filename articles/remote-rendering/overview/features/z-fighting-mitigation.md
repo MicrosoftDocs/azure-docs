@@ -12,7 +12,7 @@ ms.custom:
 
 # Z-fighting mitigation
 
-When two surfaces overlap, it isn't clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. So, when the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort, Azure Remote Rendering offers z-fighting mitigation functionality.
+When two surfaces overlap, it isn't clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. When the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort, Azure Remote Rendering offers z-fighting mitigation functionality.
 
 ## Z-fighting mitigation modes
 
@@ -60,9 +60,9 @@ Z-fighting happens mainly for two reasons:
 * When surfaces are very far away from the camera, the precision of their depth values degrades and the values become indistinguishable
 * When surfaces in a mesh physically overlap
 
-The first problem can always happen and is difficult to eliminate. If this situation happens in your application, make sure that the ratio of the *near plane* distance to the *far plane* distance is as low as practical. For example, a near plane at distance 0.01 and far plane at distance 1000 will create this problem much earlier than having the near plane at 0.1 and the far plane at distance 20.
+The first problem can always happen and is difficult to eliminate. If this situation happens in your application, make sure that the ratio of the *near plane* distance to the *far plane* distance is as low as practical. For example, a near plane at distance 0.01 and far plane at distance 1000 creates this problem much earlier than having the near plane at 0.1 and the far plane at distance 20.
 
-The second problem is an indicator for badly authored content. In the real world, two objects can't be in the same place at the same time. Depending on the application, users might want to know whether overlapping surfaces exist and where they are. For example, a CAD scene of a building that is the basis for a real world construction, shouldn't contain physically impossible surface intersections. To allow for visual inspection, the highlighting mode is available, which displays potential z-fighting as an animated checkerboard pattern.
+The second problem is an indication of badly authored content. In the real world, two objects can't be in the same place at the same time. Depending on the application, users might want to know whether overlapping surfaces exist and where they are. For example, a CAD scene of a building that is the basis for a real world construction, shouldn't contain physically impossible surface intersections. To allow for visual inspection, the highlighting mode is available, which displays potential z-fighting as an animated checkerboard pattern.
 
 ## Limitations
 

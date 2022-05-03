@@ -19,23 +19,23 @@ In this quickstart you'll learn how to:
 > [!div class="checklist"]
 >
 >* Build the tutorial application for HoloLens.
->* Change the ARR credentials in the source code.
+>* Change the Azure Remote Rendering credentials in the source code.
 >* Deploy and run the sample on the device.
 
 ## Prerequisites
 
-To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md).
+To get access to the Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md).
 
 The following software must be installed:
 
 * [Windows SDK 10.0.18362.0](https://developer.microsoft.com/windows/downloads/windows-10-sdk) or later.
 * [The latest version of Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/).
-* [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+* [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are required:
   * **Desktop development with C++**
   * **Universal Windows Platform (UWP) development**
 * [GIT](https://git-scm.com/downloads).
 
-## Clone the ARR samples repository
+## Clone the Remote Rendering samples repository
 
 As a first step, clone the Git repository, which houses the global Azure Remote Rendering samples. Type `cmd` in the Windows Start menu to open a command prompt window. Change to a directory where you want to store the ARR sample project.
 
@@ -78,9 +78,9 @@ Since the account credentials are hardcoded in the tutorial's source code, chang
 
 Specifically, change the following values:
 
-* `init.AccountId`, `init.AccountKey`, and `init.AccountDomain` to use your account data. See the paragraph about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* `init.AccountId`, `init.AccountKey`, and `init.AccountDomain` to use your account data. See the section about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * Specify where to create the remote rendering session by modifying the region part of the `init.RemoteRenderingDomain` string for other [regions](../../../reference/regions.md) than `westus2`, for instance `"westeurope.mixedreality.azure.com"`.
-* In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample, for instance by using [the PowerShell script](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or using the [session REST API](../../../how-tos/session-rest-api.md) directly.
+* In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample. For more information, see [RenderingSession.ps1](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or [Use the session management REST API](../../../how-tos/session-rest-api.md) directly.
 
 Creating a session outside the sample is recommended when the sample should run multiple times. If no session is passed in, the sample creates a session upon each startup, which may take several minutes.
 
@@ -90,7 +90,7 @@ Now you can compile the application.
 
 1. Connect the HoloLens with a USB cable to your PC.
 1. Turn on the HoloLens and wait until the start menu shows up.
-1. Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the device.
+1. Start the Debugger in Visual Studio (F5). It automatically deploys the app to the device.
 
 The sample app launches and a text panel appears that informs you about the current application state. The status at startup time is either starting a new session or connecting to an existing session. After model loading finishes, the built-in engine model appears right at your head position. Occlusion-wise, the engine model interacts properly with the spinning cube that is rendered locally.
 
