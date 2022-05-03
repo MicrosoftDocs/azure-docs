@@ -33,11 +33,11 @@ Added:
 - Create, update, and delete AD connector 
 - Create SQL Managed Instance with AD connectivity to the Azure CLI extension in direct connectivity mode.
 
-Arc-enabled data services sends controller logs to the Log Analytics Workspace if logs upload is enabled. 
+Data controller sends controller logs to the Log Analytics Workspace if logs upload is enabled. 
 
 Removed the `--ad-connector-namespace` parameter from `az sql mi-arc create` command because for now the AD connector resource must always be in the same namespace as the SQL Managed Instance resource.
 
-Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluentbit, Go.
+Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluent Bit, Go.
 
 All container image sizes were reduced by approximately 40% on average.
 
@@ -51,10 +51,10 @@ Updated SQL engine binaries to the latest version.
 
 Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure Portal, or Azure Data Studio user experience yet.
 
-Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replica count.  
+Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
-- If replicas = 3 then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
-- If replicas is 1 or 2 then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
+- If more than three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
 ### User experience improvements
 
@@ -714,7 +714,7 @@ Additional updates include:
 - Issues with Python environments when using azdata in notebooks in Azure Data Studio resolved
 - The pg_audit extension is now available for PostgreSQL Hyperscale
 - A backup ID is no longer required when doing a full restore of a PostgreSQL Hyperscale database
-- The status (health state) is reported for each of the PostgreSQL instances in a sever group
+- The status (health state) is reported for each of the PostgreSQL instances in a server group
 
    In earlier releases, the status was aggregated at the server group level and not itemized at the PostgreSQL node level.
 
