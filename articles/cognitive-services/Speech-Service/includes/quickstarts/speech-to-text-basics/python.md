@@ -43,7 +43,7 @@ Follow these steps to create a new console application and install the Speech SD
 
     ```Python
     import azure.cognitiveservices.speech as speechsdk
-    
+
     def recognize_from_microphone():
         speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
         speech_config.speech_recognition_language="en-US"
@@ -52,10 +52,10 @@ Follow these steps to create a new console application and install the Speech SD
         #audio_config = speechsdk.audio.AudioConfig(filename="YourAudioFile.wav")
         audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
         speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
-        
+
         print("Speak into your microphone.")
         speech_recognition_result = speech_recognizer.recognize_once_async().get()
-    
+
         if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
             print("Recognized: {}".format(speech_recognition_result.text))
         elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
@@ -65,7 +65,8 @@ Follow these steps to create a new console application and install the Speech SD
             print("Speech Recognition canceled: {}".format(cancellation_details.reason))
             if cancellation_details.reason == speechsdk.CancellationReason.Error:
                 print("Error details: {}".format(cancellation_details.error_details))
-    
+                print("Did you set the speech resource key and region values?")
+
     recognize_from_microphone()
     ```
 1. In `speech_recognition.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
@@ -86,6 +87,15 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
+
+Here are some additional considerations:
+
+- This example uses the `recognize_once_async` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- To recognize speech from an audio file, use `filename` instead of `use_default_microphone`:
+    ```python
+    audio_config = speechsdk.audio.AudioConfig(filename="YourAudioFile.wav")
+    ```
+- For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Clean up resources
 

@@ -7,7 +7,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 05/01/2022
 
 ms.author: martinco
 author: martincoetzer
@@ -18,7 +18,7 @@ tags: azuread
 ---
 # Five steps to securing your identity infrastructure
 
-If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/microsoft-digital-defense-report).
+If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report).
 
 This document will help you get a more secure posture using the capabilities of Azure Active Directory by using a five-step checklist to improve your organization's protection against cyber-attacks.
 
@@ -130,7 +130,7 @@ Azure AD built-in and custom roles operate on concepts similar to roles found in
 
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa. As part of deploying your privileged account process, follow the best practice to create at least two emergency accounts to make sure you still have access to Azure AD if you lock yourself out.
 
-For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md).
+For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md) and [securing privileged access](/security/compass/overview).
 
 ### Restrict user consent operations
 
@@ -140,7 +140,7 @@ Microsoft recommends restricting user consent to allow end-user consent only for
 
 Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Azure AD credentials. Once you regulate your consent operations, administrators should audit app and consent permissions regularly.
 
-For more information, see the article [Azure Active Directory consent framework(../../active-directory/develop/consent-framework.md).
+For more information, see the article [Azure Active Directory consent framework](../../active-directory/develop/consent-framework.md).
 
 ## Step 3 - Automate threat response
 

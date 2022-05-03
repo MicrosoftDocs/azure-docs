@@ -23,7 +23,8 @@ The following table describes the maximum limits for Azure Virtual Desktop.
 
 <sup>1</sup>If you require over 500 Application groups then please raise a support ticket via the Azure portal.
 
-All other Azure resources used in Azure Virtual Desktop such as Virtual Machines, Storage, Networking etc. are all subject to their own resource limitations documented in the relevant sections of this article.
+All other Azure resources used in Azure Virtual Desktop such as Virtual Machines, Storage, Networking etc. are all subject to their own resource limitations documented in the relevant sections of this article. 
+To visualise the relationship between all the Azure Virtual Desktop objects, review this article [Relationships between Azure Virtual Desktop logical components](/azure/architecture/example-scenario/wvd/windows-virtual-desktop#azure-virtual-desktop-limitations).
 
 To get started with Azure Virtual Desktop, use the [getting started guide](../articles/virtual-desktop/overview.md).
 For deeper architectural content for Azure Virtual Desktop, use the [Azure Virtual Desktop section of the Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/wvd/).

@@ -53,4 +53,3 @@ This article lists limits in different areas of Azure Monitor.
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Monitoring usage and estimated costs in Azure Monitor](./usage-estimated-costs.md)
-- [Manage usage and costs for Application Insights](app/pricing.md)

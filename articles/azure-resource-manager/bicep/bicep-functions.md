@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 05/02/2022
 ---
 
 # Bicep functions
@@ -38,9 +38,11 @@ The following functions are available for working with arrays. All of these func
 * [concat](./bicep-functions-array.md#concat)
 * [contains](./bicep-functions-array.md#contains)
 * [empty](./bicep-functions-array.md#empty)
+* [indexOf](./bicep-functions-array.md#indexof)
 * [first](./bicep-functions-array.md#first)
 * [intersection](./bicep-functions-array.md#intersection)
 * [last](./bicep-functions-array.md#last)
+* [lastIndexOf](./bicep-functions-array.md#lastindexof)
 * [length](./bicep-functions-array.md#length)
 * [min](./bicep-functions-array.md#min)
 * [max](./bicep-functions-array.md#max)
@@ -54,6 +56,8 @@ The following functions are available for working with arrays. All of these func
 The following functions are available for working with dates. All of these functions are in the `sys` namespace.
 
 * [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
+* [dateTimeFromEpoch](./bicep-functions-date.md#datetimefromepoch)
+* [dateTimeToEpoch](./bicep-functions-date.md#datetimetoepoch)
 * [utcNow](./bicep-functions-date.md#utcnow)
 
 ## Deployment value functions

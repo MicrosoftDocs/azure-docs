@@ -27,9 +27,7 @@ For example, you can:
 
 ## Prerequisites
 
-To use data export features, you must have a [V3 application](howto-faq.yml#how-do-i-get-information-about-my-application-), and you must have the [Data export](howto-manage-users-roles.md) permission.
-
-If you have a V2 application, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
+To use data export features, you must have the [Data export](howto-manage-users-roles.md) permission.
 
 ## Set up an export destination
 
@@ -330,11 +328,7 @@ To configure the permissions:
 
 1. Select **Save**. The managed identity for your IoT Central application is now configured.
 
-To further secure your event hub and only allow access from trusted services with managed identities, see:
-
-- [Allow access to Azure Event Hubs namespaces using private endpoints](../../event-hubs/private-link-service.md)
-- [Trusted Microsoft services](../../event-hubs/private-link-service.md#trusted-microsoft-services)
-- [Allow access to Azure Event Hubs namespaces from specific virtual networks](../../event-hubs/event-hubs-service-endpoints.md)
+To further secure your event hub and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 To create the Event Hubs destination in IoT Central on the **Data export** page:
 
@@ -405,11 +399,7 @@ To configure the permissions:
 
 1. Select **Save**. The managed identity for your IoT Central application is now configured.
 
-To further secure your queue or topic and only allow access from trusted services with managed identities, see:
-
-- [Allow access to Azure Service Bus namespaces using private endpoints](../../service-bus-messaging/private-link-service.md)
-- [Trusted Microsoft services](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
-- [Allow access to Azure Service Bus namespace from specific virtual networks](../../service-bus-messaging/service-bus-service-endpoints.md)
+To further secure your queue or topic and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 To create the Service Bus destination in IoT Central on the **Data export** page:
 
@@ -484,11 +474,7 @@ To configure the permissions:
     > [!TIP]
     > This role assignment isn't visible in the list on the **Azure role assignments** page.
 
-To further secure your blob container and only allow access from trusted services with managed identities, see:
-
-- [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
-- [Authorize access to blob data with managed identities for Azure resources](../../storage/blobs/authorize-managed-identity.md)
-- [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
+To further secure your blob container and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 To create the Blob Storage destination in IoT Central on the **Data export** page:
 

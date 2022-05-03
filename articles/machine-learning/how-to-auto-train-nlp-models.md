@@ -84,7 +84,7 @@ For multi-label classification, the dataset columns would be the same as multi-c
 |Python list with quotes| `"['label1','label2','label3']"`| `"['label1']"`|`"[]"`
 
 > [!IMPORTANT]
-> Different parsers are used to read labels for these formats. If you are using the plaint text format, only use alphabetical, numerical and `'_'` in your labels. All other characters are recognized as the separator of labels. 
+> Different parsers are used to read labels for these formats. If you are using the plain text format, only use alphabetical, numerical and `'_'` in your labels. All other characters are recognized as the separator of labels. 
 >
 > For example, if your label is `"cs.AI"`, it's read as `"cs"` and `"AI"`. Whereas with the Python list format, the label would be `"['cs.AI']"`, which is read as `"cs.AI"` .
 
@@ -142,7 +142,7 @@ Before training, automated ML applies data validation checks on the input data t
 
 Task | Data validation check
 ---|---
-All tasks | At least 50 training samples are required 
+All tasks | - Both training and validation sets must be provided <br> - At least 50 training samples are required 
 Multi-class and Multi-label | The training data and validation data must have <br> - The same set of columns <br>- The same order of columns from left to right <br>- The same data type for columns with the same name <br>- At least two unique labels <br>  - Unique column names within each dataset (For example, the training set can't have multiple columns named **Age**)
 Multi-class only | None
 Multi-label only | - The label column format must be in [accepted format](#multi-label) <br> - At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <br> - All labels should be in `str` or `int` format, with no overlapping. You should not have both label `1` and label `'1'`

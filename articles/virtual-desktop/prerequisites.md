@@ -75,7 +75,7 @@ The following table summarizes identity scenarios that Azure Virtual Desktop cur
 > [!IMPORTANT]
 > The user account must exist in the Azure AD tenant you use for Azure Virtual Desktop. Azure Virtual Desktop doesn't support [B2B](../active-directory/external-identities/what-is-b2b.md), [B2C](../active-directory-b2c/overview.md), or personal Microsoft accounts.
 >
-> The [UserPrincipalName (UPN)](../active-directory/hybrid/plan-connect-userprincipalname.md) you use to subscribe to Azure Virtual Desktop must exist in the Active Directory domain you're joining the session host to.
+> When using hybrid identities, either the UserPrincipalName (UPN) or the Security Identifier (SID) must match across Active Directory Domain Services and Azure Active Directory. For more information, see [Supported identities and authentication methods](authentication.md#hybrid-identity).
 
 ### Deployment parameters
 
