@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/27/2022
+ms.date: 05/03/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -94,7 +94,7 @@ A consistent chain of certificates must be installed across devices in the same 
 
 With this setup, each downstream IoT Edge device or IoT leaf device can verify the identity of their parent by verifying that the edgeHub they connect to has a server certificate that is signed by the shared root CA certificate.
 
-<!-- TODO: certificate graphic -->
+:::image type="content" source="media/how-to-connect-downstream-iot-edge-device/gateway-setup.png" alt-text="Illustration of certificate chain issued by root CA on gateway and downstream device":::
 
 ### Create certificates
 
@@ -114,12 +114,11 @@ To enable secure connections, every IoT Edge device in a gateway scenario needs 
 with an unique device CA certificate and a copy of the root CA certificate shared by all devices in
 the gateway hierarchy.
 
-> [!TIP]
-> If you created your certificates on a different device, you can transfer the files using options such as a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or using [Secure file copy](https://www.ssh.com/ssh/scp/).
-
 Use the following platform-specific command steps to configure the **root CA certificate** and
 **device CA certificate and private key** certificates on your parent and leaf IoT Edge devices. In
 the examples, we'll use `/var/secrets` for the certificates and keys directory and test certificates generated using [test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/main/tools/CACertificates).
+
+01. Transfer the the certificates and keys to the device using a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 
 01. Install the **root CA certificate** on the parent and child IoT Edge devices. Copy the root certificate into the certificate directory and add `.crt` to the end of the file name. 
 
@@ -171,6 +170,8 @@ the examples, we'll use `/var/secrets` for the certificates and keys directory a
     -r--r--r-- 1 aziotks root 1675 Apr 20 23:34 iot-edge-device-identity-parent.key.pem
     ```
 
+For more information on installing certificates on a device, see [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
+
 ## Configure IoT Edge on devices
 
 The steps for setting up IoT Edge as a gateway is very similar to the steps for setting up IoT Edge
@@ -214,11 +215,6 @@ parameters.
     device. For example,
 
     ```toml
-    # ==============================================================================
-    # Hostname
-    # ==============================================================================
-    # Uncomment the next line to override the default hostname of this device.
-    #
     hostname = "10.0.0.4"
     ```
 
@@ -237,33 +233,14 @@ parameters.
     device. For example,
 
     ```toml
-    # ==============================================================================
-    # Trust bundle cert
-    # ==============================================================================
-    #
-    # If you have any trusted CA certificates required for Edge module communication,
-    # uncomment the next line and set the value to a file URI for
-    # the path of the file.
-    #
     trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
     ```
 
 01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format.
 
     ```toml
-    # ==============================================================================
-    # Edge CA certificate
-    # ==============================================================================
-    #
-    # If you have your own Edge CA certificate that you want all module certificates
-    # to be issued by, uncomment one of the sections below and replace the values with
-    # your own.
-    
-    # Edge CA certificate loaded from a file:
-    # ---------------------
-    
     [edge_ca]
-    cert = "file:///var/secrets/iot-edge-device-ca-gateway-full-chain.cert.pem"
+    cert = "file:///var/secrets/iot-edge-device-ca-gateway.cert.pem"
     pk = "file:///var/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
@@ -285,13 +262,6 @@ upstream device for connection.
     matching whatever was provided as the hostname in the parent device's config file. For example,
 
     ```toml
-    # ==============================================================================
-    # Parent hostname
-    # ==============================================================================
-    #
-    # If this is a Nested Edge device, uncomment the next line to set the
-    # parent hostname of this device.
-    #
     parent_hostname = "10.0.0.4"
     ```
 
@@ -304,7 +274,7 @@ upstream device for connection.
     trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/secrets/iot-edge-device-ca-gateway-full-chain.cert.pem"
+    cert = "file:///var/secrets/iot-edge-device-ca-gateway.cert.pem"
     pk = "file:///var/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
@@ -315,8 +285,8 @@ upstream device for connection.
     trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/secrets/iot-edge-device-downstream-full-chain.cert.pem"
-    pk = "file:///var/secrets/iot-edge-device-downstream.key.pem"
+    cert = "file:///var/secrets/iot-edge-device-ca-downstream.cert.pem"
+    pk = "file:///var/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
 1. Save and close the `config.toml` config file. For example if you are using the `nano` editor, select `Ctrl+O` - *Write Out*, **Enter**, and `Ctrl+X` - *Exit*.
