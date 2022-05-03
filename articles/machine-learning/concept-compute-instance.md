@@ -33,7 +33,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 |Key benefits|Description|
 |----|----|
-|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (preview)<br/>-  RStudio (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace.<br/> 
+|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace.<br/> 
 |Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Autoprovisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Virtual network support](./how-to-secure-training-vnet.md#compute-cluster)<br/> - Azure policy to disable SSH access<br/> - Azure policy to enforce creation in a virtual network <br/> - Auto-shutdown/auto-start based on schedule <br/>- TLS 1.2 enabled |
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. You can also use setup scripts to automate customization |
@@ -45,7 +45,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 * To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview)** to automatically start and stop the compute instance.
 
 
-## <a name="contents"></a>Tools and environments
+## Tools and environments
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
@@ -68,8 +68,9 @@ Following tools and environments are already installed on the compute instance:
 
 |**R** tools & environments|Details|
 |----|:----:|
-|RStudio Server Open Source Edition (preview)||
 |R kernel||
+
+You can [Add RStudio]([Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md#add-custom-services-such-as-rstudio-preview) when you create the instance.
 
 |**PYTHON** tools & environments|Details|
 |----|----|

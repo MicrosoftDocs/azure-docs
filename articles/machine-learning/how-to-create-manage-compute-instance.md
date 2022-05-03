@@ -431,7 +431,7 @@ For example, specify a base64 encoded command string for `scriptData`:
 
 Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
 
-## Set up custom services such as RStudio (preview)
+## Add custom services such as RStudio (preview)
 
 You can set up additional services, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom service on your compute instance
 
