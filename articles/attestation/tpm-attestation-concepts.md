@@ -1,5 +1,5 @@
 ---
-title: TPM Attestation overview
+title: Azure Attestation TPM attestation overview
 description: TPM Attestation overview
 services: attestation
 author: prsriva
@@ -10,7 +10,7 @@ ms.author: prsriva
 ms.custom: TPM Attestation overview complete 
 ---
 
-# Trusted Platform Module(TPM) Attestation
+# Trusted Platform Module (TPM) Attestation
 
 Devices with a TPM, can rely on attestation to prove that boot integrity isn't compromised along with using the measured boot to detect early boot feature states. A growing number of device types, bootloaders and boot stack attacks require an attestation solution to evolve accordingly. An attested state of a device is driven by the attestation policy used to verify the contents on the platform evidence. This document provides an overview of TPM attestation and capabilities supported by MAA.
 
@@ -37,8 +37,6 @@ Validate the measurements made during the boot using the Azure Attestation servi
 - At boot, an Attestation Identity Key is generated which is used to provide a cryptographic proof to the attestation service that the TPM in use has been issued a cert after EK validation was performed.
 - Relying parties can perform an attestation against the Azure Attestation service, which can be used to validate measurements made during the boot process.
 - A relying party can then rely on the attestation statement to gate access to resources or other actions.
-
-![Conceptual device attestation flow](./media/device-tpm-attestation-flow.png)
 
 Conceptually, TPM attestation can be visualized as above, where the relying party applies Azure Attestation service to verify the platform(s) integrity and any violation of promises, providing the confidence to run workloads or provide access to resources.
 

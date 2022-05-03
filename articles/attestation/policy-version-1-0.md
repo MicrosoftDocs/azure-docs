@@ -19,8 +19,6 @@ This article introduces the workings of the attestation service and the policy e
 
 The minimum version of the policy supported by the service is version 1.0.
 
-:::image type="content" source="./media/maa-policy-version-10.png" alt-text="A diagram showing Azure attestation using policy version 1.0":::
-
 The attestation service flow is as follows:
 - The platform sends the attestation evidence in the attest call to the attestation service.
 - The attestation service parses the evidence and creates a list of claims that is then used in the attestation evaluation. These claims are logically categorized as incoming claims sets.
@@ -30,12 +28,9 @@ For Policy version 1.0:
 
 The policy has three segments, as seen above:
 
-**version**: The version is the version number of the grammar that is followed.
-version=1.0
-
-**authorizationrules**: A collection of claim rules that will be checked first, to determine if attestation should proceed to issuancerules. This section should be used to filter out calls that don’t require the issuancerules to be applied. No claims can be issued from this section to the response token. These rules can be used to fail  attestation.
-
-**issuancerules**: A collection of claim rules that will be evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional. A collection of claim rules that will be evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional. These rules can be used to add to the outgoing claim set and the response token, these rules cannot be used to fail attestation.
+- **version**: The version is the version number of the grammar that is followed.
+- **authorizationrules**: A collection of claim rules that will be checked first, to determine if attestation should proceed to issuancerules. This section should be used to filter out calls that don’t require the issuancerules to be applied. No claims can be issued from this section to the response token. These rules can be used to fail  attestation.
+- **issuancerules**: A collection of claim rules that will be evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional. A collection of claim rules that will be evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional. These rules can be used to add to the outgoing claim set and the response token, these rules cannot be used to fail attestation.
 
 List of claims supported by policy version 1.0 as part of the incoming claims.
 

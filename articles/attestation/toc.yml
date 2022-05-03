@@ -40,7 +40,7 @@
   - name: Basic concepts
     href: basic-concepts.md
     items:
-      - name: Trusted Platform Module(TPM) Attestation
+      - name: Trusted Platform Module (TPM) Attestation
         href: tpm-attestation-concepts.md
   - name: Attestation policy
     items:

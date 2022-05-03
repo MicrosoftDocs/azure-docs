@@ -17,8 +17,6 @@ This article introduces the workings of the attestation service and the policy e
 
 ## Policy version 1.1
 
-:::image type="content" source="./media/maa-policy-version-11.png" alt-text="A diagram showing Azure attestation using policy version 1.1":::
-
 The attestation flow is as follows:
 - The platform sends the attestation evidence in the attest call to the attestation service.
 - The attestation service parses the evidence and creates a list of claims that is then used during rule evaluation. The claims are logically categorized as incoming claims sets.
@@ -28,11 +26,10 @@ The attestation flow is as follows:
 For Policy version 1.1:
 The policy has four segments, as seen above:
 
-**version**: The version is the version number of the grammar that is followed.
-version=1.1
-**configurationrules**: During policy evaluation, sometimes it may be required to control the behavior of the policy engine itself. This is where configuration rules can be used to indicate to the policy evaluation engine how to handle some claims in the evaluation.
-**authorizationrules**: A collection of claim rules that will be checked first, to determine if attestation should proceed to issuancerules. This section should be used to filter out calls that don’t require the issuancerules to be applied. No claims can be issued from this section to the response token. These rules can be used to fail attestation.
-**issuancerules**: A collection of claim rules that will be evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the defined order and are also optional. These rules can also be used to add to the outgoing claim set and the response token, however these rules cannot be used to fail attestation.
+- **version**: The version is the version number of the grammar that is followed.
+- **configurationrules**: During policy evaluation, sometimes it may be required to control the behavior of the policy engine itself. This is where configuration rules can be used to indicate to the policy evaluation engine how to handle some claims in the evaluation.
+- **authorizationrules**: A collection of claim rules that will be checked first, to determine if attestation should proceed to issuancerules. This section should be used to filter out calls that don’t require the issuancerules to be applied. No claims can be issued from this section to the response token. These rules can be used to fail attestation.
+- **issuancerules**: A collection of claim rules that will be evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the defined order and are also optional. These rules can also be used to add to the outgoing claim set and the response token, however these rules cannot be used to fail attestation.
 
 The following **configurationrules** are available to the policy author.
 
