@@ -37,9 +37,6 @@ Follow these steps to create a new console application for speech recognition.
 
 Build and run your new console application. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
 
-```console
-node.exe Captioning.js -- [-f] [-h] [-i file] [-l languages] [-m] [-o file] [-p phrases] [-q] [-r number] [-s] [-t] [-u] YourSubscriptionKey YourServiceRegion
-```
 
 // To install Typescript and Speech SDK
 npm install typescript

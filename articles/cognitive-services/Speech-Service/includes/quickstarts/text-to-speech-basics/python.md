@@ -35,7 +35,7 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a new console application.
 
 1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
 1. Copy the following code into `speech_synthesis.py`: 

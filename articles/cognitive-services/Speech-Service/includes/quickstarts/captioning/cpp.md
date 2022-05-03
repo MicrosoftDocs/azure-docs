@@ -36,7 +36,7 @@ Follow these steps to create a new console application and install the Speech SD
 // - Microsoft.CognitiveServices.Speech.core.dll
 // - Microsoft.CognitiveServices.Speech.extension.audio.sys.dll
 
-cl.exe /Zi /EHsc /std:c++17 /nologo /I <speech sdk>\build\native\include\cxx_api /I <speech sdk>\build\native\include\c_api <code folder>\helper.cpp <code folder>\captioning.cpp <speech sdk>\build\native\x64\Release\Microsoft.CognitiveServices.Speech.core.lib
+`cl.exe /Zi /EHsc /std:c++17 /nologo /I <speech sdk>\build\native\include\cxx_api /I <speech sdk>\build\native\include\c_api <code folder>\helper.cpp <code folder>\captioning.cpp <speech sdk>\build\native\x64\Release\Microsoft.CognitiveServices.Speech.core.lib`
 
 1. Install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 1. Make sure that you have an input file named `caption.this.mp4` in the path.

@@ -30,7 +30,7 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 
 ## Create captions from speech
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a new console application.
 
 1. Clone the [Cognitive Services Speech SDK]() samples repository from GitHub.
 1. Open a command prompt in the directory of `captioning.py`.

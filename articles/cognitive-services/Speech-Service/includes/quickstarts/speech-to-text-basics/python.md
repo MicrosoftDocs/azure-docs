@@ -35,7 +35,7 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 
 ## Recognize speech from a microphone
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a new console application.
 
 1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
 1. Copy the following code into `speech_recognition.py`: 
