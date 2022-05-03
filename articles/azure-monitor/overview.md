@@ -20,6 +20,7 @@ Just a few examples of what you can do with Azure Monitor include:
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](visualize/tutorial-logs-dashboards.md) and [workbooks](visualize/workbooks-overview.md).
 - Collect data from [monitored resources](./monitor-reference.md) using [Azure Monitor Metrics](./essentials/data-platform-metrics.md).
+- Investigate change data for routine monitoring or for triaging incidents using [Change Analysis](./change/change-analysis.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -46,6 +47,10 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ![Diagram shows Logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
+Change Analysis not only alerts you to live site issues, outages, component failures, or other change data, but it provides insights into those application changes, increases observability, and reduces the mean time to repair (MTTR). You automatically register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription by navigating to the Change Analysis service via the Azure portal. For web app in-guest changes, you can enable Change Analysis using the [Diagnose and solve problems tool](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool). 
+
+Change Analysis builds on [Azure Resource Graph](../governance/resource-graph/overview.md) to provide a historical record of how your Azure resources have changed over time, detecting managed identities, platform OS upgrades, and hostname changes. Change Analysis securely queries IP Configuration rules, TLS settings, and extension versions to provide more detailed change data.
+
 ## What data does Azure Monitor collect?
 Azure Monitor can collect data from a [variety of sources](monitor-reference.md). This ranges from your application, any operating system and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
 
@@ -54,6 +59,7 @@ Azure Monitor can collect data from a [variety of sources](monitor-reference.md)
 - **Azure resource monitoring data**: Data about the operation of an Azure resource. For a complete list of the resources that have metrics or logs, see [What can you monitor with Azure Monitor?](monitor-reference.md#azure-supported-services).
 - **Azure subscription monitoring data**: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. 
 - **Azure tenant monitoring data**: Data about the operation of tenant-level Azure services, such as Azure Active Directory.
+- **Azure resource change data**: Data about changes within your Azure resource(s) and how to address and triage incidents and issues.
 
 As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity logs](essentials/platform-logs-overview.md) record when resources are created or modified. [Metrics](essentials/data-platform-metrics.md) tell you how the resource is performing and the resources that it's consuming. 
 
@@ -126,7 +132,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ## Integrate and export data
 You'll often have the requirement to integrate Azure Monitor with other systems and to build custom solutions that use your monitoring data. Other Azure services work with Azure Monitor to provide this integration.
 
-### Event Hub
+### Event Hubs
 [Azure Event Hubs](../event-hubs/index.yml) is a streaming platform and event ingestion service. It can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream Azure Monitor data](essentials/stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
 
 
