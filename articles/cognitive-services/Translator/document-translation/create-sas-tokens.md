@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 05/02/2022
+ms.date: 05/03/2022
 ---
 
 # Create SAS tokens for your storage containers
