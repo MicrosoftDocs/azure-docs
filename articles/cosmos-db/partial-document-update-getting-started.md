@@ -68,7 +68,7 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 
     
     List<PatchOperation> operations = new ()
     {
-        PatchOperation.Replace($"/price", 100.0),
+        PatchOperation.Replace($"/price", 100.00),
     };
     
     ItemResponse<Product> response = await container.PatchItemAsync<Product>(
@@ -117,9 +117,9 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 
 
 ```xml
 <dependency>
-	<groupId>com.azure</groupId>
-	<artifactId>azure-cosmos</artifactId>
-	<version>4.21.0</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>LATEST</version>
 </dependency>
 ```
 
@@ -129,52 +129,81 @@ Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 
 - Executing a single patch operation
 
     ```java
-    CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
-    cosmosPatchOperations.add("/registered", true);
-    
-    CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
-    
-    CosmosItemResponse<Family> response = this.container.patchItem(id, new PartitionKey(partitionKey),
-                                          cosmosPatchOperations, options, Family.class);
+    CosmosItemResponse<Product> response = container.patchItem(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        new PartitionKey("road-bikes"),
+        CosmosPatchOperations
+            .create()
+            .add("/price", 50),
+        Product.class
+    );
+
+    Product updated = response.getItem();
     ```
 
 - Combining multiple patch operations
 
     ```java
-    CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
-    cosmosPatchOperations.add("/registered", true)
-                         .replace("/parents/0/familyName", "Doe");
-    CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
-    
-    CosmosItemResponse<Family> response = this.container.patchItem(id, new PartitionKey(partitionKey),
-                                          cosmosPatchOperations, options, Family.class);
+    CosmosPatchOperations operations = CosmosPatchOperations
+        .create()
+        .add("/color", "silver")
+        .remove("/used")
+        .set("/price", 355.45);
+
+    CosmosItemResponse<Product> response = container.patchItem(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        new PartitionKey("road-bikes"),
+        operations,
+        Product.class
+    );
     ```
 
 - Conditional patch syntax based on filter predicate
 
     ```java
-    CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
-                                                                       .add("/vaccinated", true);
     CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
-    options.setFilterPredicate("from f where f.registered = true");
-    
-    CosmosItemResponse<Family> response = this.container.patchItem(id, new PartitionKey(partitionKey),
-                                          cosmosPatchOperations, options, Family.class);
+    options.setFilterPredicate("FROM products p WHERE p.used = false");
+
+    CosmosPatchOperations operations = CosmosPatchOperations
+        .create()
+        .replace("/price", 100.00);
+
+    CosmosItemResponse<Product> response = container.patchItem(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        new PartitionKey("road-bikes"),
+        operations,
+        options,
+        Product.class
+    );
     ```
 
 - Executing patch operation as a part of a Transaction
 
     ```java
-    CosmosBatch batch = CosmosBatch.createCosmosBatch(new PartitionKey(family.getLastName()));
-    batch.createItemOperation(family);
-    
-    CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create().add("/registered", false);
-    batch.patchItemOperation(family.getId(), cosmosPatchOperations);
-    
+    CosmosBatchPatchItemRequestOptions options = new CosmosBatchPatchItemRequestOptions();
+    options.setFilterPredicate("FROM products p WHERE p.used = false");
+
+    CosmosPatchOperations operations = CosmosPatchOperations
+        .create()
+        .add("/new", true)
+        .remove("/used");
+
+    CosmosBatch batch = CosmosBatch.createCosmosBatch(
+        new PartitionKey("road-bikes")
+    );
+    batch.patchItemOperation(
+        "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+        operations,
+        options
+    );
+    batch.patchItemOperation(
+        "892f609b-8885-44df-a9ed-cce6c0bd2b9e",
+        operations,
+        options
+    );
+
     CosmosBatchResponse response = container.executeCosmosBatch(batch);
-    if (response.isSuccessStatusCode()) {
-        // if transactional batch succeeds   
-    }
+    boolean success = response.isSuccessStatusCode();
     ```
 
 ## [Node.js](#tab/nodejs)
@@ -267,50 +296,50 @@ key definition.
 Partial Document Update operations can also be [executed on the server-side](stored-procedures-triggers-udfs.md) using Stored procedures, triggers, and user-defined functions.
 
 ```javascript
-        this.patchDocument = function (documentLink, patchSpec, options, callback) { 
-                if (arguments.length < 2) { 
-                    throw new Error(ErrorCodes.BadRequest, sprintf(errorMessages.invalidFunctionCall, 'patchDocument', 2, arguments.length)); 
+this.patchDocument = function (documentLink, patchSpec, options, callback) {
+    if (arguments.length < 2) {
+        throw new Error(ErrorCodes.BadRequest, sprintf(errorMessages.invalidFunctionCall, 'patchDocument', 2, arguments.length));
+    }
+    if (patchSpec === null || !(typeof patchSpec === "object" || Array.isArray(patchSpec))) {
+        throw new Error(ErrorCodes.BadRequest, errorMessages.patchSpecMustBeObjectOrArray);
+    }
+
+    var documentIdTuple = validateDocumentLink(documentLink, false);
+    var collectionRid = documentIdTuple.collId;
+    var documentResourceIdentifier = documentIdTuple.docId;
+    var isNameRouted = documentIdTuple.isNameRouted;
+
+    patchSpec = JSON.stringify(patchSpec);
+    var optionsCallbackTuple = validateOptionsAndCallback(options, callback);
+
+    options = optionsCallbackTuple.options;
+    callback = optionsCallbackTuple.callback;
+
+    var etag = options.etag || '';
+    var indexAction = options.indexAction || '';
+
+    return collectionObjRaw.patch(
+        collectionRid,
+        documentResourceIdentifier,
+        isNameRouted,
+        patchSpec,
+        etag,
+        indexAction,
+        function (err, response) {
+            if (callback) {
+                if (err) {
+                    callback(err);
+                } else {
+                    callback(undefined, JSON.parse(response.body), response.options);
                 }
-                if (patchSpec === null || !(typeof patchSpec === "object" || Array.isArray(patchSpec))) { 
-                    throw new Error(ErrorCodes.BadRequest, errorMessages.patchSpecMustBeObjectOrArray); 
-                } 
-
-                var documentIdTuple = validateDocumentLink(documentLink, false); 
-                var collectionRid = documentIdTuple.collId; 
-                var documentResourceIdentifier = documentIdTuple.docId; 
-                var isNameRouted = documentIdTuple.isNameRouted; 
-
-                patchSpec = JSON.stringify(patchSpec); 
-                var optionsCallbackTuple = validateOptionsAndCallback(options, callback); 
-
-                options = optionsCallbackTuple.options; 
-                callback = optionsCallbackTuple.callback; 
-
-                var etag = options.etag || ''; 
-                var indexAction = options.indexAction || ''; 
-
-                return collectionObjRaw.patch( 
-                    collectionRid, 
-                    documentResourceIdentifier, 
-                    isNameRouted, 
-                    patchSpec, 
-                    etag, 
-                    indexAction, 
-                    function (err, response) { 
-                        if (callback) { 
-                            if (err) { 
-                                callback(err); 
-                            } else { 
-                                callback(undefined, JSON.parse(response.body), response.options); 
-                            } 
-                        } else { 
-                            if (err) { 
-                                throw err; 
-                            } 
-                        } 
-                    } 
-                ); 
-            }; 
+            } else {
+                if (err) {
+                    throw err;
+                }
+            }
+        }
+    );
+}; 
 ```
 > [!NOTE]
 > Definition of validateOptionsAndCallback can be found in the [.js DocDbWrapperScript](https://github.com/Azure/azure-cosmosdb-js-server/blob/1dbe69893d09a5da29328c14ec087ef168038009/utils/DocDbWrapperScript.js#L289) on GitHub.
