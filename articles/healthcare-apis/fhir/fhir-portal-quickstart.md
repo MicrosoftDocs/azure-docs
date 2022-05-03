@@ -4,7 +4,7 @@ description: This article teaches users how to deploy a FHIR service in the Azur
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: quickstart
-ms.date: 03/01/2022
+ms.date: 05/03/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
@@ -19,7 +19,7 @@ Before getting started, you should have already deployed Azure Health Data Servi
 
 ## Create a new FHIR service
 
-From the workspace, select **Deploy FHIR Services**.
+From the workspace, select **Deploy FHIR service**.
 
 [ ![Deploy FHIR service](media/fhir-service/deploy-fhir-services.png) ](media/fhir-service/deploy-fhir-services.png#lightbox)
 
@@ -51,7 +51,7 @@ To validate that the new FHIR API account is provisioned, fetch a capability sta
 
 ## Next steps
 
-In this article, you learned how to deploy FHIR service within Azure Health Data Services  using the Azure portal. For more information about accessing FHIR service using Postman, see
+In this article, you learned how to deploy FHIR service within Azure Health Data Services using the Azure portal. For more information about accessing FHIR service using Postman, see
 
 >[!div class="nextstepaction"]
 >[Access FHIR service using Postman](../fhir/use-postman.md)
