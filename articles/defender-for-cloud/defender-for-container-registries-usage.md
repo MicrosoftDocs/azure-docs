@@ -9,8 +9,6 @@ ms.topic: how-to
 
 # Use Defender for Containers to scan your ACR images for vulnerabilities
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry.
 
 When the scanner, powered by Qualys, reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
