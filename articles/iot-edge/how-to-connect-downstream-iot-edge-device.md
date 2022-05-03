@@ -211,7 +211,7 @@ parameters.
 01. Find the **hostname** parameter or add it to the beginning of the configuration file.
 
     Update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge
-    device. For example,
+    device. For example:
 
     ```toml
     hostname = "10.0.0.4"
@@ -223,19 +223,19 @@ parameters.
     Be consistent with the hostname pattern across a gateway hierarchy. Use either FQDNs or IP
     addresses, but not both. FQDN or IP address is required to connect downstream devices.
 
-> [!IMPORTANT]
-> Set the hostname before the *edgeHub* container is created. If *edgeHub* is running, changing the hostname in the configuration file won't take affect until the container is recreated. For more information on how to verify the hostname is applied, see the [Verify configuration](#verify-configuration) section.
+    > [!IMPORTANT]
+    > Set the hostname before the *edgeHub* container is created. If *edgeHub* is running, changing the hostname in the configuration file won't take affect until the container is recreated. For more information on how to verify the hostname is applied, see the [Verify configuration](#verify-configuration) section.
 
 01. Find the **Trust bundle cert** parameter or add it to the beginning of the configuration file.
 
     Update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your
-    device. For example,
+    device. For example:
 
     ```toml
     trust_bundle_cert = "file:///var/secrets/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format.
+01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
@@ -243,7 +243,7 @@ parameters.
     pk = "file:///var/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
-01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.2. For example,
+01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.2. For example:
 
     ```toml
     [agent.config]
@@ -258,13 +258,13 @@ upstream device for connection.
 01. Find the **parent_hostname** parameter or add it to the beginning of the configuration file.
 
     Update the `parent_hostname` parameter to be the FQDN or IP address of the parent device,
-    matching whatever was provided as the hostname in the parent device's config file. For example,
+    matching whatever was provided as the hostname in the parent device's config file. For example:
 
     ```toml
     parent_hostname = "10.0.0.4"
     ```
 
-01. The beginning of your configuration file should look similar to this example.
+01. The beginning of your configuration file should look similar to the following examples.
 
     Example **parent configuration file**:
 
@@ -288,7 +288,7 @@ upstream device for connection.
     pk = "file:///var/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
-1. Save and close the `config.toml` config file. For example if you are using the `nano` editor, select `Ctrl+O` - *Write Out*, **Enter**, and `Ctrl+X` - *Exit*.
+1. Save and close the `config.toml` config file. For example if you are using the **nano** editor, select **Ctrl+O** - *Write Out*, **Enter**, and **Ctrl+X** - *Exit*.
 
 01. If you've used any other certificates for IoT Edge before, delete the files in the following two directories to make sure that your new certificates get applied:
 
