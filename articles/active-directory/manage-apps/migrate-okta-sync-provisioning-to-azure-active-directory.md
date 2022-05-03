@@ -79,11 +79,11 @@ The example will grab *all* on-premises Azure AD users and export a list of thei
 1. Run these commands in PowerShell on a domain controller on-premises:
 
    ```PowerShell
-   Get-ADUser -Filter * -Properties objectGUID | Select-Object
+   Get-ADUser -Filter * -Properties objectGUID | Select -Object
    UserPrincipalName, Name, objectGUID, @{Name = 'ImmutableID';
    Expression = {
-   [system.convert\]::ToBase64String(([GUID\]\$_.objectGUID).ToByteArray())
-   } } | export-csv C:\\Temp\\OnPremIDs.csv
+   [system.convert]::ToBase64String((GUID).tobytearray())
+   } } | export-csv C:\Temp\OnPremIDs.csv
    ```
 
    ![Screenshot that shows domain controller on-premises commands.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/domain-controller.png)
