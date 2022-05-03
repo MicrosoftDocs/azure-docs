@@ -27,19 +27,19 @@ Auto-instrumentation is easy to enable with no advanced configuration required.
 > [!NOTE]
 > Auto-instrumentation is available for ASP.NET, ASP.NET Core IIS-hosted applications and Java. Use an SDK to instrument Node.js and Python applications hosted on an Azure virtual machines and virtual machine scale sets.
 
-# [ASP.NET / ASP.NET Core](#tab/dotNET)
+### [.NET](#tab/net)
 
 The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
 
-# [Java](#tab/Java)
+### [Java](#tab/Java)
 
 For Java, **[Application Insights Java 3.0 agent](./java-in-process-agent.md)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](./java-in-process-agent.md#autocollected-requests), with a multitude of [other configurations](./java-standalone-config.md)
 
-# [Node.js](#tab/Nodedotjs)
+### [Node.js](#tab/nodejs)
 
 To instrument your Node.js application, use the [SDK](./nodejs.md).
 
-# [Python](#tab/Python)
+### [Python](#tab/python)
 
 To monitor Python apps, use the [SDK](./opencensus-python.md).
 
