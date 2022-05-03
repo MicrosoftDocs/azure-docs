@@ -125,7 +125,7 @@ To have this configuration take effect in your environment, you'll need to deplo
 
 1. Select **Deploy**. You'll see the deployment shows up in the list for those regions. The deployment of the configuration can take several minutes to complete. You can select the **Refresh** button to check on the status of the deployment.
 
-    :::image type="content" source="./media/how-to-create-hub-and-spoke/deploy-status.png" alt-text="Screenshot of spoke network groups settings." lightbox="./media/how-to-create-hub-and-spoke/deploy-status-expanded.png":::
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/deploy-status.png" alt-text="Screenshot of deployment status screen." lightbox="./media/how-to-create-hub-and-spoke/deploy-status-expanded.png":::
 
 ## Confirm deployment
 
