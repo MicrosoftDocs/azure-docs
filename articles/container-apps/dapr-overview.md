@@ -1,14 +1,14 @@
 ---
-title: Dapr integration with Azure Container Apps (preview)
+title: Dapr integration with Azure Container Apps
 description: Learn more about using Dapr on your Azure Container App service to develop applications.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/03/2022
 ---
 
-# Dapr integration with Azure Container Apps (preview)
+# Dapr integration with Azure Container Apps
 
 The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable APIs that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pubsub or reliable and secure service-to-service calls. Once enabled in Container Apps, Dapr exposes its HTTP and gRPC APIs via a sidecar: a process that runs in tandem with each of your Container Apps. 
 
