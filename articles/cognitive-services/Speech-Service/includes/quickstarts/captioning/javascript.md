@@ -46,7 +46,6 @@ npm install @types/node
 // To compile/run sample
 npx
 tsc captioning.ts
-node captioning.js --input <input file> --key <key> --region <region>
 
 
 1. Make sure that you have an input file named `caption.this.mp4` in the path.
