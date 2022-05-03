@@ -150,9 +150,8 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 ### Managed identity with compute cluster
 
-For more information, see [Set up managed identity for compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
+For more information, see [Set up managed identity for compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
-<a id="interactive-authentication"></a>
 
 ## Use interactive authentication
 
