@@ -29,7 +29,6 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Download or copy the captioning sample files from [scenarios/csharp/dotnet/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/csharp/dotnet/captioning/) at GitHub.
 1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
     ```dotnetcli
     dotnet new console
@@ -38,7 +37,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```dotnetcli
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
-1. Copy the [scenarios/csharp/dotnet/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/csharp/dotnet/captioning/) sample files from GitHub into your project directory. Overwrite the local copy of `Program.cs` with the file that you copy from GitHub.
+1. Copy the [scenarios/csharp/dotnet/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/csharp/dotnet/captioning/) sample files from GitHub into your project directory. Overwrite the local copy of `Program.cs` with the file that you copy from GitHub.
 1. Build the project with the .NET CLI.
     ```dotnetcli
     dotnet build
