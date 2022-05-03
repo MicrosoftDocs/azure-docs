@@ -23,8 +23,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Connect a System Center Virtual Machine Manager management server to Azure Arc using the helper script
-            url: quickstart-connect-system-center-virtual-machine-manager-to-arc-using-script.md
+          - text: Connect a System Center Virtual Machine Manager management server to Azure Arc 
+            url: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
           - text: Onboard Arc enabled System Center Virtual Machine Manager (VMM) (Preview)
             url: script-to-onboard-virtual-machine-manager-resource.md
 
@@ -32,6 +32,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:  
-          - text: Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
+          - text: Create a virtual machine 
             url: create-virtual-machine.md
           

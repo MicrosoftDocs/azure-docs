@@ -23,10 +23,6 @@ Arc enabled System Center VMM allows you to:
 -	Browse your VMM resources (VMs, templates, VM networks, and storage) in Azure, providing you a single pane view for your infrastructure across both environments.
 -	Discover and onboard existing SCVMM managed VMs to Azure.
 
-## Architecture
-
-:::image type="architecture" source="media/overview/architecture.png" alt-text="image showing vmm arc architecture.":::
-
 ## How does it work?
 
 To Arc enable a System Center VMM management server, deploy [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) (preview) in the VMM environment. Arc resource bridge is a virtual appliance that connects VMM management server to Azure. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and do various operations on them.
