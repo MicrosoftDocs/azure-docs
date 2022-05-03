@@ -23,6 +23,9 @@ Application Insights can be used with any web pages - you just add a short piece
     * [npm Setup](#npm-based-setup)
     * [JavaScript Snippet](#snippet-based-setup)
 
+> [!WARNING]
+> `@microsoft/applicationinsights-web-basic - AISKULight` does not support the use of connection strings.
+
 > [!IMPORTANT]
 > Only use one method to add the JavaScript SDK to your application. If you use the NPM Setup, don't use the Snippet and vice versa.
 
