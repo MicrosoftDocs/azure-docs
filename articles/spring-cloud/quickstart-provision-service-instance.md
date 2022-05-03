@@ -38,7 +38,7 @@ az --version
 Install the Azure Spring Apps extension for the Azure CLI using the following command:
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 ## Sign in to Azure
@@ -94,7 +94,7 @@ You can provision an instance of the Azure Spring Apps service using the Azure p
 
 - [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 - [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-- (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Apps extension with the command: `az extension add --name spring-cloud`
+- (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Apps extension with the command: `az extension add --name spring`
 - (Optional) [Install the Azure Toolkit for IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Provision an instance of Azure Spring Apps
@@ -137,7 +137,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 1. Update Azure CLI with Azure Spring Apps extension.
 
    ```azurecli
-   az extension update --name spring-cloud
+   az extension update --name spring
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription.

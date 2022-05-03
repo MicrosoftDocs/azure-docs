@@ -106,10 +106,10 @@ Functions in <your-functionapp-name>:
 
 ## Create Azure Spring Apps service and app
 
-After installing the spring-cloud extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
+After installing the spring extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 az spring create --name mymsispringcloud --resource-group myResourceGroup --location eastus
 ```
 

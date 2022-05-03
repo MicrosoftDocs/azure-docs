@@ -50,10 +50,10 @@ Next, use the following commands to define variables for the resource group and 
 SUBSCRIPTION='<subscription-id>'
 RESOURCE_GROUP='<resource-group-name>'
 LOCATION='eastus'
-SPRING_CLOUD_NAME='<name-of-azure-spring-cloud-instance>'
-APPNAME='<name-of-app-in-azure-spring-cloud>'
+SPRING_CLOUD_NAME='<name-of-Azure-Spring-Apps-instance>'
+APPNAME='<name-of-app-in-Azure-Spring-Apps>'
 SPRING_APP_PRIVATE_FQDN='$APPNAME.private.azuremicroservices.io'
-VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
 APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
 APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 ```
@@ -235,7 +235,7 @@ The output indicates the healthy status of backend pool, as shown in the followi
         {
           "servers": [
             {
-              "address": "my-azure-spring-cloud-hello-vnet.private.azuremicroservices.io",
+              "address": "my-azure-spring-apps-hello-vnet.private.azuremicroservices.io",
               "health": "Healthy",
               "healthProbeLog": "Success. Received 200 status code",
               "ipConfiguration": null

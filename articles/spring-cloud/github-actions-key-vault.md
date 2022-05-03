@@ -119,7 +119,7 @@ jobs:
       with:
         azcliversion: 2.0.75
         inlineScript: |
-          az extension add --name spring-cloud             # Spring CLI commands from here
+          az extension add --name spring             # Spring CLI commands from here
           az spring list
 
 ```

@@ -48,7 +48,7 @@ The following sections describe how to activate Dynatrace OneAgent.
    ```azurecli
    az spring app create \
        --resource-group <your-resource-group-name> \
-       --service <your-Azure-Spring-Cloud-name> \
+       --service <your-Azure-Spring-Apps-name> \
        --name <your-application-name> \
        --is-public true 
    ```
@@ -70,7 +70,7 @@ To add the key/value pairs using the Azure CLI, run the following command, repla
 ```azurecli
 az spring app deploy \
     --resource-group <your-resource-group-name> \
-    --service <your-Azure-Spring-Cloud-name> \
+    --service <your-Azure-Spring-Apps-name> \
     --name <your-application-name> \
     --jar-path app.jar \
     --env \

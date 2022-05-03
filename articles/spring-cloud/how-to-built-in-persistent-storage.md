@@ -67,7 +67,7 @@ If persistent storage is enabled, its size and path are shown on the **Persisten
 If necessary, install the Spring Cloud extension for the Azure CLI using this command:
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 Other operations:

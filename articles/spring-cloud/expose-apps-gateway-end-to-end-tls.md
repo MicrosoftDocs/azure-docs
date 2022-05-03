@@ -52,9 +52,9 @@ SUBSCRIPTION='subscription-id'
 RESOURCE_GROUP='my-resource-group'
 LOCATION='eastus'
 SPRING_CLOUD_NAME='name-of-spring-cloud-instance'
-APPNAME='name-of-app-in-azure-spring-cloud'
+APPNAME='name-of-app-in-azure-spring-apps'
 SPRING_APP_PRIVATE_FQDN='$APPNAME.private.azuremicroservices.io'
-VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
 APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
 APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 ```
@@ -125,7 +125,7 @@ Traffic will enter the application deployed on Azure Spring Apps using the publi
 ```azurecli
 KV_NAME='name-of-key-vault'
 KV_RG='resource-group-name-of-key-vault'
-CERT_NAME_IN_ASC='name-of-certificate-in-Azure-Spring-Cloud'
+CERT_NAME_IN_ASC='name-of-certificate-in-Azure-Spring-Apps'
 CERT_NAME_IN_KV='name-of-certificate-with-intermediaries-in-key-vault'
 DOMAIN_NAME=myapp.mydomain.com
 
@@ -304,7 +304,7 @@ The output indicates the healthy status of backend pool, as shown in the followi
         {
           "servers": [
             {
-              "address": "my-azure-spring-cloud-hello-vnet.private.azuremicroservices.io",
+              "address": "my-azure-spring-apps-hello-vnet.private.azuremicroservices.io",
               "health": "Healthy",
               "healthProbeLog": "Success. Received 200 status code",
               "ipConfiguration": null

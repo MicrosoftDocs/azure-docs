@@ -68,7 +68,7 @@ You can also get the Azure login credential from Key Vault in GitHub actions as 
 To provision your Azure Spring Apps service instance, run the following commands using the Azure CLI.
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 az group create --location eastus --name <resource group name>
 az spring create -n <service instance name> -g <resource group name>
 az spring config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label main --search-paths steeltoe-sample/config
@@ -137,7 +137,7 @@ jobs:
 
       - name: install Azure CLI extension
         run: |
-          az extension add --name spring-cloud --yes
+          az extension add --name spring --yes
 
       - name: Build and package planet-weather-provider app
         working-directory: ${{env.working-directory}}/src/planet-weather-provider
@@ -197,7 +197,7 @@ You can also get the Azure login credential from Key Vault in GitHub actions as 
 To provision your Azure Spring Apps service instance, run the following commands using the Azure CLI.
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 az group create --location eastus --name <resource group name>
 az spring create -n <service instance name> -g <resource group name>
 az spring config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config

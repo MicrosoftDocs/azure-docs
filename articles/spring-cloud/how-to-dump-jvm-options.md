@@ -94,7 +94,7 @@ Alternately, you can use the following command to append to persistent storage.
 ```azurecli
 az spring app append-persistent-storage \
     --resource-group <resource-group-name> \
-    --service <Azure-Spring-Cloud-instance-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --name <app-name> \
     --persistent-storage-type AzureFileVolume \
     --storage-name <storage-resource-name> \

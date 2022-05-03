@@ -50,7 +50,7 @@ az --version
 Install the Azure Spring Apps extension for the Azure CLI using the following command:
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 ## Sign in to Azure
@@ -333,7 +333,7 @@ To complete this quickstart:
 
 * [Install JDK 8 or JDK 11](/java/azure/jdk/)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and the Azure Spring Apps extension with the command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and the Azure Spring Apps extension with the command: `az extension add --name spring`
 * (Optional) [Install IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 * (Optional) [Install Maven](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). If you use the Azure Cloud Shell, this installation isn't needed.

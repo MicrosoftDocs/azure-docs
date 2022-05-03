@@ -35,7 +35,7 @@ To deploy the source code folder to an active deployment, use the following comm
 ```azurecli
 az spring app deploy
     --resource-group <your-resource-group-name> \
-    --service <your-Azure-Spring-Cloud-name> \
+    --service <your-Azure-Spring-Apps-name> \
     --name <your-app-name> \
     --source-path <path-to-source-code>
 ```

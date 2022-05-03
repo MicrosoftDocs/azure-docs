@@ -40,7 +40,7 @@ To create a service in Azure Spring Apps with availability zone enabled using th
 ```azurecli
 az spring create \
     --resource-group <your-resource-group-name> \
-    --name <your-Azure-Spring-Cloud-instance-name> \
+    --name <your-Azure-Spring-Apps-instance-name> \
     --location <location> \
     --zone-redundant true
 ```
