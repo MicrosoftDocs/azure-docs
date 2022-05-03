@@ -15,8 +15,8 @@ Configuration for the [SAP deployment automation framework on Azure](automation-
 
 The automation supports both creating resources (greenfield deployment) or using existing resources (brownfield deployment).
 
-For the greenfield scenario the automation defines default names for resources, however some resource names may be defined in the tfvars file.
-For the brownfield scenario the Azure resource identifiers for the resources must be specified.
+For the greenfield scenario, the automation defines default names for resources, however some resource names may be defined in the tfvars file.
+For the brownfield scenario, the Azure resource identifiers for the resources must be specified.
 
 
 ## Deployment topologies
@@ -31,21 +31,21 @@ The automation framework can be used to deploy the following SAP architectures:
 
 In the Standalone architecture all the SAP roles are installed on a single server. 
 
-To configure this topology define the database tier values and set `enable_app_tier_deployment` to false.
+To configure this topology, define the database tier values and set `enable_app_tier_deployment` to false.
 
 ### Distributed
 
-In the distributed architecture you can separate the database server and the application tier. The application tier can further be separated in two by having SAP Central Services on a virtual machine and one or more application servers.
-To configure this topology define the database tier values and define `scs_server_count` = 1, `application_server_count` >= 1
+The distributed architecture has a separate database server and application tier. The application tier can further be separated by having SAP Central Services on a virtual machine and one or more application servers.
+To configure this topology, define the database tier values and define `scs_server_count` = 1, `application_server_count` >= 1
 
 ### High Availability
 
 The Distributed (Highly Available) deployment is similar to the Distributed architecture but either the database or SAP Central Services are both highly available using two virtual machines each with Pacemaker clusters.
 
-To configure this topology define the database tier values and set `database_high_availability` to true. Set `scs_server_count = 1` and `scs_high_availability` = true and 
+To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count = 1` and `scs_high_availability` = true and 
 `application_server_count` >= 1
 
-## Environment Parameters
+## Environment parameters
 
 The table below contains the parameters that define the environment settings and the resource naming.
 
@@ -60,7 +60,7 @@ The table below contains the parameters that define the environment settings and
 > | 'name_override_file'    | Name override file                                       | Optional   |
 
 
-## Resource Group Parameters
+## Resource group parameters
 
 The table below contains the parameters that define the resource group.
 
@@ -72,7 +72,7 @@ The table below contains the parameters that define the resource group.
 > | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
 
 
-### Database Tier Parameters
+### Database tier parameters
 
 The database tier defines the infrastructure for the database tier, supported database backends are:
 
@@ -118,7 +118,7 @@ The Virtual Machine and the operating system image is defined using the followin
 }
 ```
 
-### Common Application Tier Parameters
+### Common application tier parameters
 
 The application tier defines the infrastructure for the application tier, which can consist of application servers, central services servers and web dispatch servers
 
@@ -134,7 +134,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `app_tier_use_DHCP`	               | Controls if Azure subnet provided IP addresses should be used (dynamic)     | Optional	  |       |
 > | `app_tier_dual_nics`	             | Defines if the application tier server will have two network interfaces     | Optional	  |       |
 
-### SAP Central Services Parameters
+### SAP Central services parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -154,7 +154,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `scs_server_no_avset`	                 | Controls scs server availability set placement                       | Optional  |         |
 > | `scs_server_tags`	                     | Defines a list of tags to be applied to the scs servers              | Optional  |         |
 
-### Application Server Parameters
+### Application server parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -170,7 +170,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `application_server_no_avset`	         | Controls application server availability set placement                       | Optional   | |
 > | `application_server_tags`	             | Defines a list of tags to be applied to the application servers              | Optional   | |
 
-### Web Dispatcher Parameters
+### Web dispatcher parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -186,15 +186,15 @@ The application tier defines the infrastructure for the application tier, which 
 > | `webdispatcher_server_no_avset`	        | Defines web dispatcher availability set placement                        | Optional  | |
 > | `webdispatcher_server_tags`	            | Defines a list of tags to be applied to the web dispatcher servers       | Optional  | |
 
-## Network Parameters
+## Network parameters
 
 If the subnets are not deployed using the workload zone deployment, they can be added in the system's tfvars file.
 
-The automation framework supports both creating the virtual network and the subnets for new environment deployments (Green field) or using an existing virtual network and existing subnets for existing environment deployments (Brown field) or a combination of for new environment deployments  and for existing environment deployments.
- - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified
- - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
+The automation framework can either deploy the virtual network and the subnets for new environment deployments (greenfield) or using an existing virtual network and existing subnets for existing environment deployments (brownfield).
+ - For the greenfield scenario, the virtual network address space and the subnet address prefixes must be specified
+ - For the brownfield scenario, the Azure resource identifier for the virtual network and the subnets must be specified
 
-Ensure that the virtual network address space is large enough to host all the resources
+Ensure that the virtual network address space is large enough to host all the resources.
 
 The table below contains the networking parameters.
 
@@ -202,34 +202,34 @@ The table below contains the networking parameters.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                          | Type      | Notes  |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
-> | `network_logical_name`           | The logical name of the network                                      | Required  |        |
-> | `network_address_space`          | The address range for the virtual network                            | Mandatory | For new environment deployments   |
-> | `admin_subnet_name`              | The name of the 'admin' subnet                                       | Optional  |         |
-> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet                             | Mandatory | For new environment deployments  |
-> | `admin_subnet_arm_id`  	         | The Azure resource identifier for the 'admin' subnet                 | Mandatory | For existing environment deployments |
-> | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name                  | Optional	|         |
+> | `network_logical_name`           | The logical name of the network.                                     | Required  |        |
+> | `network_address_space`          | The address range for the virtual network.                           | Mandatory | For new environment deployments   |
+> | `admin_subnet_name`              | The name of the 'admin' subnet.                                      | Optional  |         |
+> | `admin_subnet_address_prefix`    | The address range for the 'admin' subnet.                            | Mandatory | For new environment deployments  |
+> | `admin_subnet_arm_id`  	         | The Azure resource identifier for the 'admin' subnet.                | Mandatory | For existing environment deployments |
+> | `admin_subnet_nsg_name`          | The name of the 'admin' Network Security Group name.                 | Optional	|         |
 > | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the 'admin' Network Security Group | Mandatory | For existing environment deployments |
-> | `db_subnet_name`                 | The name of the 'db' subnet                                          | Optional  |         |
-> | `db_subnet_address_prefix`       | The address range for the 'db' subnet                                | Mandatory | For new environment deployments  |
-> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet                    | Mandatory | For existing environment deployments |
-> | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name                     | Optional	|          |
-> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group    | Mandatory | For existing environment deployments |
-> | `app_subnet_name`                | The name of the 'app' subnet                                         | Optional  |          |
-> | `app_subnet_address_prefix`      | The address range for the 'app' subnet                               | Mandatory | For new environment deployments  |
-> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet                   | Mandatory | For existing environment deployments |
-> | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name                    | Optional	|          |
-> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group   | Mandatory | For existing environment deployments |
-> | `web_subnet_name`                | The name of the 'web' subnet                                         | Optional  |          |
-> | `web_subnet_address_prefix`      | The address range for the 'web' subnet                               | Mandatory | For new environment deployments  |
-> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet                   | Mandatory | For existing environment deployments |
-> | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name                    | Optional	|          |
-> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group   | Mandatory | For existing environment deployments |
+> | `db_subnet_name`                 | The name of the 'db' subnet.                                         | Optional  |         |
+> | `db_subnet_address_prefix`       | The address range for the 'db' subnet.                               | Mandatory | For new environment deployments  |
+> | `db_subnet_arm_id`	             | The Azure resource identifier for the 'db' subnet.                   | Mandatory | For existing environment deployments |
+> | `db_subnet_nsg_name`             | The name of the 'db' Network Security Group name.                    | Optional	|          |
+> | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the 'db' Network Security Group.   | Mandatory | For existing environment deployments |
+> | `app_subnet_name`                | The name of the 'app' subnet.                                        | Optional  |          |
+> | `app_subnet_address_prefix`      | The address range for the 'app' subnet.                              | Mandatory | For new environment deployments  |
+> | `app_subnet_arm_id`	             | The Azure resource identifier for the 'app' subnet.                  | Mandatory | For existing environment deployments |
+> | `app_subnet_nsg_name`            | The name of the 'app' Network Security Group name.                   | Optional	|          |
+> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the 'app' Network Security Group.  | Mandatory | For existing environment deployments |
+> | `web_subnet_name`                | The name of the 'web' subnet.                                        | Optional  |          |
+> | `web_subnet_address_prefix`      | The address range for the 'web' subnet.                              | Mandatory | For new environment deployments  |
+> | `web_subnet_arm_id`	             | The Azure resource identifier for the 'web' subnet.                  | Mandatory | For existing environment deployments |
+> | `web_subnet_nsg_name`            | The name of the 'web' Network Security Group name.                   | Optional	|          |
+> | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the 'web' Network Security Group.  | Mandatory | For existing environment deployments |
 
-\* = Required for for existing environment deployments deployments
+\* = Required for existing environment deployments
 
-### Anchor Virtual Machine Parameters
+### Anchor virtual machine parameters
 
-The SAP deployment automation framework supports having an Anchor Virtual Machine. The anchor Virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
+The SAP deployment automation framework supports having an Anchor virtual machine. The anchor virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
 
 The table below contains the parameters related to the anchor virtual machine.
 
@@ -256,7 +256,7 @@ version="latest"
 }
 ```
 
-### Authentication Parameters
+### Authentication parameters
 
 By default the SAP System deployment uses the credentials from the SAP Workload zone. If the SAP system needs unique credentials, you can provide them using these parameters.
 
@@ -269,7 +269,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `automation_path_to_private_key`   | Path to existing private key         | Optional    |
 
 
-## Other Parameters
+## Other parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -282,7 +282,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `use_zonal_markers`                            | Specifies if zonal Virtual Machines will include a zonal identifier. 'xooscs_z1_00l###' vs  'xooscs00l###'| Default value is true. |
 
 
-## NFS Support
+## NFS support
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                             | Type        |
@@ -290,7 +290,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `NFS_provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files.  |
 > | `sapmnt_volume_size`               | Defines the size (in GB) for the 'sapmnt' volume                        | Optional    |
 
-### Azure Files NFS Support
+### Azure files NFS Support
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -298,7 +298,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
 > | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account for Azure Files | Optional    |
 
-## Terraform Parameters
+## Terraform parameters
 
 The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
 
@@ -316,7 +316,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags.
 
-High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device)
+High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device)
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"
