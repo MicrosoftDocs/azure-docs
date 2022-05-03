@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 03/21/2022
+ms.date: 04/18/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -49,45 +49,9 @@ Azure Monitor's Change Analysis is:
 
 From your resource's overview page in Azure portal, select **Diagnose and solve problems** the left menu. As you enter the Diagnose and Solve Problems tool, the **Microsoft.ChangeAnalysis** resource provider will automatically be registered. 
 
-### Diagnose and solve problems tool for Web App
-
-> [!NOTE]
-> You may not immediately see web app in-guest file changes and configuration changes. Restart your web app and you should be able to view changes within 30 minutes. If not, refer to [the troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app).
-
-1. Select **Availability and Performance**.
-
-   :::image type="content" source="./media/change-analysis/availability-and-performance.png" alt-text="Screenshot of the Availability and Performance troubleshooting options":::
-    
-2. Select **Application Changes (Preview)**. The feature is also available in **Application Crashes**.
-
-   :::image type="content" source="./media/change-analysis/application-changes.png" alt-text="Screenshot of the Application Crashes button":::
-
-   The link leads to Azure Monitor's Change Analysis UI scoped to the web app. 
-
-3. Enable web app in-guest change tracking if you haven't already.
-
-   :::image type="content" source="./media/change-analysis/enable-changeanalysis.png" alt-text="Screenshot of the Application Crashes options":::   
-
-4. Toggle on **Change Analysis** status and select **Save**.
-
-   :::image type="content" source="./media/change-analysis/change-analysis-on.png" alt-text="Screenshot of the Enable Change Analysis user interface":::   
-  
-    - The tool displays all web apps under an App Service plan, which you can toggle on and off individually. 
-
-      :::image type="content" source="./media/change-analysis/change-analysis-on-2.png" alt-text="Screenshot of the Enable Change Analysis user interface expanded":::   
-
-
-You can also view change data via the **Web App Down** and **Application Crashes** detectors. The graph summarizes:
-- The change types over time.
-- Details on those changes. 
-
-By default, the graph displays changes from within the past 24 hours help with immediate problems.
-
-:::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view":::   
-
 ### Diagnose and solve problems tool for Virtual Machines
 
-Change Analysis displays as an insight card in a your virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
+Change Analysis displays as an insight card in your virtual machine's **Diagnose and solve problems** tool. The insight card displays the number of changes or issues a resource experiences within the past 72 hours. 
 
 1. Within your virtual machine, select **Diagnose and solve problems** from the left menu. 
 1. Go to **Troubleshooting tools**.

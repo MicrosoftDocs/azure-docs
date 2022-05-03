@@ -122,6 +122,48 @@ Further explanation of cron and the format of the crontab file here: <https://en
 > Users are responsible for monitoring the cron jobs to ensure snapshots are being
 generated successfully.
 
+## Manage AzAcSnap log files
+
+AzAcSnap writes output of its operation to log files to assist with debugging and to validate correct operation. These log files will continue to grow unless actively managed. Fortunately UNIX based systems have a tool to manage and archive log files called logrotate.
+
+This is an example configuration for logrotate. This configuration will keep a maximum of 31 logs (approximately one month), and when the log files are larger than 10k it will rotate and compress them.
+
+```output
+# azacsnap logrotate configuration file
+compress
+
+~/bin/azacsnap*.log {
+    rotate 31
+    size 10k
+}
+```
+
+After creating the logrotate.conf file, logrotate should be run on a regular basis to archive AzAcSnap log files accordingly. This can be done using cron. The following is the line of the azacsnap user's crontab which will run logrotate on a daily schedule using the configuration file described above.
+
+```output
+@daily /usr/sbin/logrotate -s ~/logrotate.state ~/logrotate.conf >> ~/logrotate.log
+```
+
+> [!NOTE]
+> In the example above the logrotate.conf file is in the user's home (~) directory.
+
+After several days the azacsnap log files should look similar to the following directory listing.
+
+```bash
+ls -ltra ~/bin/logs
+```
+
+```output
+-rw-r--r-- 1 azacsnap users 127431 Mar 14 23:56 azacsnap-backup-azacsnap.log.6.gz
+-rw-r--r-- 1 azacsnap users 128379 Mar 15 23:56 azacsnap-backup-azacsnap.log.5.gz
+-rw-r--r-- 1 azacsnap users 129272 Mar 16 23:56 azacsnap-backup-azacsnap.log.4.gz
+-rw-r--r-- 1 azacsnap users 128010 Mar 17 23:56 azacsnap-backup-azacsnap.log.3.gz
+-rw-r--r-- 1 azacsnap users 128947 Mar 18 23:56 azacsnap-backup-azacsnap.log.2.gz
+-rw-r--r-- 1 azacsnap users 128971 Mar 19 23:56 azacsnap-backup-azacsnap.log.1.gz
+-rw-r--r-- 1 azacsnap users 167921 Mar 20 01:21 azacsnap-backup-azacsnap.log
+```
+
+
 ## Monitor the snapshots
 
 The following conditions should be monitored to ensure a healthy system:

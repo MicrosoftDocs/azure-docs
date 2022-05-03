@@ -264,7 +264,7 @@ If you have an existing VHD from a VM that was created using a paid Azure Market
 
 If you still have the original VM, or another VM created using the same marketplace image, you can get the plan name, publisher, and product information from it using [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm get-instance-view -g myResourceGroup -n myVM --query plan
 ```
 

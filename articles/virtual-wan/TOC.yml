@@ -103,7 +103,7 @@
     href: pricing-concepts.md
 - name: How-to guides
   items:
-  - name: Upgrade a virtual WAN SKU
+  - name: Upgrade from Basic to Standard
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md

@@ -7,7 +7,7 @@ author: barclayn
 manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 02/24/2022
+ms.date: 04/26/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -22,10 +22,10 @@ Specifically, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Set up a service principal
-> - Create a key vault in Azure Key Vault
-> - Register an application in Azure AD
-> - Set up the Verifiable Credentials service
+> - Set up a service principal.
+> - Create an Azure Key Vault instance.
+> - Register an application in Azure AD. 
+> - Set up the Verifiable Credentials service.
 
 The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
 
@@ -35,36 +35,8 @@ See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going ove
 
 ## Prerequisites
 
-- If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Sign up for [Azure Active Directory Premium editions](../../active-directory/fundamentals/active-directory-get-started-premium.md)
-subscription in your tenant.
+- You need an Azure tenant with an active subscription. If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) permission for the directory you want to configure.
-- Ensure that you have [PowerShell](/powershell/scripting/install/installing-powershell) 7.0.6 LTS-x64, PowerShell 7.1.3-x64, or later installed.
-
-## Set up a service principal
-
-Create a service principal for the Request Service API. The service API is the Microsoft service that you use to issue or verify Azure AD Verifiable Credentials.
-
-To create the service principal:
-
-1. Run the following PowerShell commands. These commands install and import the `Az` module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps#installation).
-
-    ```powershell
-    if ((Get-Module -ListAvailable -Name "Az.Accounts") -eq $null) { Install-Module -Name "Az.Accounts" -Scope CurrentUser }
-    if ((Get-Module -ListAvailable -Name "Az.Resources") -eq $null) { Install-Module "Az.Resources" -Scope CurrentUser }
-    ```
-
-1. Run the following PowerShell command to connect to your Azure AD tenant. Replace \<*your-tenant-ID*> with your [Azure AD tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
-
-    ```powershell
-    Connect-AzAccount -TenantId <your-tenant-ID>
-    ```
-
-1. Run the following command in the same PowerShell session. The `AppId` `bbb94529-53a3-4be5-a069-7eaf2712b826` refers to the Verifiable Credentials Microsoft service.
-
-    ```powershell
-    New-AzADServicePrincipal -ApplicationId "bbb94529-53a3-4be5-a069-7eaf2712b826" -DisplayName "Verifiable Credential Request Service" 
-    ```
 
 ## Create a key vault
 
@@ -96,36 +68,6 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
 
 1. To save the changes, select **Save**.
 
-### Set access policies for the Verifiable Credentials Issuer and Request services
-
-1. Select **+ Add Access Policy** to add permission to the service principal of the **Verifiable Credential Request Service**.
-
-1. In **Add access policy**:
-
-    1. For **Key permissions**, select **Get** and **Sign**.
-
-    1. For **Select principal**, select **Verifiable Credential Request Service**.
-
-    1. Select **Add**.  
-        
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/request-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Issuer Service." :::
-
-The access policies for the Verifiable Credentials Issuer service should be added automatically. If the **Verifiable Credential Issuer Service** doesn't appear in the list of access policies, take the following steps to manually add access policies to the service.
-
-1. Select **+ Add Access Policy** to add permission to the service principal of the **Verifiable Credential Issuer Service**.
-
-1. In **Add access policy**:
-
-    1. For **Key permissions**, select **Get** and **Sign**.
-
-    1. For **Select principal**, select **Verifiable Credential Issuer Service**.
-
-    1. Select **Add**.  
-
-     :::image type="content" source="media/verifiable-credentials-configure-tenant/issuer-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Request Service." :::
-       
-1. Select **Save** to save the new policy you created.
-
 ## Register an application in Azure AD
 
 Azure AD Verifiable Credentials Request Service needs to be able to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
@@ -148,7 +90,7 @@ Azure AD Verifiable Credentials Request Service needs to be able to get access t
 
 ### Grant permissions to get access tokens
 
-In this step, you grant permissions to the Verifiable Credential Request Service principal created in [step 1](#set-up-a-service-principal).
+In this step, you grant permissions to the Verifiable Credential Request Service principal.
 
 To add the required permissions, follow these steps:
 
