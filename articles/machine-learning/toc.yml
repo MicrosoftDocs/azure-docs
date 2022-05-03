@@ -563,7 +563,7 @@
         href: how-to-deploy-and-where.md
       - name: Deploy with endpoints
         items:
-          - name: Real-time
+          - name: Online (real-time)
             items:
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
@@ -581,6 +581,9 @@
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
+            - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
+              href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Use REST to deploy a model as an online endpoint
@@ -589,6 +592,8 @@
               href: how-to-deploy-automl-endpoint.md
             - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
+            - name: Authenticate to endpoints
+              href: how-to-authenticate-online-endpoint.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
