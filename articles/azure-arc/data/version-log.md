@@ -21,7 +21,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |Component  |Value  |
 |--------------------------------------------------------|---------|
 |Container images tag |`v1.6.0_2022-05-02`|
-|CRD names and versions	|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1, v2, v3, v4, v5</br>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2</br>`kafkas.arcdata.microsoft.com`: v1beta1</br>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2</br>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1, v2, v3, v4, v5</br>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2</br>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1</br>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2</br>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2|
+|CRD names and versions	|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v5</br>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2</br>`kafkas.arcdata.microsoft.com`: v1beta1</br>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2</br>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v5</br>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2</br>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1</br>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2</br>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2|
 |ARM API version|2022-03-01-preview|
 |`arcdata` Azure CLI extension version|	1.4.0|
 |Arc enabled Kubernetes helm chart extension version|1.1.19211001|
