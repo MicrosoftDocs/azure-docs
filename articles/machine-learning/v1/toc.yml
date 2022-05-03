@@ -32,7 +32,7 @@
     displayName: log, monitor, metrics, model registry, register
     href: how-to-use-mlflow.md  
   - name: Create & manage compute resources
-  items:
+    items:
     - name: Compute instance
       displayName: compute target
       href: how-to-create-manage-compute-instance.md

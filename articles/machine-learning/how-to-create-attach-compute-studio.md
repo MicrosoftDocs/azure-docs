@@ -99,7 +99,7 @@ Select **Next** to proceed to **Advanced Settings** and fill out the form as fol
 |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
 | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
-| Enable SSH access | Use the same instructions as [Enable SSH access](#enable-ssh-access) for a compute instance (above). |
+| Enable SSH access | Use the same instructions as [Enable SSH access](#enable-ssh) for a compute instance (above). |
 |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
 
 ### <a name="enable-ssh"></a> Enable SSH access

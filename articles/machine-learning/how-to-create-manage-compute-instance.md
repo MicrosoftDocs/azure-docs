@@ -23,8 +23,8 @@ In this article, you learn how to:
 
 * [Create](#create) a compute instance
 * [Manage](#manage) (start, stop, restart, delete) a compute instance
-* [Create  a schedule](#schedule-automatic-start-and-stop-(preview)) to automatically start and stop the compute instance (preview)
-* [Use a setup script](#customize-the-compute-instance-with-a-script-(preview)) to customize and configure the compute instance
+* [Create  a schedule](#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview)
+* [Use a setup script](#customize-the-compute-instance-with-a-script-preview) to customize and configure the compute instance
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
@@ -129,9 +129,9 @@ Where the file *create-instance.yml* is:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-(preview)).
-    * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#customize-the-compute-instance-with-a-script-(preview)).
-    * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-(preview)) below.
+    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-preview).
+    * Provision with a setup script (preview) - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#customize-the-compute-instance-with-a-script-preview).
+    * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop-preview) below.
 
 
 ---
@@ -174,7 +174,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
-Schedules can also be defined for [create on behalf of](#create-on-behalf-(preview)) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user.
+Schedules can also be defined for [create on behalf of](#create-on-behalf-preview) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user.
 
 ### Create a schedule in studio
 
@@ -463,7 +463,7 @@ To use RStudio open source, set up a custom service as follows:
 1. Add the Bind mounts /home/azureuser: /home/rstudio. 
 1. Select **Add service** to set up RStudio as a custom service on your compute instance.
  
-:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text=" ":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom service":::
  
 ### Setup other custom services
 
@@ -490,7 +490,7 @@ Access the custom services that you set up in studio:
 
 Start, stop, restart, and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you will still be billed for disk, public IP, and standard load balancer. 
 
-You can [create a schedule](#schedule-automatic-start-and-stop-(preview)) for the compute instance to automatically start and stop based on a time and day of week.
+You can [create a schedule](#schedule-automatic-start-and-stop-preview) for the compute instance to automatically start and stop based on a time and day of week.
 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
