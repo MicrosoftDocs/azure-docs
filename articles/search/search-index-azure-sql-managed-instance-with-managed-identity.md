@@ -44,7 +44,7 @@ Follow these steps to assign the search service system managed identity permissi
 
 1. Authenticate with your Azure AD account.
 
-   :::image type="content" source="media/search-index-azure-sql-managed-instance-with-managed-identity/sql-login.png" alt-text="Showing screenshot of the Connect to Server dialog.":::
+   :::image type="content" source="./media/search-index-azure-sql-managed-instance-with-managed-identity/sql-login.png" alt-text="Showing screenshot of the Connect to Server dialog.":::
 
 3. From the left pane, locate the SQL database you will be using as data source for indexing and right-click it. Select **New Query**. 
 
@@ -73,7 +73,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 1. Select **Access control (IAM)**.
 1. Select **Add** then **Add role assignment**.
 
-   :::image type="content" source="media/search-index-azure-sql-managed-instance-with-managed-identity/access-control-add-role-assignment.png" alt-text="Showing screenshot of the Access Control page." lightbox="media/search-connect-azure-sql-managed-instance-using-indexers-with-managed-identity/access-control-add-role-assignment.png":::
+   :::image type="content" source="./media/search-index-azure-sql-managed-instance-with-managed-identity/access-control-add-role-assignment.png" alt-text="Showing screenshot of the Access Control page." lightbox="media/search-connect-azure-sql-managed-instance-using-indexers-with-managed-identity/access-control-add-role-assignment.png":::
 
 
 4. Select **Reader** role.
@@ -82,7 +82,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
     Example for SQL Managed Instance using a system-assigned managed identity:
 
-    :::image type="content" source="media/search-index-azure-sql-managed-instance-with-managed-identity/add-role-assignment.png" alt-text="Showing screenshot of the member role assignment.":::
+    :::image type="content" source="./media/search-index-azure-sql-managed-instance-with-managed-identity/add-role-assignment.png" alt-text="Showing screenshot of the member role assignment.":::
 
 ## 3 - Create the data source
 
