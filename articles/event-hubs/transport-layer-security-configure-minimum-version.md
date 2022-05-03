@@ -33,11 +33,11 @@ To configure the minimum TLS version for an Event Hubs namespace with a template
         "contentVersion": "1.0.0.0",
         "parameters": {},
         "variables": {
-            "serviceBusNamespaceName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
+            "eventHubNamespaceName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
         },
         "resources": [
             {
-            "name": "[variables('serviceBusNamespaceName')]",
+            "name": "[variables('eventHubNamespaceName')]",
             "type": "Microsoft.EventHub/namespaces",
             "apiVersion": "2022-01-01-preview",
             "location": "westeurope",
@@ -76,7 +76,7 @@ resources
 
 To test that the minimum required TLS version for an Event Hubs namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-When a client accesses an Event Hubs namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this Event Hubs namespace.
+When a client accesses an Event Hubs namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Event Hubs returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Event Hubs namespace.
 
 > [!NOTE]
 > Due to limitations in the confluent library, errors coming from an invalid TLS version will not surface when connecting through the Kafka protocol. Instead a general exception will be shown.

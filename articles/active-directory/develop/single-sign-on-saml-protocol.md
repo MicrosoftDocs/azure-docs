@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 02/05/2022
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
@@ -32,13 +32,13 @@ The protocol diagram below describes the single sign-on sequence. The cloud serv
 
 To request a user authentication, cloud services send an `AuthnRequest` element to Azure AD. A sample SAML 2.0 `AuthnRequest` could look like the following example:
 
-```
+```xml
 <samlp:AuthnRequest
-xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
-ID="id6c1c178c166d486687be4aaf5e482730"
-Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
-xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
+  xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+  ID="id6c1c178c166d486687be4aaf5e482730"
+  Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
+  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 </samlp:AuthnRequest>
 ```
 
@@ -61,7 +61,7 @@ The `Issuer` element in an `AuthnRequest` must exactly match one of the **Servic
 
 A SAML excerpt containing the `Issuer` element looks like the following sample:
 
-```
+```xml
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 ```
 
@@ -71,7 +71,7 @@ This element requests a particular name ID format in the response and is optiona
 
 A `NameIdPolicy` element looks like the following sample:
 
-```
+```xml
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
 ```
 
@@ -87,23 +87,28 @@ If `SPNameQualifier` is specified, Azure AD will include the same `SPNameQualifi
 Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestedAuthnContext
+
 The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports `AuthnContextClassRef` values such as `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Scoping
+
 The `Scoping` element, which includes a list of identity providers, is optional in `AuthnRequest` elements sent to Azure AD.
 
 If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `RequesterID` element, as they aren't supported.
 
 ### Signature
+
 A `Signature` element in `AuthnRequest` elements is optional. Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
+
 Don't include a `Subject` element. Azure AD doesn't support specifying a subject for a request and will return an error if one is provided.
 
 ## Response
+
 When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A response to a successful sign-on attempt looks like the following sample:
 
-```
+```xml
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
   <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
@@ -159,7 +164,7 @@ Azure AD sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` 
 
 For example, a response with Issuer element could look like the following sample:
 
-```
+```xml
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
@@ -171,7 +176,7 @@ The `Status` element conveys the success or failure of sign-on. It includes the 
 
 The following sample is a SAML response to an unsuccessful sign-on attempt.
 
-```
+```xml
 <samlp:Response ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
   <samlp:Status>
@@ -179,9 +184,10 @@ The following sample is a SAML response to an unsuccessful sign-on attempt.
       <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:RequestUnsupported" />
     </samlp:StatusCode>
     <samlp:StatusMessage>AADSTS75006: An error occurred while processing a SAML2 Authentication request. AADSTS90011: The SAML authentication request property 'NameIdentifierPolicy/SPNameQualifier' is not supported.
-Trace ID: 66febed4-e737-49ff-ac23-464ba090d57c
-Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
-  </samlp:Status>
+    Trace ID: 66febed4-e737-49ff-ac23-464ba090d57c
+    Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
+    </samlp:Status>
+</samlp:Response>
 ```
 
 ### Assertion
@@ -192,7 +198,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 
 This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
-```
+```xml
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
@@ -202,10 +208,10 @@ Azure AD signs the assertion in response to a successful sign-on. The `Signature
 
 To generate this digital signature, Azure AD uses the signing key in the `IDPSSODescriptor` element of its metadata document.
 
-```
+```xml
 <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
-      digital_signature_here
-    </ds:Signature>
+  digital_signature_here
+</ds:Signature>
 ```
 
 #### Subject
@@ -214,12 +220,12 @@ This specifies the principal that is the subject of the statements in the assert
 
 The `Method` attribute of the `SubjectConfirmation` element is always set to `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
 
-```
+```xml
 <Subject>
-      <NameID>Uz2Pqz1X7pxe4XLWxV9KJQ+n59d573SepSAkuYKSde8=</NameID>
-      <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="id758d0ef385634593a77bdf7e632984b6" NotOnOrAfter="2013-03-18T07:43:15.144Z" Recipient="https://contoso.com/identity/inboundsso.aspx" />
-      </SubjectConfirmation>
+  <NameID>Uz2Pqz1X7pxe4XLWxV9KJQ+n59d573SepSAkuYKSde8=</NameID>
+  <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+    <SubjectConfirmationData InResponseTo="id758d0ef385634593a77bdf7e632984b6" NotOnOrAfter="2013-03-18T07:43:15.144Z" Recipient="https://contoso.com/identity/inboundsso.aspx" />
+  </SubjectConfirmation>
 </Subject>
 ```
 
@@ -227,11 +233,11 @@ The `Method` attribute of the `SubjectConfirmation` element is always set to `ur
 
 This element specifies conditions that define the acceptable use of SAML assertions.
 
-```
+```xml
 <Conditions NotBefore="2013-03-18T07:38:15.128Z" NotOnOrAfter="2013-03-18T08:48:15.128Z">
-      <AudienceRestriction>
-        <Audience>https://www.contoso.com</Audience>
-      </AudienceRestriction>
+  <AudienceRestriction>
+    <Audience>https://www.contoso.com</Audience>
+  </AudienceRestriction>
 </Conditions>
 ```
 
@@ -244,9 +250,9 @@ The `NotBefore` and `NotOnOrAfter` attributes specify the interval during which 
 
 This contains a URI that identifies an intended audience. Azure AD sets the value of this element to the value of `Issuer` element of the `AuthnRequest` that initiated the sign-on. To evaluate the `Audience` value, use the value of the `App ID URI` that was specified during application registration.
 
-```
+```xml
 <AudienceRestriction>
-        <Audience>https://www.contoso.com</Audience>
+  <Audience>https://www.contoso.com</Audience>
 </AudienceRestriction>
 ```
 
@@ -256,15 +262,15 @@ Like the `Issuer` value, the `Audience` value must exactly match one of the serv
 
 This contains claims about the subject or user. The following excerpt contains a sample `AttributeStatement` element. The ellipsis indicates that the element can include multiple attributes and attribute values.
 
-```
+```xml
 <AttributeStatement>
-      <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
-        <AttributeValue>testuser@contoso.com</AttributeValue>
-      </Attribute>
-      <Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">
-        <AttributeValue>3F2504E0-4F89-11D3-9A0C-0305E82C3301</AttributeValue>
-      </Attribute>
-      ...
+  <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
+    <AttributeValue>testuser@contoso.com</AttributeValue>
+  </Attribute>
+  <Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">
+    <AttributeValue>3F2504E0-4F89-11D3-9A0C-0305E82C3301</AttributeValue>
+  </Attribute>
+  ...
 </AttributeStatement>
 ```        
 
@@ -278,10 +284,10 @@ This element asserts that the assertion subject was authenticated by a particula
 * The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure AD.
 * The `AuthnContext` element specifies the authentication context used to authenticate the user.
 
-```
+```xml
 <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">
-      <AuthnContext>
-        <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
-      </AuthnContext>
+  <AuthnContext>
+    <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+  </AuthnContext>
 </AuthnStatement>
 ```

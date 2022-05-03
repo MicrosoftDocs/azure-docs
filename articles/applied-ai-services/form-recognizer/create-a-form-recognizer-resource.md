@@ -55,7 +55,7 @@ Let's get started:
 
 :::image type="content" source="media/logic-apps-tutorial/form-recognizer-validation.gif" alt-text="GIF showing the Azure portal validation process.":::
 
-## Get Endpoint URL and API keys
+## Get Endpoint URL and keys
 
 1. Once you receive the *deployment is complete* message, select the **Go to resource** button.
 

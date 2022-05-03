@@ -21,14 +21,11 @@ Azure Monitor supports connections with the following ITSM tools:
 
 -	ServiceNow ITSM or ITOM
 -	BMC
-  >[!NOTE]
-  > As of March 1, 2022, System Center ITSM integrations with Azure alerts is no longer enabled for new customers. New System Center ITSM Connections are not supported.
-  > Existing ITSM connections are supported.
 
 For information about legal terms and the privacy policy, see [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 ## ITSM Integration Workflow
 Depending on your integration, start connecting to your ITSM with these steps:
-- For Service Now ITOM events and BMC Helix use the Secure webhook action:
+- For Service Now ITOM events or BMC Helix use the Secure webhook action:
      1. [Register your app with Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
      1. [Define Service principal.](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-service-principal)
      1. [Create a Secure Webhook action group.](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group)
