@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2021
+ms.date: 05/03/2022
 ms.author: alkohli
 ---
 # Use Azure portal to manage shares on your Azure Stack Edge Pro
