@@ -119,3 +119,4 @@ Here are some additional considerations:
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
+

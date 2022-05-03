@@ -14,42 +14,76 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=Captioning&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Set up the environment
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp) for any more requirements.
 
 You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=Captioning&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 ## Create captions from speech
 
 Follow these steps to create a new console application and install the Speech SDK.
 
+1. Download or copy the captioning sample files from [scenarios/csharp/dotnet/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/csharp/dotnet/captioning/) at GitHub.
 1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
-    ```console
+    ```dotnetcli
     dotnet new console
     ```
 1. Install the Speech SDK in your new project with the .NET CLI.
-    ```console
+    ```dotnetcli
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of `Program.cs` with the code that you copy from the [captioning sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/captioning_sample/scenarios/csharp/dotnet/captioning/Program.cs) at GitHub.
+1. Copy the [scenarios/csharp/dotnet/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/captioning_sample/scenarios/csharp/dotnet/captioning/) sample files from GitHub into your project directory. Overwrite the local copy of `Program.cs` with the file that you copy from GitHub.
+1. Build the project with the .NET CLI.
+    ```dotnetcli
+    dotnet add package Microsoft.CognitiveServices.Speech
+    ```
+1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
+    ```dotnetcli
+    dotnet run --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jesse;Rehaan"
+    ```
+    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
 
-
-
-
-cd to folder with .csproj
-dotnet build
-
-
-1. Make sure that you have an input file named `caption.this.mp4` in the path.
-1. Run the following command to output captions from the video file:
+    The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
     ```console
-    dotnet run --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases Contoso;Jesse;Rehaan
+    00:00:00,180 --> 00:00:01,600
+    Welcome to
+    
+    00:00:00,180 --> 00:00:01,820
+    Welcome to applied
+    
+    00:00:00,180 --> 00:00:02,420
+    Welcome to applied mathematics
+    
+    00:00:00,180 --> 00:00:02,930
+    Welcome to applied mathematics course
+    
+    00:00:00,180 --> 00:00:03,100
+    Welcome to applied Mathematics course 2
+    
+    00:00:00,180 --> 00:00:03,230
+    Welcome to applied Mathematics course 201.
     ```
 
-Usage: `dotnet run -- --input <input file> --key <key> --region <region>`
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Speech&Product=Captioning&Page=quickstart&Section=Create-captions-from-speech" target="_target">I ran into an issue</a>
+
+## Usage and arguments
+
+Usage: `captioning --key <key> --region <region> --input <input file>`
 
 [!INCLUDE [Usage arguments](usage-arguments.md)]
 
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
+
+
+
+
+
