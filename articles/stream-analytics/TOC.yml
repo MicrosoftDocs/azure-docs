@@ -244,7 +244,7 @@
       href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
     - name: Process Azure SQL Database
-      href: ../azure-sql/database/stream-data-stream-analytics-integration.md
+      href: /azure/azure-sql/database/stream-data-stream-analytics-integration
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md

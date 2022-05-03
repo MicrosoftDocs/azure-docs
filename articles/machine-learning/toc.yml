@@ -1,6 +1,6 @@
 - name: Azure Machine Learning Documentation
   href: index.yml
-- name: Switch to CLI v1 documentation
+- name: Switch to SDK & CLI v1 documentation
   href: v1/introduction.md
 - name: Overview
   items:
@@ -10,9 +10,9 @@
     - name: What is Azure Machine Learning studio?
       displayName: AML, studio, designer
       href: overview-what-is-machine-learning-studio.md
-    - name: Architecture & terms
-      displayName: architecture, concepts, definitions, glossary
-      href: concept-azure-machine-learning-architecture.md
+    - name: Key concepts
+      displayName: concepts, definitions, glossary
+      href: concept-azure-machine-learning-v2.md
     - name: "Migrate from ML Studio (classic)"
       items:
         - name: Migration overview
@@ -98,7 +98,7 @@
       href: "tutorial-create-secure-workspace.md"
     - name: "Create a secure workspace with templates"
       href: "tutorial-create-secure-workspace-template.md"
-    - name: "Build a training pipeline (Python)"
+    - name: "Build a training pipeline (Python SDK V2)(preview)"
       href: "tutorial-pipeline-python-sdk.md"
 - name: Samples
   items:
@@ -115,6 +115,8 @@
       href: https://github.com/microsoft/MLOps
 - name: Concepts
   items:
+    - name: What is v2?
+      href: concept-v2.md
     - name: Train models
       items:
         - name: Model training
@@ -322,9 +324,6 @@
               - name: Azure Kubernetes Service
                 displayName: AKS, inference
                 href: how-to-create-attach-kubernetes.md
-              - name: Attach your own
-                displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-                href: how-to-attach-compute-targets.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
@@ -374,6 +373,8 @@
           href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items:
+        - name: Work with data SDK v2 (preview)
+          href: how-to-use-data.md
         - name: Label data
           items: 
             - name: Set up image labeling
@@ -446,6 +447,8 @@
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
+          - name: Train with SDK v2 (preview)
+            href: how-to-train-sdk.md
           - name: Configure & submit training run
             displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
             href: how-to-set-up-training-targets.md
@@ -492,7 +495,7 @@
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
-        - name: Train with the CLI (v2)
+        - name: Train with the CLI v2
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
@@ -560,7 +563,7 @@
         href: how-to-deploy-and-where.md
       - name: Deploy with endpoints
         items:
-          - name: Real-time
+          - name: Online (real-time)
             items:
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
@@ -578,6 +581,9 @@
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
+            - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
+              href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Use REST to deploy a model as an online endpoint
@@ -586,6 +592,8 @@
               href: how-to-deploy-automl-endpoint.md
             - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
+            - name: Authenticate to endpoints
+              href: how-to-authenticate-online-endpoint.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list

@@ -128,7 +128,7 @@ For Analytics services availability in Azure Government, see [Products available
 
 ### [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md). The instructions to enable this configuration for Azure Synapse Analytics are the same as the instructions to do so for Azure SQL Database.
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-overview). The instructions to enable this configuration for Azure Synapse Analytics are the same as the instructions to do so for Azure SQL Database.
 
 ### [Data Factory](../data-factory/index.yml)
 
@@ -225,13 +225,13 @@ Azure Healthcare APIs supports Impact Level 5 workloads in Azure Government with
 
 - Configure encryption at rest of content in Azure Healthcare APIs [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
 
-### [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
+### [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](../azure-sql/database/transparent-data-encryption-byok-overview.md).
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
 
 ### [SQL Server Stretch Database](../sql-server-stretch-database/index.yml)
 
-- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](../azure-sql/database/transparent-data-encryption-byok-overview.md).
+- Add transparent data encryption with customer-managed keys via Azure Key Vault. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
 
 
 ## Hybrid

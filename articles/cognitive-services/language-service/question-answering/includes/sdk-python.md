@@ -2,8 +2,8 @@
 title: "Quickstart: Question answering client library for Python"
 description: This quickstart shows how to get started with the question answering client library for Python.
 ms.topic: include
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.date: 11/11/2021
 ---
 
@@ -16,10 +16,10 @@ Use this quickstart for the question answering client library for Python to:
 [API reference documentation][questionanswering_refdocs] | [Source code][questionanswering_client_src] | [Package (PyPI)][questionanswering_pypi_package] | [Python Samples][questionanswering_samples] |
 
 [questionanswering_client_class]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient
-[questionanswering-client-src]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/
-[questionanswering-pypi-package]: https://pypi.org/project/azure-ai-language-questionanswering/
-[questionanswering-refdocs]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html
-[questionanswering-samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/samples/README.md
+[questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/
+[questionanswering_pypi_package]: https://pypi.org/project/azure-ai-language-questionanswering/
+[questionanswering_refdocs]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0/azure.ai.language.questionanswering.html
+[questionanswering_samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/samples/README.md
 
 ## Prerequisites
 

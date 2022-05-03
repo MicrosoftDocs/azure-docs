@@ -189,8 +189,14 @@ items:
       href: register-scan-oracle-source.md
     - name: PostgreSQL
       href: register-scan-postgresql.md
-    - name: Power BI tenant - Portal
-      href: register-scan-power-bi-tenant.md
+    - name: Power BI tenant
+      items:
+      - name: Power BI same-tenant
+        href: register-scan-power-bi-tenant.md
+      - name: Power BI cross-tenant
+        href: register-scan-power-bi-tenant-cross-tenant.md
+      - name: Troubleshoot Power BI scans
+        href: register-scan-power-bi-tenant-troubleshoot.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
@@ -301,7 +307,7 @@ items:
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Register data sources for data use management
+    - name: Register data sources for Data Use Management
       href: how-to-enable-data-use-management.md
     - name: Author and publish data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md

@@ -15,6 +15,10 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other
 
 Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Cloud](quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
 
+## Prerequisites
+
+* [MySQL CLI is installed](http://dev.mysql.com/downloads/mysql/)
+
 ## Variables preparation
 
 We will use the following values. Save them in a text file or environment variables to avoid errors. The password should be at least 8 characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
