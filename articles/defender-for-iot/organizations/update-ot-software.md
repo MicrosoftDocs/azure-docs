@@ -192,14 +192,9 @@ In such cases:
 
 For more information, see:
 
-
-
-
-
-## Update a standalone sensor version
-
-
-### Download a new activation file for version 22.1.x or higher
-
-
-### Update your sensor software version
+- [Install OT system software](how-to-install-software.md)
+- [Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
