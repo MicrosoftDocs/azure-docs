@@ -167,19 +167,13 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 
     Any users with existing assignments to the access package will automatically be given access to this SharePoint Online site when it is added.
 
-## Adding resource roles programmatically
+## Add resource roles programmatically
 
 You can also add a resource role to an access package using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
 
 1. [List the accessPackageResources in the catalog](/graph/api/entitlementmanagement-list-accesspackagecatalogs?tabs=http&view=graph-rest-beta&preserve-view=true) and [create an accessPackageResourceRequest](/graph/api/entitlementmanagement-post-accesspackageresourcerequests?tabs=http&view=graph-rest-beta&preserve-view=true) for any resources that are not yet in the catalog.
 1. [List the accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
 1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) for each resource role needed in the access package.
-
-## Handling users with existing access to the resource
-
-When a resource role is added to an access package, users who are in that resource role, but do not have assignments to the access package, will remain in the resource role, but will not be assigned to the access package. For example, if a user is a member of a group, and then an access package is created and that group's member role is added to an access package, the user will not have an assignment to the access package.
-
-If you wish to have them also become assigned to the access package, you can [directly assign users](entitlement-management-access-package-assignments.md#directly-assign-a-user) to an access package using the Azure portal, or in bulk via Graph or PowerShell. They will then also receive access to the other resource in the access package.  As those users already have access prior to being added to the access package, when their access package assignment is removed, they will remain in the resource role.
 
 ## Remove resource roles
 
@@ -202,6 +196,10 @@ If you wish to have them also become assigned to the access package, you can [di
 In entitlement management, Azure AD will process bulk changes for assignment and resources in your access packages several times a day. So, if you make an assignment, or change the resource roles of your access package, it can take up to 24 hours for that change to be made in Azure AD, plus the amount of time it takes to propagate those changes to other Microsoft Online Services or connected SaaS applications. If your change affects just a few objects, the change will likely only take a few minutes to apply in Azure AD, after which other Azure AD components will then detect that change and update the SaaS applications. If your change affects thousands of objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a SharePoint site role to the access package, there may be a delay until all the users are part of that SharePoint site role. You can monitor the progress through the Azure AD audit log, the Azure AD provisioning log, and the SharePoint site audit logs.
 
 When you remove a member of a team, they are removed from the Microsoft 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](/microsoftteams/office-365-groups#group-membership).
+
+When a resource role is added to an access package, users who are in that resource role, but do not have assignments to the access package, will remain in the resource role, but will not be assigned to the access package. For example, if a user is a member of a group, and then an access package is created and that group's member role is added to an access package, the user will not automatically receive an assignment to the access package.
+
+If you wish to have the users also become assigned to the access package, you can [directly assign users](entitlement-management-access-package-assignments.md#directly-assign-a-user) to an access package using the Azure portal, or in bulk via Graph or PowerShell. The users will then also receive access to the other resource roles in the access package.  However, as those users already have access prior to being added to the access package, when their access package assignment is removed, they will remain in the resource role.  For example, if a user was a member of a group, and was assigned to an access package that included group membership for that group as a resource role, and then that user's access package assignment was removed, the user would retain their group membership.
 
 ## Next steps
 
