@@ -6,8 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: mikaelweave
-author: mikaelw
+ms.author: mikaelw
+author: mikaelweave
 ms.date: 05/03/2022
 ---
 
