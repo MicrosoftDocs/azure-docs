@@ -57,6 +57,8 @@
           href: review-publish-pull-requests.md
         - name: Branch environments
           href: branch-environments.md
+        - name: Named environments
+          href: named-environments.md
     - name: Custom domains
       items:
       - name: About custom domains
