@@ -137,8 +137,8 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Resource | Limit |
 | --- | --- |
 | Maximum length of database or container name | 255 |
-| Maximum number stored procedures per container | 100 <sup>1</sup> |
-| Maximum number UDFs per container | 50 <sup>1</sup> |
+| Maximum number of stored procedures per container | 100 <sup>1</sup> |
+| Maximum number of UDFs per container | 50 <sup>1</sup> |
 | Maximum number of paths in indexing policy| 100 <sup>1</sup> |
 | Maximum number of unique keys per container|10 <sup>1</sup> |
 | Maximum number of paths per unique key constraint|16 <sup>1</sup> |
