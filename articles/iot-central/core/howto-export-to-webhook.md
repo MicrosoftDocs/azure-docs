@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.service: iot-central
 ---
 
-# Export IoT data to service bus
+# Export IoT data to Webhook
 
-This article describes how to configure data export to send data to the webhook. 
+This article describes how to configure data export to send data to the webhook.
 
 For webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 

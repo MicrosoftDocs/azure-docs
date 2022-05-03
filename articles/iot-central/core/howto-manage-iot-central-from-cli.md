@@ -176,7 +176,7 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 
 ## Configure a managed identity
 
-An IoT Central application can use a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connection to a [data export destination](howto-export-data.md#connection-options).
+An IoT Central application can use a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connection to a [data export destination](howto-export-to-blob-storage.md#connection-options).
 
 To enable the managed identity, use either the [Azure portal - Configure a managed identity](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) or the [REST API](howto-manage-iot-central-with-rest-api.md):
 
