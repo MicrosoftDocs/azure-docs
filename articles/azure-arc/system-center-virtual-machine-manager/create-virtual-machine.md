@@ -27,7 +27,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 2. Select **Azure Arc** as the service and then select **Azure Arc virtual machine** from the left blade.
 3. Click **+ Create**, **Create an Azure Arc virtual machine** page opens.
 
-  :::image type="arc vm creation" source="media/create-vm/create-arc-enabled-vm" alt-text="image showing the procedure to create arc enabled vm.":::
+  :::image type="vm creation" source="media/create-vm/create-arc-vm.png" alt-text="image showing the procedure to create arc enabled vm.":::
 
 3. Under **Basics** > **Project details**, select the **Subscription** and **Resource group** where you want to deploy the VM.
 4. Under **Instance details**, provide the following details:
