@@ -116,8 +116,8 @@ The following table lists Message IDs used by the Continuous Threat Monitoring f
 | CUP | Non-exclusive debugging session started by user &A (&C) | Other | Critical | Used |
 | CUS | Logical file name &B is not a valid alias for logical file name &A | Other | Severe | Used |
 | CUZ | Generic table access by RFC to &A with activity &B | RFC Start | Critical | Used |
-| DU1 | FTP server whitelist is empty | RFC Start | Severe | Used |
-| DU2 | FTP server whitelist is non-secure due to use of placeholders | RFC Start | Severe | Used |
+| DU1 | FTP server allowlist is empty | RFC Start | Severe | Used |
+| DU2 | FTP server allowlist is non-secure due to use of placeholders | RFC Start | Severe | Used |
 | DU8 | FTP connection request for server &A successful | RFC Start | Non-Critical | Used |
 | DU9 | Generic table access call to &A with activity &B (auth. check: &C ) | Transaction Start | Non-Critical | Used |
 | DUH | OAuth 2.0: Token declared invalid (OAuth client=&A, user=&B, token type=&C) | User Master Record Change | Severe with Monitor Alert | Used |

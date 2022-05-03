@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 05/03/2022
 ---
 
 # Deploy the Microsoft Sentinel SAP data connector with SNC
