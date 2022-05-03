@@ -46,7 +46,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** No. If not specified, the default is `abap`.
 
-**Explanation:** Defines whether the data collector agent should connect to the  ABAP server directly, or through a message server. Use `abap` to connect directly to the ABAP server, which you can define using the `--abapserver` parameter. Use `mserv` to connect through a message server, in which case you **must** specify the `--messageserverhost`, `--messageserverport`, and `--logongroup` parameters.
+**Explanation:** Defines whether the data collector agent should connect to the  ABAP server directly, or through a message server. Use `abap` to have the agent connect directly to the ABAP server, whose name you can define using the `--abapserver` parameter (though if you don't, [you will still be prompted for it](#abap-server-address)). Use `mserv` to connect through a message server, in which case you **must** specify the `--messageserverhost`, `--messageserverport`, and `--logongroup` parameters.
 
 #### Configuration folder location
 
@@ -60,7 +60,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 #### ABAP server address
 
-**Parameter name:** `--apabserver`
+**Parameter name:** `--abapserver`
 
 **Parameter values:** `<servername>`
 
@@ -195,9 +195,9 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Parameter values:** `<key vaultname>`
 
-**Required:** No, if [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, script will prompt for value if not supplied. 
+**Required:** No. If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, the script will prompt for the value if not supplied. 
 
-**Explanation:** If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, key vault name, not FQDN should entered here.
+**Explanation:** If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, then the key vault name should be entered here.
  
 #### Log Analytics workspace ID
 
@@ -265,7 +265,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Parameter values:** `<client key filename>`
 
-**Required:** Yes, if `--use-snc` **and** key is in .crt/.key base-64 format.
+**Required:** Yes, if `--use-snc` is specified **and** key is in .crt/.key base-64 format.
 
 **Explanation:** Location and filename of the base-64 client private key. If client certificate is in .pfx format, use `--client-pfx` switch instead.
 
@@ -275,9 +275,9 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Parameter values:** `<trusted ca cert>`
 
-**Required:** Yes, if `--use-snc` **and** certificate is issued by an enterprise certification authority.
+**Required:** Yes, if `--use-snc` is specified **and** the certificate is issued by an enterprise certification authority.
 
-**Explanation:** If certificate is self-signed, it has no issuing CA, therefore no trust chain that needs to be validated. In case certificate is issued by an enterprise CA, issuing CA certificate, as well as any higher-level CA certificates needs to be validated. Use multiple instances of `--cacert` switches and supply full filenames of the public certificates of the enterprise certificate authorities.
+**Explanation:** If the certificate is self-signed, it has no issuing CA, so there is no trust chain that needs to be validated. If the certificate is issued by an enterprise CA, the issuing CA certificate and any higher-level CA certificates need to be validated. Use separate instances of the `--cacert` switch for each CA in the trust chain, and supply the full filenames of the public certificates of the enterprise certificate authorities.
 
 #### Client PFX certificate path
 
