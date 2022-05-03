@@ -57,7 +57,7 @@ landingContent:
           - text: Create a site - ARM template
             url: create-site-arm-template.md
           - text: Upgrade a packet core instance
-            url: upgrade-packet-core.md
+            url: upgrade-packet-core-azure-portal.md
   # Card                   
   - title: Customize quality of service (QoS) and traffic control
     linkLists:
