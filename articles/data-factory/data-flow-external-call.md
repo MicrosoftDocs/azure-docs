@@ -21,7 +21,7 @@ The external call transformation enables data engineers to call out to external 
 
 ## Configuration
 
-In the external call transformation configuration panel, you will first pick the type of external endpoint you wish to connect to, then map incoming columns, and finally define an output data structure which will be consumed by downstream transformations.
+In the external call transformation configuration panel, you will first pick the type of external endpoint you wish to connect to. Next step is to map incoming columns. Finally, define an output data structure to be consumed by downstream transformations.
 
 :::image type="content" source="media/data-flow/external-call-001.png" alt-text="External call":::
 
@@ -35,11 +35,11 @@ You can choose auto-mapping to pass all input columns to the endpoint. Optionall
 
 ### Output
 
-Here is where you will define the data structure for the output of the external call for the body as well as choosing how to store the headers and the status returned from the external call.
+This is where you will define the data structure for the output of the external call. You can define the structure for the body as well as choose how to store the headers and the status returned from the external call.
 
-If you choose to store the body, headers, and status, choose a column name for each so that they can be consumed by downstream data transformations.
+If you choose to store the body, headers, and status, first choose a column name for each so that they can be consumed by downstream data transformations.
 
-You can define the body data structure manually using ADF data flow syntax to define the column names and data types or click on "import projection" and allow ADF to detect the schema output from the external call. Here is an example schema definition structure as output from a weather REST API GET call:
+You can define the body data structure manually using ADF data flow syntax. To define the column names and data types for the body, click on "import projection" and allow ADF to detect the schema output from the external call. Here is an example schema definition structure as output from a weather REST API GET call:
 
 ```
 ({@context} as string[],
