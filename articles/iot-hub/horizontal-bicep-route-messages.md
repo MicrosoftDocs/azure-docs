@@ -5,7 +5,7 @@ author: schaffererin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
-ms.date: 05/02/2022
+ms.date: 05/03/2022
 ms.author: v-eschaffer
 ms.custom: mvc, subject-armqs, mode-arm
 ---
