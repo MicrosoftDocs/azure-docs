@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: jordane
-author: jpe316
+ms.author: larryfr
+author: blackmist
 ms.date: 04/05/2022
 
 ---

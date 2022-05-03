@@ -149,6 +149,12 @@ Use [az aks update][az-aks-update] with the `--enable-azure-keyvault-kms` and `-
 az aks update --name myAKSCluster --resource-group MyResourceGroup --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID
 ```
 
+Use below command to update all secrets. Otherwise, the old secrets are not encrypted. 
+
+```azurecli-interactive
+kubectl get secrets --all-namespaces -o json | kubectl replace -f -
+```
+
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md

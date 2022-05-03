@@ -22,14 +22,14 @@ This section lists all the platform metrics collected automatically for Azure Mo
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| [Autoscale behaviors for VMs and AppService](/azure/azure-monitor/autoscale/autoscale-overview) | [microsoft.insights/autoscalesettings](/azure/azure-monitor/platform/metrics-supported#microsoftinsightsautoscalesettings) |
+| [Autoscale behaviors for VMs and AppService](./autoscale/autoscale-overview.md) | [microsoft.insights/autoscalesettings](/azure/azure-monitor/platform/metrics-supported#microsoftinsightsautoscalesettings) |
 
 While technically not about Azure Monitor operations, the following metrics are collected into Azure Monitor namespaces.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Log Analytics agent gathered data for the [Metric alerts on logs](/azure/azure-monitor/alerts/alerts-metric-logs#metrics-and-dimensions-supported-for-logs) feature | [Microsoft.OperationalInsights/workspaces](/azure/azure-monitor/platform/metrics-supported##microsoftoperationalinsightsworkspaces)
-| [Application Insights availability tests](/azure/azure-monitor/app/availability-overview) | [Microsoft.Insights/Components](/azure/azure-monitor/essentials/metrics-supported#microsoftinsightscomponents)
+| Log Analytics agent gathered data for the [Metric alerts on logs](./alerts/alerts-metric-logs.md#metrics-and-dimensions-supported-for-logs) feature | [Microsoft.OperationalInsights/workspaces](/azure/azure-monitor/platform/metrics-supported##microsoftoperationalinsightsworkspaces)
+| [Application Insights availability tests](./app/availability-overview.md) | [Microsoft.Insights/Components](./essentials/metrics-supported.md#microsoftinsightscomponents)
 
 See a complete list of [platform metrics for other resources types](/azure/azure-monitor/platform/metrics-supported).
 
@@ -53,8 +53,8 @@ This section lists all the Azure Monitor resource log category types collected.
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link |
 |-------|-----|
-| [Autoscale for VMs and AppService](/azure/azure-monitor/autoscale/autoscale-overview) | [Microsoft.insights/autoscalesettings](/azure/azure-monitor/essentials/resource-logs-categories#microsoftinsightsautoscalesettings)|
-| [Application Insights availability tests](/azure/azure-monitor/app/availability-overview) | [Microsoft.insights/Components](/azure/azure-monitor/essentials/resource-logs-categories#microsoftinsightscomponents) |
+| [Autoscale for VMs and AppService](./autoscale/autoscale-overview.md) | [Microsoft.insights/autoscalesettings](./essentials/resource-logs-categories.md#microsoftinsightsautoscalesettings)|
+| [Application Insights availability tests](./app/availability-overview.md) | [Microsoft.insights/Components](./essentials/resource-logs-categories.md#microsoftinsightscomponents) |
 
 For additional reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
@@ -65,14 +65,14 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 |Resource Type | Notes |
 |--------------|-------|
-| [Autoscale for VMs and AppService](/azure/azure-monitor/autoscale/autoscale-overview) | [Autoscale Tables](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-monitor-autoscale-settings) | 
+| [Autoscale for VMs and AppService](./autoscale/autoscale-overview.md) | [Autoscale Tables](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-monitor-autoscale-settings) | 
 
 
 ## Activity log
 
-For a partial list of entires that the Azure Monitor services writes to the activity log, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#monitor).  There may be other entires not listed here.
+For a partial list of entires that the Azure Monitor services writes to the activity log, see [Azure resource provider operations](../role-based-access-control/resource-provider-operations.md#monitor).  There may be other entires not listed here.
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema).
+For more information on the schema of Activity Log entries, see [Activity  Log schema](./essentials/activity-log-schema.md).
 
 ## Schemas
 
@@ -474,4 +474,4 @@ The following schemas are relevant to action groups, which are part of the notif
 ## See Also
 
 - See [Monitoring Azure Azure Monitor](monitor-azure-monitor.md) for a description of what Azure Monitor monitors in itself. 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

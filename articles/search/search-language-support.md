@@ -8,18 +8,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 04/21/2022
 ---
 
 # Create an index for multiple languages in Azure Cognitive Search
 
-A key requirement in a multilingual search application is the ability to search over and retrieve results in the user's own language. In Azure Cognitive Search, one way to meet the language requirements of a multilingual app is to create dedicated fields for storing strings in a specific language, and then constrain full text search to just those fields at query time.
+A multilingual search application supports searching over and retrieving results in the user's own language. In Azure Cognitive Search, one way to meet the language requirements of a multilingual app is to create dedicated fields for storing strings in a specific language, and then constrain full text search to just those fields at query time.
 
 + On field definitions, [specify a language analyzer](index-add-language-analyzers.md) that invokes the linguistic rules of the target language. 
 
 + On the query request, set the `searchFields` parameter to scope full text search to specific fields, and then use `select` to return just those fields that have compatible content.
 
-The success of this technique hinges on the integrity of field contents. Azure Cognitive Search does not translate strings or perform language detection as part of query execution. It is up to you to make sure that fields contain the strings you expect.
+The success of this technique hinges on the integrity of field content. By itself, Azure Cognitive Search does not translate strings or perform language detection as part of query execution. It's up to you to make sure that fields contain the strings you expect.
+
+> [!TIP]
+> If text translation is a requirement, you can [create a skillset](cognitive-search-defining-skillset.md) that adds [text translation](cognitive-search-skill-text-translation.md) to the indexing pipeline. This approach requires [using an indexer](search-howto-create-indexers.md) and [attaching a Cognitive Services resource](cognitive-search-attach-cognitive-services.md).
+>
+> Text translation is built into the [Import data wizard](cognitive-search-quickstart-blob.md). If you have a [supported data source](search-indexer-overview.md#supported-data-sources) with text you'd like to translate, you can step through the wizard to try out the language detection and translation functionality.
 
 ## Define fields for content in different languages
 
@@ -50,9 +55,6 @@ The "analyzer" property on a field definition is used to set the [language analy
 ## Build and load an index
 
 An intermediate (and perhaps obvious) step is that you have to [build and populate the index](search-get-started-dotnet.md) before formulating a query. We mention this step here for completeness. One way to determine index availability is by checking the indexes list in the [portal](https://portal.azure.com).
-
-> [!TIP]
-> Language detection and text translation are supported during data ingestion through [AI enrichment](cognitive-search-concept-intro.md) and [skillsets](cognitive-search-working-with-skillsets.md). If you have an Azure data source with mixed language content, you can try out the language detection and translation features using the [Import data wizard](cognitive-search-quickstart-blob.md).
 
 ## Constrain the query and trim results
 

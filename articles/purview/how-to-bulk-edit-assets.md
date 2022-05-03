@@ -1,6 +1,6 @@
 ---
 title: How to bulk edit assets to tag classifications, glossary terms and modify contacts
-description: Learn bulk edit assets in Azure Purview.
+description: Learn bulk edit assets in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -15,7 +15,7 @@ This article describes how to tag glossary terms, classifications, owners and ex
 
 ## Select assets to bulk edit
 
-1. Use Azure Purview search or browse to discover assets you wish to edit.
+1. Use Microsoft Purview search or browse to discover assets you wish to edit.
 
 1. In the search results, if you focus on an asset a checkbox appears.
 

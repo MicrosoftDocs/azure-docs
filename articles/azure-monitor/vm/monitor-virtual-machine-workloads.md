@@ -283,7 +283,7 @@ Use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBo
 
     ```kusto
     VMConnection
-    | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
+    | where Computer == <replace this with a computer name, e.g. 'acme-demo'>
     | extend bythehour = datetime_part("hour", TimeGenerated)
     | project bythehour, LinksFailed
     | summarize failCount = count() by bythehour
@@ -295,7 +295,7 @@ Use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBo
 
     ```kusto
     VMConnection
-    | where Computer == <replace this with a computer name, e.g. ‘acme-demo’>
+    | where Computer == <replace this with a computer name, e.g. 'acme-demo'>
     | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h)
     | render timechart
     ```
@@ -321,7 +321,7 @@ A synthetic transaction connects to an application or service running on a machi
 
 ## SQL Server
 
-Use [SQL insights](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
+Use [SQL Insights (preview)](../insights/sql-insights-overview.md) to monitor SQL Server running on your virtual machines.
 
 ## Next steps
 

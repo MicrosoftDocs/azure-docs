@@ -3,8 +3,8 @@ title: Plan your app - question answering
 description: Learn how to plan your question answering app. Understand how question answering works and interacts with other Azure services and some knowledge base concepts.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
 ms.date: 11/02/2021
 ---
@@ -24,7 +24,7 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with questio
 
 ### Resource planning
 
-Question answering throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
+Question answering throughput is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
 
 ### Language resource
 

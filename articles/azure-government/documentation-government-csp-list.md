@@ -93,7 +93,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciellos Inc.](https://www.ciellos.com/)|
-|[Ciracom Inc.](https://ciracom.com)|
+|[Ciracom Inc.](https://www.ciracomcloud.com)|
 |[Clients First Business Solutions LLC](https://www.clientsfirst-us.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
