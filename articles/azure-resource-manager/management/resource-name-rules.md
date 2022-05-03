@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -531,10 +531,14 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | netAppAccounts | resource group | 1-128 | Alphanumerics, underscores, periods, and hyphens. |
-> | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
-> | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
-> | netAppAccounts / volumeGroups | NetApp account | 1-64 |  Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts | resource group | 1-128 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / backups | NetApp account | 3-225 | Alphanumerics, underscores, periods, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / backupPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. |
+> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens. <br><br> Start with alphanumeric. |
+> | netAppAccounts / volumeGroups | NetApp account | 3-64 |  Alphanumerics, underscores, and hyphens.<br><br>Start with alphanumeric. |
 
 ## Microsoft.Network
 
