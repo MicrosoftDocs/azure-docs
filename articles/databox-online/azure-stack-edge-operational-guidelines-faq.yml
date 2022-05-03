@@ -47,9 +47,9 @@ sections:
           You're responsible for fixing issues in the applications that you deploy on the Azure Stack Edge platform, even if you're consuming services like Kubernetes that are provided by the platform.
 
       - question: |
-          How do I replace an Azure Stack Edge device if there is a hardware failure?
+          How do I replace an Azure Stack Edge device if there's a hardware failure?
         answer: |
-          If Microsoft determines the device is faulty, Microsoft will arrange for replacement and delivery of devices. If you [Return your Azure Stack Edge device](azure-stack-edge-return-device?tabs=azure-edge-hardware-center.md), Microsoft will process the return of your device.
+          If Microsoft determines the device is faulty, Microsoft will arrange for replacement and delivery of devices. If you [Return your Azure Stack Edge device](azure-stack-edge-return-device.md?tabs=azure-edge-hardware-center), Microsoft will process the return of your device.
           
       - question: |
           How do I open a support ticket with Microsoft?
