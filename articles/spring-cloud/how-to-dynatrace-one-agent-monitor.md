@@ -46,7 +46,7 @@ The following sections describe how to activate Dynatrace OneAgent.
 1. Create an instance of Azure Spring Apps.
 1. Create an application that you want to report to Dynatrace by running the following command. Replace the placeholders *\<...>* with your own values.
    ```azurecli
-   az spring-cloud app create \
+   az spring app create \
        --resource-group <your-resource-group-name> \
        --service <your-Azure-Spring-Cloud-name> \
        --name <your-application-name> \
@@ -68,7 +68,7 @@ You can add the environment variable key/value pairs to your application using e
 To add the key/value pairs using the Azure CLI, run the following command, replacing the placeholders *\<...>* with the values determined in the previous steps.
 
 ```azurecli
-az spring-cloud app deploy \
+az spring app deploy \
     --resource-group <your-resource-group-name> \
     --service <your-Azure-Spring-Cloud-name> \
     --name <your-application-name> \

@@ -40,8 +40,8 @@ To create apps on Azure Spring Apps, follow these steps:
 1. To create the two core applications for PetClinic, `api-gateway` and `customers-service`, use the following commands:
 
    ```azurecli
-   az spring-cloud app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
-   az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
+   az spring app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
+   az spring app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
 ## Bind apps to Application Configuration Service for Tanzu and Tanzu Service Registry
@@ -77,10 +77,10 @@ A list under **App name** shows the apps bound with Tanzu Service Registry, as s
 To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands.
 
 ```azurecli
-az spring-cloud application-configuration-service bind --app api-gateway
-az spring-cloud application-configuration-service bind --app customers-service
-az spring-cloud service-registry bind --app api-gateway
-az spring-cloud service-registry bind --app customers-service
+az spring application-configuration-service bind --app api-gateway
+az spring application-configuration-service bind --app customers-service
+az spring service-registry bind --app api-gateway
+az spring service-registry bind --app customers-service
 ```
 
 ---
@@ -106,11 +106,11 @@ To build locally, use the following steps:
 1. Deploy the JAR files built in the previous step using the following commands:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name api-gateway \
        --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.3.6.jar \
        --config-file-patterns api-gateway
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name customers-service \
        --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.3.6.jar \
        --config-file-patterns customers-service
@@ -119,7 +119,7 @@ To build locally, use the following steps:
 1. Query the application status after deployment by using the following command:
 
    ```azurecli
-   az spring-cloud app list --output table
+   az spring app list --output table
    ```
 
    This command produces output similar to the following example:

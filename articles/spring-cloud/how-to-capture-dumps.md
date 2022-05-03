@@ -33,7 +33,7 @@ Effective troubleshooting is critical to ensure you can fix issues in production
 Use the following command to generate a heap dump of your app in Azure Spring Apps.
 
 ```azurecli
-az spring-cloud app deployment generate-heap-dump \
+az spring app deployment generate-heap-dump \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Cloud-instance-name> \
     --app <app-name> \
@@ -47,7 +47,7 @@ az spring-cloud app deployment generate-heap-dump \
 Use the following command to generate a thread dump of your app in Azure Spring Apps.
 
 ```azurecli
-az spring-cloud app deployment generate-thread-dump \
+az spring app deployment generate-thread-dump \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Cloud-instance-name> \
     --app <app-name> \
@@ -61,7 +61,7 @@ az spring-cloud app deployment generate-thread-dump \
 Use the following command to start JFR for your app in Azure Spring Apps.
 
 ```azurecli
-az spring-cloud app deployment start-jfr \
+az spring app deployment start-jfr \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Cloud-instance-name> \
     --app <app-name> \

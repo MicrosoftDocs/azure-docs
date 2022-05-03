@@ -45,23 +45,23 @@ Next, select any of these Azure CLI operations:
 * To start your application:
 
     ```azurecli
-    az spring-cloud app start -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    az spring app start -n <application name> -g <resource group> -s <Azure Spring Apps name>
     ```
 
 * To stop your application:
 
     ```azurecli
-    az spring-cloud app stop -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    az spring app stop -n <application name> -g <resource group> -s <Azure Spring Apps name>
     ```
 
 * To restart your application:
 
     ```azurecli
-    az spring-cloud app restart -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    az spring app restart -n <application name> -g <resource group> -s <Azure Spring Apps name>
     ```
 
 * To delete your application:
 
     ```azurecli
-    az spring-cloud app delete -n <application name> -g <resource group> -s <Azure Spring Apps name>
+    az spring app delete -n <application name> -g <resource group> -s <Azure Spring Apps name>
     ```

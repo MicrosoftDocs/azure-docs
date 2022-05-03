@@ -139,13 +139,13 @@ ASCDM_OID=$(az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query obje
 az keyvault set-policy -g $KV_RG -n $KV_NAME  --object-id $ASCDM_OID --certificate-permissions get list --secret-permissions get list
 
 # add custom domain name and configure TLS using the certificate:
-az spring-cloud certificate add \
+az spring certificate add \
     --resource-group $RESOURCE_GROUP \
     --service $SPRING_CLOUD_NAME \
     --name $CERT_NAME_IN_ASC \
     --vault-certificate-name $CERT_NAME_IN_KV \
     --vault-uri $VAULTURI
-az spring-cloud app custom-domain bind \
+az spring app custom-domain bind \
     --resource-group $RESOURCE_GROUP \
     --service $SPRING_CLOUD_NAME \
     --domain-name $DOMAIN_NAME \

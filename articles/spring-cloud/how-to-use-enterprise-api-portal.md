@@ -70,7 +70,7 @@ To access API portal, use the following steps to assign a public endpoint:
 You can also use the Azure CLI to assign a public endpoint with the following command:
 
 ```azurecli
-az spring-cloud api-portal update --assign-endpoint
+az spring api-portal update --assign-endpoint
 ```
 
 ## View the route information through API portal

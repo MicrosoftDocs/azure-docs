@@ -89,7 +89,7 @@ Setting up for a new service isn't applicable when you're using the Azure CLI.
 1. Get the instance ID for the Azure Spring Apps service:
 
    ```azurecli
-   az spring-cloud show \
+   az spring show \
        --name <spring-cloud-service-name> \
        --resource-group <your-resource-group> \
        --query id --output tsv

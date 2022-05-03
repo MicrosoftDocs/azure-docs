@@ -41,7 +41,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 1. Remove any `spring.redis.*` properties from the `application.properties` file
 
-1. Update the current deployment using `az spring-cloud app update` or create a new deployment using `az spring-cloud app deployment create`.
+1. Update the current deployment using `az spring app update` or create a new deployment using `az spring app deployment create`.
 
 ## Bind your app to the Azure Cache for Redis
 

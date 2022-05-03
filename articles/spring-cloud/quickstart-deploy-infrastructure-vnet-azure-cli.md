@@ -99,7 +99,7 @@ az monitor app-insights component create \
     --workspace ${workspaceID}
 
 # Create Azure Spring Apps Instance
-az spring-cloud create \
+az spring create \
    -n ${azurespringcloud_service} \
    -g ${azurespringcloudrg} \
    -l ${location} \

@@ -40,7 +40,7 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
-az spring-cloud app logs -n solar-system-weather -f
+az spring app logs -n solar-system-weather -f
 ```
 
 You will see output similar to the following example:
@@ -60,7 +60,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ```
 
 > [!TIP]
-> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionality.
+> Use `az spring app logs -h` to explore more parameters and log stream functionality.
 
 ### Log Analytics
 
@@ -132,7 +132,7 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
-az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
+az spring app logs -s <service instance name> -g <resource group name> -n gateway -f
 ```
 
 You will see logs like this:
@@ -140,7 +140,7 @@ You will see logs like this:
 [ ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png#lightbox)
 
 > [!TIP]
-> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+> Use `az spring app logs -h` to explore more parameters and log stream functionalities.
 
 To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 

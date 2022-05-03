@@ -48,7 +48,7 @@ Managed identities for Azure resources provide an automatically managed identity
 Create an application and assign user-assigned managed identity at the same time by using the following command:
 
 ```azurecli
-az spring-cloud app create \
+az spring app create \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-instance-name> \
@@ -74,7 +74,7 @@ To assign user-assigned managed identity to an existing application in the Azure
 Use the following command to assign one or more user-assigned managed identities on an existing app:
 
 ```azurecli
-az spring-cloud app identity assign \
+az spring app identity assign \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-instance-name> \
@@ -108,7 +108,7 @@ To remove user-assigned managed identities from an application that no longer ne
 To remove user-assigned managed identities from an application that no longer needs it, use the following command:
 
 ```azurecli
-az spring-cloud app identity remove \
+az spring app identity remove \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-instance-name> \

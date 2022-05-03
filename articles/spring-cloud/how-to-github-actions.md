@@ -70,8 +70,8 @@ To provision your Azure Spring Apps service instance, run the following commands
 ```azurecli
 az extension add --name spring-cloud
 az group create --location eastus --name <resource group name>
-az spring-cloud create -n <service instance name> -g <resource group name>
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label main --search-paths steeltoe-sample/config
+az spring create -n <service instance name> -g <resource group name>
+az spring config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label main --search-paths steeltoe-sample/config
 ```
 
 ## Build the workflow
@@ -80,15 +80,15 @@ The workflow is defined using the following options.
 
 ### Prepare for deployment with Azure CLI
 
-The command `az spring-cloud app create` is currently not idempotent. After you run it once, you'll get an error if you run the same command again. We recommend this workflow on existing Azure Spring Apps apps and instances.
+The command `az spring app create` is currently not idempotent. After you run it once, you'll get an error if you run the same command again. We recommend this workflow on existing Azure Spring Apps apps and instances.
 
 Use the following Azure CLI commands for preparation:
 
 ```azurecli
 az config set defaults.group=<service group name>
 az config set defaults.spring-cloud=<service instance name>
-az spring-cloud app create --name planet-weather-provider
-az spring-cloud app create --name solar-system-weather
+az spring app create --name planet-weather-provider
+az spring app create --name solar-system-weather
 ```
 
 ### Deploy with Azure CLI directly
@@ -143,12 +143,12 @@ jobs:
         working-directory: ${{env.working-directory}}/src/planet-weather-provider
         run: |
           dotnet publish
-          az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
+          az spring app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
       - name: Build solar-system-weather app
         working-directory: ${{env.working-directory}}/src/solar-system-weather
         run: |
           dotnet publish
-          az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
+          az spring app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
 ```
 
 ::: zone-end
@@ -199,8 +199,8 @@ To provision your Azure Spring Apps service instance, run the following commands
 ```azurecli
 az extension add --name spring-cloud
 az group create --location eastus --name <resource group name>
-az spring-cloud create -n <service instance name> -g <resource group name>
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config
+az spring create -n <service instance name> -g <resource group name>
+az spring config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config
 ```
 
 ## End-to-end sample workflows

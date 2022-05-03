@@ -33,7 +33,7 @@ To deploy from a source code folder your local machine, see [Non-Java applicatio
 To deploy the source code folder to an active deployment, use the following command:
 
 ```azurecli
-az spring-cloud app deploy
+az spring app deploy
     --resource-group <your-resource-group-name> \
     --service <your-Azure-Spring-Cloud-name> \
     --name <your-app-name> \

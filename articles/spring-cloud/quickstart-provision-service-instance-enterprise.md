@@ -95,7 +95,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
    ```azurecli
    az group create --name <resource-group-name>
-   az spring-cloud create \
+   az spring create \
        --resource-group <resource-group-name> \
        --name <service-instance-name> \
        --sku enterprise

@@ -43,7 +43,7 @@ To find the outbound public IP addresses currently used by your service instance
 You can find the same information by running the following command in the Cloud Shell
 
 ```azurecli
-az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIps.publicIps --output tsv
+az spring show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIps.publicIps --output tsv
 ```
 
 ## Next steps

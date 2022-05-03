@@ -46,14 +46,14 @@ Use the following procedure to access the agent:
 2. Create an application.
 
     ```azurecli
-      az spring-cloud app create --name "appName" --is-public true \
+      az spring app create --name "appName" --is-public true \
       -s "resourceName" -g "resourceGroupName"
     ```
 
 3. Create a deployment with the New Relic agent and environment variables.
 
     ```azurecli
-    az spring-cloud app deploy --name "appName" --jar-path app.jar \
+    az spring app deploy --name "appName" --jar-path app.jar \
        -s "resourceName" -g "resourceGroupName" \
        --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey

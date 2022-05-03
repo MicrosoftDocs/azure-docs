@@ -67,7 +67,7 @@ Prerequisites:
       </dependency>
       ```
 
-1. Update the current app by running `az spring-cloud app deploy`, or create a new deployment for this change by running `az spring-cloud app deployment create`.
+1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
 ## Bind your app to the Azure Cosmos DB
 

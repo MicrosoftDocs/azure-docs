@@ -71,7 +71,7 @@ az group create --location eastus --name <resource-group-name>
 Run the following commands to provision an instance of Azure Spring Apps. Prepare a name for your service in Azure Spring Apps. The name must be between 4 and 32 characters and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
 ```azurecli
-az spring-cloud create --resource-group <resource-group-name> --name <resource-name>
+az spring create --resource-group <resource-group-name> --name <resource-name>
 ```
 
 The service instance will take about five minutes to deploy.
@@ -88,7 +88,7 @@ az config set defaults.spring-cloud=<service-instance-name>
 The following command creates an application in Azure Spring Apps in your subscription.  This creates an empty service to which you can upload your application.
 
 ```azurecli
-az spring-cloud app create --name <app-name>
+az spring app create --name <app-name>
 ```
 
 ## Deploy your Spring Boot application
@@ -102,13 +102,13 @@ To deploy from a JAR built on your local machine, ensure that your build produce
 To deploy the fat-JAR to an active deployment
 
 ```azurecli
-az spring-cloud app deploy --name <app-name> --jar-path <path-to-fat-JAR>
+az spring app deploy --name <app-name> --jar-path <path-to-fat-JAR>
 ```
 
 To deploy the fat-JAR to a specific deployment
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> \
+az spring app deployment create --app <app-name> \
     --name <deployment-name> \
     --jar-path <path-to-fat-JAR>
 ```
@@ -124,14 +124,14 @@ For single module Maven / Gradle projects:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring-cloud app deploy --name <app-name>
+az spring app deploy --name <app-name>
 ```
 
 For Maven / Gradle projects with multiple modules, repeat for each module:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring-cloud app deploy --name <app-name> \
+az spring app deploy --name <app-name> \
     --target-module <relative-path-to-module>
 ```
 
@@ -140,7 +140,7 @@ az spring-cloud app deploy --name <app-name> \
 Review the kpack build logs using the following command:
 
 ```azurecli
-az spring-cloud app show-deploy-log --name <app-name>
+az spring app show-deploy-log --name <app-name>
 ```
 
 > [!NOTE]

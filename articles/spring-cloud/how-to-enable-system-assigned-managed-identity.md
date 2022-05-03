@@ -66,7 +66,7 @@ You can enable system-assigned managed identity during app creation or on an exi
 The following example creates an app named *app_name* with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create \
+az spring app create \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-instance-name> \
@@ -75,10 +75,10 @@ az spring-cloud app create \
 
 ### Enable system-assigned managed identity on an existing app**
 
-Use `az spring-cloud app identity assign` command to enable the system-assigned identity on an existing app.
+Use `az spring app identity assign` command to enable the system-assigned identity on an existing app.
 
 ```azurecli
-az spring-cloud app identity assign \
+az spring app identity assign \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-instance-name> \
@@ -114,7 +114,7 @@ To remove system-assigned managed identity from an app that no longer needs it:
 To remove system-assigned managed identity from an app that no longer needs it, use the following command:
 
 ```azurecli
-az spring-cloud app identity remove \
+az spring app identity remove \
     --resource-group <resource-group-name> \
     --name <app-name> \
     --service <service-instance-name> \

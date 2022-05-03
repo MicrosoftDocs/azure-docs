@@ -44,7 +44,7 @@ This article uses the Spring Petclinic sample to walk through the required steps
 1. Use the Azure Spring Apps extension for Azure CLI with the following command to create an application to run in Azure Spring Apps:
 
    ```azurecli
-   az spring-cloud app create \
+   az spring app create \
       --resource-group <your-resource-group-name> \
       --service <your-Azure-Spring-Cloud-instance-name> \
       --name <your-app-name> \
@@ -60,7 +60,7 @@ Use the following steps to enable custom persistent storage:
 1. Use the following Azure CLI command to add persistent storage for your Azure Spring Apps apps.
 
    ```azurecli
-   az spring-cloud app append-persistent-storage \
+   az spring app append-persistent-storage \
       --resource-group <your-resource-group-name> \
       --service <your-Azure-Spring-Cloud-instance-name> \
       --name <your-app-name> \
@@ -93,7 +93,7 @@ Before proceeding, you'll need your Elastic APM server connectivity information 
 1. After you have the Elastic APM endpoint and secret token, use the following command to activate Elastic APM Java agent when deploying applications. The placeholder *`<agent-location>`* refers to the mounted storage location of the Elastic APM Java Agent.
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name <your-app-name> \
        --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
        --jvm-options='-javaagent:<agent-location>' \

@@ -76,13 +76,13 @@ To build the application, follow these steps:
 5. Create the app in your Azure Spring Apps instance:
 
    ```azurecli
-   az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --assign-endpoint
+   az spring app create -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --assign-endpoint
    ```
 
 6. Deploy the app to Azure Spring Apps:
 
    ```azurecli
-   az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring app deploy -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 7. Modify the code for your staging deployment:
@@ -114,7 +114,7 @@ To build the application, follow these steps:
 9. Create the green deployment:
 
    ```azurecli
-   az spring-cloud app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 ## View apps and deployments
@@ -176,7 +176,7 @@ If you visit your public-facing app gateway at this point, you should see the ol
 If you're not satisfied with your change, you can modify your application code, build a new .jar package, and upload it to your green deployment by using the Azure CLI:
 
 ```azurecli
-az spring-cloud app deploy  -g <resource-group-name> -s <service-instance-name> -n gateway -d green --jar-path gateway.jar
+az spring app deploy  -g <resource-group-name> -s <service-instance-name> -n gateway -d green --jar-path gateway.jar
 ```
 
 ## Delete the staging deployment
@@ -186,7 +186,7 @@ To delete your staging deployment from the Azure portal, go to the page for your
 Alternatively, delete your staging deployment from the Azure CLI by running the following command:
 
 ```azurecli
-az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
+az spring app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
 
 ## Next steps

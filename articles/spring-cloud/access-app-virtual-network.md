@@ -39,7 +39,7 @@ Find the IP Address for your Spring Cloud services. Customize the value of your 
 
    ```azurecli
    SPRING_CLOUD_NAME='spring-cloud-name'
-   SERVICE_RUNTIME_RG=`az spring-cloud show \
+   SERVICE_RUNTIME_RG=`az spring show \
        --resource-group $RESOURCE_GROUP \
        --name $SPRING_CLOUD_NAME \
        --query "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
@@ -197,7 +197,7 @@ Update your app to assign an endpoint to it. Customize the value of your app nam
 
 ```azurecli
 SPRING_CLOUD_APP='your spring cloud app'
-az spring-cloud app update \
+az spring app update \
     --resource-group $RESOURCE_GROUP \
     --name $SPRING_CLOUD_APP \
     --service $SPRING_CLOUD_NAME \

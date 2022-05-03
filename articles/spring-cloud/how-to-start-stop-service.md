@@ -69,7 +69,7 @@ In the Azure portal, use the following steps to start a stopped Azure Spring App
 With the Azure CLI, use the following command to stop a running Azure Spring Apps instance:
 
 ```azurecli
-az spring-cloud stop \
+az spring stop \
     --name <service-instance-name> \
     --resource-group <resource-group-name>
 ```
@@ -79,7 +79,7 @@ az spring-cloud stop \
 With the Azure CLI, use the following command to start a stopped Azure Spring Apps instance:
 
 ```azurecli
-az spring-cloud start \
+az spring start \
     --name <service-instance-name> \
     --resource-group <resource-group-name>
 ```
@@ -89,7 +89,7 @@ az spring-cloud start \
 After the instance stops or starts, use the following command to check the power state:
 
 ```azurecli
-az spring-cloud show \
+az spring show \
     --name <service-instance-name> \
     --resource-group <resource-group-name>
 ```

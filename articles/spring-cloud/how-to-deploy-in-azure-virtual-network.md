@@ -227,7 +227,7 @@ To deploy an Azure Spring Apps instance in the virtual network:
 Create your Azure Spring Apps instance by specifying the virtual network and subnets you just created,
 
    ```azurecli
-   az spring-cloud create  \
+   az spring create  \
        --resource-group "$RESOURCE_GROUP" \
        --name "$SPRING_CLOUD_NAME" \
        --vnet $VIRTUAL_NETWORK_NAME \
