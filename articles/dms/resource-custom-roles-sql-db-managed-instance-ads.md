@@ -1,10 +1,10 @@
 ---
-title: "Custom roles: Online SQL Server to SQL Managed Instance migrations"
+title: "Custom roles: Online SQL Server to SQL Managed Instance migrations using ADS"
 titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure SQL Managed Instance migrations.
 services: database-migration
-author: kirepko
-ms.author: kirepko
+author: krepko7
+ms.author: krepko7
 manager: sushants
 ms.reviewer: 
 ms.service: dms

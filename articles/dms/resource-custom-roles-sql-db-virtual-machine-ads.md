@@ -1,10 +1,10 @@
 ---
-title: "Custom roles: Online SQL Server to Azure Virtual Machines migrations"
+title: "Custom roles: Online SQL Server to Azure Virtual Machines migrations with ADS"
 titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure VM's migrations.
 services: database-migration
-author: kirepko
-ms.author: kirepko
+author: krepko7
+ms.author: krepko7
 manager: sushants
 ms.reviewer: 
 ms.service: dms
