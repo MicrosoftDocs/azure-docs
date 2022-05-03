@@ -1,11 +1,11 @@
 ---
-title: Sign, Verify, Deploy Container Images to Azure Kubernetes Service
-description: Create a signing certificate, store and remote sign with Azure Key Vault, deploy with Azure container registry into Azure Kubernetes Service, using Gate Keeper to validate prior to deployment. Part one of a ___-part series.
-author: stevelasker
-ms.author: stevelas
+title: Build, Sign and Verify a container image using notation and certificate in Azure Key Vault
+description: Create a signing certificate, build container image, remote sign image with notation and Azure Key Vault, verify the container image using  Azure container registry.
+author: dtzar
+ms.author: davete
 ms.service: container-registry
 ms.topic: how-to
-ms.date: 11/20/2021
+ms.date: 05/08/2022
 ---
 
 # Sign, Verify, Deploy Container Images to Azure Kubernetes Service
