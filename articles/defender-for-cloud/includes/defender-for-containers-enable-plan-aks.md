@@ -1,12 +1,16 @@
 ---
-author: bmansheim
-ms.author: benmansheim
+author: ElazarK
+ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 04/28/2022
+ms.date: 05/03/2022
 ---
 
 ## Enable the plan
+
+When you the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace. You can [override the default workspace](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-196263&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks) through Azure Policy.
+
+**To enable the plan**:
 
 1. From Defender for Cloud's menu, open the [Environment settings page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
 
@@ -19,7 +23,7 @@ ms.date: 04/28/2022
 
 1. By default, when enabling the plan through the Azure Portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan.
 
-    You can also modify this configuration from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
+    You can also modify this configuration from the Auto provisioning page on the **Microsoft Defender for Containers components (preview)** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
 
@@ -41,7 +45,7 @@ ms.date: 04/28/2022
 
 You can enable the Defender for Containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
 
-Once the Defender profile has been deployed, a default workstation will be automatically assigned. You can override the default workspace and make a change through Azure Policy by [overriding the default workspace](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-196263&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks).
+Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can override the default workspace and make a change through Azure Policy by [overriding the default workspace](/azure/defender-for-cloud/defender-for-containers-enable?branch=pr-en-us-196263&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks).
 
 The Defender security profile is a preview feature. [!INCLUDE [Legalese](../../../includes/defender-for-cloud-preview-legal-text.md)]
 

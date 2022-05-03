@@ -1,14 +1,14 @@
 ---
-author: elkrieger
+author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 04/28/2022
+ms.date: 05/03/2022
 ms.author: elkrieger
 ---
 
 ## Override the default workspace
 
-Once the Defender profile has been deployed, a default workstation will be automatically assigned. You can override the default workspace and make a change through Azure Policy.
+Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can override the default workspace through Azure Policy.
 
 **To override the default workspace**:
 
