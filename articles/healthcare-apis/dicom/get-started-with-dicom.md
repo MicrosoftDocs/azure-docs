@@ -1,12 +1,12 @@
 ---
 title: Get started with the DICOM service - Azure Health Data Services
 description: This document describes how to get started with the DICOM service in Azure Health Data Services.
-author: dougseven
+author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/22/2022
-ms.author: dseven
+ms.date: 05/03/2022
+ms.author: aersoy
 ms.custom: mode-api
 ---
 
