@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.author: gennadyk
 author: GennadNY
 ms.reviewer: 
-author: niklarin
 ms.date: 11/30/2021
 ---
 
