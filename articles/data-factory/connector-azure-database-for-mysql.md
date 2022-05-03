@@ -24,6 +24,13 @@ This connector is specialized for
  
  To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).
 
+## Prerequisites
+
+This quickstart uses the resources created in either of these guides as a starting point:
+
+- An existing Azure databsae for MySQL Single server or MySQL Flexible Server.
+- Enable **Allow public access from any Azure service within Azure to this server** in networking page of the MySQL server . This will allow you to use Data factory studio.
+
 ## Supported capabilities
 
 This Azure Database for MySQL connector is supported for the following activities:
