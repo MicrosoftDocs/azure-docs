@@ -82,6 +82,8 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
+    - name: Industrial IoT patterns
+      href: core/concepts-iiot-architecture.md
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
@@ -231,8 +233,10 @@
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-        - name: Create a private endpoint
+        - name: Create a private endpoint for devices
           href: core/howto-create-private-endpoint.md
+        - name: Export to a secure VNET
+          href: core/howto-connect-secure-vnet.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -250,6 +254,14 @@
   - name: IoT Glossary
     href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
 
+  - name: Industrial connectivity partners
+    items:
+    - name: CloudRAIL
+      href: https://devices.cloudrail.com/documentation?service=AzureIoTCentral#azureiotcentral1
+    - name: Ignition
+      href: https://docs.chariot.io/display/CLD80/Publishing+Data+to+Azure+IoT+Central
+    - name: Omnio
+      href: https://www.omnio.net/contact
   - name: Azure IoT services
     items:
     - name: IoT Hub

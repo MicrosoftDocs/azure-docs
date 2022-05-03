@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 03/21/2022
+ms.date: 04/29/2022
 ms.author: mbaldwin
 ---
 
@@ -208,7 +208,7 @@ Conditions are collected into Authority statements and combined:
 Where:
 
 - **authority**: An identifier for the authority making the claims. This identifier functions in the same fashion as the iss claim in a JSON Web Token. It indirectly references a key that signs the Environment Assertion.
-- **allOf**: One or more claim conditions that identify claims and values that must be satisfied in the environment assertion for the release policy to succeed. anyOf is also allowed. However, both are not allowed together. 
+- **allOf**: One or more claim conditions that identify claims and values that must be satisfied in the environment assertion for the release policy to succeed. anyOf is also allowed. However, both aren't allowed together. 
 
 ## Key Release Policy
 
@@ -234,7 +234,7 @@ Release policy is an anyOf condition containing an array of key authorities:
 
 ## Encoding key release policy
 
-Since key release policy is a JSON document, it is encoded when carried in requests and response to AKV to avoid the need to describe the complete language in Swagger definitions. 
+Since key release policy is a JSON document, it's encoded when carried in requests and response to AKV to avoid the need to describe the complete language in Swagger definitions. 
 
 The encoding is as follows:
 
@@ -247,9 +247,4 @@ The encoding is as follows:
 
 ## Environment Assertion
 
-An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority that contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The KEK is a public RSA key owned by the target execution environment (and protected by it) that is used for key export, it must appear in one of, in preference order:
-
-- The TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set.
-- The Enclave Held Data claim (maa-ehd) claim. The maa-ehd claim is expected to contain a string that is the Base64 URL encoding of an array of octets that contain a JSON document; within this document, AKV requires that there be a keys element containing a JSON Web Key Set.
-
-Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
+An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority. An Environment Asserting contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The key encryption key is a public RSA key owned and protected by the target execution environment that is used for key export. It must appear in the TEE keys claim (x-ms-runtime/keys). This claim is a JSON object representing a JSON Web Key Set. Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
