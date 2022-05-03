@@ -68,7 +68,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 - [Which built-in application stacks are supported?](#which-built-in-application-stacks-are-supported)
 - [Are all app deployment types supported?](#are-all-app-deployment-types-supported)
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
-- [Are networking features supported?](#are-networking-features-supported)
+- [Are all networking features supported?](#are-networking-features-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
@@ -95,9 +95,9 @@ FTP deployment is not supported. Currently `az webapp up` is also not supported.
 
 During the preview period, certain App Service features are being validated. When they're supported, their left navigation options in the Azure portal will be activated. Features that are not yet supported remain grayed out.
 
-### Are networking features supported?
+### Are all networking features supported?
 
-No. Networking features such as hybrid connections, Virtual Network integration, or IP restrictions, are not supported. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
+No. Networking features such as hybrid connections or Virtual Network integration, are not supported.  [Access restriction])(app-service-ip-restrictions.md) support was added in April 2022. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
 
 ### Are managed identities supported?
 
@@ -203,7 +203,7 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 ### Application services extension v 0.13.0 (April 2022)
 
 - Added support for Application Insights codeless integration for Node JS applications
-- Added support for [Access Restrictions](app-service-ip-restrictions) via CLI
+- Added support for [Access Restrictions](app-service-ip-restrictions.md) via CLI
 - More details provided when extension fails to install, to assist with troubleshooting issues 
 
 If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
