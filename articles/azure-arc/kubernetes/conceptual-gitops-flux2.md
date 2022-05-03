@@ -87,9 +87,9 @@ Each `fluxConfigurations` resource in Azure will be associated in a Kubernetes c
 
 ## GitOps with Private Link
 
-If you've added support for private link to an Azure Arc-enabled Kubernetes cluster, then the `microsoft.flux` extension works out-of-the-box with communication back to Azure. For connections to your Git repository, Helm repository, or any other endpoints that are needed to deploy your Kubernetes manifests, you will need to provision these endpoints behind your firewall or whitelist them on your firewall so that the Flux Source controller can successfully reach them.
+If you've added support for private link to an Azure Arc-enabled Kubernetes cluster, then the `microsoft.flux` extension works out-of-the-box with communication back to Azure. For connections to your Git repository, Helm repository, or any other endpoints that are needed to deploy your Kubernetes manifests, you will need to provision these endpoints behind your firewall or list them on your firewall so that the Flux Source controller can successfully reach them.
 
-For more information on private link scopes in Azure Arc, refer to [this document](../servers/private-link-security#create-a-private-link-scope).
+For more information on private link scopes in Azure Arc, refer to [this document](../servers/private-link-security.md#create-a-private-link-scope).
 
 ## Data residency
 The Azure GitOps service (Azure Kubernetes Configuration Management) stores/processes customer data. By default, customer data is replicated to the paired region. For the regions Singapore, East Asia, and Brazil South, all customer data is stored and processed in the region.
