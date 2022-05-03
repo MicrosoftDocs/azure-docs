@@ -260,7 +260,7 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
 
 
 
-## Configure the application connection in the Azure Portal
+## Configure the application connection in the Azure portal
  1. Return to the web browser window where you were configuring the application provisioning.
     >[!NOTE]
     >If the window had timed out, then you will need to re-select the agent.
