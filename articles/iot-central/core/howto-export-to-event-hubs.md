@@ -25,7 +25,7 @@ Event Hubs destinations let you configure the connection with a *connection stri
 
 This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
-## [Connection string](#tab/connection-string/event-hubs)
+## [Connection string](#tab/event-hubs)
 
 ### Create an Event Hubs destination
 
@@ -59,7 +59,7 @@ To create the Event Hubs destination in IoT Central on the **Data export** page:
 
 1. Select **Save**.
 
-## [Managed identity](#tab/managed-identity/event-hubs)
+## [Managed identity](#tab/event-hubs)
 
 ### Create an Event Hubs destination
 

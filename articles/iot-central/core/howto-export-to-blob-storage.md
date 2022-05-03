@@ -28,7 +28,7 @@ Blob Storage destinations let you configure the connection with a *connection st
 
 This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
-## [Connection string](#tab/connection-string/blob-storage)
+## [Connection string](#tab/blob-storage)
 
 ### Create an Azure Blob Storage destination
 
@@ -59,7 +59,7 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 1. Select **Save**.
 
-## [Managed identity](#tab/managed-identity/blob-storage)
+## [Managed identity](#tab/blob-storage)
 
 ### Create an Azure Blob Storage destination
 
