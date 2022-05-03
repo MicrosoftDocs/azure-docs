@@ -61,7 +61,6 @@ Both these failover options offer the following recovery point objectives (RPOs)
 | Cloud-to-device messages<sup>1</sup> |0-5 mins data loss |
 | Parent<sup>1</sup> and device jobs |0-5 mins data loss |
 | Device-to-cloud messages |All unread messages are lost |
-| Operations monitoring messages |All unread messages are lost |
 | Cloud-to-device feedback messages |All unread messages are lost |
 
 <sup>1</sup>Cloud-to-device messages and parent jobs do not get recovered as a part of manual failover.

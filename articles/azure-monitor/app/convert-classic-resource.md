@@ -60,6 +60,7 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
     > [!NOTE]
     > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
     > - If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period.
+    > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, then use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
 - Understand [Workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.
 

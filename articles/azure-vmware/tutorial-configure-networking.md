@@ -34,6 +34,14 @@ You can use the **Azure vNet connect** feature to use an existing vNet or create
 >[!NOTE]
 >Address space in the vNet cannot overlap with the Azure VMware Solution private cloud CIDR.
 
+### Prerequisites
+
+Before selecting an existing vNet, there are specific requirements that must be met.
+
+1. vNet must contain a gateway subnet.
+1. In the same region as Azure VMware Solution private cloud.
+1. In the same resource group as Azure VMware Solution private cloud.
+1. vNet must contain an address space that doesn't overlap with Azure VMware Solution.
 
 ### Select an existing vNet
 

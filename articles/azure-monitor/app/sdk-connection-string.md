@@ -135,7 +135,7 @@ In this example, the connection string specifies the South Central US region.
 - The regional service URIs are based on the explicit override values: 
    - Ingestion: `https://southcentralus.in.applicationinsights.azure.com/`
 
-Run the following command in the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
+Run the following command in the [Azure Command-Line Interface (CLI)](/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
 
 `az account list-locations -o table`
 

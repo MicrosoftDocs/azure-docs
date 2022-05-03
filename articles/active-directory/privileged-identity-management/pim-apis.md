@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 04/18/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim 
@@ -18,25 +18,22 @@ ms.collection: M365-identity-device-management
 ---
 # Understand the Privileged Identity Management APIs
 
-You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and the Azure Resource Manager API for Azure resource roles (sometimes called Azure RBAC roles). This article describes important concepts for using the APIs for Privileged Identity Management.
+You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and the Azure Resource Manager API for Azure roles. This article describes important concepts for using the APIs for Privileged Identity Management.
 
 For requests and other details about PIM APIs, check out:
 
 - [PIM for Azure AD roles API reference](/graph/api/resources/unifiedroleeligibilityschedulerequest?view=graph-rest-beta&preserve-view=true)
 - [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
 
-> [!IMPORTANT]
-> PIM APIs [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
 ## PIM API history
 
 There have been several iterations of the PIM API over the past few years. You'll find some overlaps in functionality, but they don't represent a linear progression of versions.
 
-### Iteration 1 – only supports Azure AD roles, deprecating
+### Iteration 1 – Deprecated
 
-Under the /beta/privilegedRoles endpoint, Microsoft had a classic version of the PIM API which is no longer supported in most tenants. We are in the process of deprecating remaining access to this API on 05/31.
+Under the /beta/privilegedRoles endpoint, Microsoft had a classic version of the PIM API which only supported Azure AD roles and is no longer supported. Access to this API was deprecated in June 2021.
 
-### Iteration 2 – supports Azure AD roles and Azure resource roles
+### Iteration 2 – Supports Azure AD roles and Azure resource roles
 
 Under the /beta/privilegedAccess endpoint, Microsoft supported both /aadRoles and /azureResources. This endpoint is still available in your tenant but Microsoft recommends against starting any new development with this API. This beta API will never be released to general availability and will be eventually deprecated.
 

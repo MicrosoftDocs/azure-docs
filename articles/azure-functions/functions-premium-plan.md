@@ -169,7 +169,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |--| -- | -- |
 |Australia Central| 100 | Not Available |
 |Australia Central 2| 100 | Not Available |
-|Australia East| 100 | 20 |
+|Australia East| 100 | 40 |
 |Australia Southeast | 100 | 20 |
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
@@ -179,7 +179,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
 |East US | 100 | 60 |
-|East US 2| 100 | 20 |
+|East US 2| 100 | 40 |
 |France Central| 100 | 20 |
 |Germany West Central| 100 | 20 |
 |Japan East| 100 | 20 |
@@ -191,7 +191,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 |North Europe| 100 | 40 |
 |Norway East| 100 | 20 |
 |South Africa North| 100 | 20 |
-|South Central US| 100 | 20 |
+|South Central US| 100 | 40 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
 |Switzerland North| 100 | 20 |

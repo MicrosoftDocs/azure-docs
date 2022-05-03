@@ -1,16 +1,14 @@
 ---
 title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
 description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
+author: bmansheim
+ms.author: benmansheim
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 04/26/2022
 ---
 # Tutorial: Improve your regulatory compliance
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-Microsoft Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. 
-
-Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
+Microsoft Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
 
 When you enable Defender for Cloud on an Azure subscription, the [Azure Security Benchmark](/security/benchmark/azure/introduction) is automatically assigned to that subscription. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
@@ -32,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To step through the features covered in this tutorial:
 
 - [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data (**Security Reader** is insufficient). The role of **Global reader** for the subscription will work. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role does not. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
@@ -125,17 +123,26 @@ For example, you might want Defender for Cloud to email a specific user when a c
 
 ## FAQ - Regulatory compliance dashboard
 
-- [What standards are supported in the compliance dashboard?](#what-standards-are-supported-in-the-compliance-dashboard)
-- [Why do some controls appear grayed out?](#why-do-some-controls-appear-grayed-out)
-- [How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
-- [I made the suggested changed based on the recommendation, yet it isn't being reflected in the dashboard](#i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard)
-- [What permissions do I need to access the compliance dashboard?](#what-permissions-do-i-need-to-access-the-compliance-dashboard)
-- [The regulatory compliance dashboard isn't loading for me](#the-regulatory-compliance-dashboard-isnt-loading-for-me)
-- [How can I view a report of passing and failing controls per standard in my dashboard?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
-- [How can I download a report with compliance data in a format other than PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
-- [How can I create exceptions for some of the policies in the regulatory compliance dashboard?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
-- [What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?](#what-microsoft-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
-- [How do I know which benchmark or standard to use?](#how-do-i-know-which-benchmark-or-standard-to-use)
+- [Tutorial: Improve your regulatory compliance](#tutorial-improve-your-regulatory-compliance)
+  - [Prerequisites](#prerequisites)
+  - [Assess your regulatory compliance](#assess-your-regulatory-compliance)
+  - [Improve your compliance posture](#improve-your-compliance-posture)
+  - [Generate compliance status reports and certificates](#generate-compliance-status-reports-and-certificates)
+  - [Configure frequent exports of your compliance status data](#configure-frequent-exports-of-your-compliance-status-data)
+  - [Run workflow automations when there are changes to your compliance](#run-workflow-automations-when-there-are-changes-to-your-compliance)
+  - [FAQ - Regulatory compliance dashboard](#faq---regulatory-compliance-dashboard)
+    - [What standards are supported in the compliance dashboard?](#what-standards-are-supported-in-the-compliance-dashboard)
+    - [Why do some controls appear grayed out?](#why-do-some-controls-appear-grayed-out)
+    - [How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
+    - [I made the suggested changes based on the recommendation, but it isn't being reflected in the dashboard?](#i-made-the-suggested-changes-based-on-the-recommendation-but-it-isnt-being-reflected-in-the-dashboard)
+    - [What permissions do I need to access the compliance dashboard?](#what-permissions-do-i-need-to-access-the-compliance-dashboard)
+    - [The regulatory compliance dashboard isn't loading for me](#the-regulatory-compliance-dashboard-isnt-loading-for-me)
+    - [How can I view a report of passing and failing controls per standard in my dashboard?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
+    - [How can I download a report with compliance data in a format other than PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
+    - [How can I create exceptions for some of the policies in the regulatory compliance dashboard?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
+    - [What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?](#what-microsoft-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+    - [How do I know which benchmark or standard to use?](#how-do-i-know-which-benchmark-or-standard-to-use)
+  - [Next steps](#next-steps)
 
 ### What standards are supported in the compliance dashboard?
 By default, the regulatory compliance dashboard shows you the Azure Security Benchmark. The Azure Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Azure Security Benchmark introduction](../security/benchmarks/introduction.md).
@@ -154,7 +161,7 @@ Some controls are grayed out. These controls don't have any Defender for Cloud a
 ### How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard? 
 To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
 
-### I made the suggested changed based on the recommendation, yet it isn't being reflected in the dashboard
+### I made the suggested changes based on the recommendation, but it isn't being reflected in the dashboard?
 After you take action to resolve recommendations, wait 12 hours to see the changes to your compliance data. Assessments are run approximately every 12 hours, so you'll see the effect on your compliance data only after the assessments run.
  
 ### What permissions do I need to access the compliance dashboard?

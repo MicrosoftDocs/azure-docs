@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2021
-ms.author: aldomel
+ms.author: mbender
 
 ---
 
@@ -32,6 +32,7 @@ Each route contains an address prefix and next hop type. When traffic leaving a 
 |Default|Unique to the virtual network                           |Virtual network|
 |Default|0.0.0.0/0                                               |Internet       |
 |Default|10.0.0.0/8                                              |None           |
+|Default|172.16.0.0/12                                           |None           |
 |Default|192.168.0.0/16                                          |None           |
 |Default|100.64.0.0/10                                           |None           |
 
@@ -41,7 +42,7 @@ The next hop types listed in the previous table represent how Azure routes traff
 * **Internet**: Routes traffic specified by the address prefix to the Internet. The system default route specifies the 0.0.0.0/0 address prefix. If you don't override Azure's default routes, Azure routes traffic for any address not specified by an address range within a virtual network, to the Internet, with one exception. If the destination address is for one of Azure's services, Azure routes the traffic directly to the service over Azure's backbone network, rather than routing the traffic to the Internet. Traffic between Azure services does not traverse the Internet, regardless of which Azure region the virtual network exists in, or which Azure region an instance of the Azure service is deployed in. You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](#custom-routes).<br>
 * **None**: Traffic routed to the **None** next hop type is dropped, rather than routed outside the subnet. Azure automatically creates default routes for the following address prefixes:<br>
 
-    * **10.0.0.0/8 and 192.168.0.0/16**: Reserved for private use in RFC 1918.<br>
+    * **10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16**: Reserved for private use in RFC 1918.<br>
     * **100.64.0.0/10**: Reserved in RFC 6598.
 
     If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type.
@@ -95,7 +96,7 @@ You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the 
 
 ### Service Tags for user-defined routes
 
-You can now specify a [Service Tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A Service Tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with Service Tags in each route table. </br>
+You can now specify a [service tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with service tags in each route table. With this release, using service tags in routing scenarios for containers is also supported. </br>
 
 #### Exact Match
 When there is an exact prefix match between a route with an explicit IP prefix and a route with a Service Tag, preference is given to the route with the explicit prefix. When multiple routes with Service Tags have matching IP prefixes, routes will be evaluated in the following order: 

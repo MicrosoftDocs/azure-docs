@@ -2,7 +2,7 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 01/05/2022
+ms.date: 04/25/2022
 ms.custom: mvc, devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -20,6 +20,8 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 > * Create a VM from the restored disk
 
 For information on using PowerShell to restore a disk and create a recovered VM, see [Back up and restore Azure VMs with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+Now, you can also use CLI to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -309,6 +311,53 @@ To confirm that your VM has been created from your recovered disk, list the VMs 
 ```azurecli-interactive
 az vm list --resource-group myResourceGroup --output table
 ```
+
+## Restore data to virtual machine using CLI
+
+You can now directly restore data to original/alternate VM without performing multiple steps.
+
+### Restore data to original VM
+
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --restore-mode OriginalLocation 
+    --storage-account mystorageaccount \
+    --rp-name myRecoveryPointName \ 
+```
+
+```output
+Name      Operation        Status      Item Name    Start Time UTC       Duration
+--------  ---------------  ----------  -----------  -------------------  --------------
+7f2ad916  Restore          InProgress  myVM         2017-09-19T19:39:52  0:00:34.520850
+```
+
+The last command triggers an original location restore operation to restore the data in-place in the existing VM.
+ 
+
+###  Restore data to a newly created VM
+
+```azurecli-interactive
+az backup restore restore-disks \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --restore-mode OriginalLocation 
+    --storage-account mystorageaccount \
+    --rp-name myRecoveryPointName \ 
+```
+
+```output
+Name      Operation        Status      Item Name    Start Time UTC       Duration
+--------  ---------------  ----------  -----------  -------------------  --------------
+7f2ad916  Restore          InProgress  myVM         2017-09-19T19:39:52  0:00:34.520850
+```
+
+The last command triggers an alternate location restore operation to create a new VM in *Target_RG* resource group as per the inputs specified by parameters *TargetVMName*, *TargetVNetName*, *TargetVNetResourceGroup*, *TargetSubnetName*. This ensures the data is restored in the required VM, virtual network, and subnet.
 
 ## Next steps
 

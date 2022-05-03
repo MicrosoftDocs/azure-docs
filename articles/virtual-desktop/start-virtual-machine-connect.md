@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 04/14/2022
 ms.author: helohr
 manager: femila
+ms.custom: subject-rbac-steps
 ---
 # Start Virtual Machine on Connect
 
@@ -68,19 +69,23 @@ To use the Azure portal to create a custom role for Start VM on Connect:
 
 After that, you'll need to assign the role to the Azure Virtual Desktop service principal.
 
-To assign the custom role:
+The following steps describe how to assign the custom role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the **Access control (IAM) tab**, select **Add role assignment**.
+1. In the navigation menu of the subscription, select **Access control (IAM)**.
 
-2. Search for and select the role you just created.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-3. On the **Members** tab, enter and select **Windows Virtual Desktop** in the search bar.
+1. On the **Role** tab, search for and select the role you just created.
 
-      >[!NOTE]
-      >You might see both the Windows Virtual Desktop and Windows Virtual Desktop Azure Resource Manager Provider first party applications appear if you've deployed Azure Virtual Desktop (classic). Assign the role to both apps.
-      >
-      > [!div class="mx-imgBorder"]
-      > ![A screenshot of the Access control (IAM) tab. In the search bar, both Azure Virtual Desktop and Azure Virtual Desktop (classic) are highlighted in red.](media/add-role-assignment.png)
+1. On the **Members** tab, search for and select **Windows Virtual Desktop**.
+
+   > [!NOTE]
+   > If you've deployed Azure Virtual Desktop (classic), both the Windows Virtual Desktop and Windows Virtual Desktop Azure Resource Manager Provider first party applications might appear. If so, assign the role to both apps.
+   >
+
+   ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ### Create a custom role with a JSON file template
 
