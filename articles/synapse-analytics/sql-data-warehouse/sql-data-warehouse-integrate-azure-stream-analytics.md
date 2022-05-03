@@ -115,6 +115,39 @@ Click the ***Start*** button on the start job pane.
 
 ![Click Start](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 
+### Step 8
+
+Start sending json information with a client through your Event Hub, here you have a structure for the json of this example.
+```yaml
+{
+    RecordType: "",
+    SystemIdentity: "",
+    FileNum: ,
+    SwitchNum: "",
+    CallingNum: "",
+    CallingIMSI: "",
+    CalledNum: "",
+    CalledIMSI: "",
+    DateS: "",
+    TimeS: "",
+    TimeType: ,
+    CallPeriod: ,
+    CallingCellID: "",
+    CalledCellID: "",
+    ServiceType: "",
+    Transfer: ,
+    IncomingTrunk: "",
+    OutgoingTrunk: "",
+    MSRN: "",
+    CalledNum2: "",
+    FCIFlag: "",
+    callrecTime: "",
+    EventProcessedUtcTime: "",
+    PartitionId: ,
+    EventEnqueuedUtcTime: ""
+}
+```
+ 
 ## Next steps
 
 For an overview of integration, see [Integrate other services](sql-data-warehouse-overview-integrate.md).
