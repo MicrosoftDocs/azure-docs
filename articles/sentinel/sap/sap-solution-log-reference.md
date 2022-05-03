@@ -10,7 +10,7 @@ ms.date: 02/22/2022
 
 # Microsoft Sentinel SAP solution data reference (public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -22,7 +22,7 @@ This article describes the functions, logs, and tables available as part of the 
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](/azure/azure-monitor/logs/functions) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](/azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
@@ -686,7 +686,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### HANA DB Audit Trail
 
-To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](connect-syslog.md) to gather Syslog data from the machine running HANA DB.
+To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](../connect-syslog.md) to gather Syslog data from the machine running HANA DB.
 
 
 - **Microsoft Sentinel function for querying this log**: SAPSyslog
@@ -807,16 +807,16 @@ For best results, refer to these tables using the name in the **Sentinel functio
 | AGR_DEFINE | Role definition                                       | SAP_AGR_DEFINE  |
 | AGR_AGRS   | Roles in composite roles                              | SAP_AGR_AGRS    |
 | PAHI       | History of the system, database, and SAP parameters   | SAP_PAHI        |
-||||
+
 
 
 ## Next steps
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel solution for SAP](sap-deploy-solution.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP](deployment-overview.md)
+- [Microsoft Sentinel SAP solution detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Microsoft Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
 - [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

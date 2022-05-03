@@ -10,12 +10,12 @@ ms.date: 02/22/2022
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 This article describes how to deploy the Microsoft Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
 > [!NOTE]
-> The default, and most recommended process for deploying the Microsoft Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
+> The default, and most recommended process for deploying the Microsoft Sentinel SAP data connector is by [using an Azure VM](deploy-data-connector-agent-container.md). This article is intended for advanced users.
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -25,9 +25,7 @@ This article describes how to deploy the Microsoft Sentinel SAP data connector i
 
 The basic prerequisites for deploying your Microsoft Sentinel SAP data connector are the same regardless of your deployment method.
 
-Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment procedure](sap-deploy-solution.md#prerequisites) before you start.
-
-For more information, see [Microsoft Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
+Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
 
 ## Create your Azure key vault
 
@@ -57,7 +55,7 @@ az keyvault create \
 az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
 ```
 
-For more information, see [Quickstart: Create a key vault using the Azure CLI](../key-vault/general/quick-create-cli.md).
+For more information, see [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli.md).
 
 ## Add Azure Key Vault secrets
 
@@ -194,7 +192,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 1. Download and run the pre-defined Docker image with the SAP data connector installed.  Run:
 
     ```bash
-    docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
+    docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
     docker run --env-file=<env.list_location> -d --restart unless-stopped -v /home/$(pwd)/sapcon/<sap-sid>/:/sapcon-app/sapcon/config/system --name sapcon-<sid> sapcon
     rm -f <env.list_location>
     ```
@@ -209,7 +207,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
     Deploying the solution enables the SAP data connector to display in Microsoft Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
 
-    For more information, see [Deploy SAP security content](sap-deploy-solution.md#deploy-sap-security-content).
+    For more information, see [Deploy SAP security content](deploy-sap-security-content.md).
 
 ## Manually configure the SAP data connector
 
@@ -384,12 +382,12 @@ For more information, see [Tables retrieved directly from SAP systems](sap-solut
 
 After you have your SAP data connector installed, you can add the SAP-related security content.
 
-For more information, see [Deploy the SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
+For more information, see [Deploy the SAP solution](deploy-sap-security-content.md).
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Microsoft Sentinel SAP solution detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
 - [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

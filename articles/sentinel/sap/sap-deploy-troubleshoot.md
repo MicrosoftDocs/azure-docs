@@ -10,7 +10,10 @@ ms.date: 11/09/2021
 
 # Troubleshooting your Microsoft Sentinel SAP solution deployment
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
+
+> [!IMPORTANT]
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Useful Docker commands
 
@@ -190,7 +193,7 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 
 ### Incorrect Microsoft Sentinel workspace ID or key
 
-If you realize that you've entered an incorrect workspace ID or key in your [deployment script](sap-deploy-solution.md#create-a-key-vault-for-your-sap-credentials), update the credentials stored in Azure KeyVault.
+If you realize that you've entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
 
 After verifying your credentials in Azure KeyVault, restart the container:
 
@@ -221,7 +224,7 @@ docker restart sapcon-[SID]
 
 If you get an error message similar to: **..Missing Backend RFC Authorization..**, your SAP authorizations and role were not applied properly.
 
-1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported as part of a [change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests) transport, and applied to the connector user.
+1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported as part of a [change request](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) transport, and applied to the connector user.
 
 1. Run the role generation and user comparison process using the SAP transaction PFCG.
 
@@ -234,9 +237,9 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 ### Missing SAP change request
 
-If you see errors that you're missing a required [SAP change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests), make sure you've imported the correct SAP change request for your system.
+If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
 
-For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system).
+For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
 
 ### Network connectivity issues
 
@@ -253,14 +256,14 @@ Common issues include:
 If you have unexpected issues not listed in this article, try the following steps:
 
 - [Reset the connector and reload your logs](#reset-the-sap-data-connector)
-- [Upgrade the connector](sap-deploy-solution.md#update-your-sap-data-connector) to the latest version.
+- [Upgrade the connector](update-sap-data-connector.md) to the latest version.
 
 > [!TIP]
 > Resetting your connector and ensuring that you have the latest upgrades are also recommended after any major configuration changes.
 
 ### Retrieving an audit log fails with warnings
 
-If you attempt to retrieve an audit log, without the [required change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests) deployed or on an older / unpatched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
+If you attempt to retrieve an audit log, without the [required change request](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) deployed or on an older / unpatched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
 
 - Using a compatibility mode called *XAL* on older versions
 - Using a version not recently patched
@@ -295,7 +298,7 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 ### Unable to import the change request transports to SAP
 
-If you're not able to import the [required SAP log change requests](sap-solution-detailed-requirements.md#required-sap-log-change-requests) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
+If you're not able to import the [required SAP log change requests](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
 
 ### Audit log data not ingested past initial load
 
@@ -328,11 +331,28 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
 
 ## Next steps
 
-For more information, see:
+Learn more about the Microsoft Sentinel SAP solutions:
 
-- [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md)
-- [Microsoft Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
-- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel SAP solution: security content reference (public preview)](sap-solution-security-content.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md)
+- [Deploy Continuous Threat Monitoring for SAP](deployment-overview.md)
+- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
+- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy SAP security content](deploy-sap-security-content.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Enable and configure SAP auditing](configure-audit.md)
+- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+
+Troubleshooting:
+
+- [Configure SAP Transport Management System](configure-transport.md)
+
+Reference files:
+
+- [Microsoft Sentinel SAP solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Kickstart script reference](reference-kickstart.md)
+- [Update script reference](reference-update.md)
+- [Systemconfig.ini file reference](reference-systemconfig.md)
+
+For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
+
