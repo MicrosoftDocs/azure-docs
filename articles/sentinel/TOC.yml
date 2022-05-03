@@ -158,16 +158,53 @@
     - name: Overview
       href: migration-overview.md
     - name: Plan your migration
-      href: migration-planning.md
       items:
       - name: Review migration phases
         href: migration-phases.md
       - name: Review migration activities
         href: migration-activities.md
       - name: Track your migration
-        href: track-migration.md
+        href: migration-track.md
+    - name: Migrate detection rules
+      href: migration-detection-rules.md
+    - name: Add or migrate a SOAR
+      items:
+      - name: Overview
+        href: migration-soar-overview.md
+      - name: Migrate key tasks from ArcSight automation (sample flow)
+        href: migration-soar-arcsight.md
+      - name: Migrate key tasks from IBM SOAR (sample flow)
+        href: migration-soar-ibm.md
+      - name: Migrate key tasks from Splunk (sample flow)
+        href: migration-soar-splunk.md
+      - name: Review additional automation scenarios
+        href: migration-soar-automation.md
+      - name: Review post-migration considerations
+        href: migration-soar-post-migration.md
+    - name: Convert dashboards or views to Azure workbooks
+      items:
+      - name: Best practices
+        href: migration-dashboards-best-practices.md
+      - name: Gather data from existing dashboards
+        href: migration-dashboards-gather-data.md
+      - name: Convert data to workbooks
+        href: migration-dashboards-convert-data.md
+    - name: Migrate historical data
+      items:
+      - name: Choose a migration platform
+        href: migration-choose-platform.md
+      - name: Migrate historical data into Microsoft Sentinel
+        href: migration-historical-data.md
+    - name: Migrate SOC operations
+      items:
+      - name: Overview
+        href: migration-soc-overview.md
+      - name: Migrate incident triage
+        href: migration-soc-incident-triage.md
+    - name: Recommended content
+      href: migration-recommended-content
   - name: Use Microsoft Sentinel side-by-side with legacy SIEM
-    href: migration.md
+    href: migration-legacy.md
   - name: Understand MITRE ATT&CK coverage
     href: mitre-coverage.md
   - name: Manage Microsoft Sentinel content
