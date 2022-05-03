@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 05/03/2022
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
@@ -75,6 +75,11 @@ For more information about conditions, see [What is Azure attribute-based access
 1. Add a user as a member of the group.
 
 1. Assign the `Project` attribute with a value of `Cascade` to the user. For more information, see [Assign or remove custom security attributes for a user](../active-directory/enterprise-users/users-custom-security-attributes.md). 
+
+    > [!TIP]
+    > Blob index tags don't allow the following characters for the value, so don't use these characters:
+    >
+    > `+ . / : = _`
 
     ![Screenshot of assigning a custom security attribute.](./media/conditions-custom-security-attributes/project-users-attributes-assign.png)
 

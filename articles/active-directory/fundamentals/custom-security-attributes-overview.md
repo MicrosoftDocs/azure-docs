@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2022
+ms.date: 05/03/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -150,7 +150,7 @@ Here are some of the limits and constraints for custom security attributes.
 > | Attribute value length | 64 | Unicode characters |
 > | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
 > | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` | Attribute set name and attribute name cannot start with a number |
-> | Characters not allowed for:<br/>Attribute values | `# % & * + \ : " / < > ?` |  |
+> | Characters not allowed for attribute values (when used with blob index tags) | `+ . / : = _` | If you plan to use [attribute values with blob index tags](../../role-based-access-control/conditions-custom-security-attributes.md), the listed characters are not allowed. Otherwise, the listed characters can be used. |
 
 ## Custom security attribute roles
 
