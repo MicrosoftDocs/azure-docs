@@ -49,6 +49,8 @@
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Cognitive Services
+      href: ../../cognitive-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Analytics
     items:
     - name: Analysis Services
@@ -77,6 +79,10 @@
     items:
     - name: Cosmos DB
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Database for MariaDB
+      href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Database for PostgreSQL
+      href: ../../postgresql/quickstart-create-postgresql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database Migration Service
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: DevOps
@@ -101,8 +107,14 @@
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Load Balancer - internal
+      href: ../../load-balancer/quickstart-load-balancer-standard-internal-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: NAT gateway
       href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Private Endpoint
+      href: ../../private-link/create-private-endpoint-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Private Link service
+      href: ../../private-link/create-private-link-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Security
     items:
     - name: Attestation

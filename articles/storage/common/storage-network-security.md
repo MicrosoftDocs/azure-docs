@@ -64,7 +64,7 @@ By default, storage accounts accept connections from clients on any network. You
    
    - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
     
-   - To block traffic from all networks, use PowerShell or the Azure CLI. This setting does not yet appear in the Azure Portal.  
+   - To block traffic from all networks, select **Disabled**.
 
 4. Select **Save** to apply your changes.
 

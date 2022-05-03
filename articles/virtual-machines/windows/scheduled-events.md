@@ -42,10 +42,11 @@ Scheduled Events provides events in the following use cases:
 
 - [Platform initiated maintenance](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (for example, VM reboot, live migration or memory preserving updates for host)
 - Virtual machine is running on [degraded host hardware](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) that is predicted to fail soon
+- Virtual machine was running on a host that suffered a hardware failure
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 - [Spot VM](../spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
 
-## The basics  
+## The Basics  
 
   Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
@@ -106,9 +107,13 @@ When you query Metadata Service, you must provide the header `Metadata:true` to 
 ### Query for events
 You can query for scheduled events by making the following call:
 
-#### Bash
+#### Bash sample
 ```
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
+```
+#### PowerShell sample
+```
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01" | ConvertTo-Json -Depth 64
 ```
 
 A response contains an array of scheduled events. An empty array means that currently no events are scheduled.
@@ -159,6 +164,8 @@ Each event is scheduled a minimum amount of time in the future based on the even
 
 > [!NOTE] 
 > In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
+>[!NOTE]
+> In the case the host node experiences a hardware failure Azure will bypass the minimum notice period an immediately begin the recovery process for affected virtual machines. This reduces recovery time in the case that the affected VMs are unable to respond. During the recovery process an event will be created for all impacted VMs with EventType = Reboot and EventStatus = Started
 
 ### Polling frequency
 
@@ -183,11 +190,15 @@ The following JSON sample is expected in the `POST` request body. The request sh
 ```
 curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01
 ```
+#### PowerShell sample
+```
+Invoke-RestMethod -Headers @{"Metadata" = "true"} -Method POST -body '{"StartRequests": [{"EventId": "5DD55B64-45AD-49D3-BBC9-F57D4EA97BD7"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01 | ConvertTo-Json -Depth 64
+```
 
 > [!NOTE] 
 > Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the VM that acknowledges the event. Therefore, you can choose to elect a leader to coordinate the acknowledgement, which might be as simple as the first machine in the `Resources` field.
 
-## Python sample 
+## Python Sample 
 
 The following sample queries Metadata Service for scheduled events and approves each outstanding event:
 
