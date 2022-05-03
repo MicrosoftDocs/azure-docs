@@ -24214,26 +24214,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sql-database/index.md",
-      "redirect_url": "/azure/azure-sql/database/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-create-manage.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/instance-create-quickstart",
-      "redirect_document_id": false
-    },          
-    {
-      "source_path_from_root": "/articles/sql-database/sql-database-single-database.md",
-      "redirect_url": "/azure/azure-sql/database/sql-database-paas-overview",
-      "redirect_document_id": false
-    },  
-    {
-      "source_path_from_root": "/articles/sql-database/sql-database-managed-instance.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-backups.md",
       "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
       "redirect_document_id": false
