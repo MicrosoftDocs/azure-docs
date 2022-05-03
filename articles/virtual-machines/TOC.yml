@@ -371,8 +371,7 @@
   - name: Azure Compute Gallery
     items:
     - name: Overview
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
-      href: ./shared-image-galleries.md
+      href: azure-compute-gallery.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: create-gallery.md
@@ -380,6 +379,9 @@
       href: share-gallery.md
     - name: Images
       items:
+      - name: Images in a gallery
+        displayName: Shared Image Gallery, SIG, sig, gallery, image
+        href: ./shared-image-galleries.md
       - name: Capture a VM in the portal
         href: capture-image-portal.md
       - name: Create an image
