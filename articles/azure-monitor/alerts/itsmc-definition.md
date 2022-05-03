@@ -80,7 +80,7 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 
 ### Define a template
 
-Certain work item types can use templates that you define in the ITSM tool. Using templates, you can define fields that will be automatically populated using fixed values for an action group. You can define which template you want to use as a part of the definition of an action group. Find information about how to create templates [here](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html).
+Certain work item types can use templates that you define in the ServiceNow. Using templates, you can define fields that will be automatically populated using constant values that is defined in ServiceNow (not values from the payload). The templates synced with Azure and you can define which template you want to use as a part of the definition of an action group. Find information about how to create templates [here](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html).
 
 To create an action group:
 

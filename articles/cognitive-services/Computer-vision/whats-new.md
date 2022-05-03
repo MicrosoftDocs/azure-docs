@@ -26,7 +26,8 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 suppo
 * OCR support for handwritten text expands to 9 languages with English, Chinese Simplified, French, German, Italian, Japanese, Korean, Portuguese, and Spanish.
 * Enhanced support for single characters, handwritten dates, amounts, names, other entities commonly found in receipts and invoices.
 * Improved processing of digital PDF documents.
-* Performance and latency improvement enhancements.
+* Input file size limit increased 10x to 500 MB.
+* Performance and latency improvements.
 * Available as [cloud service](overview-ocr.md#read-api) and [Docker container](computer-vision-how-to-install-containers.md).
 
 See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.

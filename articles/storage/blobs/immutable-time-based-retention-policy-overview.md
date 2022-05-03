@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 05/02/2022
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -52,7 +52,7 @@ To configure version-level retention policies, you must first enable version-lev
 
 Version-level immutability on the storage account must be enabled when you create the account. When you enable version-level immutability for a new storage account, all containers subsequently created in that account automatically support version-level immutability. It's not possible to disable support for version-level immutability on a storage account after you've enabled it, nor is it possible to create a container without version-level immutability support when it's enabled for the account.
 
-If you have not enabled support for version-level immutability on the storage account, then you can enable support for version-level immutability on an individual container at the time that you create the container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible. You can migrate only one container at a time per storage account. For more information about migrating a container to support version-level immutability, see [Migrate an existing container to support version-level immutability](immutable-policy-configure-version-scope.md#migrate-an-existing-container-to-support-version-level-immutability).
+If you have not enabled support for version-level immutability on the storage account, then you can enable support for version-level immutability on an individual container at the time that you create the container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible. You can migrate ten containers at a time per storage account. For more information about migrating a container to support version-level immutability, see [Migrate an existing container to support version-level immutability](immutable-policy-configure-version-scope.md#migrate-an-existing-container-to-support-version-level-immutability).
 
 Version-level time-based retention policies require that [blob versioning](versioning-overview.md) is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
 
