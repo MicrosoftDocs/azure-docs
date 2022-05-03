@@ -42,7 +42,7 @@ rampUpSeconds=30
 durationSeconds=600
 ```
 
-Azure Load Testing supports using a single properties file per load test. Any additional property files are ignored.
+Azure Load Testing supports using a single properties file per load test. Additional property files are ignored.
 
 ::: zone pivot="experience-azp"
 
