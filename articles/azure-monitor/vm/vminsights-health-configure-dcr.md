@@ -4,13 +4,15 @@ description: Describes how to modify default monitoring in VM insights guest hea
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/01/2022
+ms.date: 05/03/2022
 
 ---
 
 # Configure monitoring in VM insights guest health using data collection rules (preview)
 [VM insights guest health](vminsights-health-overview.md) allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring across multiple virtual machines using data collection rules.
 
+> [!IMPORTANT]
+> VM guest health will retire on 30 September 2023. See [Migrate from VM guest health to Azure Monitor Log alerts](vminsights-health-migrate.md) for information on migrating to Azure Monitor log alerts.
 
 ## Monitors
 The health state of a virtual machine is determined by the [rollup of health](vminsights-health-overview.md#health-rollup-policy) from each of its monitors. There are two types of monitors in VM insights guest health as shown in the following table.

@@ -4,13 +4,16 @@ description: Describes how to enable VM insights guest health in your subscripti
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/01/2022
+ms.date: 05/03/2022
 ms.custom: references_regions, devx-track-azurepowershell
 
 ---
 
 # Enable VM insights guest health (preview)
 VM insights guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how to enable this feature in your subscription and how to enable guest monitoring for each virtual machine.
+
+> [!IMPORTANT]
+> VM guest health will retire on 30 September 2023. See [Migrate from VM guest health to Azure Monitor Log alerts](vminsights-health-migrate.md) for information on migrating to Azure Monitor log alerts.
 
 ## Current limitations
 VM insights guest health has the following limitations in public preview:

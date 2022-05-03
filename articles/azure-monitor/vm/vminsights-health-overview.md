@@ -4,7 +4,7 @@ description: Overview of the health feature in VM insights including how you can
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/01/2022
+ms.date: 05/03/2022
 
 ---
 
