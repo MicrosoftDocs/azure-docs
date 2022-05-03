@@ -14,10 +14,10 @@ The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incremen
 
 Dapr APIs, also referred to as building blocks, are built on best practice industry standards, that:
 
-- Seamlessly fit with your preferred language or framework.
-- Are incrementally adoptable; you can use one, several, or all of the building blocks depending on your needs.
+- Seamlessly fit with your preferred language or framework
+- Are incrementally adoptable; you can use one, several, or all of the building blocks depending on your needs
 
-Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you.
+Thanks to Dapr, you can plug the Dapr HTTP or gRPC APIs you need into your application. Dapr abstracts away typical complexities and performs the heavy lifting for you.
 
 ## Dapr building blocks in Container Apps
 
@@ -30,20 +30,22 @@ Thanks to Dapr, you can simply plug the Dapr HTTP or gRPC APIs you need into you
 | [**Pub/sub**][dapr-pubsub] | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. |
 | [**Bindings**][dapr-bindings] | Trigger your application with incoming or outgoing events, without SDK or library dependencies. |
 | [**Actors**][dapr-actors] | Dapr actors apply the scalability and reliability that the underlying platform provides. |
-| **Observability** | Send tracing information to an Application Insights backend. |
+| [**Observability**](./observability.md) | Send tracing information to an Application Insights backend. |
 
 ## Dapr settings in Container Apps
 
-In the following Pub/sub example, we demonstrate how:
-- Dapr is enabled in your Container App.
-- Dapr components are plugged into and scoped to your Container App and Dapr sidecar.
-- Dapr APIs are exposed to your Container App.
+The following Pub/sub example demonstrates how:
+- Dapr is enabled in your container app.
+- Dapr components are plugged into and scoped to your container app and Dapr sidecar.
+- Dapr APIs are exposed to your container app.
 
 :::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps":::
 
-### 1 - Container App with Dapr enabled
+### 1 - Container Apps with Dapr enabled
 
-Define Dapr sidecars or control plane settings for your container app using a YAML file, bicep, or ARM template. With the following settings, you enable Dapr on your app:
+Define Dapr sidecars or control plane settings for your container app within a bicep or ARM template, or by passing to a YAML component via the Azure CLI. 
+
+With the following settings, you enable Dapr on your app:
 
 | Field | Description |
 | ----- | ----------- |
@@ -54,7 +56,7 @@ Define Dapr sidecars or control plane settings for your container app using a YA
 
 # [YAML](#tab/yaml)
 
-When defining a component via the `<component>.yml` spec, you pass it to the Azure CLI. For the publisher Container App:
+When defining a YAML component via the `components.yaml` spec, you pass the Dapr enablement settings to the Azure CLI. For the publisher container app:
 
 ```azurecli
 --enable-dapr \
@@ -64,7 +66,7 @@ When defining a component via the `<component>.yml` spec, you pass it to the Azu
 --dapr-components ./components.yaml
 ```
 
-For the subscriber Container App:
+For the subscriber container app:
 
 ```azurecli
 --enable-dapr \
@@ -74,9 +76,14 @@ For the subscriber Container App:
 --dapr-components ./components.yaml
 ```
 
+These settings define [the `components.yaml` spec](#yamltabyaml-1) with which the Dapr sidecar and your container app will communicate.
+
+
 # [Bicep](#tab/bicep)
 
-For the publisher Container App:
+Plug the following Dapr enablement into your container app bicep code:
+
+For the publisher container app:
 
 ```bicep
 dapr: {
@@ -87,7 +94,7 @@ dapr: {
     }
 ```
 
-For the subscriber Container App:
+For the subscriber container app:
 
 ```bicep
 dapr: {
@@ -100,7 +107,9 @@ dapr: {
 
 # [ARM](#tab/arm)
 
-For the publisher Container App:
+Plug the following Dapr enablement into your container app ARM code:
+
+For the publisher container app:
 
 ```json
 "dapr": {
@@ -110,7 +119,7 @@ For the publisher Container App:
     "appProtocol": "http",
 }
 ```
-For the subscriber Container App:
+For the subscriber container app:
 
 ```json
 "dapr": {
@@ -123,36 +132,35 @@ For the subscriber Container App:
 
 ---
 
-Since Dapr settings are considered application-scope changes, new revisions won't be created when you change Dapr settings. However, when changing a Dapr setting, you'll trigger an automatic restart of that container app instance and revisions.
+Since Dapr settings are considered application-scope changes, new revisions aren't created when you change Dapr settings. However, when changing a Dapr setting, the container app instance and revisions are automatically restarted.
 
 ### 2 - Dapr sidecar
 
 :::image type="content" source="media/dapr-overview/sidecar_architecture.png" alt-text="Visualization of Dapr sidecar architecture":::
 
-The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. These APIs are available through HTTP and gRPC protocols.
-
+The Dapr APIs are run and exposed alongside your containerized application on a separate process, called the Dapr sidecar. These APIs are available through HTTP and gRPC protocols.  
 
 ### 3 - Dapr components
 
-Dapr components are scoped to a Container App environment and are pluggable modules that:
+Dapr components are scoped to a container app environment and are pluggable modules that:
 
 - Allow you to use the individual Dapr building block APIs.
-- Can be scoped to specific Container Apps.
-- Can be easily swapped out at the environment level of your Container App.
+- Can be scoped to specific container apps.
+- Can be easily swapped out at the environment level of your container app.
 
 Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, view the various schemas you can define for a Dapr component in Azure Container Apps and compare with the schema provided with Dapr OSS.
 
 > [!NOTE]
-> By default, every Container App will load the Dapr component. Limit which Container App will load the component by adding application scopes.
+> By default, every container app will load the Dapr component. You can limit which container app loads the component by adding application scopes.
 
 **Dapr in Azure Container Apps**
 
 # [YAML](#tab/yaml)
 
-When defining a component via the `<component>.yml` spec, you'll pass it to the Azure CLI.
+When you [enabled Dapr via the Azure CLI](#yamltabyaml), you defined the following `components.yaml` file:
 
 ```yaml
-# components.yaml for Azure Blob storage component
+# components.yaml for Azure Service Bus component
 - name: dapr-pubsub
   type: pubsub.azure.servicebus
   version: v1
@@ -255,9 +263,9 @@ scopes:
 
 ## Current supported Dapr version
 
-Currently, Azure Container Apps supports Dapr version 1.4.2. 
+Azure Container Apps supports Dapr version 1.4.2. 
 
-Version upgrades are handled transparently by the Container Apps platform. You can find the current version via the Azure portal and the CLI. See [known limitations](#limitations) around versioning.
+Version upgrades are handled transparently by Azure Container Apps. You can find the current version via the Azure portal and the CLI. See [known limitations](#limitations) around versioning.
 
 <!-- command -->
 
@@ -265,14 +273,19 @@ Version upgrades are handled transparently by the Container Apps platform. You c
 
 - **Versions**  
    Version upgrades currently don't guarantee full support for all Dapr features in a given version.  
+
 - **Secrets**  
    While Azure Container Apps currently doesn't support Dapr secrets, you can provide secrets to your components using the [Container Apps secret mechanism][aca-secrets].  
+
 - **Configuration CRD**  
    While we expose the ability for customers to use Dapr components, Container Apps doesn't currently expose Dapr configuration CRD.  
+
 - **Observability**  
    While we don't currently expose the ability for you to customize your tracing backend, you are able to use Application Insights as your tracing backend.  
+
 - **Pub/sub**  
    Currently, Container Apps supports Dapr's programmatic subscription model, but not Dapr's declarative Subscription spec.  
+
 - **ACL policies**  
   Setting ACL policies on the Dapr sidecar configuration is currently not supported.
 
