@@ -13,31 +13,31 @@ ms.custom: build-spring-2022, cliv2, sdkv2
 
 # Azure Machine Learning anywhere with Kubernetes (preview)
 
-Azure Machine Learn anywhere with Kubernetes (AzureML anywhere) enables customers to build, train, and deploy models in any infrastructure on-premises and across multi-cloud using Kubernetes. With a simple AzureML extension deployment on Kubernetes cluster, you can instantly onboard teams of ML professionals with AzureML service capabilities for full ML lifecycle and automation with MLOps in hybrid cloud and multi-cloud.
+Azure Machine Learning anywhere with Kubernetes (AzureML anywhere) enables customers to build, train, and deploy models in any infrastructure on-premises and across multi-cloud using Kubernetes. With a simple AzureML extension deployment on a Kubernetes cluster, you can instantly onboard teams of ML professionals with AzureML service capabilities for full machine learning lifecycle and automation with MLOps in hybrid cloud and multi-cloud.
 
-In this article, you can learn about simple steps to configure and attach an existing Kubernetes cluster anywhere for Azure Machine Learning:
+In this article, you can learn about steps to configure and attach an existing Kubernetes cluster anywhere for Azure Machine Learning:
 * [Deploy AzureML extension to Kubernetes cluster](#deploy-azureml-extension---example-scenarios)
 * [Attach Kubernetes clsuter to AzureML workspace](#attach-kubernetes-cluster-to-azureml-workspace)
 * [Create and use instance types to manage compute resources efficiently](#create-custom-instance-types)
 
 ## Prerequisites
 
-1. A Kubernetes cluster up and running - **We recommend minimum of 4 vCPU cores and 8GB memory, around 2 vCPU cores and 3GB memory will be used by Azure Arc agent and AzureML extension components**.
-1. Other than Azure Kubernetes Services (AKS) cluster in Azure, you must connect your Kubernetes cluster to Azure Arc. Please follow instructions in [connect existing Kubernetes cluster to Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster).
-   * if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Patform (OCP) cluster, follow additional prerequisite step [here](./docs/deploy-on-ocp.md) before AzureML extension deployment.
-1. If you have AKS cluster in Azure, please register the AKS-ExtensionManager feature flag by using the ```az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager``` command. **Azure Arc connection is not required and not recommended**. 
+1. A running Kubernetes cluster - **We recommend minimum of 4 vCPU cores and 8GB memory, around 2 vCPU cores and 3GB memory will be used by Azure Arc agent and AzureML extension components**.
+1. Connect your Kubernetes cluster to Azure Arc. Please follow instructions in [connect existing Kubernetes cluster to Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+   * if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Patform (OCP) cluster, follow an additional prerequisite step [here](./docs/deploy-on-ocp.md) before AzureML extension deployment.
+1. If you have an AKS cluster in Azure, please register the AKS-ExtensionManager feature flag by using the ```az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager``` command. **Azure Arc connection is not required and not recommended**. 
 1. [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >=2.16.0
-1. Install Azure CLI extension ```k8s-extension``` (version>=1.0.0) by running ```az extension add --name k8s-extension```
+1. Install the Azure CLI extension ```k8s-extension``` (version>=1.0.0) by running ```az extension add --name k8s-extension```
 
 ## What is AzureML extension
 
-AzureML extension consists of a set of system componenents deployed to your Kubernetes cluster so you can enable cluster to run AzureML workload - model training jobs or mdoel endpoints. You can use simple Azure CLI command ```k8s-extension create``` to deploy AzureML extension.
+AzureML extension consists of a set of system componenents deployed to your Kubernetes cluster so you can enable your cluster to run an AzureML workload - model training jobs or model endpoints. You can use an Azure CLI command ```k8s-extension create``` to deploy AzureML extension.
 
-For detailed list of AzureML extension system componenents, please see appendix [AzureML extension componenets](#appendix-i-azureml-extension-components).
+For a detailed list of AzureML extension system componenents, please see appendix [AzureML extension componenets](#appendix-i-azureml-extension-components).
 
 ## Key considerations for AzureML extension deployment
 
-AzureML extension allows you to specify config settings needed for different workload support at deployment time. Before AzureML extension deployment, **please read following carefully to avoid unnecessary extension deployment errors**:
+AzureML extension allows you to specify configuration settings needed for different workload support at deployment time. Before AzureML extension deployment, **please read following carefully to avoid unnecessary extension deployment errors**:
 
   * Type of workload to enable for your cluster. ```enableTraining``` and ```enableInference``` config settings are your convenient choices here; they will enable training and inference workload respectively. 
   * For inference workload support, it requires ```azureml-fe``` rounter service to be deployed for routing incoming inference requests to model pod, and you would need to specify ```inferenceRouterServiceType``` config setting for ```azureml-fe```. ```azureml-fe``` can be deployed with one of following ```inferenceRouterServiceType```:
@@ -49,11 +49,11 @@ AzureML extension allows you to specify config settings needed for different wor
    * For inference workload support, to ensure high availability of ```azureml-fe``` routing service, AzureML extension deployment by default creates 3 replicas of ```azureml-fe``` for clusters having 3 nodes or more. If your cluster has **less than 3 nodes**, please set ```inferenceLoadbalancerHA=False```.
    * For inference workload support, you would also want to consider using **HTTPS** to restrict access to model endpoints and secure the data that clients submit. For this purpose, you would need to specify either ```sslSecret``` config setting or combination of ```sslCertPemFile``` and ```sslCertKeyFile``` config settings. By default, AzureML extension deployment expects **HTTPS** support required, and you would need to provide above config setting. For development or test purposes, **HTTP** support is conveniently supported through config setting ```allowInsecureConnections=True```.
 
-For a complete list of config settings available to choose at AzureML deployment time, please see appendix [Review AzureML extension config settings](#appendix-ii-review-azureml-deployment-configuration-settings)
+For a complete list of configuration settings available to choose at AzureML deployment time, please see appendix [Review AzureML extension config settings](#appendix-ii-review-azureml-deployment-configuration-settings)
 
 ## Deploy AzureML extension - example scenarios
 
-### Uing AKS in Azure for a quick POC, both training and inference workloads support
+### Using AKS in Azure for a quick POC, both training and inference workloads support
 
 Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). For AzureML extension deployment on AKS, please make sure to specify ```managedClusters``` value for ```--cluster-type``` parameter. Run the following Azure CLI command to deploy AzureML extension:
 ```azurecli
@@ -69,13 +69,13 @@ Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). 
 
 ### Enable an AKS cluster in Azure for production training and inference workload
 
-Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). Assuming your cluster has more than 3 nodes, and you will use Azure public load balancer and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
+Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). Assuming your cluster has more than 3 nodes, and you will use an Azure public load balancer and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
 ```azurecli
    az k8s-extension create --name azureml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslCertKeyFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
 ```
 ### Enable an Azure Arc connected cluster anywhere for production training and inference workload
 
-Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). Assuming your cluster has more than 3 nodes, you will use NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
+Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). Assuming your cluster has more than 3 nodes, you will use a NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
 ```azurecli
    az k8s-extension create --name azureml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=NodePort --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslCertKeyFile=<file-path-to-cert-KEY> --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
 ```
@@ -96,11 +96,11 @@ Please ensure you have fulfilled [prerequisites](./../README.md#prerequisites). 
     kubectl get pods -n azureml
    ```
 
-## Attach Kubernetes cluster to AzureML workspace
+## Attach a Kubernetes cluster to an AzureML workspace
 
 ### Prerequisite for Azure Arc enabled Kubernetes
 
-Azure Machine Learning workspace defaults to having a system-assigned managed identity to access Azure ML resources. It's all done if this default setting is applied. 
+Azure Machine Learning workspace defaults to having a system-assigned managed identity to access Azure ML resources. The steps are completed if this default setting is applied. 
 
 ![Managed Identity in workspace](./media/how-to-attach-arc-kubernetes/ws-msi.png)
 
