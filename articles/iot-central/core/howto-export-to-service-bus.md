@@ -84,11 +84,7 @@ To configure the permissions:
 
 1. Select **Save**. The managed identity for your IoT Central application is now configured.
 
-To further secure your queue or topic and only allow access from trusted services with managed identities, see:
-
-- [Allow access to Azure Service Bus namespaces using private endpoints](../../service-bus-messaging/private-link-service.md)
-- [Trusted Microsoft services](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
-- [Allow access to Azure Service Bus namespace from specific virtual networks](../../service-bus-messaging/service-bus-service-endpoints.md)
+To further secure your queue or topic and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 To create the Service Bus destination in IoT Central on the **Data export** page:
 

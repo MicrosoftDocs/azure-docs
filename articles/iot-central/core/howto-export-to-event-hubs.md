@@ -82,11 +82,7 @@ To configure the permissions:
 
 1. Select **Save**. The managed identity for your IoT Central application is now configured.
 
-To further secure your event hub and only allow access from trusted services with managed identities, see:
-
-- [Allow access to Azure Event Hubs namespaces using private endpoints](../../event-hubs/private-link-service.md)
-- [Trusted Microsoft services](../../event-hubs/private-link-service.md#trusted-microsoft-services)
-- [Allow access to Azure Event Hubs namespaces from specific virtual networks](../../event-hubs/event-hubs-service-endpoints.md)
+To further secure your event hub and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 To create the Event Hubs destination in IoT Central on the **Data export** page:
 

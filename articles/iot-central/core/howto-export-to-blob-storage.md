@@ -89,11 +89,7 @@ To configure the permissions:
     > [!TIP]
     > This role assignment isn't visible in the list on the **Azure role assignments** page.
 
-To further secure your blob container and only allow access from trusted services with managed identities, see:
-
-- [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
-- [Authorize access to blob data with managed identities for Azure resources](../../storage/blobs/authorize-managed-identity.md)
-- [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
+To further secure your blob container and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 To create the Blob Storage destination in IoT Central on the **Data export** page:
 
