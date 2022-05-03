@@ -322,7 +322,7 @@ The application code used in this tutorial is a simple app built with Spring Ini
 This quickstart explains how to:
 
 > [!div class="checklist"]
-> * Generate a basic Spring Cloud project
+> * Generate a basic Spring project
 > * Provision a service instance
 > * Build and deploy the app with a public endpoint
 > * Stream logs in real time
@@ -338,7 +338,7 @@ To complete this quickstart:
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 * (Optional) [Install Maven](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). If you use the Azure Cloud Shell, this installation isn't needed.
 
-## Generate a Spring Cloud project
+## Generate a Spring project
 
 Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Apps. This link uses the following URL to provide default settings for you. 
 
@@ -427,7 +427,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     mvn clean package -DskipTests
     ```
 
-1. Create the app with a public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the `--runtime-version=Java_11` switch.
+1. Create the app with a public endpoint assigned. If you selected Java version 11 when generating the Spring project, include the `--runtime-version=Java_11` switch.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
@@ -553,7 +553,7 @@ echo "Press [ENTER] to continue ..."
 In this quickstart, you learned how to:
 
 > [!div class="checklist"]
-> * Generate a basic Spring Cloud project
+> * Generate a basic Spring project
 > * Provision a service instance
 > * Build and deploy the app with a public endpoint
 > * Stream logs in real time
