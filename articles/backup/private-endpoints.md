@@ -280,8 +280,8 @@ When using SQL Availability Groups (AG), you'll need to provision conditional fo
 ### Backup and restore through MARS Agent and DPM server
 
 >[!NOTE]
->For DPM server, Private endpoints are supported with only DPM server 2022 and later.
->Private endpoints are not yet supported with MABS servers.
+> - Private endpoints are supported with only DPM server 2022 and later.
+> - Private endpoints are not yet supported with MABS.
 
 
 When using the MARS Agent to back up your on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault, so you can use it. You can then continue to install the MARS agent and configure backup as detailed here. However, you must ensure all communication for backup happens through the peered network only.

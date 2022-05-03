@@ -34,12 +34,13 @@ While private endpoints are enabled for the vault, they're used for backup and r
 
 | Scenarios | Recommendations |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent, DPM server | Use of private endpoints is recommended to allow backup and restore without needing to add to an allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Azure AD IPs or FQDNs. |
+| Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent, DPM server. | Use of private endpoints is recommended to allow backup and restore without needing to add to an allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Azure AD IPs or FQDNs. |
 | **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
 
 >[!NOTE]
-> Private endpoints are supported with only DPM Server 2022 and later. Private endpoints are not yet supported with MABS servers.
+> - Private endpoints are supported with only DPM server 2022 and later.
+> - Private endpoints are not yet supported with MABS.
 
 
 ## Difference in network connections due to private endpoints
