@@ -19,7 +19,7 @@ This article describes a solution template that you can use to detect and mask P
 
 ## About this solution template
 
-This template retrieves a dataset from Azure Data Lake Storage Gen2 source. Then, it creates the request body with a derived column and uses the external call transformation to call Azure Cognitive Services and mask PII before loading to the destination sink. 
+This template retrieves a dataset from Azure Data Lake Storage Gen2 source. Then, a request body is created with a derived column and an external call transformation calls Azure Cognitive Services and masks PII before loading to the destination sink. 
 
 The template contains one activity: 
 -  **Data flow** to detect and mask PII data
@@ -37,11 +37,11 @@ This template defines 3 parameters:
 
 1. Go to template **PII detection and masking**. Create a **New** connection to your source storage store or choose an existing connection. The source storage store is where you want to copy files from.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection to the source in template set up using a drop down menu.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-1.png" alt-text="Screenshot of template set up page to create a new connection or select an existing connection to the source using a drop down menu.":::
 
 2.	Create a **New** connection to your destination storage store or choose an existing connection.
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of how to create a new connection or select an existing connection to Cognitive Services in template set up using a drop down menu.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/pii-detection-and-masking-2.png" alt-text="Screenshot of template set up page to create a new connection or select an existing connection to Cognitive Services using a drop down menu.":::
 
 3. Select **Use this template**. 
 
@@ -49,7 +49,7 @@ This template defines 3 parameters:
 
 4. You should see the following pipeline: 
 
-	:::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-4.png" alt-text="Screenshot of the pipeline view with one dataflow activity.":::
+	:::image type="content" source="media/solution-template-pii-detection-and-masking/PII-detection-and-masking-4.png" alt-text="Screenshot of pipeline view with one dataflow activity.":::
 
 5. Clicking into the dataflow activity will show the following dataflow: 
 
