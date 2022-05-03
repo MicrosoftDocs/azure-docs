@@ -1,5 +1,5 @@
 ---
-title: Configure HCX network extension high availability on Azure private cloud
+title: Configure HCX network extension high availability
 description: Learn how to configure HCX network extension high availability
 ms.topic: how-to
 ms.date: 05/06/2022
@@ -19,13 +19,11 @@ The Network Extension High Availability (HA) setup requires four Network Extensi
 
 - Network Extension HA requires an HCX Enterprise license.
 
-- In the HCX **Edit Compute Profile**, the **Network Extension Appliance Limit** is set to allow for the number of Network Extension appliances. The Azure VMware Solutions Limit is set to unlimited. 
+- In the HCX Compute Profile, the Network Extension Appliance Limit is set to allow for the number of Network Extension appliances. The Azure VMware Solutions Limit is automatically set to unlimited. 
 
-- In the HCX **Create Service Mesh**, go to the **Network Extension Appliance Scale Out**. Set the **Appliance Count** to provide enough appliances to support network extension objectives. Be sure to include any Network Extension HA groups.
+- In the HCX Service Mesh, the Network Extension Appliance Scale Out Appliance Count is set to provide enough appliances to support network extension objectives, including any Network Extension HA groups.
 
-The following image illustrates when you create a service mesh, set the appliance count to a minimum of two. For an existing service mesh, you can edit and adjust the appliance count to provide the required appliance count.
-
-:::image type="content" source="media/hcx/hcx-prerequisite-create-service-mesh.png" alt-text="Image shows how to set the appliance count to a minimum of two when creating a service mesh."lightbox="media/hcx/hcx-prerequisite-create-service-mesh.png":::
+When you create a service mesh, set the appliance count to a minimum of two. For an existing service mesh, you can edit and adjust the appliance count to provide the required appliance count.
 
 - The Network Extension appliances selected for HA activation must have no networks extended over them.
 
@@ -39,7 +37,7 @@ The following image illustrates when you create a service mesh, set the applianc
     
     :::image type="content" source="media/hcx/interconnect-service-mesh-view-appliances.png" alt-text="Image shows step to select service mesh and the View Appliances option."lightbox="media/hcx/interconnect-service-mesh-view-appliances.png":::  
 
-1. Select **Network Extension Appliance**, then select **Activate High Quality**.
+1. Select **Network Extension Appliance**, then select **Activate High Availability**.
 1. Confirm by choosing **Activate HA**.
     1. Activating HA initiates the process to create an HA group. The process automatically selects an HA partner from the available NE Appliances.
 1. After the HA group is created, the Active and Standby roles for the local and remote appliances display on the HA Management page.
