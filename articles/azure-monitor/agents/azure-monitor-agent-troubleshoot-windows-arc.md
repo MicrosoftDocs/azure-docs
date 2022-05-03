@@ -4,7 +4,7 @@ description: Guidance for troubleshooting issues on Windows Arc-enabled server w
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 3/17/2022
+ms.date: 5/3/2022
 ms.custom: references_region
 
 ---
@@ -76,10 +76,12 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 		} 
 	}
 	```
+	
 3. Run powershell command:
 	```powershell
 	Get-WmiObject Win32_Process -Filter "name = 'MetricsExtension.Native.exe'" | select Name,ExecutablePath,CommandLine | Format-List
 	```
+	
 	Verify that the *CommandLine* parameter in the output contains the argument "-TokenSource MSI"
 4. Verify `C:\Resources\Directory\AMADataStore\mcs\AuthToken-MSI.json` file is present.
 5. Verify `C:\Resources\Directory\AMADataStore\mcs\CUSTOMMETRIC_<subscription>_<region>_MonitoringAccount_Configuration.json` file is present.
@@ -105,4 +107,4 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	```
 	If there are no `Subscription` nodes then the DCR wasn't parsed correctly. [File a ticket](#file-a-ticket) with **Summary** as 'AMA unable to parse DCR config' and **Problem type** as 'I need help with Azure Monitor Windows Agent'. 
 
-[!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
+[!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]

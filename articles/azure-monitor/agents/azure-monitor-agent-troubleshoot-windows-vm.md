@@ -4,7 +4,7 @@ description: Guidance for troubleshooting issues on Windows virtual machines, sc
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 3/17/2022
+ms.date: 5/3/2022
 ms.custom: references_region
 
 ---
@@ -110,6 +110,6 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	
 	
 	
-[!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
+[!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
 
 
