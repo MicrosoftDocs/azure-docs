@@ -351,3 +351,5 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md)
+* [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md)

@@ -67,13 +67,13 @@ We will be using some pieces of information repeatedly, so we will create some v
 
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
-$imageResourceGroup=myWinImgBuilderRG
+imageResourceGroup='myWinImgBuilderRG'
 # Region location 
-$location=WestUS2
+location='WestUS2'
 # Run output name
-$runOutputName=aibWindows
+runOutputName='aibWindows'
 # name of the image to be created
-$imageName=aibWinImage
+imageName='aibWinImage'
 ```
 
 Create a variable for your subscription ID.

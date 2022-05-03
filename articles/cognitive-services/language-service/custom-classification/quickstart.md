@@ -32,10 +32,10 @@ Use this article to get started with creating a custom text classification proje
 
 ## Next steps
 
-After you've created a text classification model, you can:
+After you've created a custom text classification model, you can:
 * [Use the runtime API to classify text](how-to/call-api.md)
 
-When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
+When you start to create your own custom text classification projects, use the how-to articles to learn more about developing your model in greater detail:
 
 * [Data selection and schema design](how-to/design-schema.md)
 * [Tag data](how-to/tag-data.md)

@@ -18,7 +18,6 @@ This article provides an overview of the options that are available for setting 
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  
    - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
 
-
 You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using any of the following supported methods:
 
 - The Azure portal
@@ -124,7 +123,7 @@ To enable Container insights, use one of the methods that's described in the fol
 
 | Deployment state | Method | Description |
 |------------------|--------|-------------|
-| New Kubernetes cluster | [Create an AKS cluster by using the Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| You can enable monitoring for a new AKS cluster that you create by using the Azure CLI. |
+| New Kubernetes cluster | [Create an AKS cluster by using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md)| You can enable monitoring for a new AKS cluster that you create by using the Azure CLI. |
 | | [Create an AKS cluster by using Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| You can enable monitoring for a new AKS cluster that you create by using the open-source tool Terraform. |
 | | [Create an OpenShift cluster by using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | You can enable monitoring for a new OpenShift cluster that you create by using a preconfigured Azure Resource Manager template. |
 | | [Create an OpenShift cluster by using the Azure CLI](/cli/azure/openshift#az-openshift-create) | You can enable monitoring when you deploy a new OpenShift cluster by using the Azure CLI. |

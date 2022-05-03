@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 04/26/2022
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -21,14 +21,11 @@ This article describes how to configure an object replication policy by using th
 
 ## Prerequisites
 
-Before you configure object replication, create the source and destination storage accounts if they do not already exist. The source and destination accounts can be either general-purpose v2 storage accounts or premium block blob accounts (preview). For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
+Before you configure object replication, create the source and destination storage accounts if they do not already exist. The source and destination accounts can be either general-purpose v2 storage accounts or premium block blob accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
 Object replication requires that blob versioning is enabled for both the source and destination account, and that blob change feed is enabled for the source account. To learn more about blob versioning, see [Blob versioning](versioning-overview.md). To learn more about change feed, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md). Keep in mind that enabling these features can result in additional costs.
 
 To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
-
-> [!IMPORTANT]
-> Object replication for premium block blob accounts is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Configure object replication with access to both storage accounts
 
@@ -44,7 +41,7 @@ To create a replication policy in the Azure portal, follow these steps:
 1. Under **Data management**, select **Object replication**.
 1. Select **Set up replication rules**.
 1. Select the destination subscription and storage account.
-1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy.
+1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy using this method. If you want to configure more than 10 container pairs (up to 1,000), see [Configure object replication using a JSON file](#configure-object-replication-using-a-json-file).
 
     The following image shows a set of replication rules.
 
@@ -219,9 +216,9 @@ az storage account or-policy show \
 
 ---
 
-## Configure object replication with access to only the destination account
+## Configure object replication using a JSON file
 
-If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
+If you do not have permissions to the source storage account or if you want to use more than 10 container pairs, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
 
 > [!NOTE]
 > Cross-tenant object replication is permitted by default for a storage account. To prevent replication across tenants, you can set the **AllowCrossTenantReplication** property (preview) to disallow cross-tenant object replication for your storage accounts. For more information, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).

@@ -17,6 +17,10 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 
 :::image type="content" source="../media/tier-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
+> [!NOTE]
+> In order to switch between tiers, you will need to recreate the Azure Front Door profile.
+> 
+
 ## Feature comparison between tiers
 
 | Features and optimization | Standard | Premium | Classic |
@@ -44,4 +48,5 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 
 ## Next steps
 
-Learn how to [create a Front Door](create-front-door-portal.md)
+* Learn how to [create an Azure Front Door](create-front-door-portal.md)
+* Learn how about the [Azure Front Door architecture](../front-door-routing-architecture.md)

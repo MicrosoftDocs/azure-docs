@@ -17,7 +17,7 @@ ms.author: eur
 
 ### Install the Speech SDK
 
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, follow the instructions in the <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK </a> section of the _About the Speech SDK_ article.
+Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
 ### Import dependencies
 

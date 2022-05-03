@@ -279,18 +279,10 @@
       href: ../virtual-machines/capture-image-portal.md
     - name: Create a scale-set
       items:
-      - name: PowerShell
-        items:
-        - name: Specialized
-          href: instance-specialized-image-version-powershell.md
-        - name: Generalized
-          href: instance-generalized-image-version-powershell.md
-      - name: CLI
-        items:
-        - name: Specialized
-          href: instance-specialized-image-version-cli.md
-        - name: Generalized
-          href: instance-generalized-image-version-cli.md
+      - name: Specialized
+        href: instance-specialized-image-version.md
+      - name: Generalized
+        href: instance-generalized-image-version.md
     - name: Update image resources
       href: ../virtual-machines/update-image-resources.md
     - name: Troubleshoot shared images
@@ -437,7 +429,7 @@
     href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
-  - name: Azure Quickstart templates
+  - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux

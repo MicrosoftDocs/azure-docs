@@ -37,7 +37,7 @@ Once the application server is started,
 - For ASP.NET Core SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service. 
 - For ASP.NET SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service, and one per application WebSocket connection.
 
-5 WebSocket connections is the default value that can be changed in [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#connectioncount).
+5 WebSocket connections is the default value that can be changed in [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#connectioncount). Please note that this configures the initial server connection count the SDK starts. While the app server is connected to the SignalR service, the Azure SignalR service might send load-balancing messages to the server and the SDK will start new server connections to the service for better performance. 
 
 Messages to and from clients will be multiplexed into these connections.
 

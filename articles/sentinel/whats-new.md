@@ -29,7 +29,14 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## March 2022
 
+- [Automation rules now generally available](#automation-rules-now-generally-available)
 - [Create a large watchlist from file in Azure Storage (public preview)](#create-a-large-watchlist-from-file-in-azure-storage-public-preview)
+
+### Automation rules now generally available
+
+Automation rules are now generally available (GA) in Microsoft Sentinel.
+
+[Automation rules](automate-incident-handling-with-automation-rules.md) allow users to centrally manage the automation of incident handling. They allow you to assign playbooks to incidents, automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules streamline automation use in Microsoft Sentinel and enable you to simplify complex workflows for your incident orchestration processes.
 
 ### Create a large watchlist from file in Azure Storage (public preview)
 
@@ -44,7 +51,7 @@ For more information, see:
 
 - [New custom log ingestion and data transformation at ingestion time (Public preview)](#new-custom-log-ingestion-and-data-transformation-at-ingestion-time-public-preview)
 - [View MITRE support coverage (Public preview)](#view-mitre-support-coverage-public-preview)
-- [View Azure Purview data in Microsoft Sentinel (Public preview)](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
+- [View Microsoft Purview data in Microsoft Sentinel (Public preview)](#view-microsoft-purview-data-in-microsoft-sentinel-public-preview)
 - [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
 - [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
 - [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
@@ -80,15 +87,15 @@ For example:
 
 For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
 
-### View Azure Purview data in Microsoft Sentinel (Public Preview)
+### View Microsoft Purview data in Microsoft Sentinel (Public Preview)
 
-Microsoft Sentinel now integrates directly with Azure Purview by providing an out-of-the-box solution.
+Microsoft Sentinel now integrates directly with Microsoft Purview by providing an out-of-the-box solution.
 
-The Azure Purview solution includes the Azure Purview data connector, related analytics rule templates, and a workbook that you can use to visualize sensitivity data detected by Azure Purview, together with other data ingested in Microsoft Sentinel.
+The Microsoft Purview solution includes the Microsoft Purview data connector, related analytics rule templates, and a workbook that you can use to visualize sensitivity data detected by Microsoft Purview, together with other data ingested in Microsoft Sentinel.
 
-:::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Azure Purview workbook in Microsoft Sentinel.":::
+:::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Microsoft Purview workbook in Microsoft Sentinel.":::
 
-For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md).
+For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md).
 
 ### Manually run playbooks based on the incident trigger (Public preview)
 
@@ -552,7 +559,6 @@ For more information, see:
 ## September 2021
 
 - [Data connector health enhancements (Public preview)](#data-connector-health-enhancements-public-preview)
-
 - [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
 - [Azure Storage account connector changes](#azure-storage-account-connector-changes)
 
@@ -616,7 +622,7 @@ By default, incident searches run across the **Incident ID**, **Title**, **Tags*
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
+:::image type="content" source="media/investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
 
 For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
 

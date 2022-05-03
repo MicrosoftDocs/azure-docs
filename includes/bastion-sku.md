@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 02/28/2022
+ms.date: 04/19/2022
 ms.service: bastion
 ms.topic: include
 
@@ -19,3 +19,4 @@ ms.topic: include
 | Connect to Linux VM using RDP | N/A| [Available](../articles/bastion/bastion-connect-vm-rdp-linux.md)|
 | Connect to Windows VM using SSH | N/A | [Available](../articles/bastion/bastion-connect-vm-ssh-windows.md)|
 | Upload or download files | N/A | [Available](../articles/bastion/vm-upload-download-native.md)|
+| Disable copy/paste (web-based clients) | N/A | Available |

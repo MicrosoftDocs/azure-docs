@@ -11,7 +11,7 @@ ms.author: jroth
 ms.custom: devx-track-java
 ---
 
-# Azure Cosmos DB Async Java SDK for SQL API: Release notes and resources
+# Azure Cosmos DB Async Java SDK for SQL API (legacy): Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -21,9 +21,9 @@ ms.custom: devx-track-java
 > * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Async Java SDK v2 (legacy)](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2 (legacy)](sql-api-sdk-java.md)
+> * [Spring Data v2 (legacy)](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
 > * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)

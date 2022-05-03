@@ -6,8 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: zxue
+ms.author: mikaelw
+author: mikaelweave
 ms.date: 02/15/2022
 ---
 

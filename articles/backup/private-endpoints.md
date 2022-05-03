@@ -169,7 +169,7 @@ If you're using your custom DNS servers, you'll need to create the required DNS 
     `<private ip><space><backup service privatelink FQDN>`
 
 >[!NOTE]
->As shown in the screenshot above, the FQDNs depict `xxxxxxxx.<geo>.backup.windowsazure.com` and not `xxxxxxxx.privatelink.<geo>.backup. windowsazure.com`. In such cases, ensure you include (and if required, add) the `.privatelink.` according to the stated format.
+>As shown in the screenshot above, the FQDNs depict `xxxxxxxx.<geo>.backup.windowsazure.com` and not `xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`. In such cases, ensure you include (and if required, add) the `.privatelink.` according to the stated format.
 
 #### For Blob and Queue services
 
@@ -219,7 +219,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 In the VM in the locked down network, ensure the following:
 
 1. The VM should have access to AAD.
-2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup. windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
+2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup.windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
 
 ### Configure backup
 

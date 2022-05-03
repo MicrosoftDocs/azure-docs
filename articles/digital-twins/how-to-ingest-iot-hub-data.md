@@ -54,11 +54,16 @@ To create a thermostat-type twin, you'll first need to upload the thermostat [mo
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-You'll then need to create one twin using this model. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value.
+You'll then need to create one twin using this model. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
 ```azurecli-interactive
-az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}'
+az dt twin create  --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0}'
 ```
+
+>[!NOTE]
+>If you're using anything other than Cloud Shell in the Bash environment, you may need to escape certain characters in the inline JSON so that it's parsed correctly. 
+>
+>For more information, see [Use special characters in different shells](concepts-cli.md#use-special-characters-in-different-shells).
 
 When the twin is created successfully, the CLI output from the command should look something like this:
 ```json
@@ -145,10 +150,10 @@ In the end-to-end tutorial, complete the following steps:
 
 ## Validate your results
 
-While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value.
+While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
 ```azurecli-interactive
-az dt twin query --query-command "select * from digitaltwins" --dt-name <Digital-Twins-instance-name>
+az dt twin query --query-command "select * from digitaltwins" --dt-name <instance-hostname-or-name>
 ```
 
 Your output should contain a temperature value like this:

@@ -109,7 +109,7 @@ If you don't have a workspace to specify, you can skip to the [Integrate with th
     export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>" 
     ```
 
-    Here is the command you must run once you have populated the 3 variables with Export commands:
+    Here is the command you must run once you have populated the variables with Export commands:
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --workspace-id $logAnalyticsWorkspaceResourceId`
 

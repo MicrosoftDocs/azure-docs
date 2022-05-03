@@ -10,14 +10,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
-
 ## Recognize speech-to-text from a microphone
 
 Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Running the script will start a recognition session on your default microphone and output text.
@@ -57,6 +49,7 @@ func recognizedHandler(event speech.SpeechRecognitionEventArgs) {
 func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 	defer event.Close()
 	fmt.Println("Received a cancellation: ", event.ErrorDetails)
+	fmt.Println("Did you set the speech resource key and region values?")
 }
 
 func main() {
