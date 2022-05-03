@@ -53,6 +53,8 @@
       href: best-practices-data.md
     - name: Partner integrations
       href: partner-integrations.md
+    - name: Basic Logs
+      href: basic-logs-use-cases.md
   - name: Architecture
     items:
     - name: Roles and permissions
@@ -350,6 +352,8 @@
       href: sap-deploy-troubleshoot.md
 - name: Reference
   items:
+  - name: Service limits
+    href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
