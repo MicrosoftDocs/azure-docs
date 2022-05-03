@@ -24,8 +24,8 @@ This article outlines how to register a Power BI tenant in a cross-tenant scenar
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
 |---------|---------|---------|---------|---------|---------|
-|Scenario 1     |Allowed     |Allowed        |Azure runtime      |Delegated Authentication    | [Deployment checklist](#deployment-checklist) |
-|Scenario 2     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Deployment checklist](#deployment-checklist) |
+|Public access with Azure IR     |Allowed     |Allowed        |Azure runtime      |Delegated Authentication    | [Deployment checklist](#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Deployment checklist](#deployment-checklist) |
 
 ### Known limitations
 
@@ -48,7 +48,7 @@ Before you start, make sure you have the following prerequisites:
 ## Deployment checklist
 Use any of the following deployment checklists during the setup or for troubleshooting purposes, based on your scenario:   
 
-# [Scenario 1](#tab/Scenario1)
+# [Public access with Azure IR](#tab/Scenario1)
 
 ### Scan cross-tenant Power BI using Azure IR and Delegated Authentication in public network
 
@@ -85,7 +85,7 @@ Use any of the following deployment checklists during the setup or for troublesh
       2. **Implicit grant and hybrid flows**, **ID tokens (used for implicit and hybrid flows)** is selected.
       3. **Allow public client flows** is enabled.
    
-# [Scenario 2](#tab/Scenario2)
+# [Public access with Self-hosted IR](#tab/Scenario2)
 ### Scan cross-tenant Power BI using self-hosted IR and Delegated Authentication in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in cross-tenant.
