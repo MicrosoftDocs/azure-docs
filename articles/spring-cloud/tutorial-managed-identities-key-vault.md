@@ -68,11 +68,11 @@ az keyvault secret set \
 
 ## Create Azure Spring Apps service and app
 
-After installing corresponding extension, create an Azure Spring Apps instance with the Azure CLI command `az spring-cloud create`.
+After installing corresponding extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
 
 ```azurecli
 az extension add --name spring-cloud
-az spring-cloud create \
+az spring create \
     --resource-group <your-resource-group-name> \
     --name <your-Azure-Spring-Cloud-instance-name>
 ```
@@ -82,13 +82,13 @@ az spring-cloud create \
 The following example creates an app named `springapp` with a system-assigned managed identity, as requested by the `--system-assigned` parameter.
 
 ```azurecli
-az spring-cloud app create \
+az spring app create \
     --resource-group <your-resource-group-name> \
     --name "springapp" \
     --service <your-Azure-Spring-Cloud-instance-name> \
     --assign-endpoint true \
     --system-assigned
-export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
+export SERVICE_IDENTITY=$(az spring app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
@@ -106,13 +106,13 @@ export USER_IDENTITY_CLIENT_ID={client ID of user-assigned managed identity}
 The following example creates an app named `springapp` with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
 
 ```azurecli
-az spring-cloud app create \
+az spring app create \
     --resource-group <your-resource-group-name> \
     --name "springapp" \
     --service <your-Azure-Spring-Cloud-instance-name> \
     --assign-endpoint true \
     --user-assigned $USER_IDENTITY_RESOURCE_ID
-az spring-cloud app show \
+az spring app show \
     --resource-group <your-resource-group-name> \
     --name "springapp" \
     --service <your-Azure-Spring-Cloud-instance-name>
@@ -227,7 +227,7 @@ azure.keyvault.client-id={Client ID of user-assigned managed identity}
 1. Now you can deploy your app to Azure with the following command:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --resource-group <your-resource-group-name> \
        --name "springapp" \
        --service <your-Azure-Spring-Cloud-instance-name> \
@@ -285,7 +285,7 @@ To build the sample, use the following steps:
 1. Now deploy the app to Azure with the following command:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --resource-group <your-resource-group-name> \
        --name "springapp" \
        --service <your-Azure-Spring-Cloud-instance-name> \

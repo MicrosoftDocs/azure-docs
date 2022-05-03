@@ -234,13 +234,13 @@ The following procedure builds and deploys the project that you created earlier.
 1. Create an app in your Azure Spring Apps instance with a public endpoint assigned. Use the same application name "hello-world" that you specified in *appsettings.json*.
 
    ```azurecli
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --assign-endpoint --runtime-version NetCore_31
+   az spring app create -n hello-world -s <service instance name> -g <resource group name> --assign-endpoint --runtime-version NetCore_31
    ```
 
 1. Deploy the *.zip* file to the app.
 
    ```azurecli
-   az spring-cloud app deploy -n hello-world -s <service instance name> -g <resource group name> --runtime-version NetCore_31 --main-entry hello-world.dll --artifact-path ./deploy.zip
+   az spring app deploy -n hello-world -s <service instance name> -g <resource group name> --runtime-version NetCore_31 --main-entry hello-world.dll --artifact-path ./deploy.zip
    ```
 
    The `--main-entry` option identifies the *.dll* file that contains the application's entry point. After the service uploads the *.zip* file, it extracts all the files and folders and tries to execute the entry point in the *.dll* file specified by `--main-entry`.
@@ -266,7 +266,7 @@ The app returns JSON data similar to the following example:
 Use the following command to get real-time logs from the App.
 
 ```azurecli
-az spring-cloud app logs -n hello-world -s <service instance name> -g <resource group name> --lines 100 -f
+az spring app logs -n hello-world -s <service instance name> -g <resource group name> --lines 100 -f
 ```
 
 Logs appear in the output:
@@ -307,7 +307,7 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 ```
 
 > [!TIP]
-> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+> Use `az spring app logs -h` to explore more parameters and log stream functionalities.
 
 For advanced log analytics features, visit **Logs** tab in the menu on the [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 [ ![Logs Analytics](media/spring-cloud-quickstart-java/logs-analytics.png) ](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
@@ -430,13 +430,13 @@ The following procedure builds and deploys the application using the Azure CLI. 
 1. Create the app with a public endpoint assigned. If you selected Java version 11 when generating the Spring project, include the `--runtime-version=Java_11` switch.
 
     ```azurecli
-    az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
+    az spring app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true
     ```
 
 1. Deploy the Jar file for the app (`target\hellospring-0.0.1-SNAPSHOT.jar` on Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>/hellospring-0.0.1-SNAPSHOT.jar
+    az spring app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>/hellospring-0.0.1-SNAPSHOT.jar
     ```
 
 1. It takes a few minutes to finish deploying the application. To confirm that it has deployed, go to the **Apps** section in the Azure portal. You should see the status of the application.
@@ -502,7 +502,7 @@ Once deployment has completed, you can access the app at `https://<service insta
 Use the following command to get real-time logs from the App.
 
 ```azurecli
-az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
+az spring app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
 ```
 
 Logs appear in the results:
@@ -510,7 +510,7 @@ Logs appear in the results:
 [ ![Streaming Logs](media/spring-cloud-quickstart-java/streaming-logs.png) ](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
 
 >[!TIP]
-> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+> Use `az spring app logs -h` to explore more parameters and log stream functionalities.
 
 #### [IntelliJ](#tab/IntelliJ)
 

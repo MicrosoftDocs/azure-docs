@@ -145,13 +145,13 @@ az keyvault set-policy -g <key vault resource group> -n <key vault name>  --obje
 #### [CLI](#tab/Azure-CLI)
 
 ```azurecli
-az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
+az spring certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
 ```
 
 To show a list of certificates imported:
 
 ```azurecli
-az spring-cloud certificate list --resource-group <resource group name> --service <service name>
+az spring certificate list --resource-group <resource group name> --service <service name>
 ```
 
 ---
@@ -195,13 +195,13 @@ One app can have multiple domains, but one domain can only map to one app. When 
 
 #### [CLI](#tab/Azure-CLI)
 ```azurecli
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 To show the list of custom domains:
 
 ```azurecli
-az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
+az spring app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 ---
@@ -220,7 +220,7 @@ In the custom domain table, select **Add ssl binding** as shown in the previous 
 
 #### [CLI](#tab/Azure-CLI)
 ```azurecli
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 ---
@@ -239,7 +239,7 @@ In your app page, in the left navigation, select **Custom Domain**. Then, set **
 
 #### [CLI](#tab/Azure-CLI)
 ```azurecli
-az spring-cloud app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
+az spring app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
 ```
 
 ---

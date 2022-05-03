@@ -55,13 +55,13 @@ Follow the procedure, [Provision a service instance on the Azure CLI](./quicksta
 These apps do not use **Config Server**, so there is no need to set up **Config Server** for Azure Spring Apps.  Create and deploy as follows:
 
 ```azurecli
-az spring-cloud app create -n user-service --assign-endpoint
-az spring-cloud app create -n recommendation-service
-az spring-cloud app create -n hystrix-turbine --assign-endpoint
+az spring app create -n user-service --assign-endpoint
+az spring app create -n recommendation-service
+az spring app create -n hystrix-turbine --assign-endpoint
 
-az spring-cloud app deploy -n user-service --jar-path user-service/target/user-service.jar
-az spring-cloud app deploy -n recommendation-service --jar-path recommendation-service/target/recommendation-service.jar
-az spring-cloud app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/hystrix-turbine.jar
+az spring app deploy -n user-service --jar-path user-service/target/user-service.jar
+az spring app deploy -n recommendation-service --jar-path recommendation-service/target/recommendation-service.jar
+az spring app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/hystrix-turbine.jar
 ```
 
 ## Verify your apps

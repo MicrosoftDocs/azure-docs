@@ -156,7 +156,7 @@ You can configure Application Configuration Service for Tanzu using the portal b
 You can configure Application Configuration Service for Tanzu using the CLI, by following these steps:
 
 ```azurecli
-az spring-cloud application-configuration-service git repo add \
+az spring application-configuration-service git repo add \
     --name <entry-name> \
     --patterns <patterns> \
     --uri <git-backend-uri> \
@@ -197,8 +197,8 @@ To use the centralized configurations, you must bind the app to Application Conf
 You can use Application Configuration Service for Tanzu with applications, by using this command:
 
 ```azurecli
-az spring-cloud application-configuration-service bind --app <app-name>
-az spring-cloud app deploy \
+az spring application-configuration-service bind --app <app-name>
+az spring app deploy \
     --name <app-name> \
     --artifact-path <path-to-your-JAR-file> \
     --config-file-pattern <config-file-pattern>

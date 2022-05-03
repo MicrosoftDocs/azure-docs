@@ -316,7 +316,7 @@ To use Application Configuration Service for Tanzu, do the following steps for e
    Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
 
    ```azurecli
-      az spring-cloud app deploy \
+      az spring app deploy \
           --name <app-name> \
           --artifact-path <path-to-your-JAR-file> \
           --config-file-pattern <config-file-pattern>

@@ -56,7 +56,7 @@ To use Application Configuration Service for Tanzu, follow these steps.
 To set the default repository, use the following command:
 
 ```azurecli
-az spring-cloud application-configuration-service git repo add \
+az spring application-configuration-service git repo add \
     --name default \
     --patterns api-gateway,customers-service \
     --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \

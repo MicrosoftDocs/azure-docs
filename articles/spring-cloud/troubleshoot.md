@@ -140,7 +140,7 @@ When you deploy your application package by using the [Azure CLI](/cli/azure/get
 If the polling is interrupted, you can still use the following command to fetch the deployment logs:
 
 ```azurecli
-az spring-cloud app show-deploy-log --name <app-name>
+az spring app show-deploy-log --name <app-name>
 ```
 
 Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you will receive an error message similar to the following: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
@@ -154,7 +154,7 @@ When you deploy your application package by using the [Azure CLI](/cli/azure/get
 If the polling is interrupted, you can still use the following command to fetch the build and deployment logs:
 
 ```azurecli
-az spring-cloud app show-deploy-log --name <app-name>
+az spring app show-deploy-log --name <app-name>
 ```
 
 However, note that one Azure Spring Apps service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](./quickstart.md) and [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md).

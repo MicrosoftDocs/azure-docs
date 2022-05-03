@@ -85,7 +85,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
 1. Use the following command to bind your Azure Storage account as a storage resource in your Azure Spring Apps instance:
 
     ```azurecli
-   az spring-cloud storage add \
+   az spring storage add \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Cloud-instance-name> \
        --name <storage-resource-name> \
@@ -97,7 +97,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
 1. Use the following command to create an app with your own persistent storage.
 
    ```azurecli
-   az spring-cloud app create \
+   az spring app create \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Cloud-instance-name> \
        --name <app-name> \
@@ -138,7 +138,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
 1. Optionally, add extra persistent storage to an existing app using the following command:
 
    ```azurecli
-   az spring-cloud app append-persistent-storage \
+   az spring app append-persistent-storage \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Cloud-instance-name> \
        --name <app-name> \
@@ -151,7 +151,7 @@ You can enable your own storage with the Azure CLI by using the following steps.
 1. Optionally, list all existing persistent storage of a specific storage resource using the following command:
 
    ```azurecli
-   az spring-cloud storage list-persistent-storage \
+   az spring storage list-persistent-storage \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Cloud-instance-name> \
        --name <storage-resource-name>
@@ -171,7 +171,7 @@ Use the following best practices when adding your own persistent storage to Azur
 
    1. Regenerate key2.
    1. Update the account key of the storage resource to use the regenerated key2.
-   1. Restart the applications that mount the persistent storage from this storage resource. (You can use `az spring-cloud storage list-persistent-storage` to list all related applications.)
+   1. Restart the applications that mount the persistent storage from this storage resource. (You can use `az spring storage list-persistent-storage` to list all related applications.)
    1. Regenerate key1.
 
 * If you delete an Azure Storage Account or Azure File Share, remove the corresponding storage resource or persistent storage in the applications to avoid possible errors.

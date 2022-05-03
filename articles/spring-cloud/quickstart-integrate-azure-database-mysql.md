@@ -137,7 +137,7 @@ export MYSQL_DATABASE_NAME=petclinic
 To enable MySQL as database for the sample app, simply update the *customer-service* app with active profile MySQL and database credentials as environment variables.
 
 ```azcli
-az spring-cloud app update \
+az spring app update \
     --name customers-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
@@ -150,25 +150,25 @@ az spring-cloud app update \
 ## Update extra apps
 
 ```azcli
-az spring-cloud app update --name api-gateway \
+az spring app update --name api-gateway \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql"
-az spring-cloud app update --name admin-server \
+az spring app update --name admin-server \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql"
-az spring-cloud app update --name customers-service \
+az spring app update --name customers-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
         MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
         MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
-az spring-cloud app update --name vets-service \
+az spring app update --name vets-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
         MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
         MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
-az spring-cloud app update --name visits-service \
+az spring app update --name visits-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
         MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \

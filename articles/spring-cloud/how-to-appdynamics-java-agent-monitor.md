@@ -55,7 +55,7 @@ To activate an application through the Azure CLI, use the following steps.
 1. Create an application using the following command. Replace the placeholders *\<...>* with your own values.
 
     ```azurecli
-    az spring-cloud app create \
+    az spring app create \
         --resource-group "<your-resource-group-name>" \
         --service "<your-Azure-Spring-Cloud-instance-name>" \
         --name "<your-app-name>" \
@@ -65,7 +65,7 @@ To activate an application through the Azure CLI, use the following steps.
 1. Create a deployment with the AppDynamics Agent using environment variables.
 
     ```azurecli
-    az spring-cloud app deploy \
+    az spring app deploy \
         --resource-group "<your-resource-group-name>" \
         --service "<your-Azure-Spring-Cloud-instance-name>" \
         --name "<your-app-name>" \

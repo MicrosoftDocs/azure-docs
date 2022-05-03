@@ -77,7 +77,7 @@ KV_RG='<resource-group-name-of-key-vault>'
 CERT_NAME_IN_KV='<name-of-certificate-with-intermediaries-in-key-vault>'
 DOMAIN_NAME=myapp.mydomain.com
 
-az spring-cloud app custom-domain bind \
+az spring app custom-domain bind \
     --resource-group $RESOURCE_GROUP \
     --service $SPRING_CLOUD_NAME \
     --domain-name $DOMAIN_NAME \

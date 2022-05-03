@@ -106,17 +106,17 @@ Functions in <your-functionapp-name>:
 
 ## Create Azure Spring Apps service and app
 
-After installing the spring-cloud extension, create an Azure Spring Apps instance with the Azure CLI command `az spring-cloud create`.
+After installing the spring-cloud extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
 
 ```azurecli
 az extension add --name spring-cloud
-az spring-cloud create --name mymsispringcloud --resource-group myResourceGroup --location eastus
+az spring create --name mymsispringcloud --resource-group myResourceGroup --location eastus
 ```
 
 The following example creates an app named `msiapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
+az spring app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
 ```
 
 ## Build sample Spring Boot app to invoke the Function
@@ -149,10 +149,10 @@ This sample will invoke the Http triggered function by first requesting an acces
     mvn clean package
     ```
 
-4. Now deploy the app to Azure with the Azure CLI command  `az spring-cloud app deploy`.
+4. Now deploy the app to Azure with the Azure CLI command  `az spring app deploy`.
 
     ```azurecli
-    az spring-cloud app deploy  --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --jar-path target/sc-managed-identity-function-sample-0.1.0.jar
+    az spring app deploy  --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --jar-path target/sc-managed-identity-function-sample-0.1.0.jar
     ```
 
 5. Access the public endpoint or test endpoint to test your app.

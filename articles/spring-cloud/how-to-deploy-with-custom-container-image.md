@@ -33,7 +33,7 @@ To deploy a container image, use one of the following commands:
 * To deploy a container image to the public Docker Hub to an app, use the following command:
 
   ```azurecli
-  az spring-cloud app deploy \
+  az spring app deploy \
      --resource-group <your-resource-group> \
      --name <your-app-name> \
      --container-image <your-container-image> \
@@ -43,7 +43,7 @@ To deploy a container image, use one of the following commands:
 * To deploy a container image from ACR to an app, or from another private registry to an app, use the following command:
 
   ```azurecli
-  az spring-cloud app deploy \
+  az spring app deploy \
      --resource-group <your-resource-group> \
      --name <your-app-name> \
      --container-image <your-container-image> \
@@ -212,7 +212,7 @@ AppDynamics:
 To view the console logs of your container application, the following CLI command can be used:
 
 ```azurecli
-az spring-cloud app logs \
+az spring app logs \
     --resource-group <your-resource-group> \
     --name <your-app-name> \
     --service <your-service-name> \
@@ -237,7 +237,7 @@ We recommend that you use Microsoft Defender for Cloud with ACR to prevent your 
 You can switch the deployment type directly by redeploying using the following command:
 
 ```azurecli
-az spring-cloud app deploy \
+az spring app deploy \
     --resource-group <your-resource-group> \
     --name <your-app-name> \
     --container-image <your-container-image> \
@@ -249,7 +249,7 @@ az spring-cloud app deploy \
 You can create another deployment using an existing JAR deployment using the following command:
 
 ```azurecli
-az spring-cloud app deployment create \
+az spring app deployment create \
     --resource-group <your-resource-group> \
     --name <your-deployment-name> \
     --app <your-app-name> \

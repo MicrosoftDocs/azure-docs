@@ -53,20 +53,20 @@ The following section shows you how to enable ingress-to-app SSL/TLS to secure t
 
 ### Enable ingress-to-app TLS on an existing app
 
-Use the command `az spring-cloud app update --enable-ingress-to-app-tls` to enable or disable ingress-to-app TLS for an app.
+Use the command `az spring app update --enable-ingress-to-app-tls` to enable or disable ingress-to-app TLS for an app.
 
 ```azurecli
-az spring-cloud app update --enable-ingress-to-app-tls -n app_name -s service_name -g resource_group_name
-az spring-cloud app update --enable-ingress-to-app-tls false -n app_name -s service_name -g resource_group_name
+az spring app update --enable-ingress-to-app-tls -n app_name -s service_name -g resource_group_name
+az spring app update --enable-ingress-to-app-tls false -n app_name -s service_name -g resource_group_name
 ```
 
 ### Enable ingress-to-app TLS when you bind a custom domain
 
-Use the command `az spring-cloud app custom-domain update --enable-ingress-to-app-tls` or `az spring-cloud app custom-domain bind --enable-ingress-to-app-tls` to enable or disable ingress-to-app TLS for an app.
+Use the command `az spring app custom-domain update --enable-ingress-to-app-tls` or `az spring app custom-domain bind --enable-ingress-to-app-tls` to enable or disable ingress-to-app TLS for an app.
 
 ```azurecli
-az spring-cloud app custom-domain update --enable-ingress-to-app-tls -n app_name -s service_name -g resource_group_name
-az spring-cloud app custom-domain bind --enable-ingress-to-app-tls -n app_name -s service_name -g resource_group_name
+az spring app custom-domain update --enable-ingress-to-app-tls -n app_name -s service_name -g resource_group_name
+az spring app custom-domain bind --enable-ingress-to-app-tls -n app_name -s service_name -g resource_group_name
 ```
 
 ### Enable ingress-to-app TLS using the Azure portal
@@ -82,10 +82,10 @@ To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), f
 
 ### Verify ingress-to-app TLS status
 
-Use the command `az spring-cloud app show` to check the value of `enableEndToEndTls`.
+Use the command `az spring app show` to check the value of `enableEndToEndTls`.
 
 ```azurecli
-az spring-cloud app show -n app_name -s service_name -g resource_group_name
+az spring app show -n app_name -s service_name -g resource_group_name
 ```
 
 ## Next steps

@@ -75,19 +75,19 @@ Other operations:
 * To create an app with built-in persistent storage enabled:
 
     ```azurecli
-    az spring-cloud app create -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
+    az spring app create -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
     ```
 
 * To enable built-in persistent storage for an existing app:
 
     ```azurecli
-    az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
+    az spring app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
     ```
 
 * To disable built-in persistent storage in an existing app:
 
     ```azurecli
-    az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
+    az spring app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
     ```
 
 ---

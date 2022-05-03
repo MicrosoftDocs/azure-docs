@@ -70,7 +70,7 @@ az extension add --name spring-cloud
 1. Provision an instance of Azure Spring Apps service. The service instance name must be unique, between 4 and 32 characters long, and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
    ```azurecli
-   az spring-cloud create -n <service instance name> -g <resource group name>
+   az spring create -n <service instance name> -g <resource group name>
    ```
 
    This command might take several minutes to complete.
@@ -154,7 +154,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
    ```azurecli
    az group create --name <resource group name>
-   az spring-cloud create -n <service instance name> -g <resource group name>
+   az spring create -n <service instance name> -g <resource group name>
    ```
 
    Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).

@@ -152,13 +152,13 @@ Use the following steps to create an example application using Spring Cloud Gate
    You can also use CLI to do it, as shown in the following command:
 
    ```azurecli
-   az spring-cloud gateway update --assign-endpoint
+   az spring gateway update --assign-endpoint
    ```
 
 1. Use the following command to configure Spring Cloud Gateway for Tanzu properties:
 
    ```azurecli
-   az spring-cloud gateway update \
+   az spring gateway update \
        --api-description "<api-description>" \
        --api-title "<api-title>" \
        --api-version "v0.1" \
@@ -197,7 +197,7 @@ Use the following steps to create an example application using Spring Cloud Gate
    Use the following command to apply the rule to the app `customers-service`:
 
    ```azurecli
-   az spring-cloud gateway route-config create \
+   az spring gateway route-config create \
        --name customers-service-rule \
        --app-name customers-service \
        --routes-file customers-service.json
@@ -217,10 +217,10 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    ```azurecli
    az configure --defaults group=<resource group name> spring-cloud=<service name>
-   az spring-cloud gateway route-config show \
+   az spring gateway route-config show \
        --name customers-service-rule \
        --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
-   az spring-cloud gateway route-config list \
+   az spring gateway route-config list \
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```
 

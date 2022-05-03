@@ -94,7 +94,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 1. Use the following command to create an application in Azure Spring Apps with persistent storage enabled and the environment variable set:
 
    ```azurecli
-   az spring-cloud app create \
+   az spring app create \
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name> \
@@ -125,7 +125,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 1. Use the following command to deploy your application:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name> \
@@ -135,7 +135,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
 1. Use the following command to check your application's console log:
 
    ```azurecli
-   az spring-cloud app logs \
+   az spring app logs \
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name>
@@ -148,7 +148,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
     The path or persistent storage where the logs are saved can be changed at any time. The application will restart when changes are made to either environment variables or persistent storage.
 
    ```azurecli
-   az spring-cloud app update \
+   az spring app update \
         --resource-group <resource-group-name> \
         --name <app-name> \
         --service <spring-instance-name> \
