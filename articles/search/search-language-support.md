@@ -23,15 +23,17 @@ The success of this technique hinges on the integrity of field content. By itsel
 
 ## Need text translation?
 
-The approach described in this article assumes that you already have translated strings in place. If that's not the case, you can attach Cognitive Services to an enrichment pipeline that invokes text translation during data ingestion.
+This article assumes you have translated strings in place. If that's not the case, you can attach Cognitive Services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during data ingestion. Text translation takes a dependency on the indexer feature and Cognitive Services, but all setup is done within Azure Cognitive Search. 
 
-Text translation takes a dependency on the indexer feature and Cognitive Services, but all setup is done within Azure Cognitive Search. To include text translation, follow these steps:
+To add text translation, follow these steps:
 
 1. Verify your content is in a [supported data source](search-indexer-overview.md#supported-data-sources).
 
 1. [Create a data source](search-howto-create-indexers.md#prepare-external-data) that points to your content.
 
-1. [Create a skillset](cognitive-search-defining-skillset.md) that includes the [Text Translation skill](cognitive-search-skill-text-translation.md). The Text Translation skill operates over a single string. If you have multiple fields, you can use the [Text Merger skill](cognitive-search-skill-textmerger.md) to consolidate the string input into one long string, passing that string as an input to Text Translation.  Alternatively, you can create a skillset that calls Text Translation multiple times, once for each field.
+1. [Create a skillset](cognitive-search-defining-skillset.md) that includes the [Text Translation skill](cognitive-search-skill-text-translation.md). 
+
+  The Text Translation skill operates over a single string. If you have multiple fields, can create a skillset that calls Text Translation multiple times, once for each field. Alternatively, you can use the [Text Merger skill](cognitive-search-skill-textmerger.md) to consolidate the content of multiple fields into one long string, passing that string as a Text Translation skill input.
 
 1. Create an index that includes fields for translated strings. Most of this article covers index design and field definitions for indexing and querying multi-language content.
 
