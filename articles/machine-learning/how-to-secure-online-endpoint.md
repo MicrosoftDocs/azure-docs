@@ -77,8 +77,6 @@ The following are the resources that the deployment communicates with over the p
 
 When you configure the `egress_public_network_access` to `disabled`, a new private endpoint is created per deployment, per service. For example, if you set the flag to `true` for three deployments to an online endpoint, nine private endpoints are created. Each deployment would have three private endpoints that are used to communicate with the workspace, blob, and container registry.
 
-The following diagram 
-
 ```azurecli
 az ml online-deployment create -f deployment.yml --set egress_public_network_access=disabled
 ```
