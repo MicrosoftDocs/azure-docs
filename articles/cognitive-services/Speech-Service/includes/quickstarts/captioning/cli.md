@@ -24,7 +24,6 @@ With the [Speech CLI](~/articles/cognitive-services/speech-service/spx-overview.
 
 To recognize audio from a file and output both WebVtt (`vtt`) and SRT (`srt`) captions, follow these steps. 
 
-1. Install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 1. Make sure that you have an input file named `caption.this.mp4` in the path.
 1. Run the following command to output captions from the video file:
     ```console
